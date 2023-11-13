@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>burner.ac</path>
+  <offsets>
+    <x-m> 0.0 </x-m>
+    <y-m> 0.0 </y-m>
+    <z-m> 0.0 </z-m>
+    <roll-deg>    0.000 </roll-deg>
+    <pitch-deg>   0.000 </pitch-deg>
+    <heading-deg> 0.000 </heading-deg>
+  </offsets>
+
+  <!-- Burner Flame -->
+
+ <animation>
+  <type>select</type>
+  <object-name>outerFlame.001</object-name>
+  <object-name>InnerFlameR.001</object-name>
+  <condition>
+  <and>
+      <property>engines/engine/running</property>
+      <greater-than>
+    <property>engines/engine/afterburner</property>
+	<value>0.1</value>
+   </greater-than>
+  </and>
+  </condition>
+</animation>
+
+
+ <animation>
+  <type>select</type>
+  <object-name>outerFlame</object-name>
+  <object-name>InnerFlameR</object-name>
+  <condition>
+  <and>
+      <property>engines/engine[1]/running</property>
+      <greater-than>
+    <property>engines/engine[1]/afterburner</property>
+	<value>0.2</value>
+   </greater-than>
+  </and>
+  </condition>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>InnerFlameR</object-name>
+  <property>engines/engine[1]/afterburner</property>
+  <factor>20</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>InnerFlameR.001</object-name>
+  <property>engines/engine[1]/afterburner</property>
+  <factor>20</factor>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+</PropertyList>
