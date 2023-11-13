@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+<!-- cockpit -->
+
+<animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>50</max-m>
+    </animation>
+
+<model>
+    <path>newcockpit.ac</path>
+	<offsets>
+      <x-m> 0 </x-m>
+      <y-m>0 </y-m>
+      <z-m>0 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Hud computer -->
+  <model>
+		<path>Aircraft/F-22/Models/Interior/Instruments/comms.xml</path>
+			<offsets>
+				<x-m>-1.0</x-m>
+					<y-m>0</y-m>
+				<z-m>-0.85</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+	
+	<!-- Small screens -->
+	
+	<!-- left -->
+	<model>
+		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/left.xml</path>
+			<offsets>
+				<x-m>-1.0</x-m>
+					<y-m>0</y-m>
+				<z-m>-0.8491</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+	
+	<!-- right -->
+	<model>
+		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/right.xml</path>
+			<offsets>
+				<x-m>-1.0</x-m>
+					<y-m>0</y-m>
+				<z-m>-0.85</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+	
+	<!-- main MFD's -->
+	
+	<model>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/right-mfd.xml</path>
+			<offsets>
+				<x-m>-5.767</x-m>
+					<y-m>0.242</y-m>
+				<z-m>-0.24</z-m>
+			<pitch-deg>-10</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/centre-mfd.xml</path>
+			<offsets>
+				<x-m>-5.767</x-m>
+					<y-m>-0.01</y-m>
+				<z-m>-0.24</z-m>
+			<pitch-deg>-10</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/left-mfd.xml</path>
+			<offsets>
+				<x-m>-5.767</x-m>
+					<y-m>-0.262</y-m>
+				<z-m>-0.24</z-m>
+			<pitch-deg>-10</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/lower-mfd.xml</path>
+			<offsets>
+				<x-m>-5.65</x-m>
+					<y-m>-0.01</y-m>
+				<z-m>-0.48</z-m>
+			<pitch-deg>-45</pitch-deg>
+		</offsets>
+	</model>
+	
+	
+  <model>
+    <path>Aircraft/F-22/Models/Interior/Instruments/Radar2/Radar.xml</path>
+    <offsets>
+     <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+<pitch-deg>-17</pitch-deg>
+    </offsets>
+  </model>
+</PropertyList>
