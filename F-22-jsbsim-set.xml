@@ -329,7 +329,7 @@
             <MAW-semiactive type="bool">false</MAW-semiactive>
             <msg type="bool">true</msg>
             <spike type="bool">false</spike>
-            <models type="string">Aircraft/myAircraft/Models/emesary/</models>
+            <models type="string">Aircraft/F-22/Models/emesary/</models>
         </armament>
     </payload>
 
