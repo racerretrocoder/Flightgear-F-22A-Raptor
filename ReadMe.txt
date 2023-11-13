@@ -1,9 +1,8 @@
 	 ========================================================
-	  AeroFab - 2010 - Lockheed-Martin-FA-22A-Raptor Project
-	 ========================================================
-		   http://aerofab.webnode.pt/
+		Phoenixs new toy!
+	  ======================================================
 
-		   Creation :	April 15, 2010 06:33:00 PM
+		   Creation :	i dont now 06:33:00 PM
 		   Last update: November 10, 2010 07:41:02 PM
 
 		   Revisions :
