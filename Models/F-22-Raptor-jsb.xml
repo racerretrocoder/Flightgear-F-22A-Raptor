@@ -175,12 +175,12 @@
 		<object-name>Left_Rocket_Bay_D2</object-name>
 		<property>baydoors/position-norm</property>
 		<interpolation>
-			<entry>
+			<!--<entry>
 				<ind>0.0</ind>
 				<dep>0</dep>
-			</entry>
+			</entry> -->
 			<entry>
-				<ind>0.5</ind>
+				<ind>0.0</ind>
 				<dep>0</dep>
 			</entry>
 			<entry>
@@ -204,12 +204,12 @@
 		<object-name>Right_Rocket_Bay_D2</object-name>
 		<property>baydoors/position-norm</property>
 		<interpolation>
-			<entry>
+		<!--	<entry>
 				<ind>0.0</ind>
 				<dep>0</dep>
-			</entry>
+			</entry> -->
 			<entry>
-				<ind>0.5</ind>
+				<ind>0.0</ind>
 				<dep>0</dep>
 			</entry>
 			<entry>
