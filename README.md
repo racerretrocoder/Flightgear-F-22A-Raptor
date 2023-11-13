@@ -12,5 +12,6 @@ This Aircraft and all of its components and code are available under the GPL v3 
 # Credits:
 If you have contributed to this in any major way, feel free to add yourself!
 ----------------------------------------------------------------------------
-Main Development: Pheonix (racerretrocoder) \n
+Main Development: Pheonix (racerretrocoder) 
+
 Materials / UI / Splash Photos: Anonymist (Monotone Development)
