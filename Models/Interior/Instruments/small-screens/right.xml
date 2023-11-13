@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+<!-- comms panel -->
+
+<PropertyList>
+
+ <!--  Front HUD computer -->
+   <animation>
+  <type>material</type>
+  <object-name>U</object-name>
+   <object-name>left-arrow</object-name>
+    <object-name>right-arrow</object-name>
+    
+  
+  <ambient>
+    <red>0.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.3</red>
+    <green>0.8</green>
+    <blue>0.3</blue>
+  </emission> 
+ </animation>
+ 
+  <text>
+  <name>U</name>
+   <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+  <x-m>-4.776</x-m>
+   <y-m>0.275</y-m>
+   <z-m>0.781</z-m>
+  </offsets>
+   <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">U</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 
+ <text>
+  <name>left-arrow</name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+      <x-m>-4.776</x-m>
+   <y-m>0.227</y-m>
+   <z-m>0.777</z-m>
+  <roll-deg>-180</roll-deg>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+  <text>
+  <name>right-arrow</name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+      <x-m>-4.7768</x-m>
+   <y-m>0.247</y-m>
+   <z-m>0.783</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ 
+ 
+</PropertyList>
