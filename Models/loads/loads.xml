@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	
+  <!--back-->
+  <!--right -->
+  <!--up -->
+
+  <!-- pylons -->
+  
+  <model>
+    <path>Aircraft/F-22/Models/loads/pylons.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+
+
+  
+
+  <!--station left 1 -->
+
+
+<model>
+<name>leftDroptank</name>
+<path>Aircraft/F-22/Models/loads/Tank.xml</path>
+<offsets>
+<x-m> 2.05  </x-m>
+<y-m> -3.1 </y-m>
+<z-m> -1.5 </z-m>
+<pitch-deg> 0 </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>leftDroptank</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[0]/selected</property>
+<value>600gal-tank</value>
+</equals>
+<equals>
+<property>controls/armament/station[0]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+ <!--station left 2 -->
+
+
+<model>
+<name>left-aim9-1</name>
+<path>Aircraft/F-22/Models/loads/AIM-9.xml</path>
+<offsets>
+<x-m> 2.05  </x-m>
+<y-m> -2.8 </y-m>
+<z-m> -1.1 </z-m>
+<pitch-deg> 0 </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>left-aim9-1</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[1]/selected</property>
+<value>AIM-9 Sidewinder</value>
+</equals>
+<equals>
+<property>controls/armament/station[1]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+<!--station left 3 -->
+
+
+<model>
+<name>left-aim9-2</name>
+<path>Aircraft/F-22/Models/loads/AIM-9.xml</path>
+<offsets>
+<x-m> 2.05  </x-m>
+<y-m> -3.43 </y-m>
+<z-m> -1.1 </z-m>
+<pitch-deg>0  </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>left-aim9-2</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[2]/selected</property>
+<value>AIM-9 Sidewinder</value>
+</equals>
+<equals>
+<property>controls/armament/station[2]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+<!--left belly -->
+
+
+<model>
+<name>left-belly1</name>
+<path>Aircraft/F-22/Models/loads/3AIM-120.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> -0.67 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>left-belly1</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[4]/selected</property>
+<value>3x AIM-120</value>
+</equals>
+<equals>
+<property>controls/armament/station[4]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+<model>
+<name>left-belly2</name>
+<path>Aircraft/F-22/Models/loads/L-1AIM-120-1MK82.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> -0.67 </y-m>
+    <z-m> -1.5 </z-m>
+<pitch-deg>0  </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>left-belly2</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[4]/selected</property>
+<value>1x AIM-120, 1x MK-82</value>
+</equals>
+<equals>
+<property>controls/armament/station[4]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+
+<!--right belly -->
+
+
+<model>
+<name>right-belly1</name>
+<path>Aircraft/F-22/Models/loads/3AIM-120.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> 0.67 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg> 0 </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>right-belly1</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[5]/selected</property>
+<value>3x AIM-120</value>
+</equals>
+<equals>
+<property>controls/armament/station[5]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+<model>
+<name>right-belly2</name>
+<path>Aircraft/F-22/Models/loads/R-1AIM-120-1MK82.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> 0.67 </y-m>
+    <z-m> -1.5 </z-m>
+<pitch-deg> 0 </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>right-belly2</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[5]/selected</property>
+<value>1x AIM-120, 1x MK-82</value>
+</equals>
+<equals>
+<property>controls/armament/station[5]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+
+<!--station right 3 -->
+
+
+<model>
+<name>right-aim9-2</name>
+<path>Aircraft/F-22/Models/loads/AIM-9.xml</path>
+<offsets>
+<x-m> 2.05  </x-m>
+<y-m> 3.43 </y-m>
+<z-m> -1.1 </z-m>
+<pitch-deg> 0 </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>right-aim9-2</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[7]/selected</property>
+<value>AIM-9 Sidewinder</value>
+</equals>
+<equals>
+<property>controls/armament/station[7]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+<!--station right 2 -->
+
+
+<model>
+<name>right-aim9-1</name>
+<path>Aircraft/F-22/Models/loads/AIM-9.xml</path>
+<offsets>
+<x-m> 2.05  </x-m>
+<y-m> 2.8 </y-m>
+<z-m> -1.1 </z-m>
+<pitch-deg> 0 </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>right-aim9-1</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[8]/selected</property>
+<value>AIM-9 Sidewinder</value>
+</equals>
+<equals>
+<property>controls/armament/station[8]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+ <!--station right 1 -->
+
+
+<model>
+<name>rightDroptank</name>
+<path>Aircraft/F-22/Models/loads/Tank.xml</path>
+<offsets>
+<x-m> 2.05  </x-m>
+<y-m> 3.1 </y-m>
+<z-m> -1.5 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>rightDroptank</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[9]/selected</property>
+<value>600gal-tank</value>
+</equals>
+<equals>
+<property>controls/armament/station[9]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+
+
+</PropertyList>
+
+
