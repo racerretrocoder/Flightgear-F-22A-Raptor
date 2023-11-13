@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+   
+    
+    <animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>59</max-m>
+	</animation>
+    
+    <model>
+  <name>radar</name>
+  <path>radar.xml</path>
+  <offsets>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+	  <pitch-offset>0</pitch-offset>
+    </offsets>
+  </model>
+  
+ <model>
+    <path>terrain-map-pixel.xml</path>
+	<offsets>
+      <x-m>0</x-m>
+      <y-m>0.004</y-m>
+      <z-m>0</z-m>
+	  <pitch-offset>0</pitch-offset>
+    </offsets>
+  </model>
+  
+  
+   <animation>
+  <type>material</type>
+  <object-name>Lat</object-name>
+  <object-name>Lat-label</object-name>
+  <object-name>Long</object-name>
+  <object-name>Long-label</object-name>
+   <object-name>wptdist-label</object-name>
+    <object-name>wptdist</object-name>
+	 <object-name>ttd-label</object-name>
+	 <object-name>ttddist</object-name>
+ 
+  <ambient>
+    <red>0.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.3</red>
+    <green>0.8</green>
+    <blue>0.3</blue>
+  </emission> 
+ </animation>
+
+ <text>
+  <name>Lat-label</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.012</x-m>
+   <y-m>-0.08</y-m>
+   <z-m>0.088</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">LAT:</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ <text>
+  <name>Lat</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.012</x-m>
+   <y-m>-0.035</y-m>
+   <z-m>0.088</z-m>
+ 
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format type="string">%3.5f</format>
+  <truncate type="bool">false</truncate>
+ <property>instrumentation/gps/indicated-latitude-deg</property>
+  <alignment>right-top</alignment>
+ </text>
+
+ <text>
+  <name>Long-label</name>
+  <font>lcd.txf</font>
+   <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.012</x-m>
+   <y-m>-0.08</y-m>
+   <z-m>0.08</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">LONG:</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+  
+ <text>
+  <name>Long</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>0.012</x-m>
+   <y-m>-0.025</y-m>
+   <z-m>0.08</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+
+  <truncate type="bool">false</truncate>
+ <property>instrumentation/gps/indicated-longitude-deg</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+ 
+ 
+ <text>
+  <name>wptdist-label</name>
+  <font>lcd.txf</font>
+   <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>0.012</x-m>
+   <y-m>0.03</y-m>
+   <z-m>0.088</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">WPT1:</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>wptdist</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.012</x-m>
+   <y-m>0.065</y-m>
+   <z-m>0.088</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format>%4.1f</format>
+  <truncate type="bool">false</truncate>
+ <property>/instrumentation/gps/wp/wp[1]/distance-nm</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+  
+  
+   <text>
+  <name>ttd-label</name>
+  <font>lcd.txf</font>
+   <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>0.012</x-m>
+   <y-m>0.03</y-m>
+   <z-m>0.08</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">ETA:</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+  <text>
+  <name>ttddist</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+   <x-m>0.012</x-m>
+   <y-m>0.065</y-m>
+   <z-m>0.08</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">string</type>
+  
+  <truncate type="bool">false</truncate>
+ <property>/instrumentation/gps/wp/wp[1]/TTW</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+
+</PropertyList>
