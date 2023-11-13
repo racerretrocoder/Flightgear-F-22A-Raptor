@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	
+  
+  
+  <model>
+    <path>Aircraft/F-22/Models/loads/pylons.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+
+
+ <!--station left 1 -->
+
+<model>
+    <name>left-Droptank</name>
+    <path>Aircraft/F-22/Models/loads/Tank.xml</path>
+    <offsets>
+      <x-m> 2.05  </x-m>
+      <y-m> -3.1 </y-m>
+      <z-m> -1.5 </z-m>
+      <pitch-deg> 0.0 </pitch-deg>
+    </offsets>
+  </model>	
+
+  <animation>
+    <type>select</type>
+    <object-name>left-Droptank</object-name>      
+    <condition>
+      <and>
+        <equals>
+          <property>sim/weight[0]/selected</property>
+          <value>L-Droptank</value>
+        </equals>
+        <equals>
+          <property>controls/armament/station[0]/release</property>
+          <value>false</value>
+        </equals>
+      </and>
+    </condition>
+	 
+  </animation>
+
+
+
+
+ <!--station left 2 -->
+
+
+
+
+<!--station left 3 -->
+
+
+
+
+
+<!--left belly -->
+
+
+
+
+<!--right belly -->
+
+
+
+
+<!--station right 3 -->
+
+
+
+
+<!--station right 2 -->
+
+
+
+
+
+ <!--station right 1 -->
+
+
+
+
+
+</PropertyList>
+
+

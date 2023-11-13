@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <model>
+	<path>Aircraft/F-22/Models/loads/mk82.xml</path>
+  <offsets>
+    <x-m> 0  </x-m>
+    <y-m> -0.22 </y-m>
+    <z-m> -0.05 </z-m>
+    <pitch-deg> 0 </pitch-deg>
+  </offsets>
+  </model>
+  
+  
+  
+  <model>
+	<path>Aircraft/F-22/Models/loads/AIM-120.xml</path>
+  <offsets>
+    <x-m> 0.2  </x-m>
+    <y-m> 0.3 </y-m>
+    <z-m> 0 </z-m>
+    <pitch-deg> 0 </pitch-deg>
+  </offsets>
+  </model>
+	<animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>12000</max-m>
+    </animation>
+	
+</PropertyList>
