@@ -307,8 +307,8 @@
 <payload>
         <d-config>
             <full_damage_dist_m type="double">3</full_damage_dist_m>
-            <use_hitpoints_instead_of_failure_modes_bool type="bool">false</use_hitpoints_instead_of_failure_modes_bool>
-            <hp_max type="double">80</hp_max>
+            <use_hitpoints_instead_of_failure_modes_bool type="bool">true</use_hitpoints_instead_of_failure_modes_bool>
+            <hp_max type="double">90</hp_max>
             <hitable_by_air_munitions type="bool">true</hitable_by_air_munitions>
             <hitable_by_cannon type="bool">true</hitable_by_cannon>
             <is_fleet type="bool">false</is_fleet>
@@ -330,6 +330,38 @@
             <msg type="bool">true</msg>
             <spike type="bool">false</spike>
             <models type="string">Aircraft/F-22/Models/emesary/</models>
+
+		      <station n="0">
+        <release type="bool">false</release>
+      </station>
+      <station n="1">
+        <release type="bool">false</release>
+      </station>
+      <station n="2">
+        <release type="bool">false</release>
+      </station>
+      <station n="3">
+        <release type="bool">false</release>
+      </station>
+      <station n="4">
+        <release type="bool">false</release>
+      </station>
+      <station n="5">
+        <release type="bool">false</release>
+      </station>
+      <station n="6">
+        <release type="bool">false</release>
+      </station>
+    <station n="7">
+        <release type="bool">false</release>
+      </station>
+    <station n="8">
+        <release type="bool">false</release>
+      </station>
+    <station n="9">
+        <release type="bool">false</release>
+      </station>
+   
         </armament>
     </payload>
 
@@ -546,37 +578,7 @@
 
 	<controls>
 	 <armament>
-      <station n="0">
-        <release type="bool">false</release>
-      </station>
-      <station n="1">
-        <release type="bool">false</release>
-      </station>
-      <station n="2">
-        <release type="bool">false</release>
-      </station>
-      <station n="3">
-        <release type="bool">false</release>
-      </station>
-      <station n="4">
-        <release type="bool">false</release>
-      </station>
-      <station n="5">
-        <release type="bool">false</release>
-      </station>
-      <station n="6">
-        <release type="bool">false</release>
-      </station>
-    <station n="7">
-        <release type="bool">false</release>
-      </station>
-    <station n="8">
-        <release type="bool">false</release>
-      </station>
-    <station n="9">
-        <release type="bool">false</release>
-      </station>
-   
+
     
     </armament>
 	
