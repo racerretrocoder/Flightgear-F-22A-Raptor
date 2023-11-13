@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+ <model>
+		<path>Aircraft/F-22/Models/Interior/Instruments/Radar/Gradar.xml</path>
+			<offsets>
+				<x-m>0</x-m>
+					<y-m>0</y-m>
+				<z-m>0</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+
+</PropertyList>
