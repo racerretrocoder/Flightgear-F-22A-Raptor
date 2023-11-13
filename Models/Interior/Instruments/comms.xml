@@ -1,0 +1,879 @@
+<?xml version="1.0"?>
+
+<!-- comms panel -->
+
+<PropertyList>
+
+ <!--  Front HUD computer -->
+   <animation>
+  <type>material</type>
+  <object-name>comm1</object-name>
+   <object-name>comm2</object-name>
+    <object-name>nav1</object-name>
+    <object-name>nav2</object-name>
+   <object-name>tacan</object-name>
+  
+  <ambient>
+    <red>0.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.3</red>
+    <green>0.8</green>
+    <blue>0.3</blue>
+  </emission> 
+ </animation>
+ 
+  <text>
+  <name>comm1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.007</character-size>
+  <offsets>
+   <x-m>-4.605</x-m>
+   <y-m>-0.063</y-m>
+   <z-m>0.972</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format type="string">%3.3f</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/comm/frequencies/selected-mhz</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+
+ <text>
+  <name>comm2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.007</character-size>
+  <offsets>
+   <x-m>-4.605</x-m>
+   <y-m>0.1</y-m>
+   <z-m>0.97</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format type="string">%3.3f</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/comm[1]/frequencies/selected-mhz</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+ 
+ <text>
+  <name>nav1</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.007</character-size>
+  <offsets>
+   <x-m>-4.605</x-m>
+   <y-m>0.1</y-m>
+   <z-m>0.952</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format type="string">%3.3f</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/nav/frequencies/selected-mhz</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+
+ 
+ <text>
+  <name>nav2</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.007</character-size>
+  <offsets>
+   <x-m>-4.605</x-m>
+   <y-m>0.1</y-m>
+   <z-m>0.934</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format type="string">%3.3f</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+ 
+ 
+ <text>
+  <name>tacan</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.007</character-size>
+  <offsets>
+  <x-m>-4.605</x-m>
+   <y-m>0.1</y-m>
+   <z-m>0.916</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format type="string">%3.3f</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/tacan/frequencies/selected-mhz</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+ 
+ 
+  <!--  Keypad area -->
+   <animation>
+  <type>material</type>
+  <object-name>1</object-name>
+  <object-name>2</object-name>
+   <object-name>n</object-name>
+    <object-name>3</object-name>
+	<object-name>4</object-name>
+	<object-name>w</object-name>
+   <object-name>5</object-name>
+   <object-name>6</object-name>
+   <object-name>e</object-name>
+   <object-name>7</object-name>
+   <object-name>8</object-name>
+   <object-name>s</object-name>
+   <object-name>9</object-name>
+   <object-name>e</object-name>
+   <object-name>clr</object-name>
+   <object-name>0</object-name>
+   <object-name>-</object-name>
+   <object-name>ent</object-name>
+   <ambient>
+    <red>0.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.3</red>
+    <green>0.8</green>
+    <blue>0.3</blue>
+  </emission> 
+ </animation>
+
+ 
+   <text>
+  <name>1</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>-4.605</x-m>
+   <y-m>-0.10</y-m>
+  <z-m>0.95</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">1</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+  <text>
+  <name>2</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>-4.605</x-m>
+   <y-m>-0.079</y-m>
+  <z-m>0.953</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">2</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>n</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.079</y-m>
+  <z-m>0.945</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">N</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ 
+ <text>
+  <name>3</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.06</y-m>
+  <z-m>0.95</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">3</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>4</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.101</y-m>
+  <z-m>0.93</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">4</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>w</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.102</y-m>
+  <z-m>0.923</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">W</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>5</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>-4.605</x-m>
+   <y-m>-0.08</y-m>
+   <z-m>0.926</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">5</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+  <text>
+  <name>6</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>-4.605</x-m>
+   <y-m>-0.06</y-m>
+  <z-m>0.93</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">6</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>e</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>-4.605</x-m>
+   <y-m>-0.06</y-m>
+  <z-m>0.923</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">E</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>7</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>-4.605</x-m>
+   <y-m>-0.101</y-m>
+  <z-m>0.904</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">7</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ 
+ <text>
+  <name>8</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.08</y-m>
+  <z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">8</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ 
+ <text>
+  <name>s</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.08</y-m>
+  <z-m>0.90</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">S</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>9</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.06</y-m>
+  <z-m>0.904</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">9</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>clr</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+    <x-m>-4.605</x-m>
+   <y-m>-0.106</y-m>
+  <z-m>0.88</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">CLR</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>0</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0063</character-size>
+  <offsets>
+      <x-m>-4.605</x-m>
+   <y-m>-0.0815</y-m>
+  <z-m>0.877</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">0</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>-</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0063</character-size>
+  <offsets>
+      <x-m>-4.605</x-m>
+   <y-m>-0.0807</y-m>
+  <z-m>0.882</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">-</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>ent</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.064</y-m>
+  <z-m>0.88</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">ENT</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <!-- other buttons  -->
+ 
+ <animation>
+  <type>material</type>
+  <object-name>AP1</object-name>
+  <object-name>radio</object-name>
+   <object-name>crs</object-name>
+	<object-name>hdg</object-name>
+	<object-name>ias</object-name>
+   <object-name>mch</object-name>
+    <object-name>alt</object-name>
+	 <object-name>apr</object-name>
+	 <object-name>b\c</object-name>
+     <object-name>y\d</object-name>
+  <object-name>lvl</object-name>
+   <object-name>AP2</object-name>
+   <object-name>alt</object-name>
+   <object-name>vs</object-name>
+   <object-name>1></object-name>
+   <object-name>2></object-name>
+   <object-name>3></object-name>
+   <object-name>4></object-name>
+   <object-name>5></object-name>
+   <object-name>6></object-name>
+   <object-name>uparrow1</object-name>
+   <object-name>downarrow1</object-name>
+   <object-name>uparrow2</object-name>
+   <object-name>downarrow2</object-name>
+  
+   <ambient>
+    <red>0.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.3</red>
+    <green>0.8</green>
+    <blue>0.3</blue>
+  </emission> 
+ </animation>
+
+ 
+ <text>
+  <name>AP1</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.007</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.13</y-m>
+  <z-m>0.995</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">A P</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+  <text>
+  <name>radio</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.132</y-m>
+  <z-m>0.975</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">RADIO</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>crs</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.10</y-m>
+  <z-m>0.993</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">CRS</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>hdg</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.075</y-m>
+  <z-m>0.993</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">HDG</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ 
+ <text>
+  <name>ias</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.048</y-m>
+  <z-m>0.993</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">IAS</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>mch</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>-0.0249</y-m>
+  <z-m>0.993</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">MCH</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>alt</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.001</y-m>
+  <z-m>0.993</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">ALT</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>apr</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.026</y-m>
+  <z-m>0.993</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">APR</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+  <text>
+  <name>b\c</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.0525</y-m>
+  <z-m>0.993</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">B C</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>y\d</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.0775</y-m>
+  <z-m>0.993</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Y D</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>lvl</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.102</y-m>
+  <z-m>0.993</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">LVL</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>AP2</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.124</y-m>
+  <z-m>0.993</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">AP</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>alt</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.114</y-m>
+  <z-m>0.925</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">ALT</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>uparrow1</name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.115</y-m>
+  <z-m>0.928</z-m>
+  <roll-deg>90</roll-deg>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>downarrow1</name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.121</y-m>
+  <z-m>0.918</z-m>
+  <roll-deg>-90</roll-deg>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>vs</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.116</y-m>
+  <z-m>0.89</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">VS</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>uparrow2</name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+     <x-m>-4.605</x-m>
+   <y-m>0.116</y-m>
+  <z-m>0.893</z-m>
+  <roll-deg>90</roll-deg>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>downarrow2</name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+      <x-m>-4.605</x-m>
+   <y-m>0.122</y-m>
+  <z-m>0.883</z-m>
+  <roll-deg>-90</roll-deg>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>1></name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+      <x-m>-4.605</x-m>
+   <y-m>-0.032</y-m>
+  <z-m>0.968</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+  <text>
+  <name>2></name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+      <x-m>-4.605</x-m>
+   <y-m>-0.032</y-m>
+  <z-m>0.949</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ 
+ <text>
+  <name>3></name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+      <x-m>-4.605</x-m>
+   <y-m>-0.032</y-m>
+  <z-m>0.931</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>4></name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+      <x-m>-4.605</x-m>
+   <y-m>-0.032</y-m>
+  <z-m>0.913</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>5></name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+      <x-m>-4.605</x-m>
+   <y-m>-0.032</y-m>
+  <z-m>0.895</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>6></name>
+  <font>charter.txf</font>
+  <character-size type="double">0.0095</character-size>
+  <offsets>
+      <x-m>-4.605</x-m>
+   <y-m>-0.032</y-m>
+  <z-m>0.877</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">></text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ 
+ 
+</PropertyList>
