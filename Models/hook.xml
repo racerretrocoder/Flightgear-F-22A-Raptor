@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+<path>hook.ac</path>
+
+
+<animation>
+ <type>rotate</type>
+ <object-name>hook</object-name>
+ <property>gear/tailhook/position-norm</property>
+ <factor>90</factor>
+ <center>
+  <x-m> 4</x-m>
+  <y-m> 0.000</y-m>
+  <z-m>-1.1</z-m>
+ </center>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+
+</PropertyList>
+
