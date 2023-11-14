@@ -863,6 +863,9 @@
         <damage>
             <file>Aircraft/F-22/Nasal/damage.nas</file>
         </damage>
+		<armament> 
+			<file>Aircraft/F-22/Nasal/missile-code.nas</file>
+		</armament>
 
 		<f22>
 			<file>Aircraft/F-22/Nasal/Liveries.nas</file>
