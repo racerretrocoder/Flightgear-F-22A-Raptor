@@ -6,10 +6,10 @@
 
  <fileheader>
 
-  <author> Aeromatic v 0.96, ncc_42 </author>
-  <filecreationdate>2017-10-19</filecreationdate>
+  <author> Phoenix F-22 </author>
+  <filecreationdate>2022-06-29</filecreationdate>
   <version>$Revision: 1.40 $</version>
-  <description> Models an F-22A. </description>
+  <description> Models an F-22A </description>
  </fileheader>
 
 <!--
@@ -23,9 +23,9 @@
     wing area:     840 sq-ft
     gear type:     tricycle
     castering:     
-    retractable?:  yes
-    # engines:     2
-    engine type:   turbine
+    retractable?:  maybe... come on really?
+    # engines:     2*4
+    engine type:   After burning turbine
     engine layout: aft fuselage
 
 -->
@@ -69,7 +69,7 @@
  </mass_balance>
 
  <ground_reactions>
-
+<!-- raised my nose gear just a bit to make it stop clipping through the ground -->
   <contact type="BOGEY" name="NOSE">
    <location unit="IN">
      <x> 223.6  </x>
@@ -83,7 +83,7 @@
    <damping_coeff unit="LBS/FT/SEC"> 12525.00 </damping_coeff>
    <max_steer unit="DEG"> 5.00 </max_steer>
    <brake_group>NONE</brake_group>
-   <retractable>1</retractable>
+   <retractable>1</retractable> <!-- duh! -->
   </contact>
 
   <contact type="BOGEY" name="LEFT_MAIN">
