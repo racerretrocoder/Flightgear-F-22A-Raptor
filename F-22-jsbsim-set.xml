@@ -307,7 +307,7 @@
 <payload>
         <d-config>
             <full_damage_dist_m type="double">3</full_damage_dist_m>
-            <use_hitpoints_instead_of_failure_modes_bool type="bool">true</use_hitpoints_instead_of_failure_modes_bool>
+            <use_hitpoints_instead_of_failure_modes_bool type="bool">false</use_hitpoints_instead_of_failure_modes_bool>
             <hp_max type="double">90</hp_max>
             <hitable_by_air_munitions type="bool">true</hitable_by_air_munitions>
             <hitable_by_cannon type="bool">true</hitable_by_cannon>
