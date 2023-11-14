@@ -106,4 +106,24 @@
 <pitch-deg>-17</pitch-deg>
     </offsets>
   </model>
+
+
+ <animation>
+  <type>pick</type>
+   <object-name>1r1</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+
+    </binding>
+    <mod-up>
+     <binding>
+      ...
+     </binding>
+    </mod-up>
+   </action>
+ </animation>
+
 </PropertyList>
