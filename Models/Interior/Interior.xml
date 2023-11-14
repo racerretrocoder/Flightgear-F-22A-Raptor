@@ -110,13 +110,14 @@
 
  <animation>
   <type>pick</type>
-   <object-name>1r1</object-name>
+   <object-name>MSTARM</object-name>
    <action>
     <button>0</button>
     <repeatable>false</repeatable>
     <interval-sec>0.2</interval-sec>
     <binding>
-
+<command>property-toggle</command>
+                <property>/controls/armament/master-arm</property>
     </binding>
     <mod-up>
      <binding>
