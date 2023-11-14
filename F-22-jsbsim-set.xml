@@ -318,6 +318,7 @@
             <m28_auto type="bool">false</m28_auto>
             <mlw_max type="double">0</mlw_max>
             <auto_flare_caller type="bool">false</auto_flare_caller>
+		</d-config>
 		<!-- I think this should go here... -->
 		<weight n="0">
 <name>pylon1.L</name>
@@ -475,8 +476,7 @@
 <gals>600</gals>
 </opt>
 </weight>		
-        </d-config>
-        <armament>
+	  <armament>
             <enable-craters type="bool">true</enable-craters>
             <MLW-bearing type="double">0</MLW-bearing>
             <MLW-count type="int">0</MLW-count>
