@@ -318,54 +318,8 @@
             <m28_auto type="bool">false</m28_auto>
             <mlw_max type="double">0</mlw_max>
             <auto_flare_caller type="bool">false</auto_flare_caller>
-        </d-config>
-        <armament>
-            <enable-craters type="bool">true</enable-craters>
-            <MLW-bearing type="double">0</MLW-bearing>
-            <MLW-count type="int">0</MLW-count>
-            <MLW-launcher type="string"></MLW-launcher>
-            <MAW-bearing type="double">0</MAW-bearing>
-            <MAW-active type="bool">false</MAW-active>
-            <MAW-semiactive type="bool">false</MAW-semiactive>
-            <msg type="bool">true</msg>
-            <spike type="bool">false</spike>
-            <models type="string">Aircraft/F-22/Models/emesary/</models>
-
-		      <station n="0">
-        <release type="bool">false</release>
-      </station>
-      <station n="1">
-        <release type="bool">false</release>
-      </station>
-      <station n="2">
-        <release type="bool">false</release>
-      </station>
-      <station n="3">
-        <release type="bool">false</release>
-      </station>
-      <station n="4">
-        <release type="bool">false</release>
-      </station>
-      <station n="5">
-        <release type="bool">false</release>
-      </station>
-      <station n="6">
-        <release type="bool">false</release>
-      </station>
-    <station n="7">
-        <release type="bool">false</release>
-      </station>
-    <station n="8">
-        <release type="bool">false</release>
-      </station>
-    <station n="9">
-        <release type="bool">false</release>
-      </station>
-   
-        </armament>
-    </payload>
-
-<weight n="0">
+		<!-- I think this should go here... -->
+		<weight n="0">
 <name>pylon1.L</name>
 <tank>4</tank>
 <weight-lb>0</weight-lb>
@@ -521,6 +475,54 @@
 <gals>600</gals>
 </opt>
 </weight>		
+        </d-config>
+        <armament>
+            <enable-craters type="bool">true</enable-craters>
+            <MLW-bearing type="double">0</MLW-bearing>
+            <MLW-count type="int">0</MLW-count>
+            <MLW-launcher type="string"></MLW-launcher>
+            <MAW-bearing type="double">0</MAW-bearing>
+            <MAW-active type="bool">false</MAW-active>
+            <MAW-semiactive type="bool">false</MAW-semiactive>
+            <msg type="bool">true</msg>
+            <spike type="bool">false</spike>
+            <models type="string">Aircraft/F-22/Models/emesary/</models>
+
+		      <station n="0">
+        <release type="bool">false</release>
+      </station>
+      <station n="1">
+        <release type="bool">false</release>
+      </station>
+      <station n="2">
+        <release type="bool">false</release>
+      </station>
+      <station n="3">
+        <release type="bool">false</release>
+      </station>
+      <station n="4">
+        <release type="bool">false</release>
+      </station>
+      <station n="5">
+        <release type="bool">false</release>
+      </station>
+      <station n="6">
+        <release type="bool">false</release>
+      </station>
+    <station n="7">
+        <release type="bool">false</release>
+      </station>
+    <station n="8">
+        <release type="bool">false</release>
+      </station>
+    <station n="9">
+        <release type="bool">false</release>
+      </station>
+   
+        </armament>
+    </payload>
+
+
 
 	</sim>
 
