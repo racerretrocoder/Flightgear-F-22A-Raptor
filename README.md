@@ -1,4 +1,6 @@
 # F-22 Raptor for FlightGear
+To install it rename the aircraft folder to F-22
+
 Based primarily upon F-22 from FGUK Hangar.
 
 # Edited by:
