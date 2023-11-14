@@ -237,10 +237,10 @@
 	
 		<property>fdm/jsbsim/fcs/right-rudder-pos-deg2</property>
 		<interpolation>
-		<!--	<entry>
+			<entry>
 				<ind>0.0</ind>
 				<dep>0</dep>
-			</entry> -->
+			</entry>
 			<entry>
 				<ind>0.0</ind>
 				<dep>0</dep>
