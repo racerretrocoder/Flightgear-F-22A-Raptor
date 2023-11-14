@@ -173,6 +173,9 @@
 		<type>rotate</type>
 		<object-name>Left_Rocket_Bay_D1</object-name>
 		<object-name>Left_Rocket_Bay_D2</object-name>
+		
+
+
 		<property>baydoors/position-norm</property>
 		<interpolation>
 			<!--<entry>
@@ -226,7 +229,52 @@
 			<z2-m>-1.7615</z2-m>
 		</axis>
 	</animation>
+	<!-- i will work on 9x doors later
+
+<animation>
+		<type>rotate</type>
+		<object-name>9xdr1</object-name>
+	
+		<property>fdm/jsbsim/fcs/right-rudder-pos-deg2</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>20</dep>
+			</entry>
+		</interpolation>
+
+
+    <center>
+			<x>-0.94</x>
+			<y>6.5</y>
+			<z>5.85</z>
+			
+    </center>
+
+<axis>
+<x>1</x>
+<y>0</y>
+<z>0</z>
+</axis>
+
+
+	</animation>
+
+
+sorry to complex now -->
 	<!--
+
+  <x-m> -0.933 </x-m>
+      <y-m>  -0.947 </y-m>
+      <z-m>  -1.648 </z-m>	<object-name></object-name>
 	<animation>
 		<type>rotate</type>
 		<object-name>canopy</object-name>
@@ -461,7 +509,7 @@
 			<object-name>left-up-vector</object-name>
 			<object-name>right-burner</object-name>
 			<object-name>left-burner</object-name>
-			<property>fdm/jsbsim/fcs/tvc-pos-norm</property>
+			<property>controls/flight/elevator</property>
 			<factor>20</factor>
 			<center>
 				<x-m>6.42824</x-m>
@@ -479,7 +527,7 @@
 		<type>rotate</type>
 			<object-name>right-down-vector</object-name>
 			<object-name>left-down-vector</object-name>
-			<property>fdm/jsbsim/fcs/tvc-pos-norm</property>
+			<property>controls/flight/elevator</property>
 			<factor>20</factor>
 			<center>
 				<x-m>6.42824</x-m>
