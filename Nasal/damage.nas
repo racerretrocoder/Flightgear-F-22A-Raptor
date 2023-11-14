@@ -1,7 +1,7 @@
 #
 # Install: Include this code into an aircraft to make it damagable. (remember to add it to the -set file)
 #          if /payload/armament/spectator is 1 and damage off, missile trails, craters, flares,
-#          and missile warnings will be received, but not actual damage.
+#          and missile warnings will be received, but not actual damage. will be sure to set that up
 #
 # Authors: Nikolai V. Chr., Pinto, Colin Geniet and Richard (with improvement by Onox)
 #
