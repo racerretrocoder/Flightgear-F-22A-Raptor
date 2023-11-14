@@ -836,6 +836,9 @@
 		<armament> 
 			<file>Aircraft/F-22/Nasal/missile-code.nas</file>
 		</armament>
+  <fc>
+            <file>Aircraft/F-22/Nasal/fire-control.nas</file>
+        </fc>
 
 		<f22>
 			<file>Aircraft/F-22/Nasal/Liveries.nas</file>
