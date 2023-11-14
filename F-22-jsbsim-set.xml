@@ -158,8 +158,8 @@
 			<line></line>
 			<line>Specifications</line>
 			<line></line>
-			<line>Maximum speed: Mach 2.25</line>
-			<line>Cruise speed: Mach 1.7+</line>
+			<line>Maximum speed: Mach 2.25 35000ft</line>
+			<line>Cruise speed: Mach 1.7+ sea level</line>
 			<line>Sustained turn rate: 28 deg/sec</line>
 		</help>
 	
@@ -578,7 +578,7 @@
 
 	<controls>
 	 <armament>
-
+<!-- movin stuff! weeee! -->
     
     </armament>
 	
