@@ -836,12 +836,11 @@
 		<armament> 
 			<file>Aircraft/F-22/Nasal/missile-code.nas</file>
 		</armament>
-        </armament>
         <stations>
-            <file>Aircraft/f16/Nasal/station-manager.nas</file><!-- must be before fire-control and pylons -->
+            <file>Aircraft/F-22/Nasal/station-manager.nas</file><!-- must be before fire-control and pylons -->
         </stations>
 
-  <fc>
+  	<fc>
             <file>Aircraft/F-22/Nasal/fire-control.nas</file>
         </fc>
 
