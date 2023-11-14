@@ -4,7 +4,7 @@
 
   <particlesystem>
     <name>smoke</name>
-    <texture>noise3.png</texture>
+    <texture>noise.png</texture>
 
     <emissive>false</emissive>
     <lighting>true</lighting>
