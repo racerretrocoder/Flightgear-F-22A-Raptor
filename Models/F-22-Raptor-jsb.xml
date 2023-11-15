@@ -77,8 +77,19 @@
 		<object-name>Left_Stabilizer_0</object-name>
 		
     </animation>	
+<!--Missiles
 
-  
+	<model>
+	<name>loads</name>
+		<path>Aircraft/F-22/Models/loads/loads.xml</path>
+			<offsets>
+				<x-m>6.727</x-m>
+			<y-m>-0.6</y-m>
+			<z-m>-0.9</z-m>
+			
+		</offsets>
+	</model>
+  -->
 <!-- Afterburner -->
 
 	<model>
@@ -229,48 +240,24 @@
 			<z2-m>-1.7615</z2-m>
 		</axis>
 	</animation>
-	<!-- i will work on 9x doors later
 
 <animation>
-		<type>rotate</type>
+		<type>select</type>
+		<object-name>9xdl1</object-name>
 		<object-name>9xdr1</object-name>
+		<object-name>9xdl2</object-name>
+		<object-name>9xdr2</object-name>
+		
+		<condition>
+			<greater-than>
+				<property>baydoors/position-norm</property>
+				<value>0.1</value>
+			</greater-than>
+		</condition>
 	
-		<property>fdm/jsbsim/fcs/right-rudder-pos-deg2</property>
-		<interpolation>
-			<entry>
-				<ind>0.0</ind>
-				<dep>0</dep>
-			</entry>
-			<entry>
-				<ind>0.0</ind>
-				<dep>0</dep>
-			</entry>
-			<entry>
-				<ind>1.0</ind>
-				<dep>20</dep>
-			</entry>
-		</interpolation>
+	</animation>	
 
-
-    <center>
-			<x>-0.94</x>
-			<y>6.5</y>
-			<z>5.85</z>
-			
-    </center>
-
-<axis>
-<x>1</x>
-<y>0</y>
-<z>0</z>
-</axis>
-
-
-	</animation>
-
-
-sorry to complex now -->
-	<!--
+<!--
 
   <x-m> -0.933 </x-m>
       <y-m>  -0.947 </y-m>
