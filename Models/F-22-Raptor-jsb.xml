@@ -77,19 +77,14 @@
 		<object-name>Left_Stabilizer_0</object-name>
 		
     </animation>	
-<!--Missiles
+<!--Missiles  -->
 
 	<model>
 	<name>loads</name>
 		<path>Aircraft/F-22/Models/loads/loads.xml</path>
-			<offsets>
-				<x-m>6.727</x-m>
-			<y-m>-0.6</y-m>
-			<z-m>-0.9</z-m>
-			
-		</offsets>
+		
 	</model>
-  -->
+
 <!-- Afterburner -->
 
 	<model>
@@ -432,7 +427,7 @@
 		</axis>>
 	</animation>
 
-<!-- Slat animations -->
+<!-- Slat animations 
 	
 	<animation>
 		<type>translate</type>
@@ -486,7 +481,7 @@
 				<y2-m>-2.19631</y2-m>
 			<z2-m>-0.589751</z2-m>
 		</axis>>
-	</animation>
+	</animation>-->
 	
 <!-- Nozzle vector animations -->
 	
