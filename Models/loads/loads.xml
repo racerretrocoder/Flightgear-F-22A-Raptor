@@ -132,21 +132,16 @@
 
 <animation>
 <type>select</type>
-<object-name>left-belly1</object-name>      
+<object-name>right-belly1</object-name>      
 <condition>
-<and>
+
 <equals>
-<property>sim/weight[4]/selected</property>
+<property>payload/weight[4]/selected</property>
 <value>3x AIM-120</value>
 </equals>
-<equals>
-<property>controls/armament/station[4]/release</property>
-<value>false</value>
-</equals>
-</and>
+
 </condition>
 </animation>
-
 
 <model>
 <name>left-belly2</name>
@@ -165,7 +160,7 @@
 <condition>
 <and>
 <equals>
-<property>sim/weight[4]/selected</property>
+<property>payload/weight[4]/selected</property>
 <value>1x AIM-120, 1x MK-82</value>
 </equals>
 <equals>
@@ -196,16 +191,12 @@
 <type>select</type>
 <object-name>right-belly1</object-name>      
 <condition>
-<and>
+
 <equals>
-<property>sim/weight[5]/selected</property>
+<property>payload/weight[5]/selected</property>
 <value>3x AIM-120</value>
 </equals>
-<equals>
-<property>controls/armament/station[5]/release</property>
-<value>false</value>
-</equals>
-</and>
+
 </condition>
 </animation>
 
@@ -227,7 +218,7 @@
 <condition>
 <and>
 <equals>
-<property>sim/weight[5]/selected</property>
+<property>payload/weight[5]/selected</property>
 <value>1x AIM-120, 1x MK-82</value>
 </equals>
 <equals>
