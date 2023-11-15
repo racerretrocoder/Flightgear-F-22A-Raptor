@@ -96,7 +96,7 @@
 		</offsets>
 	</model>
 	
-  <!-->	
+  <!--
   <model>
     <path>Aircraft/F-22/Models/Interior/Instruments/Radar2/Radar.xml</path>
     <offsets>
@@ -106,7 +106,7 @@
 <pitch-deg>-17</pitch-deg>
     </offsets>
   </model>
-    <--!>
+    -->
 
  <animation>
   <type>pick</type>
