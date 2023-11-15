@@ -1,22 +1,23 @@
 <?xml version="1.0"?>
 <!--
   File:     F119-PW-100.xml
-  Author:   Ryan Daniels
+  Author:   Ryan. (Phoenixs younger brother)
+modified slightly by Phoenix, Michael
 
   Inputs:
     name:           F119-PW-100
     type:           turbine
-    thrust:         25357 lb
+    thrust:         35357 lb
     augmented?      yes
     injected?       no
 -->
 
 <turbine_engine name="F119-PW-100">
-  <milthrust> 30357.0 </milthrust>
+  <milthrust> 31357.0 </milthrust>
   <maxthrust> 35875.0 </maxthrust>
   <bypassratio>     0.3 </bypassratio>
   <tsfc>            0.8 </tsfc>
-  <atsfc>           1.687 </atsfc>
+  <atsfc>           0.997 </atsfc>
   <bleed>           0.03</bleed>
   <idlen1>         40.0 </idlen1>
   <idlen2>         53.0 </idlen2>
