@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<path>F-22.ac</path>
-	<path>effect2.ac</path>
+
 	
 	<offsets>
         <pitch-deg>0</pitch-deg>   
@@ -156,7 +156,7 @@
 		</condition>
 	</model>
 	
-<!-- Livery 
+<!-- Livery -->
 
 	<nasal>
 		<load>
@@ -174,7 +174,7 @@
 		<texture>Liveries/Default.png</texture>
 	</animation>
 	
-	-->
+	
 	
 <!-- Weapon bay doors -->
 
