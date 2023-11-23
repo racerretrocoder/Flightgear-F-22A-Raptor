@@ -178,6 +178,23 @@
 	
 <!-- Weapon bay doors -->
 
+ <animation>
+  <type>rotate</type>
+  <object-name>9xtop</object-name>
+  <property>/baydoors/position-norm</property>
+  <factor>55</factor> <!-- The rotation in degrees -->
+  <center>
+   <x-m>-2.7165</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.2040</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
 	<animation>
 		<type>rotate</type>
 		<object-name>Left_Rocket_Bay_D1</object-name>
@@ -302,7 +319,7 @@
 		<object-name>Right_Back_Turbina</object-name>
 	
 <factor>50</factor>		
-<property>engines/engine/n2</property>
+<property>engines/engine/n1</property>
      <center>
    <x-m>0</x-m>
    <y-m>0.65</y-m>
@@ -321,7 +338,7 @@
 		<object-name>Left_Back_Turbina</object-name>
 	
 <factor>50</factor>		
-<property>engines/engine[1]/n2</property>
+<property>engines/engine[1]/n1</property>
      <center>
    <x-m>0</x-m>
    <y-m>-0.65</y-m>
@@ -1270,8 +1287,29 @@ FR
 
 
   
-   <!-- arrestor hook -->
-  
+   <!-- 9xdoors -->
+<animation>
+		<type>rotate</type>
+		<object-name>9xtop</object-name>
+		<property>baydoors/position-norm</property>
+		<interpolation>
+			<entry>
+				<ind>0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1</ind>
+				<dep>45</dep>
+			</entry>
+		</interpolation>
+		<axis>
+		 <x>0</x>
+		 <y>1</y>
+		 <z>0</z>
+	 </axis>
+	</animation>  
+
+
   <model>
 
   <path>Aircraft/F-22/Models/hook.xml</path>
