@@ -126,4 +126,80 @@
    </action>
  </animation>
 
+<!-- ENGSTART -->
+
+ <animation>
+  <type>pick</type>
+   <object-name>jfsStartR</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/engines/engine/starter</property>
+
+    </binding>
+    <mod-up>
+     <binding>
+     </binding>
+    </mod-up>
+   </action>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>jfsStartL</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/engines/engine[1]/starter</property>
+    </binding>
+    <mod-up>
+     <binding>
+     </binding>
+    </mod-up>
+   </action>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>cutoffR</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/engines/engine[1]/cutoff</property>
+    </binding>
+    <mod-up>
+     <binding>
+     </binding>
+    </mod-up>
+   </action>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>cutoffL</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/engines/engine/cutoff</property>
+    </binding>
+    <mod-up>
+     <binding>
+     </binding>
+    </mod-up>
+   </action>
+ </animation>
+
+
 </PropertyList>
