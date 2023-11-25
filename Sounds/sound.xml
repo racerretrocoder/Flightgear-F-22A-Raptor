@@ -56,7 +56,7 @@
    </engine>
  
   <engine>
-   <name>interior engine</name>
+   <name>interior engine1</name>
    <mode>looped</mode>
    <path>Aircraft/F-22/Sounds/intengine.wav</path>
    <condition>
@@ -85,7 +85,7 @@
   </engine>
   
   <engine>
-   <name>interior engine2 mil</name>
+   <name>interior engine1 mil</name>
    <mode>looped</mode>
    <path>Aircraft/F-22/Sounds/intmil.wav</path>
    <condition>
@@ -116,6 +116,73 @@
                 <factor>0.00455001673</factor>
             </pitch> -->
   </engine>
+
+
+
+ <engine>
+   <name>interior engine2</name>
+   <mode>looped</mode>
+   <path>Aircraft/F-22/Sounds/whineintengine.wav</path>
+   <condition>
+  <property>/sim/current-view/internal</property>
+     <not>
+<property>/engines/engine/out-of-fuel</property>
+     </not>
+   </condition>
+   <position>
+    	<x>-4.5</x>
+	<y>0.0</y>
+	<z>-5</z>
+   </position>
+  
+   <volume>
+    	<property>engines/engine[1]/n2</property>
+    	<factor>0.08</factor>
+	<min>0.0</min>
+	<max>1.0</max>
+   </volume>
+    <pitch>
+                <property>engines/engine[1]/n1</property>
+                <offset>0.86349949816</offset>
+                <factor>0.00455001673</factor>
+            </pitch>
+  </engine>
+  
+  <engine>
+   <name>interior engine2 mil</name>
+   <mode>looped</mode>
+   <path>Aircraft/F-22/Sounds/intmil.wav</path>
+   <condition>
+
+<greater-than>  
+ <property>engines/engine[1]/n1</property>
+   <value>90</value>
+  </greater-than>
+
+  <property>/sim/current-view/internal</property>
+     <not>
+<property>/engines/engine/out-of-fuel</property>
+     </not>
+   </condition>
+   <position>
+    	<x>-4.5</x>
+	<y>0.0</y>
+	<z>-5</z>
+   </position>
+      <volume>
+    <property>engines/engine[1]/n1</property>
+    <factor>0.014</factor>
+    <offset>-0.45</offset>
+   </volume>
+  <!--  <pitch>
+                <property>engines/engine[1]/n1</property>
+                <offset>0.86349949816</offset>
+                <factor>0.00455001673</factor>
+            </pitch> -->
+  </engine>
+
+
+
  <!-- External Sounds -->
  
  <!-- Engines-->
