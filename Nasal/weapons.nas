@@ -1,8 +1,9 @@
-print("LOADING weapons.nas .");
+print("LOADING weapons.nas pew pew! fox 3 fox3!.");
 ################################################################################
 #
 #                        F-22 WEAPONS SETTINGS
 #							Thanks to the m2005-5's developpers
+#.                             and special thanks to developer0607
 ################################################################################
 
 var dt = 0;
