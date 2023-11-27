@@ -102,7 +102,7 @@ var Impact = func() {
             settimer(Impact,0.1);
             return;
         }
-        #var phrase = "GSh-30 hit: " ~ splashOn~". "~ numberOfSplash ~" hits";
+        #var phrase = "M61A1 shell hit: " ~ splashOn~". "~ numberOfSplash ~" hits";
         #if(MPMessaging.getValue() == 1)
         #{
         #    setprop("/sim/multiplay/chat", phrase);
@@ -115,13 +115,13 @@ var Impact = func() {
         var phrase = "GSh-30" ~ " hit: " ~ splashOn ~ ": " ~ numberOfSplash ~ " hits";
         if (getprop("/payload/armament/msg")) {
             #armament.defeatSpamFilter(phrase);
-            var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells["GSh-30"][0]+1));
+            var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells["M61A1 shell"][0]+1));
                     msg.RelativeAltitude = 0;
                     msg.Bearing = 0;
                     msg.Distance = numberOfSplash;
                     msg.RemoteCallsign = splashOn;
             notifications.hitBridgedTransmitter.NotifyAll(msg);
-            damage.damageLog.push("You hit "~splashOn~" with "~"GSh-30"~", "~numberOfSplash~" times.");
+            damage.damageLog.push("You hit "~splashOn~" with "~"M61A1 shells"~", "~numberOfSplash~" times.");
         } else {
             setprop("/sim/messages/atc", phrase);
         }
