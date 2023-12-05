@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">249th FS AK</name>
+      <texture-body>/Liveries/AK-BODY.png</texture>
+      <texture-tailL>/Liveries/AK-TAIL-L.png</texture>
+      <texture-tailL>/Liveries/AK-TAIL-R.png</texture>
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>
