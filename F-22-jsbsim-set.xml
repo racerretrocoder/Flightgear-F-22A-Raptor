@@ -32,7 +32,12 @@
 	
 		<model>
 			<path>Aircraft/F-22/Models/F-22-Raptor-jsb.xml</path>
-		</model>
+	<livery>
+		<name type="string">Models/Liveries/AK.xml</name>
+		<texture>Models/Liveries/AK-BODY.png</texture>
+	</livery>
+
+</model>
 		
 		<submodels> 
     		<serviceable type="bool">true</serviceable>
@@ -78,13 +83,13 @@
 				<menu n="100">
 					<label>F-22 Raptor</label>
 					<enabled type="bool">true</enabled>
-					<item>
-						<label>Select Livery</label>
-						<binding>
-							<command>nasal</command>
-							<script>aircraft.livery.dialog.toggle()</script>
-						</binding>
-					</item>
+					<item n="0">
+					<label>Select Livery</label>
+					<binding>
+						<command>nasal</command>
+						<script>aircraft.livery.dialog.toggle()</script>
+					</binding>
+				</item>
 <item>
         <label>Event Log</label>
         <binding>
@@ -899,9 +904,10 @@
     <guns>
       <file>Aircraft/F-22/Nasal/weapons.nas</file>
     </guns>
- 
+ <livery>
+<file>Aircraft/F-22/Nasal/liveries.nas</file>
+</livery>
 		<f22>
-			<file>Aircraft/F-22/Nasal/Liveries.nas</file>
 			<file>Aircraft/F-22/Nasal/hud.nas</file>
 			<file>Aircraft/F-22/Nasal/f22.nas</file>
 			<file>Aircraft/F-22/Nasal/light.nas</file>
