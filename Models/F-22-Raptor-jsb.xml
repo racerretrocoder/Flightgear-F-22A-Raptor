@@ -1,10 +1,48 @@
 <?xml version="1.0"?>
 
 <PropertyList>
+<nasal>
+  <load>
+    <!--
+      ##############################################################################
+      # The on-load Nasal is not executed when this file is loaded as the user
+      # aircraft. The code is only executed if the file is loaded for a remote
+      # aircraft in Multi-Player mode (MP)
+      ##############################################################################
+    -->
+    <![CDATA[
+      var livery_update = aircraft.livery_update.new("Aircraft/F-22/Models/Liveries");
+    ]]>
+    </load>
+  
+  <unload><![CDATA[
+    livery_update.stop();
+  ]]></unload>
+</nasal>
+
+
+
 
 	<path>F-22.ac</path>
 
+
+<animation>
+  <type>material</type>
+  <object-name>Body</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-fuselage</texture-prop>
+  <texture>Liveries/AK-BODY.png</texture>
+</animation>
 	
+
+<animation>
+  <type>material</type>
+  <object-name>Left_Keel</object-name>
+
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-tailL</texture-prop>
+  <texture>Liveries/AK-TAIL-L.png</texture>
+</animation>	
 	<offsets>
         <pitch-deg>0</pitch-deg>   
         <heading-deg>0</heading-deg>
@@ -14,6 +52,22 @@
         <z-m>0</z-m>
     </offsets>
 
+<animation>
+  <type>material</type>
+  <object-name>Right_Keel</object-name>
+
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-tailR</texture-prop>
+  <texture>Liveries/AK-TAIL-R.png</texture>
+</animation>	
+	<offsets>
+        <pitch-deg>0</pitch-deg>   
+        <heading-deg>0</heading-deg>
+        <roll-deg>0</roll-deg>
+        <x-m>0</x-m>
+        <y-m>0</y-m>
+        <z-m>0</z-m>
+    </offsets>
 	<!-- MP sound call -->
   <sound><path>Aircraft/F-22/Sounds/mp-sound.xml</path></sound>
   
@@ -156,7 +210,7 @@
 		</condition>
 	</model>
 	
-<!-- Livery -->
+<!-- Livery 
 
 	<nasal>
 		<load>
@@ -174,7 +228,7 @@
 		<texture>Liveries/Default.png</texture>
 	</animation>
 	
-	
+-->	
 	
 <!-- Weapon bay doors -->
 
