@@ -15,9 +15,9 @@
     ]]>
     </load>
   
-  <unload><![CDATA[
+  <unload>
     livery_update.stop();
-  ]]></unload>
+  </unload>
 </nasal>
 
 
@@ -30,18 +30,23 @@
   <type>material</type>
   <object-name>Body</object-name>
   <property-base>sim/model/livery</property-base>
-  <texture-prop>texture-fuselage</texture-prop>
+  <texture-prop>texture-AKfuselage</texture-prop>
   <texture>Liveries/AK-BODY.png</texture>
 </animation>
-	
-
+<animation>
+  <type>material</type>
+  <object-name>Body</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-PHfuselage</texture-prop>
+  <texture>Liveries/PH-BODY.png</texture>
+</animation>
 <animation>
   <type>material</type>
   <object-name>Left_Keel</object-name>
 
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-tailL</texture-prop>
-  <texture>Liveries/AK-TAIL-L.png</texture>
+  <texture>Liveries/-1L.png</texture>
 </animation>	
 	<offsets>
         <pitch-deg>0</pitch-deg>   
@@ -58,7 +63,7 @@
 
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-tailR</texture-prop>
-  <texture>Liveries/AK-TAIL-R.png</texture>
+  <texture>Liveries/-1R.png</texture>
 </animation>	
 	<offsets>
         <pitch-deg>0</pitch-deg>   
@@ -68,6 +73,23 @@
         <y-m>0</y-m>
         <z-m>0</z-m>
     </offsets>
+
+<animation>
+  <type>material</type>
+  <object-name>Left_Wing</object-name>
+ <object-name>Right_Wing</object-name>
+<object-name>Left_Stabilizer</object-name>
+ <object-name>Right_Stabilizer</object-name>
+<object-name>Left_Eleron01</object-name>
+ <object-name>Left_Eleron02</object-name>
+<object-name>Right_Eleron01</object-name>
+ <object-name>Right_Eleron02</object-name>
+<object-name>Right_Prewing</object-name>
+ <object-name>Left_Prewing</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-wing</texture-prop>
+  <texture>Liveries/wing.png</texture>
+</animation>	
 	<!-- MP sound call -->
   <sound><path>Aircraft/F-22/Sounds/mp-sound.xml</path></sound>
   
