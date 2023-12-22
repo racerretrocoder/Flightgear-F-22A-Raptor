@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">249th FS "Echoed"</name>
+      <texture-AKfuselage>Liveries/AK-BODY.png</texture-AKfuselage>
+      <texture-tailR>Liveries/EKTR.png</texture-tailR>
+      <texture-tailL>Liveries/EKTL.png</texture-tailL>
+ <texture-wing>Liveries/wing.png</texture-wing>
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>
