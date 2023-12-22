@@ -6,9 +6,10 @@
   <model>
     <livery>
       <name type="string">249th FS AK</name>
-      <texture-fuselage>Liveries/AK-BODY.png</texture-fuselage>
+      <texture-AKfuselage>Liveries/AK-BODY.png</texture-AKfuselage>
       <texture-tailR>Liveries/AK-TAIL-R.png</texture-tailR>
       <texture-tailL>Liveries/AK-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/wing.png</texture-wing>
     </livery>
   </model>
 </sim>
