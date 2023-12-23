@@ -86,6 +86,8 @@
  <object-name>Right_Eleron02</object-name>
 <object-name>Right_Prewing</object-name>
  <object-name>Left_Prewing</object-name>
+<object-name>TAIL-L-OUT</object-name>
+ <object-name>TAIL-R-OUT</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-wing</texture-prop>
   <texture>Liveries/wing.png</texture>
@@ -156,13 +158,19 @@
 		<object-name>Left_Stabilizer_0</object-name>
 		
     </animation>	
-<!--Missiles  -->
+<!--Missiles 
 
 	<model>
 	<name>loads</name>
 		<path>Aircraft/F-22/Models/loads/loads.xml</path>
 		
 	</model>
+ -->
+
+
+  <model>
+    <path>Aircraft/F-22/Models/loads/Weapons-load.xml</path>
+  </model>
 
 <!-- Afterburner -->
 
@@ -514,8 +522,9 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-elevator</object-name>
-				<property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property>
-					<factor>1</factor>
+				<!-- <property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property> -->
+	<property>controls/flight/elevator</property>
+					<factor>20</factor>
 						<center>
 							<x-m>7.12347</x-m>
 								<y-m>1.9012</y-m>
@@ -531,8 +540,9 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>left-elevator</object-name>
-					<property>fdm/jsbsim/fcs/left-stabilator-pos-deg2</property>
-						<factor>1</factor>
+<!--					<property>fdm/jsbsim/fcs/left-stabilator-pos-deg2</property> -->
+	<property>controls/flight/elevator</property>
+						<factor>20</factor>
 							<center>
 								<x-m>7.12347</x-m>
 								<y-m>-1.9012</y-m>
@@ -662,7 +672,7 @@ FR
 					<x2-m>-0.119165</x2-m>
 				<y2-m>-2.19631</y2-m>
 			<z2-m>-0.589751</z2-m>
-		</axis>>
+		</axis>
 	</animation>-->
 	
 <!-- Nozzle vector animations -->
@@ -1176,7 +1186,7 @@ FR
 <!-- Lights -->
 	
 
-	<!-- <model>
+	 <model>
 		<path>Aircraft/F-22/Models/Lights/RedLight.xml</path>
 		<offsets>
 			<x-m>4.2</x-m>
@@ -1211,7 +1221,7 @@ FR
 			<y-m>6.2</y-m>
 			<z-m>-0.8</z-m>
 		</offsets>
-	</model> -->
+	</model> 
 	
 	<model>
    
