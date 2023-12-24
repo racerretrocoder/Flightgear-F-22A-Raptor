@@ -1,3 +1,5 @@
+#Development only do NOT install, thx
+#
 # F-22 Raptor for FlightGear
 To install it rename the aircraft folder to F-22
 
