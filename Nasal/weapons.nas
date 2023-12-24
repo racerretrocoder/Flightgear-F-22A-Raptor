@@ -113,7 +113,7 @@ var Impact = func() {
         #    setprop("/sim/messages/atc", phrase);
         #}
         #splashdt = time;
-        var phrase = "GSh-30" ~ " hit: " ~ splashOn ~ ": " ~ numberOfSplash ~ " hits";
+        var phrase = "M161A" ~ " hit: " ~ splashOn ~ ": " ~ numberOfSplash ~ " hits";
         if (getprop("/payload/armament/msg")) {
             #armament.defeatSpamFilter(phrase);
             var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells["M61A1 shell"][0]+1));
