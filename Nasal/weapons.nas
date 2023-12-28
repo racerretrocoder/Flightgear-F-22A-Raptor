@@ -113,7 +113,7 @@ var Impact = func() {
         #    setprop("/sim/messages/atc", phrase);
         #}
         #splashdt = time;
-        var phrase = "GSh-30" ~ " hit: " ~ splashOn ~ ": " ~ numberOfSplash ~ " hits";
+        var phrase = "M61A1 shell" ~ " hit: " ~ splashOn ~ ": " ~ numberOfSplash ~ " hits";
         if (getprop("/payload/armament/msg")) {
             #armament.defeatSpamFilter(phrase);
             var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells["M61A1 shell"][0]+1));
@@ -190,13 +190,13 @@ var findmultiplayer = func(targetCoord) {
             }
         }
     }
-    #print("Splash on : Callsign:"~SelectedMP);
+    print("Splash on : Callsign:"~SelectedMP);
     return SelectedMP;
 }
 setlistener("ai/models/model-impact",Impact,0,0);
 
 var stickreporter = func(){
-    if(getprop("/controls/armament/stick-selector") == 1)screen.log.write("Selected GSh-30 Cannon.",1,0.4,0.4);
+    if(getprop("/controls/armament/stick-selector") == 1)screen.log.write("Selected M61A1 Vulcon.",1,0.4,0.4);
     else{screen.log.write("Selected missiles.",1,0.4,0.4);}
 }
 setlistener("/controls/armament/stick-selector",stickreporter);
