@@ -23,7 +23,30 @@
 		<flight-model>jsb</flight-model>
 		
 		<aero>f22-jsbsim</aero>
-		
+	
+	<previews>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/F-22-1.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/F-22-2.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/F-22-3.png</path>
+            </preview>
+    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/F-22-4.png</path>
+            </preview>
+  </previews>
+
 		<fuel-fraction>1</fuel-fraction>
 		
 		<startup>
