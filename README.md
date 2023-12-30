@@ -1,28 +1,44 @@
 # F-22 Raptor for FlightGear
-To install it rename the aircraft folder to F-22
+To install it, download the zip, open the zip and rename the aircraft folder to F-22 (notice the Capital F)
+Then copy that to C:\Program Files\FlightGear 2020.3\data\Aircraft Or the directory your installed aircrafts are
 
-Based primarily upon F-22 from FGUK Hangar.
+Missiles are in! see the aircraft help in game to learn how to use them!
+
+Based primarily upon the raptor from the FGUK Hangar.
 
 # Edited by:
- Phoenix and Anonymist
+ Phoenix, Anonymist, and Developer0607
 
- FDM: Phoenix---------
-                    MFD icons and re-designs and AMAZING 🎉 💯 textures:  Anonymist-----------
- Support: Both
+ FDM: Phoenix-----------
+ MFD icons and textures re-designs:  Anonymist-----------
+ Missile implentation: Phoenix and Ghost-----------
+ Support: all of them                  
 
 Under early development, external contributions welcome :).
 but we seem to be chuging along quite quickly! Yay!
 
 # License: 
-just ask as to use stuff if you want. (especially for the cockpit because its ny best seat)
+Share ware, take it but include the Creators callsign or username in it some where
 
-This Aircraft and all of its components and code are available under the GPL v3 License.
+       @@@@@@@@@@@                                                           @@@@@@@@                                                                                
+       @@@@@@@@@@@@@@@                                                       @@@@@@@@@@@@                                                                          
+       @@@@@@@@@@@@@@@@@                                                     @@@@@@@@@@@@@@@                                                                       
+      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@            
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   
+      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         
+       @@@@@@@@@@@@@@@@@                                                     @@@@@@@@@@@@@@@                                                                    
+       @@@@@@@@@@@@@@@                                                       @@@@@@@@@@@@                                                                          
+       @@@@@@@@@@@                                                           @@@@@@@@                                                       
 
-# Credits:
-If you have contributed to this in any major way, feel free to add yourself!
-----------------------------------------------------------------------------
-Main Development: Pheonix (racerretrocoder) "Michael"
-
-Materials / UI / Amazing Splash Photos: Anonymist (Monotone Development)
-
-Have fun Foxing at Weather Ballons! and admiring those cute thrust vectors!
+       
+__/\\\\\\\\\\\\\\\___________________________________________/\\\\\\\\\\______/\\\____        
+ _\/\\\///////////__________________________________________/\\\///////\\\___/\\\\\\\__       
+  _\/\\\____________________________________________________\///______/\\\___/\\\\\\\\\_      
+   _\/\\\\\\\\\\\_________/\\\\\_____/\\\____/\\\___________________/\\\//___\//\\\\\\\__     
+    _\/\\\///////________/\\\///\\\__\///\\\/\\\/___________________\////\\\___\//\\\\\___    
+     _\/\\\______________/\\\__\//\\\___\///\\\/________________________\//\\\___\//\\\____   
+      _\/\\\_____________\//\\\__/\\\_____/\\\/\\\______________/\\\______/\\\_____\///_____  
+       _\/\\\______________\///\\\\\/____/\\\/\///\\\___________\///\\\\\\\\\/_______/\\\____ 
+        _\///_________________\/////_____\///____\///______________\/////////________\///_____
