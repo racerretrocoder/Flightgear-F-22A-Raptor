@@ -762,7 +762,7 @@ var Target = {
         obj.name            = c.getNode("name");
         obj.validTree       = 0;
         obj.valid           = c.getNode("valid");
-
+        obj.model_is        = c.getNode("type");
         obj.unique          = obj.Callsign.getValue()~c.getPath();# should be very very very unique
 
         obj.engineTree      = c.getNode("engines");
