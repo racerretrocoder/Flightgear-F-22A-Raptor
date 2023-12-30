@@ -164,7 +164,7 @@ var mainloop = func() {
         thread.lock(mutexWrite);
         if (find_in_array(seen_ids, cx.tacobj.tacviewID) == -1) {
             append(seen_ids, cx.tacobj.tacviewID);
-            var model_is = cx.model.getValue();
+            var model_is = cx.model_is.getValue();
             if (model_is=="Mig-28") {
                 model_is = tacview_ac_type;
                 color=",Color=Red";
