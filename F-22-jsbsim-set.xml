@@ -114,6 +114,19 @@
 						<script>aircraft.livery.dialog.toggle()</script>
 					</binding>
 				</item>
+<item>
+			<label>Toggle Damage</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if(getprop("/gear/gear/compression-ft") > 0.01){
+						if(getprop("/payload/armament/msg")){screen.log.write("Damage OFF",1,0,0);setprop("/payload/armament/msg",0);}else{screen.log.write("Damage ON",1,0,0);setprop("/payload/armament/msg",1);}
+					}else{
+						screen.log.write("Damage can be toggled only when on the ground!",1,0,0);
+					}
+				</script>
+			</binding>
+		</item>
 	<item>
 			<label>Pylons loads</label>
 			<binding>
