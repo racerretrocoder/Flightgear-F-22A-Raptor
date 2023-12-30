@@ -1,8 +1,8 @@
 print("LOADING ext_stores.nas .");
 ################################################################################
 #
-#                      Su-27SK EXTERNAL STORES MANAGER
-#						Thanks to the m2005-5's developpers
+#                      F-22 EXTERNAL STORES MANAGER
+#	Amazing Thanks to Ghost!	Thanks to the m2005-5's developpers
 ################################################################################
 
 # check then drop
