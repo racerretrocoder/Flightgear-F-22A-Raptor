@@ -1,16 +1,16 @@
 print("LOADING missile.nas .");
 ################################################################################
 #
-#             Customized MISSILE MANAGER for the Su-27SK
-#
+#             Customized MISSILE MANAGER for the F-22
+# 	Amazing Thanks to Ghost!
 ################################################################################
 
-var AcModel        = props.globals.getNode("sim/model/su-27SK", 1);
+var AcModel        = props.globals.getNode("sim/model/F-22", 1);
 var OurHdg         = props.globals.getNode("orientation/heading-deg");
 var OurRoll        = props.globals.getNode("orientation/roll-deg");
 var OurPitch       = props.globals.getNode("orientation/pitch-deg");
 var MPMessaging    = props.globals.getNode("/payload/armament/msg", 1);
-MPMessaging.setBoolValue(0);
+MPMessaging.setBoolValue(0); # this thing here set the Damage to off!
 
 var g_fps        = 9.80665 * M2FT;
 var slugs_to_lbs = 32.1740485564;

@@ -29,8 +29,12 @@
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
+
+<!--
+ wip this is the su-27 hud
 	 <model>
-    <path>Aircraft/F-22/Models/Interior/Instruments/hud/hud.xml</path>
+
+  <path>Aircraft/F-22/Models/Interior/Instruments/hud/hud.xml</path>
 	<offsets>
       <x-m> -4.223 </x-m>
       <y-m>0.01 </y-m>
@@ -38,6 +42,8 @@
 	  <pitch-deg>0</pitch-deg>
     </offsets>
   </model>
+
+-->
 	<!-- Small screens -->
 	
 	<!-- left -->
