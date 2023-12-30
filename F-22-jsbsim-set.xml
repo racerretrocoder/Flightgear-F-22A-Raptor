@@ -1935,10 +1935,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  <livery>
 <file>Aircraft/F-22/Nasal/liveries.nas</file>
 </livery>
-		<f22>			<file>Aircraft/F-22/Nasal/f22.nas</file>
-			<file>Aircraft/F-22/Nasal/light.nas</file>
-			<file>Aircraft/F-22/Nasal/doors.nas</file>
-		</f22>
+		
 		<baydoors>
  			<file>Aircraft/F-22/Nasal/baydoors.nas</file>
  		</baydoors>
@@ -2011,6 +2008,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  <tacview>
             <file>Aircraft/F-22/Nasal/tacview.nas</file>
         </tacview>
+		<f22>			<file>Aircraft/F-22/Nasal/f22.nas</file>
+			<file>Aircraft/F-22/Nasal/light.nas</file>
+			<file>Aircraft/F-22/Nasal/doors.nas</file>
+		</f22>
 	</nasal>
 
 </PropertyList>
