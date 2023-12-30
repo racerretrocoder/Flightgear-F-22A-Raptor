@@ -747,6 +747,7 @@ var Radar = {
 
 var Target = {
     new: func(c){
+        if(c==nil)return nil;
         var obj             = { parents : [Target]};
         obj.RdrProp         = c.getNode("radar");
         obj.Heading         = c.getNode("orientation/true-heading-deg");
@@ -754,12 +755,16 @@ var Target = {
         obj.lat             = c.getNode("position/latitude-deg");
         obj.lon             = c.getNode("position/longitude-deg");
         obj.pitch           = c.getNode("orientation/pitch-deg");
+        obj.roll            = c.getNode("orientation/roll-deg");
         obj.Speed           = c.getNode("velocities/true-airspeed-kt");
         obj.VSpeed          = c.getNode("velocities/vertical-speed-fps");
         obj.Callsign        = c.getNode("callsign");
         obj.name            = c.getNode("name");
         obj.validTree       = 0;
-        
+        obj.valid           = c.getNode("valid");
+
+        obj.unique          = obj.Callsign.getValue()~c.getPath();# should be very very very unique
+
         obj.engineTree      = c.getNode("engines");
         
         obj.AcType          = c.getNode("sim/model/ac-type");
@@ -836,7 +841,9 @@ var Target = {
 	      me.Xshift					= me.TgtsFiles.getNode("x-shift", 1);
 	      me.Yshift					= me.TgtsFiles.getNode("y-shift", 1);
 	      me.rotation				= me.TgtsFiles.getNode("rotation", 1);
-        
+        obj.tacobj = {parents: [tacview.tacobj]};
+        obj.tacobj.tacviewID = left(md5(obj.unique),5);
+        obj.tacobj.valid = 1;
         #if(getprop(me.InstrString ~ "/" ~ me.shortstring ~ "/closure-last-time") == nil)
         #{
             me.TimeLast.setDoubleValue(ElapsedSec.getValue());
