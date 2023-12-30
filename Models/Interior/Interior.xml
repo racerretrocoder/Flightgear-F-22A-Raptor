@@ -29,7 +29,15 @@
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
-	
+	 <model>
+    <path>Aircraft/F-22/Models/Interior/Instruments/hud/hud.xml</path>
+	<offsets>
+      <x-m> -4.223 </x-m>
+      <y-m>0.01 </y-m>
+      <z-m>1.185 </z-m>
+	  <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
 	<!-- Small screens -->
 	
 	<!-- left -->
@@ -45,7 +53,7 @@
 	
 	<!-- right -->
 	<model>
-		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/right.xml</path>
+		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/radar.xml</path>
 			<offsets>
 				<x-m>-1.0</x-m>
 					<y-m>0</y-m>
