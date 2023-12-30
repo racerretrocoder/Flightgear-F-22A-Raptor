@@ -26,20 +26,21 @@ var Loading_missile = func(name)
     var fox               = "nothing";
     var rail              = "true";
     var cruisealt         = 0;
+    var guidance	  = 0;
     
     
     if(name == "Aim-120")
     {
         # AIM-120 :Long Range Missile,        #https://en.wikipedia.org/wiki/R-27_(air-to-air_missile)
-        address = "Aircraft/F-22/Models/Stores/Missiles/R-27R/R-27R-smoke.xml";
-        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/R-27R/R-27R.xml";
+        address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R-smoke.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         maxdetectionrngnm = 38.8;                      #  
         fovdeg = 110;                                 #
         detectionfovdeg = 180;                       # 
         trackmaxdeg = 110;                           # 
         maxg = 30;                                   # 
-        thrustlbs = 700;                             # 
+        thrustlbs = 500;                             # 
         thrustdurationsec = 200;                      # 
         weightlaunchlbs = 291;
         weightwarheadlbs = 44;
@@ -49,7 +50,7 @@ var Loading_missile = func(name)
         maxspeed = 8.5;                              # In Mach
         life = 1200;
         fox = "Fox 3";
-        rail = "true";
+        rail = "false";
         cruisealt = 0;
     }
     elsif(name == "Aim-9x")

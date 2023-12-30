@@ -15,9 +15,9 @@
 ### Parameters to adjust (example values from the F-16)
 
 # Aircraft type string for tacview
-var tacview_ac_type = getprop("sim/variant-id") < 3 ? "F-16A" : "F-16C";
+var tacview_ac_type = "F-22";
 # Aircraft type as inserted in the output file name
-var filename_ac_type = "f16";
+var filename_ac_type = "F-22";
 
 # Function returning an array of "contact" objects, containing all aicrafts tacview is to show.
 # A contact object must
@@ -27,17 +27,17 @@ var filename_ac_type = "f16";
 #   and have the 'tacviewID' and 'valid' fields set appropriately.
 #
 var get_contacts_list = func {
-    return radar_system.getCompleteList();
+    return radar.tgts_list;
 }
 
 # Function returning the focused/locked aircraft, as a "contact" object (or nil).
 var get_primary_contact = func {
-    return radar_system.apg68Radar.getPriorityTarget();
+    if(size(radar.tgts_list)>radar.Target_Index)return radar.tgts_list[radar.Target_Index];
 }
 
 # Radar range. May return nil if n/a
 var get_radar_range_nm = func {
-    return radar_system.apg68Radar.getRange();
+    return f22.myRadar.rangeTab[f22.myRadar.rangeIndex];
 }
 
 ### End of parameters
@@ -151,10 +151,10 @@ var mainloop = func() {
     writeMyPlanePos();
     writeMyPlaneAttributes();
     foreach (var cx; get_contacts_list()) {
-        if(cx.get_type() == armament.ORDNANCE) {
-            continue;
-        }
-        if (cx["prop"] != nil and cx.prop.getName() == "multiplayer" and input.mp_host.getValue() == "mpserver.opredflag.com") {
+        #if(cx.get_type() == armament.ORDNANCE) {
+        #    continue;
+        #}
+        if (cx.type == "multiplayer" and input.mp_host.getValue() == "mpserver.opredflag.com") {   #What is the purpose of this
             continue;
         }
         var color = ",Color=Blue";
@@ -164,22 +164,22 @@ var mainloop = func() {
         thread.lock(mutexWrite);
         if (find_in_array(seen_ids, cx.tacobj.tacviewID) == -1) {
             append(seen_ids, cx.tacobj.tacviewID);
-            var model_is = cx.getModel();
+            var model_is = cx.model_is.getValue();
             if (model_is=="Mig-28") {
                 model_is = tacview_ac_type;
                 color=",Color=Red";
             }
             write(cx.tacobj.tacviewID ~ ",Name="~ model_is~ ",CallSign=" ~ cx.get_Callsign() ~color~"\n")
         }
-        if (cx.tacobj.valid) {
+        if (cx.valid) {
             var cxC = cx.getCoord();
             lon = cxC.lon();
             lat = cxC.lat();
             alt = cxC.alt();
-            roll = cx.get_Roll();
-            pitch = cx.get_Pitch();
-            heading = cx.get_heading();
-            speed = cx.get_Speed()*KT2MPS;
+            roll = cx.roll.getValue();
+            pitch = cx.pitch.getValue();
+            heading = cx.Heading.getValue();
+            speed = cx.Speed.getValue()*KT2MPS;
 
             write(cx.tacobj.tacviewID ~ ",T=");
             if (lon != cx.tacobj.lon) {

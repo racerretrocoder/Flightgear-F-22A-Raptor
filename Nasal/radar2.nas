@@ -1,8 +1,8 @@
 #print("LOADING radar2.nas .");
 ################################################################################
 #
-#           Customized version of radar2 for the Su-27SK
-#
+#           Customized version of radar2 for the F-22
+#  Thx to Ghost :D
 ################################################################################
 
 # Radar

@@ -24,7 +24,53 @@
 
 
 	<path>F-22.ac</path>
-
+  <!-- Impact explosion -->
+  <!--><model>
+  <path>Aircraft/SU-27SK/Models/Effects/Explosion/Explode.xml</path>
+  <condition>
+    <property>sim/multiplay/generic/int[1]</property>
+  </condition>
+  <offsets>
+    <x-m>12</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
+    <heading-deg>0</heading-deg>
+    </offsets>
+  </model><-->
+  
+  <!-- Impact fire -->
+  <model>
+  <path>Aircraft/F-22/Models/Effects/DamageSmoke/explosion.xml</path>
+  <condition>
+    <equals>
+      <property>sim/multiplay/generic/bool[1]</property>
+      <value>1</value>
+    </equals>
+  </condition>
+  <offsets>
+    <x-m>12</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
+    <heading-deg>0</heading-deg>
+    </offsets>
+  </model>
+  
+  <!-- Impact fire smoke -->
+  <model>
+  <path>Aircraft/F-22/Models/Effects/Explosion/ImpactFireSmoke.xml</path>
+  <condition>
+    <equals>
+      <property>sim/multiplay/generic/int[7]</property>
+      <value>1</value>
+    </equals>
+  </condition>
+  <offsets>
+    <x-m>12</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
+    <heading-deg>0</heading-deg>
+    </offsets>
+  </model>
 
 <animation>
   <type>material</type>
