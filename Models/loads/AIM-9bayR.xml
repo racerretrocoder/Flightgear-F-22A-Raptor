@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>AIM-9.ac</path>
+	
+	
+<animation>
+<type>select</type>
+<object-name>AIM-9</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[6]/selected</property>
+<value>Aim-9x</value>
+</equals>
+<equals>
+<property>controls/armament/station[6]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+	
+</PropertyList>
