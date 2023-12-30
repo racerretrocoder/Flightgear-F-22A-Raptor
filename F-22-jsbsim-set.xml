@@ -5,6 +5,7 @@
 	<sim>
 
 		<description>F-22A (JSBSim FDM)</description>
+<variant-id type="int">1</variant-id>
         <long-description>
             The Lockheed Martin F-22A "Raptor" is a fifth-generation tactical fighter manufactured by Lockheed Martin and Boeing. It combines supersonic cruise, low-observability, and sensor fusion. The definitive production Block 30/35 model features the AN/APG-77v1 AESA radar and F119-PW-100 engines. The F-22A, the only production F-22 variant, became operational in 2005 and is operated exclusively by the United States Air Force.
         </long-description>
@@ -113,6 +114,22 @@
 						<script>aircraft.livery.dialog.toggle()</script>
 					</binding>
 				</item>
+	<item>
+			<label>Pylons loads</label>
+			<binding>
+				<command>nasal</command>
+				 <script>CanvasPylonsDlg.showPylonsDlg()</script>
+			</binding>
+		</item>
+   <item>
+                        <label>Tacview Options</label>
+                        <enabled type="bool">true</enabled>
+                        <name>tacview</name>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>tacview</dialog-name>
+                        </binding>
+                    </item>
 <item>
         <label>Event Log</label>
         <binding>
@@ -167,7 +184,7 @@
       </key>
       <key>
         <name>R</name>
-        <desc>Activate/desactivate targeting the nearest (the target have to be bellow radar range)</desc>
+        <desc>Activate/desactivate targeting the nearest (the target have to be below radar range)</desc>
       </key>
       <key>
         <name>H</name>
@@ -251,6 +268,900 @@
 				<warnings>
 					<master-caution type="bool">0</master-caution>
 				</warnings>
+
+<!-- Radar Visibility Calculator Datas -->
+
+<!-- Jettoo (glazmax) and xiii (Alexis Bory) -->
+
+<!-- Aircraft name, RCS(m2), 4th root of RCS, radar type, max. radar range(km),
+max. radar range target seize(RCS)m2, 4th root of radar RCS -->
+
+		<radar-performance>
+			<data>
+				<aircraft n="0">
+					<name>generic</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="1">
+					<name>707</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="2">
+					<name>737-300</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>2.11</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="3">
+					<name>747</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="4">
+					<name>787</name>
+					<rcs-sq-meter>35</rcs-sq-meter>
+					<rcs-4th-root>1.86</rcs-4th-root>
+					<radar-type>WXR-2100</radar-type>
+					<max-radar-rng-km>160</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="5">
+					<name>A24-Viking</name>
+					<rcs-sq-meter>2</rcs-sq-meter>
+					<rcs-4th-root>1.19</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="6">
+					<name>A-10</name>
+					<rcs-sq-meter>25</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="7">
+					<name>A300</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="8">
+					<name>A320</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="9">
+					<name>A380</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.11</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="10">
+					<name>a4</name>
+					<rcs-sq-meter>10</rcs-sq-meter>	
+					<rcs-4th-root>1.77</rcs-4th-root>
+					<radar-type>APG-53</radar-type>
+					<max-radar-rng-km>15</max-radar-rng-km>
+					<max-target-sq-meter>5</max-target-sq-meter>
+					<max-target-4th-root>1.49</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="11">
+					<name>A-6E</name>
+					<rcs-sq-meter>14</rcs-sq-meter>
+					<rcs-4th-root>1.93</rcs-4th-root>
+					<radar-type>APQ-112</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>06</ecm-type-num>
+				</aircraft>
+				<aircraft n="12">
+					<name>A6M2</name>
+					<rcs-sq-meter>15</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="13">
+					<name>Albatross</name>
+					<rcs-sq-meter>40</rcs-sq-meter>
+					<rcs-4th-root>2.51</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="14">
+					<name>Aerostar-700</name>
+					<rcs-sq-meter>10</rcs-sq-meter>
+					<rcs-4th-root>1.86</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="15">
+					<name>Alouette-II</name>
+					<rcs-sq-meter>15</rcs-sq-meter>
+					<rcs-4th-root>2.51</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="16">
+					<name>Alouette-III</name>
+					<rcs-sq-meter>20</rcs-sq-meter>
+					<rcs-4th-root>2.11</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="17">
+					<name>Alphajet</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="18">
+					<name>an-2</name>
+					<rcs-sq-meter>2</rcs-sq-meter>
+					<rcs-4th-root>1.19</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="19">
+					<name>AN-225</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.59</rcs-4th-root>
+					<radar-type>unknown</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="20">
+					<name>apache</name>
+					<rcs-sq-meter>30</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>APG-78</radar-type>
+					<max-radar-rng-km>8</max-radar-rng-km>
+					<max-target-sq-meter>1</max-target-sq-meter>
+					<max-target-4th-root>1</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="21">
+					<name>ASK21</name>
+					<rcs-sq-meter>	1</rcs-sq-meter>
+					<rcs-4th-root>1</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="22">
+					<name>b1900d</name>
+					<rcs-sq-meter>20</rcs-sq-meter>
+					<rcs-4th-root>2.11</rcs-4th-root>
+					<radar-type>wx500</radar-type>
+					<max-radar-rng-km>60</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="23">
+					<name>B-1B</name>
+					<rcs-sq-meter>4</rcs-sq-meter>
+					<rcs-4th-root>1.41</rcs-4th-root>
+					<radar-type>APQ-164</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>01</ecm-type-num>
+				</aircraft>
+				<aircraft n="24">
+					<name>B-2</name>
+					<rcs-sq-meter>0.0015</rcs-sq-meter>
+					<rcs-4th-root>0.19</rcs-4th-root>
+					<radar-type>APQ-181</radar-type>
+					<max-radar-rng-km>333</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>02</ecm-type-num>
+				</aircraft>
+				<aircraft n="25">
+					<name>b29</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>3.16</rcs-4th-root>
+					<radar-type>APQ-19</radar-type>
+					<max-radar-rng-km>45</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="26">
+					<name>B-52F</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>3.16</rcs-4th-root>
+					<radar-type>APQ-166</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="27">
+					<name>BAC-TSR2</name>
+					<rcs-sq-meter>15</rcs-sq-meter>
+					<rcs-4th-root>1.86</rcs-4th-root>
+					<radar-type>Blue Parrot</radar-type>
+					<max-radar-rng-km>46</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="28">
+					<name>beaufighter</name>
+					<rcs-sq-meter>9</rcs-sq-meter>
+					<rcs-4th-root>1.73</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="29">
+					<name>bf109</name>
+					<rcs-sq-meter>15</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="30">
+					<name>Buccaneer</name>
+					<rcs-sq-meter>10</rcs-sq-meter>
+					<rcs-4th-root>1.77</rcs-4th-root>
+					<radar-type>Blue Parrot</radar-type>
+					<max-radar-rng-km>46</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="31">
+					<name>c310</name>
+					<rcs-sq-meter>4</rcs-sq-meter>
+					<rcs-4th-root>1.41</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="32">
+					<name>c172</name>
+					<rcs-sq-meter>2</rcs-sq-meter>
+					<rcs-4th-root>1.19</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="33">
+					<name>Citation</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="34">
+					<name>E3B</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>APY-1/2</radar-type>
+					<max-radar-rng-km>650</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>03</ecm-type-num>
+				</aircraft>
+				<aircraft n="35">
+					<name>F-86</name>
+					<rcs-sq-meter>9</rcs-sq-meter>
+					<rcs-4th-root>1.73</rcs-4th-root>
+					<radar-type>APG-37</radar-type>
+					<max-radar-rng-km>50</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="36">
+					<name>f104</name>
+					<rcs-sq-meter>9</rcs-sq-meter>
+					<rcs-4th-root>1.73</rcs-4th-root>
+					<radar-type>ASG-14</radar-type>
+					<max-radar-rng-km>60</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="37">
+					<name>f-14b</name>
+					<rcs-sq-meter>25</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>AWG-9</radar-type>
+					<max-radar-rng-km>333</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>14</ecm-type-num>
+				</aircraft>
+				<aircraft n="38">
+					<name>f-14d</name>
+					<rcs-sq-meter>25</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>APG-71</radar-type>
+					<max-radar-rng-km>380</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>14</ecm-type-num>
+				</aircraft>
+				<aircraft n="39">
+					<name>f-15</name>
+					<rcs-sq-meter>30</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>APG-70</radar-type>
+					<max-radar-rng-km>235</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>15</ecm-type-num>
+				</aircraft>
+				<aircraft n="40">
+					<name>f16</name>
+					<rcs-sq-meter>1.5</rcs-sq-meter>
+					<rcs-4th-root>1.11</rcs-4th-root>
+					<radar-type>APG-68</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>16</ecm-type-num>
+				</aircraft>
+				<aircraft n="41">
+					<name>f18</name>
+					<rcs-sq-meter>1.0</rcs-sq-meter>
+					<rcs-4th-root>1.00</rcs-4th-root>
+					<radar-type>APG-73</radar-type>
+					<max-radar-rng-km>326</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>18</ecm-type-num>
+				</aircraft>
+				<aircraft n="42">
+					<name>f22</name>
+					<rcs-sq-meter>0.0010</rcs-sq-meter>
+					<rcs-4th-root>0.17</rcs-4th-root>
+					<radar-type>APG-77</radar-type>
+					<max-radar-rng-km>410</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>22</ecm-type-num>
+				</aircraft>
+				<aircraft n="43">
+					<name>f35</name>
+					<rcs-sq-meter>0.0025</rcs-sq-meter>
+					<rcs-4th-root>0.22</rcs-4th-root>
+					<radar-type>APG-81</radar-type>
+					<max-radar-rng-km>350</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>23</ecm-type-num>
+				</aircraft>
+				<aircraft n="44">
+					<name>f117</name>
+					<rcs-sq-meter>0.015</rcs-sq-meter>
+					<rcs-4th-root>0.35</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="45">
+					<name>Fokker-50</name>
+					<rcs-sq-meter>40</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="46">
+					<name>harrier</name>
+					<rcs-sq-meter>15</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>APG-65</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>07</ecm-type-num>
+				</aircraft>
+				<aircraft n="47">
+					<name>hunter</name>
+					<rcs-sq-meter>8</rcs-sq-meter>
+					<rcs-4th-root>2</rcs-4th-root>
+					<radar-type>Akco</radar-type>
+					<max-radar-rng-km>10</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>08</ecm-type-num>
+				</aircraft>
+				<aircraft n="48">
+					<name>j22</name>
+					<rcs-sq-meter>9</rcs-sq-meter>
+					<rcs-4th-root>1.79</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="49">
+					<name>KC135</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.43</rcs-4th-root>
+					<radar-type>APN-218</radar-type>
+					<max-radar-rng-km>160</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>13</ecm-type-num>
+				</aircraft>
+				<aircraft n="50">
+					<name>Lightning</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>AI-23</radar-type>
+					<max-radar-rng-km>111</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="51">
+					<name>SR71-Blackbird</name>
+					<rcs-sq-meter>0.015</rcs-sq-meter>
+					<rcs-4th-root>0.35</rcs-4th-root>
+					<radar-type>APQ-108</radar-type>
+					<max-radar-rng-km>200</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!-- range classified -->
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="52">
+					<name>MiG-21</name>
+					<rcs-sq-meter>4</rcs-sq-meter>
+					<rcs-4th-root>1.41</rcs-4th-root>
+					<radar-type>RP-21</radar-type>
+					<max-radar-rng-km>18</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="53">
+					<name>Mig-29</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>Sapfir</radar-type>
+					<max-radar-rng-km>115</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>29</ecm-type-num>
+				</aircraft>
+				<aircraft n="54">
+					<name>mirage2000</name>
+					<rcs-sq-meter>2</rcs-sq-meter>
+					<rcs-4th-root>1.19</rcs-4th-root>
+					<radar-type>RDY</radar-type>
+					<max-radar-rng-km>220</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>09</ecm-type-num>
+				</aircraft>
+				<aircraft n="55">
+					<name>MPCarrier</name>
+					<rcs-sq-meter>160000</rcs-sq-meter>
+					<rcs-4th-root>20</rcs-4th-root>
+					<radar-type>SPS-49</radar-type>
+					<max-radar-rng-km>525</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>01</ecm-type-num>
+				</aircraft>
+				<aircraft n="56">
+					<name>Tornado</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>Foxhunter</radar-type>
+					<max-radar-rng-km>210</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="57">
+					<name>Mirage-IIIC</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>Cyrano-2</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>09</ecm-type-num>
+				</aircraft>
+				<aircraft n="58">
+					<name>F-4D</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>APQ-72</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>04</ecm-type-num>
+				</aircraft>
+				<aircraft n="59">
+					<name>A-7E</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>APQ-126</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>07</ecm-type-num>
+				</aircraft>
+				<aircraft n="60">
+					<name>F-8E</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>unknown</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>07</ecm-type-num>
+				</aircraft>
+				<aircraft n="61">
+					<name>F-105</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>NASARR R-14A</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>04</ecm-type-num>
+				</aircraft>
+				<aircraft n="62">
+					<name>T-38</name>
+					<rcs-sq-meter>1.5</rcs-sq-meter>
+					<rcs-4th-root>1.11</rcs-4th-root>
+					<radar-type>APG-68</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>16</ecm-type-num>
+				</aircraft>
+				<aircraft n="63">
+					<name>Mirage_F1</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>Cyrano-4-MR</radar-type><!-- non-doppler -->
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>09</ecm-type-num>
+				</aircraft>
+				<aircraft n="64"><!-- -->
+					<name>typhoon</name>
+					<rcs-sq-meter>0.5</rcs-sq-meter>
+					<rcs-4th-root>0.84</rcs-4th-root>
+					<radar-type>ecr-90</radar-type>
+					<max-radar-rng-km>400</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>16</ecm-type-num>
+				</aircraft>
+				<aircraft n="65"><!--values copied from f16-->
+					<name>hawk</name>
+					<name>T-45</name>
+					<rcs-sq-meter>1.5</rcs-sq-meter>
+					<rcs-4th-root>1.11</rcs-4th-root>
+					<radar-type>APG-68</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>16</ecm-type-num>
+				</aircraft>
+				<aircraft n="66">
+					<name>717</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="67">
+					<name>733</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="68">
+					<name>737</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="69">
+					<name>738</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="70">
+					<name>747-400</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="71">
+					<name>757</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="72">
+					<name>767</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="73">
+					<name>777</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="74">
+					<name>A310</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="75">
+					<name>A319</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="76">
+					<name>A321</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="77">
+					<name>A330-MRTT</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="78">
+					<name>A332</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="79">
+					<name>A333</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="80">
+					<name>A342</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="81">
+					<name>A343</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="82">
+					<name>A345</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="83">
+					<name>A346</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="84">
+					<name>CRJ-200</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="85">
+					<name>MD80</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="86">
+					<name>MD90</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="87">
+					<name>eurofighter</name>
+					<rcs-sq-meter>25</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+			</data>
+		</radar-performance>
+
 		</instrumentation>
 
 		<rendering>
@@ -329,6 +1240,181 @@
 				<target-z-offset-m archive="y" type="double">0.0</target-z-offset-m>
 			</config>
 		</view>
+
+    <weight n="0">
+      <name>pylon1</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> 11.55 </x-m>
+          <y-m type="double"> 0.0 </y-m>
+          <z-m type="double"> -0.404 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="1">
+      <name>pylon2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> 16.00 </x-m>
+          <y-m type="double"> 0.0 </y-m>
+          <z-m type="double"> -0.404 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="2">
+      <name>pylon3</name>
+      <tank>2</tank>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> 14.000 </x-m>
+          <y-m type="double"> -4.836 </y-m>
+          <z-m type="double"> -0.24 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="3">
+      <name>pylon4</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> 14.000 </x-m>
+          <y-m type="double"> 4.836 </y-m>
+          <z-m type="double"> -0.24 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="4">
+      <name>pylon5</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> 14.800 </x-m>
+          <y-m type="double"> -6.490 </y-m>
+          <z-m type="double"> -0.02 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="5">
+      <name>pylon6</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> 14.800 </x-m>
+          <y-m type="double"> 6.490 </y-m>
+          <z-m type="double"> -0.02 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="6">
+      <name>pylon7</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> 15.400 </x-m>
+          <y-m type="double"> -7.570 </y-m>
+          <z-m type="double"> 0.156  </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>             <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>             <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-73</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="7">
+      <name>pylon8</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> 15.400 </x-m>
+          <y-m type="double"> 7.570  </y-m>
+          <z-m type="double"> 0.156  </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-73</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="8">
+      <name>pylon9</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> 13.550 </x-m>
+          <y-m type="double"> -1.235 </y-m>
+          <z-m type="double"> -1.324 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="9">
+      <name>pylon10</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> 13.550 </x-m>
+          <y-m type="double">  1.235 </y-m>
+          <z-m type="double"> -1.324 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+
+    </weight>
+        <tacview-recording type="bool">0</tacview-recording>
 		</sim>
 	<!-- payload options -->
 
@@ -348,163 +1434,7 @@
             <auto_flare_caller type="bool">false</auto_flare_caller>
 		</d-config>
 		<!-- I think this should go here... -->
-		<weight n="0">
-<name>pylon1.L</name>
-<tank>4</tank>
-<weight-lb>0</weight-lb>
-<selected>EMPTY</selected>
-<opt>
-<name>EMPTY</name>
-<lbs>0</lbs>
-</opt> 
-<opt>
-<name>600gal-tank</name>
-<lbs>271.0</lbs>
-<gals>600</gals>
-</opt>
-</weight>
-
-
-<weight n="1">
-<name>pylon2.L</name>
-<weight-lb>0</weight-lb>
-<selected>EMPTY</selected>
-<opt>
-<name>EMPTY</name>
-<lbs>0</lbs>
-</opt> 
-<opt>
-<name>AIM-9 Sidewinder</name>
-<lbs>190.0</lbs>
-</opt>
-</weight>	
-
-<weight n="2">
-<name>pylon3.L</name>
-<weight-lb>0</weight-lb>
-<selected>EMPTY</selected>
-<opt>
-<name>EMPTY</name>
-<lbs>0</lbs>
-</opt> 
-<opt>
-<name>AIM-9 Sidewinder</name>
-<lbs>190.0</lbs>
-</opt>
-</weight>	
-
-
-<weight n="3">
-<name>L-side-bay</name>
-<weight-lb>0</weight-lb>
-<selected>EMPTY</selected>
-<opt>
-<name>EMPTY</name>
-<lbs>0</lbs>
-</opt> 
-<opt>
-<name>AIM-9X</name>
-<lbs>190.0</lbs>
-</opt>
-</weight>
-
-<weight n="4">
-<name>L-lower-bay</name>
-<weight-lb>0</weight-lb>
-<selected>EMPTY</selected>
-<opt>
-<name>EMPTY</name>
-<lbs>0</lbs>
-</opt> 
-<opt>
-<name>AIM-120</name>
-<lbs>1005.0</lbs>
-</opt>
-
-<opt>
-<name>MK-82</name>
-<lbs>835.0</lbs>
-</opt>
-
-</weight>
-
-<weight n="5">
-<name>R-lower-bay</name>
-<weight-lb>0</weight-lb>
-<selected>EMPTY</selected>
-<opt>
-<name>EMPTY</name>
-<lbs>0</lbs>
-</opt> 
-<opt>
-<name>AIM-120</name>
-<lbs>1005.0</lbs>
-</opt>
-
-<opt>
-<name>1x MK-82</name>
-<lbs>835.0</lbs>
-</opt>
-</weight>	
-
-<weight n="6">
-<name>r-side-bay</name>
-<weight-lb>0</weight-lb>
-<selected>EMPTY</selected>
-<opt>
-<name>EMPTY</name>
-<lbs>0</lbs>
-</opt> 
-<opt>
-<name>AIM-9 Sidewinder</name>
-<lbs>190.0</lbs>
-</opt>
-</weight>
-
-<weight n="7">
-<name>pylon3.R</name>
-<weight-lb>0</weight-lb>
-<selected>EMPTY</selected>
-<opt>
-<name>EMPTY</name>
-<lbs>0</lbs>
-</opt> 
-<opt>
-<name>AIM-9 Sidewinder</name>
-<lbs>190.0</lbs>
-</opt>
-</weight>
-
-<weight n="8">
-<name>pylon2.R</name>
-<weight-lb>0</weight-lb>
-<selected>EMPTY</selected>
-<opt>
-<name>EMPTY</name>
-<lbs>0</lbs>
-</opt> 
-<opt>
-<name>AIM-9 Sidewinder</name>
-<lbs>190.0</lbs>
-</opt>
-</weight>	
-
-<weight n="9">
-<name>pylon1.R</name>
-<tank>5</tank>
-<weight-lb>0</weight-lb>
-<selected>EMPTY</selected>
-<opt>
-<name>EMPTY</name>
-<lbs>0</lbs>
-</opt> 
-<opt>
-<name>600gal-tank</name>
-<lbs>271.0</lbs>
-<gals>600</gals>
-</opt>
-</weight>
-
+	
 
 		
 	  <armament>
@@ -518,54 +1448,6 @@
             <msg type="bool">true</msg>
             <spike type="bool">false</spike>
             <models type="string">Aircraft/F-22/Models/emesary/</models>
-
- <aim-120>
-            <type-id type="int">52</type-id>
-            <short-name type="string">A120B</short-name>
-            <long-name type="string">AIM-120B AMRAAM</long-name>
-            <guidance type="string">sample</guidance>
-            <vol-search type="double">0.00</vol-search>
-            <vol-track type="double">1.00</vol-track>
-            <max-fire-range-nm type="int">38.8</max-fire-range-nm>
-            <min-fire-range-nm type="double">0.35</min-fire-range-nm>
-            <FCS-field-deg type="int">110</FCS-field-deg>                      <!-- At least 35 x 2 according to MLU Tape 3 document, but what variant is it? -->
-            <seeker-field-deg type="int">135</seeker-field-deg>
-            <attack-steering-cue-enabled type="bool">true</attack-steering-cue-enabled>
-            <max-g type="int">30</max-g>
-            <thrust-lbf-stage-1 type="double">2700</thrust-lbf-stage-1>                <!-- The python program -->
-            <thrust-lbf-stage-2 type="double">280</thrust-lbf-stage-2>                <!-- The python program -->
-            <stage-1-duration-sec type="double">10.0</stage-1-duration-sec>                <!-- The python program -->
-            <stage-2-duration-sec type="double">18.0</stage-2-duration-sec>                <!-- The python program -->
-            <self-destruct-time-sec type="double">110</self-destruct-time-sec>                <!-- guess -->
-            <weight-launch-lbs>291</weight-launch-lbs>
-            <weight-warhead-lbs>44</weight-warhead-lbs>
-            <weight-fuel-lbm type="double">130</weight-fuel-lbm>
-            <drag-coeff type="double">0.3</drag-coeff>                                  <!-- The python program -->
-            <cross-section-sqft type="double">0.2739</cross-section-sqft>
-            <loft-altitude>0</loft-altitude>
-            <min-speed-for-guiding-mach type="double">0.6</min-speed-for-guiding-mach>
-            <max-report-distance type="double">65</max-report-distance>
-            <arming-time-sec type="double">1.6</arming-time-sec>
-            <rail type="bool">false</rail><!-- wingtips will be set to rail by station-manager -->
-            <rail-length-m type="double">2.6924</rail-length-m><!-- LAU 127 Missile Launcher -->
-            <rail-point-forward type="bool">true</rail-point-forward>
-            <navigation type="string">PN</navigation>
-            <class type="string">A</class>
-            <fire-msg type="string">Fox 3</fire-msg>
-            <telemetry type="bool">true</telemetry>                <!-- enable for aim 120 to see datalink info -->
-            <DLZ type="bool">true</DLZ>
-            <DLZ-optimal-alt-feet type="double">30000</DLZ-optimal-alt-feet>
-            <DLZ-optimal-closing-mach type="double">2.0</DLZ-optimal-closing-mach>
-            <ready-time type="double">1.5</ready-time>
-            <reaquire type="bool">true</reaquire>
-            <guide-before-ignition type="bool">true</guide-before-ignition>
-            <ejector-speed-fps type="double">20</ejector-speed-fps>
-            <drop-time type="double">0.5</drop-time>
-            <lock-on-after-launch type="bool">true</lock-on-after-launch>
-            <auto-switch-target-allowed type="bool">false</auto-switch-target-allowed>
-            <prowl-flight type="string">gyro-pitch</prowl-flight>
-            <switch-time-sec type="double">5</switch-time-sec>
-        </aim-120>
         </armament>
     </payload>
 
@@ -625,11 +1507,8 @@
   
   
 
-	<controls>
-	 <armament>
-<!-- movin stuff! weeee! -->
-    
-    </armament>
+<controls include ="System/controls.xml">
+
 	
 		<lighting>
 			<instruments-norm type="double">0</instruments-norm>
@@ -683,7 +1562,9 @@
 					<script>f22.canopy_switch(2)</script>
 				</binding>
 			</key>
-			
+
+
+			<!--
 			<key n="101">
 				<name>e</name>
 				<desc>Gun</desc> 
@@ -700,8 +1581,50 @@
 					</binding> 
 				</mod-up>
 			</key>
-			
-			 <key n="108">
+			 -->
+<key n="101">
+  <name>e</name>
+  <desc>Fire selected WCS weapon</desc>
+  <binding>
+    <command>nasal</command>
+    <script>guns.fire_MG(1);</script>
+  </binding>
+  <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>guns.stopFiring();</script>
+    </binding>
+  </mod-up>
+ </key>
+
+ <key n="109">
+  <name>m</name>
+  <desc>Cycle selected WCS weapon</desc>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon</property>
+ <value>R-73</value>
+ <value>R-27R</value>
+ <value>R-27T</value>
+ <value>R-27ER</value>
+ <value>R-27ET</value>
+</binding>
+  <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
+ </key> 
+		
+
+<key n="119">
+  <name>w</name>
+  <desc>Cycle Gun/Missile</desc>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/stick-selector</property>
+ <value>1</value>
+ <value>2</value>
+</binding>
+ </key> 	
+
+ <key n="108">
 	 <name>l</name>
      <desc>Trigger flare release</desc>
      <binding>
@@ -717,7 +1640,22 @@
       </binding>
      </mod-up>
     </key>
-	
+	 <key n="114">
+  <name>r</name>
+  <desc>Switch Radar Range</desc>
+  <binding>
+ <command>nasal</command>
+ <script>radar.switch_distance();screen.log.write("Radar Range: " ~ su27.myRadar.rangeTab[radar.rangeIndex] ~ "nm.",1,1,0);</script>
+</binding>
+ </key> 
+<key n="121">
+  <name>y</name>
+  <desc>select target</desc>
+  <binding>
+ <command>nasal</command>
+ <script>radar.next_Target_Index();</script>
+</binding>
+ </key> 
 	<key n="125">
      <name>}</name>
      <desc>Engine Autostart</desc>
@@ -762,7 +1700,7 @@
        <script>hud.switch_distance()</script>
     </binding>
   </key>
-  
+  <!--
    <key n="81">
     <name>q</name>
     <desc>Toggle radar standby mode</desc>
@@ -771,16 +1709,15 @@
       <property>instrumentation/radar/display-rdr</property>
     </binding>
   </key>
-  
-  
-  <key n="110">
-    <name>n</name>
-    <desc>Changes Target</desc>
-    <binding>
-      <command>nasal</command>
-      <script>hud.next_Target_Index()</script>
-    </binding>
-  </key>
+  -->
+<key n="82">
+  <name>R</name>
+  <desc>Toggle Radar On/Off</desc>
+  <binding>
+   <command>property-toggle</command>
+   <property>su-27/instrumentation/N010-radar/emitting</property>
+  </binding>
+ </key>
   
   <key n="14">
     <name>Ctrl-n</name>
@@ -836,24 +1773,111 @@
     </rwr>
 
 		<enav><selected type="int">3</selected></enav>
-		  <radar>
-      <range type="int" archive="y">40</range>
-      <range-factor type="double" archive="n">0.001888</range-factor>
-      <minimized type="bool" archive="y">false</minimized>
-      <selected type="int">3</selected>
+<radar>
+
+  <range type="int" archive="y">40</range>
+  <range-factor type="double" archive="n">0.001888</range-factor>
+  <minimized type="bool" archive="y">false</minimized>
+  <selected type="int">2</selected>
+
       <!-- inicio en pruebas -->
-      <enabled type="bool">true</enabled>
-      <az-field type="double">140</az-field>
-      <range type="double">150</range>
-      <range-selected type="double">40</range-selected>
-      <radar2-range type="double">150</radar2-range>
-      <display-rdr type="bool">true</display-rdr>
-      <radar-standby type="int">0</radar-standby>
-      <mode>
-        <rws type="bool">true</rws>
-        <tws-auto type="bool">false</tws-auto>
-      </mode>
-    </radar> 
+  <enabled type="bool">0</enabled>
+  <az-field type="double">120</az-field>
+  <range type="double">150</range>
+  <range-selected type="double">50</range-selected>
+  <radar2-range type="double">150</radar2-range>
+  <display-rdr type="bool">true</display-rdr>
+  <radar-standby type="int">1</radar-standby>
+<mode>
+  <rws type="bool">true</rws>
+  <tws-auto type="bool">false</tws-auto>
+</mode>
+
+</radar> 
+
+
+  <radar2>
+   <sweep-width-m type="double">0.0844</sweep-width-m>
+   <range-width-m type="double">0.0846</range-width-m>
+   <radius-ppi-display-m type="double">0.0846</radius-ppi-display-m>
+   <hud-eye-dist-m type="double">0.6705</hud-eye-dist-m>
+   <hud-radius-m type="double">0.071</hud-radius-m>
+   <hud>
+    <target type="bool">1</target>
+   </hud>
+   <targets>
+    <aircraft n="0">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="1">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="2">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="3">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="4">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="5">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="6">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="7">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+   </targets>
+  </radar2>
+
+   <radar-awg-9>
+    <ccm-mode-spl type="bool">false</ccm-mode-spl>
+    <ccm-mode-alt-dhf type="bool">false</ccm-mode-alt-dhf>
+    <ccm-mode-trs type="bool">false</ccm-mode-trs>
+    <display-rdr type="bool">true</display-rdr>
+    <display-ir type="bool">false</display-ir>
+    <display-iff type="bool">false</display-iff>
+    <mode type="string">PDS</mode> <!-- PDS, RWS, TWS, PDSTT, PSTT, VSL -->
+    <ant-trk-light type="bool">false</ant-trk-light>
+    <rd-rot-light type="bool">false</rd-rot-light>
+    <jat-light type="bool">false</jat-light>
+    <irot-light type="bool">false</irot-light>
+    </radar-awg-9>
 
     <terrain-radar>
       <hi-elev>
@@ -907,32 +1931,16 @@
             <file>Aircraft/F-22/Nasal/ArmamentNotification.nas</file>
             <file>Aircraft/F-22/Nasal/GeoBridgedTransmitter.nas</file>
         </notifications>
-        <damage>
-            <file>Aircraft/F-22/Nasal/damage.nas</file>
-        </damage>
-		<armament> 
-			<file>Aircraft/F-22/Nasal/missile-code.nas</file>
-		</armament>
-        <stations>
-            <file>Aircraft/F-22/Nasal/station-manager.nas</file><!-- must be before fire-control and pylons -->
-        </stations>
+        
+ <vector>
+            <file>Aircraft/F-22/Nasal/vector.nas</file>
+        </vector>
 
-  	<fc>
-            <file>Aircraft/F-22/Nasal/fire-control.nas</file>
-        </fc>
-  <pylons>
-            <file>Aircraft/f16/Nasal/pylons.nas</file>
-        </pylons>
 
-    <guns>
-      <file>Aircraft/F-22/Nasal/weapons.nas</file>
-    </guns>
  <livery>
 <file>Aircraft/F-22/Nasal/liveries.nas</file>
 </livery>
-		<f22>
-			<file>Aircraft/F-22/Nasal/hud.nas</file>
-			<file>Aircraft/F-22/Nasal/f22.nas</file>
+		<f22>			<file>Aircraft/F-22/Nasal/f22.nas</file>
 			<file>Aircraft/F-22/Nasal/light.nas</file>
 			<file>Aircraft/F-22/Nasal/doors.nas</file>
 		</f22>
@@ -944,10 +1952,9 @@
 
         </low>
 		
-		 <hud>
-      <file>Aircraft/F-22/Nasal/MiscRwr.nas</file>
-    </hud>
-	
+  <canvas_HUD>
+            <file>Aircraft/F-22/Nasal/hud.nas</file>
+    </canvas_HUD>    
 	<terrain-map>
  
 <file>Aircraft/F-22/Nasal/terrain-map.nas</file>
@@ -957,22 +1964,40 @@
 		<aar> 
             <file>Aircraft/Generic/aar.nas</file>
         </aar>
-        <rwr>
-            <file>Aircraft/F-22/Nasal/rwr.nas</file>
-        </rwr> 
-        <radardist>
-            <file>Aircraft/Instruments-3d/radardist/radardist.nas</file>
-        </radardist>
-		<radar>
-            <file>Aircraft/F-22/Nasal/radar.nas</file> 
-        </radar>
-        <radar2>
-            <file>Aircraft/F-22/Nasal/radar2.nas</file>
-        </radar2>
+		<rwr>
+			<file>Aircraft/F-22/nasal/MiscRwr.nas</file>
+		</rwr>
 		
-		<engines>
-   <file>Aircraft/F-22/Engines/F119-PW-100.xml</file>
-  </engines>
+    <radardist>
+      <file>Aircraft/Instruments-3d/radardist/radardist.nas</file>
+    </radardist>
+
+    <radar>
+      <file>Aircraft/F-22/Nasal/radar2.nas</file> 
+    </radar>
+		
+    <WCS><file>Aircraft/F-22/Nasal/wcs-helper.nas</file> </WCS>
+
+<damage>
+            <file>Aircraft/F-22/Nasal/damage.nas</file>
+        </damage>
+    <missile>
+      <file>Aircraft/F-22/Nasal/weapons/missile.nas</file>
+      <file>Aircraft/F-22/Nasal/weapons/Loading_Missiles.nas</file>
+      <file>Aircraft/F-22/Nasal/weapons/missile_GroundTargeting.nas</file>
+    </missile>
+
+    <m2000_load>
+      <file>Aircraft/F-22/Nasal/weapons/ext_stores.nas</file>
+    </m2000_load>
+
+    <guns>
+      <file>Aircraft/F-22/Nasal/weapons.nas</file>
+    </guns>
+    <m2000_controls>
+      <file>Aircraft/F-22/Nasal/weapons/controls.nas</file>
+    </m2000_controls>
+
   
   <emu>
    <file>Aircraft/F-22/Nasal/emu.nas</file>
@@ -983,6 +2008,14 @@
 <fuel>
    <file>Aircraft/F-22/Nasal/fuel.nas</file>
   </fuel>
+ <CanvasPylonsDlg><file>Aircraft/F-22/Nasal/CanvasDlg/Canvas-pylons-Dlg.nas</file> </CanvasPylonsDlg>
+
+<rad>
+<file>Aircraft/F-22/Nasal/initrad.nas</file>
+</rad>
+ <tacview>
+            <file>Aircraft/F-22/Nasal/tacview.nas</file>
+        </tacview>
 	</nasal>
 
 </PropertyList>

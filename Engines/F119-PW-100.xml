@@ -13,11 +13,11 @@ modified slightly by Phoenix, Michael
 -->
 
 <turbine_engine name="F119-PW-100">
-  <milthrust> 31357.0 </milthrust>
-  <maxthrust> 35875.0 </maxthrust>
+  <milthrust> 32357.0 </milthrust>
+  <maxthrust> 39875.0 </maxthrust>
   <bypassratio>     0.3 </bypassratio>
-  <tsfc>            0.6 </tsfc>
-  <atsfc>           0.797 </atsfc>
+  <tsfc>            0.3 </tsfc>
+  <atsfc>           0.597 </atsfc>
   <bleed>           0.03</bleed>
   <idlen1>         40.0 </idlen1>
   <idlen2>         53.0 </idlen2>

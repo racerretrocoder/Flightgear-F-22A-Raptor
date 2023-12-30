@@ -58,6 +58,7 @@
     <prop>/systems/electrical/outputs/tacan</prop>
     <prop>systems/electrical/outputs/hsi</prop>
     <prop>systems/electrical/outputs/rwr</prop>
+    <prop>systems/electrical/outputs/radar</prop>
 
       </bus>
 

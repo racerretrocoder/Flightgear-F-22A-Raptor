@@ -22,8 +22,8 @@ MPleave= func(n) {
 
 #need to copy the properties so that we never try to access a non-existent property in XML
 MPradarProperties = func {
-   var Estado = RadarStandby.getValue();
-   if ( Estado != 1 ) {
+   var Standby = RadarStandby.getValue();
+   if ( Standby != 1 ) {
       targetList = props.globals.getNode("ai/models/").getChildren("multiplayer");
       foreach (d; props.globals.getNode("ai/models/").getChildren("aircraft")) {
          append(targetList,d);
@@ -76,7 +76,7 @@ MPradarProperties = func {
         }
       }
 
-   } # from Estado
+   } # from Standby
 
    settimer(MPradarProperties,1.0);
 }

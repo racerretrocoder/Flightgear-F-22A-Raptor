@@ -35,4 +35,5 @@ var cockpit_state = func {
 		setprop("canopy/position-norm", 0);
 	}
 }
-
+	    myRadar = radar.Radar.new();
+		myRadar.init();

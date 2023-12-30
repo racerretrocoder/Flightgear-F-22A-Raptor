@@ -115,7 +115,7 @@ This file selects the instrumentation modules that should be available.
     <name>gps</name>
     <number>0</number>
   </gps>
-  
+  <!--
 	<radar>
 		<name>radar</name>
 		<number>0</number>
@@ -125,7 +125,7 @@ This file selects the instrumentation modules that should be available.
     <name>wxradar</name>
     <number>0</number>
   </radar>
-
+-->
 	<tacan>
 		<name>tacan</name>
 		<number>0</number>
