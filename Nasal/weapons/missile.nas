@@ -128,7 +128,9 @@ var MISSILE = {
         m.trueAirspeedKt  = m.ai.getNode("velocities/true-airspeed-kt", 1);
         m.verticalSpeedFps = m.ai.getNode("velocities/vertical-speed-fps", 1);
         m.myMissileNameProperty = m.ai.getNode("name", 1);
+        m.MissileType = m.ai.getNode("type",1);
         m.myMissileNameProperty.setValue(m.NameOfMissile);
+        m.MissileType.setValue(m.NameOfMissile);
         m.myPropertyCallsign = m.ai.getNode("callsign", 1);
         m.myPropertyCallsign.setValue("");
         ######## RADAR STUFF ########
