@@ -1,16 +1,16 @@
 print("LOADING missile.nas .");
 ################################################################################
 #
-#             Customized MISSILE MANAGER for the Su-27SK
-#
+#             Customized MISSILE MANAGER for the F-22
+# 	Amazing Thanks to Ghost!
 ################################################################################
 
-var AcModel        = props.globals.getNode("sim/model/su-27SK", 1);
+var AcModel        = props.globals.getNode("sim/model/F-22", 1);
 var OurHdg         = props.globals.getNode("orientation/heading-deg");
 var OurRoll        = props.globals.getNode("orientation/roll-deg");
 var OurPitch       = props.globals.getNode("orientation/pitch-deg");
 var MPMessaging    = props.globals.getNode("/payload/armament/msg", 1);
-MPMessaging.setBoolValue(0);
+MPMessaging.setBoolValue(0); # this thing here set the Damage to off!
 
 var g_fps        = 9.80665 * M2FT;
 var slugs_to_lbs = 32.1740485564;
@@ -906,9 +906,9 @@ var MISSILE = {
                     {
                         #setprop("/sim/multiplay/chat", phrase);
                         var typeID = 0;
-                        if(me.NameOfMissile == "R-27R"){me.NameOfMissile="R-27R1";typeID = 96;}
+                        if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="AIM-120";typeID = 52;}
                         if(me.NameOfMissile == "R-27T"){me.NameOfMissile="R-27T1";typeID = 97;}
-                        if(me.NameOfMissile == "R-73"){me.NameOfMissile="R-73E";typeID=103;}
+                        if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="R-73E";typeID=98;}
                         var msg = notifications.ArmamentNotification.new("mhit", 4, typeID);
                         msg.RelativeAltitude = 0;
                         msg.Bearing = me.coord.course_to(geo.aircraft_position());

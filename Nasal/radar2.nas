@@ -1,8 +1,8 @@
 #print("LOADING radar2.nas .");
 ################################################################################
 #
-#           Customized version of radar2 for the Su-27SK
-#
+#           Customized version of radar2 for the F-22
+#  Thx to Ghost :D
 ################################################################################
 
 # Radar
@@ -755,7 +755,6 @@ var Radar = {
 
 var Target = {
     new: func(c){
-        if(c==nil)return nil;
         var obj             = { parents : [Target]};
         obj.RdrProp         = c.getNode("radar");
         obj.Heading         = c.getNode("orientation/true-heading-deg");
@@ -763,12 +762,12 @@ var Target = {
         obj.lat             = c.getNode("position/latitude-deg");
         obj.lon             = c.getNode("position/longitude-deg");
         obj.pitch           = c.getNode("orientation/pitch-deg");
-        obj.roll            = c.getNode("orientation/roll-deg");
         obj.Speed           = c.getNode("velocities/true-airspeed-kt");
         obj.VSpeed          = c.getNode("velocities/vertical-speed-fps");
         obj.Callsign        = c.getNode("callsign");
         obj.name            = c.getNode("name");
         obj.validTree       = 0;
+
         obj.valid           = c.getNode("valid");
         obj.model           = "";
         obj.unique          = obj.Callsign.getValue()~c.getPath();# should be very very very unique
@@ -858,9 +857,11 @@ var Target = {
 	      me.Xshift					= me.TgtsFiles.getNode("x-shift", 1);
 	      me.Yshift					= me.TgtsFiles.getNode("y-shift", 1);
 	      me.rotation				= me.TgtsFiles.getNode("rotation", 1);
+
         me.tacobj = {parents: [tacview.tacobj]};
         me.tacobj.tacviewID = left(md5(me.unique),5);
         me.tacobj.valid = 1;
+
         #if(getprop(me.InstrString ~ "/" ~ me.shortstring ~ "/closure-last-time") == nil)
         #{
             me.TimeLast.setDoubleValue(ElapsedSec.getValue());

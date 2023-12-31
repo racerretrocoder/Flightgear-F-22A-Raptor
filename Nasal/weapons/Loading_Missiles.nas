@@ -1,8 +1,8 @@
 #print("LOADING Loading_missiles.nas .");
 ################################################################################
 #
-#                     Su-27SK  LOADS AND MISSILES PARAMETERS
-#
+#                     F-22  LOADS AND MISSILES PARAMETERS
+#Note: these missiles are VERY basic, and curently the only for the radar to work
 ################################################################################
 
 var Loading_missile = func(name)
@@ -26,20 +26,21 @@ var Loading_missile = func(name)
     var fox               = "nothing";
     var rail              = "true";
     var cruisealt         = 0;
+    var guidance	  = 0;
     
     
-    if(name == "R-27R")
+    if(name == "Aim-120")
     {
         # AIM-120 :Long Range Missile,        #https://en.wikipedia.org/wiki/R-27_(air-to-air_missile)
-        address = "Aircraft/F-22/Models/Stores/Missiles/R-27R/R-27R-smoke.xml";
-        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/R-27R/R-27R.xml";
+        address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R-smoke.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         maxdetectionrngnm = 38.8;                      #  
         fovdeg = 110;                                 #
         detectionfovdeg = 180;                       # 
         trackmaxdeg = 110;                           # 
         maxg = 30;                                   # 
-        thrustlbs = 700;                             # 
+        thrustlbs = 500;                             # 
         thrustdurationsec = 200;                      # 
         weightlaunchlbs = 291;
         weightwarheadlbs = 44;
@@ -49,30 +50,30 @@ var Loading_missile = func(name)
         maxspeed = 8.5;                              # In Mach
         life = 1200;
         fox = "Fox 3";
-        rail = "true";
+        rail = "false";
         cruisealt = 0;
     }
-    elsif(name == "R-73")
+    elsif(name == "Aim-9x")
     {
         # AIM-9X:short-range A2A,IR seeker,
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         NoSmoke = "Aircraft/SU-27SK/Models/Stores/Missiles/AIM-9/AIM-9.xml";
         maxdetectionrngnm = 12;                     # Not real Impact yet A little more than the MICA
-        fovdeg = 75;                                  # seeker optical FOV
+        fovdeg = 180;                                  # seeker optical FOV
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 15;                                    # In turn less than the MICA, coz it don't have vectorial thurst
-        thrustlbs = 701;                              # guess
-        thrustdurationsec = 39;                       # Mk.36 Mod.7,8
-        weightlaunchlbs = 291;
-        weightwarheadlbs = 44;
-        dragcoeff = 0.088;                            # guess; original 0.05
+        trackmaxdeg = 180;                            # Seeker max total angular rotation
+        maxg = 50;                                    # TV baby!
+        thrustlbs = 2880;                              # 
+        thrustdurationsec = 5;                       # Mk.36 Mod.7,8
+        weightlaunchlbs = 186;
+        weightwarheadlbs = 20.8;
+        dragcoeff = 0.8;                            # guess; original 0.05
         dragarea = 0.075;                             # sq ft
-        maxExplosionRange = 50;                       # in meter !!Due to the code, more the speed is important, more we need to have this figure high
+        maxExplosionRange = 50;                       
         maxspeed = 4;                                 # In Mach
-        life = 115;
-        fox = "Fox 3";
-        rail = "false";
+        life = 60;
+        fox = "Fox 2";
+        rail = "true";
         cruisealt = 0;
     }
     elsif(name == "R-27ER")

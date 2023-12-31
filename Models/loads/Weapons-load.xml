@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	
+  <!--back-->
+  <!--right -->
+  <!--up -->
+
+  <!-- pylons 
+  
+  <model>
+    <path>Aircraft/F-22/Models/loads/pylons.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+-->
+
+  
+
+
+
+ <!--right bay 9x -->
+
+
+<model>
+<name>right-aim9</name>
+<path>Aircraft/F-22/Models/loads/AIM-9bayR.xml</path>
+<offsets>
+<x-m> -1.0  </x-m>
+<y-m> 1.7 </y-m>
+<z-m> -1.3 </z-m>
+<pitch-deg> 0 </pitch-deg>
+</offsets>
+</model>	
+
+
+
+
+<!--Bay l -->
+
+<model>
+<name>left-aim9</name>
+<path>Aircraft/F-22/Models/loads/AIM-9bayL.xml</path>
+<offsets>
+<x-m> -1.0  </x-m>
+<y-m> -1.7 </y-m>
+<z-m> -1.3 </z-m>
+<pitch-deg> 0 </pitch-deg>
+</offsets>
+</model>
+
+
+
+<!--left belly -->
+
+
+<model>
+<name>left-belly1</name>
+<path>Aircraft/F-22/Models/loads/120p6.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> -0.95 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+	
+<model>
+<name>left-bellym</name>
+<path>Aircraft/F-22/Models/loads/120p4.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> -0.67 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>	
+
+<model>
+<name>left-bellyi</name>
+<path>Aircraft/F-22/Models/loads/120p10.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> -0.39 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>	
+
+
+
+<model>
+<name>right-belly1</name>
+<path>Aircraft/F-22/Models/loads/120p1.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> 0.39 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+
+<model>
+<name>right-bellym</name>
+<path>Aircraft/F-22/Models/loads/120p2.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> 0.67 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+<model>
+<name>right-bellyi</name>
+<path>Aircraft/F-22/Models/loads/120p9.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> 0.95 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+
+
+<!--station right 3 -->
+
+
+<model>
+<name>right-aim9-2</name>
+<path>Aircraft/F-22/Models/loads/AIM-9.xml</path>
+<offsets>
+<x-m> 2.05  </x-m>
+<y-m> 3.43 </y-m>
+<z-m> -1.1 </z-m>
+<pitch-deg> 0 </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>right-aim9-2</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[7]/selected</property>
+<value>AIM-9 Sidewinder</value>
+</equals>
+<equals>
+<property>controls/armament/station[7]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+<!--station right 2 -->
+
+
+<model>
+<name>right-aim9-1</name>
+<path>Aircraft/F-22/Models/loads/AIM-9.xml</path>
+<offsets>
+<x-m> 2.05  </x-m>
+<y-m> 2.8 </y-m>
+<z-m> -1.1 </z-m>
+<pitch-deg> 0 </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>right-aim9-1</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[8]/selected</property>
+<value>AIM-9 Sidewinder</value>
+</equals>
+<equals>
+<property>controls/armament/station[8]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+ <!--station right 1 -->
+
+
+<model>
+<name>rightDroptank</name>
+<path>Aircraft/F-22/Models/loads/Tank.xml</path>
+<offsets>
+<x-m> 2.05  </x-m>
+<y-m> 3.1 </y-m>
+<z-m> -1.5 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>	
+
+<animation>
+<type>select</type>
+<object-name>rightDroptank</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[9]/selected</property>
+<value>600gal-tank</value>
+</equals>
+<equals>
+<property>controls/armament/station[9]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+
+
+</PropertyList>
+
+

@@ -1,8 +1,8 @@
 print("LOADING controls.nas .");
 ################################################################################
 #
-#                        Su-27SK CONTROLS SETTINGS
-#							Thanks to the m2005-5's developpers
+#                        F-22 CONTROLS SETTINGS
+#And As Always! Amazing Thanks to Ghost!   Thanks to the m2005-5's developpers
 ################################################################################
 # The goal is to overwrite some controls in order of put it on a stick (and
 # even perhaps multiplex command on stick...)
