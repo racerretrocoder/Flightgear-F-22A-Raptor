@@ -1665,7 +1665,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <desc>Switch Radar Range</desc>
   <binding>
  <command>nasal</command>
- <script>radar.switch_distance();screen.log.write("Radar Range: " ~ su27.myRadar.rangeTab[radar.rangeIndex] ~ "nm.",1,1,0);</script>
+ <script>radar.switch_distance();screen.log.write("Radar Range: " ~ f22.myRadar.rangeTab[radar.rangeIndex] ~ "nm.",1,1,0);</script>
 </binding>
  </key> 
 <key n="121">
