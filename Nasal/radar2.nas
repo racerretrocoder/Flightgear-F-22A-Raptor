@@ -69,6 +69,7 @@ var our_alt           = 0;
 var Mp = props.globals.getNode("ai/models");
 var tgts_list         = [];
 var Target_Index      = 0 ; # for Target Selection
+var lock              = 0;
 var cnt               = 0 ; # counter used for the scan sweep pattern
 var cnt_hud           = 0 ; # counter used for the HUD update
 
@@ -292,6 +293,13 @@ var Radar = {
                         }
                     }
                 }
+            }
+        }
+        #check lock
+        if(lock){
+            if(!tgts_list[Target_Index].Display){
+                lock=0;
+                Target_Index=0;
             }
         }
     },
@@ -762,7 +770,7 @@ var Target = {
         obj.name            = c.getNode("name");
         obj.validTree       = 0;
         obj.valid           = c.getNode("valid");
-        obj.model_is        = c.getNode("type");
+        obj.model           = "";
         obj.unique          = obj.Callsign.getValue()~c.getPath();# should be very very very unique
 
         obj.engineTree      = c.getNode("engines");
@@ -805,7 +813,16 @@ var Target = {
         obj.TimeLast        = 0; #obj.TgtsFiles.getNode("closure-last-time", 1);
         obj.RangeLast       = 0; #obj.TgtsFiles.getNode("closure-last-range-nm", 1);
         obj.ClosureRate     = 0; #obj.TgtsFiles.getNode("closure-rate-kts", 1);
-        
+        me.model = c.getNode("sim/model/path");
+        if (me.model != nil) {
+          	me.path = me.model.getValue();
+          	me.model = split(".", split("/", me.path)[-1])[0];
+          	me.model = me.remove_suffix(me.model, "-model");
+          	me.model = me.remove_suffix(me.model, "-anim");
+        } else {
+        	me.model = c.getNode("type").getValue();
+        }
+        if(me.model == nil)me.model = "";
         #obj.TimeLast.setValue(ElapsedSec.getValue());
         
         obj.RadarStandby    = c.getNode("sim/multiplay/generic/int[2]");
@@ -1234,6 +1251,16 @@ var Target = {
     get_shortring:func(){
         return me.shortstring;
     },
+    
+    remove_suffix: func(s, x) {
+		#
+		# Remove suffix 'x' from string 's' if present.
+		#
+		me.len = size(x);
+		if (substr(s, -me.len) == x)
+			return substr(s, 0, size(s) - me.len);
+		return s;
+	},
 
     list : [],
 };
@@ -1315,7 +1342,10 @@ next_Target_Index = func(){
     {
         Target_Index = 0;
     }
-    if(GetTarget()!=nil)screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+    if(GetTarget()!=nil){
+        lock = 1;
+        screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+    }
 }
 
 previous_Target_Index = func(){
@@ -1325,9 +1355,14 @@ previous_Target_Index = func(){
     {
         Target_Index = size(tgts_list) - 1;
     }
+    if(GetTarget()!=nil){
+        lock = 1;
+        screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+    }
 }
 
 GetTarget = func(){
+    if(!lock)return nil;
     if(size(tgts_list) == 0)
     {
         return nil;
