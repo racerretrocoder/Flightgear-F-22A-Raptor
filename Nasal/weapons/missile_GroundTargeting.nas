@@ -1,9 +1,9 @@
 print("LOADING missile_GroundTargeting.nas .");
 ################################################################################
 #
-#                     Su-27SK ADDING GROUND TARGET MODULE
+#                     F-22 ADDING GROUND TARGET MODULE
 #			   		  Thanks to the m2005-5's developpers
-#
+#	Specail thanks to Ghost!
 ################################################################################
 
 var dt       = 0;
