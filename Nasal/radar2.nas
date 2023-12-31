@@ -858,9 +858,9 @@ var Target = {
 	      me.Xshift					= me.TgtsFiles.getNode("x-shift", 1);
 	      me.Yshift					= me.TgtsFiles.getNode("y-shift", 1);
 	      me.rotation				= me.TgtsFiles.getNode("rotation", 1);
-        obj.tacobj = {parents: [tacview.tacobj]};
-        obj.tacobj.tacviewID = left(md5(obj.unique),5);
-        obj.tacobj.valid = 1;
+        me.tacobj = {parents: [tacview.tacobj]};
+        me.tacobj.tacviewID = left(md5(me.unique),5);
+        me.tacobj.valid = 1;
         #if(getprop(me.InstrString ~ "/" ~ me.shortstring ~ "/closure-last-time") == nil)
         #{
             me.TimeLast.setDoubleValue(ElapsedSec.getValue());
@@ -1251,7 +1251,7 @@ var Target = {
     get_shortring:func(){
         return me.shortstring;
     },
-    
+
     remove_suffix: func(s, x) {
 		#
 		# Remove suffix 'x' from string 's' if present.
