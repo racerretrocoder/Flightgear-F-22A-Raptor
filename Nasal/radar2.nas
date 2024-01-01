@@ -782,7 +782,7 @@ var Target = {
         #obj.shortstring     = "aircraft" ~ "[" ~ obj.num ~ "]";
         
         obj.InstrString     = "instrumentation/radar2/targets";
-        obj.InstrTgts       = props.globals.getNode(obj.InstrString, 1);
+        obj.InstrTgts       = props.globals.getNode(obj.InstrString);
         
         obj.TgtsFiles       =   0; #obj.InstrTgts.getNode(obj.shortstring, 1);
         
@@ -1356,9 +1356,11 @@ previous_Target_Index = func(){
     {
         Target_Index = size(tgts_list) - 1;
     }
+    lock = 1;
     if(GetTarget()!=nil){
-        lock = 1;
         screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+    }else{
+        lock = 0;
     }
 }
 
