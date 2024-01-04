@@ -264,7 +264,7 @@
 		
 		<instrumentation>
 				<path>Aircraft/F-22/Systems/Instrumentation.xml</path>
-		<!--	<path>Aircraft/F-22/Systems/radar.xml</path>   -->
+
 		
 				<fuel-gauges>
 					<total type="double">100</total>
@@ -1799,6 +1799,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <range-factor type="double" archive="n">0.001888</range-factor>
   <minimized type="bool" archive="y">false</minimized>
   <selected type="int">2</selected>
+  <lock type="double">0</lock>
 
       <!-- inicio en pruebas -->
   <enabled type="bool">0</enabled>
