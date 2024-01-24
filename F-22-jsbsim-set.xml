@@ -80,7 +80,7 @@
 		</startup>
 	
 		<model>
-			<path>Aircraft/F-22/Models/F-22-Raptor-jsb.xml</path>
+			<path>Aircraft/F-22/Models/F-22A Raptor.xml</path>
 	<livery>
 		<name type="string">Models/Liveries/AK.xml</name>
 		<texture>Models/Liveries/AK-BODY.png</texture>
@@ -1572,8 +1572,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 				<name>Ctrl-d</name>
 				<desc>Open/close baydoors</desc>
 				<binding>
-					<command>nasal</command>
-					<script>baydoors.baydoors_switch(2)</script>
+					<command>property-cycle</command>
+					<property>controls/baydoors/AIM120</property>
+<value>0</value>
+<value>1</value>
 				</binding>
 			</key>
 			
@@ -1799,7 +1801,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <range-factor type="double" archive="n">0.001888</range-factor>
   <minimized type="bool" archive="y">false</minimized>
   <selected type="int">2</selected>
-  <lock type="double">0</lock>
+  <lock type="int">0</lock>
 
       <!-- inicio en pruebas -->
   <enabled type="bool">0</enabled>
