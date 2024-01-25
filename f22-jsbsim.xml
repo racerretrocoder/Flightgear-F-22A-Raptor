@@ -305,12 +305,12 @@
    </function>
 
    <function name="fcs/tv-coefficient">
-    <product>
+  <!-- <product> --> 
      <difference>
       <value>1</value>
-      <property>gear/gear-cmd-norm</property>
+      <property>/controls/AAR/Switch</property>
      </difference>
-
+<!-- notice the 2x products
      <sum>
       <product>
        <property>fcs/tv-coefficient-low-alpha</property>
@@ -339,6 +339,7 @@
      </sum>
 
     </product>
+-->
    </function>
 
    <function name="fcs/flap-cmd-gear">
@@ -716,16 +717,35 @@
      </product>
 
      <product>
-      <sum>
-       <property>propulsion/engine[0]/thrust-lbs</property>
-       <property>propulsion/engine[1]/thrust-lbs</property>
-      </sum>
-      <value>15</value>
+
+      <value>1</value>
       <property>fcs/tv-coefficient</property>
      </product>
 
     </sum>
    </function>
+
+<function name="fcs/vector-main-control">
+   
+     <product>
+      <property>fcs/elevator-cmd-norm</property>
+      <value>1</value>
+    <product>
+
+      <value>1</value>
+      <property>fcs/tv-coefficient</property>
+     </product>
+       </product>
+   </function>
+  <aerosurface_scale name="Thrust Vector main h Control">
+      <input>fcs/vector-main-control</input>
+      <range>
+        <min> -1 </min>
+        <max>  1 </max>
+      </range>
+      <output>fcs/tv-main</output>
+   </aerosurface_scale>
+
 
    <function name="fcs/pitch-cmd">
     <quotient>
@@ -741,13 +761,14 @@
 
    <function name="fcs/roll-cmd-comp">
     <product>
-     <property>fcs/cqbar-psf</property>
-     <value>840</value>
+
      <sum>
 
       <property>aero/coefficients/moments/Roll</property>
 
      </sum>
+     <property>fcs/cqbar-psf</property>
+     <value>840</value>
     </product>
    </function>
 
@@ -1080,6 +1101,14 @@
         <max>  1 </max>
       </clipto>
    </summer>
+<aerosurface_scale name="Vector Control">
+      <input>fcs/elevator-cmd-norm</input>
+      <range>
+        <min> -1.0 </min>
+        <max>  1.0 </max>
+      </range>
+      <output>fcs/vector-control</output>
+   </aerosurface_scale>
 
    <aerosurface_scale name="Right Stabilator Control">
       <input>fcs/right-stabilator-sum</input>
@@ -1130,7 +1159,7 @@
    </kinematic>
 
    <summer name="Thrust Vector Sum">
-      <input>fcs/pitch-cmd</input>
+      <input>fcs/elevator-cmd-norm</input>
       <clipto>
         <min> -1 </min>
         <max>  1 </max>
@@ -1162,14 +1191,14 @@
    </kinematic>
 
    <aerosurface_scale name="TV normalization">
-      <input>fcs/tv-pos-rad2</input>
+      <input>fcs/elevator-cmd-norm</input>
       <domain>
-        <min> -0.349 </min>
-        <max>  0.349 </max>
-      </domain>
-      <range>
         <min> -1 </min>
         <max>  1 </max>
+      </domain>
+      <range>
+        <min> 5 </min>
+        <max>  -5 </max>
       </range>
       <output>fcs/tvc-pos-norm</output>
    </aerosurface_scale>
@@ -1654,7 +1683,48 @@
       1.57    1.230
     </tableData>
    </table>
-  </function>
+  </function>       
+ <function name="aero/function/kCDge">
+            <description>Change_in_drag_due_to_ground_effect</description>
+                <table>
+                    <independentVar>aero/h_b-mac-ft</independentVar>
+                    <tableData>
+                           0.0000	0.000
+                          0.1000	0.000
+                          0.1500	0.000
+                          0.2000	0.000
+                          1.1000	1.000
+                    </tableData>
+                </table>
+            </function>
+
+
+  <function name="aero/coefficient/CDalpha">
+                <description>Drag due to alpha</description>
+                <product>
+                    <property>aero/qbar-psf</property>
+                    <property>metrics/Sw-sqft</property>
+                    <property>aero/function/kCDge</property>
+                      <table>
+                          <independentVar lookup="row">aero/alpha-rad</independentVar>
+                          <independentVar lookup="column">velocities/mach</independentVar>
+                          <tableData>
+                                            0.5000    1.4000     2.4000         9.0000
+                              -0.4190       0.3800    0.0970    0.0970      1.0
+                              -0.2790       0.2200    0.0250    0.0250      1.0
+                              -0.1400       0.0070    0.0180    0.0180      1.0
+                              -0.0700       0.0040    0.0100    0.0100      1.0
+                              0.0000        0.0047    0.0074    0.0074      1.0
+                              0.0700        0.0400    0.0100    0.0100      1.0
+                              0.1400        0.0800    0.0180    0.0180      1.0
+                              0.2790        0.0900    0.0250    0.0250      1.0
+                              0.4190        0.0900    0.0970    0.0970      1.0
+                              0.5590        0.0900    0.2030    0.2030      1.0
+                              1.9980        0.0990    0.2570    0.2570      1.0
+                          </tableData>
+                      </table>
+                </product>
+            </function>
 
   <function name="aero/coefficients/Drag/Mach"> <!-- currently unused -->
    <description>Change in drag due to Mach number</description>
@@ -1734,6 +1804,46 @@
      <property>aero/coefficients/Drag</property>
     </product>
    </function>
+      <function name="aero/force/Drag_alpha">
+        <description>Drag_due_to_alpha</description>
+        <product>
+          <property>aero/qbar-psf</property>
+          <property>metrics/Sw-sqft</property>
+          <table>
+            <independentVar lookup="row">aero/alpha-rad</independentVar>
+            <independentVar lookup="column">fcs/flap-pos-deg</independentVar>
+            <tableData>
+					0.0000	1.0000	25.0000	40.0000
+				-0.0873	0.0041	0.0000	0.0005	0.0014
+				-0.0698	0.0013	0.0004	0.0025	0.0041
+				-0.0524	0.0001	0.0023	0.0059	0.0084
+				-0.0349	0.0003	0.0057	0.0108	0.0141
+				-0.0175	0.0020	0.0105	0.0172	0.0212
+				0.0000	0.0052	0.0168	0.0251	0.0399
+				0.0175	0.0099	0.0248	0.0346	0.0502
+				0.0349	0.0162	0.0342	0.0457	0.0621
+				0.0524	0.0240	0.0452	0.0583	0.0755
+				0.0698	0.0334	0.0577	0.0724	0.0904
+				0.0873	0.0442	0.0718	0.0881	0.1068
+				0.1047	0.0566	0.0874	0.1053	0.1248
+				0.1222	0.0706	0.1045	0.1240	0.1443
+				0.1396	0.0860	0.1232	0.1442	0.1654
+				0.1571	0.0962	0.1353	0.1573	0.1790
+				0.1745	0.1069	0.1479	0.1708	0.1930
+				0.1920	0.1180	0.1610	0.1849	0.2075
+				0.2094	0.1298	0.1746	0.1995	0.2226
+				0.2269	0.1424	0.1892	0.2151	0.2386
+				0.2443	0.1565	0.2054	0.2323	0.2564
+				0.2618	0.1727	0.2240	0.2521	0.2767
+				0.2793	0.1782	0.2302	0.2587	0.2835
+				0.2967	0.1716	0.2227	0.2507	0.2753
+				0.3142	0.1618	0.2115	0.2388	0.2631
+				0.3316	0.1475	0.1951	0.2214	0.2451
+				0.3491	0.1097	0.1512	0.1744	0.1966
+				</tableData>
+          </table>
+        </product>
+      </function>
 
   </axis>
 
@@ -2018,7 +2128,7 @@
             <independentVar lookup="row">velocities/mach</independentVar>
             <tableData>
               0.0     -0.13
-              2.0     -0.04
+              2.0     -0.13
             </tableData>
           </table>
        </product>
@@ -2034,7 +2144,7 @@
             <independentVar lookup="row">velocities/mach</independentVar>
             <tableData>
               0.0     -0.13
-              2.0     -0.04
+              2.0     -0.13
             </tableData>
           </table>
        </product>
@@ -2048,7 +2158,7 @@
            <property>propulsion/engine[1]/thrust-lbs</property>
           </sum>
           <sin>
-           <property>fcs/tvc-pos-norm</property>
+           <property>fcs/elevator-cmd-norm</property>
           </sin>
           <value>-15</value>
        </product>
