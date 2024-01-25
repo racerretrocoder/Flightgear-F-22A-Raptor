@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
  
-<!-- su-27 avionics and lighting controls -->
+<!-- F-22 avionics and lighting controls -->
 <PropertyList>
 
 	<lighting>
@@ -9,9 +9,13 @@
     <instruments-norm>0</instruments-norm>
 	</lighting>
 
-	<fbw-fcs>
-		<active type="bool">1</active>
-	</fbw-fcs>
+	<AAR>
+		<Switch type="int">0</Switch>
+	</AAR>
+<baydoors>
+<AIM120 type="int">0</AIM120>
+<AIM9X type="int">0</AIM9X>
+</baydoors>
 	
 	  <armament>
     <!--
