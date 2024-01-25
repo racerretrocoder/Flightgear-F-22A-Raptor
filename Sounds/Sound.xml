@@ -329,8 +329,9 @@
 	<max>1.0</max>
    </pitch>
   </engine>
-  
-  <engine>
+
+
+<engine>
    <name>Engine Exhaust0</name>
    <mode>looped</mode>
    <path>Aircraft/F-22/Sounds/Samples/engine-exhaust.wav</path>
@@ -341,7 +342,8 @@
 	 	<property>/engines/engine/out-of-fuel</property>
      	</not>
    </condition>
-   <delay-sec>14</delay-sec>
+ 
+
    <position>
     	<x>6.0</x>
 	<y>0.0</y>
@@ -368,8 +370,8 @@
 	<max>0.7</max>
    </pitch>
   </engine>
-  
- 
+
+
   
   <engine>
    <name>Engine Thrust LowFreq</name>
@@ -427,17 +429,21 @@
  
    <volume>
     <property>engines/engine[0]/n1</property>
-    <factor>0.014</factor>
+    <factor>0.024</factor>
     <offset>-0.45</offset>
    </volume>
- 
-   <reference-dist>20</reference-dist>
-   <max-dist>3000</max-dist>
+    <pitch>
+        <property>engines/engine/n2</property>
+	<factor>0.005</factor>
+	<min>-1</min>
+	<max>0</max>
+   </pitch>
+
     </engine>
 	
 	<engine>
       <name>engine1</name>
-      <path>Aircraft/F-22/Sounds/jet-blast.wav</path>
+      <path>Aircraft/F-22/Sounds/jet-blastL.wav</path>
       <mode>looped</mode>
       <condition>
         <property>engines/engine[1]/running</property>
@@ -462,20 +468,97 @@
  
    <volume>
     <property>engines/engine[1]/n1</property>
-    <factor>0.014</factor>
+    <factor>0.024</factor>
     <offset>-0.45</offset>
    </volume>
- 
-   <reference-dist>20</reference-dist>
-   <max-dist>3000</max-dist>
+    <pitch>
+        <property>engines/engine/n2</property>
+	<factor>0.005</factor>
+	<min>-1</min>
+	<max>0</max>
+   </pitch>
+
     </engine>
   
   <!-- Afterburner -->
-  
+   <engine>
+      <name>engineA</name>
+      <path>Aircraft/F-22/Sounds/jet-blastB.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <property>engines/engine[0]/running</property>
+		<not>
+        	<property>/sim/current-view/internal</property>
+		<property>engines/engine/out-of-fuel</property>
+     	</not>
+      </condition>
+      
+   <orientation>
+	<x>1.0</x>
+    <y>0.0</y>
+    <z>0</z>
+    <inner-angle>35.0</inner-angle>
+    <outer-angle>90</outer-angle>
+    <outer-gain>0.45</outer-gain>
+   </orientation>
+ 
+   <volume>
+    <property>engines/engine[0]/n1</property>
+    <factor>0.014</factor>
+    <offset>-0.45</offset>
+   </volume>
+    <pitch>
+        <property>engines/engine/n2</property>
+	<factor>0.005</factor>
+	<min>-1</min>
+	<max>0</max>
+</pitch>
+</engine>
+   <engine>
+      <name>engineB</name>
+      <path>Aircraft/F-22/Sounds/jet-blastB.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <property>engines/engine[0]/running</property>
+		<not>
+        	<property>/sim/current-view/internal</property>
+		<property>engines/engine/out-of-fuel</property>
+     	</not>
+      </condition>
+      
+   <orientation>
+	<x>1.0</x>
+    <y>0.0</y>
+    <z>0</z>
+    <inner-angle>35.0</inner-angle>
+    <outer-angle>90</outer-angle>
+    <outer-gain>0.45</outer-gain>
+   </orientation>
+     <pitch>
+        <property>engines/engine/n2</property>
+	<factor>0.005</factor>
+	<min>-1</min>
+	<max>0</max>
+</pitch>
+   <volume>
+    <property>engines/engine[0]/n1</property>
+    <factor>0.014</factor>
+    <offset>-0.45</offset>
+   </volume>
+
+   <pitch>
+        <property>engines/engine/n2</property>
+	<factor>0.005</factor>
+	<min>0</min>
+	<max>0.7</max>
+   </pitch>
+</engine>
+
+
   <engine>
    <name>Reheat</name>
    <mode>looped</mode>
-   <path>Aircraft/F-22/Sounds/Samples/reheat.wav</path>
+   <path>Aircraft/F-22/Sounds/Samples/jet-blast1.wav</path>
    <condition>
 	 <property>engines/engine/afterburner</property>
     	   <not>
