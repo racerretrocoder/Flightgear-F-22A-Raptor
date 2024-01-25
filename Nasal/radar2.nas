@@ -295,13 +295,7 @@ var Radar = {
                 }
             }
         }
-        #check lock
-        if(lock){
-            if(!tgts_list[Target_Index].Display){
-                lock=0;
-                Target_Index=0;
-            }
-        }
+
     },
 
     calculateScreen: func(SelectedObject){
@@ -1365,7 +1359,7 @@ previous_Target_Index = func(){
 }
 
 GetTarget = func(){
-    if(!lock)return nil;
+
     if(size(tgts_list) == 0)
     {
         return nil;
