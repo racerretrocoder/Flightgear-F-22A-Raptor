@@ -32,7 +32,7 @@ var get_contacts_list = func {
 
 # Function returning the focused/locked aircraft, as a "contact" object (or nil).
 var get_primary_contact = func {
-    return radar.GetTarget();
+    if(size(radar.tgts_list)>radar.Target_Index)return radar.tgts_list[radar.Target_Index];
 }
 
 # Radar range. May return nil if n/a
@@ -164,7 +164,7 @@ var mainloop = func() {
         thread.lock(mutexWrite);
         if (find_in_array(seen_ids, cx.tacobj.tacviewID) == -1) {
             append(seen_ids, cx.tacobj.tacviewID);
-            var model_is = cx.model.getValue();
+            var model_is = cx.model_is.getValue();
             if (model_is=="Mig-28") {
                 model_is = tacview_ac_type;
                 color=",Color=Red";

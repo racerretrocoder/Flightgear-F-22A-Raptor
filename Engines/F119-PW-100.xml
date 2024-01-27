@@ -13,8 +13,8 @@ modified slightly by Phoenix, Michael
 -->
 
 <turbine_engine name="F119-PW-100">
-  <milthrust> 32357.0 </milthrust>
-  <maxthrust> 39875.0 </maxthrust>
+  <milthrust> 27357.0 </milthrust>
+  <maxthrust> 39875.0 </maxthrust> <!-- Thrust set a little higher due to echoed wanting it -->
   <bypassratio>     0.3 </bypassratio>
   <tsfc>            0.3 </tsfc>
   <atsfc>           0.597 </atsfc>
@@ -43,31 +43,31 @@ modified slightly by Phoenix, Michael
    </table>
   </function>
 
-  <function name="MilThrust">
+  <function name="MilThrust">    <!-- 2024: Changed mil so that super cruiesing can be done with a lil bit of effort instead of not possible with out max AB -->
    <table>
     <independentVar lookup="row">velocities/mach</independentVar>
     <independentVar lookup="column">atmosphere/density-altitude</independentVar>
     <tableData>
           0       10000   20000   30000   40000   50000   60000
      0.0  1.0000  0.7585  0.5072  0.3285  0.1908  0.1159  0
-     0.2  1.1014  0.8406  0.5797  0.3720  0.2126  0.1280  0
+     0.2  1.1514  0.8406  0.5797  0.3720  0.2126  0.1280  0
      0.4  1.1739  0.9203  0.6401  0.4130  0.2391  0.1425  0
      0.6  1.2609  1.0048  0.7391  0.4758  0.2826  0.1643  0
      0.8  1.3140  1.0870  0.8116  0.5556  0.3333  0.1860  0
-     0.9  1.3430  1.1304  0.8502  0.5942  0.3575  0.1981  0
-     1.0  1.4831  1.2367  0.9855  0.7150  0.4469  0.2657  0
-     1.2  1.5072  1.3792  1.1014  0.8333  0.5628  0.3188  0
-     1.4  1.5362  1.5121  1.2609  0.9710  0.6594  0.3720  0
-     1.6  1.5628  1.6473  1.4155  1.1353  0.7681  0.4300  0
-     1.8  1.5894  1.7826  1.5652  1.2705  0.8889  0.5217  0
-     2.0  1.6159  1.9179  1.7150  1.4058  0.9855  0.5797  0
+     0.9  1.4530  1.1304  0.8502  0.5942  0.3575  0.1981  0
+     1.0  1.5291  1.3367  0.9855  0.7150  0.4469  0.2657  0
+     1.2  1.5892  1.4792  1.1014  0.8333  0.5628  0.3188  0
+     1.4  1.5962  1.6121  1.2609  0.9710  0.6594  0.3720  0
+     1.6  1.6128  1.7473  1.4155  1.1353  0.7681  0.4300  0
+     1.8  1.6584  1.8826  1.5652  1.2705  0.8889  0.5217  0
+     2.0  1.6959  1.9979  1.7150  1.4058  0.9855  0.5797  0
     </tableData>
      <!-- see how the Mil gose down as you go up?  -->
    </table>
   </function>
 
   <function name="AugThrust"> <!-- maybe to be redone, using mil thrust ratios -->
-   <table>  <!-- 2018, redone  -->
+   <table>  <!-- plz fix me  -->
     <independentVar lookup="row">velocities/mach</independentVar>
     <independentVar lookup="column">atmosphere/density-altitude</independentVar>
     <tableData>

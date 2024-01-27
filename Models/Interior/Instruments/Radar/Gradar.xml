@@ -178,16 +178,13 @@
 	 <type>select</type>
 	 <object-name>target0</object-name>
 	 <condition>   
-		<and>
+
 			<equals>
-				<property>instrumentation/radar/ai/models/aircraft[0]/radar/in-range</property>
+				<property>instrumentation/radar2/targets/aircraft[0]/displayed</property>
 				<value>1</value>
 			</equals>
-			<equals>
-				<property>instrumentation/radar[0]/selected</property>  
-				<value>3</value>
-			</equals>
-	        </and>
+			
+
 	 </condition>
  </animation>
 

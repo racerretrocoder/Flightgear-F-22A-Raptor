@@ -1,5 +1,5 @@
 #==============================================================================
-					# F-22 Head up display
+					# F22 hud
 #==============================================================================
  
 var pow2 = func(x) { return x * x; };
@@ -154,7 +154,7 @@ var HUD = {
 		alpha:      "/orientation/alpha-deg",
 		beta:       "/orientation/side-slip-deg",
 		ias:        "velocities/airspeed-kt",
-		altitude:   "position/altitude-ft",	
+		altitude:   "position/altitude-ft",	#PNK altitude
 		vs:         "/velocities/vertical-speed-fps",
 		rad_alt:    "/instrumentation/radar-altimeter/radar-altitude-ft",
 		airspeed:   "velocities/airspeed-kt",
@@ -173,7 +173,7 @@ var HUD = {
 		DME_Distance 	  	 :	"instrumentation/dme/indicated-distance-nm",
 		DME_InRange			 :	"instrumentation/dme/in-range",
 	wp_alt					 :	"instrumentation/gps/wp/wp/altitude-ft",
-	radar_on 			 	 :	"su-27/instrumentation/N010-radar/emitting",
+	radar_on 			 	 :	"f22/instrumentation/N010-radar/emitting",
 		target_0x  			 :	"/instrumentation/radar/ai/models/aircraft/radar/x-shift",
 		target_0z  			 :	"instrumentation/radar/ai/models/aircraft/radar/h-offset",
 		target_0_inrange 	 :	"instrumentation/radar/ai/models/aircraft/radar/in-range",
@@ -229,7 +229,7 @@ var HUD = {
 	else{
 		me.root.show();
 		me.svg.show();
-	#print ("SEE hud");
+#	print ("SEE hud");
 		}
 		
     me.airspeed.setText(sprintf("%d", me.input.ias.getValue()/10)~"0");

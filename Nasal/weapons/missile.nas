@@ -128,9 +128,7 @@ var MISSILE = {
         m.trueAirspeedKt  = m.ai.getNode("velocities/true-airspeed-kt", 1);
         m.verticalSpeedFps = m.ai.getNode("velocities/vertical-speed-fps", 1);
         m.myMissileNameProperty = m.ai.getNode("name", 1);
-        m.MissileType = m.ai.getNode("type",1);
         m.myMissileNameProperty.setValue(m.NameOfMissile);
-        m.MissileType.setValue(m.NameOfMissile);
         m.myPropertyCallsign = m.ai.getNode("callsign", 1);
         m.myPropertyCallsign.setValue("");
         ######## RADAR STUFF ########
@@ -908,7 +906,7 @@ var MISSILE = {
                         var typeID = 0;
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="AIM-120";typeID = 52;}
                         if(me.NameOfMissile == "R-27T"){me.NameOfMissile="R-27T1";typeID = 97;}
-                        if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="R-73E";typeID=98;}
+                        if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9X";typeID=98;}
                         var msg = notifications.ArmamentNotification.new("mhit", 4, typeID);
                         msg.RelativeAltitude = 0;
                         msg.Bearing = me.coord.course_to(geo.aircraft_position());
