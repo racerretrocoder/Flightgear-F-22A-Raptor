@@ -22,6 +22,18 @@
 </condition>
 </animation>
 
+<animation>
+		<type>select</type>
+		<object-name>AIM-9</object-name>
 
+		
+		<condition>
+			<greater-than>
+				<property>controls/baydoors/AIM120</property>
+				<value>0.1</value>
+			</greater-than>
+		</condition>
+	
+	</animation>	
 	
 </PropertyList>

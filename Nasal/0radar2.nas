@@ -2,13 +2,12 @@
 ################################################################################
 #
 #           Customized version of radar2 for the F-22
-#   Thanks to ghost!
+#  Thx to Ghost :D
 ################################################################################
 
 # Radar
 # Fabien BARBIER (5H1N0B1) September 2015
 # fitted to the Su-27SK by Yanes Bechir 2016
-# Fitted to the Raptor by Phoenix! 2023
 # inspired by Alexis Bory (xiii)
 
 var UPDATE_PERIOD = 0.1; # update interval for engine init() functions
@@ -70,6 +69,7 @@ var our_alt           = 0;
 var Mp = props.globals.getNode("ai/models");
 var tgts_list         = [];
 var Target_Index      = 0 ; # for Target Selection
+var lock              = props.globals.getNode("instrumentation/radar/lock");   #maybe this should be this...
 var cnt               = 0 ; # counter used for the scan sweep pattern
 var cnt_hud           = 0 ; # counter used for the HUD update
 
@@ -295,6 +295,7 @@ var Radar = {
                 }
             }
         }
+
     },
 
     calculateScreen: func(SelectedObject){
@@ -748,7 +749,6 @@ var Radar = {
 
 var Target = {
     new: func(c){
-       
         var obj             = { parents : [Target]};
         obj.RdrProp         = c.getNode("radar");
         obj.Heading         = c.getNode("orientation/true-heading-deg");
@@ -756,13 +756,16 @@ var Target = {
         obj.lat             = c.getNode("position/latitude-deg");
         obj.lon             = c.getNode("position/longitude-deg");
         obj.pitch           = c.getNode("orientation/pitch-deg");
-        obj.roll            = c.getNode("orientation/roll-deg");
         obj.Speed           = c.getNode("velocities/true-airspeed-kt");
         obj.VSpeed          = c.getNode("velocities/vertical-speed-fps");
         obj.Callsign        = c.getNode("callsign");
         obj.name            = c.getNode("name");
         obj.validTree       = 0;
-     
+
+        obj.valid           = c.getNode("valid");
+        obj.model           = "";
+        obj.unique          = obj.Callsign.getValue()~c.getPath();# should be very very very unique
+
         obj.engineTree      = c.getNode("engines");
         
         obj.AcType          = c.getNode("sim/model/ac-type");
@@ -773,7 +776,7 @@ var Target = {
         #obj.shortstring     = "aircraft" ~ "[" ~ obj.num ~ "]";
         
         obj.InstrString     = "instrumentation/radar2/targets";
-        obj.InstrTgts       = props.globals.getNode(obj.InstrString, 1);
+        obj.InstrTgts       = props.globals.getNode(obj.InstrString);
         
         obj.TgtsFiles       =   0; #obj.InstrTgts.getNode(obj.shortstring, 1);
         
@@ -803,7 +806,16 @@ var Target = {
         obj.TimeLast        = 0; #obj.TgtsFiles.getNode("closure-last-time", 1);
         obj.RangeLast       = 0; #obj.TgtsFiles.getNode("closure-last-range-nm", 1);
         obj.ClosureRate     = 0; #obj.TgtsFiles.getNode("closure-rate-kts", 1);
-        
+        me.model = c.getNode("sim/model/path");
+        if (me.model != nil) {
+          	me.path = me.model.getValue();
+          	me.model = split(".", split("/", me.path)[-1])[0];
+          	me.model = me.remove_suffix(me.model, "-model");
+          	me.model = me.remove_suffix(me.model, "-anim");
+        } else {
+        	me.model = c.getNode("type").getValue();
+        }
+        if(me.model == nil)me.model = "";
         #obj.TimeLast.setValue(ElapsedSec.getValue());
         
         obj.RadarStandby    = c.getNode("sim/multiplay/generic/int[2]");
@@ -839,9 +851,11 @@ var Target = {
 	      me.Xshift					= me.TgtsFiles.getNode("x-shift", 1);
 	      me.Yshift					= me.TgtsFiles.getNode("y-shift", 1);
 	      me.rotation				= me.TgtsFiles.getNode("rotation", 1);
-        obj.tacobj = {parents: [tacview.tacobj]};
-        obj.tacobj.tacviewID = left(md5(obj.unique),5);
-        obj.tacobj.valid = 1;
+
+        me.tacobj = {parents: [tacview.tacobj]};
+        me.tacobj.tacviewID = left(md5(me.unique),5);
+        me.tacobj.valid = 1;
+
         #if(getprop(me.InstrString ~ "/" ~ me.shortstring ~ "/closure-last-time") == nil)
         #{
             me.TimeLast.setDoubleValue(ElapsedSec.getValue());
@@ -1233,6 +1247,16 @@ var Target = {
         return me.shortstring;
     },
 
+    remove_suffix: func(s, x) {
+		#
+		# Remove suffix 'x' from string 's' if present.
+		#
+		me.len = size(x);
+		if (substr(s, -me.len) == x)
+			return substr(s, 0, size(s) - me.len);
+		return s;
+	},
+
     list : [],
 };
 
@@ -1313,7 +1337,10 @@ next_Target_Index = func(){
     {
         Target_Index = 0;
     }
-    if(GetTarget()!=nil)screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+    if(GetTarget()!=nil){
+        lock = 1;
+        screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+    }
 }
 
 previous_Target_Index = func(){
@@ -1323,9 +1350,16 @@ previous_Target_Index = func(){
     {
         Target_Index = size(tgts_list) - 1;
     }
+    lock = 1;
+    if(GetTarget()!=nil){
+        screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+    }else{
+        lock = 0;
+    }
 }
 
 GetTarget = func(){
+
     if(size(tgts_list) == 0)
     {
         return nil;
@@ -1347,4 +1381,3 @@ var switch_distance = func(){
     RangeSelected.setValue(rangeTab[rangeIndex]);
     setprop("instrumentation/radar/range", rangeTab[rangeIndex]);
 }
-

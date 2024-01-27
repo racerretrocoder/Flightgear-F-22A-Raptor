@@ -30,7 +30,7 @@ fire_MG = func(b) {
         {
             # To limit: one missile/second
             # var time = getprop("/sim/time/elapsed-sec");
-            if(time - dt > 1)
+            if(time - dt > 0.1)
             {
                 dt = time;
                 m2000_load. SelectNextPylon();## TEST

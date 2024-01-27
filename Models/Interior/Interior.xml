@@ -87,8 +87,7 @@
 				<z-m>-0.24</z-m>
 			<pitch-deg>-10</pitch-deg>
 		</offsets>
-	</model>
-	
+	</model>	
 	<model>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/left-mfd.xml</path>
 			<offsets>
@@ -97,8 +96,7 @@
 				<z-m>-0.24</z-m>
 			<pitch-deg>-10</pitch-deg>
 		</offsets>
-	</model>
-	
+	</model>	
 	<model>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/lower-mfd.xml</path>
 			<offsets>
@@ -109,17 +107,83 @@
 		</offsets>
 	</model>
 	
-  <!--
+ <!-- 
   <model>
     <path>Aircraft/F-22/Models/Interior/Instruments/Radar2/Radar.xml</path>
     <offsets>
-     <x-m>0</x-m>
-      <y-m>0</y-m>
-      <z-m>0</z-m>
-<pitch-deg>-17</pitch-deg>
+   <x-m>-5.767</x-m>
+					<y-m>0.242</y-m>
+				<z-m>-0.24</z-m>
+<pitch-deg>-10</pitch-deg>
     </offsets>
   </model>
     -->
+ <animation>
+  <type>pick</type>
+   <object-name>AAR</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+               <command>property-cycle</command>
+               <property>su-27/instrumentation/HUD/brightness</property>
+               <value>0</value>
+               <value>1</value>
+               <wrap>true</wrap>
+    </binding>
+       </action>
+ </animation>
+
+ <animation>
+  <animation>
+  <type>material</type>
+  <object-name>hud</object-name>
+  <transparency>
+    <alpha-prop>su-27/instrumentation/HUD/brightness</alpha-prop>
+    <factor>1</factor>
+    <offset>0</offset>
+   </transparency>
+  <!--<emission>
+   <red>0.9</red>
+   <green>0.9</green>
+   <blue>0.9</blue>
+   <factor-prop>su-27/instrumentation/HUD/brightness</factor-prop>
+  </emission>-->
+ </animation>
+  
+
+
+  <object-name>aarlight</object-name>
+  <type>select</type>
+  <condition>
+
+<greater-than>
+				<property>su-27/instrumentation/HUD/brightness</property>
+				<value>0.001</value>
+			</greater-than>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>1r1</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/armament/master-arm</property>
+    </binding>
+    <mod-up>
+     <binding>
+     </binding>
+    </mod-up>
+   </action>
+ </animation>
+
+
 
  <animation>
   <type>pick</type>

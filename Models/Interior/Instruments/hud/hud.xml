@@ -8,9 +8,9 @@
 <model>
     <path>hud.ac</path>
 	<offsets>
-      <x-m> 0 </x-m>
-      <y-m>0 </y-m>
-      <z-m>0 </z-m>
+      <x-m> -1.62 </x-m>
+      <y-m>-0.01 </y-m>
+      <z-m>-1.16 </z-m>
     </offsets>
   </model>
   

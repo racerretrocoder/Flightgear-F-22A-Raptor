@@ -5,8 +5,9 @@
 
 
     <enable3d>true</enable3d>
-    
-   
+    <file>Aircraft/F-22/Nasal/hud.nas</file>
+
+ <!--  
 
     <ladder>
         <name>Pitch Ladder</name>
@@ -252,7 +253,7 @@
   <height>10</height>
  </aiming-reticle>
  
- 
+ -->
 	
 	
 	</PropertyList>

@@ -847,25 +847,26 @@
 		</slat>
 		
 
-<!-- Stall testing from A340 -->
+
+>
     <stall>
         <name>stall</name>
         <mode>looped</mode>
-        <path>Aircraft/F-22/Sounds/Samples/stall.wav</path>
+        <path>Aircraft/F-22/Sounds/AV/stall.wav</path>
         <condition>
-            <less-than>
-                <property>velocities/airspeed-kt</property>
-                <value>90</value>
-            </less-than>
-            <not>
-                <property>/gear/gear[0]/wow</property>
-                <property>/gear/gear[1]/wow</property>
-                <property>/gear/gear[2]/wow</property>
-                <property>/gear/gear[0]/position-norm</property>
-            </not>
+<and>
+            <greater-than>
+                <property>fdm/jsbsim/aero/alpha-deg</property>
+                <value>30</value>
+            </greater-than>
+        <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+</and>
         </condition>
         <volume>
-            <max>0.5</max>
+            <max>10</max>
         </volume>
         <position>
             <x>-22</x>
@@ -873,7 +874,7 @@
             <z>0</z>
         </position>
         <reference-dist>1.0</reference-dist>
-        <max-dist>2.0</max-dist>
+        <max-dist>999999999.0</max-dist>
     </stall>
 
 <!-- switches -->
