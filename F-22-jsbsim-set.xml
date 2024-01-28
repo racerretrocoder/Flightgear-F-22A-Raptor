@@ -1563,10 +1563,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 	<engines>
 		<engine n="0">
-			<running>false</running>
+			<running>true</running>
 		</engine>
 		<engine n="1">
-			<running>false</running>
+			<running>true</running>
 		</engine>
 	</engines>
 	
