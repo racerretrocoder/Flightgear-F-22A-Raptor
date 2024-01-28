@@ -877,6 +877,24 @@
         <max-dist>999999999.0</max-dist>
     </stall>
 
+ <rwr>
+            <name>rwr-spike-air</name>
+            <path>Aircraft/F-22/Sounds/AV/rwr-spike.wav</path>
+            <mode>looped</mode>
+            <type>avionics</type>
+            <condition>
+                <equals>
+                    <property>payload/armament/spike</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+            <volume>
+                <property>/sim/current-view/internal</property>
+                <factor>0.50</factor>
+            </volume>
+           
+        </rwr>
+
 <!-- switches -->
 		<click>
 			<name>hook click down</name>
