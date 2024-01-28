@@ -126,7 +126,7 @@
 					<int type="int">0</int>
 			</generic>
 		</multiplay>
-		
+
 		<menubar>
 			<default>
 				<menu n="100">
