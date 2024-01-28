@@ -120,8 +120,8 @@ var Impact = func() {
                     msg.Bearing = 0;
                     msg.Distance = numberOfSplash;
                     msg.RemoteCallsign = splashOn;
-            notifications.hitBridgedTransmitter.NotifyAll(msg);
-            damage.damageLog.push("You hit "~splashOn~" with "~"GSh-30"~", "~numberOfSplash~" times.");
+            notifications.hitBridgedTransmitter.NotifyAll(msg);  #This is what sends damage to oppenent
+            damage.damageLog.push("You hit "~splashOn~" with "~"M161A"~", "~numberOfSplash~" times.");
         } else {
             setprop("/sim/messages/atc", phrase);
         }

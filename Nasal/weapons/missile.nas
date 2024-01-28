@@ -905,7 +905,6 @@ var MISSILE = {
                         #setprop("/sim/multiplay/chat", phrase);
                         var typeID = 0;
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="AIM-120";typeID = 52;}
-                        if(me.NameOfMissile == "R-27T"){me.NameOfMissile="R-27T1";typeID = 97;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9X";typeID=98;}
                         var msg = notifications.ArmamentNotification.new("mhit", 4, typeID);
                         msg.RelativeAltitude = 0;

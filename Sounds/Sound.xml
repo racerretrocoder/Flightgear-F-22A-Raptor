@@ -848,7 +848,7 @@
 		
 
 
->
+
     <stall>
         <name>stall</name>
         <mode>looped</mode>
@@ -866,7 +866,7 @@
 </and>
         </condition>
         <volume>
-            <max>10</max>
+            <max>100</max>
         </volume>
         <position>
             <x>-22</x>
