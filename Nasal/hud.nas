@@ -232,32 +232,8 @@ var HUD = {
 #	print ("SEE hud");
 		}
 		
-    me.airspeed.setText(sprintf("%d", me.input.ias.getValue()/10)~"0");
-    me.altitude.setText( me.input.altitude.getValue());
-    if (me.input.target_spd.getValue()!= nil){
-    me.APairspeed.setText(sprintf("%2d", Kts2KmH(me.input.target_spd.getValue())/10)~"0");}
-    if(me.input.target_alt.getValue()!= nil){
-    me.APaltitude.setText(sprintf("%2d", ft2m(me.input.target_alt.getValue())/10)~"0");}
 
-
-    me.HdgScale.setTranslation(0, me.input.hdg.getValue()/180);
-    
-    #heading tape
-    if (me.input.hdg.getValue() < 180)
-				me.heading_tape_position = -me.input.hdg.getValue()*54/10;
-    else
-				me.heading_tape_position = (360-me.input.hdg.getValue())*54/10;
-    me.HdgScale.setTranslation (me.heading_tape_position,0);
-            
-    me.h_trans.setTranslation(0, 1.8 * me.input.pitch.getValue()+100);
- 
-    var rot = -me.input.roll.getValue() * math.pi / 180.0;
-    me.pitch.setText(sprintf("%d", me.input.pitch.getValue()));
-    me.pitch.setTranslation(180, 1.8 * me.input.pitch.getValue()+90);
-    me.attitudeInd.setRotation(-rot);
-    #Acceleration cue
-    if (me.input.acc.getValue() < -1){me.accel_pointer.setTranslation(-13,0)};
-    if (me.input.acc.getValue() > 1) {me.accel_pointer.setTranslation(13,0)};
+   
 ##########################
 		#ROUTE MODE :#
 ##########################	    

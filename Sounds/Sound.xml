@@ -554,7 +554,7 @@
    </pitch>
 </engine>
 
-
+<!--
   <engine>
    <name>Reheat</name>
    <mode>looped</mode>
@@ -585,7 +585,7 @@
 	<max>1.0</max>
    </volume>
   </engine>
-  
+  -->
   
   
   <!-- Cockpit Environment -->
