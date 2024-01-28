@@ -250,13 +250,22 @@
 			 <brightness type="float">0.85</brightness>
 			 <transparent type="bool">true</transparent>
 			 <red type="float">1.0</red>
-			 <green type="float">0.2</green>
+			 <green type="float">0.0</green>
 			 <blue type="float">0.0</blue>
+			</color>
+<color n="2">
+			 <alpha type="float">0.85</alpha>
+			 <antialiased type="bool">true</antialiased>
+			 <brightness type="float">0.85</brightness>
+			 <transparent type="bool">true</transparent>
+			 <red type="float">1.0</red>
+			 <green type="float">1.0</green>
+			 <blue type="float">1.0</blue>
 			</color>
 		   </palette>
 		     <clipping>
-    <left type="double">-100</left>
-    <right type="double">85</right>
+    <left type="double">-110</left>
+    <right type="double">95</right>
     <top type="double">45</top>
     <bottom type="double">-165</bottom>
      </clipping>
