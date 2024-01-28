@@ -31,7 +31,7 @@ var Loading_missile = func(name)
     
     if(name == "Aim-120")
     {
-        # AIM-120 :Long Range Missile,        #https://en.wikipedia.org/wiki/R-27_(air-to-air_missile)
+        # AIM-120 :Long Range Missile,      
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";

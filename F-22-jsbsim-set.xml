@@ -12,7 +12,7 @@
 		
 		<author>Phoenix, Anonymist, Ghost</author>
 		
-		<status>Alpha v0.99a</status>
+		<status>Alpha v0.5a</status>
 		
 		<rating>
 			<FDM type="int">2</FDM>
@@ -183,7 +183,7 @@
 		</menubar>
 		
 		<help>
-			<title>F-22A Raptor</title>
+			<title>Lockheed Martin F-22A Raptor</title>
 			
 			<key>
 				<name>c</name>
@@ -204,6 +204,10 @@
 			<key>
 				<name>l</name>
 				<desc>Launch flares</desc>
+			</key>
+<key>
+				<name>Shift-R</name>
+				<desc>Toggle HUD Radar targets (you know when its on by seeing the R on the hud but when you spawn press anyways)</desc>
 			</key>
       <key>
         <name>r</name>
@@ -229,6 +233,8 @@
 			<line>This plane can Super cruise!</line>
 			<line>Which means it can go faster than mach 1</line>
 			<line>With no After burner</line>
+<line>To turn on the radar HUD, Press the switch on the lower right console.</line>
+<line>You will know its on when the green light turns on, You may have to press it twice (only when you spawn)</line>
 		</help>
 	
 		<hud>
@@ -240,9 +246,9 @@
 			 <antialiased type="bool">true</antialiased>
 			 <brightness type="float">0.85</brightness>
 			 <transparent type="bool">true</transparent>
-			 <red type="float">0.38</red>
+			 <red type="float">0.0</red>
 			 <green type="float">1.0</green>
-			 <blue type="float">0.22</blue>
+			 <blue type="float">0.0</blue>
 			</color>
 			<color n="1">
 			 <alpha type="float">0.85</alpha>
@@ -1793,7 +1799,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			</frequencies>
 		</nav>
 		
-		
+		<datalink>
+<power-prop type="int">90</power-prop>
+<channel-prop type="int">2924</channel-prop>
+</datalink>
 
  
  
@@ -2047,6 +2056,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<file>Aircraft/F-22/Nasal/light.nas</file>
 			<file>Aircraft/F-22/Nasal/doors.nas</file>
 		</f22>
+<datalink>
+			<file>Aircraft/F-22/Nasal/datalink.nas</file>
+</datalink>
 	</nasal>
 
 </PropertyList>
