@@ -144,7 +144,7 @@ var btn_P8_R_73 = canvas.gui.widgets.Button.new(root, canvas.style, {})
 
 btn_P8_R_73.listen("clicked", func {
         # add code here to react on click on button.
-		print("P8: R-73");
+		print("P8: Aim-9x");
 		setprop("sim/weight[7]/selected","Aim-9x");
 		setprop("/controls/armament/station[7]/release","false");
 		setprop("fdm/jsbsim/inertia/pointmass-weight-lbs[7]",231.48); # R-73 = 105KG
