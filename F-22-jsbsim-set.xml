@@ -11,13 +11,13 @@
             The Lockheed Martin F-22A "Raptor" is a fifth-generation tactical fighter manufactured by Lockheed Martin and Boeing. It combines supersonic cruise, low-observability, and sensor fusion. The definitive production Block 30/35 model features the AN/APG-77v1 AESA radar and F119-PW-100 engines. The F-22A, the only production F-22 variant, became operational in 2005 and is operated exclusively by the United States Air Force.
         </long-description>
 		
-		<author>Phoenix, Anonymist, Ghost</author>
+		<author>Phoenix, Anonymist, Ghost, Alpha1, BobDotCom</author>
 		
-		<status>Alpha v0.5a</status>
+		<status>Alpha v0.6a</status>
 		
 		<rating>
 			<FDM type="int">2</FDM>
-			<systems type="int">0</systems>
+			<systems type="int">1</systems>
 			<cockpit type="int">3</cockpit>
 			<model type="int">3</model>
 		</rating>
