@@ -29,7 +29,7 @@ Under Minor development, external contributions welcome :).
 but we seem to be chuging along quite quickly! Yay!
 
 # License: 
-GNU General Public License 3.0 (check the [LICENSE.MD](LICENSE.MD))
+GNU General Public License 3.0 (check the [LICENSE.MD](https://github.com/racerretrocoder/Flightgear-F-22A-Raptor/blob/master/LICENSE.md))
 
 
 
