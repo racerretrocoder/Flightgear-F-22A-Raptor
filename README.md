@@ -1,12 +1,11 @@
 # F-22 Raptor for FlightGear
 
-![Flightgear F22](/pic.png "My little Raptor, is he cute? :D")
+![FlightGear F-22](/pic.png "My little Raptor, is he cute? :D")
 To install it, download the zip, open the zip and rename the aircraft folder to F-22 (notice the Capital F)
-Then copy that to C:\Program Files\FlightGear 2020.3\data\Aircraft Or the directory your installed aircrafts are
+Then copy that to your aircraft folder.
+Missiles are in! See the aircraft help in game to learn how to use them!
 
-Missiles are in! see the aircraft help in game to learn how to use them!
-
-Based primarily upon the raptor from the FGUK Hangar.
+Based primarily upon the Raptor from the FGUK Hangar.
 
 # Edited by:
  Phoenix, Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPcallsign: Kodiak) And Alpha1 (MPcallsign: Alpha1)
@@ -33,4 +32,5 @@ but we seem to be chuging along quite quickly! Yay!
 GNU General Public License 3.0 (check the LICENSE.MD)
 
 
-Fox 3 Fox 3 Fox 3 Fox 3 Fox 3 Fox 3
+
+*Fox 3 Fox 3 Fox 3 Fox 3 Fox 3 Fox 3*
