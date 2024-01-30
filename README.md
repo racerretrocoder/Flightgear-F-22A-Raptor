@@ -12,11 +12,17 @@ Based primarily upon the raptor from the FGUK Hangar.
  Phoenix, Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPcallsign: Kodiak) And Alpha1 (MPcallsign: Alpha1)
 
  FDM: Phoenix
+ 
  MFD icons and int. textures:  Anonymist
+ 
  Ext. textures: Phoenix
+ 
  Damage, Missile, and radar implentation: Phoenix, Ghost, and friends
+ 
  Canvas stuff like hud and radar: Alpha1
- Fixxes with -set: BobDotCom
+ 
+ Fixes with -set: BobDotCom
+ 
  Support: all of them                  
 
 
@@ -24,8 +30,7 @@ Under Minor development, external contributions welcome :).
 but we seem to be chuging along quite quickly! Yay!
 
 # License: 
-Share ware, take it but include the Creators callsign amd username in it somewhere
-
+GNU General Public License 3.0 (check the LICENSE.MD)
 
 
 Fox 3 Fox 3 Fox 3 Fox 3 Fox 3 Fox 3
