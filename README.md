@@ -9,14 +9,21 @@ Based primarily upon the raptor from the FGUK Hangar.
 # Edited by:
  Phoenix, Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPcallsign: Kodiak) And Alpha1 (MPcallsign: Alpha1)
 
- FDM: Phoenix-----------
- MFD icons and textures re-designs:  Anonymist-----------
- Missile implentation: Phoenix and Ghost-----------
+ FDM: Phoenix
+ MFD icons and int. textures:  Anonymist
+ Ext. textures: Phoenix
+ Damage, Missile, and radar implentation: Phoenix, Ghost, and friends
+ Canvas stuff like hud and radar: Alpha1
+ Fixxes with -set: BobDotCom
  Support: all of them                  
 
-Under early development, external contributions welcome :).
+
+Under Minor development, external contributions welcome :).
 but we seem to be chuging along quite quickly! Yay!
 
 # License: 
-Share ware, take it but include the Creators callsign or username in it some where
+Share ware, take it but include the Creators callsign amd username in it somewhere
 
+
+
+Fox 3 Fox 3 Fox 3 Fox 3 Fox 3 Fox 3
