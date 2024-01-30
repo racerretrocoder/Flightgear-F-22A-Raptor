@@ -26,7 +26,7 @@ var HUD = {
     
  
     m.canvas.addPlacement(placement);
-    m.canvas.setColorBackground(0.36, 1, 0.3, 0.02);
+    m.canvas.setColorBackground(0.36, 1, 0.3, 0.00);
  
     m.root =
       m.canvas.createGroup()
@@ -321,7 +321,7 @@ var HUD = {
         }
         if (radarON == 1){
               me.lockMarker.setVisible(1);
-              me.lockMarker.setTranslation(target1_x*18, -145+ -target1_z*15);}
+              me.lockMarker.setTranslation(target1_x*19, -190+ -target1_z*16);}
       }
     }
 
@@ -351,7 +351,7 @@ var HUD = {
       }
       if (radarON == 1){
 						me.tgt1Marker.setVisible(1);
-						me.tgt1Marker.setTranslation(target1_x*18, -145+ -target1_z*15);}
+						me.tgt1Marker.setTranslation(target1_x*18, -190+ -target1_z*16);}
 		}
 #		#**************TARGET2 MARKER *********************#
 		var target2_x = getprop("instrumentation/radar2/targets/multiplayer[1]/h-offset");
@@ -379,7 +379,7 @@ var HUD = {
       }
       if (radarON == 1){
 						me.tgt2Marker.setVisible(1);
-						me.tgt2Marker.setTranslation(target2_x*18, -145+ -target2_z*15);}
+						me.tgt2Marker.setTranslation(target2_x*18, -190+ -target2_z*16);}
 		}
 #		#**************TARGET3 MARKER *********************#
 		var target3_x = getprop("instrumentation/radar2/targets/multiplayer[2]/h-offset");
@@ -407,7 +407,7 @@ var HUD = {
       }
       if (radarON == 1){
 						me.tgt3Marker.setVisible(1);
-						me.tgt3Marker.setTranslation(target3_x*18, -145+ -target3_z*15);}
+						me.tgt3Marker.setTranslation(target3_x*18, -190+ -target3_z*16);}
 		}
 #		#**************TARGET4 MARKER *********************#
 		var target4_x = getprop("instrumentation/radar2/targets/multiplayer[3]/h-offset");
@@ -435,7 +435,7 @@ var HUD = {
       }
       if (radarON == 1){
 						me.tgt4Marker.setVisible(1);
-						me.tgt4Marker.setTranslation(target4_x*15, -145+ -target4_z*15);}
+						me.tgt4Marker.setTranslation(target4_x*15, -190+ -target4_z*16);}
 		}
 #		#**************TARGET5 MARKER *********************#
 		target1_x = getprop("instrumentation/radar2/targets/multiplayer[4]/h-offset");
@@ -463,7 +463,7 @@ var HUD = {
       }
 			if (radarON == 1){
 						me.tgt5Marker.setVisible(1);
-						me.tgt5Marker.setTranslation(target1_x*20, -145+ -target1_z*15);}
+						me.tgt5Marker.setTranslation(target1_x*20, -190+ -target1_z*16);}
 		}
 #		#**************TARGET6 MARKER *********************#
 		target1_x = getprop("instrumentation/radar2/targets/multiplayer[5]/h-offset");
@@ -491,7 +491,7 @@ var HUD = {
       }
 			if (radarON == 1){
 						me.tgt6Marker.setVisible(1);
-						me.tgt6Marker.setTranslation(target1_x*20, -145+ -target1_z*15);}
+						me.tgt6Marker.setTranslation(target1_x*20, -195+ -target1_z*16);}
 		}
 #		#**************TARGET7 MARKER *********************#
 		var target7_x = getprop("instrumentation/radar2/targets/tanker[0]/h-offset");
@@ -500,7 +500,7 @@ var HUD = {
 		{
 			if (radarON == 1){
 						me.tgt7Marker.setVisible(1);
-						me.tgt7Marker.setTranslation(target7_x*15, -145+ -target7_z*15);}
+						me.tgt7Marker.setTranslation(target7_x*15, -145+ -target7_z*16);}
 		}
 #		#**************TARGET8 MARKER *********************#
 		target1_x = getprop("instrumentation/radar2/targets/Mig-28[2]/h-offset");
@@ -528,7 +528,7 @@ var HUD = {
       }
 			if (radarON == 1){
 						me.tgt8Marker.setVisible(1);
-						me.tgt8Marker.setTranslation(target1_x*18, -145+ -target1_z*15);}
+						me.tgt8Marker.setTranslation(target1_x*18, -190+ -target1_z*16);}
 		}
 #		#**************TARGET9 MARKER *********************#
 		target1_x = getprop("instrumentation/radar2/targets/Mig-28[1]/h-offset");
@@ -556,7 +556,7 @@ var HUD = {
       }
       if (radarON == 1){
 						me.tgt9Marker.setVisible(1);
-						me.tgt9Marker.setTranslation(target1_x*18, -145+ -target1_z*15);}
+						me.tgt9Marker.setTranslation(target1_x*18, -190+ -target1_z*16);}
 		}
 #		#**************TARGET10 MARKER *********************#
 		target1_x = getprop("instrumentation/radar2/targets/Mig-28[0]/h-offset");
@@ -584,7 +584,7 @@ var HUD = {
       }
 			if (radarON == 1){
 						me.tgt10Marker.setVisible(1);
-						me.tgt10Marker.setTranslation(target1_x*18, -145+ -target1_z*15);}
+						me.tgt10Marker.setTranslation(target1_x*18, -190+ -target1_z*16);}
 		}
  
     var speed_error = 0;
