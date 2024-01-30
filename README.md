@@ -11,19 +11,19 @@ Based primarily upon the raptor from the FGUK Hangar.
 # Edited by:
  Phoenix, Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPcallsign: Kodiak) And Alpha1 (MPcallsign: Alpha1)
 
- FDM: Phoenix
+ **FDM:** Phoenix
  
- MFD icons and int. textures:  Anonymist
+ **MFD icons and int. textures:**  Anonymist
  
- Ext. textures: Phoenix
+ **Ext. textures:** Phoenix
  
- Damage, Missile, and radar implentation: Phoenix, Ghost, and friends
+ **Damage, Missile, and radar implentation:** Phoenix, Ghost, and friends
  
- Canvas stuff like hud and radar: Alpha1
+ **Canvas stuff:** Alpha1
  
- Fixes with -set: BobDotCom
+ **Fixes with -set:** BobDotCom
  
- Support: all of them                  
+ **Support:** all of them                  
 
 
 Under Minor development, external contributions welcome :).
