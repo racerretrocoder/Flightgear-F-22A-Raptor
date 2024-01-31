@@ -13,7 +13,9 @@ It combines supersonic cruise, low-observability, and sensor fusion. The definit
 		
 		<author>Phoenix, Anonymist, Ghost</author>
 		
-		<status>Alpha v0.65a</status>
+    
+    <status>Alpha v0.6b</status>
+
 		
 		<rating>
 			<FDM type="int">3</FDM>
@@ -1564,10 +1566,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 	<engines>
 		<engine n="0">
-			<running>false</running>
+			<running>true</running>
 		</engine>
 		<engine n="1">
-			<running>false</running>
+			<running>true</running>
 		</engine>
 	</engines>
 	
