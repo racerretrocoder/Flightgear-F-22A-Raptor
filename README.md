@@ -9,8 +9,7 @@ Missiles are in! see the aircraft help in game to learn how to use them!
 Based primarily upon the raptor from the FGUK Hangar.
 
 # Edited by:
-Phoenix (MPcallsign: Phoenix)
-
+Phoenix (MPcallsign: Phoenix) 
 Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPcallsign: Kodiak) And Alpha1 (MPcallsign: Alpha1)
 
  FDM: Phoenix
