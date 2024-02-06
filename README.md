@@ -18,6 +18,7 @@ Based primarily upon the raptor from the FGUK Hangar.
  Canvas stuff like hud and radar: Alpha1, BobDotCom
  Fixxes with -set: BobDotCom
 Test pilots: Epsilon, and members of the 249th EFS
+
  Support: all of them                  
 
 
