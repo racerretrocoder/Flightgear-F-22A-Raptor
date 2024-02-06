@@ -12,13 +12,14 @@ Based primarily upon the raptor from the FGUK Hangar.
  Phoenix, Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPcallsign: Kodiak) And Alpha1 (MPcallsign: Alpha1)
 
  FDM: Phoenix
+
  MFD icons and int. textures:  Anonymist and Phoenix (but mostly Anonymist, i did the seat though)
 
  Ext. textures: Phoenix 
 
  Damage, Missile, and radar implentation: Phoenix, Ghost, and friends
 
- Canvas stuff like hud and radar: Alpha
+ Canvas stuff like hud and radar: Alpha1
 
  Fixxes with -set: BobDotCom
 Test pilots: Epsilon, and members of the 249th EFS
