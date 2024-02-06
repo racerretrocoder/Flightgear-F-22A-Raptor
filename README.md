@@ -15,8 +15,9 @@ Based primarily upon the raptor from the FGUK Hangar.
  MFD icons and int. textures:  Anonymist
  Ext. textures: Phoenix
  Damage, Missile, and radar implentation: Phoenix, Ghost, and friends
- Canvas stuff like hud and radar: Alpha1
+ Canvas stuff like hud and radar: Alpha1, BobDotCom
  Fixxes with -set: BobDotCom
+Test pilots: Epsilon, and members of the 249th EFS
  Support: all of them                  
 
 
@@ -24,7 +25,7 @@ Under Minor development, external contributions welcome :).
 but we seem to be chuging along quite quickly! Yay!
 
 # License: 
-Share ware, take it but include the Creators callsign amd username in it somewhere
+Share ware, take it but include the Creators callsign and username in it somewhere
 
 
 
