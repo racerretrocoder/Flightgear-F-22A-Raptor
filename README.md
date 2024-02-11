@@ -7,6 +7,7 @@ Missiles are in! see the aircraft help in game to learn how to use them!
 Based primarily upon the raptor from the FGUK Hangar.
 
 # Edited by:
+<<<<<<< HEAD
  Phoenix, Anonymist, and Developer0607
 
  FDM: Phoenix-----------
@@ -19,6 +20,32 @@ but we seem to be chuging along quite quickly! Yay!
 
 # License: 
 Share ware, take it but include the Creators callsign or username in it some where
+=======
+Phoenix (MPcallsign: Phoenix) 
+Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPcallsign: Kodiak) And Alpha1 (MPcallsign: Alpha1)
+
+ FDM: Phoenix
+
+ MFD icons and int. textures:  Anonymist and Phoenix (but mostly Anonymist, i did the seat though)
+
+ Ext. textures: Phoenix 
+
+ Damage, Missile, and radar implentation: Phoenix, Ghost, and friends
+
+ Canvas stuff like hud and radar: Alpha1
+
+ Fixxes with -set: BobDotCom
+Test pilots: Epsilon, and members of the 249th EFS
+
+ Support: all of them                  
+
+
+This is under development
+DM Phoenix for more info!
+
+# License: 
+Shareware, take it but include the Creators callsign and username in it somewhere, blah blah blah, no classified data was used to make this software
+>>>>>>> 8005c3272f72594abe3fa9a734485ecdb6a0dd64
 
        @@@@@@@@@@@                                                           @@@@@@@@                                                                                
        @@@@@@@@@@@@@@@                                                       @@@@@@@@@@@@                                                                          
