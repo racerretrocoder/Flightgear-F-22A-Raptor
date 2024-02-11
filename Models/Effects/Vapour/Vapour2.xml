@@ -75,6 +75,10 @@
     <property>/position/altitude-ft</property>
     <value>5000.0</value>
      </less-than>
+  <greater-than>
+     <property>/position/altitude-ft</property>
+     <value>2500</value>
+    </greater-than>
    </and>
 	</condition>
 

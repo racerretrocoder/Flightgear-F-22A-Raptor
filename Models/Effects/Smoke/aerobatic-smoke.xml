@@ -5,7 +5,7 @@
 <!--	aerobatic smokes Pylon7 -->
 <model><!--	Blue aerobatic smoke Pylon7 -->
   <name>P7_aerobatic_smoke_blue</name> 
-  <path>Aircraft/SU-27SK/Models/Effects/smoke/aerobatic-smoke/smokeB.xml</path>
+  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeB.xml</path>
   <offsets>
 		<x-m> 15.400 </x-m>
 		<y-m> -7.570 </y-m>
@@ -15,7 +15,7 @@
 
 <model><!--	Yellow aerobatic smoke Pylon7 -->
   <name>P7_aerobatic_smoke_yellow</name> 
-  <path>Aircraft/SU-27SK/Models/Effects/smoke/aerobatic-smoke/smokeY.xml</path>
+  <path>Aircraft/F-33/Models/Effects/smoke/aerobatic-smoke/smokeY.xml</path>
   <offsets>
 		<x-m> 15.400 </x-m>
 		<y-m> -7.570 </y-m>
@@ -25,7 +25,7 @@
 
 <model><!--	Red aerobatic smoke Pylon7 -->
   <name>P7_aerobatic_smoke_red</name> 
-  <path>Aircraft/SU-27SK/Models/Effects/smoke/aerobatic-smoke/smokeR.xml</path>
+  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeR.xml</path>
   <offsets>
 		<x-m> 15.400 </x-m>
 		<y-m> -7.570 </y-m>
@@ -92,7 +92,7 @@
 
 <model><!--	Blue aerobatic smoke Pylon8 -->
   <name>P8_aerobatic_smoke_blue</name> 
-  <path>Aircraft/SU-27SK/Models/Effects/smoke/aerobatic-smoke/smokeB.xml</path>
+  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeB.xml</path>
   <offsets>
 		<x-m> 15.400 </x-m>
 		<y-m>  7.570 </y-m>
@@ -102,7 +102,7 @@
 
 <model><!--	Yellow aerobatic smoke Pylon8 -->
   <name>P8_aerobatic_smoke_yellow</name>
-  <path>Aircraft/SU-27SK/Models/Effects/smoke/aerobatic-smoke/smokeY.xml</path>
+  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeY.xml</path>
   <offsets>
 		<x-m> 15.400 </x-m>
 		<y-m> 7.570  </y-m>
@@ -112,7 +112,7 @@
 
 <model><!--	Red aerobatic smoke Pylon8 -->
   <name>P8_aerobatic_smoke_red</name> 
-  <path>Aircraft/SU-27SK/Models/Effects/smoke/aerobatic-smoke/smokeR.xml</path>
+  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeR.xml</path>
   <offsets>
 		<x-m> 15.400 </x-m>
 		<y-m>  7.570 </y-m>
