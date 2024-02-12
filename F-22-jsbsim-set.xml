@@ -4,26 +4,15 @@
 
 	<sim>
 
-		<description>F-22A Raptor, Lockheed Martin</description>
+		<description>F-22A (JSBSim FDM)</description>
 <variant-id type="int">1</variant-id>
         <long-description>
-<<<<<<< HEAD
             The Lockheed Martin F-22A "Raptor" is a fifth-generation tactical fighter manufactured by Lockheed Martin and Boeing. It combines supersonic cruise, low-observability, and sensor fusion. The definitive production Block 30/35 model features the AN/APG-77v1 AESA radar and F119-PW-100 engines. The F-22A, the only production F-22 variant, became operational in 2005 and is operated exclusively by the United States Air Force.
-=======
-            The Lockheed Martin F-22A Raptor is a fifth-generation tactical fighter manufactured by Lockheed Martin, Boeing, and Pratt & Whitney
-It combines supersonic cruise, low-observability, and sensor fusion. The definitive production Block 30/35 model features the AN/APG-77v1 AESA radar and two F119-PW-100 engines. The F-22A, the only production F-22 variant, became operational in 2005 and is operated exclusively by the United States Air Force.
->>>>>>> 8005c3272f72594abe3fa9a734485ecdb6a0dd64
         </long-description>
 		
-<author>Phoenix, Anonymist, Ghost, Alpha1, BobDotCom</author>
+		<author>Phoenix, Anonymist, Ghost</author>
 		
-<<<<<<< HEAD
 		<status>Alpha v0.5a</status>
-=======
-    
-    <status>Alpha v0.6b</status>
-
->>>>>>> 8005c3272f72594abe3fa9a734485ecdb6a0dd64
 		
 		<rating>
 			<FDM type="int">2</FDM>
@@ -1574,10 +1563,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 	<engines>
 		<engine n="0">
-			<running>true</running>
+			<running>false</running>
 		</engine>
 		<engine n="1">
-			<running>true</running>
+			<running>false</running>
 		</engine>
 	</engines>
 	
