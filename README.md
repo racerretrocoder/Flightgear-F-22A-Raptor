@@ -16,7 +16,7 @@ Based primarily upon the raptor from the FGUK Hangar.
  Support: all of them                  
 
 Under early development, external contributions welcome :).
-but we seem to be chuging along quite quickly! Yay!
+but we seem to be chugging along quite quickly! Yay!
 
 # License: 
 Share ware, take it but include the Creators callsign or username in it some where
@@ -35,7 +35,8 @@ Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPc
  Canvas stuff like hud and radar: Alpha1
 
  Fixxes with -set: BobDotCom
-Test pilots: Epsilon, and members of the 249th EFS
+
+Test pilots: Epsilon, and members of the 249th EFS
 
  Support: all of them                  
 
