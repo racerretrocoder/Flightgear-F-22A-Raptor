@@ -179,6 +179,8 @@
 
 
  <float n="17" type="double" alias="/orientation/alpha-deg"/>
+	
+ <float n="19" type="double" alias="/velocities/airspeed-kts"/>
  <bool n="39" type="bool" alias="/engines/engine[0]/augmentation"/>
 </generic>		
 	</multiplay>
