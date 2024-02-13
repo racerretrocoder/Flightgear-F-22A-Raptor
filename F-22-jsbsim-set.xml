@@ -181,7 +181,7 @@
 
  <float n="17" type="double" alias="/orientation/alpha-deg"/>
  <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
- <float n="19" type="double" alias="/velocities/airspeed-kts"/>
+ <float n="19" type="double" alias="/velocities/airspeed-kt"/>
 </generic>		
 	</multiplay>
 	<help>
