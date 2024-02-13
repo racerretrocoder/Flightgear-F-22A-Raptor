@@ -1,4 +1,6 @@
 # F-22 Raptor for FlightGear
+
+![image](/pic.png)
 To install it, download the zip, open the zip and rename the aircraft folder to F-22 (notice the Capital F)
 Then copy that to C:\Program Files\FlightGear 2020.3\data\Aircraft Or the directory your installed aircrafts are
 
