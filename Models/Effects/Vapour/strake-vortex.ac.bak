@@ -1,0 +1,61 @@
+AC3Db
+MATERIAL "Material" rgb 0.8 0.8 0.8  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 50  trans 0.5
+OBJECT world
+kids 1
+OBJECT poly
+name "Bounding_box2"
+loc -0.145744 0.0223886 0
+crease 90.000000
+numvert 8
+6.89819 -1.66473 -4.1
+6.89819 -1.66473 4.1
+-0.0480504 -0.425066 2.03731
+-0.0480504 -0.425066 -2.06904
+6.89819 1.23204 -4.1
+6.89819 1.23204 4.1
+-0.0480511 0.580381 2.03731
+-0.0480511 0.580381 -2.06904
+numsurf 6
+SURF 0x30
+mat 0
+refs 4
+0 0 0
+1 0 0
+2 0 0
+3 0 0
+SURF 0x30
+mat 0
+refs 4
+4 0 0
+7 0 0
+6 0 0
+5 0 0
+SURF 0x30
+mat 0
+refs 4
+0 0 0
+4 0 0
+5 0 0
+1 0 0
+SURF 0x30
+mat 0
+refs 4
+1 0 0
+5 0 0
+6 0 0
+2 0 0
+SURF 0x30
+mat 0
+refs 4
+2 0 0
+6 0 0
+7 0 0
+3 0 0
+SURF 0x30
+mat 0
+refs 4
+4 0 0
+0 0 0
+3 0 0
+7 0 0
+kids 0

@@ -7,6 +7,7 @@
 
 var Loading_missile = func(name)
 {
+    var typeid            = 0;
     var address           = "test";
     var NoSmoke           = "test2";
     var Explosion         = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
@@ -32,19 +33,20 @@ var Loading_missile = func(name)
     if(name == "Aim-120")
     {
         # AIM-120 :Long Range Missile,      
+	typeid = 52;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        maxdetectionrngnm = 38.8;                      #  
-        fovdeg = 110;                                 #
+        maxdetectionrngnm = 38.8;                    #  
+        fovdeg = 110;                                #
         detectionfovdeg = 180;                       # 
         trackmaxdeg = 110;                           # 
         maxg = 30;                                   # 
         thrustlbs = 500;                             # 
-        thrustdurationsec = 200;                      # 
+        thrustdurationsec = 200;                     # 
         weightlaunchlbs = 291;
         weightwarheadlbs = 44;
-        dragcoeff = 0.3;                           # guess; original 0.05
+        dragcoeff = 0.3;                             # guess; original 0.05
         dragarea = 0.056;                            # sq ft
         maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
         maxspeed = 8.5;                              # In Mach
@@ -56,18 +58,19 @@ var Loading_missile = func(name)
     elsif(name == "Aim-9x")
     {
         # AIM-9X:short-range A2A,IR seeker,
+	typeid = 98;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         NoSmoke = "Aircraft/SU-27SK/Models/Stores/Missiles/AIM-9/AIM-9.xml";
-        maxdetectionrngnm = 12;                     # Not real Impact yet A little more than the MICA
-        fovdeg = 180;                                  # seeker optical FOV
+        maxdetectionrngnm = 12;                       # Not real Impact yet A little more than the MICA
+        fovdeg = 180;                                 # seeker optical FOV
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 180;                            # Seeker max total angular rotation
         maxg = 50;                                    # TV baby!
-        thrustlbs = 2880;                              # 
-        thrustdurationsec = 8;                       # Mk.36 Mod.7,8
+        thrustlbs = 2880;                             # 
+        thrustdurationsec = 8;                        # Mk.36 Mod.7,8
         weightlaunchlbs = 186;
         weightwarheadlbs = 20.8;
-        dragcoeff = 0.8;                            # guess; original 0.05
+        dragcoeff = 0.8;                              # guess; original 0.05
         dragarea = 0.075;                             # sq ft
         maxExplosionRange = 50;                       
         maxspeed = 4;                                 # In Mach
@@ -92,7 +95,7 @@ var Loading_missile = func(name)
         weightwarheadlbs = 27;
         dragcoeff = 0.051;                            # guess; original 0.05
         dragarea = 0.044;                             # sq ft
-        maxExplosionRange = 40;                       # Due to the code, more the speed is important, more we need to have this figure high
+        maxExplosionRange = 900;                      # Due to the code, more the speed is important, more we need to have this figure high
         maxspeed = 2.7;                               # In Mach
         life = 35;
         fox = "Fox 2";
@@ -104,22 +107,22 @@ var Loading_missile = func(name)
         # 
         address = "Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R-smoke.xml";
         NoSmoke = "Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml";
-        maxdetectionrngnm = 9;                        # Not real Impact yet
+        maxdetectionrngnm = 14;                       # Not real Impact yet
         fovdeg = 25;                                  # seeker optical FOV
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 21;                                    # In turn
-        thrustlbs = 250;                              # guess
-        thrustdurationsec =  15;                      # Mk.36 Mod.7,8
+        maxg = 15;                                    # In turn
+        thrustlbs = 0;                                # guess
+        thrustdurationsec =  0;                       # Mk.36 Mod.7,8
         weightlaunchlbs = 191;
         weightwarheadlbs = 20.8;
         dragcoeff = 0.05;                             # guess; original 0.05
         dragarea = 0.043;                             # sq ft
         maxExplosionRange = 40;                       # Due to the code, more the speed is important, more we need to have this figure high
         maxspeed = 2.5;                               # In Mach
-        life = 44;
-        fox = "Fox 2";
-        rail = "true";
+        life = 220;
+        fox = "A/G";
+        rail = "false";
         cruisealt = 0;
     }
     elsif(name == "GBU16")
@@ -349,5 +352,6 @@ var Loading_missile = func(name)
     setprop("controls/armament/missile/fox", fox);
     setprop("controls/armament/missile/rail", rail);
     setprop("controls/armament/missile/cruise_alt", cruisealt);
+    setprop("controls/armament/missile/type-id", typeid);
     return 1;
 }

@@ -4,22 +4,19 @@
 
 	<sim>
 
-		<description>F-22A Raptor, Lockheed Martin</description>
+		<description>F-22A (JSBSim FDM)</description>
 <variant-id type="int">1</variant-id>
         <long-description>
-            The Lockheed Martin F-22A Raptor is a fifth-generation tactical fighter manufactured by Lockheed Martin, Boeing, and Pratt & Whitney
-It combines supersonic cruise, low-observability, and sensor fusion. The definitive production Block 30/35 model features the AN/APG-77v1 AESA radar and two F119-PW-100 engines. The F-22A, the only production F-22 variant, became operational in 2005 and is operated exclusively by the United States Air Force.
+            The Lockheed Martin F-22A "Raptor" is a fifth-generation tactical fighter manufactured by Lockheed Martin and Boeing. It combines supersonic cruise, low-observability, and sensor fusion. The definitive production Block 30/35 model features the AN/APG-77v1 AESA radar and F119-PW-100 engines. The F-22A, the only production F-22 variant, became operational in 2005 and is operated exclusively by the United States Air Force.
         </long-description>
 		
 		<author>Phoenix, Anonymist, Ghost</author>
 		
-    
-    <status>Alpha v0.6b</status>
-
+		<status>Alpha v0.5a</status>
 		
 		<rating>
-			<FDM type="int">3</FDM>
-			<systems type="int">3</systems>
+			<FDM type="int">2</FDM>
+			<systems type="int">0</systems>
 			<cockpit type="int">3</cockpit>
 			<model type="int">3</model>
 		</rating>
@@ -29,8 +26,13 @@ It combines supersonic cruise, low-observability, and sensor fusion. The definit
 		<aero>f22-jsbsim</aero>
 	
 	<previews>
-            <preview>
+ <preview>
                 <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/F-22-0.png</path>
+            </preview>
+            <preview>                
+<type>exterior</type>
                 <splash type="bool">true</splash>
                 <path>gui/splashes/F-22-1.png</path>
             </preview>
@@ -116,20 +118,7 @@ It combines supersonic cruise, low-observability, and sensor fusion. The definit
 			<path>Aircraft/F-22/Sounds/Sound.xml</path>
 		</sound>
 		
-		<multiplay>
-			<chat_display>1</chat_display>
-			<generic>
-				<int type="int">0</int>
-					<int type="int">0</int>
-						<int type="int">0</int>
-							<int type="int">0</int>
-								<int type="int">0</int>
-							<int type="int">0</int>
-						<int type="bool">0</int>
-					<int type="int">0</int>
-			</generic>
-		</multiplay>
-
+	
 		<menubar>
 			<default>
 				<menu n="100">
@@ -184,8 +173,16 @@ It combines supersonic cruise, low-observability, and sensor fusion. The definit
 				</menu>
 			</default>
 		</menubar>
-		
-		<help>
+<multiplay>
+<chat_display>1</chat_display>
+<generic>
+
+
+ <float n="17" type="double" alias="/orientation/alpha-deg"/>
+ <bool n="39" type="bool" alias="/engines/engine[0]/augmentation"/>
+</generic>		
+	</multiplay>
+	<help>
 			<title>Lockheed Martin F-22A Raptor</title>
 			
 			<key>
@@ -1566,10 +1563,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 	<engines>
 		<engine n="0">
-			<running>true</running>
+			<running>false</running>
 		</engine>
 		<engine n="1">
-			<running>true</running>
+			<running>false</running>
 		</engine>
 	</engines>
 	
@@ -1670,7 +1667,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
     
       <binding>
      <command>nasal</command>
- <script>setprop("/ai/submodels/submodel/flare-release",1);damage.flare_released();settimer(func{setprop("/ai/submodels/submodel/flare-release",0);},0.1)</script>
+ <script>setprop("/ai/submodels/submodel/flare-release",1);f22.flares();damage.flare_released();settimer(func{setprop("/ai/submodels/submodel/flare-release",0);},0.1)</script>
       </binding>
 
     </key>
@@ -1781,7 +1778,16 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
      <value type="double">0.0</value>
    </binding>
  </key>
-	
+		<key n="117">
+	  <name>U</name>
+	  <desc>Toggle smoke</desc>
+	  <binding>
+      <command>nasal</command>
+      <script>
+			WCS.smoke_launcher();
+      </script>
+	  </binding>
+  </key>
 		 </keyboard>
 	 </input>
 

@@ -13,6 +13,11 @@
     <![CDATA[
       var livery_update = aircraft.livery_update.new("Aircraft/F-22/Models/Liveries");
     ]]>
+
+ var rplayer = cmdarg();
+   # Set up property aliases for animations.
+   rplayer.getNode("orientation/alpha-deg", 1).
+     alias(rplayer.getNode("sim/multiplay/generic/float[17]"));
     </load>
   
   <unload>
@@ -24,6 +29,30 @@
 
 
 	<path>F-22.ac</path>
+ <effect>
+        <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+        <object-name>Fuselage_2</object-name>
+        <object-name>left-nosegear-door</object-name>
+        <object-name>left-main-door-up</object-name>
+        <object-name>Left_Keel_1</object-name>
+        <object-name>Right_Keel_1</object-name>
+        <object-name>left-elevator_0</object-name>
+        <object-name>right-elevator_0</object-name>
+        <object-name>Fuselage_0</object-name>
+        <object-name>Right_Wing_1</object-name>
+        <object-name>Left_Wing_1</object-name>
+        <object-name>Right_Wing_0</object-name>
+        <object-name>Left_Wing_0</object-name>
+        <object-name>right-rudder</object-name>
+        <object-name>left-rudder</object-name>
+        <object-name>left-aileron_0</object-name>
+        <object-name>right-aileron_0</object-name>
+        <object-name>left-flap_0</object-name>
+        <object-name>right-flap_0</object-name>
+        <object-name>Fuselage_1</object-name>
+    </effect>
+
+
   <!-- Impact explosion -->
   <!--><model>
   <path>Aircraft/SU-27SK/Models/Effects/Explosion/Explode.xml</path>
@@ -71,6 +100,16 @@
     <heading-deg>0</heading-deg>
     </offsets>
   </model>
+
+<model>
+  <name>aerobatic_smoke</name>
+  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke.xml</path>
+  <offsets>
+   <x-m> 0.0</x-m>
+   <y-m> 0.0</y-m>
+   <z-m> 0.0</z-m>
+  </offsets>
+ </model>
 
 <animation>
   <type>material</type>
@@ -159,19 +198,230 @@
     <type>shader</type>
     <shader>chrome</shader>
     <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
-   <object-name>canopy</object-name>
-		<object-name>ILS</object-name>
+   <object-name>canopy in</object-name>
   </animation>
 	
 	<effect>
       <inherits-from>Effects/model-transparent</inherits-from>
        <object-name>canopy</object-name>
 		
-		 <object-name>ILS</object-name>
+		
    </effect>
+<effect>
+  <inherits-from>Aircraft/F-22/Models/Effects/glass/glass</inherits-from>
+  <parameters>
+    <!--<rendering-hint>transparent</rendering-hint>
+    <transparent>true</transparent>
+    <render-bin>
+      <bin-number>111</bin-number>
+      <bin-name>DepthSortedBin</bin-name>
+    </render-bin>-->
+  </parameters>
+  <object-name>Canopy in</object-name>
+  <object-name>CanopyBackInside</object-name>
+ </effect>
+
+ <effect>
+  <inherits-from>Effects/model-combined-transparent</inherits-from>
+  <parameters>
+    <rain-enabled>1</rain-enabled>
+    <normalmap-enabled type="int">0</normalmap-enabled>
+    <lightmap-enabled type="int">0</lightmap-enabled>
+    <reflection-enabled type="int">1</reflection-enabled>
+    <reflection-correction type="float">1</reflection-correction>
+    <reflect-map-enabled type="int">0</reflect-map-enabled>
+    <reflection-fresnel type="float">0.3</reflection-fresnel>
+    <reflection-rainbow type="float">0.2</reflection-rainbow>
+    <reflection-noise type="float">0.0</reflection-noise>
+    <reflection-dynamic type="int">1</reflection-dynamic>
+      <texture n= "5" >
+        <type>cubemap</type>
+        <images>
+          <positive-x>Aircraft/Generic/Effects/fgfs-sky2/1.png</positive-x>
+          <negative-x>Aircraft/Generic/Effects/fgfs-sky2/4.png</negative-x>
+          <positive-y>Aircraft/Generic/Effects/fgfs-sky2/2.png</positive-y>
+          <negative-y>Aircraft/Generic/Effects/fgfs-sky2/3.png</negative-y>
+          <positive-z>Aircraft/Generic/Effects/fgfs-sky2/6.png</positive-z>
+          <negative-z>Aircraft/Generic/Effects/fgfs-sky2/5.png</negative-z>
+        </images>
+      </texture>
+    <ambient-correction type="float">0.2</ambient-correction>
+    <transparent>true</transparent>
+    <render-bin>
+      <bin-number>111</bin-number>
+      <bin-name>DepthSortedBin</bin-name>
+    </render-bin>
+  </parameters>
+  <object-name>Canopy out</object-name>
+  <object-name>CanopyBackOutside</object-name>
+  <!--<object-name>cylinder.007</object-name>-->       <!-- HUD -->
+ </effect>
+
   <model>
 <path>Aircraft/F-22/Models/Effects/Vapour/fx2.xml</path>
 </model>
+
+<model>
+  <name>machCone</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/mach-cone.xml</path>
+ </model>
+
+ <animation>
+    <type>select</type>
+    <object-name>machCone</object-name>
+    <condition>
+      <greater-than>
+        <property>/environment/relative-humidity</property>
+        <value>50</value>
+      </greater-than>
+      <greater-than>
+        <property>/environment/temperature-degc</property>
+        <value>0</value>
+      </greater-than>
+      <greater-than>
+       <property>velocities/mach</property><!-- velocities/mach -->
+       <value>0.98</value>
+      </greater-than>
+      <less-than>
+       <property>velocities/mach</property><!-- velocities/mach -->
+       <value>1.02</value>
+      </less-than>
+      <greater-than>
+       <property>/environment/pressure-inhg</property>
+       <value>22</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+ <model>
+  <name>left-strake-vortex</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.xml</path>
+  <offsets>
+   <x-m>-2.5</x-m>
+   <y-m>-1.3</y-m>
+   <z-m>-0.6</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>right-strake-vortex</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.xml</path>
+  <offsets>
+   <x-m>-2.5</x-m>
+   <y-m>1.3</y-m>
+   <z-m>-0.6</z-m>
+  </offsets>
+ </model>
+
+ <animation>
+    <type>select</type>
+    <object-name>right-strake-vortex</object-name>
+    <object-name>left-strake-vortex</object-name>
+    <condition>
+       <and>
+          <greater-than>
+            <property>/environment/relative-humidity</property>
+            <value>50</value>
+          </greater-than>
+          <greater-than>
+            <property>/environment/temperature-degc</property>
+            <value>0</value>
+          </greater-than>
+          <greater-than>
+            <property>/environment/pressure-inhg</property>
+            <value>22</value>
+          </greater-than>
+          <greater-than>
+           <property>orientation/alpha-deg</property><!-- orientation/alpha-deg -->
+           <value>9.0</value>
+          </greater-than>
+          <greater-than>
+           <property>velocities/airspeed-kt</property><!-- velocities/airspeed-kt -->
+           <value>160</value>
+          </greater-than>
+       </and>
+    </condition>
+  </animation>
+
+ <model>
+  <name>g-vortexR</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
+  <offsets>
+   <x-m>0.5</x-m>
+   <y-m>0.9</y-m>
+   <z-m>-0.8</z-m>
+   <heading-deg>15</heading-deg>
+   <roll-deg>-10</roll-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>g-vortexL</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
+  <offsets>
+   <x-m>0.5</x-m>
+   <y-m>-0.9</y-m>
+   <z-m>-0.8</z-m>
+   <heading-deg>-15</heading-deg>
+   <roll-deg>10</roll-deg>
+  </offsets>
+ </model>
+<!--
+ <model>
+  <name>g-vortexR1</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
+  <offsets>
+   <x-m>1.2</x-m>
+   <y-m>1.4</y-m>
+   <z-m>-0.8</z-m>
+   <heading-deg>15</heading-deg>
+   <roll-deg>-10</roll-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>g-vortexL1</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
+  <offsets>
+   <x-m>1.2</x-m>
+   <y-m>-1.4</y-m>
+   <z-m>-1.2</z-m>
+   <heading-deg>-15</heading-deg>
+   <roll-deg>10</roll-deg>
+  </offsets>
+ </model> -->
+ <animation>
+    <type>select</type>
+    <object-name>g-vortexL</object-name>
+    <object-name>g-vortexR</object-name>
+ <!--   <object-name>g-vortexL1</object-name>
+    <object-name>g-vortexR1</object-name>  -->
+      <condition>
+           <and>
+                <greater-than>
+                  <property>/environment/relative-humidity</property>
+                  <value>50</value>
+                </greater-than>
+                <greater-than>
+                  <property>/environment/temperature-degc</property>
+                  <value>0</value>
+                </greater-than>
+                <greater-than>
+                  <property>/environment/pressure-inhg</property>
+                  <value>22</value>
+                </greater-than>
+                <greater-than>
+                 <property>orientation/alpha-deg</property><!-- orientation/alpha-deg -->
+                 <value>12.0</value>
+                </greater-than>
+                <greater-than>
+                 <property>velocities/airspeed-kt</property><!-- velocities/airspeed-kt -->
+                 <value>250</value>
+                </greater-than>
+           </and>
+      </condition>
+  </animation>
+
   <!-- Solid Surfaces for Rembrandt rendering -->
    <animation>
     
@@ -425,7 +675,7 @@
       <z-m>  -1.648 </z-m>	<object-name></object-name>
 	<animation>
 		<type>rotate</type>
-		<object-name>canopy</object-name>
+		<object-name>canopy in</object-name>
 		<object-name>cabin</object-name>
 		<property>/canopy/position-norm</property>
 		<factor>90</factor>
@@ -441,7 +691,8 @@
 -->
 <animation>
     <type>rotate</type>
-    <object-name>canopy</object-name>
+    <object-name>canopy in</object-name>
+<object-name>canopy out</object-name>
 		<object-name>cabin</object-name>
    <property>canopy/position-norm</property>
     <interpolation>
