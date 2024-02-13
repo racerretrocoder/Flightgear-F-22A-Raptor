@@ -18,8 +18,8 @@
    # Set up property aliases for animations.
    rplayer.getNode("orientation/alpha-deg", 1).
      alias(rplayer.getNode("sim/multiplay/generic/float[17]")); #for vapor
-   rplayer.getNode("controls/engines/engine/throttle", 1).
-     alias(rplayer.getNode("sim/multiplay/generic/float[18]")); #for AB
+   rplayer.getNode("engines/engine[0]/augmentation", 1).
+     alias(rplayer.getNode("sim/multiplay/generic/bool[18]")); #for AB
    rplayer.getNode("velocities/airspeed-kt", 1).
      alias(rplayer.getNode("sim/multiplay/generic/float[19]")); #for vapor (2)
     ]]>
