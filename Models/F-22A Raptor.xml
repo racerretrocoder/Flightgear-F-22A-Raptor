@@ -12,12 +12,18 @@
     -->
     <![CDATA[
       var livery_update = aircraft.livery_update.new("Aircraft/F-22/Models/Liveries");
-    ]]>
 
+	  #this is suppose to go here?
  var rplayer = cmdarg();
    # Set up property aliases for animations.
    rplayer.getNode("orientation/alpha-deg", 1).
-     alias(rplayer.getNode("sim/multiplay/generic/float[17]"));
+     alias(rplayer.getNode("sim/multiplay/generic/float[17]")); #for vapor
+   rplayer.getNode("controls/engines/engine/throttle", 1).
+     alias(rplayer.getNode("sim/multiplay/generic/float[18]")); #for AB
+   rplayer.getNode("velocities/airspeed-kt", 1).
+     alias(rplayer.getNode("sim/multiplay/generic/float[19]")); #for vapor (2)
+    ]]>
+
     </load>
   
   <unload>
@@ -332,11 +338,11 @@
             <value>22</value>
           </greater-than>
           <greater-than>
-           <property>orientation/alpha-deg</property><!-- orientation/alpha-deg -->
+           <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
            <value>9.0</value>
           </greater-than>
           <greater-than>
-           <property>velocities/airspeed-kt</property><!-- velocities/airspeed-kt -->
+           <property>sim/multiplay/generic/float[19]</property><!-- velocities/airspeed-kt -->
            <value>160</value>
           </greater-than>
        </and>
@@ -411,11 +417,11 @@
                   <value>22</value>
                 </greater-than>
                 <greater-than>
-                 <property>orientation/alpha-deg</property><!-- orientation/alpha-deg -->
+                 <property>sim/multiplay/generic/float[18]</property><!-- orientation/alpha-deg -->
                  <value>12.0</value>
                 </greater-than>
                 <greater-than>
-                 <property>velocities/airspeed-kt</property><!-- velocities/airspeed-kt -->
+                 <property>sim/multiplay/generic/float[19]</property><!-- velocities/airspeed-kt -->
                  <value>250</value>
                 </greater-than>
            </and>
@@ -537,7 +543,7 @@
 	</model>
 	
 <!-- Livery 
-
+Dont use this!
 	<nasal>
 		<load>
 		var livery_update = aircraft.livery_update.new("Aircraft/F-22/Models/Liveries");
