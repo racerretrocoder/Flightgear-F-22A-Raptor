@@ -7,6 +7,7 @@
 
 var Loading_missile = func(name)
 {
+    var typeid            = 0;
     var address           = "test";
     var NoSmoke           = "test2";
     var Explosion         = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
@@ -32,6 +33,7 @@ var Loading_missile = func(name)
     if(name == "Aim-120")
     {
         # AIM-120 :Long Range Missile,      
+	typeid = 52;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
@@ -56,6 +58,7 @@ var Loading_missile = func(name)
     elsif(name == "Aim-9x")
     {
         # AIM-9X:short-range A2A,IR seeker,
+	typeid = 98;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         NoSmoke = "Aircraft/SU-27SK/Models/Stores/Missiles/AIM-9/AIM-9.xml";
         maxdetectionrngnm = 12;                       # Not real Impact yet A little more than the MICA
@@ -349,5 +352,6 @@ var Loading_missile = func(name)
     setprop("controls/armament/missile/fox", fox);
     setprop("controls/armament/missile/rail", rail);
     setprop("controls/armament/missile/cruise_alt", cruisealt);
+    setprop("controls/armament/missile/type-id", typeid);
     return 1;
 }

@@ -13,6 +13,11 @@
     <![CDATA[
       var livery_update = aircraft.livery_update.new("Aircraft/F-22/Models/Liveries");
     ]]>
+
+ var rplayer = cmdarg();
+   # Set up property aliases for animations.
+   rplayer.getNode("orientation/alpha-deg", 1).
+     alias(rplayer.getNode("sim/multiplay/generic/float[17]"));
     </load>
   
   <unload>
@@ -343,8 +348,8 @@
   <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
   <offsets>
    <x-m>0.5</x-m>
-   <y-m>0.8</y-m>
-   <z-m>-0.6</z-m>
+   <y-m>0.9</y-m>
+   <z-m>-0.8</z-m>
    <heading-deg>15</heading-deg>
    <roll-deg>-10</roll-deg>
   </offsets>
@@ -355,17 +360,42 @@
   <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
   <offsets>
    <x-m>0.5</x-m>
-   <y-m>-0.8</y-m>
-   <z-m>-0.6</z-m>
+   <y-m>-0.9</y-m>
+   <z-m>-0.8</z-m>
    <heading-deg>-15</heading-deg>
    <roll-deg>10</roll-deg>
   </offsets>
  </model>
+<!--
+ <model>
+  <name>g-vortexR1</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
+  <offsets>
+   <x-m>1.2</x-m>
+   <y-m>1.4</y-m>
+   <z-m>-0.8</z-m>
+   <heading-deg>15</heading-deg>
+   <roll-deg>-10</roll-deg>
+  </offsets>
+ </model>
 
+ <model>
+  <name>g-vortexL1</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
+  <offsets>
+   <x-m>1.2</x-m>
+   <y-m>-1.4</y-m>
+   <z-m>-1.2</z-m>
+   <heading-deg>-15</heading-deg>
+   <roll-deg>10</roll-deg>
+  </offsets>
+ </model> -->
  <animation>
     <type>select</type>
     <object-name>g-vortexL</object-name>
     <object-name>g-vortexR</object-name>
+ <!--   <object-name>g-vortexL1</object-name>
+    <object-name>g-vortexR1</object-name>  -->
       <condition>
            <and>
                 <greater-than>

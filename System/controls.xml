@@ -21,10 +21,11 @@
     <!--
       note :
         Missile property. the value here doesn't really count, beacause it's reloaded
-        by a Nasal for each missile. Anyway this is nessecary for variable declaration
+        by a Nasal file Loading_missiles.nas for each missile. Anyway this is nessecary for variable declaration
     -->
     <missile>
-      <name>R-27R</name>
+      <name>None_press_m</name>
+      <type-id type="int">57</type-id>
       <address>Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml</address>
       <addressNoSmoke>Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml</addressNoSmoke>
       <addressExplosion>Aircraft/SU-27SK/Models/Effects/MissileExplosion/explosion.xml</addressExplosion>
