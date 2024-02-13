@@ -37,3 +37,14 @@ var cockpit_state = func {
 }
 	    myRadar = radar.Radar.new();
 		myRadar.init();
+
+var flares = func{
+	var flarerand = rand();
+props.globals.getNode("/rotors/main/blade[3]/flap-deg",1).setValue(flarerand);
+props.globals.getNode("/rotors/main/blade[3]/position-deg",1).setValue(flarerand);
+settimer(func   {
+    props.globals.getNode("/rotors/main/blade[3]/flap-deg").setValue(0);
+    props.globals.getNode("/rotors/main/blade[3]/position-deg").setValue(0);
+                },1);
+
+}

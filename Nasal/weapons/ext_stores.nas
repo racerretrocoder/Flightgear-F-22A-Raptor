@@ -69,8 +69,8 @@ var Decode_Load = {
         m.running = 1;
         m.loadList = [
         "none",
-        "R-73",
-        "R-27R",
+        "Aim-9X",
+        "Aim-120",
         "R-27ER",
         "R-27T",
         "R-27ET",
