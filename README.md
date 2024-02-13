@@ -1,28 +1,19 @@
 # F-22 Raptor for FlightGear
 
 ![image](/pic.png)
-To install it, download the zip, open the zip and rename the aircraft folder to F-22 (notice the Capital F)
-Then copy that to C:\Program Files\FlightGear 2020.3\data\Aircraft Or the directory your installed aircrafts are
+# To install, 
+Download the zip, open the zip and rename the aircraft folder to F-22 (notice the Capital F)
+Then drag that to C:\Program Files\FlightGear 2020.3\data\Aircraft Or the directory your installed aircrafts are
 
-Missiles are in! see the aircraft help in game to learn how to use them!
+See the aircraft help in game to learn how to use everything about the jet!
 
-Based primarily upon the raptor from the FGUK Hangar.
+Based upon the raptor from the FGUK Hangar. And little pictures on google maps.
 
-# Edited by:
-<<<<<<< HEAD
+# Mainly Edited by:
+<<<<<<<
  Phoenix, Anonymist, and Developer0607
 
- FDM: Phoenix-----------
- MFD icons and textures re-designs:  Anonymist-----------
- Missile implentation: Phoenix and Ghost-----------
- Support: all of them                  
-
-Under early development, external contributions welcome :).
-but we seem to be chugging along quite quickly! Yay!
-
-# License: 
-Share ware, take it but include the Creators callsign or username in it some where
-=======
+======= Callsigns on MP
 Phoenix (MPcallsign: Phoenix) 
 Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPcallsign: Kodiak) And Alpha1 (MPcallsign: Alpha1)
 
@@ -30,25 +21,22 @@ Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPc
 
  MFD icons and int. textures:  Anonymist and Phoenix (but mostly Anonymist, i did the seat though)
 
- Ext. textures: Phoenix 
+ Ext. textures: Phoenix, Anonymist
 
- Damage, Missile, and radar implentation: Phoenix, Ghost, and friends
+ Damage, Missile, and radar implentation: Phoenix, and Ghost
 
- Canvas stuff like hud and radar: Alpha1
+ Canvas stuff like hud and radar: Alpha1, Phoenix
 
  Fixxes with -set: BobDotCom
 
-Test pilots: Epsilon, and members of the 249th EFS
+Test Pilots: Epsilon, and members of the 249th EFS
 
- Support: all of them                  
+ Support: (mostly) all of them                  
 
-
+External contributions welcomed
 This is under development
-DM Phoenix for more info!
+DM Phoenix or anyone who has contributed to this for more info!
 
-# License: 
-Shareware, take it but include the Creators callsign and username in it somewhere, blah blah blah, no classified data was used to make this software
->>>>>>> 8005c3272f72594abe3fa9a734485ecdb6a0dd64
 
        @@@@@@@@@@@                                                           @@@@@@@@                                                                                
        @@@@@@@@@@@@@@@                                                       @@@@@@@@@@@@                                                                          
@@ -71,4 +59,4 @@ __/\\\\\\\\\\\\\\\___________________________________________/\\\\\\\\\\______/\
        _\/\\\______________\///\\\\\/____/\\\/\///\\\___________\///\\\\\\\\\/_______/\\\____ 
         _\///_________________\/////_____\///____\///______________\/////////________\///_____
 
-       Ah man, suppose to say fox 3 but oh well
+Ah man, suppose to say fox 3 but oh well
