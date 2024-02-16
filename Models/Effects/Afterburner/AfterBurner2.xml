@@ -9,7 +9,11 @@
   <roll-deg>-90</roll-deg>
   </offsets>
   
-
+ <effect>
+        <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+        <object-name>Fla</object-name>
+      
+    </effect>
 
 <effect>
  <inherits-from>Effects/model-transparent</inherits-from>

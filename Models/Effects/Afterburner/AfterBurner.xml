@@ -21,7 +21,7 @@
     <object-name>FlameModel</object-name>
 		<condition>
 		 <greater-than>
-				<property>/controls/engines/engine/throttle</property>
+				<property>sim/multiplay/generic/float[18]</property>
 				<value>0.8</value>
          </greater-than>				
 		</condition>
@@ -95,7 +95,7 @@
   <animation>
 	<type>scale</type>
 	<object-name>FlameModel</object-name>
-	<property>/controls/engines/engine/throttle</property>    
+	<property>sim/multiplay/generic/float[18]</property>    
   <x-min>1.0</x-min>
   <y-min>1.0</y-min>
   <z-min>0.5</z-min>    
