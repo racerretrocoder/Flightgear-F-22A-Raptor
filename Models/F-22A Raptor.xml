@@ -351,7 +351,7 @@
 
  <model>
   <name>g-vortexR</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
+  <path>Aircraft/F-22/Models/Effects/Vapour/g-vortex.xml</path>
   <offsets>
    <x-m>0.5</x-m>
    <y-m>0.9</y-m>
@@ -363,7 +363,7 @@
 
  <model>
   <name>g-vortexL</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
+  <path>Aircraft/F-22/Models/Effects/Vapour/g-vortex.xml</path>
   <offsets>
    <x-m>0.5</x-m>
    <y-m>-0.9</y-m>
@@ -400,8 +400,7 @@
     <type>select</type>
     <object-name>g-vortexL</object-name>
     <object-name>g-vortexR</object-name>
- <!--   <object-name>g-vortexL1</object-name>
-    <object-name>g-vortexR1</object-name>  -->
+
       <condition>
            <and>
                 <greater-than>
@@ -417,11 +416,11 @@
                   <value>22</value>
                 </greater-than>
                 <greater-than>
-                 <property>sim/multiplay/generic/float[18]</property><!-- orientation/alpha-deg -->
+                 <property>orientation/alpha-deg</property><!-- orientation/alpha-deg -->
                  <value>12.0</value>
                 </greater-than>
                 <greater-than>
-                 <property>sim/multiplay/generic/float[19]</property><!-- velocities/airspeed-kt -->
+                 <property>velocities/airspeed-kt</property><!-- velocities/airspeed-kt -->
                  <value>250</value>
                 </greater-than>
            </and>
@@ -466,7 +465,11 @@
 	<name>loads</name>
 		<path>Aircraft/F-22/Models/loads/Weapons-load.xml</path>
 		
+
+
 	</model>
+
+Use below instead
  -->
 
 
@@ -648,6 +651,8 @@ Dont use this!
 		<object-name>9xdr1</object-name>
 		<object-name>9xdl2</object-name>
 		<object-name>9xdr2</object-name>
+		<object-name>AIM-9-R-RAIL</object-name>
+		<object-name>AIM-9-L-RAIL</object-name>
 		
 		<condition>
 			<greater-than>
@@ -842,7 +847,24 @@ FR
 		<type>rotate</type>
 			<object-name>right-elevator</object-name>
 				<!-- <property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property> -->
-	<property>controls/flight/elevator</property>
+	<property>fdm/jsbsim/fcs/elevator-cmd-norm</property>
+					<factor>20</factor>
+						<center>
+							<x-m>7.12347</x-m>
+								<y-m>1.9012</y-m>
+								<z-m>-0.465787</z-m>
+							</center>
+						<axis>
+					<x>0</x>
+				<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+<animation>
+		<type>rotate</type>
+			<object-name>right-elevator</object-name>
+				
+	<property>fdm/jsbsim/fcs/aileron-cmd-norm</property>
 					<factor>20</factor>
 						<center>
 							<x-m>7.12347</x-m>
@@ -856,12 +878,30 @@ FR
 		</axis>
 	</animation>
 
+
 	<animation>
 		<type>rotate</type>
 			<object-name>left-elevator</object-name>
-<!--					<property>fdm/jsbsim/fcs/left-stabilator-pos-deg2</property> -->
-	<property>controls/flight/elevator</property>
+
+	<property>fdm/jsbsim/fcs/elevator-cmd-norm</property>
 						<factor>20</factor>
+							<center>
+								<x-m>7.12347</x-m>
+								<y-m>-1.9012</y-m>
+								<z-m>-0.465787</z-m>
+							</center>
+						<axis>
+					<x>0</x>
+				<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+<animation>
+		<type>rotate</type>
+			<object-name>left-elevator</object-name>
+
+	<property>fdm/jsbsim/fcs/aileron-cmd-norm</property>
+						<factor>-20</factor>
 							<center>
 								<x-m>7.12347</x-m>
 								<y-m>-1.9012</y-m>
@@ -948,7 +988,7 @@ FR
 						<axis>
 					<x>-1</x>
 				<y>-0.1</y>
-			<z>-0.1</z>
+			<z>1</z>
 		</axis>
 	</animation>
 
@@ -962,7 +1002,7 @@ FR
 							<y1-m>2.18951</y1-m>
 						<z1-m>-0.598648</z1-m>
 					<x2-m>2.78312</x2-m>
-				<y2-m>5.88348</y2-m>
+				<y2-m>5.10348</y2-m>
 			<z2-m>-0.642377</z2-m>
 		</axis>>
 	</animation>
@@ -990,10 +1030,37 @@ FR
 						<z1-m>-0.641817</z1-m>
 					<x2-m>-0.119165</x2-m>
 				<y2-m>-2.19631</y2-m>
-			<z2-m>-0.589751</z2-m>
+			<z2-m>0.589751</z2-m>
 		</axis>
 	</animation>-->
+<!--
+<animation>
+		<type>rotate</type>
+			<object-name>right-slat</object-name>
+			<property>fdm/jsbsim/fcs/right-lef-pos-deg</property>
+			<factor>1</factor>
+
+			<axis>
+				<x>1</x>
+				<y>1</y>
+				<z>0</z>
+			</axis>
+	</animation>
 	
+
+<animation>
+		<type>translate</type>
+			<object-name>right-slat</object-name>
+				<property>fdm/jsbsim/fcs/right-lef-pos-deg</property>
+					<factor>0.014</factor>
+						<axis>
+					<x>1</x>
+				<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	-->
 <!-- Nozzle vector animations -->
 	
 	<animation>
@@ -1002,7 +1069,7 @@ FR
 			<object-name>left-up-vector</object-name>
 			<object-name>right-burner</object-name>
 			<object-name>left-burner</object-name>
-			<property>controls/flight/elevator</property>
+			<property>fdm/jsbsim/fcs/tv-animation</property>
 			<factor>20</factor>
 			<center>
 				<x-m>6.42824</x-m>
@@ -1020,7 +1087,7 @@ FR
 		<type>rotate</type>
 			<object-name>right-down-vector</object-name>
 			<object-name>left-down-vector</object-name>
-			<property>controls/flight/elevator</property>
+			<property>fdm/jsbsim/fcs/tv-animation</property>
 			<factor>20</factor>
 			<center>
 				<x-m>6.42824</x-m>

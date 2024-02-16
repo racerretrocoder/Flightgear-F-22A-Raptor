@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- R-73                                       -->
-<!-- Sergey "Mercenary_Mercury" Salov, Jan 2013 -->
-
+<!-- NOTE: I dont think XML files here really do anything See F-22A Raptor.xml -->
 <PropertyList>
 
- <path>R-73.ac</path>
+ <path>AIM-9.ac</path>
 
  <nasal>
   <load>

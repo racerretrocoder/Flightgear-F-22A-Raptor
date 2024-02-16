@@ -191,11 +191,14 @@
 				<name>c</name>
 				<desc>Toggle canopy</desc>
 			</key>
-			
+						<key>
+				<name>Joystick: Military Trigger</name>
+				<desc>Fire Guns</desc>
+			</key>
 			
 			<key>
 				<name>e</name>
-				<desc>Fire guns or missiles</desc>
+				<desc>Fire Missiles</desc>
 			</key>
 			
 			<key>
@@ -209,7 +212,7 @@
 			</key>
 <key>
 				<name>Shift-R</name>
-				<desc>Toggle HUD Radar targets (you know when its on by seeing the R on the hud but when you spawn press anyways)</desc>
+				<desc>Toggle HUD Radar targets (you know when its on by seeing the R on the hud but when you spawn press it even if the r is there once)</desc>
 			</key>
       <key>
         <name>r</name>
@@ -218,6 +221,10 @@
       <key>
         <name>Shift-i</name>
         <desc>Toggle Experimental Dogfight Mode</desc>
+      </key>
+      <key>
+        <name>m</name>
+        <desc>Change Missile Type</desc>
       </key>
 	   <key>
         <name>y</name>

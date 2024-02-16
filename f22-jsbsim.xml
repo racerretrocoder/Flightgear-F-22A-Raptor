@@ -308,7 +308,8 @@
   <!-- <product> --> 
      <difference>
       <value>1</value>
-      <property>/controls/AAR/Switch</property>
+      <property>/controls/AAR/Switch</property> 
+ <property>fcs/gear-control</property> 
      </difference>
 <!-- notice the 2x products
      <sum>
@@ -1175,6 +1176,21 @@
       <output>fcs/tv-pos-rad</output>
    </aerosurface_scale>
 
+<kinematic name="TVANIM">
+      <input>fcs/tv-pos-rad</input>
+      <traverse>
+        <setting>
+          <position>-1</position>
+          <time>1</time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>1</time>
+        </setting>
+       </traverse>
+      <output>fcs/tv-animation</output>
+   </kinematic>
+
    <kinematic name="TV Position">
       <input>fcs/tv-pos-rad</input>
       <traverse>
@@ -1714,13 +1730,13 @@
                               -0.2790       0.2200    0.0250    0.0250      1.0
                               -0.1400       0.0070    0.0180    0.0180      1.0
                               -0.0700       0.0040    0.0100    0.0100      1.0
-                              0.0000        0.0047    0.0074    0.0074      1.0
-                              0.0700        0.0400    0.0100    0.0100      1.0
-                              0.1400        0.0800    0.0180    0.0180      1.0
-                              0.2790        0.0900    0.0250    0.0250      1.0
-                              0.4190        0.0900    0.0970    0.0970      1.0
-                              0.5590        0.0900    0.2030    0.2030      1.0
-                              1.9980        0.0990    0.2570    0.2570      1.0
+                              0.0000        0.0047    0.0074    0.0074      0.9
+                              0.0700        0.0400    0.0100    0.0010      1.0
+                              0.1400        0.0800    0.0180    0.0080      1.0
+                              0.2790        0.0900    0.0250    0.0150      1.0
+                              0.4190        0.0900    0.0970    0.0570      1.0
+                              0.5590        0.0900    0.2030    0.0930      1.0
+                              1.9980        0.0990    0.2570    0.1570      1.0
                           </tableData>
                       </table>
                 </product>
@@ -2153,15 +2169,17 @@
     <function name="aero/moment/Pitch_TVC">
        <description>Pitch moment due to thrust vector</description>
        <product>
+<product> <property>fcs/tv-coefficient</property>
           <sum>
            <property>propulsion/engine[0]/thrust-lbs</property>
            <property>propulsion/engine[1]/thrust-lbs</property>
           </sum>
           <sin>
-           <property>fcs/elevator-cmd-norm</property>
+           <property>fcs/tv-animation</property>
           </sin>
-          <value>-15</value>
+          <value>-8</value>
        </product>
+</product>
     </function>
 
   </axis>
