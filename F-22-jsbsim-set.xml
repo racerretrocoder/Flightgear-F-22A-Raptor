@@ -16,10 +16,10 @@
 		<status>Alpha v0.7a</status>
 		
 		<rating>
-			<FDM type="int">2</FDM>
-			<systems type="int">0</systems>
+			<FDM type="int">3</FDM>
+			<systems type="int">2</systems>
 			<cockpit type="int">3</cockpit>
-			<model type="int">3</model>
+			<model type="int">4</model>
 		</rating>
 	
 		<flight-model>jsb</flight-model>
