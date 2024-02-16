@@ -234,16 +234,25 @@
 			
 			<line>Lockheed Martin F-22A</line>
 			<line></line>
-			<line>Specifications</line>
+			<line>Specifications:</line>
 			<line></line>
-			<line>Maximum speed: Mach 2.25 35000ft</line>
-			<line>Cruise speed: Mach 1.7+ sea level</line>
-			<line>Sustained turn rate: 28 deg/sec</line>
-			<line>This plane can Super cruise!</line>
+			<line>Maximum speed: Mach 2.25 65000ft: Mach 1.8+ sea level</line>
+			<line>Reccomended Cruise speed: Mach 1.10 40000ft Mil Thrust</line>
+			<line>Sustained turn rate: 28+ deg/sec</line>
+			<line>This plane can Super cruise</line>
 			<line>Which means it can go faster than mach 1</line>
-			<line>With no After burner</line>
-<line>To turn on the radar HUD, Press the switch on the lower right console.</line>
-<line>You will know its on when the green light turns on, You may have to press it twice (only when you spawn)</line>
+			<line>With no Afterburner</line>
+<line>To turn on the Radar HUD, Press the switch on the lower right console.</line>
+<line>You will know its on when the green light turns on, You may have to press it twice (only when you spawn)</line>		
+<line>To start The jet: Press the first 2 JFS switches, Then the 2 cutoff switches</line>
+<line></line>
+<line>FDM:</line>
+<line>When the Gear is down, The Vectors will automaticlly return to the center position and stay in place to ease takeoffs and landings</line>
+<line></line>
+<line>The vectors go up 30 and down 30 degrees at max. The FCS will automaticly adjust the min and max according to the situation</line>
+<line>But it will only adjust it by +-10 degrees </line>
+		
+		
 		</help>
 	
 		<hud>
