@@ -38,9 +38,9 @@ var Loading_missile = func(name)
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         maxdetectionrngnm = 38.8;                    #  
-        fovdeg = 110;                                #
-        detectionfovdeg = 180;                       # 
-        trackmaxdeg = 110;                           # 
+        fovdeg = 360;                                #
+        detectionfovdeg = 360;                       # Due to datalink
+        trackmaxdeg = 360;                           # 
         maxg = 30;                                   # 
         thrustlbs = 500;                             # 
         thrustdurationsec = 200;                     # 
@@ -78,6 +78,31 @@ var Loading_missile = func(name)
         fox = "Fox 2";
         rail = "true";
         cruisealt = 0;
+    }
+    elsif(name == "GBU39")
+    {
+      address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R-smoke.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R.xml";
+        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
+        maxdetectionrngnm = 14;                       # Not real Impact yet
+        fovdeg = 25;                                  # seeker optical FOV
+        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
+        trackmaxdeg = 110;                            # Seeker max total angular rotation
+        maxg = 15;
+        thrustlbs = 785;                              # guess
+        thrustdurationsec = 60;                       # Mk.36 Mod.7,8
+        weightlaunchlbs = 400;
+        weightwarheadlbs = 200;
+        dragcoeff = 0.157;                            # guess; original 0.05
+        dragarea = 0.135;                             # sq ft
+        maxExplosionRange = 50;                       # Due to the code, more the speed is important, more we need to have this figure high
+        maxspeed = 1;                                 # In Mach
+        life = 90000;
+        fox = "A/G";
+        rail = "false";
+        cruisealt = 0;
+
+
     }
     elsif(name == "R-27ER")
     {

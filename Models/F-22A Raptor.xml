@@ -95,7 +95,7 @@
   <path>Aircraft/F-22/Models/Effects/Explosion/ImpactFireSmoke.xml</path>
   <condition>
     <equals>
-      <property>sim/multiplay/generic/int[7]</property>
+      <property>sim/multiplay/generic/bool[1]</property>
       <value>1</value>
     </equals>
   </condition>
@@ -1794,5 +1794,7 @@ FR
       <heading-deg> 0 </heading-deg>
     </offsets>
   </model>
-	
+	 <model>
+  <path>Aircraft/F-22/Models/Effects/DamageSmoke/damage-smoke.xml</path>
+ </model>
 </PropertyList>

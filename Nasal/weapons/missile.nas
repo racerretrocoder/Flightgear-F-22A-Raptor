@@ -537,7 +537,7 @@ var MISSILE = {
                 # we exploded, but need a few more secs to spawn
                 # the explosion animation.
                 settimer(func{me.del();}, 4);
-                print("booom");
+                print("booom he ded like a brick");
                 return;
             }
             if(me.life_time > 3)
@@ -550,7 +550,7 @@ var MISSILE = {
                     {
                         # target unreachable, fly free.
                         me.free = 1;
-                        print("Too much G");
+                        print("Too much G in missile! Print from line 553: Missile.nas");
                         # Disable for the moment
                     }
                 }
@@ -907,6 +907,7 @@ var MISSILE = {
     			var typeID = getprop("controls/armament/missile/typeid");
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
+                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-29";typeID = 18;}
                         var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
                         msg.RelativeAltitude = 0;
                         msg.Bearing = me.coord.course_to(geo.aircraft_position());
