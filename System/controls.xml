@@ -18,6 +18,9 @@
 </baydoors>
 	
 	  <armament>
+<rdt type="int">0</rdt>
+<ldt type="int">0</ldt>
+<extpylons type="int">0</extpylons>
     <!--
       note :
         Missile property. the value here doesn't really count, beacause it's reloaded

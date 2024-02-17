@@ -194,6 +194,7 @@
       <yaw>   0.00 </yaw>
     </orient>
     <feed>0</feed>
+    <feed>2</feed>
     <thruster file="direct">
      <location unit="IN">
        <x> 594.5  </x>
@@ -220,6 +221,7 @@
       <yaw>   0.00 </yaw>
     </orient>
     <feed>1</feed>
+    <feed>3</feed>
     <thruster file="direct">
      <location unit="IN">
        <x> 594.5  </x>
@@ -240,6 +242,7 @@
        <y> -24.92 </y>
        <z>   0    </z>
      </location>
+<priority>2</priority>
      <capacity unit="LBS"> 9000.00 </capacity>
      <contents unit="LBS"> 9000.00 </contents> <!-- 8421 -->
   </tank>
@@ -250,6 +253,29 @@
        <y>  24.92 </y>
        <z>   0    </z>
      </location>
+<priority>2</priority>
+     <capacity unit="LBS"> 9000.00 </capacity>
+     <contents unit="LBS"> 9000.00 </contents>
+  </tank>
+
+  <tank type="FUEL" number="2">
+     <location unit="IN">
+       <x> 426.1  </x>
+       <y> -44.92 </y>
+       <z>   0    </z>
+     </location>
+<priority>1</priority>
+     <capacity unit="LBS"> 9000.00 </capacity>
+     <contents unit="LBS"> 9000.00 </contents> <!-- 8421 -->
+  </tank>
+
+  <tank type="FUEL" number="3">
+     <location unit="IN">
+       <x> 426.1  </x>
+       <y>  44.92 </y>
+       <z>   0    </z>
+     </location>
+<priority>1</priority>
      <capacity unit="LBS"> 9000.00 </capacity>
      <contents unit="LBS"> 9000.00 </contents>
   </tank>

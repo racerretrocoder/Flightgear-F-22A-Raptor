@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!-- NOTE: I dont think XML files here really do anything See F-22A Raptor.xml -->
+<PropertyList>
+
+ <path>GBU39.ac</path>
+
+ <nasal>
+  <load>
+   ##############################################################################
+   # The on-load Nasal is not executed when this file is loaded as the user
+   # aircraft.
+   ##############################################################################
+   var rplayer = cmdarg();
+   # Set up property aliases for animations.
+   rplayer.getNode("mig29/weapons/podv/T1", 1).
+     alias(rplayer.getNode("sim/multiplay/generic/int[27]"));
+   ##############################################################################
+  </load>
+ </nasal>
+
+
+</PropertyList>
