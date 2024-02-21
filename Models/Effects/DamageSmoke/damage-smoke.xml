@@ -13,7 +13,7 @@
 		<texture>smoke.png</texture>
 		<condition>
 			<equals>
-        		<property>sim/multiplay/generic/bool[0]</property> 
+        		<property>sim/multiplay/generic/bool[1]</property> 
         		<value>1</value>
       		</equals> 
 		</condition>

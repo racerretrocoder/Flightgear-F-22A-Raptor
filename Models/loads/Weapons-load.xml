@@ -6,7 +6,7 @@
   <!--right -->
   <!--up -->
 
-  <!-- pylons 
+  <!-- pylons -->
   
   <model>
     <path>Aircraft/F-22/Models/loads/pylons.xml</path>
@@ -16,7 +16,7 @@
       <z-m> 0 </z-m>
     </offsets>
   </model>
--->
+
 
   
 

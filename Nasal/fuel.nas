@@ -44,9 +44,9 @@ var fillup = func {
 var fuelTanks = func {
 	if (refueling.getValue() == 0 and refueling_grnd.getValue() == 0) {
 
-	var levelDropStbd = getprop("consumables/fuel/tank[4]/level-gal_us");
+	var levelDropStbd = getprop("consumables/fuel/tank[2]/level-gal_us");
 		if(levelDropStbd == nil) { levelDropStbd = 0; }
-		var levelDropPort = getprop("consumables/fuel/tank[5]/level-gal_us");
+		var levelDropPort = getprop("consumables/fuel/tank[3]/level-gal_us");
 		if(levelDropPort == nil) { levelDropPort = 0; }
 		if (getprop("sim/freeze/fuel")) { return registerTimer(fuelTanks); }
 		if (getprop("systems/refuel/contact")) {return registerTimer(fuelTanks); }
@@ -59,8 +59,10 @@ var fuelTanks = func {
 	
  
 	if (levelDropStbd > 0 and levelDropPort > 0) { 
-		setprop("consumables/fuel/tank[4]/selected", 1);
-		setprop("consumables/fuel/tank[5]/selected", 1); 
+		setprop("consumables/fuel/tank[2]/selected", 1);
+		setprop("consumables/fuel/tank[3]/selected", 1);
+setprop("controls/armament/ldt", 0);
+setprop("controls/armament/rdt", 0); 
 	}   
 	   
 	# internal: not ordered yet
