@@ -3,7 +3,7 @@
 =================================
 1: Add radar spike and armament-in-flight warnings sent to the target
 
-2: Add the new weapons payload dialog
+2: Replace the old weapons payload canvas dialog with the new one
 
 3: Add RWR and more MFD functions
 
