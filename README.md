@@ -1,6 +1,10 @@
 # F-22 Raptor for FlightGear
 
 ![image](/pic.png)
+
+# New FDM coming very soon
+This new fdm was made by an advanced FDM maker
+
 # To install, 
 Download the zip, open the zip and rename the aircraft folder to F-22 (notice the Capital F)
 Then drag that to C:\Program Files\FlightGear 2020.3\data\Aircraft Or the directory your installed aircrafts are
