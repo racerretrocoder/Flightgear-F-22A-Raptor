@@ -36,6 +36,32 @@
     CD-0:          0.024
     K:             0.12
 
+Notes:
+
+The vectors are controlled only when the gear is up
+
+The Vectors Translate according to speed of the plane. They dont move full set when going at speeds greater than 250kts
+
+The function that limmits the vectors movement can be represented by a simple Cubed root funtion
+
+y=³√x 
+
+We will only look at a graph in certain values. The start of the graph would be
+
+X=0 (speed)
+Y=0 (limit)
+
+and it will end at:
+
+X=-10 (speed 1000kts)
+Y=-10 (limit MAX limit no vector movement)
+
+For entering data. X must be always positve. |x| The graph must be negative
+
+The Y value represents the vector limiter coeff. (Negative=positve)
+The X Value represents the speed of raptor (in knots) Meaning 610 knots mach 1
+
+So the vectors should increase (starting at 250kts) until there fully limmited enough at around 400-500kts. The limit will at most slightyly stay the same through out raptors speed
 -->
 
  <metrics>
