@@ -18,6 +18,7 @@ Based upon the Raptor from the FGUK Hangar.
 
 Missiles are now fully functional!
 Check the built in Aircraft Help menu to learn how to use them!
+![image](/raptorandviper.png)
 
 # Mainly Edited by:
 <<<<<<<
