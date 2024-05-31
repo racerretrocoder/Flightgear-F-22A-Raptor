@@ -25,12 +25,12 @@ Check the built in Aircraft Help menu to learn how to use them!
  Phoenix, Developer0607, Realuapilot, Anonymist, BobDotCom, Alpha1, And more great people
 
 ======= Developer's Callsigns on MultiPlayer <br>
-Phoenix (MPcallsign: Phoenix) 
-Realuapilot (MPcallsign: Viper1)
-Developer0607 (MPcallsign: Ghost) 
-Anonymist (MPcallsign: Echoed)
-BobDotCom (MPcallsign: Kodiak)
-Alpha1 (MPcallsign: Alpha1)
+Phoenix (MPcallsign: Phoenix) <br>
+Realuapilot (MPcallsign: Viper1) <br>
+Developer0607 (MPcallsign: Ghost) <br>
+Anonymist (MPcallsign: Echoed) <br>
+BobDotCom (MPcallsign: Kodiak) <br>
+Alpha1 (MPcallsign: Alpha1) <br>
 
 
 
