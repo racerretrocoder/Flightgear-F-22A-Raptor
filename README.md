@@ -2,7 +2,7 @@
 
 ![image](/pic.png)
 
-# New FDM coming very soon
+# New FDM IN!
 This new fdm was made by an advanced FDM maker
 
 # To install, 
