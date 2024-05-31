@@ -5,9 +5,9 @@
 # New FDM Installed
 This new fdm was made by aeromatic and some extra functions added in.
 
-# To install, 
-Download the zip, open the zip and rename the aircraft folder to F-22 (notice the Capital F in F-22)
-Then drag that to 
+# How to install
+Download the source code from the repo and open the zip folder Create and rename a folder to F-22 on your desktop (notice the Capital F in F-22) Copy the contents in side the zip. Where the model, sound, systems, ect folders are, to the F-22 folder,
+Then drag the the newly made F-22 folder to 
 C:\Program Files\FlightGear 2020.3\data\Aircraft
 
 or the directory your installed aircrafts are
@@ -24,7 +24,7 @@ Check the built in Aircraft Help menu to learn how to use them!
 <<<<<<<
  Phoenix, Developer0607, Realuapilot, Anonymist, BobDotCom, Alpha1, And more great people
 
-======= Developer's Callsigns on MultiPlayer
+======= Developer's Callsigns on MultiPlayer <br>
 Phoenix (MPcallsign: Phoenix) 
 Realuapilot (MPcallsign: Viper1)
 Developer0607 (MPcallsign: Ghost) 
