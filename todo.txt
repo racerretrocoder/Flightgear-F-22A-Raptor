@@ -1,0 +1,17 @@
+=================================
+{ List is in order of priority  }
+=================================
+1: Add radar spike and armament-in-flight warnings sent to the target
+
+2: Replace the old weapons payload canvas dialog with the new one
+
+3: Add RWR and more MFD functions
+
+4: Make flaps weaker
+
+5: Make more switchs
+
+5: Make guns and missiles fireable from both keyboard and the joystick
+
+6: more liverys
+
