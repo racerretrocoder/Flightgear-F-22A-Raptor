@@ -291,7 +291,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
        <y>   0.00 </y>
        <z> -18.60 </z>
      </location>
-     <capacity unit="LBS"> 4140.00 </capacity>
+     <capacity unit="LBS"> 8140.00 </capacity>
      <contents unit="LBS"> 4140.00 </contents>
   </tank>
 
@@ -302,7 +302,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
        <y>   0.00 </y>
        <z> -18.60 </z>
      </location>
-     <capacity unit="LBS"> 4140.00 </capacity>
+     <capacity unit="LBS"> 8140.00 </capacity>
      <contents unit="LBS"> 4140.00 </contents>
   </tank>
 
@@ -313,7 +313,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
        <y>   0.00 </y>
        <z> -18.60 </z>
      </location>
-     <capacity unit="LBS"> 4140.00 </capacity>
+     <capacity unit="LBS"> 8140.00 </capacity>
      <contents unit="LBS"> 4140.00 </contents>
   </tank>
 
@@ -324,7 +324,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
        <y>   0.00 </y>
        <z> -18.60 </z>
      </location>
-     <capacity unit="LBS"> 4140.00 </capacity>
+     <capacity unit="LBS"> 8140.00 </capacity>
      <contents unit="LBS"> 4140.00 </contents>
   </tank>
  </propulsion>
