@@ -61,8 +61,9 @@ var fuelTanks = func {
 	if (levelDropStbd > 0 and levelDropPort > 0) { 
 		setprop("consumables/fuel/tank[2]/selected", 1);
 		setprop("consumables/fuel/tank[3]/selected", 1);
-setprop("controls/armament/ldt", 0);
-setprop("controls/armament/rdt", 0); 
+setprop("controls/armament/ldt", 1);
+setprop("controls/armament/rdt", 1); 
+setprop("controls/armament/extpylons", 1);
 	}   
 	   
 	# internal: not ordered yet
@@ -70,6 +71,9 @@ setprop("controls/armament/rdt", 0);
 			foreach(f; fueltanks) {
 			if (f.getNode("level-lbs").getValue() > 0.01) {
 				f.getNode("selected", 0).setBoolValue(1);
+				setprop("controls/armament/ldt", 0);
+setprop("controls/armament/rdt", 0); 
+setprop("controls/armament/extpylons", 0);
 				} 
 			}
 		}
