@@ -1,51 +1,45 @@
-#  Lockheed Martin F-22A Raptor for FlightGear
+# F-22 Raptor for FlightGear
 
 ![image](/pic.png)
 
-# New FDM Installed
-This new fdm was made by aeromatic and some extra functions added in.
+# New FDM coming very soon
+This new fdm was made by an advanced FDM maker
 
-# How to install
-Download the source code from the repo and open the zip folder Create and rename a folder to F-22 on your desktop (notice the Capital F in F-22) Copy the contents in side the zip. Where the model, sound, systems, ect folders are, to the F-22 folder,
-Then drag the the newly made F-22 folder to 
-C:\Program Files\FlightGear 2020.3\data\Aircraft
+# To install, 
+Download the zip, open the zip and rename the aircraft folder to F-22 (notice the Capital F)
+Then drag that to C:\Program Files\FlightGear 2020.3\data\Aircraft Or the directory your installed aircrafts are
 
-or the directory your installed aircrafts are
+See the aircraft help in game to learn how to use everything about the jet!
 
-See the aircraft help in game to learn how to use everything about the jet! (including multiplayer weapons ;) )
-
-Based upon the Raptor from the FGUK Hangar.
+Based upon the raptor from the FGUK Hangar. And little pictures on google maps near nellis afb
 
 Missiles are now fully functional!
-Check the built in Aircraft Help menu to learn how to use them!
-![image](/raptorandviper.png)
+Check the built in Aircraft Help to learn how to use them
 
 # Mainly Edited by:
 <<<<<<<
- Phoenix, Developer0607, Realuapilot, Anonymist, BobDotCom, Alpha1, And more great people
+ Phoenix, Anonymist, and Developer0607
 
-======= Developer's Callsigns on MultiPlayer <br>
-Phoenix (MPcallsign: Phoenix) <br>
-Realuapilot (MPcallsign: Viper1) <br>
-Developer0607 (MPcallsign: Ghost) <br>
-Anonymist (MPcallsign: Echoed) <br>
-BobDotCom (MPcallsign: Kodiak) <br>
-Alpha1 (MPcallsign: Alpha1) <br>
+======= Callsigns on MP
+Phoenix (MPcallsign: Phoenix) 
+Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPcallsign: Kodiak) And Alpha1 (MPcallsign: Alpha1)
 
+ FDM: Phoenix
 
+ MFD icons and int. textures:  Anonymist and Phoenix (but mostly Anonymist, i did the seat though)
 
+ Ext. textures: Phoenix, Anonymist
+
+ Damage, Missile, and radar implentation: Phoenix, and Ghost
+
+ Canvas stuff like hud and radar: Alpha1, Phoenix
+
+ Fixxes with -set: BobDotCom
+
+Test Pilots: Epsilon, and members of the 249th EFS
+
+ Support: (mostly) all of them                  
+
+External contributions welcomed
 This is under development
-
-# Todo
-Order is in highest priority to least
-
-- Working MFDs and more cockpit functions
-- better hud
-- fix model animations 
-- More sounds
-- armnotes for oppents RWR (there missile warning)
-
-- Make missiles not always hit the target and be able to see the targets counter measures.
-
-- Better aim120 fdm it flies too long!
-- More animations over multiplayer
+DM Phoenix or anyone who has contributed to this for more info!
