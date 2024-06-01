@@ -411,6 +411,24 @@
        </action>
  </animation>
 
+<animation>
+  <type>pick</type>
+   <object-name>AARMPO</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+               <command>property-cycle</command>
+               <property>controls/AAR/Switch</property>
+               <value>0</value>
+               <value>1</value>
+               <wrap>true</wrap>
+    </binding>
+       </action>
+ </animation>
+
+
  <animation>
   <animation>
   <type>material</type>
@@ -437,6 +455,17 @@
 <greater-than>
 				<property>su-27/instrumentation/HUD/brightness</property>
 				<value>0.001</value>
+			</greater-than>
+  </condition>
+ </animation>
+<animation>
+  <object-name>aarmpolight</object-name>
+  <type>select</type>
+  <condition>
+
+<greater-than>
+				<property>controls/AAR/Switch</property>
+				<value>0.5</value>
 			</greater-than>
   </condition>
  </animation>
