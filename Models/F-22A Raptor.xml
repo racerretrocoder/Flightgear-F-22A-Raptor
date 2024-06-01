@@ -392,18 +392,7 @@
 
       <condition>
            <and>
-                <greater-than>
-                  <property>/environment/relative-humidity</property>
-                  <value>50</value>
-                </greater-than>
-                <greater-than>
-                  <property>/environment/temperature-degc</property>
-                  <value>0</value>
-                </greater-than>
-                <greater-than>
-                  <property>/environment/pressure-inhg</property>
-                  <value>22</value>
-                </greater-than>
+            
                 <greater-than>
                  <property>orientation/alpha-deg</property><!-- orientation/alpha-deg -->
                  <value>12.0</value>
@@ -803,8 +792,8 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-rudder</object-name>
-				<property>fdm/jsbsim/fcs/right-rudder-pos-deg2</property>
-					<factor>1</factor>
+				<property>fdm/jsbsim/fcs/rudder-pos-deg</property>
+					<factor>-1</factor>
 						<axis>
 							<x1-m>6.7847</x1-m>
 							<y1-m>1.5161</y1-m>
@@ -818,7 +807,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>left-rudder</object-name>
-				<property>fdm/jsbsim/fcs/left-rudder-pos-deg2</property>
+				<property>fdm/jsbsim/fcs/rudder-pos-deg</property>
 					<factor>-1</factor>
 						<axis>
 							<x1-m>6.7847</x1-m>
@@ -908,7 +897,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-aileron</object-name>
-				<property>fdm/jsbsim/fcs/right-aileron-pos-deg2</property>
+				<property>fdm/jsbsim/fcs/right-aileron-pos-deg</property>
 					<factor>1</factor>
 						<axis>
 							<x1-m>4.8723</x1-m>
@@ -917,14 +906,14 @@ FR
 					<x2-m>4.48416</x2-m>
 				<y2-m>5.88276</y2-m>
 			<z2-m>-0.667611</z2-m>
-		</axis>>
+		</axis>
 	</animation>
 
 	<animation>
 		<type>rotate</type>
 			<object-name>left-aileron</object-name>
-				<property>fdm/jsbsim/fcs/left-aileron-pos-deg2</property>
-					<factor>-1</factor>
+				<property>fdm/jsbsim/fcs/left-aileron-pos-deg</property>
+					<factor>1</factor>
 						<axis>
 							<x1-m>4.88483</x1-m>
 							<y1-m>-4.56758</y1-m>
@@ -940,7 +929,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-flap</object-name>
-				<property>fdm/jsbsim/fcs/right-flaperon-pos-deg</property>
+				<property>fdm/jsbsim/fcs/flap-pos-deg</property>
 					<factor>1</factor>
 						<axis>
 							<x1-m>5.26073</x1-m>
@@ -949,13 +938,13 @@ FR
 						<x2-m>4.50092</x2-m>
 				<y2-m>4.55542</y2-m>
 			<z2-m>-0.638588</z2-m>
-		</axis>>
+		</axis>
 	</animation>
 
 	<animation>
 	<type>rotate</type>
 		<object-name>left-flap</object-name>
-			<property>fdm/jsbsim/fcs/left-flaperon-pos-deg</property>
+			<property>fdm/jsbsim/fcs/flap-pos-deg</property>
 				<factor>1</factor>
 					<axis>
 						<x1-m>4.511</x1-m>
@@ -964,92 +953,10 @@ FR
 					<x2-m>5.08305</x2-m>
 				<y2-m>-1.89392</y2-m>
 			<z2-m>-0.667692</z2-m>
-		</axis>>
-	</animation>
-
-<!-- Slat animations 
-	
-	<animation>
-		<type>translate</type>
-			<object-name>right-slat</object-name>
-				<property>fdm/jsbsim/fcs/right-lef-pos-deg</property>
-					<factor>-0.000014</factor>
-						<axis>
-					<x>-1</x>
-				<y>-0.1</y>
-			<z>1</z>
 		</axis>
 	</animation>
 
-	<animation>
-		<type>rotate</type>
-			<object-name>right-slat</object-name>
-				<property>fdm/jsbsim/fcs/right-lef-pos-deg</property>
-					<factor>1</factor>
-						<axis>
-							<x1-m>-0.115611</x1-m>
-							<y1-m>2.18951</y1-m>
-						<z1-m>-0.598648</z1-m>
-					<x2-m>2.78312</x2-m>
-				<y2-m>5.10348</y2-m>
-			<z2-m>-0.642377</z2-m>
-		</axis>>
-	</animation>
 
-	<animation>
-		<type>translate</type>
-			<object-name>left-slat</object-name>
-				<property>fdm/jsbsim/fcs/left-lef-pos-deg</property>
-					<factor>-0.000014</factor>
-						<axis>
-					<x>-1</x>
-				<y>0.1</y>
-			<z>-0.1</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>rotate</type>
-			<object-name>left-slat</object-name>
-				<property>fdm/jsbsim/fcs/right-lef-pos-deg</property>
-					<factor>1</factor>
-						<axis>
-							<x1-m>2.82814</x1-m>
-							<y1-m>-5.9159</y1-m>
-						<z1-m>-0.641817</z1-m>
-					<x2-m>-0.119165</x2-m>
-				<y2-m>-2.19631</y2-m>
-			<z2-m>0.589751</z2-m>
-		</axis>
-	</animation>-->
-<!--
-<animation>
-		<type>rotate</type>
-			<object-name>right-slat</object-name>
-			<property>fdm/jsbsim/fcs/right-lef-pos-deg</property>
-			<factor>1</factor>
-
-			<axis>
-				<x>1</x>
-				<y>1</y>
-				<z>0</z>
-			</axis>
-	</animation>
-	
-
-<animation>
-		<type>translate</type>
-			<object-name>right-slat</object-name>
-				<property>fdm/jsbsim/fcs/right-lef-pos-deg</property>
-					<factor>0.014</factor>
-						<axis>
-					<x>1</x>
-				<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	-->
 <!-- Nozzle vector animations -->
 	
 	<animation>

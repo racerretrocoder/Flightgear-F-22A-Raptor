@@ -1861,7 +1861,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <range-selected type="double">50</range-selected>
   <radar2-range type="double">150</radar2-range>
   <display-rdr type="bool">true</display-rdr>
-  <radar-standby type="int">1</radar-standby>
+  <radar-standby type="int">0</radar-standby>
 <mode>
   <rws type="bool">true</rws>
   <tws-auto type="bool">false</tws-auto>

@@ -122,7 +122,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
    <location unit="IN">
      <x>  96.40 </x>
      <y>   0.00 </y>
-     <z> -67.60 </z>
+     <z> -110.60 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -138,7 +138,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
    <location unit="IN">
      <x> 464.52 </x>
      <y> -43.20 </y>
-     <z> -67.60 </z>
+     <z> -110.60 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -154,7 +154,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
    <location unit="IN">
      <x> 469.52 </x>
      <y>  43.20 </y>
-     <z> -67.60 </z>
+     <z> -110.60 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -285,43 +285,47 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
 
 
    <tank type="FUEL" number="0">
+      <priority>1</priority>
      <location unit="IN">
        <x> 446.40 </x>
        <y>   0.00 </y>
        <z> -18.60 </z>
      </location>
      <capacity unit="LBS"> 4140.00 </capacity>
-     <contents unit="LBS"> 2070.00 </contents>
+     <contents unit="LBS"> 4140.00 </contents>
   </tank>
 
   <tank type="FUEL" number="1">
+
      <location unit="IN">
        <x> 446.40 </x>
        <y>   0.00 </y>
        <z> -18.60 </z>
      </location>
      <capacity unit="LBS"> 4140.00 </capacity>
-     <contents unit="LBS"> 2070.00 </contents>
+     <contents unit="LBS"> 4140.00 </contents>
   </tank>
 
   <tank type="FUEL" number="2">
+ 
      <location unit="IN">
        <x> 446.40 </x>
        <y>   0.00 </y>
        <z> -18.60 </z>
      </location>
      <capacity unit="LBS"> 4140.00 </capacity>
-     <contents unit="LBS"> 2070.00 </contents>
+     <contents unit="LBS"> 4140.00 </contents>
   </tank>
 
 <tank type="FUEL" number="3">
+   <priority>1</priority>
      <location unit="IN">
        <x> 0 </x>
        <y>   0.00 </y>
        <z> -18.60 </z>
      </location>
-     <capacity unit="LBS"> 1000.00 </capacity>
-     <contents unit="LBS"> 345.00 </contents>
+     <capacity unit="LBS"> 4140.00 </capacity>
+     <contents unit="LBS"> 4140.00 </contents>
   </tank>
  </propulsion>
 
@@ -730,7 +734,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/speedbrake-pos-norm</property>
-           <value>0.1</value>
+           <value>1</value>
          </product>
     </function>
 

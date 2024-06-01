@@ -118,6 +118,282 @@
     </offsets>
   </model>
     -->
+
+<animation>
+        <name>Hud Sym</name>
+        <type>knob</type>
+        <object-name>HUDKNOB</object-name>
+        <property>sim/hud/color/alpha</property>
+        <property>sim/hud/color/brightness</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+        <property>sim/hud/color/alpha</property>
+        <property>sim/hud/color/brightness</property>
+                <value>0</value>
+                <value>0.3</value>
+                <value>0.6</value>
+                <value>1</value>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+<animation>
+        <name>Hud brightness</name>
+        <type>knob</type>
+        <object-name>HUDKNOB2</object-name>
+        <property>sim/hud/color/brightness</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+        <property>sim/hud/color/brightness</property>
+                <value>0</value>
+                <value>0.3</value>
+                <value>0.6</value>
+                <value>1</value>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+
+<animation>
+        <name>asi chooser</name>
+        <type>knob</type>
+        <object-name>ASIKNOB</object-name>
+        <property>sim/hud/color/alpha</property>
+        <property>sim/hud/color/brightness</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+        <property>autopilot/settings/target-speed-kt</property>
+                <value>100</value>
+                <value>125</value>
+                <value>150</value>
+                <value>175</value>
+                <value>200</value>
+                <value>225</value>
+                <value>250</value>
+                <value>275</value>
+                <value>300</value>
+                <value>325</value>
+                <value>350</value>
+                <value>375</value>
+                <value>400</value>
+                <value>425</value>
+                <value>450</value>
+                <value>475</value>
+                <value>500</value>
+                <value>525</value>
+                <value>550</value>
+                <value>575</value>
+                <value>600</value>
+                <value>625</value>
+                <value>650</value>
+                <value>675</value>
+                <value>700</value>
+                <value>725</value>
+                <value>750</value>
+                <value>775</value>
+                <value>800</value>
+                <value>825</value>
+                <value>850</value>
+                <value>875</value>
+                <value>900</value>
+                <value>925</value>
+                <value>950</value>
+                <value>975</value>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+<animation>
+        <name>vsi chooser</name>
+        <type>knob</type>
+        <object-name>VSIKNOB</object-name>
+        <property>sim/hud/color/alpha</property>
+        <property>sim/hud/color/brightness</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+        <property>autopilot/settings/vertical-speed-fpm</property>
+                <value>-30000</value>
+                <value>-20000</value>
+                <value>-15000</value>
+                <value>-12000</value>
+                <value>-8000</value>
+                <value>-7000</value>
+                <value>-6000</value>
+                <value>-5000</value>
+                <value>-4000</value>
+                <value>-3500</value>
+                <value>-3000</value>
+                <value>-2500</value>
+                <value>-2000</value>
+                <value>-1900</value>
+                <value>-1500</value>
+                <value>-1300</value>
+                <value>-1000</value>
+                <value>-900</value>
+                <value>-500</value>
+                <value>-300</value>
+                <value>-250</value>
+                <value>-200</value>
+                <value>-175</value>
+                <value>-150</value>
+                <value>-125</value>
+                <value>-100</value>
+                <value>0</value>
+                <value>100</value>
+                <value>125</value>
+                <value>150</value>
+                <value>175</value>
+                <value>200</value>
+                <value>250</value>
+                <value>300</value>
+                <value>500</value>
+                <value>900</value>
+                <value>1000</value>
+                <value>1300</value>
+                <value>1500</value>
+                <value>1900</value>
+                <value>2000</value>
+                <value>2500</value>
+                <value>3000</value>
+                <value>3500</value>
+                <value>4000</value>
+                <value>5000</value>
+                <value>6000</value>
+                <value>7000</value>
+                <value>8000</value>
+                <value>12000</value>
+                <value>15000</value>
+                <value>20000</value>
+                <value>30000</value>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+
+
+<animation>
+  <type>pick</type>
+   <object-name>HDGHOLD</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>setprop("/autopilot/locks/heading", "wing-leveler");</script>
+</binding>
+       </action>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>HDGCANCLE</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>setprop("/autopilot/locks/heading", "");</script>
+</binding>
+       </action>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>IASCANCLE</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>setprop("/autopilot/locks/speed", "");</script>
+</binding>
+       </action>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>ALTCANCLE</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>setprop("/autopilot/locks/altitude", "");</script>
+</binding>
+       </action>
+ </animation>
+
+
+ <animation>
+  <type>pick</type>
+   <object-name>ALTHOLD</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>setprop("/autopilot/locks/altitude", "vertical-speed-hold");</script>
+</binding>
+       </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>IASHOLD</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>setprop("/autopilot/locks/speed", "speed-with-throttle");</script>
+</binding>
+       </action>
+ </animation>
+
+
+
  <animation>
   <type>pick</type>
    <object-name>AAR</object-name>
