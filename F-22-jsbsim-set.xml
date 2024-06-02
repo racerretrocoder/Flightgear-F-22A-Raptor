@@ -1536,6 +1536,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	<consumables>
 		<fuel>
 			<tank n="0">
+
 				<name>FWD fuselage</name>
 				<kill-when-empty type="bool">false</kill-when-empty>
 			</tank>
@@ -1544,10 +1545,12 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 				<kill-when-empty type="bool">false</kill-when-empty>
 			</tank>
 			<tank n="2">
+			   <priority>1</priority>
         <name>Left-tank</name>
         <selected type="bool">false</selected>
       </tank>
       <tank n="3">
+	     <priority>1</priority>
         <name>Right-Tank</name>
         <selected type="bool">false</selected>
       </tank>
