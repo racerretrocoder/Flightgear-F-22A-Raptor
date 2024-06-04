@@ -315,7 +315,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
      </location>
 <priority>1</priority>
      <capacity unit="LBS"> 8140.00 </capacity>
-     <contents unit="LBS"> 4140.00 </contents>
+     <contents unit="LBS"> 0 </contents>
   </tank>
 
 <tank type="FUEL" number="3">
@@ -326,7 +326,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
      </location>
 <priority>1</priority>
      <capacity unit="LBS"> 8140.00 </capacity>
-     <contents unit="LBS"> 4140.00 </contents>
+     <contents unit="LBS"> 0 </contents>
   </tank>
  </propulsion>
 
@@ -531,7 +531,8 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
   </channel>
 
 
-  <function name="fcs/vector-main-control">
+<function name="fcs/vector-main-control">  <!-- this is here for refernece later :)
+Oh and the vector limiter!-->
 <quotient>
      <product>
       <property>fcs/elevator-cmd-norm</property>
