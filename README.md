@@ -2,8 +2,8 @@
 
 ![image](/pic.png)
 
-# New FDM is in! Try it out!
-This new fdm was made by aeromatic!
+# New FDM coming very soon
+This new fdm was made by an advanced FDM maker
 
 # To install, 
 Download the zip, open the zip and rename the aircraft folder to F-22 (notice the Capital F)

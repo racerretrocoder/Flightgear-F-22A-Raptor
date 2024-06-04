@@ -440,11 +440,11 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
            <and>
             
                 <greater-than>
-                 <property>orientation/alpha-deg</property><!-- orientation/alpha-deg -->
+                 <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
                  <value>12.0</value>
                 </greater-than>
                 <greater-than>
-                 <property>velocities/airspeed-kt</property><!-- velocities/airspeed-kt -->
+                 <property>sim/multiplay/generic/float[19]</property><!-- velocities/airspeed-kt -->
                  <value>250</value>
                 </greater-than>
            </and>
@@ -494,11 +494,14 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
 	</model>
 
 Use below instead
+ 
+ 
+ Each missile now has its own model file discribing where it should be on the 3d model
  -->
 
 
   <model>
-    <path>Aircraft/F-22/Models/loads/Weapons-load.xml</path>
+    <path>Aircraft/F-22/Models/loads/Weapons-load.xml</path> 
   </model>
 
 <!-- Afterburner -->
@@ -513,7 +516,7 @@ Use below instead
 			
 		</offsets>
 	</model>
-	
+	<!--get this on mp now next todo externally-->
 	<model>
 	<name>right-burner</name>
 		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurner2.xml</path>
@@ -595,7 +598,7 @@ Dont use this!
   <type>rotate</type>
   <object-name>9xtop</object-name>
   <property>/baydoors/position-norm</property>
-  <factor>55</factor> <!-- The rotation in degrees -->
+  <factor>55</factor> <!-- The rotation in degrees... kinda -->
   <center>
    <x-m>-2.7165</x-m>
    <y-m>0.0</y-m>
@@ -786,6 +789,8 @@ Dont use this!
 	</animation>	
 
 <!-- broken again :(
+
+	these are the intake fans
 <animation>
 		<type>spin</type>
 		<object-name>Right_Front_Turbina</object-name>
