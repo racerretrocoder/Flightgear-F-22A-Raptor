@@ -309,8 +309,8 @@
    <condition>
    <and>
 	    <greater-than>
-	     	<property>velocities/mach</property>
-	     	<value>1.0</value>
+	     	<property>sim/multiplay/generic/float[19]</property>
+	     	<value>600</value>
 	    </greater-than>
 	    <equals>
 		    <property>sim/current-view/internal</property>
