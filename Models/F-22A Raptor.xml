@@ -37,6 +37,21 @@
 	<path>F-22.ac</path>
  <effect>
         <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+
+<!-- 
+	
+	Hey Phoenix look at this!
+
+Dont make these objects metel looking! it crashes flightgear apon loading them in! 
+
+        <object-name>TAIL-L-OUT</object-name>
+        <object-name>TAIL-R-OUT</object-name>
+		
+		I dont know why but i put this here so you remeber for later, not to waste time
+
+		Happy Coding :)
+-->
+
         <object-name>Fuselage_2</object-name>
         <object-name>left-nosegear-door</object-name>
         <object-name>left-main-door-up</object-name>
@@ -56,6 +71,7 @@
         <object-name>left-flap_0</object-name>
         <object-name>right-flap_0</object-name>
         <object-name>Fuselage_1</object-name>
+		<object-name>nose</object-name>
     </effect>
 
 
@@ -180,6 +196,28 @@
   <texture>Liveries/wing.png</texture>
 </animation>
 
+<animation>
+  <type>material</type>
+<object-name>nose</object-name>
+ <object-name>nose-bottom-right</object-name>
+ <object-name>nose-bottom-left</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-nose</texture-prop>
+  <texture>Liveries/wing.png</texture>
+</animation>
+
+
+<animation>
+  <type>material</type>
+        <object-name>TAIL-L-OUT</object-name>
+        <object-name>TAIL-R-OUT</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-inner-tail</texture-prop>
+  <texture>Liveries/INNER-TAIL.png</texture>
+</animation>
+
+
+
 
 
 <animation>
@@ -187,8 +225,6 @@
   <object-name>Left_Wing</object-name>
  <object-name>Right_Wing</object-name>
 
-<object-name>TAIL-L-OUT</object-name>
- <object-name>TAIL-R-OUT</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-wing</texture-prop>
   <texture>Liveries/wing.png</texture>
