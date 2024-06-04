@@ -2092,6 +2092,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<file>Aircraft/F-22/Nasal/light.nas</file>
 			<file>Aircraft/F-22/Nasal/doors.nas</file>
 		</f22>
+
+		 <drone>         <file>Aircraft/F-22/Nasal/drone.nas</file>             </drone>
 <datalink>
 			<file>Aircraft/F-22/Nasal/datalink.nas</file>
 </datalink>

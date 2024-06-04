@@ -167,16 +167,26 @@
 
 <animation>
   <type>material</type>
-  <object-name>Left_Wing</object-name>
- <object-name>Right_Wing</object-name>
-<object-name>Left_Stabilizer</object-name>
+<object-name>Right_Prewing</object-name>
+ <object-name>Left_Prewing</object-name>
+ <object-name>Left_Stabilizer</object-name>
  <object-name>Right_Stabilizer</object-name>
 <object-name>Left_Eleron01</object-name>
  <object-name>Left_Eleron02</object-name>
 <object-name>Right_Eleron01</object-name>
  <object-name>Right_Eleron02</object-name>
-<object-name>Right_Prewing</object-name>
- <object-name>Left_Prewing</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-control</texture-prop>
+  <texture>Liveries/wing.png</texture>
+</animation>
+
+
+
+<animation>
+  <type>material</type>
+  <object-name>Left_Wing</object-name>
+ <object-name>Right_Wing</object-name>
+
 <object-name>TAIL-L-OUT</object-name>
  <object-name>TAIL-R-OUT</object-name>
   <property-base>sim/model/livery</property-base>
