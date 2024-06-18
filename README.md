@@ -18,7 +18,7 @@ Check the built in Aircraft Help to learn how to use them
 
 # Mainly Edited by:
 <<<<<<<
- Phoenix, Anonymist, and Developer0607
+ Phoenix, Snail, Developer0607,
 
 ======= Callsigns on MP
 Phoenix (MPcallsign: Phoenix) 
