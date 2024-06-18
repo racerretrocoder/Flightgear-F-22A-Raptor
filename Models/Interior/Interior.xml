@@ -530,6 +530,35 @@
  </animation>
 
 <animation>
+        <type>rotate</type>
+        <object-name>jfsStartR</object-name>
+        <property>controls/engines/engine/starter</property>
+        <offset-deg>0</offset-deg>
+        <factor>40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.5772</x-m>
+            <y-m> -0.346655</y-m>
+            <z-m>-0.38</z-m>
+        </center>
+    </animation>
+<animation>
+        <type>translate</type>
+        <object-name>jfsStartR</object-name>
+        <property>controls/engines/engine/starter</property>
+        <factor>0.004</factor>
+        <axis>
+            <x>2.2</x>
+            <y>0.01</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+<animation>
   <type>pick</type>
    <object-name>jfsStartL</object-name>
    <action>
@@ -548,6 +577,35 @@
  </animation>
 
 <animation>
+        <type>rotate</type>
+        <object-name>jfsStartL</object-name>
+        <property>controls/engines/engine[1]/starter</property>
+        <offset-deg>0</offset-deg>
+        <factor>40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.5772</x-m>
+            <y-m> -0.346655</y-m>
+            <z-m>-0.38</z-m>
+        </center>
+    </animation>
+<animation>
+        <type>translate</type>
+        <object-name>jfsStartL</object-name>
+        <property>controls/engines/engine[1]/starter</property>
+        <factor>0.004</factor>
+        <axis>
+            <x>2.2</x>
+            <y>0.01</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+<animation>
   <type>pick</type>
    <object-name>cutoffR</object-name>
    <action>
@@ -564,6 +622,34 @@
     </mod-up>
    </action>
  </animation>
+<animation>
+        <type>rotate</type>
+        <object-name>cutoffR</object-name>
+        <property>controls/engines/engine[1]/cutoff</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.31242</x-m>
+            <y-m> -0.34872</y-m>
+            <z-m>-0.355119</z-m>
+        </center>
+    </animation>
+<animation>
+        <type>translate</type>
+        <object-name>cutoffR</object-name>
+        <property>controls/engines/engine[1]/cutoff</property>
+        <factor>-0.007</factor>
+        <axis>
+            <x>2.2</x>
+            <y>-0.01</y>
+            <z>0.38</z>
+        </axis>
+    </animation>
 
 <animation>
   <type>pick</type>
@@ -576,6 +662,8 @@
 <command>property-toggle</command>
                 <property>/controls/engines/engine/cutoff</property>
     </binding>
+
+
     <mod-up>
      <binding>
      </binding>
@@ -583,5 +671,33 @@
    </action>
  </animation>
 
+<animation>
+        <type>rotate</type>
+        <object-name>cutoffL</object-name>
+        <property>controls/engines/engine/cutoff</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.31242</x-m>
+            <y-m> -0.34872</y-m>
+            <z-m>-0.355119</z-m>
+        </center>
+    </animation>
+<animation>
+        <type>translate</type>
+        <object-name>cutoffL</object-name>
+        <property>controls/engines/engine/cutoff</property>
+        <factor>-0.0047</factor>
+        <axis>
+            <x>2.2</x>
+            <y>-0.1</y>
+            <z>0.38</z>
+        </axis>
+    </animation>
 
 </PropertyList>
