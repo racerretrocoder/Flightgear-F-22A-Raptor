@@ -412,6 +412,36 @@
  </animation>
 
 <animation>
+        <type>rotate</type>
+        <object-name>AAR</object-name>
+        <property>su-27/instrumentation/HUD/brightness</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.31242</x-m>
+            <y-m> -0.34872</y-m>
+            <z-m>-0.355119</z-m>
+        </center>
+    </animation>
+<animation>
+        <type>translate</type>
+        <object-name>AAR</object-name>
+        <property>su-27/instrumentation/HUD/brightness</property>
+        <factor>-0.0047</factor>
+        <axis>
+            <x>2.2</x>
+            <y>-0.1</y>
+            <z>0.38</z>
+        </axis>
+    </animation>
+
+
+<animation>
   <type>pick</type>
    <object-name>AARMPO</object-name>
    <action>
@@ -427,6 +457,35 @@
     </binding>
        </action>
  </animation>
+
+<animation>
+        <type>rotate</type>
+        <object-name>AARMPO</object-name>
+        <property>controls/AAR/Switch</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.31242</x-m>
+            <y-m> -0.34872</y-m>
+            <z-m>-0.355119</z-m>
+        </center>
+    </animation>
+<animation>
+        <type>translate</type>
+        <object-name>AARMPO</object-name>
+        <property>controls/AAR/Switch</property>
+        <factor>-0.0047</factor>
+        <axis>
+            <x>2.2</x>
+            <y>-0.1</y>
+            <z>0.38</z>
+        </axis>
+    </animation>
 
 
  <animation>
@@ -699,5 +758,6 @@
             <z>0.38</z>
         </axis>
     </animation>
+
 
 </PropertyList>
