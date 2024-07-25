@@ -1046,6 +1046,25 @@
 			<blue>0.0</blue>
 		</emission>
 	</animation>
+ <animation>
+  <object-name>n1L1</object-name>
+  <type>rotate</type>
+  <property>engines/engine/n1</property>
+  <factor>1</factor>
+  <offset-deg>-10</offset-deg>
+  <center>
+   <x-m>-1</x-m>
+   <y-m>-0.017</y-m>
+   <z-m>0.03</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
 
 
 </PropertyList>

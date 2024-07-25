@@ -1,3 +1,5 @@
+<!--   Its not done yet
+
 <?xml version="1.0" encoding="UTF-8"?>
  
 <PropertyList>
@@ -6,13 +8,15 @@
   <model>
     <livery>
       <name type="string">249th FS "Phoenix"</name>
-      <texture-AKfuselage>Liveries/AC7-BODY.png</texture-AKfuselage> <!--Main fusealoge-->
-      <texture-tailR>Liveries/AC-TAIL-R.png</texture-tailR> <!--Right tail-->
-      <texture-tailL>Liveries/AC-TAIL.png</texture-tailL> <!--left tail-->
- <texture-wing>Liveries/AC-wing.png</texture-wing> <!--Wing texture-->
-  <texture-control>Liveries/AC-WHITE.png</texture-control> <!--Control surfaces-->
+      <texture-AKfuselage>Liveries/AC7-BODY.png</texture-AKfuselage>
+      <texture-tailR>Liveries/AC-TAIL-R.png</texture-tailR> 
+      <texture-tailL>Liveries/AC-TAIL.png</texture-tailL> 
+ <texture-wing>Liveries/AC-wing.png</texture-wing>
+  <texture-control>Liveries/AC-WHITE.png</texture-control>
     </livery>
   </model>
 </sim>
 
-</PropertyList>
+</PropertyList> 
+
+-->
