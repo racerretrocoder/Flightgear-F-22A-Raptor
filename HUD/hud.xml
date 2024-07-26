@@ -228,7 +228,7 @@
         <halign>left</halign>
     </label>
 	
-	<!-- <label>
+	 <label>
 	<name>AGL</name>
 	<x>40</x>
 	<y>17</y>
@@ -241,15 +241,59 @@
 	<halign>right</halign>
 	<box>false</box>
 	<option>left</option>
-	</label> -->
+	</label> 
 
 
 <aiming-reticle>
   <x>-5.6</x>
   <y>-4.75</y>
-  <width>10</width>
-  <height>10</height>
+  <width>20</width>
+  <height>20</height>
  </aiming-reticle>
-	
+	<label>
+<name>Warning AoA</name>
+<x>-17</x>
+<y>-50</y>
+<width>34</width>
+<height>20</height>
+<condition>
+<greater-than>
+<property>fdm/jsbsim/aero/alpha-deg</property>
+<value>30</value>
+</greater-than>
+</condition>
+<format>!!AoA!!</format>
+<input>
+  <property>null</property>
+</input>
+<halign>left</halign>
+<option>right</option>
+<blinking>
+	<interval>0.1</interval>
+</blinking>
+</label>
+	<label>
+<name>Warning</name>
+<x>-17</x>
+<y>-30</y>
+<width>1</width>
+<height>1</height>
+<condition>
+<greater-than>
+<property>controls/warn</property>
+<value>1</value>
+</greater-than>
+</condition>
+<format>WARN</format>
+<input>
+  <property>null</property>
+</input>
+<halign>left</halign>
+<option>right</option>
+<blinking>
+	<interval>0.1</interval>
+</blinking>
+</label>
+
 	
 	</PropertyList>
