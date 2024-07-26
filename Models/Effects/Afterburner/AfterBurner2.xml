@@ -24,10 +24,15 @@
 	<type>select</type>
     <object-name>FlameModel</object-name>
 		<condition>
-			<equals>
-				<property>engines/engine/augmentation</property>
-				<value>true</value>
-			</equals>
+
+
+			
+			<greater-than>
+			<property>engines/engine/n1</property>
+				<value>90</value>
+
+			</greater-than>
+
 		</condition>
 </animation>
   

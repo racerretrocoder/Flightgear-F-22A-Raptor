@@ -189,13 +189,10 @@
    <mode>looped</mode>
    <path>Aircraft/F-22/Sounds/AB.wav</path>
    <condition>
-
 <greater-than>  
  <property>engines/engine[0]/n1</property>
    <value>90</value>
   </greater-than>
-
-  
      <not>
 	 <property>/sim/current-view/internal</property>
 <property>/engines/engine/out-of-fuel</property>
@@ -206,10 +203,20 @@
 	<y>0.0</y>
 	<z>0</z>
    </position>
-      <volume>
-
-    <factor>100000.114</factor>
-
+               <orientation>
+                <x>1.0</x>
+                <y>0.001</y>
+                <z>0.001</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>0.0</outer-gain>
+            </orientation>
+   <volume>
+    <property>/fdm/jsbsim/fcs/burneranimation1</property>
+    <factor>1</factor>
+    <min>0.15</min>
+    <max>500000</max>
+    <offset>0</offset>
    </volume>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
@@ -240,10 +247,19 @@
 	<y>0.0</y>
 	<z>0</z>
    </position>
-      <volume>
-
-    <factor>100000.114</factor>
-
+               <orientation>
+                <x>1.0</x>
+                <y>0.001</y>
+                <z>0.001</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>0.0</outer-gain>
+            </orientation>
+ <volume>
+    	<property>/fdm/jsbsim/fcs/burneranimation1</property>
+    	<factor>1</factor>
+	<min>0.15</min>
+	<max>1000000.0</max>
    </volume>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
@@ -274,10 +290,19 @@
 	<y>0.0</y>
 	<z>0</z>
    </position>
-      <volume>
-
-    <factor>100000.114</factor>
-
+               <orientation>
+                <x>1.0</x>
+                <y>0.001</y>
+                <z>0.001</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>0.0</outer-gain>
+            </orientation>
+<volume>
+    	<property>/fdm/jsbsim/fcs/burneranimation1</property>
+    	<factor>1</factor>
+	<min>0.15</min>
+	<max>1000000.0</max>
    </volume>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
@@ -462,7 +487,7 @@
    	<outer-gain>0.5</outer-gain>
    </orientation>
    <volume>
-        <property>engines/engine[0]/n2</property>
+        <property>fdm/jsbsim/fcs/N2SOUND</property>
         <factor>0.08</factor>
         <min>0.4</min>
 	<max>1.0</max>
@@ -532,7 +557,7 @@
    </orientation>
  
    <volume>
-    <property>engines/engine[0]/n1</property>
+    <property>fdm/jsbsim/fcs/N2SOUND</property>
     <factor>0.024</factor>
     <offset>-0.45</offset>
    </volume>
@@ -571,7 +596,7 @@
    </orientation>
  
    <volume>
-    <property>engines/engine[1]/n1</property>
+    <property>fdm/jsbsim/fcs/N2SOUND</property>
     <factor>0.024</factor>
     <offset>-0.45</offset>
    </volume>
@@ -607,7 +632,7 @@
    </orientation>
  
    <volume>
-    <property>engines/engine[0]/n1</property>
+    <property>fdm/jsbsim/fcs/N2SOUND</property>
     <factor>0.014</factor>
     <offset>-0.45</offset>
    </volume>
@@ -645,7 +670,7 @@
 	<max>0</max>
 </pitch>
    <volume>
-    <property>engines/engine[0]/n1</property>
+    <property>fdm/jsbsim/fcs/N2SOUND</property>
     <factor>0.014</factor>
     <offset>-0.45</offset>
    </volume>
@@ -1208,33 +1233,98 @@
     </guns>
 
 	
-	<voice>
-  <name>Geforce-breath-vox</name>
-  <path>Aircraft/F-22/Sounds/Geforce.wav</path>
+	<air>
+  <name>Geforce-over-wings</name>
+        <mode>looped</mode>
+  <path>Aircraft/F-22/Sounds/highg.wav</path>
+  <condition>
+   <equals>
+    <property>/fdm/jsbsim/fcs/gforceslow</property>
+    <value>1</value>
+   </equals>   
+  </condition>
+<volume>
+<property>/accelerations/pilot-g</property>
+<factor>10</factor>
+</volume>
+ </air>
+
+	<air>
+  <name>Geforce-over-wingss</name>
+        <mode>looped</mode>
+  <path>Aircraft/F-22/Sounds/highg.wav</path>
+  <condition>
+   <equals>
+    <property>/fdm/jsbsim/fcs/gforceslow</property>
+    <value>1</value>
+   </equals>   
+  </condition>
+<volume>
+<property>/accelerations/pilot-g</property>
+<factor>10</factor>
+</volume>
+ </air>
+	<air>
+  <name>Geforce-over-wingsss</name>
+        <mode>looped</mode>
+  <path>Aircraft/F-22/Sounds/highg.wav</path>
+  <condition>
+   <equals>
+    <property>/fdm/jsbsim/fcs/gforceslow</property>
+    <value>1</value>
+   </equals>   
+  </condition>
+<volume>
+<property>/accelerations/pilot-g</property>
+<factor>10</factor>
+</volume>
+ </air>
+
+<air>
+  <name>Geforce-over-wings-fast</name>
+        <mode>looped</mode>
+  <path>Aircraft/F-22/Sounds/highgfast.wav</path>
   <condition>
    <greater-than>
-    <property>/accelerations/pilot/z-accel-fps_sec</property>
-    <value>-161</value>
+    <property>/fdm/jsbsim/fcs/gforce</property>
+    <value>0.78</value>
    </greater-than>   
   </condition>
 <volume>
-<factor>0.9</factor>
+<property>/accelerations/pilot-g</property>
+<factor>2</factor>
 </volume>
- </voice>
-
-<voice>
-  <name>Geforce-vox</name>
-  <path>Aircraft/F-22/Sounds/geforce1.wav</path>
+ </air>
+ <air>
+  <name>Geforce-over-wings-fast-loud</name>
+        <mode>looped</mode>
+  <path>Aircraft/F-22/Sounds/highgfast.wav</path>
   <condition>
-   <less-than>
-    <property>/accelerations/pilot/z-accel-fps_sec</property>
-    <value>-225</value>
-   </less-than>   
+   <greater-than>
+    <property>/fdm/jsbsim/fcs/gforce</property>
+    <value>0.78</value>
+   </greater-than>   
   </condition>
 <volume>
-<factor>0.9</factor>
+<property>/accelerations/pilot-g</property>
+<factor>2</factor>
 </volume>
- </voice>
+ </air>
+  <air>
+  <name>Geforce-over-wings-fast-loudd</name>
+        <mode>looped</mode>
+  <path>Aircraft/F-22/Sounds/highgfast.wav</path>
+  <condition>
+   <greater-than>
+    <property>/fdm/jsbsim/fcs/gforce</property>
+    <value>0.78</value>
+   </greater-than>   
+  </condition>
+<volume>
+<property>/accelerations/pilot-g</property>
+<factor>2</factor>
+</volume>
+ </air>
  
   <!-- Sonic Boom -->
   <sonicboom>
@@ -1329,7 +1419,41 @@
    </condition>
   </sonicboom3>
   
-  
+      <sonicboom3>
+   <name>Sonic Boom4</name>
+	<mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
+   <condition>
+   <and>
+	    <greater-than>
+	     	<property>/velocities/mach</property>
+	     	<value>1.0</value>
+	    </greater-than>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+	</and>
+   </condition>
+  </sonicboom3>
+
+        <sonicboom3>
+   <name>Sonic Boom544</name>
+	<mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
+   <condition>
+   <and>
+	    <greater-than>
+	     	<property>/velocities/mach</property>
+	     	<value>1.0</value>
+	    </greater-than>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+	</and>
+   </condition>
+  </sonicboom3>
 
   <low-fuel>
   <name>low-fuel</name>
