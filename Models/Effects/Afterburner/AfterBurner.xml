@@ -5,11 +5,15 @@
  <path>flame.ac</path>
 
   <offsets>
-  <z-m>5.95</z-m> 
   <pitch-deg>90</pitch-deg>
+  <roll-deg>-90</roll-deg>
   </offsets>
   
-
+ <effect>
+        <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+        <object-name>Fla</object-name>
+      
+    </effect>
 
 <effect>
  <inherits-from>Effects/model-transparent</inherits-from>
@@ -20,10 +24,15 @@
 	<type>select</type>
     <object-name>FlameModel</object-name>
 		<condition>
-		 <greater-than>
-				<property>sim/multiplay/generic/float[18]</property>
-				<value>0.8</value>
-         </greater-than>				
+
+
+			
+			<greater-than>
+			<property>engines/engine[1]/n1</property>
+				<value>90</value>
+
+			</greater-than>
+
 		</condition>
 </animation>
   
@@ -34,7 +43,7 @@
 	<type>translate</type>
 	<object-name>FlameModel</object-name>
 	<factor>0.0</factor>
-	<offset-m>5.94</offset-m>
+	<offset-m>0</offset-m>
 	<axis>
 		<x>1.0</x>
 		<y>0</y>
@@ -61,11 +70,11 @@
  
 
 
- <animation>
+<!-- <animation>
   <type>billboard</type>
   <object-name>FlameModel</object-name>
   <spherical type="bool">false</spherical>
- </animation>
+ </animation> -->
  
  
  <animation>
@@ -95,9 +104,9 @@
   <animation>
 	<type>scale</type>
 	<object-name>FlameModel</object-name>
-	<property>sim/multiplay/generic/float[18]</property>    
+	<property>/controls/engines/engine/throttle</property>    
   <x-min>1.0</x-min>
-  <y-min>1.0</y-min>
+  <y-min>1.8</y-min>
   <z-min>0.5</z-min>    
 	<x-factor>1.0</x-factor>
 	<y-factor>1.0</y-factor>
@@ -116,7 +125,7 @@
 	</axis>
 </animation>  
 
- 
+<!-- 
  	<animation>
 		<type>textranslate</type>
 		<object-name>FlameModel</object-name>
@@ -127,6 +136,6 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation>
+	</animation> -->
   
 </PropertyList>

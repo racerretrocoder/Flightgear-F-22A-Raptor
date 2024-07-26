@@ -147,6 +147,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
   <texture-prop>texture-PHfuselage</texture-prop>
   <texture>Liveries/PH-BODY.png</texture>
 </animation>
+<!--
 <animation>
   <type>material</type>
   <object-name>Left_Keel</object-name>
@@ -180,7 +181,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
         <y-m>0</y-m>
         <z-m>0</z-m>
     </offsets>
-
+-->
 <animation>
   <type>material</type>
 <object-name>Right_Prewing</object-name>
@@ -517,10 +518,24 @@ Use below instead
 			
 		</offsets>
 	</model>
+  <animation>
+	<type>scale</type>
+	<object-name>left-burner</object-name>
+	<property>/engines/engine/nozzle-pos-norm</property>    
+  <x-min>.1</x-min>
+  <y-min>1.0</y-min>
+  <z-min>1</z-min>    
+	<x-factor>1.05</x-factor>
+	<y-factor>0</y-factor>
+	<z-factor>0</z-factor>
+</animation>
+
+
+
 	<!--get this on mp now next todo externally-->
 	<model>
 	<name>right-burner</name>
-		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurner2.xml</path>
+		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurner.xml</path>
 			<offsets>
 				<x-m>6.727</x-m>
 			<y-m>0.6</y-m>
@@ -528,6 +543,18 @@ Use below instead
 			
 		</offsets>
 	</model>
+	  <animation>
+	<type>scale</type>
+	<object-name>right-burner</object-name>
+	<property>/engines/engine[1]/nozzle-pos-norm</property>    
+  <x-min>.1</x-min>
+  <y-min>1.0</y-min>
+  <z-min>1</z-min>    
+	<x-factor>1.05</x-factor>
+	<y-factor>0</y-factor>
+	<z-factor>0</z-factor>
+</animation>
+
 
 	
 <!-- Interior -->
@@ -959,7 +986,7 @@ FR
 					<x2-m>4.47688</x2-m>
 				<y2-m>-5.91991</y2-m>
 			<z2-m>-0.66688</z2-m>
-		</axis>>
+		</axis>
 	</animation>
 
 <!-- Flap animations -->

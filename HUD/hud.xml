@@ -295,5 +295,29 @@
 </blinking>
 </label>
 
+<label>
+<name>Warning Low Fuel</name>
+<x>-36</x>
+<y>-30</y>
+<width>1</width>
+<height>1</height>
+<condition>
+<less-than>
+    <property>/consumables/fuel/tank/level-gal_us</property>
+    <value>400</value>
+   </less-than>
+</condition>
+<format>!BINGO FUEL!</format>
+<input>
+  <property>null</property>
+</input>
+<blinking>
+	<interval>0.1</interval>
+</blinking>
+<halign>left</halign>
+<option>right</option>
+</label>
+
+
 	
 	</PropertyList>
