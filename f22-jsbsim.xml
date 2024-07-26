@@ -536,9 +536,9 @@ Oh and the vector limiter!-->
 <quotient>
      <product>
       <property>fcs/elevator-cmd-norm</property>
-      <value>1</value>
+
     <product>
-      <value>1</value>
+
       <property>fcs/tv-coefficient</property>
      </product>
        </product>

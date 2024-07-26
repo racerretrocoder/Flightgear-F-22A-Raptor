@@ -374,11 +374,11 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
     
           <greater-than>
            <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
-           <value>3</value>
+           <value>10</value>
           </greater-than>
           <greater-than>
            <property>sim/multiplay/generic/float[19]</property><!-- velocities/airspeed-kt -->
-           <value>160</value>
+           <value>400</value>
           </greater-than>
        </and>
     </condition>
@@ -445,7 +445,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
                 </greater-than>
                 <greater-than>
                  <property>sim/multiplay/generic/float[19]</property><!-- velocities/airspeed-kt -->
-                 <value>250</value>
+                 <value>400</value>
                 </greater-than>
            </and>
       </condition>
@@ -497,6 +497,7 @@ Use below instead
  
  
  Each missile now has its own model file discribing where it should be on the 3d model
+ There are 6aim120 files 2 aim9 files
  -->
 
 
@@ -528,20 +529,6 @@ Use below instead
 		</offsets>
 	</model>
 
-	<!-- Hud Diamond -->
-  
-    <model>
-  
-    <name>HUD_ADDS</name>
-    <path>Aircraft/F-22/Models/HUD/hud.xml</path>
-    <name>diamond</name>
-    <offsets>
-      <x-m>-5.8</x-m>
-      <y-m> 0.00000 </y-m>
-      <z-m>0.26</z-m>
-      <pitch-deg>0</pitch-deg>
-    </offsets>
-  </model>
 	
 <!-- Interior -->
 

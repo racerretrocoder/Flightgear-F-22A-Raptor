@@ -2,6 +2,31 @@
 
 <PropertyList>
  <fx>
+
+
+  <aim9>
+      <name>aim9-Sound</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/sys/Aim9lock</path>
+      <condition>
+          <property>controls/armament/selected-weapon</property>
+          <value>Aim-9x</value>
+      </condition>
+       <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+        <position>
+    	<x>-4.5</x>
+	<y>0.0</y>
+	<z>-5</z>
+   </position>
+  
+   <volume>
+    	
+    	<factor>1</factor>
+	<min>0.0</min>
+	<max>1.0</max>
+   </volume>
+   </aim9>
  
  <engine>
       <name>engine-start-inside</name>
@@ -10,21 +35,10 @@
       <condition>
         <and>
           <property>/controls/engines/engine[0]/starter</property>
+
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
-      <volume>
-        <property>engines/engine[0]/n2</property>
-        <factor> 0.01 </factor>
-        <min> 0.03 </min>
-        <max> 0.07 </max>
-      </volume>
-      <pitch>
-        <property>engines/engine[0]/n2</property>
-        <factor> 0.01 </factor>
-        <min> 0.0 </min>
-        <max> 0.9 </max>
-      </pitch>
        <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
    </engine>
@@ -39,18 +53,7 @@
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
-      <volume>
-        <property>engines/engine[1]/n2</property>
-        <factor> 0.01 </factor>
-        <min> 0.03 </min>
-        <max> 0.07 </max>
-      </volume>
-      <pitch>
-        <property>engines/engine[1]/n2</property>
-        <factor> 0.01 </factor>
-        <min> 0.0 </min>
-        <max> 0.9 </max>
-      </pitch>
+
        <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
    </engine>
@@ -180,7 +183,108 @@
                 <factor>0.00455001673</factor>
             </pitch> -->
   </engine>
+  
+  <engine>
+   <name>AB</name>
+   <mode>looped</mode>
+   <path>Aircraft/F-22/Sounds/AB.wav</path>
+   <condition>
 
+<greater-than>  
+ <property>engines/engine[0]/n1</property>
+   <value>90</value>
+  </greater-than>
+
+  
+     <not>
+	 <property>/sim/current-view/internal</property>
+<property>/engines/engine/out-of-fuel</property>
+     </not>
+   </condition>
+   <position>
+    	<x>0</x>
+	<y>0.0</y>
+	<z>0</z>
+   </position>
+      <volume>
+
+    <factor>100000.114</factor>
+
+   </volume>
+  <!--  <pitch>
+                <property>engines/engine[0]/n1</property>
+                <offset>0.86349949816</offset>
+                <factor>0.00455001673</factor>
+            </pitch> -->
+  </engine>
+
+    <engine>
+   <name>AB2</name>
+   <mode>looped</mode>
+   <path>Aircraft/F-22/Sounds/AB.wav</path>
+   <condition>
+
+<greater-than>  
+ <property>engines/engine[1]/n1</property>
+   <value>90</value>
+  </greater-than>
+
+  
+     <not>
+	 <property>/sim/current-view/internal</property>
+<property>/engines/engine/out-of-fuel</property>
+     </not>
+   </condition>
+   <position>
+    	<x>0</x>
+	<y>0.0</y>
+	<z>0</z>
+   </position>
+      <volume>
+
+    <factor>100000.114</factor>
+
+   </volume>
+  <!--  <pitch>
+                <property>engines/engine[0]/n1</property>
+                <offset>0.86349949816</offset>
+                <factor>0.00455001673</factor>
+            </pitch> -->
+  </engine>
+
+   <engine>
+   <name>AB3</name>
+   <mode>looped</mode>
+   <path>Aircraft/F-22/Sounds/AB.wav</path>
+   <condition>
+
+<greater-than>  
+ <property>engines/engine[1]/n1</property>
+   <value>90</value>
+  </greater-than>
+
+  
+     <not>
+	 <property>/sim/current-view/internal</property>
+<property>/engines/engine/out-of-fuel</property>
+     </not>
+   </condition>
+   <position>
+    	<x>0</x>
+	<y>0.0</y>
+	<z>0</z>
+   </position>
+      <volume>
+
+    <factor>100000.114</factor>
+
+   </volume>
+  <!--  <pitch>
+                <property>engines/engine[0]/n1</property>
+                <offset>0.86349949816</offset>
+                <factor>0.00455001673</factor>
+            </pitch> -->
+  </engine>
 
 
  <!-- External Sounds -->
@@ -1150,11 +1254,87 @@
 	</and>
    </condition>
   </sonicboom>
+
+    <sonicboom2>
+   <name>Sonic Boom2</name>
+	<mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
+   <condition>
+   <and>
+	    <greater-than>
+	     	<property>/velocities/mach</property>
+	     	<value>1.0</value>
+	    </greater-than>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+	</and>
+   </condition>
+  </sonicboom2>
   
+
+    <sonicboom3>
+   <name>Sonic Boom3</name>
+	<mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
+   <condition>
+   <and>
+	    <greater-than>
+	     	<property>/velocities/mach</property>
+	     	<value>1.0</value>
+	    </greater-than>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+	</and>
+   </condition>
+  </sonicboom3>
+  
+    <sonicboom3>
+   <name>Sonic Boom3</name>
+	<mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
+   <condition>
+   <and>
+	    <greater-than>
+	     	<property>/velocities/mach</property>
+	     	<value>1.0</value>
+	    </greater-than>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+	</and>
+   </condition>
+  </sonicboom3>
+  
+  
+    <sonicboom3>
+   <name>Sonic Boom3</name>
+	<mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
+   <condition>
+   <and>
+	    <greater-than>
+	     	<property>/velocities/mach</property>
+	     	<value>1.0</value>
+	    </greater-than>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+	</and>
+   </condition>
+  </sonicboom3>
+  
+  
+
   <low-fuel>
   <name>low-fuel</name>
   <mode>once</mode>
-  <path>Aircraft/F-22/Sounds/fuellow.wav</path>
+  <path>Aircraft/F-22/Sounds/sys/bingo.wav</path>
   <condition>
     <less-than>
      <property>/consumables/fuel/total-fuel-gals</property>
@@ -1219,7 +1399,7 @@
 <pullup>
         <name>pullup</name>
         <mode>looped</mode>
-        <path>Aircraft/F-18D/Sounds/pullup.wav</path>
+        <path>Aircraft/F-22/Sounds/sys/pullup.wav</path>
         <condition>
             <less-than-equals>
                     		<property>position/altitude-agl-ft</property>

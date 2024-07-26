@@ -26,7 +26,7 @@
   <type>rotate</type>
   <object-name>Bounding_box1</object-name>
   <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
-  <offset-deg>-10</offset-deg>
+  <offset-deg>-20</offset-deg>
   <factor>-0.2</factor>
   <center>
    <x-m>0.</x-m>
