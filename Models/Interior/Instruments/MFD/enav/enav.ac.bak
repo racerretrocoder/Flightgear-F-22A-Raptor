@@ -1,0 +1,23 @@
+AC3Db
+MATERIAL "glow" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 1 1 1  shi 128  trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "error"
+loc 0.00923324 -0.0704084 0.0335347
+texture "System.bmp"
+crease 45.000000
+numvert 4
+0 -0.0230184 -0.136136
+0 -0.0230184 0.0624302
+0 0.172634 0.0624302
+0 0.172634 -0.136136
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0

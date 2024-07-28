@@ -12,7 +12,11 @@
     <object-name>nav1</object-name>
     <object-name>nav2</object-name>
    <object-name>tacan</object-name>
-  
+  <object-name>HDGMODE</object-name>
+    <object-name>ALTMODE</object-name>
+    <object-name>IASMODE</object-name>
+       <object-name>tacan3</object-name>
+
   <ambient>
     <red>0.0</red>
     <green>1.0</green>
@@ -47,6 +51,62 @@
   <draw-text type="bool">true</draw-text>
   <alignment>right-top</alignment>
  </text>
+
+ <text>
+  <name>HDGMODE</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.007</character-size>
+  <offsets>
+   <x-m>-4.605</x-m>
+   <y-m>0.043</y-m>
+   <z-m>0.878</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">text-value</type>
+<format type="string">%s</format>
+  <truncate type="bool">false</truncate>
+  <property>/autopilot/locks/heading</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+
+ <text>
+  <name>ALTMODE</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.007</character-size>
+  <offsets>
+   <x-m>-4.605</x-m>
+   <y-m>0.075</y-m>
+   <z-m>0.898</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">text-value</type>
+<format type="string">%s</format>
+  <truncate type="bool">false</truncate>
+  <property>/autopilot/locks/altitude</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+
+
+ <text>
+  <name>IASMODE</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.007</character-size>
+  <offsets>
+   <x-m>-4.605</x-m>
+   <y-m>0.075</y-m>
+   <z-m>0.915</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">text-value</type>
+<format type="string">%s</format>
+  <truncate type="bool">false</truncate>
+  <property>/autopilot/locks/speed</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+
 
  <text>
   <name>comm2</name>
@@ -115,14 +175,32 @@
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">number-value</type>
-  <format type="string">%3.3f</format>
+  <format type="string">%5.2lf</format>
   <truncate type="bool">false</truncate>
-  <property>instrumentation/tacan/frequencies/selected-mhz</property>
+  <property>autopilot/settings/target-speed-kt</property>
   <draw-text type="bool">true</draw-text>
   <alignment>right-top</alignment>
  </text>
  
- 
+  <text>
+  <name>tacan3</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.007</character-size>
+  <offsets>
+  <x-m>-4.605</x-m>
+   <y-m>0.03</y-m>
+   <z-m>0.934</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">number-value</type>
+  <format type="string">%5.2lf</format>
+  <truncate type="bool">false</truncate>
+  <property>autopilot/settings/vertical-speed-fpm</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>right-top</alignment>
+ </text>
+
+
   <!--  Keypad area -->
    <animation>
   <type>material</type>
@@ -688,7 +766,7 @@
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
-  <text type="string">ALT</text>
+  <text type="string">V/S</text>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
@@ -738,7 +816,7 @@
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
-  <text type="string">VS</text>
+  <text type="string">ASI</text>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>

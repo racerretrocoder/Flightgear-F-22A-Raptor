@@ -122,7 +122,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
    <location unit="IN">
      <x>  96.40 </x>
      <y>   0.00 </y>
-     <z> -67.60 </z>
+     <z> -110.60 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -138,7 +138,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
    <location unit="IN">
      <x> 464.52 </x>
      <y> -43.20 </y>
-     <z> -67.60 </z>
+     <z> -110.60 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -154,7 +154,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
    <location unit="IN">
      <x> 469.52 </x>
      <y>  43.20 </y>
-     <z> -67.60 </z>
+     <z> -110.60 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -286,32 +286,36 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
 
    <tank type="FUEL" number="0">
      <location unit="IN">
-       <x> 446.40 </x>
-       <y>   0.00 </y>
-       <z> -18.60 </z>
+       <x> 426.1  </x>
+       <y> -24.92 </y>
+       <z>   0    </z>
      </location>
-     <capacity unit="LBS"> 4140.00 </capacity>
-     <contents unit="LBS"> 2070.00 </contents>
+<priority>2</priority>
+     <capacity unit="LBS"> 9000.00 </capacity>
+     <contents unit="LBS"> 9000.00 </contents> <!-- 8421 -->
   </tank>
 
   <tank type="FUEL" number="1">
      <location unit="IN">
-       <x> 446.40 </x>
-       <y>   0.00 </y>
-       <z> -18.60 </z>
+       <x> 426.1  </x>
+       <y>  24.92 </y>
+       <z>   0    </z>
      </location>
-     <capacity unit="LBS"> 4140.00 </capacity>
-     <contents unit="LBS"> 2070.00 </contents>
+        <priority>2</priority>
+     <capacity unit="LBS"> 9000.00 </capacity>
+     <contents unit="LBS"> 9000.00 </contents>
   </tank>
 
   <tank type="FUEL" number="2">
+ 
      <location unit="IN">
        <x> 446.40 </x>
        <y>   0.00 </y>
        <z> -18.60 </z>
      </location>
-     <capacity unit="LBS"> 4140.00 </capacity>
-     <contents unit="LBS"> 2070.00 </contents>
+<priority>1</priority>
+     <capacity unit="LBS"> 8140.00 </capacity>
+     <contents unit="LBS"> 0 </contents>
   </tank>
 
 <tank type="FUEL" number="3">
@@ -320,8 +324,9 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
        <y>   0.00 </y>
        <z> -18.60 </z>
      </location>
-     <capacity unit="LBS"> 1000.00 </capacity>
-     <contents unit="LBS"> 345.00 </contents>
+<priority>1</priority>
+     <capacity unit="LBS"> 8140.00 </capacity>
+     <contents unit="LBS"> 0 </contents>
   </tank>
  </propulsion>
 
@@ -523,16 +528,18 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
      <output>fcs/speedbrake-pos-norm</output>
    </kinematic>
 
+
   </channel>
 
 
-  <function name="fcs/vector-main-control">
+<function name="fcs/vector-main-control">  <!-- this is here for refernece later :)
+Oh and the vector limiter!-->
 <quotient>
      <product>
       <property>fcs/elevator-cmd-norm</property>
-      <value>1</value>
+
     <product>
-      <value>1</value>
+
       <property>fcs/tv-coefficient</property>
      </product>
        </product>
@@ -560,6 +567,73 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
      </difference>
    </function>
 
+
+   
+    <function name="fcs/burner">
+      <description>Afterburner Sound Effect Volume and animation</description>
+          <table>
+            <independentVar lookup="row">/engines/engine/nozzle-pos-norm</independentVar>
+            <tableData>
+               0   0  
+               1   2
+            </tableData>
+          </table>
+    </function>
+    <function name="fcs/N2SOUND">
+      <description>Afterburner Sound Effect Volume and animation</description>
+          <table>
+    <independentVar lookup="row">/velocities/mach</independentVar>
+    <independentVar lookup="column">/engines/engine/n2</independentVar>
+    <tableData>
+          0       20      40      60      80      100
+     0.0  0       20      40      60      80      100
+     0.2  0       20      40      60      80      100
+     0.4  0       20      40      60      80      100
+     0.6  0.0     20      40      60      80      100
+     0.8  0.0     20      40      60      80      100
+     0.99 0       20      40      60      80      100
+     1.0  0.0     0.0     0.0     0.0     0.0     0.0   
+
+    </tableData>
+   </table>
+    </function>
+
+    <function name="fcs/gforce">
+      <description>g force</description>
+          <table>
+    <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
+    <independentVar lookup="column">/accelerations/pilot-g</independentVar>
+    <tableData>
+          0       4       8       10      12      20
+     100  0       0       0       1       1       1
+     200  0       0       0       1       1       1
+     300  0       0       0       0       0       0
+     400  0.0     0       0       0       0       0
+     500  0.0     0       1       1       1       1
+     600  0.0     0       1       1       1       1
+     700  0.0     0       1       1       1       1   
+
+    </tableData>
+   </table>
+    </function>
+    <function name="fcs/gforceslow">
+      <description>g force</description>
+          <table>
+    <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
+    <independentVar lookup="column">/accelerations/pilot-g</independentVar>
+    <tableData>
+          0       4       8       10      12      20
+     100  0       2       2       1       1       1
+     200  0.5     2       2       1       1       1
+     300  0.5     2       2       1       1       1
+     400  0.0     2       2       2       2       2
+     500  0.0     0       0       0       0       0
+     600  0.0     0       0       0       0       0
+     700  0.0     0       0       0       0       0   
+
+    </tableData>
+   </table>
+    </function>
   
 <channel name="Vectors">
    <aerosurface_scale name="Thrust Vector Control">
@@ -601,6 +675,59 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
       <output>fcs/tv-pos-rad</output>
    </kinematic>
 </channel>
+
+<channel name="Misc">
+   
+   
+<!--JSBsim Functions are very usefull to me
+     Now we got to make it smooth         -->
+    
+ 
+    <kinematic name="Smoothing out AB Sound">
+      <input>fcs/burner</input>
+      <traverse>
+        <setting>
+          <position>0</position>
+          <time>3</time>
+        </setting>
+        <setting>
+          <position>10000</position> <!--10000 Is the The product for the AB sound Factor * n1 (100x90~100) So that means we set factor to 1-->
+          <time>3</time>
+        </setting>
+       </traverse>
+      <output>fcs/burneranimation1</output>
+   </kinematic>
+   </channel>
+
+      <aerosurface_scale name="nozzle-scaled">
+      <input>fcs/burner</input>
+      <domain>
+        <min> 0 </min>
+        <max> 1 </max>
+      </domain>
+      <range>
+        <min> 0 </min>
+        <max> 2 </max>
+      </range>
+      <output>fcs/burneranimation</output>
+   </aerosurface_scale>
+<!--
+    <kinematic name="Smoothing out AB Sound (2)">
+      <input>/engines/engine/nozzle-pos-norm</input>
+      <traverse>
+        <setting>
+          <position>0</position>
+          <time>3</time>
+        </setting>
+        <setting>
+          <position>10000</position> 10000 Is the The product for the AB sound Factor * n1 (100x90~100) So that means we set factor to 1
+          <time>3</time>
+        </setting>
+       </traverse>
+      <output>fcs/burneranimation</output>
+   </kinematic>
+   </channel>
+-->
 
  </flight_control>
 
@@ -730,7 +857,7 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/speedbrake-pos-norm</property>
-           <value>0.1</value>
+           <value>1</value>
          </product>
     </function>
 
