@@ -322,6 +322,69 @@
     <max-dist>6000.0</max-dist>
   </sonicboom>
 
+    <sonicboom>
+   <name>Sonic Boom louder</name>
+	<mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
+   <condition>
+   <and>
+	    <greater-than>
+	     	<property>sim/multiplay/generic/float[19]</property>
+	     	<value>600</value>
+	    </greater-than>
+	    <equals>
+		    <property>sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+	</and>
+   </condition>
+    <reference-dist>600.0</reference-dist>
+    <max-dist>6000.0</max-dist>
+  </sonicboom>
+
+    <sonicboom>
+   <name>Sonic Boom LOUDDDERRRR</name>
+	<mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
+   <condition>
+   <and>
+	    <greater-than>
+	     	<property>sim/multiplay/generic/float[19]</property>
+	     	<value>600</value>
+	    </greater-than>
+	    <equals>
+		    <property>sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+	</and>
+   </condition>
+    <reference-dist>600.0</reference-dist>
+    <max-dist>6000.0</max-dist>
+  </sonicboom>
+
+    <sonicboom>
+   <name>Sonic Boom HEADPHONE WARNING</name>
+	<mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
+   <condition>
+   <and>
+	    <greater-than>
+	     	<property>sim/multiplay/generic/float[19]</property>
+	     	<value>600</value>
+	    </greater-than>
+	    <equals>
+		    <property>sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+	</and>
+   </condition>
+    <reference-dist>600.0</reference-dist>
+    <max-dist>6000.0</max-dist>
+  </sonicboom>
+
+
+
+
 
  <!-- flyby -->
 		<flyby>

@@ -7,7 +7,7 @@
   <aim9>
       <name>aim9-Sound</name>
       <mode>looped</mode>
-      <path>Aircraft/F-22/Sounds/sys/Aim9lock</path>
+      <path>Aircraft/F-22/Sounds/sys/Aim9lock.wav</path>
       <condition>
           <property>controls/armament/selected-weapon</property>
           <value>Aim-9x</value>
@@ -49,7 +49,7 @@
       <path>Aircraft/F-22/Sounds/turbine_start_in.wav</path>
       <condition>
         <and>
-          <property>/controls/engines/engine[0]/starter</property>
+          <property>/controls/engines/engine[0]/starter</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
@@ -1233,52 +1233,7 @@
     </guns>
 
 	
-	<air>
-  <name>Geforce-over-wings</name>
-        <mode>looped</mode>
-  <path>Aircraft/F-22/Sounds/highg.wav</path>
-  <condition>
-   <equals>
-    <property>/fdm/jsbsim/fcs/gforceslow</property>
-    <value>1</value>
-   </equals>   
-  </condition>
-<volume>
-<property>/accelerations/pilot-g</property>
-<factor>10</factor>
-</volume>
- </air>
 
-	<air>
-  <name>Geforce-over-wingss</name>
-        <mode>looped</mode>
-  <path>Aircraft/F-22/Sounds/highg.wav</path>
-  <condition>
-   <equals>
-    <property>/fdm/jsbsim/fcs/gforceslow</property>
-    <value>1</value>
-   </equals>   
-  </condition>
-<volume>
-<property>/accelerations/pilot-g</property>
-<factor>10</factor>
-</volume>
- </air>
-	<air>
-  <name>Geforce-over-wingsss</name>
-        <mode>looped</mode>
-  <path>Aircraft/F-22/Sounds/highg.wav</path>
-  <condition>
-   <equals>
-    <property>/fdm/jsbsim/fcs/gforceslow</property>
-    <value>1</value>
-   </equals>   
-  </condition>
-<volume>
-<property>/accelerations/pilot-g</property>
-<factor>10</factor>
-</volume>
- </air>
 
 <air>
   <name>Geforce-over-wings-fast</name>
@@ -1300,25 +1255,38 @@
         <mode>looped</mode>
   <path>Aircraft/F-22/Sounds/highgfast.wav</path>
   <condition>
+  <and>
+  	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
    <greater-than>
     <property>/fdm/jsbsim/fcs/gforce</property>
     <value>0.78</value>
    </greater-than>   
+   </and>
   </condition>
 <volume>
 <property>/accelerations/pilot-g</property>
 <factor>2</factor>
 </volume>
  </air>
+
   <air>
   <name>Geforce-over-wings-fast-loudd</name>
         <mode>looped</mode>
   <path>Aircraft/F-22/Sounds/highgfast.wav</path>
   <condition>
+  <and>
+  	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
    <greater-than>
     <property>/fdm/jsbsim/fcs/gforce</property>
     <value>0.78</value>
-   </greater-than>   
+   </greater-than>
+   </and>   
   </condition>
 <volume>
 <property>/accelerations/pilot-g</property>
@@ -1454,7 +1422,9 @@
 	</and>
    </condition>
   </sonicboom3>
-
+<!--Note: this is like this to make it louder. Because volume will not over clip. And this sounds really really good-->
+ 
+ 
   <low-fuel>
   <name>low-fuel</name>
   <mode>once</mode>
@@ -1510,7 +1480,7 @@
 <low-fuel5>
   <name>low-fuel5</name>
   <mode>once</mode>
-  <path>Aircraft/F-18D/Sounds/bingofuel.wav</path>
+  <path>Aircraft/F-22/Sounds/bingofuel.wav</path>
   <condition>
     <less-than>
      <property>/consumables/fuel/total-fuel-gals</property>
@@ -1537,7 +1507,7 @@
            
         </condition>
         <volume>
-            <max>0.5</max>
+            <max>100</max>
         </volume>
         <position>
             <x>-22</x>
