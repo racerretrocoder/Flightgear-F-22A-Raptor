@@ -1,45 +1,84 @@
 # F-22 Raptor for FlightGear
 
 ![image](/pic.png)
+Shoot down mirages and flankers with this Stealthy F-22A!
 
-# New FDM coming very soon
-This new fdm was made by an advanced FDM maker
+# FDM Just keeps getting better and better. Im making my first fbw right now!!
 
 # To install, 
 Download the zip, open the zip and rename the aircraft folder to F-22 (notice the Capital F)
-Then drag that to C:\Program Files\FlightGear 2020.3\data\Aircraft Or the directory your installed aircrafts are
+Then drag that to C:\Program Files\FlightGear 2020.3\data\Aircraft  
 
-See the aircraft help in game to learn how to use everything about the jet!
+Linux:  Put the F-22 folder in usr/share/games/flightgear/aircraft
 
-Based upon the raptor from the FGUK Hangar. And little pictures on google maps near nellis afb
+Or if you have a custom aircraft folder put F-22 in there
 
-Missiles are now fully functional!
-Check the built in Aircraft Help to learn how to use them
+
+"Or the directory your installed aircrafts are" --uapilot
+
+
+--
+See the aircraft help in game to learn how to use every single feature in the jet!
+--
+
+A good aircraft has to have a nice help option! very Important
+
+Based upon the F-22 from the FGUK Hangar. And little pictures on google maps near nellis afb
+
+Missile status: They track and shoot just fine. Damage over multiplayer works too, but the target recives no missile alert. and i dont know if there affected by chaff/flare
+
+MK83 JDAMs are on my todo list...
+
 
 # Mainly Edited by:
 <<<<<<<
- Phoenix, Anonymist, and Developer0607
+ Phoenix, Silver-Snail, Developer0607
+The 3 legendary coders!
 
 ======= Callsigns on MP
 Phoenix (MPcallsign: Phoenix) 
-Anonymist (MPcallsign: Echoed), Developer0607 (MPcallsign: Ghost) BobDotCom (MPcallsign: Kodiak) And Alpha1 (MPcallsign: Alpha1)
+Silver-Snail (MPcallsign: Snail), (tho he prefers to fly fast)
+ Developer0607 (MPcallsign: Ghost)
 
- FDM: Phoenix
+ FDM: Phoenix. Yep its All me!! Kinda crazy that im soloing a really big task :D, its fun. Aeromatic v9 (or the newest version, see f-22-jsbsim.xml for fdm)
 
- MFD icons and int. textures:  Anonymist and Phoenix (but mostly Anonymist, i did the seat though)
+ Interior: Phoenix, Silver-snail
 
- Ext. textures: Phoenix, Anonymist
 
- Damage, Missile, and radar implentation: Phoenix, and Ghost
+ Ext. textures: Phoenix, Fox3studios
 
- Canvas stuff like hud and radar: Alpha1, Phoenix
 
- Fixxes with -set: BobDotCom
+ Damage, Missile, and radar implentation:
+Developer0607, Phoenix
+
 
-Test Pilots: Epsilon, and members of the 249th EFS
+Test Pilots: Phoenix, Silver-snail, Epsilon, Realuapilot, Zoid, Fox3studios, and more!
 
- Support: (mostly) all of them                  
+Support: Phoenix, Developer0607, Silver-snail, and test pilots             
 
-External contributions welcomed
-This is under development
-DM Phoenix or anyone who has contributed to this for more info!
+If you have suggestions or (nice) comments, add a Comment on the latest commit. Ill usually respond within a day. or if im actively coding on this!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mfds coming soon
