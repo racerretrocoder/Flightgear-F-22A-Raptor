@@ -854,7 +854,7 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
 
  <!--Note to snail: Hi! Stick, throttle animations can go here. I tried but i couldnt get it. the throttle would be 2 buildings high above the plane lmao    -Phoenix -->
 
-<!--Note to Phoenix: I had the same problem a bit ago, but when I did it recently, it worked well. I have no idea what the difference was but now it works. Also, cool way of putting words in here! Throttle stick is done, and joystick is coming soon, enjoy!    -Snail -->
+<!--Note to Phoenix: I had the same problem a bit ago, but when I did it recently, it worked well. I have no idea what the difference was but now it works. Also, cool way of putting words in here! Both the throttle stick and joystick are done, enjoy!    -Snail -->
 
 <animation>
         <type>rotate</type>
@@ -874,7 +874,43 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
         </center>
     </animation>
 
+<animation>
+        <type>rotate</type>
+        <object-name>Stick</object-name>
+        <property>controls/flight/aileron</property>
+        <offset-deg>12</offset-deg>
+        <factor>-20</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.4510802</x-m>
+            <y-m> 0.37943</y-m>
+            <z-m>-0.385</z-m>
+        </center>
+    </animation>
 
+
+
+<animation>
+        <type>rotate</type>
+        <object-name>Stick</object-name>
+        <property>controls/flight/elevator</property>
+        <offset-deg>0</offset-deg>
+        <factor>-20</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.4510802</x-m>
+            <y-m> 0.37943</y-m>
+            <z-m>-0.385</z-m>
+        </center>
+    </animation>
 
 
 </PropertyList>
