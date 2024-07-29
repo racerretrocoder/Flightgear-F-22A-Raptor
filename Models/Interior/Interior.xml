@@ -838,6 +838,34 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
             <z>0.38</z>
         </axis>
     </animation>
+
+    <animation>
+    <object-name>FBWLIGHT</object-name>
+  <type>select</type>
+  <condition>
+            <greater-than>
+				<property>controls/FBW/Switch</property>
+				<value>0.5</value>
+			</greater-than>
+  </condition>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>FBWOVERRIDE</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+               <command>property-cycle</command>
+               <property>controls/FBW/Switch</property>
+               <value>0</value>
+               <value>1</value>
+               <wrap>true</wrap>
+    </binding>
+       </action>
+ </animation>
  <!-- 
  
 __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\________________________________________/\\\\\\\\\________________________________________________________________________/\\\\\\_________________        
