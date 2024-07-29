@@ -10,7 +10,7 @@ var OurHdg         = props.globals.getNode("orientation/heading-deg");
 var OurRoll        = props.globals.getNode("orientation/roll-deg");
 var OurPitch       = props.globals.getNode("orientation/pitch-deg");
 var MPMessaging    = props.globals.getNode("/payload/armament/msg", 1);
-MPMessaging.setBoolValue(0); # this thing here set the Damage to off!
+MPMessaging.setBoolValue(0); # this thing here set the Damage to off on spawn!
 
 var g_fps        = 9.80665 * M2FT;
 var slugs_to_lbs = 32.1740485564;
@@ -334,6 +334,7 @@ var MISSILE = {
         if(MPMessaging.getValue() == 1)
         {
             damage.damageLog.push(phrase);
+#Add a inflight notifican of some kind
         }
         else
         {
@@ -907,7 +908,7 @@ var MISSILE = {
     			var typeID = getprop("controls/armament/missile/typeid");
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
-                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-29";typeID = 18;}
+                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}
                         var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
                         msg.RelativeAltitude = 0;
                         msg.Bearing = me.coord.course_to(geo.aircraft_position());
@@ -1137,7 +1138,7 @@ var max_G_Rotation = func(steering_e_deg, steering_h_deg, s_fps, mass, dt, gMax)
 }
 
 # HUD clamped target blinker
-# @TODO : use m2000-5 not f-14b
+# @TODO : Make a SW Recticle for f22
 SW_reticle_Blinker = aircraft.light.new("sim/model/f-14b/lighting/hud-sw-reticle-switch", [0.1, 0.1]);
 #setprop("sim/model/f-14b/lighting/hud-sw-reticle-switch/enabled", 1);
 

@@ -214,7 +214,7 @@
    <volume>
     <property>/fdm/jsbsim/fcs/burneranimation1</property>
     <factor>1</factor>
-    <min>0.15</min>
+    <min>500000</min>
     <max>500000</max>
     <offset>0</offset>
    </volume>
@@ -258,7 +258,7 @@
  <volume>
     	<property>/fdm/jsbsim/fcs/burneranimation1</property>
     	<factor>1</factor>
-	<min>0.15</min>
+	<min>500000</min>
 	<max>1000000.0</max>
    </volume>
   <!--  <pitch>
@@ -301,7 +301,7 @@
 <volume>
     	<property>/fdm/jsbsim/fcs/burneranimation1</property>
     	<factor>1</factor>
-	<min>0.15</min>
+	<min>1000000</min>
 	<max>1000000.0</max>
    </volume>
   <!--  <pitch>

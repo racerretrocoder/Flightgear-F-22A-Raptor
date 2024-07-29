@@ -10,17 +10,22 @@
 	</lighting>
 
 	<AAR>
-		<Switch type="int">0</Switch>
+		<Switch type="int">0</Switch> <!--For Vector Disable. See FDM-->
 	</AAR>
+
+	<FBW>
+		<Switch type="int">0</Switch> <!--For G limiter Disable. See FDM-->
+	</FBW>
+
 <baydoors>
 <AIM120 type="int">0</AIM120>
 <AIM9X type="int">0</AIM9X>
 </baydoors>
 	
 	  <armament>
-<rdt type="int">0</rdt>
-<ldt type="int">0</ldt>
-<extpylons type="int">0</extpylons>
+<rdt type="int">0</rdt> <!--Right Drop Tank Show/Hide-->
+<ldt type="int">0</ldt> <!--Left Drop Tank Show/Hide-->
+<extpylons type="int">0</extpylons> <!--External Pylons for droptanks Show/Hide-->
     <!--
       note :
         Missile property. the value here doesn't really count, beacause it's reloaded

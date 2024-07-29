@@ -15,8 +15,6 @@ fire_MG = func(b) {
     var time = getprop("/sim/time/elapsed-sec");
     if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
     
-    # Here is the gun things : the firing should last 0,5 sec or 1 sec, and in
-    # the future should be selectionable
     if(getprop("/controls/armament/stick-selector") == 1
         and getprop("/ai/submodels/submodel/count") > 0
         and isFiring == 0)
@@ -29,12 +27,12 @@ fire_MG = func(b) {
     {
         if(b == 1)
         {
-            # To limit: one missile/second
+            # Adjust this for Missile Firing speed limit
             # var time = getprop("/sim/time/elapsed-sec");
             if(time - dt > 0)
             {
                 dt = time;
-                m2000_load. SelectNextPylon();## TEST
+                m2000_load. SelectNextPylon();
                 var pylon = getprop("/controls/armament/missile/current-pylon");
                 m2000_load.dropLoad(pylon);
                 print("Should fire Missile");
@@ -49,10 +47,13 @@ var stopFiring = func() {
 }
 
 reload_Cannon = func() {
-    setprop("/ai/submodels/submodel/count",    120);
-    setprop("/ai/submodels/submodel[1]/count", 120);
-    setprop("/ai/submodels/submodel[2]/count", 120);
-    setprop("/ai/submodels/submodel[3]/count", 120);
+    setprop("/ai/submodels/submodel/count",    510);
+    setprop("/ai/submodels/submodel[1]/count", 12000);
+    setprop("/ai/submodels/submodel[2]/count", 12000);
+    setprop("/ai/submodels/submodel[3]/count", 12000);
+    setprop("/ai/submodels/submodel[4]/count", 12000);
+    setprop("/ai/submodels/submodel[5]/count", 12000);
+    setprop("/ai/submodels/submodel[6]/count", 12000);
 }
 
 # This is to detect collision when balistic are shooted.

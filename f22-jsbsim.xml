@@ -24,9 +24,9 @@
     castering:     
     retractable?:  yes
     # engines:     2
-    engine type:   piston
-    engine layout: forward fuselage
-    yaw damper?    no
+    engine type:   Afterburning Turbo Fan
+    engine layout: AFT Fusealoge
+    yaw damper?    yes
 
   Outputs:
     wing loading:  11.90 lb/sq-ft
@@ -62,9 +62,13 @@ Y=-10 (limit MAX limit no vector movement)
 For entering data. X must be always positve. |x| The graph must be negative
 
 The Y value represents the vector limiter coeff. (Negative=positve)
-The X Value represents the speed of raptor (in knots) Meaning 610 knots mach 1
+The X Value represents the speed of raptor (in knots) Meaning ~610 knots ~mach 1
 
 So the vectors should increase (starting at 250kts) until there fully limmited enough at around 400-500kts. The limit will at most slightyly stay the same through out raptors speed
+
+Vectors cont. 
+The Force that pushes the aircraft for increased manuverability should be lowered at when going slower than 320kts
+
 
 
 -->
@@ -332,6 +336,97 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
 
  <flight_control name="FCS: F-22">
 
+
+
+<function name="fcs/fbw-override">  
+        <table>
+            <independentVar lookup="row">/controls/FBW/Switch</independentVar>
+            <tableData>
+<!--Off-->    0    1  <!--Allows G limit-->
+<!--On-->     1    0  <!--Disables G limit--> 
+            </tableData>
+          </table>
+
+   </function>
+
+
+<function name="fcs/elevator-pos-norm-limit">  
+
+    <product>
+
+      <property>fcs/fbw-override</property> <!--if its Zero. Itll Cancel out the glimit-->
+
+        <table>
+            <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
+            <independentVar lookup="column">/accelerations/pilot-g</independentVar>
+            <tableData>
+                     1    2    3    4    5    6    7    8    9    10   12
+              380    1    1    1    1    1    1    1    1    1    1    1
+<!--6.2-->    400    0.9  0.9  0.9  0.9  0.9  0.9  0.9  0.9  0.9  0.9  0.9
+<!--8.6-->    450    0.8  0.8  0.8  0.8  0.8  0.8  0.8  0.8  0.8  0.8  0.8
+<!--6.2-->    500    0.7  0.7  0.7  0.7  0.7  0.7  0.7  0.7  0.7  0.7  0.7  
+<!--6.2-->    550    0.6  0.6  0.6  0.6  0.6  0.6  0.6  0.6  0.6  0.6  0.6  
+<!--6.2-->    600    0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5  
+<!--6.2-->    700    0.4  0.4  0.4  0.4  0.4  0.4  0.4  0.4  0.4  0.4  0.4
+<!--6.2-->    800    0.3  0.3  0.3  0.3  0.3  0.3  0.3  0.3  0.3  0.3  0.3  
+            </tableData>
+          </table>
+</product>
+   </function>
+
+<function name="fcs/fbw-override2">  
+        <table>
+            <independentVar lookup="row">fcs/elevator-pos-norm-limit</independentVar>
+            <tableData>
+<!--Off-->    0    1
+              0.3  0  <!--Disables / Mins G limit-->
+            </tableData>
+          </table>
+
+   </function>
+
+
+   <function name="fcs/Elev-pos-norm-limit-sum">  <!-- When FBW override. Itll be back to one So no limiter will be applied-->
+<sum>
+      <property>fcs/elevator-pos-norm-limit</property>
+      <property>fcs/fbw-override2</property>
+</sum>
+   </function>
+
+   
+
+   <function name="fcs/vector-limiter-main">  
+
+    <product>
+
+      <property>fcs/fbw-override</property> <!--if its Zero. Itll Cancel out the vector limit-->
+
+        <table>
+            <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
+            <tableData>   
+                0    0.4  <!--Here the vector limiter is limited to -->  
+<!--6.2-->    100    0.5  
+<!--8.6-->    200    0.6  
+<!--6.2-->    300    0.7  
+<!--6.2-->    400    1    
+<!--6.2-->    500    1    
+<!--6.2-->    600    1    
+<!--6.2-->    700    1    
+            </tableData>
+          </table>
+</product>
+   </function>
+
+
+      <function name="fcs/vector-limiter-main-sum">  <!-- When FBW override. Itll be back to one So no limiter will be applied-->
+<sum>
+      <property>fcs/vector-limiter-main</property>
+      <property>fcs/fbw-override2</property>
+</sum>
+   </function>
+
+
+
   <channel name="Pitch">
 
    <summer name="Pitch Trim Sum">
@@ -364,6 +459,21 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
       </range>
       <output>fcs/elevator-pos-norm</output>
    </aerosurface_scale>
+
+<!--backup
+        <table>
+            <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
+            <tableData>
+              0.0    1
+              380    1
+              400    1.5
+              450    2
+              500    2.5
+              550    2.5
+            </tableData>
+          </table>
+-->
+
 
   </channel>
 
@@ -451,8 +561,8 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
         <max>  0.35 </max>
       </domain>
       <range>
-        <min> -1 </min>
-        <max>  1 </max>
+        <min> -0.6 </min>
+        <max>  0.6 </max>
       </range>
       <output>fcs/rudder-pos-norm</output>
    </aerosurface_scale>
@@ -532,11 +642,10 @@ So the vectors should increase (starting at 250kts) until there fully limmited e
   </channel>
 
 
-<function name="fcs/vector-main-control">  <!-- this is here for refernece later :)
-Oh and the vector limiter!-->
+<function name="fcs/vector-main-control">  <!-- this is here for refernece later :) Oh and the vector limiter!-->
 <quotient>
      <product>
-      <property>fcs/elevator-cmd-norm</property>
+      <property>fcs/elevator-cmd-norm</property> <!--Add g limit here too #EDED-->
 
     <product>
 
@@ -568,17 +677,6 @@ Oh and the vector limiter!-->
    </function>
 
 
-   
-    <function name="fcs/burner">
-      <description>Afterburner Sound Effect Volume and animation</description>
-          <table>
-            <independentVar lookup="row">/engines/engine/nozzle-pos-norm</independentVar>
-            <tableData>
-               0   0  
-               1   2
-            </tableData>
-          </table>
-    </function>
     <function name="fcs/N2SOUND">
       <description>Afterburner Sound Effect Volume and animation</description>
           <table>
@@ -604,11 +702,11 @@ Oh and the vector limiter!-->
     <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
     <independentVar lookup="column">/accelerations/pilot-g</independentVar>
     <tableData>
-          0       4       8       10      12      20
+          0       6       8       10      12      20
      100  0       0       0       1       1       1
      200  0       0       0       1       1       1
-     300  0       0       0       0       0       0
-     400  0.0     0       0       0       0       0
+     300  0       1       1       1       0       0
+     400  0.0     1       1       1       1       1
      500  0.0     0       1       1       1       1
      600  0.0     0       1       1       1       1
      700  0.0     0       1       1       1       1   
@@ -642,7 +740,7 @@ Oh and the vector limiter!-->
         <min> -1 </min>
         <max>  1 </max>
       </range>
-      <output>fcs/tvlimit</output>
+      <output>fcs/tvlscaled</output>
    </aerosurface_scale>
 
     <kinematic name="Animation and Movement in FDM">
@@ -665,11 +763,11 @@ Oh and the vector limiter!-->
       <traverse>
         <setting>
           <position>-0.349</position>
-          <time>0.5</time>
+          <time>1</time>
         </setting>
         <setting>
           <position>0.349</position>
-          <time>0.5</time>
+          <time>1</time>
         </setting>
        </traverse>
       <output>fcs/tv-pos-rad</output>
@@ -683,51 +781,48 @@ Oh and the vector limiter!-->
      Now we got to make it smooth         -->
     
  
-    <kinematic name="Smoothing out AB Sound">
-      <input>fcs/burner</input>
-      <traverse>
-        <setting>
-          <position>0</position>
-          <time>3</time>
-        </setting>
-        <setting>
-          <position>10000</position> <!--10000 Is the The product for the AB sound Factor * n1 (100x90~100) So that means we set factor to 1-->
-          <time>3</time>
-        </setting>
-       </traverse>
-      <output>fcs/burneranimation1</output>
+
+
+
+
+   <kinematic name="Baydoors">
+     <input>/controls/baydoors/AIM9X</input>
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>      0 </time>
+       </setting>
+       <setting>
+          <position>  1 </position>
+          <time>      2 </time>
+       </setting>
+     </traverse>
+     <output>fcs/AIM9X</output>
    </kinematic>
+
+   <kinematic name="Baydoors 2">
+     <input>/controls/baydoors/AIM120</input>
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>      0 </time>
+       </setting>
+       <setting>
+          <position>  1 </position>
+          <time>      2 </time>
+       </setting>
+     </traverse>
+     <output>fcs/AIM120</output>
+   </kinematic>
+
+
+
+
+
    </channel>
 
-      <aerosurface_scale name="nozzle-scaled">
-      <input>fcs/burner</input>
-      <domain>
-        <min> 0 </min>
-        <max> 1 </max>
-      </domain>
-      <range>
-        <min> 0 </min>
-        <max> 2 </max>
-      </range>
-      <output>fcs/burneranimation</output>
-   </aerosurface_scale>
-<!--
-    <kinematic name="Smoothing out AB Sound (2)">
-      <input>/engines/engine/nozzle-pos-norm</input>
-      <traverse>
-        <setting>
-          <position>0</position>
-          <time>3</time>
-        </setting>
-        <setting>
-          <position>10000</position> 10000 Is the The product for the AB sound Factor * n1 (100x90~100) So that means we set factor to 1
-          <time>3</time>
-        </setting>
-       </traverse>
-      <output>fcs/burneranimation</output>
-   </kinematic>
-   </channel>
--->
+
+
 
  </flight_control>
 
@@ -974,12 +1069,14 @@ Oh and the vector limiter!-->
        <table>
             <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
             <tableData>
-              0.0    0
-              380    0
+              0.0    -100
+              380    -500
               400    -1000
               450    -5000
               500    -10000
               550    -15000
+              600    -20000
+              650    -25000
             </tableData>
           </table>
     </function>
@@ -988,7 +1085,9 @@ Oh and the vector limiter!-->
  <function name="aero/moment/Pitch_TVC">
        <description>Pitch moment due to thrust vector</description>
        <product>
-<product> <property>fcs/tv-coefficient</property>
+<product> 
+<property>fcs/tv-coefficient</property>
+<property>fcs/vector-limiter-main-sum</property>
           <sum>
           
            <property>propulsion/engine[0]/thrust-lbs</property>
@@ -1020,6 +1119,7 @@ Oh and the vector limiter!-->
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/cbarw-ft</property>
+           <property>fcs/Elev-pos-norm-limit-sum</property>
           <property>fcs/elevator-pos-rad</property>
           <table>
             <independentVar lookup="row">velocities/mach</independentVar>

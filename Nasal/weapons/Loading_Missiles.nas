@@ -32,7 +32,7 @@ var Loading_missile = func(name)
     
     if(name == "Aim-120")
     {
-        # AIM-120 :Long Range Missile,      
+        # AIM-120 :Advanced Medium Range Missile,      
 	typeid = 52;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R.xml";
@@ -43,7 +43,7 @@ var Loading_missile = func(name)
         trackmaxdeg = 360;                           # 
         maxg = 30;                                   # 
         thrustlbs = 500;                             # 
-        thrustdurationsec = 200;                     # 
+        thrustdurationsec = 120;                     # 
         weightlaunchlbs = 291;
         weightwarheadlbs = 44;
         dragcoeff = 0.3;                             # guess; original 0.05
@@ -65,8 +65,8 @@ var Loading_missile = func(name)
         fovdeg = 180;                                 # seeker optical FOV
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 180;                            # Seeker max total angular rotation
-        maxg = 50;                                    # TV baby!
-        thrustlbs = 2880;                             # 
+        maxg = 40;                                    # TV baby!
+        thrustlbs = 500;                             # 
         thrustdurationsec = 8;                        # Mk.36 Mod.7,8
         weightlaunchlbs = 186;
         weightwarheadlbs = 20.8;
@@ -81,16 +81,16 @@ var Loading_missile = func(name)
     }
     elsif(name == "GBU39")
     {
-      address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R-smoke.xml";
-        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R.xml";
+      address = "Aircraft/F-22/Models/Stores/Missiles/GBU39/GBU39DEPLOY.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/GBU39/DEPLOY.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         maxdetectionrngnm = 14;                       # Not real Impact yet
         fovdeg = 25;                                  # seeker optical FOV
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 110;                            # Seeker max total angular rotation
         maxg = 15;
-        thrustlbs = 785;                              # guess
-        thrustdurationsec = 60;                       # Mk.36 Mod.7,8
+        thrustlbs = 0;                              # guess
+        thrustdurationsec = 6000000;                       # Mk.36 Mod.7,8
         weightlaunchlbs = 400;
         weightwarheadlbs = 200;
         dragcoeff = 0.157;                            # guess; original 0.05
