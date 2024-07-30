@@ -662,7 +662,7 @@ Dont use this!
 		<type>rotate</type>
 		<object-name>Right_Rocket_Bay_D1</object-name>
 		<object-name>Right_Rocket_Bay_D2</object-name>
-		<property>controls/baydoors/AIM120</property>
+		<property>sim/multiplay/generic/int[12]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -698,7 +698,7 @@ Dont use this!
 		
 		<condition>
 			<greater-than>
-				<property>controls/baydoors/AIM120</property>
+				<property>sim/multiplay/generic/int[12]</property>
 				<value>0.1</value>
 			</greater-than>
 		</condition>
@@ -712,7 +712,7 @@ Dont use this!
 		
 		<condition>
 			<greater-than>
-				<property>baydoors/position-norm</property>
+				<property>sim/multiplay/generic/int[12]</property>
 				<value>0.1</value>
 			</greater-than>
 		</condition>
