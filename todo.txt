@@ -1,17 +1,40 @@
+
+
+COMPLETE:
+
+Add radar spike
+Cooler Sounds
+FBW
+weakerish flaps
+
+
 =================================
 { List is in order of priority  }
 =================================
+
+Speacil: Make a livery with for my friend shooter. 
+. Green Body
+. Blue flames on wings
+. John wayne on the tails
+. "Shooter" text in a cool font near the canopy
+
+
 1: Add radar spike and armament-in-flight warnings sent to the target
 
 2: Replace the old weapons payload canvas dialog with the new one
 
-3: Add RWR and more MFD functions
+3: FBW
 
-4: Make flaps weaker
+4: Make flaps kinda weaker
 
-5: Make more switchs
+5: Make more switchs, Cockpit functions
 
 5: Make guns and missiles fireable from both keyboard and the joystick
 
-6: more liverys
+6: Fix livery dialog
+
+7: more liverys
+
+8: Cool sounds
+
 

@@ -247,6 +247,14 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
    <object-name>canopy in</object-name>
   </animation>
 	
+	<animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+   <object-name>canopy out</object-name>
+  </animation>
+
+
 	<effect>
       <inherits-from>Effects/model-transparent</inherits-from>
        <object-name>canopy</object-name>
@@ -263,7 +271,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
       <bin-name>DepthSortedBin</bin-name>
     </render-bin>-->
   </parameters>
-  <object-name>Canopy in</object-name>
+  <object-name>Canopy out</object-name>
   <object-name>CanopyBackInside</object-name>
  </effect>
 
@@ -299,7 +307,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
     </render-bin>
   </parameters>
   <object-name>Canopy out</object-name>
-  <object-name>CanopyBackOutside</object-name>
+  <object-name>Canopy in</object-name>
   <!--<object-name>cylinder.007</object-name>-->       <!-- HUD -->
  </effect>
 
@@ -330,7 +338,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
       </greater-than>
       <less-than>
        <property>velocities/mach</property><!-- velocities/mach -->
-       <value>1.02</value>
+       <value>1.0</value>
       </less-than>
       <greater-than>
        <property>/environment/pressure-inhg</property>
@@ -1384,7 +1392,25 @@ FR
 			<z2-m>-0.8275</z2-m>
 		</axis>
 	</animation>
-	
+	<!--
+ <animation>
+  <type>rotate</type>
+  <object-name>right-slat_1</object-name>
+  <property>fdm/jsbsim/fcs/elevator-cmd-norm</property>
+  <factor>55</factor>  The rotation in degrees... kinda
+  <center>
+   <x-m>3.86646</x-m>
+   <y-m>-0.95006</y-m>
+   <z-m>6.3903</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ -->
+
 <!-- Effects -->
 
 	<animation>
@@ -1537,8 +1563,8 @@ FR
    <name>RedLight</name>
    <power-source>/controls/lighting/nav-lights</power-source>
    <direction>
-    <x>1</x>
-    <y>1</y>
+    <x>2</x>
+    <y>2</y>
     <z>0</z>
    </direction>
    <ambient>
@@ -1556,36 +1582,6 @@ FR
 </model>
 
 
-	<model>
- <name>GreenLight</name>
- <path>Aircraft/Generic/spotlight.xml</path>
- <offsets>
-			<x-m>4.2</x-m>
-			<y-m>6.0</y-m>
-			<z-m>-0.8</z-m>
- </offsets>
- <overlay>
-  <params>
-   <name>RedLight</name>
-   <power-source>/controls/lighting/nav-lights</power-source>
-   <direction>
-    <x>1</x>
-    <y>1</y>
-    <z>0</z>
-   </direction>
-   <ambient>
-    <r>0</r>
-    <g>1</g>
-    <b>0</b>
-   </ambient>
-   <specular>
-    <r>0.7</r>
-    <g>1</g>
-    <b>0.5</b>
-   </specular>
-  </params>
- </overlay>
-</model>
 
 
 
