@@ -25,8 +25,8 @@
     <object-name>Light</object-name>
     <emission>
       <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
+      <green> 0 </green>
+      <blue>  0 </blue>
       <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
     </emission>
   </animation>
@@ -35,9 +35,9 @@
     <type>dist-scale</type>
     <object-name>Light</object-name>
     <interpolation>
-      <entry><ind>    0 </ind><dep> 0.25 </dep></entry>
-      <entry><ind>   20 </ind><dep> 0.50 </dep></entry>
-      <entry><ind> 1500 </ind><dep> 5.00 </dep></entry>
+      <entry><ind>    0 </ind><dep> 0.15 </dep></entry>
+      <entry><ind>   20 </ind><dep> 0.10 </dep></entry>
+      <entry><ind> 1500 </ind><dep> 0.01 </dep></entry>
     </interpolation>
   </animation>
 
