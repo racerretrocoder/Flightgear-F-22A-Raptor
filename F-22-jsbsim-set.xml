@@ -184,7 +184,35 @@
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
  <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
+
+
 <int n="12" type="int" alias="/controls/baydoors/AIM120"/>
+
+<!--Missiles in bays on MP-->
+
+<string n="10" type="string" alias="/sim/weight/selected"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for extra 4 for extra 5 for extra-->
+<string n="11" type="string" alias="/sim/weight[1]/selected"/>
+<string n="12" type="string" alias="/sim/weight[2]/selected"/>
+<string n="13" type="string" alias="/sim/weight[3]/selected"/>
+<string n="14" type="string" alias="/sim/weight[4]/selected"/>
+<string n="15" type="string" alias="/sim/weight[5]/selected"/>
+<string n="16" type="string" alias="/sim/weight[6]/selected"/>
+<string n="17" type="string" alias="/sim/weight[7]/selected"/>
+<string n="18" type="string" alias="/sim/weight[8]/selected"/>
+<string n="19" type="string" alias="/sim/weight[9]/selected"/>
+
+<bool n="10" type="bool" alias="/controls/armament/station/release"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for extra 4 for extra 5 for extra-->
+<bool n="11" type="bool" alias="/controls/armament/station[1]/release"/>
+<bool n="12" type="bool" alias="/controls/armament/station[2]/release"/>
+<bool n="13" type="bool" alias="/controls/armament/station[3]/release"/>
+<bool n="14" type="bool" alias="/controls/armament/station[4]/release"/>
+<bool n="15" type="bool" alias="/controls/armament/station[5]/release"/>
+<bool n="16" type="bool" alias="/controls/armament/station[6]/release"/>
+<bool n="17" type="bool" alias="/controls/armament/station[7]/release"/>
+<bool n="18" type="bool" alias="/controls/armament/station[8]/release"/>
+<bool n="19" type="bool" alias="/controls/armament/station[9]/release"/>
+
+
 
 </generic>		
 	</multiplay>

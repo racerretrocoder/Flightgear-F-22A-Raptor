@@ -633,7 +633,7 @@ Dont use this!
 		
 
 
-		<property>controls/baydoors/AIM120</property>
+		<property>sim/multiplay/generic/int[12]</property>
 		<interpolation>
 			<!--<entry>
 				<ind>0.0</ind>
