@@ -629,7 +629,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 
 
 
- <animation>
+ <animation> <!--Not needed yet-->
   <type>pick</type>
    <object-name>MSTARM</object-name>
    <action>
@@ -839,6 +839,8 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
         </axis>
     </animation>
 
+<!--Im going to need these to move! These stay in there current position when off (When off they stay pointing straight up, The lights and FBW switchs)
+Thank you snail your awesome!-->
     <animation>
     <object-name>FBWLIGHT</object-name>
   <type>select</type>
@@ -852,7 +854,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 
 <animation>
   <type>pick</type>
-   <object-name>FBWOVERRIDE</object-name>
+   <object-name>FBWOVERRIDE</object-name> <!--Switch this switch to disable Slow speed vector limiter and the 9.0 G limiter (with this switch on it can pull 20 gs xddd)-->
    <action>
     <button>0</button>
     <repeatable>false</repeatable>
@@ -866,6 +868,65 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
     </binding>
        </action>
  </animation>
+
+<!--Lighting panel. Switchs stay off Straight up. Push them PORT (Left when facing the hud) to turn on-->
+
+<animation>
+  <type>pick</type>
+   <object-name>navlights</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+               <command>property-toggle</command>
+               <property>controls/lighting/nav-lights</property>
+
+    </binding>
+       </action>
+ </animation>
+
+ <animation>
+  <object-name>navlightlight</object-name>
+  <type>select</type>
+  <condition>
+	<property>controls/lighting/nav-lights</property>
+  </condition>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>beaconlights</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+               <command>property-toggle</command>
+               <property>controls/lighting/beacon</property>
+
+    </binding>
+       </action>
+ </animation>
+
+ <animation>
+  <object-name>beaconlightlight</object-name>
+  <type>select</type>
+  <condition>
+	<property>controls/lighting/beacon</property>
+  </condition>
+ </animation>
+
+
+
+
+
+
+
+
+
+
+
  <!-- 
  
 __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\________________________________________/\\\\\\\\\________________________________________________________________________/\\\\\\_________________        
@@ -883,6 +944,9 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
  <!--Note to snail: Hi! Stick, throttle animations can go here. I tried but i couldnt get it. the throttle would be 2 buildings high above the plane lmao    -Phoenix -->
 
 <!--Note to Phoenix: I had the same problem a bit ago, but when I did it recently, it worked well. I have no idea what the difference was but now it works. Also, cool way of putting words in here! Both the throttle stick and joystick are done, enjoy!    -Snail -->
+
+
+<!--Thank you! Lol-->
 
 <animation>
         <type>rotate</type>

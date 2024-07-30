@@ -182,6 +182,9 @@
  <float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor! -->
  <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
+ <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
+<int n="11" type="int" alias="/controls/lighting/beacon"/> 
+
 </generic>		
 	</multiplay>
 	<help>
