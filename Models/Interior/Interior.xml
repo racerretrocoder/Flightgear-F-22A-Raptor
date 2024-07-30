@@ -886,6 +886,35 @@ Thank you snail your awesome!-->
        </action>
  </animation>
 
+<animation>
+        <type>rotate</type>
+        <object-name>navlights</object-name>
+        <property>controls/lighting/nav-lights</property>
+        <offset-deg>0</offset-deg>
+        <factor>40</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.31242</x-m>
+            <y-m> -0.34872</y-m>
+            <z-m>-0.355119</z-m>
+        </center>
+    </animation>
+<animation>
+        <type>translate</type>
+        <object-name>navlights</object-name>
+        <property>controls/lighting/nav-lights</property>
+        <factor>0.06</factor>
+        <axis>
+            <x>0</x>
+            <y>0.35</y>
+            <z> 1</z>
+        </axis>
+    </animation>
+
  <animation>
   <object-name>navlightlight</object-name>
   <type>select</type>
@@ -908,6 +937,36 @@ Thank you snail your awesome!-->
     </binding>
        </action>
  </animation>
+
+<animation>
+        <type>rotate</type>
+        <object-name>beaconlights</object-name>
+        <property>controls/lighting/beacon</property>
+        <offset-deg>0</offset-deg>
+        <factor>40</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.31242</x-m>
+            <y-m> -0.34872</y-m>
+            <z-m>-0.355119</z-m>
+        </center>
+    </animation>
+<animation>
+        <type>translate</type>
+        <object-name>beaconlights</object-name>
+        <property>controls/lighting/beacon</property>
+        <factor>0.06</factor>
+        <axis>
+            <x>0</x>
+            <y>0.35</y>
+            <z> 1</z>
+        </axis>
+    </animation>
+
 
  <animation>
   <object-name>beaconlightlight</object-name>
