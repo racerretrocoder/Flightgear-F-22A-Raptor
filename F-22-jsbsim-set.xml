@@ -184,6 +184,7 @@
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
  <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
+<int n="12" type="int" alias="/controls/baydoors/AIM120"/>
 
 </generic>		
 	</multiplay>
