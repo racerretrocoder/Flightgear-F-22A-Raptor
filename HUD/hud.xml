@@ -304,10 +304,10 @@
 <condition>
 <less-than>
     <property>/consumables/fuel/tank/level-gal_us</property>
-    <value>400</value>
+    <value>200</value>
    </less-than>
 </condition>
-<format>!BINGO FUEL!</format>
+<format>BINGO FUEL</format>
 <input>
   <property>null</property>
 </input>

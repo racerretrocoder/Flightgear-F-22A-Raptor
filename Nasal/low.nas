@@ -14,7 +14,7 @@ var burn1 = getprop("controls/engines/engine[1]/afterburner");
 
 if((calt <= 300) and (cspd >= 450)) {
 setprop("controls/state/low_level", 1);
-} elsif ((calt <= 300) and ((burn0 == 1) or (burn1 == 1))) {
+} elsif ((calt <= 100) and ((burn0 == 1) or (burn1 == 1))) {
 setprop("controls/state/low_level", 1);
   } else {
 setprop("controls/state/low_level", 0);
