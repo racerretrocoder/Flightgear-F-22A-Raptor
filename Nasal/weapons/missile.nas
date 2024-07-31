@@ -333,6 +333,7 @@ var MISSILE = {
         print(phrase);
         if(MPMessaging.getValue() == 1)
         {
+            setprop("/sim/multiplay/chat", phrase);
             damage.damageLog.push(phrase);
 #Add a inflight notifican of some kind
         }

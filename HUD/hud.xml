@@ -295,6 +295,41 @@
 </blinking>
 </label>
 
+
+	<label>
+<name>Pull Up!</name>
+<x>-22</x>
+<y>-60</y>
+<width>44</width>
+<height>20</height>
+<condition>
+              <not>
+                
+<property>fdm/jsbsim/gear/unit[2]/WOW</property>
+</not>
+                <and>
+                    <greater-than>
+                        <property>sim/model/radar/time-until-impact</property>
+                        <value>0</value>
+                    </greater-than>
+                    <less-than>
+                        <property>sim/model/radar/time-until-impact</property>
+                        <value>8</value>
+                    </less-than>
+                </and>
+                
+</condition>
+<format>PULL UP</format>
+<input>
+  <property>null</property>
+</input>
+<halign>left</halign>
+<option>right</option>
+<blinking>
+	<interval>0.1</interval>
+</blinking>
+</label>
+
 <label>
 <name>Warning Low Fuel</name>
 <x>-36</x>
