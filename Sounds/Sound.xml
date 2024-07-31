@@ -1311,6 +1311,8 @@
 		</equals>
 	</and>
    </condition>
+           <reference-dist>10</reference-dist>
+        <max-dist>10</max-dist>
   </sonicboom>
 
     <sonicboom2>
@@ -1329,6 +1331,8 @@
 		</equals>
 	</and>
    </condition>
+              <reference-dist>10</reference-dist>
+        <max-dist>10</max-dist>
   </sonicboom2>
   
 
@@ -1348,6 +1352,8 @@
 		</equals>
 	</and>
    </condition>
+              <reference-dist>5</reference-dist>
+        <max-dist>5</max-dist>
   </sonicboom3>
   
     <sonicboom3>
@@ -1490,33 +1496,35 @@
   </condition>
 </low-fuel5>
 
-<pullup>
-        <name>pullup</name>
-        <mode>looped</mode>
-        <path>Aircraft/F-22/Sounds/sys/pullup.wav</path>
-        <condition>
-            <less-than-equals>
-                    		<property>position/altitude-agl-ft</property>
-                    		<value>250</value>
-                  	</less-than-equals>
-            
-                <equals>
-              <property>/gear/gear[0]/position-norm</property>
-              <value>0</value>
-             </equals>
-           
-        </condition>
-        <volume>
-            <max>100</max>
-        </volume>
-        <position>
-            <x>-22</x>
-            <y>0</y>
-            <z>0</z>
-        </position>
-        <reference-dist>1.0</reference-dist>
-        <max-dist>2.0</max-dist>
-    </pullup>	
+
+  <pullup>
+            <name>pullUp</name>
+            <path>Aircraft/F-22/Sounds/sys/Pullup.wav</path>
+            <mode>looped</mode>
+            <type>avionics</type>
+            <condition>
+                <not>
+                
+<property>fdm/jsbsim/gear/unit[2]/WOW</property>
+</not>
+                <and>
+                    <greater-than>
+                        <property>sim/model/radar/time-until-impact</property>
+                        <value>0</value>
+                    </greater-than>
+                    <less-than>
+                        <property>sim/model/radar/time-until-impact</property>
+                        <value>8</value>
+                    </less-than>
+                </and>
+                
+            </condition>
+            <volume>
+                <property>sim/current-view/internal</property>
+                <factor>1</factor>
+            </volume>
+
+        </pullup>
 
   
    <!-- flyby -->
