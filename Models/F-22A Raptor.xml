@@ -26,9 +26,9 @@
 
     </load>
   
-  <unload>
+ <unload><![CDATA[
     livery_update.stop();
-  </unload>
+  ]]></unload>
 </nasal>
 
 
@@ -140,21 +140,15 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
   <texture-prop>texture-AKfuselage</texture-prop>
   <texture>Liveries/AK-BODY.png</texture>
 </animation>
-<animation>
-  <type>material</type>
-  <object-name>Body</object-name>
-  <property-base>sim/model/livery</property-base>
-  <texture-prop>texture-PHfuselage</texture-prop>
-  <texture>Liveries/PH-BODY.png</texture>
-</animation>
-<!--
+
+
 <animation>
   <type>material</type>
   <object-name>Left_Keel</object-name>
 
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-tailL</texture-prop>
-  <texture>Liveries/-1L.png</texture>
+  <texture>Liveries/blanktail.png</texture>
 </animation>	
 	<offsets>
         <pitch-deg>0</pitch-deg>   
@@ -171,7 +165,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
 
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-tailR</texture-prop>
-  <texture>Liveries/-1R.png</texture>
+  <texture>Liveries/blanktail.png</texture>
 </animation>	
 	<offsets>
         <pitch-deg>0</pitch-deg>   
@@ -181,7 +175,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
         <y-m>0</y-m>
         <z-m>0</z-m>
     </offsets>
--->
+
 <animation>
   <type>material</type>
 <object-name>Right_Prewing</object-name>

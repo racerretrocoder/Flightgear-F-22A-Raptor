@@ -86,7 +86,6 @@
 			<path>Aircraft/F-22/Models/F-22A Raptor.xml</path>
 	<livery>
 		<name type="string">Aircraft/F-22/Models/Liveries/AK.xml</name>
-		<texture>Aircraft/F-22/Models/Liveries/AK-BODY.png</texture>
 	</livery>
 <radar>
 					<time-until-impact type="int">0</time-until-impact>
@@ -2055,9 +2054,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 	<nasal>
 
-	 <Livery>
+	 <livery>
 <file>Aircraft/F-22/Nasal/liveries.nas</file>
-</Livery>
+</livery>
 		
 	 <notifications>
             <file>Aircraft/F-22/Nasal/ArmamentNotification.nas</file>
