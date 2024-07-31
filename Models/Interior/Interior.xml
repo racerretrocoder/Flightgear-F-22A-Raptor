@@ -869,6 +869,36 @@ Thank you snail your awesome!-->
        </action>
  </animation>
 
+<animation>
+        <type>rotate</type>
+        <object-name>FBWOVERRIDE</object-name>
+        <property>controls/FBW/Switch</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>-5.29079</x-m>
+            <y-m> -0.346655</y-m>
+            <z-m>-0.355119</z-m>
+        </center>
+    </animation>
+<animation>
+        <type>translate</type>
+        <object-name>FBWOVERRIDE</object-name>
+        <property>controls/FBW/Switch</property>
+        <factor>-0.0047</factor>
+        <axis>
+            <x>2.2</x>
+            <y>-0.1</y>
+            <z>0.38</z>
+        </axis>
+    </animation>
+
+
 <!--Lighting panel. Switchs stay off Straight up. Push them PORT (Left when facing the hud) to turn on-->
 
 <animation>
@@ -962,7 +992,7 @@ Thank you snail your awesome!-->
         <factor>0.06</factor>
         <axis>
             <x>0</x>
-            <y>0.35</y>
+            <y>0.375</y>
             <z> 1</z>
         </axis>
     </animation>
