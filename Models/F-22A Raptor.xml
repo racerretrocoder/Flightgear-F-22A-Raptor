@@ -1872,4 +1872,15 @@ FR
 	 <model>
   <path>Aircraft/F-22/Models/Effects/DamageSmoke/damage-smoke.xml</path>
  </model>
+
+ 	<!-- Aerobatic smoke -->
+<model>
+  <name>aerobatic_smoke</name>
+  <path>Aircraft/F-22/Models/Effects/Smoke/aerobatic-smoke.xml</path>
+  <offsets>
+   <x-m> 0.0</x-m>
+   <y-m> 0.0</y-m>
+   <z-m> 0.0</z-m>
+  </offsets>
+ </model>
 </PropertyList>

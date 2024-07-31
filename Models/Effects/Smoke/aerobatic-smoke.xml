@@ -7,19 +7,19 @@
   <name>P7_aerobatic_smoke_blue</name> 
   <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeB.xml</path>
   <offsets>
-		<x-m> 15.400 </x-m>
-		<y-m> -7.570 </y-m>
-		<z-m> 0.156  </z-m>
+<x-m> 1.05  </x-m>
+<y-m> 2.43 </y-m>
+<z-m> -1.3 </z-m>
   </offsets>
 </model>
 
 <model><!--	Yellow aerobatic smoke Pylon7 -->
   <name>P7_aerobatic_smoke_yellow</name> 
-  <path>Aircraft/F-33/Models/Effects/smoke/aerobatic-smoke/smokeY.xml</path>
+  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeY.xml</path>
   <offsets>
-		<x-m> 15.400 </x-m>
-		<y-m> -7.570 </y-m>
-		<z-m> 0.156  </z-m>
+<x-m> 1.05  </x-m>
+<y-m> 2.43 </y-m>
+<z-m> -1.3 </z-m>
   </offsets>
 </model>
 
@@ -27,9 +27,9 @@
   <name>P7_aerobatic_smoke_red</name> 
   <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeR.xml</path>
   <offsets>
-		<x-m> 15.400 </x-m>
-		<y-m> -7.570 </y-m>
-		<z-m> 0.156  </z-m>
+<x-m> 1.05  </x-m>
+<y-m> 2.43 </y-m>
+<z-m> -1.3 </z-m>
   </offsets>
 </model>
 
@@ -41,11 +41,11 @@
 		<and>
 			
 			<equals>
-				<property>sim/multiplay/generic/string[0]</property>
+				<property>sim/multiplay/generic/string[16]</property>
 				<value>smoke-blue</value>
 			</equals>
 			<equals>
-				<property>sim/multiplay/generic/int[8]</property>
+				<property>sim/multiplay/generic/int[13]</property>
 				<value>true</value>
 			</equals>
 		</and>
@@ -59,11 +59,11 @@
 		<and>
 			
 			<equals>
-				<property>sim/multiplay/generic/string[0]</property>
+				<property>sim/multiplay/generic/string[16]</property>
 				<value>smoke-yellow</value>
 			</equals>
 			<equals>
-				<property>sim/multiplay/generic/int[8]</property>
+				<property>sim/multiplay/generic/int[13]</property>
 				<value>true</value>
 			</equals>
 		</and>
@@ -77,12 +77,12 @@
 		<and>
 			
 			<equals>
-				<property>sim/multiplay/generic/string[0]</property>
+				<property>sim/multiplay/generic/string[16]</property>
 				<value>smoke-red</value>
 			</equals>
 			<equals>
-				<property>sim/multiplay/generic/int[8]</property>
-				<value>true</value>
+				<property>sim/multiplay/generic/int[13]</property>
+				<value>1</value>
 			</equals>
 		</and>
 	</condition>
@@ -94,9 +94,9 @@
   <name>P8_aerobatic_smoke_blue</name> 
   <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeB.xml</path>
   <offsets>
-		<x-m> 15.400 </x-m>
-		<y-m>  7.570 </y-m>
-		<z-m> 0.156  </z-m>
+<x-m> 1.05  </x-m>
+<y-m> -2.43 </y-m>
+<z-m> -1.3 </z-m>
   </offsets>
 </model>
 
@@ -104,9 +104,9 @@
   <name>P8_aerobatic_smoke_yellow</name>
   <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeY.xml</path>
   <offsets>
-		<x-m> 15.400 </x-m>
-		<y-m> 7.570  </y-m>
-		<z-m> 0.156  </z-m>
+<x-m> 1.05  </x-m>
+<y-m> -2.43 </y-m>
+<z-m> -1.3 </z-m>
   </offsets>
 </model>
 
@@ -114,9 +114,9 @@
   <name>P8_aerobatic_smoke_red</name> 
   <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeR.xml</path>
   <offsets>
-		<x-m> 15.400 </x-m>
-		<y-m>  7.570 </y-m>
-		<z-m> 0.156  </z-m>
+<x-m> 1.05  </x-m>
+<y-m> -2.43 </y-m>
+<z-m> -1.3 </z-m>
   </offsets>
 </model>
 
@@ -163,12 +163,12 @@
 		<and>
 			
 			<equals>
-				<property>sim/multiplay/generic/string[1]</property>
+				<property>sim/multiplay/generic/string[17]</property>
 				<value>smoke-red</value>
 			</equals>
 			<equals>
-				<property>sim/multiplay/generic/int[9]</property>
-				<value>true</value>
+				<property>sim/multiplay/generic/int[13]</property>
+				<value>1</value>
 			</equals>
 		</and>
 	</condition>

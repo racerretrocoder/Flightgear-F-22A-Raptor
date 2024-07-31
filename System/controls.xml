@@ -16,6 +16,10 @@
 	<FBW>
 		<Switch type="int">0</Switch> <!--For G limiter Disable. See FDM-->
 	</FBW>
+<smoke>
+<Switch type="int">0</Switch>
+</smoke>
+
 
 <baydoors>
 <AIM120 type="int">0</AIM120>
