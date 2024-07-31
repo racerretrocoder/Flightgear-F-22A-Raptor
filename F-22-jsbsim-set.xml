@@ -186,8 +186,11 @@
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
 
 
+
 <int n="12" type="int" alias="/controls/baydoors/AIM120"/>
 
+
+<int n="13" type="int" alias="/controls/smoke/Switch"/> 
 <!--Missiles in bays on MP-->
 
 <string n="10" type="string" alias="/sim/weight/selected"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for extra 4 for extra 5 for extra-->
@@ -261,6 +264,11 @@
 	   <key>
         <name>y</name>
         <desc>Lock Next Target</desc>
+      </key>
+	  
+	  	   <key>
+        <name>U</name>
+        <desc>Toggle Red Smoke (apply red smoke winders first)</desc>
       </key>
 
 			
@@ -1854,10 +1862,11 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	  <name>U</name>
 	  <desc>Toggle smoke</desc>
 	  <binding>
-      <command>nasal</command>
-      <script>
-			WCS.smoke_launcher();
-      </script>
+              <command>property-cycle</command>
+        <property>controls/smoke/Switch</property>
+                <value>0</value>
+                <value>1</value>
+                <wrap>true</wrap>
 	  </binding>
   </key>
 		 </keyboard>
