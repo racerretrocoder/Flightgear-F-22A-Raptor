@@ -46,7 +46,7 @@
 			</equals>
 			<equals>
 				<property>sim/multiplay/generic/int[13]</property>
-				<value>true</value>
+				<value>1</value>
 			</equals>
 		</and>
 	</condition>
@@ -64,7 +64,7 @@
 			</equals>
 			<equals>
 				<property>sim/multiplay/generic/int[13]</property>
-				<value>true</value>
+				<value>1</value>
 			</equals>
 		</and>
 	</condition>
@@ -127,12 +127,12 @@
 		<and>
 			
 			<equals>
-				<property>sim/multiplay/generic/string[1]</property>
+				<property>sim/multiplay/generic/string[17]</property>
 				<value>smoke-blue</value>
 			</equals>
 			<equals>
-				<property>sim/multiplay/generic/int[9]</property>
-				<value>true</value>
+				<property>sim/multiplay/generic/int[13]</property>
+				<value>1</value>
 			</equals>
 		</and>
 	</condition>
@@ -145,12 +145,12 @@
 		<and>
 			
 			<equals>
-				<property>sim/multiplay/generic/string[1]</property>
+				<property>sim/multiplay/generic/string[17]</property>
 				<value>smoke-yellow</value>
 			</equals>
 			<equals>
-				<property>sim/multiplay/generic/int[9]</property>
-				<value>true</value>
+				<property>sim/multiplay/generic/int[13]</property>
+				<value>1</value>
 			</equals>
 		</and>
 	</condition>
