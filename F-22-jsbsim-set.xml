@@ -183,9 +183,17 @@
  <float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor! -->
  <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
+
+ <float n="20" type="double" alias="//fdm/jsbsim/fcs/right-aileron-pos-deg"/>
+  <float n="24" type="double" alias="//fdm/jsbsim/fcs/left-aileron-pos-deg"/>
+ <float n="21" type="double" alias="/controls/flight/elevator"/>
+ <float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
+ <float n="23" type="double" alias="/fdm/jsbsim/fcs/flap-pos-deg"/>	<!--Controls-->
+ <float n="25" type="double" alias="/fdm/jsbsim/fcs/tv-animation"/>
+ <float n="26" type="double" alias="/fdm/jsbsim/fcs/aileron-cmd-norm"/>
+
  <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
-
 
 
 <int n="12" type="int" alias="/controls/baydoors/AIM120"/>
@@ -1787,11 +1795,14 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   
   <key n="84">
     <name>t</name>
-    <desc>Active ECM</desc>
-    <binding> <!--Never worked to begin with...-->
-       <command>nasal</command>
-       <script>hud.activate_ECM()</script>
-    </binding>
+    <desc>toggle MPO</desc>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/FBW/Switch</property>
+ <value>0</value>
+ <value>1</value>
+</binding>
+ <binding><command>nasal</command><script>screen.log.write("FBW Override is " ~ getprop("controls/FBW/Switch"),0.5,0.5,1);</script></binding>
   </key>
   
   <key n="82">
@@ -1832,7 +1843,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  </key>
   
   <key n="14">
-    <name>Ctrl-n</name>
+    <name>Ctrl-n</name> <!--Broken-->
     <desc>Changes Target</desc>
     <binding>
       <command>nasal</command>

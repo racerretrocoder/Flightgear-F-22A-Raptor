@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">249th EFS --SN "Snail"</name>
+      <texture-AKfuselage>Liveries/AK-BODY.png</texture-AKfuselage>
+      <texture-tailR>Liveries/SN-TAIL-R.png</texture-tailR>
+      <texture-tailL>Liveries/SN-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/wing.png</texture-wing>
+ <texture-control>Liveries/wing.png</texture-control>
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>

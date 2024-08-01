@@ -999,7 +999,7 @@
 </and>
         </condition>
         <volume>
-            <max>100</max>
+            <min>100</min>
         </volume>
         <position>
             <x>-22</x>
@@ -1023,7 +1023,7 @@
             </condition>
             <volume>
                 <property>/sim/current-view/internal</property>
-                <factor>0.50</factor>
+                <factor>1</factor>
             </volume>
            
         </rwr>
@@ -1240,10 +1240,16 @@
         <mode>looped</mode>
   <path>Aircraft/F-22/Sounds/highgfast.wav</path>
   <condition>
+  <and>
+  	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
    <greater-than>
     <property>/fdm/jsbsim/fcs/gforce</property>
     <value>0.78</value>
    </greater-than>   
+   </and> 
   </condition>
 <volume>
 <property>/accelerations/pilot-g</property>
@@ -1505,7 +1511,7 @@
             <condition>
                 <not>
                 
-<property>fdm/jsbsim/gear/unit[2]/WOW</property>
+<property>gear/gear/position-norm</property>
 </not>
                 <and>
                     <greater-than>
@@ -1526,34 +1532,37 @@
 
         </pullup>
 
+          <pullup>
+            <name>pullUploud</name>
+            <path>Aircraft/F-22/Sounds/sys/Pullup.wav</path>
+            <mode>looped</mode>
+            <type>avionics</type>
+            <condition>
+                <not>
+                
+<property>gear/gear/position-norm</property>
+</not>
+                <and>
+                    <greater-than>
+                        <property>sim/model/radar/time-until-impact</property>
+                        <value>0</value>
+                    </greater-than>
+                    <less-than>
+                        <property>sim/model/radar/time-until-impact</property>
+                        <value>8</value>
+                    </less-than>
+                </and>
+                
+            </condition>
+            <volume>
+                <property>sim/current-view/internal</property>
+                <factor>1</factor>
+            </volume>
+
+        </pullup>
+
+
   
-   <!-- flyby -->
-		<flyby>
-			<name>fly-by</name>
-			<mode>once</mode>
-			<path>Aircraft/F-22/Sounds/flyby.wav</path>
-			<condition>
-			<and>
-	    <greater-than>
-	     	<property>/velocities/mach</property>
-	     	<value>0.8</value>
-	    </greater-than>
-				<equals>
-					<property>sim/current-view/view-number</property>
-					<value>6</value>
-				</equals>
-				</and>
-				<not>
-         	<property>/sim/current-view/internal</property>
-	 	<property>/engines/engine/out-of-fuel</property>
-     	</not>
-		</condition>
-			<volume>
-				<property>velocities/airspeed-kt</property>
-				<factor>0.001</factor>
-			</volume>
-			
-		</flyby>
   
  </fx>
 </PropertyList>

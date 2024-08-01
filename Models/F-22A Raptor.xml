@@ -527,7 +527,7 @@ Use below instead
 
 
 
-	<!--get this on mp now next todo externally-->
+	<!--On MP!-->
 	<model>
 	<name>right-burner</name>
 		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurner.xml</path>
@@ -581,25 +581,7 @@ Use below instead
 		</condition>
 	</model>
 	
-<!-- Livery 
-Dont use this!
-	<nasal>
-		<load>
-		var livery_update = aircraft.livery_update.new("Aircraft/F-22/Models/Liveries");
-		</load>
-		<unload>
-		livery_update.stop();
-		</unload>
-	</nasal>
 
-	<animation>
-		<type>material</type>
-		<property-base>sim/model/livery</property-base>
-		<object-name>F-22</object-name>
-		<texture>Liveries/Default.png</texture>
-	</animation>
-	
--->	
 	
 <!-- Weapon bay doors -->
 
@@ -797,7 +779,7 @@ Dont use this!
 	
 	</animation>	
 
-<!-- broken again :(
+<!-- cant spin them right
 
 	these are the intake fans
 <animation>
@@ -852,7 +834,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-rudder</object-name>
-				<property>fdm/jsbsim/fcs/rudder-pos-deg</property>
+				<property>/sim/multiplay/generic/float[22]</property>
 					<factor>-1</factor>
 						<axis>
 							<x1-m>6.7847</x1-m>
@@ -867,7 +849,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>left-rudder</object-name>
-				<property>fdm/jsbsim/fcs/rudder-pos-deg</property>
+				<property>/sim/multiplay/generic/float[22]</property>
 					<factor>-1</factor>
 						<axis>
 							<x1-m>6.7847</x1-m>
@@ -885,7 +867,7 @@ FR
 		<type>rotate</type>
 			<object-name>right-elevator</object-name>
 				<!-- <property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property> -->
-	<property>fdm/jsbsim/fcs/elevator-cmd-norm</property>
+	<property>/sim/multiplay/generic/float[21]</property>
 					<factor>20</factor>
 						<center>
 							<x-m>7.12347</x-m>
@@ -902,7 +884,7 @@ FR
 		<type>rotate</type>
 			<object-name>right-elevator</object-name>
 				
-	<property>fdm/jsbsim/fcs/aileron-cmd-norm</property>
+	<property>/sim/multiplay/generic/float[26]</property>
 					<factor>20</factor>
 						<center>
 							<x-m>7.12347</x-m>
@@ -921,7 +903,7 @@ FR
 		<type>rotate</type>
 			<object-name>left-elevator</object-name>
 
-	<property>fdm/jsbsim/fcs/elevator-cmd-norm</property>
+	<property>/sim/multiplay/generic/float[21]</property>
 						<factor>20</factor>
 							<center>
 								<x-m>7.12347</x-m>
@@ -938,7 +920,7 @@ FR
 		<type>rotate</type>
 			<object-name>left-elevator</object-name>
 
-	<property>fdm/jsbsim/fcs/aileron-cmd-norm</property>
+	<property>/sim/multiplay/generic/float[26]</property>
 						<factor>-20</factor>
 							<center>
 								<x-m>7.12347</x-m>
@@ -957,7 +939,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-aileron</object-name>
-				<property>fdm/jsbsim/fcs/right-aileron-pos-deg</property>
+				<property>/sim/multiplay/generic/float[20]</property>
 					<factor>1</factor>
 						<axis>
 							<x1-m>4.8723</x1-m>
@@ -972,7 +954,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>left-aileron</object-name>
-				<property>fdm/jsbsim/fcs/left-aileron-pos-deg</property>
+				<property>/sim/multiplay/generic/float[24]</property>
 					<factor>1</factor>
 						<axis>
 							<x1-m>4.88483</x1-m>
@@ -989,7 +971,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-flap</object-name>
-				<property>fdm/jsbsim/fcs/flap-pos-deg</property>
+				<property>/sim/multiplay/generic/float[23]</property>
 					<factor>1</factor>
 						<axis>
 							<x1-m>5.26073</x1-m>
@@ -1004,7 +986,7 @@ FR
 	<animation>
 	<type>rotate</type>
 		<object-name>left-flap</object-name>
-			<property>fdm/jsbsim/fcs/flap-pos-deg</property>
+			<property>/sim/multiplay/generic/float[23]</property>
 				<factor>1</factor>
 					<axis>
 						<x1-m>4.511</x1-m>
@@ -1025,7 +1007,7 @@ FR
 			<object-name>left-up-vector</object-name>
 			<object-name>right-burner</object-name>
 			<object-name>left-burner</object-name>
-			<property>fdm/jsbsim/fcs/tv-animation</property>
+			<property>/sim/multiplay/generic/float[25]</property>
 			<factor>20</factor>
 			<center>
 				<x-m>6.42824</x-m>
@@ -1043,7 +1025,7 @@ FR
 		<type>rotate</type>
 			<object-name>right-down-vector</object-name>
 			<object-name>left-down-vector</object-name>
-			<property>fdm/jsbsim/fcs/tv-animation</property>
+			<property>/sim/multiplay/generic/float[25]</property>
 			<factor>20</factor>
 			<center>
 				<x-m>6.42824</x-m>
