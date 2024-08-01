@@ -184,8 +184,8 @@
  <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
 
- <float n="20" type="double" alias="//fdm/jsbsim/fcs/right-aileron-pos-deg"/>
-  <float n="24" type="double" alias="//fdm/jsbsim/fcs/left-aileron-pos-deg"/>
+ <float n="20" type="double" alias="/fdm/jsbsim/fcs/right-aileron-pos-deg"/>
+  <float n="24" type="double" alias="/fdm/jsbsim/fcs/left-aileron-pos-deg"/>
  <float n="21" type="double" alias="/controls/flight/elevator"/>
  <float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
  <float n="23" type="double" alias="/fdm/jsbsim/fcs/flap-pos-deg"/>	<!--Controls-->

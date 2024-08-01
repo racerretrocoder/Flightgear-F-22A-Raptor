@@ -834,7 +834,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-rudder</object-name>
-				<property>/sim/multiplay/generic/float[22]</property>
+				<property>sim/multiplay/generic/float[22]</property>
 					<factor>-1</factor>
 						<axis>
 							<x1-m>6.7847</x1-m>
@@ -849,7 +849,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>left-rudder</object-name>
-				<property>/sim/multiplay/generic/float[22]</property>
+				<property>sim/multiplay/generic/float[22]</property>
 					<factor>-1</factor>
 						<axis>
 							<x1-m>6.7847</x1-m>
@@ -867,7 +867,7 @@ FR
 		<type>rotate</type>
 			<object-name>right-elevator</object-name>
 				<!-- <property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property> -->
-	<property>/sim/multiplay/generic/float[21]</property>
+	<property>sim/multiplay/generic/float[21]</property>
 					<factor>20</factor>
 						<center>
 							<x-m>7.12347</x-m>
@@ -884,7 +884,7 @@ FR
 		<type>rotate</type>
 			<object-name>right-elevator</object-name>
 				
-	<property>/sim/multiplay/generic/float[26]</property>
+	<property>sim/multiplay/generic/float[26]</property>
 					<factor>20</factor>
 						<center>
 							<x-m>7.12347</x-m>
@@ -903,7 +903,7 @@ FR
 		<type>rotate</type>
 			<object-name>left-elevator</object-name>
 
-	<property>/sim/multiplay/generic/float[21]</property>
+	<property>sim/multiplay/generic/float[21]</property>
 						<factor>20</factor>
 							<center>
 								<x-m>7.12347</x-m>
@@ -920,7 +920,7 @@ FR
 		<type>rotate</type>
 			<object-name>left-elevator</object-name>
 
-	<property>/sim/multiplay/generic/float[26]</property>
+	<property>sim/multiplay/generic/float[26]</property>
 						<factor>-20</factor>
 							<center>
 								<x-m>7.12347</x-m>
@@ -939,7 +939,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-aileron</object-name>
-				<property>/sim/multiplay/generic/float[20]</property>
+				<property>sim/multiplay/generic/float[20]</property>
 					<factor>1</factor>
 						<axis>
 							<x1-m>4.8723</x1-m>
@@ -954,7 +954,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>left-aileron</object-name>
-				<property>/sim/multiplay/generic/float[24]</property>
+				<property>sim/multiplay/generic/float[24]</property>
 					<factor>1</factor>
 						<axis>
 							<x1-m>4.88483</x1-m>
@@ -971,7 +971,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-flap</object-name>
-				<property>/sim/multiplay/generic/float[23]</property>
+				<property>sim/multiplay/generic/float[23]</property>
 					<factor>1</factor>
 						<axis>
 							<x1-m>5.26073</x1-m>
@@ -986,7 +986,7 @@ FR
 	<animation>
 	<type>rotate</type>
 		<object-name>left-flap</object-name>
-			<property>/sim/multiplay/generic/float[23]</property>
+			<property>sim/multiplay/generic/float[23]</property>
 				<factor>1</factor>
 					<axis>
 						<x1-m>4.511</x1-m>
@@ -1007,7 +1007,7 @@ FR
 			<object-name>left-up-vector</object-name>
 			<object-name>right-burner</object-name>
 			<object-name>left-burner</object-name>
-			<property>/sim/multiplay/generic/float[25]</property>
+			<property>sim/multiplay/generic/float[25]</property>
 			<factor>20</factor>
 			<center>
 				<x-m>6.42824</x-m>
@@ -1025,7 +1025,7 @@ FR
 		<type>rotate</type>
 			<object-name>right-down-vector</object-name>
 			<object-name>left-down-vector</object-name>
-			<property>/sim/multiplay/generic/float[25]</property>
+			<property>sim/multiplay/generic/float[25]</property>
 			<factor>20</factor>
 			<center>
 				<x-m>6.42824</x-m>
