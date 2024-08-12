@@ -133,7 +133,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <rolling_friction> 0.02 </rolling_friction>
    <spring_coeff unit="LBS/FT">      18000.00 </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC">  9000.00 </damping_coeff>
-   <max_steer unit="DEG"> 45.00 </max_steer>
+   <max_steer unit="DEG"> 40.00 </max_steer>
    <brake_group>NONE</brake_group>
    <retractable>1</retractable>
   </contact>

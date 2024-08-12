@@ -779,47 +779,6 @@ Use below instead
 	
 	</animation>	
 
-<!-- cant spin them right
-
-	these are the intake fans
-<animation>
-		<type>spin</type>
-		<object-name>Right_Front_Turbina</object-name>
-	
-<factor>50</factor>		
-<property>engines/engine/n2</property>
-     <center>
-   <x-m>0</x-m>
-   <y-m>0.371</y-m>
-   <z-m>-0.760</z-m>
-  </center>
- <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
-	
-	
-	</animation>	
-<animation>
-		<type>spin</type>
-		<object-name>Left_Front_Turbina</object-name>
-	
-<factor>50</factor>		
-<property>engines/engine[1]/n2</property>
-     <center>
-   <x-m>0</x-m>
-   <y-m>0.379</y-m>
-   <z-m>-0.762</z-m>
-  </center>
- <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
-	
-	
-	</animation>	-->
 <!--
 FR
  <center>
