@@ -1,0 +1,11 @@
+MFD Modes
+
+The mode of the MFD can be found in /systems/MFD/
+
+0: The main screen
+1: Navigation screen
+2: Stores management Screen
+3: Weapon settings screen
+4: Flight control screen
+5: Radar warning reciver screen
+

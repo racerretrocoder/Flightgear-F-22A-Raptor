@@ -84,6 +84,7 @@ __/\\\\\\\\\\\__________________________________________________________________
 	
 	<!-- left -->
 	<model>
+     <name>leftsmall</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/left.xml</path>
 			<offsets>
 				<x-m>-1.0</x-m>
@@ -95,6 +96,7 @@ __/\\\\\\\\\\\__________________________________________________________________
 	
 	<!-- right -->
 	<model>
+     <name>rightsmall</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/radar.xml</path>
 			<offsets>
 				<x-m>-1.0</x-m>
@@ -107,6 +109,7 @@ __/\\\\\\\\\\\__________________________________________________________________
 	<!-- main MFD's -->
 	
 	<model>
+     <name>rightmfd</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/right-mfd.xml</path>
 			<offsets>
 				<x-m>-5.767</x-m>
@@ -117,6 +120,7 @@ __/\\\\\\\\\\\__________________________________________________________________
 	</model>
 	
 	<model>
+     <name>centermfd</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/centre-mfd.xml</path>
 			<offsets>
 				<x-m>-5.767</x-m>
@@ -126,6 +130,7 @@ __/\\\\\\\\\\\__________________________________________________________________
 		</offsets>
 	</model>	
 	<model>
+     <name>leftmfd</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/left-mfd.xml</path>
 			<offsets>
 				<x-m>-5.767</x-m>
@@ -135,6 +140,7 @@ __/\\\\\\\\\\\__________________________________________________________________
 		</offsets>
 	</model>	
 	<model>
+     <name>lowermfd</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/lower-mfd.xml</path>
 			<offsets>
 				<x-m>-5.65</x-m>
@@ -143,6 +149,26 @@ __/\\\\\\\\\\\__________________________________________________________________
 			<pitch-deg>-45</pitch-deg>
 		</offsets>
 	</model>
+
+<animation>
+ <object-name>leftmfd</object-name>
+  <object-name>rightmfd</object-name>
+   <object-name>centermfd</object-name>
+    <object-name>lowermfd</object-name>
+     <object-name>rightsmall</object-name>
+      <object-name>leftsmall</object-name>
+  <type>select</type>
+  <condition>
+
+<greater-than>
+				<property>fdm/jsbsim/fcs/engine-gen</property>
+				<value>0.8</value>
+			</greater-than>
+  </condition>
+ </animation>
+
+
+
 	
 <!--
 
@@ -1092,6 +1118,83 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
             <z-m>-0.385</z-m>
         </center>
     </animation>
+
+
+
+<!--
+
+__/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\\\\\\\______________________________________________________________________________________        
+ _\/\\\\\\________/\\\\\\_\/\\\///////////__\/\\\////////\\\____________\/\\\/////////\\\____________________________________________________________________________________       
+  _\/\\\//\\\____/\\\//\\\_\/\\\_____________\/\\\______\//\\\___________\/\\\_______\/\\\___________________/\\\__________/\\\_______________________________________________      
+   _\/\\\\///\\\/\\\/_\/\\\_\/\\\\\\\\\\\_____\/\\\_______\/\\\___________\/\\\\\\\\\\\\\\___/\\\____/\\\__/\\\\\\\\\\\__/\\\\\\\\\\\_____/\\\\\_____/\\/\\\\\\____/\\\\\\\\\\_     
+    _\/\\\__\///\\\/___\/\\\_\/\\\///////______\/\\\_______\/\\\___________\/\\\/////////\\\_\/\\\___\/\\\_\////\\\////__\////\\\////____/\\\///\\\__\/\\\////\\\__\/\\\//////__    
+     _\/\\\____\///_____\/\\\_\/\\\_____________\/\\\_______\/\\\___________\/\\\_______\/\\\_\/\\\___\/\\\____\/\\\_________\/\\\_______/\\\__\//\\\_\/\\\__\//\\\_\/\\\\\\\\\\_   
+      _\/\\\_____________\/\\\_\/\\\_____________\/\\\_______/\\\____________\/\\\_______\/\\\_\/\\\___\/\\\____\/\\\_/\\_____\/\\\_/\\__\//\\\__/\\\__\/\\\___\/\\\_\////////\\\_  
+       _\/\\\_____________\/\\\_\/\\\_____________\/\\\\\\\\\\\\/_____________\/\\\\\\\\\\\\\/__\//\\\\\\\\\_____\//\\\\\______\//\\\\\____\///\\\\\/___\/\\\___\/\\\__/\\\\\\\\\\_ 
+        _\///______________\///__\///______________\////////////_______________\/////////////_____\/////////_______\/////________\/////_______\/////_____\///____\///__\//////////_
+-->
+
+
+
+
+<animation>
+  <type>pick</type>
+   <object-name>CSMS</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdc</property>
+               <value>0</value>
+               <value>1</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>CWEP</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdc</property>
+               <value>0</value>
+               <value>3</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>CFLT</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdc</property>
+               <value>0</value>
+               <value>4</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
 
 
 </PropertyList>

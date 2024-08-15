@@ -3,9 +3,9 @@ MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 1 1 1  shi 128  trans
 OBJECT world
 kids 5
 OBJECT poly
-name "1DOWN"
+name "aim9x"
 loc 0.00361745 0.0300004 -0.0695738
-texture "mfdicons/down.png"
+texture "enav/aim9x.png"
 crease 45.000000
 numvert 4
 0 -0.00508249 -0.00853859
@@ -383,15 +383,15 @@ refs 4
 0 1 0
 kids 0
 OBJECT poly
-name "1UP"
-loc 0.00361745 0.065239 -0.0691672
-texture "mfdicons/up.png"
+name "aim120"
+loc 0.00361745 0.0575445 -0.0690142
+texture "enav/aim120.png"
 crease 45.000000
 numvert 4
-0 -0.00508249 -0.00853859
-0 -0.00508249 0.00853859
-0 0.00508249 0.00853859
-0 0.00508249 -0.00853859
+0 -0.00497214 -0.0089557
+0 -0.00497214 0.00895569
+0 0.00497214 0.00895569
+0 0.00497214 -0.0089557
 numsurf 1
 SURF 0x30
 mat 0

@@ -247,10 +247,10 @@
  <text>
   <name>fuel-head</name>
   <font>lcd.txf</font>
-  <character-size type="double">0.003</character-size>
+  <character-size type="double">0.005</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>-0.01</y-m>
+   <y-m>-0.02</y-m>
    <z-m>-0.03</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
@@ -263,7 +263,7 @@
  <text>
   <name>fuel-lb</name>
   <font>lcd.txf</font>
-  <character-size type="double">0.003</character-size>
+  <character-size type="double">0.005</character-size>
   <offsets>
  <x-m>0.01</x-m>
    <y-m>0</y-m>
