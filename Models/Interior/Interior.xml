@@ -1196,5 +1196,23 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
        </action>
  </animation>
 
+<animation>
+  <type>pick</type>
+   <object-name>CRWR</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdc</property>
+               <value>0</value>
+               <value>5</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
 
 </PropertyList>
