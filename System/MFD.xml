@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+ 
+
+
+
+
+<PropertyList>
+
+            <modemfdc type="int">0</modemfdc>
+            <modemfdl type="int">0</modemfdl>
+            <modemfdr type="int">0</modemfdr>
+            <modemfdll type="int">0</modemfdll>
+
+</PropertyList>

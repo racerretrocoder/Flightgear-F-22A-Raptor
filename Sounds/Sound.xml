@@ -1560,8 +1560,57 @@
             </volume>
 
         </pullup>
+<!-- Note about this: 
+it sounds funny when your just below 10 gs
 
-  
+It tends to repeat the sound even when its not done playing
+need a better idea for this
+
+
+  <overg>
+  <name>Overgleft</name>
+        <mode>looped</mode>
+  <path>Aircraft/F-22/Sounds/Overgwarning.wav</path>
+  <condition>
+  <and>
+  	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+   <greater-than>
+<property>/accelerations/pilot-g</property>
+    <value>10</value>
+   </greater-than>   
+   </and> 
+  </condition>
+<volume>
+
+</volume>
+ </overg>
+
+
+  <overg>
+  <name>Overgright</name>
+        <mode>once</mode>
+  <path>Aircraft/F-22/Sounds/Overgwarning.wav</path>
+  <condition>
+  <and>
+  	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+   <greater-than>
+<property>/accelerations/pilot-g</property>
+    <value>10</value>
+   </greater-than>   
+   </and> 
+  </condition>
+<volume>
+
+</volume>
+ </overg>
+-->
+
   
  </fx>
 </PropertyList>

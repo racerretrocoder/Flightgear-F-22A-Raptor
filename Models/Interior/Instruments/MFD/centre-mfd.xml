@@ -13,35 +13,10 @@
 		</offsets>
 	</model>
 
-   <model>
-    <path>Aircraft/F-22/Models/Interior/Instruments/MFD/ai/stby-ai.xml</path>
-    <offsets>
-      <x-m>0.0</x-m>
-      <y-m>0 </y-m>
-      <z-m>0.07</z-m>
-    </offsets>
-  </model>
-  
-  <model>
-    <path>Aircraft/F-22/Models/Interior/Instruments/MFD/alt/stby-alt.xml</path>
-    <offsets>
-      <x-m>-0.0008</x-m>
-      <y-m>0.03 </y-m>
-      <z-m>0.07</z-m>
-    </offsets>
-  </model>
-  
-  <model>
-    <path>Aircraft/F-22/Models/Interior/Instruments/MFD/asi/stby-asi.xml</path>
-    <offsets>
-      <x-m>-0.000</x-m>
-      <y-m>-0.03 </y-m>
-      <z-m>0.07</z-m>
-    </offsets>
-  </model>
+   
   
    <model>
-    <path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/enav.xml</path>
+    <path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/enavcenter.xml</path> <!--MFD Scripting-->
     <offsets>
       <x-m>-0.000</x-m>
       <y-m>0 </y-m>

@@ -229,7 +229,7 @@
 </generic>		
 	</multiplay>
 	<help>
-			<title>Lockheed Martin F-22A Raptor</title>
+			<title>Lockheed Martin F-22A Raptor  V0.89</title>
 			
 			<key>
 				<name>c</name>
@@ -247,7 +247,7 @@
 			
 			<key>
 				<name>Ctrl+d</name>
-				<desc>Toggle weapons bay doors</desc>
+				<desc>Toggle Center bay doors</desc>
 			</key>
 			
 			<key>
@@ -256,7 +256,11 @@
 			</key>
 			<key>
 				<name>Shift-R</name>
-				<desc>Toggle HUD Radar targets (Press it twice when you spawn. I may make a switch for this soon. R On radar hud shows its on)</desc>
+				<desc>Toggle HUD Radar Silent/Active</desc>
+			</key>
+       		<key>
+				<name>Shift-T</name>
+				<desc>Toggle the FBW Override switch (0 is off 1 is on)</desc>
 			</key>
 			<key>
         			<name>q</name>
@@ -268,7 +272,7 @@
       </key>
       <key>
         <name>Shift-i</name>
-        <desc>Toggle Experimental Dogfight Mode (Dosent control radar)</desc>
+        <desc>Toggle Experimental Dogfight Mode (Just for fun. Not actually usefull. yet...)</desc>
       </key>
       <key>
         <name>m</name>
@@ -281,40 +285,52 @@
 	  
 	  	   <key>
         <name>U</name>
-        <desc>Toggle Red Smoke (apply red smoke winders first)</desc>
+        <desc>Toggle New Smoke winders </desc>
       </key>
 
 			
 			<line>Lockheed Martin F-22A</line>
-			<line>I like to add cool stuff to raptor! Update it alot if you like this jet! https://github.com/racerretrocoder/Flightgear-F-22A-Raptor</line>
-						<line></line>
-			<line>Specifications:</line>
 			<line></line>
-			<line>Maximum speed: Mach 2.25 65000ft: Mach 1.8+ sea level</line>
-			<line>Reccomended Cruise speed: Mach 1.10 40000ft Mil Thrust</line>
-			<line>Sustained turn rate: 28+ deg/sec</line>
+						<line></line>
+			<line>---------------------------------Specifications:</line>
+			<line></line>
+			<line>Maximum speed: Mach 2.25 @ 65000ft: Mach 1.8+ @ sea level</line>
+			<line>Super Cruise speed: Mach 1.10 20000-65000ft ~~ Mil Thrust</line>
+			<line>Sustained turn rate (FBW ON): 28+ deg/sec </line>
+			<line>Sustained turn rate (FBW OFF): 128+ deg/sec </line>
 			<line>This plane can Super cruise</line>
 			<line>Which means it can go faster than mach 1</line>
 			<line>With no Afterburner</line>
 			<line></line>
+			<line>The radar hud is a special hud that will show you targets and which target your locked on too</line>
+			<line></line>
 <line>To turn on the Radar HUD, Press the switch on the lower right console that is labled power.</line>
-<line>You will know its on when the green light turns on, (You may have to press it twice when you spawn in)</line>		
-<line>To start Raptor: Simply Press the first 2 JFS switches, Then the 2 cutoff switches</line>
+<line>You will know its on when the green light just below the switch turns on, (You may have to press it twice when you spawn in)</line>
+			<line></line>		
+<line>To Start Raptor: Simply Press the 2 JFS switches on the bottom left console. Then press the 2 cutoff switches.</line>
 <line></line>
-<line>FDM:</line>
+<line>---------------------------------Some info on Flight dynamics and Fly by wire---------------------------------</line>
+<line></line>
+<line>Rotate around 185 With auto flaps</line>
 <line>When the Gear is down, The Vectors will Lock up to the center position and stay in place to ease takeoffs and landings</line>
-<line>Rotate around 170 With Flaps 10/20</line>
-<line>The small left screen will show you flight data like aoa and flaps setting</line>
-<line>The vectors go up 30 and down 30 degrees at max. The FCS will automaticly adjust the min and max according to the situation, Speed, aoa, etc.</line>
+<line>The small left screen will show you flight data like aoa, and flaps setting (more coming soon)</line>
+<line>The vectors go up +-30 degrees at max. The FBW will automaticly adjust the min and max according to your speed. You can disable the limiter with the FBW override switch</line>
 <line>But it will only adjust it by +-10 degrees </line>
-<line>The vector shutoff switch is located on the lower right console</line>
+<line>You can turn OFF the vectors entirely with The vector shutoff switch. it is located on the lower right console</line>
 <line></line>
-<line>Autopilot:</line>
-<line>The 3 buttons with right arrows disable the autopilot feature to the right of the button Press Ctrl-c and youll see it</line>
+<line>The FBW Will automaticly move the flaps into the most effective position when the gear is down. </line>
+<line>Manuel control of the flaps is available when the gear is up</line>
+<line>The FBW override switch disables the automatic flaps and allows you to control them no matter the gear possition</line>
+<line></line>
+<line>---------------------------------Autopilot:</line>
+<line></line>
+<line>The 3 buttons with right arrows disable the autopilot feature displayed in text to the right of the button Press Ctrl-c and youll see it</line>
 <line>Text will light up on the front panel showing which feature is active</line>	
-<line>Use the VS, ASI Up Down Rocker buttons to the right of the text panel to change the rate of the autopilot</line>	
+<line>Use the VS, ASI Up Down Rocker buttons to the right of the text panel to change the rates of the autopilot</line>	
 <line>For heading: Wing leveler is only inplemented at the moment.</line>		
-		
+<line></line>
+<line>We like to constantly add new cool things to Raptor! If you like this jet: Update it here! https://github.com/racerretrocoder/Flightgear-F-22A-Raptor</line>
+<line>Me and snail hope you Love flying this jet! :D</line>
 		</help>
 	
 		<hud>
@@ -1571,7 +1587,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             <MAW-bearing type="double">0</MAW-bearing>
             <MAW-active type="bool">false</MAW-active>
             <MAW-semiactive type="bool">false</MAW-semiactive>
-            <msg type="bool">true</msg> <!--NOTE!!!: This gets set to false in nasal on startup. maybe weapons.nas?         Todo: Add Missile alert sender/countermeasures detecter, then add them. Make better spike warn, And make the missiles appear on Target. dadadadadadadadaadadadadadadaadadad acording to all known laws of avation. theres no way a bee should be able to fly-->
+            <msg type="bool">true</msg> <!--NOTE!!!: This gets set to false in nasal on startup. maybe weapons.nas?         Todo: , And make the missiles appear on Target. dadadadadadadadaadadadadadadaadadad acording to all known laws of avation. theres no way a bee should be able to fly-->
             <spike type="bool">false</spike>
             <models type="string">Aircraft/F-22/Models/emesary/</models>
         </armament>
@@ -1586,6 +1602,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<path>Aircraft/F-22/System/autopilot5.xml</path>
 		</autopilot>
 		
+<MFD include ="System/MFD.xml">
+<pullup type="int">0</pullup>
+</MFD>
+
 		<refuel>
   <type>boom</type>
   <serviceable type="bool">true</serviceable>
