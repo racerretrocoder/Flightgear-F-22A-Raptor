@@ -76,6 +76,16 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 		</offsets>
 	</model>
 
+		<model>
+     <name>RWRpage</name>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/RWRpage.xml</path>
+			<offsets>
+   <x-m>0.008</x-m>
+      <z-m>0.01</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+
 
  <!--
  <animation>
@@ -134,4 +144,14 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 	 </condition>
  </animation>
 
+ <animation>
+	 <type>select</type>
+	 <object-name>RWRpage</object-name>
+	 <condition>   
+		 <equals>
+			 <property>systems/MFD/modemfdc</property>
+			 <value>5</value>
+		 </equals>
+	 </condition>
+ </animation>
 </PropertyList>
