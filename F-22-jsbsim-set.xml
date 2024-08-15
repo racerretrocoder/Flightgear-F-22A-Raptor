@@ -184,13 +184,13 @@
  <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
 
- <float n="20" type="double" alias="/fdm/jsbsim/fcs/right-aileron-pos-deg"/>
-  <float n="24" type="double" alias="/fdm/jsbsim/fcs/left-aileron-pos-deg"/>
- <float n="21" type="double" alias="/controls/flight/elevator"/>
+ <float n="20" type="double" alias="/fdm/jsbsim/fcs/ail-right-deg-limit"/>
+  <float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
+ <float n="21" type="double" alias="/fdm/jsbsim/fcs/Elev-pos-norm-limit-sum-main"/>
  <float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
  <float n="23" type="double" alias="/fdm/jsbsim/fcs/flap-pos-deg"/>	<!--Controls-->
  <float n="25" type="double" alias="/fdm/jsbsim/fcs/tv-animation"/>
- <float n="26" type="double" alias="/fdm/jsbsim/fcs/aileron-cmd-norm"/>
+ <float n="26" type="double" alias="/fdm/jsbsim/fcs/ail-pos-norm-limit-sum-main"/>
 
  <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 

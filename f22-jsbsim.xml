@@ -394,6 +394,39 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </function>
 
    
+   <function name="fcs/Elev-pos-norm-limit-sum-main">  <!--Main Elevator POS with Limit-->
+<product>
+      <property>fcs/Elev-pos-norm-limit-sum</property>
+      <property>fcs/elevator-pos-norm</property>
+</product>
+   </function>
+
+
+
+  <function name="fcs/ail-pos-norm-limit-sum-main">  <!--Main Elevator POS with Limit-->
+<product>
+      <property>fcs/Elev-pos-norm-limit-sum</property>
+      <property>fcs/aileron-cmd-norm</property>
+</product>
+   </function>
+
+
+  <function name="fcs/ail-right-deg-limit">  <!--Main Elevator POS with Limit-->
+<product>
+      <property>fcs/Elev-pos-norm-limit-sum</property>
+      <property>fcs/right-aileron-pos-deg</property>
+</product>
+   </function>
+
+  <function name="fcs/ail-left-deg-limit">  <!--Main Elevator POS with Limit-->
+<product>
+      <property>fcs/Elev-pos-norm-limit-sum</property>
+      <property>fcs/left-aileron-pos-deg</property>
+</product>
+   </function>
+
+
+
 
    <function name="fcs/vector-limiter-main">  
 
@@ -632,7 +665,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        </setting>
        <setting>
           <position> 1 </position>
-          <time>     1 </time>
+          <time>     2 </time>
        </setting>
      </traverse>
      <output>fcs/speedbrake-pos-norm</output>
