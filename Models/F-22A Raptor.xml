@@ -1818,4 +1818,26 @@ FR
    <z-m> 0.0</z-m>
   </offsets>
  </model>
+
+<!-- Nose gear turning -->
+<animation>
+        <type>rotate</type>
+        <object-name>Nose_Gear_Cylinde</object-name>
+	<object-name>Nose_Wheel_Disk</object-name>
+	<object-name>Nose_Wheel_Pnevmatic</object-name>
+        <property>controls/flight/rudder</property>
+        <offset-deg>0</offset-deg>
+        <factor>-60</factor>
+        <axis>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>1.0</z>
+        </axis>
+        <center>
+            <x-m>-3.66829</x-m>
+            <y-m> 0</y-m>
+            <z-m>0.00083</z-m>
+        </center>
+    </animation>
+
 </PropertyList>
