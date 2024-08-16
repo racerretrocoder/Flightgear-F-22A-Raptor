@@ -215,6 +215,14 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
                 <value>1</value>
                 <wrap>false</wrap>
             </binding>
+     <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+
+
         </action>
     </animation>
 
@@ -240,6 +248,12 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
                 <value>1</value>
                 <wrap>false</wrap>
             </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
         </action>
     </animation>
 
@@ -687,10 +701,10 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
                 <property>/controls/engines/engine/starter</property>
 
     </binding>
-    <mod-up>
-     <binding>
-     </binding>
-    </mod-up>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clickJFS</property>
+      </binding>
    </action>
  </animation>
 
@@ -734,6 +748,10 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 <command>property-toggle</command>
                 <property>/controls/engines/engine[1]/starter</property>
     </binding>
+          <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clickJFSL</property>
+      </binding>
     <mod-up>
      <binding>
      </binding>
@@ -781,10 +799,11 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 <command>property-toggle</command>
                 <property>/controls/engines/engine[1]/cutoff</property>
     </binding>
-    <mod-up>
-     <binding>
-     </binding>
-    </mod-up>
+    <binding>
+<command>property-toggle</command>
+                <property>/sim/model/click</property>
+    </binding>
+
    </action>
  </animation>
 <animation>
@@ -827,12 +846,11 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 <command>property-toggle</command>
                 <property>/controls/engines/engine/cutoff</property>
     </binding>
-
-
-    <mod-up>
-     <binding>
-     </binding>
-    </mod-up>
+    <binding>
+<command>property-toggle</command>
+                <property>/sim/model/click</property>
+    </binding>
+ 
    </action>
  </animation>
 
@@ -889,8 +907,12 @@ Thank you snail your awesome!-->
                <command>property-cycle</command>
                <property>controls/FBW/Switch</property>
                <value>0</value>
-               <value>1</value>
+               <value>1</value> <!--Integer Because this is used with FDM-->
                <wrap>true</wrap>
+    </binding>
+        <binding>
+<command>property-toggle</command>
+                <property>/sim/model/click</property>
     </binding>
        </action>
  </animation>
@@ -938,6 +960,10 @@ Thank you snail your awesome!-->
                <command>property-toggle</command>
                <property>controls/lighting/nav-lights</property>
 
+    </binding>
+        <binding>
+<command>property-toggle</command>
+                <property>/sim/model/click</property>
     </binding>
        </action>
  </animation>
@@ -990,6 +1016,10 @@ Thank you snail your awesome!-->
                <command>property-toggle</command>
                <property>controls/lighting/beacon</property>
 
+    </binding>
+        <binding>
+<command>property-toggle</command>
+                <property>/sim/model/click</property>
     </binding>
        </action>
  </animation>

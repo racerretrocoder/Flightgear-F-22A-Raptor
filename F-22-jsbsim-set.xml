@@ -102,10 +102,9 @@
 			 
   		</submodels>
 				
-		<systems>
-			<electrical>
-				<path>Aircraft/F-22/System/Electrical.xml</path>
-			</electrical>
+		<systems include="System/Electrical.xml">
+
+
 			<autopilot>
 			   <path>Aircraft/F-22/System/Autopilot.xml</path>
 			</autopilot>
@@ -1316,8 +1315,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		<rendering>
 			<redout>
 				<parameters>
-					<blackout-complete-g>9.1</blackout-complete-g>
-					<blackout-onset-g>7.5</blackout-onset-g>
+					<blackout-complete-g>15</blackout-complete-g>
+					<blackout-onset-g>15</blackout-onset-g>
 				</parameters>
 			</redout>
 		</rendering>
@@ -1680,7 +1679,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<instruments-norm type="double">0</instruments-norm>
 			<panel-norm type="double">0</panel-norm>
 			<strobe type="bool">false</strobe>
-			<nav-lights type="bool">true</nav-lights>
+			<nav-lights type="bool">false</nav-lights>
 		</lighting>
 
 		<gear>
@@ -2204,6 +2203,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<file>Aircraft/F-22/Nasal/light.nas</file>
 			<file>Aircraft/F-22/Nasal/doors.nas</file>
 			<file>Aircraft/F-22/Nasal/views.nas</file>
+			<file>Aircraft/F-22/Nasal/electrical.nas</file>
 		</f22>
 
 <datalink>
