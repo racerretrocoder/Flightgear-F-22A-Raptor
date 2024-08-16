@@ -155,6 +155,35 @@ var MISSILE = {
         return MISSILE.active[m.ID] = m;
     },
 
+
+	notifyInFlight: func (lat,lon,alt,rdar,semiRdr,typeID,typ,unique,thrustOn,callsign, heading, pitch, speed, is_deleted=0) {
+		## thrustON cannot be named 'thrust' as FG for some reason will then think its a function (probably fixed by the way call() now is used)
+		var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, is_deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
+        if (lat != nil) {
+        	msg.Position.set_latlon(lat,lon,alt);
+        } else {
+        	msg.Position.set_latlon(0,0,0);
+        }
+        msg.Flags = rdar;#bit #0
+        if (thrustOn) {
+        	msg.Flags = bits.set(msg.Flags, 1);#bit #1
+        }
+        if (semiRdr) {
+        	msg.Flags = bits.set(msg.Flags, 2);#bit #2
+        }
+        msg.IsDistinct = !is_deleted;
+        msg.RemoteCallsign = callsign;
+        msg.UniqueIndex = ""~typeID~unique;
+        msg.Pitch = pitch;
+        msg.Heading = heading;
+        msg.u_fps = speed;
+        #msg.isValid();
+        notifications.geoBridgedTransmitter.NotifyAll(msg);
+#print("fox2.nas: transmit in flight");
+#f14.debugRecipient.Receive(msg);
+	},
+
+
     # this is the dl function : to delete the object when it's not needed anymore
     del: func(){
         me.model.remove();

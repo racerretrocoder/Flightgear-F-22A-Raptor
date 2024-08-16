@@ -6,12 +6,6 @@
 
 #Initialise
 
-      var engine1 = engines.Jet.new(0 , 0 , 0.01 , 5.21 , 4 , 4 , 0.05 , 1);
-      var engine2 = engines.Jet.new(1 , 0 , 0.01 , 5.21 , 4 , 4 , 0.05 , 1);
-
-   engine1.init();
-   engine2.init();
-
 
 props.globals.initNode("/sim/autostart/started", 0, "BOOL");
 
