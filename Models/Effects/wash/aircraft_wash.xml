@@ -7,7 +7,7 @@ sweat by maggse
 <particlesystem>
 	 <!-- <type>trail</type>-->
 	 <name>ac_wash</name>
-	 <texture>puff.rgb</texture>
+	 <texture>puff.png</texture>
 	 <emissive>false</emissive>
 	 <lighting>true</lighting>
 	 

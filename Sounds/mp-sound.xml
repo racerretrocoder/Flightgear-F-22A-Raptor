@@ -266,37 +266,114 @@
   
   <!-- Afterburner -->
   
-  <engine>
-   <name>Reheat</name>
+ <engine>
+   <name>AB</name>
    <mode>looped</mode>
-   <path>Aircraft/F-22/Sounds/Samples/reheat.wav</path>
+   <path>Aircraft/F-22/Sounds/AB.wav</path>
    <condition>
-	 <property>engines/engine/afterburner</property>
-    	   <not>
-		<property>sim/current-view/internal</property>
-		
-     	   </not>
+<greater-than>  
+ <property>sim/multiplay/generic/float[18]</property>
+   <value>0.9</value>
+  </greater-than>
+     <not>
+	 <property>/sim/current-view/internal</property>
+     </not>
    </condition>
    <position>
-    	<x>6.0</x>
+    	<x>0</x>
 	<y>0.0</y>
-	<z>0.0</z>
+	<z>0</z>
    </position>
-   <orientation>
-	<x>90.0</x>
-    	<y>0.0</y>
-    	<z>0.0</z>
-    	<inner-angle>60.0</inner-angle>
-    	<outer-angle>160.0</outer-angle>
-    	<outer-gain>0.75</outer-gain>
-   </orientation>
-   <volume>
-        <offset>1</offset>
-	<min>0.3</min>
-	<max>1.0</max>
-   </volume>
-    <reference-dist>600.0</reference-dist>
-        <max-dist>6000.0</max-dist>
+               <orientation>
+                <x>1.0</x>
+                <y>0.001</y>
+                <z>0.001</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>0.0</outer-gain>
+            </orientation>
+
+  <!--  <pitch>
+                <property>engines/engine[0]/n1</property>
+                <offset>0.86349949816</offset>
+                <factor>0.00455001673</factor>
+            </pitch> -->
+  </engine>
+
+    <engine>
+   <name>AB2</name>
+   <mode>looped</mode>
+   <path>Aircraft/F-22/Sounds/AB.wav</path>
+   <condition>
+
+<greater-than>  
+ <property>sim/multiplay/generic/float[18]</property>
+   <value>0.9</value>
+  </greater-than>
+
+  
+     <not>
+	 <property>/sim/current-view/internal</property>
+
+     </not>
+   </condition>
+   <position>
+    	<x>0</x>
+	<y>0.0</y>
+	<z>0</z>
+   </position>
+               <orientation>
+                <x>1.0</x>
+                <y>0.001</y>
+                <z>0.001</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>0.0</outer-gain>
+            </orientation>
+
+  <!--  <pitch>
+                <property>engines/engine[0]/n1</property>
+                <offset>0.86349949816</offset>
+                <factor>0.00455001673</factor>
+            </pitch> -->
+  </engine>
+
+   <engine>
+   <name>AB3</name>
+   <mode>looped</mode>
+   <path>Aircraft/F-22/Sounds/AB.wav</path>
+   <condition>
+
+<greater-than>  
+ <property>sim/multiplay/generic/float[18]</property>
+   <value>0.9</value>
+  </greater-than>
+
+  
+     <not>
+	 <property>/sim/current-view/internal</property>
+
+     </not>
+   </condition>
+   <position>
+    	<x>0</x>
+	<y>0.0</y>
+	<z>0</z>
+   </position>
+               <orientation>
+                <x>1.0</x>
+                <y>0.001</y>
+                <z>0.001</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>0.0</outer-gain>
+            </orientation>
+
+  <!--  <pitch>
+                <property>engines/engine[0]/n1</property>
+                <offset>0.86349949816</offset>
+                <factor>0.00455001673</factor>
+            </pitch> -->
   </engine>
 
    

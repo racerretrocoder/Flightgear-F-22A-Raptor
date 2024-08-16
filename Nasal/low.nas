@@ -12,11 +12,9 @@ var cspd = getprop("velocities/groundspeed-kt");
 var burn0 = getprop("controls/engines/engine[0]/augmentation");
 var burn1 = getprop("controls/engines/engine[1]/augmentation");
 
-if((calt <= 300) and (cspd >= 450)) {
+if((calt <= 200) and (cspd >= 450)) {
 setprop("controls/state/low_level", 1);
-} elsif ((calt <= 100) and ((burn0 == 1) or (burn1 == 1))) {
-setprop("controls/state/low_level", 1);
-  } else {
+} else {
 setprop("controls/state/low_level", 0);
     }
 
