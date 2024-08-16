@@ -13,11 +13,11 @@
 		
 		<author>Phoenix, Silver-Snail, Developer0607, and more</author> <!--The 3 Legendary Coders!-->
 		
-		<status>Alpha v0.89a</status> <!--When i finish The secreat feature... V0.90 Will be released-->
+		<status>Alpha v0.89a</status> 
 		
 		<rating>
-			<FDM type="int">4</FDM> <!--Wont be 5 because of Classifed...-->
-			<systems type="int">3</systems> <!--Wont be 5 because of Classifed... 4 untill i get missiles COMPLETE! Like Fully Complete.-->
+			<FDM type="int">4</FDM> 
+			<systems type="int">3</systems> <!--Wont be 5 because of Classifed stuff... 4 untill i get missiles COMPLETE! Like Fully Complete.-->
 			<cockpit type="int">3.5</cockpit> <!--.5 Because it dosent look like real thing. but its nice-->
 			<model type="int">4</model>
 		</rating>
@@ -127,6 +127,16 @@
 				<menu n="10">
 					<label>F-22A Raptor</label>
 					<enabled type="bool">true</enabled>
+   <item>
+                <name>autostart</name>
+                <label>Autostart | Autoshutdown</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>emu.autostart()</script>
+                </binding>
+            </item>
+
+
 					<item>
 					<label>Select Livery</label>
 					<binding>
@@ -2126,7 +2136,6 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  		</baydoors>
 		<low>
             <file>Aircraft/F-22/Nasal/low.nas</file>
-
         </low>
 		
   <canvas_HUD>
