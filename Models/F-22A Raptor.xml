@@ -880,7 +880,7 @@ FR
 			<object-name>right-elevator</object-name>
 				
 	<property>sim/multiplay/generic/float[26]</property>
-					<factor>20</factor>
+					<factor>-20</factor>
 						<center>
 							<x-m>7.12347</x-m>
 								<y-m>1.9012</y-m>
@@ -916,7 +916,7 @@ FR
 			<object-name>left-elevator</object-name>
 
 	<property>sim/multiplay/generic/float[26]</property>
-						<factor>-20</factor>
+						<factor>20</factor>
 							<center>
 								<x-m>7.12347</x-m>
 								<y-m>-1.9012</y-m>
@@ -935,7 +935,7 @@ FR
 		<type>rotate</type>
 			<object-name>right-aileron</object-name>
 				<property>sim/multiplay/generic/float[24]</property>
-					<factor>1</factor>
+					<factor>-1</factor>
 						<axis>
 							<x1-m>4.8723</x1-m>
 							<y1-m>4.5645</y1-m>
@@ -950,7 +950,7 @@ FR
 		<type>rotate</type>
 			<object-name>left-aileron</object-name>
 				<property>sim/multiplay/generic/float[20]</property>
-					<factor>1</factor>
+					<factor>-1</factor>
 						<axis>
 							<x1-m>4.88483</x1-m>
 							<y1-m>-4.56758</y1-m>
