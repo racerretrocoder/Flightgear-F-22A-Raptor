@@ -9,3 +9,6 @@ The mode of the MFD can be found in /systems/MFD/
 4: Flight control screen
 5: Radar warning reciver screen
 
+The right MFD will have a different 1st mode becuase it needs RADAR
+
+1: FCR (IN DEV :D)

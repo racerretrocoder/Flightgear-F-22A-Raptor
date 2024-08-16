@@ -110,7 +110,7 @@ __/\\\\\\\\\\\__________________________________________________________________
 	
 	<model>
      <name>rightmfd</name>
-		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/right-mfd.xml</path>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/right-enav-mfd.xml</path>
 			<offsets>
 				<x-m>-5.767</x-m>
 					<y-m>0.242</y-m>
@@ -131,7 +131,7 @@ __/\\\\\\\\\\\__________________________________________________________________
 	</model>	
 	<model>
      <name>leftmfd</name>
-		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/left-mfd.xml</path>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/left-enav-mfd.xml</path>
 			<offsets>
 				<x-m>-5.767</x-m>
 					<y-m>-0.262</y-m>
@@ -161,7 +161,7 @@ __/\\\\\\\\\\\__________________________________________________________________
   <condition>
 
 <greater-than>
-				<property>fdm/jsbsim/fcs/engine-gen</property>
+				<property>fdm/jsbsim/fcs/engine-gen-main</property>
 				<value>0.8</value>
 			</greater-than>
   </condition>
@@ -1214,5 +1214,168 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
 
        </action>
  </animation>
+
+<!--Left MFD buttons-->
+
+<animation>
+  <type>pick</type>
+   <object-name>LSMS</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdl</property>
+               <value>0</value>
+               <value>1</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>LWEP</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdl</property>
+               <value>0</value>
+               <value>3</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>LFLT</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdl</property>
+               <value>0</value>
+               <value>4</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>LRWR</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdl</property>
+               <value>0</value>
+               <value>5</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
+
+
+<!--Right MFD buttons-->
+
+<animation>
+  <type>pick</type>
+   <object-name>RSMS</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdr</property>
+               <value>0</value>
+               <value>1</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>RWEP</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdr</property>
+               <value>0</value>
+               <value>3</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>RFLT</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdr</property>
+               <value>0</value>
+               <value>4</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>RRWR</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdr</property>
+               <value>0</value>
+               <value>5</value>
+               <wrap>true</wrap>
+    </binding>
+
+       </action>
+ </animation>
+
+
 
 </PropertyList>

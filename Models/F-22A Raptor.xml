@@ -374,7 +374,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
           </greater-than>
           <greater-than>
            <property>sim/multiplay/generic/float[19]</property><!-- velocities/airspeed-kt -->
-           <value>400</value>
+           <value>200</value>
           </greater-than>
        </and>
     </condition>
@@ -820,6 +820,42 @@ FR
 		</axis>
 	</animation>
 
+
+
+<!--Speed brake Rudder-->
+
+	<animation>
+		<type>rotate</type>
+			<object-name>right-rudder</object-name>
+				<property>sim/multiplay/generic/float[27]</property>
+					<factor>20</factor>
+						<axis>
+							<x1-m>6.7847</x1-m>
+							<y1-m>1.5161</y1-m>
+						<z1-m>-0.3454</z1-m>
+					<x2-m>5.6049</x2-m>
+				<y2-m>2.9010</y2-m>
+			<z2-m>2.2533</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+			<object-name>left-rudder</object-name>
+				<property>sim/multiplay/generic/float[27]</property>
+					<factor>-20</factor>
+						<axis>
+							<x1-m>6.7847</x1-m>
+							<y1-m>-1.5161</y1-m>
+						<z1-m>-0.3454</z1-m>
+					<x2-m>5.6049</x2-m>
+				<y2-m>-2.9010</y2-m>
+			<z2-m>2.2533</z2-m>
+		</axis>
+	</animation>
+
+
+
 <!-- Elevator animations -->
 
 	<animation>
@@ -898,7 +934,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-aileron</object-name>
-				<property>sim/multiplay/generic/float[20]</property>
+				<property>sim/multiplay/generic/float[24]</property>
 					<factor>1</factor>
 						<axis>
 							<x1-m>4.8723</x1-m>
@@ -913,7 +949,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>left-aileron</object-name>
-				<property>sim/multiplay/generic/float[24]</property>
+				<property>sim/multiplay/generic/float[20]</property>
 					<factor>1</factor>
 						<axis>
 							<x1-m>4.88483</x1-m>
