@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<!--
+
+
+8 888888888o   8 8888        8     ,o888888o.     8 8888888888   b.             8  8 8888 `8.`8888.      ,8'   d888888o.                                                                 
+8 8888    `88. 8 8888        8  . 8888     `88.   8 8888         888o.          8  8 8888  `8.`8888.    ,8'  .`8888:' `88.                                                               
+8 8888     `88 8 8888        8 ,8 8888       `8b  8 8888         Y88888o.       8  8 8888   `8.`8888.  ,8'   8.`8888.   Y8                                                               
+8 8888     ,88 8 8888        8 88 8888        `8b 8 8888         .`Y888888o.    8  8 8888    `8.`8888.,8'    `8.`8888.                                                                   
+8 8888.   ,88' 8 8888        8 88 8888         88 8 888888888888 8o. `Y888888o. 8  8 8888     `8.`88888'      `8.`8888.                                                                  
+8 888888888P'  8 8888        8 88 8888         88 8 8888         8`Y8o. `Y88888o8  8 8888     .88.`8888.       `8.`8888.                                                                 
+8 8888         8 8888888888888 88 8888        ,8P 8 8888         8   `Y8o. `Y8888  8 8888    .8'`8.`8888.       `8.`8888.                                                                
+8 8888         8 8888        8 `8 8888       ,8P  8 8888         8      `Y8o. `Y8  8 8888   .8'  `8.`8888.  8b   `8.`8888.                                                               
+8 8888         8 8888        8  ` 8888     ,88'   8 8888         8         `Y8o.`  8 8888  .8'    `8.`8888. `8b.  ;8.`8888                                                               
+8 8888         8 8888        8     `8888888P'     8 888888888888 8            `Yo  8 8888 .8'      `8.`8888. `Y8888P ,88P'                                                               
+          .         .                                                                                                                                              .         .           
+         ,8.       ,8.          8 8888888888   8 888888888o.                   d888888o.  `8.`8888.      ,8' d888888o. 8888888 8888888888 8 8888888888            ,8.       ,8.          
+        ,888.     ,888.         8 8888         8 8888    `^888.              .`8888:' `88. `8.`8888.    ,8'.`8888:' `88.     8 8888       8 8888                 ,888.     ,888.         
+       .`8888.   .`8888.        8 8888         8 8888        `88.            8.`8888.   Y8  `8.`8888.  ,8' 8.`8888.   Y8     8 8888       8 8888                .`8888.   .`8888.        
+      ,8.`8888. ,8.`8888.       8 8888         8 8888         `88            `8.`8888.       `8.`8888.,8'  `8.`8888.         8 8888       8 8888               ,8.`8888. ,8.`8888.       
+     ,8'8.`8888,8^8.`8888.      8 888888888888 8 8888          88             `8.`8888.       `8.`88888'    `8.`8888.        8 8888       8 888888888888      ,8'8.`8888,8^8.`8888.      
+    ,8' `8.`8888' `8.`8888.     8 8888         8 8888          88              `8.`8888.       `8. 8888      `8.`8888.       8 8888       8 8888             ,8' `8.`8888' `8.`8888.     
+   ,8'   `8.`88'   `8.`8888.    8 8888         8 8888         ,88               `8.`8888.       `8 8888       `8.`8888.      8 8888       8 8888            ,8'   `8.`88'   `8.`8888.    
+  ,8'     `8.`'     `8.`8888.   8 8888         8 8888        ,88'           8b   `8.`8888.       8 8888   8b   `8.`8888.     8 8888       8 8888           ,8'     `8.`'     `8.`8888.   
+ ,8'       `8        `8.`8888.  8 8888         8 8888    ,o88P'             `8b.  ;8.`8888       8 8888   `8b.  ;8.`8888     8 8888       8 8888          ,8'       `8        `8.`8888.  
+,8'         `         `8.`8888. 8 8888         8 888888888P'                 `Y8888P ,88P'       8 8888    `Y8888P ,88P'     8 8888       8 888888888888 ,8'         `         `8.`8888. 
+
+
+
+
+Left MFD
+
+
+Some stuff to note. 
+
+Button Lable text size is uaslly 125 for 3-4 letter phrases
+
+-->
+
+
+
+
+
+
+
+ <path>enav.ac</path>
+ 
+	<model>
+     <name>SMSpage</name>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/left-mfd.xml</path>
+			<offsets>
+   <x-m>0.008</x-m>
+      <z-m>0.01</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>	
+
+	<model>
+     <name>WEPpage</name>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/WEPpage.xml</path>
+			<offsets>
+   <x-m>0.008</x-m>
+      <z-m>0.01</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+     <name>FLTpage</name>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/FLTpage.xml</path>
+			<offsets>
+   <x-m>0.008</x-m>
+      <z-m>0.01</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+
+		<model>
+     <name>RWRpage</name>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/RWRpage.xml</path>
+			<offsets>
+   <x-m>0.008</x-m>
+      <z-m>0.01</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+
+
+ <!--
+ <animation>
+	 <type>select</type>
+	 <object-name>Menu</object-name>
+	 <condition>   
+		 <equals>
+			 <property>instrumentation/enav[0]/selected</property>
+			 <value>4</value>
+		 </equals>
+	 </condition>
+ </animation>
+-->
+
+ <animation>
+	 <type>select</type>
+	 <object-name>main screen</object-name>
+	 <condition>   
+		 <equals>
+			 <property>systems/MFD/modemfdl</property>
+			 <value>0</value>
+		 </equals>
+	 </condition>
+ </animation>
+
+ <animation>
+	 <type>select</type>
+	 <object-name>SMSpage</object-name>
+	 <condition>   
+		 <equals>
+			 <property>systems/MFD/modemfdl</property>
+			 <value>1</value>
+		 </equals>
+	 </condition>
+ </animation>
+
+ <animation>
+	 <type>select</type>
+	 <object-name>WEPpage</object-name>
+	 <condition>   
+		 <equals>
+			 <property>systems/MFD/modemfdl</property>
+			 <value>3</value>
+		 </equals>
+	 </condition>
+ </animation>
+
+ <animation>
+	 <type>select</type>
+	 <object-name>FLTpage</object-name>
+	 <condition>   
+		 <equals>
+			 <property>systems/MFD/modemfdl</property>
+			 <value>4</value>
+		 </equals>
+	 </condition>
+ </animation>
+
+ <animation>
+	 <type>select</type>
+	 <object-name>RWRpage</object-name>
+	 <condition>   
+		 <equals>
+			 <property>systems/MFD/modemfdl</property>
+			 <value>5</value>
+		 </equals>
+	 </condition>
+ </animation>
+</PropertyList>

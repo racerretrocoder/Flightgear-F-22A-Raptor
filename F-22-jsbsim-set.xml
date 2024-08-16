@@ -191,6 +191,7 @@
  <float n="23" type="double" alias="/fdm/jsbsim/fcs/flap-pos-deg"/>	<!--Controls-->
  <float n="25" type="double" alias="/fdm/jsbsim/fcs/tv-animation"/>
  <float n="26" type="double" alias="/fdm/jsbsim/fcs/ail-pos-norm-limit-sum-main"/>
+  <float n="27" type="double" alias="/fdm/jsbsim/fcs/speedbrake-pos-norm"/>
 
  <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
@@ -1618,18 +1619,20 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 				<name>FWD fuselage</name>
 				<kill-when-empty type="bool">false</kill-when-empty>
+				        <selected type="bool">true</selected>
 			</tank>
 			<tank n="1">
 				<name>AFT fuselage</name>
 				<kill-when-empty type="bool">false</kill-when-empty>
+				        <selected type="bool">true</selected>
 			</tank>
 			<tank n="2">
-			   <priority>1</priority>
+
         <name>Left-tank</name> <!--Todo. Make this give fuel to engine first before aft and fwd. like it should... stupid fuel tank-->
         <selected type="bool">false</selected>
       </tank>
       <tank n="3">
-	     <priority>1</priority>
+
         <name>Right-Tank</name> <!--Same for this one. but with extra trial and error-->
         <selected type="bool">false</selected>
       </tank>
@@ -2167,7 +2170,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
     <m2000_controls>
       <file>Aircraft/F-22/Nasal/weapons/controls.nas</file>
     </m2000_controls>
-
+  <fuel>
+   <file>Aircraft/F-22/Nasal/fuel.nas</file>
+  </fuel>
   
   <emu>
    <file>Aircraft/F-22/Nasal/emu.nas</file>
@@ -2175,9 +2180,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <enav>
 <file>Aircraft/F-22/Nasal/enav.nas</file>
 </enav>
-<fuel>
-   <file>Aircraft/F-22/Nasal/fuel.nas</file>
-  </fuel>
+
  <CanvasPylonsDlg><file>Aircraft/F-22/Nasal/CanvasDlg/Canvas-pylons-Dlg.nas</file> </CanvasPylonsDlg>
 
  <tacview>

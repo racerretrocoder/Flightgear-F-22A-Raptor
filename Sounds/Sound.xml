@@ -1610,8 +1610,93 @@ need a better idea for this
 </volume>
  </overg>
 -->
+  <overg>
+  <name>WARNINGleft</name>
+        <mode>once</mode>
+  <path>Aircraft/F-22/Sounds/sys/delayWarning.wav</path>
+  <condition>
+  <and>
+  	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+   <greater-than>
+<property>/fdm/jsbsim/fcs/warning-alert</property>
+    <value>0.9</value>
+   </greater-than>   
+   </and> 
+  </condition>
+<volume>
 
+</volume>
+ </overg>
+
+
+  <overg>
+  <name>Overgright</name>
+        <mode>once</mode>
+  <path>Aircraft/F-22/Sounds/sys/delayWarning.wav</path>
+  <condition>
+  <and>
+  	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+   <greater-than>
+<property>/fdm/jsbsim/fcs/warning-alert</property>
+    <value>0.9</value>
+   </greater-than>   
+   </and> 
+  </condition>
+<volume>
+
+</volume>
+ </overg>
   
+ <overg>
+  <name>WARNINGleft</name>
+        <mode>once</mode>
+  <path>Aircraft/F-22/Sounds/sys/delayWarning.wav</path>
+  <condition>
+  <and>
+  	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+   <greater-than>
+<property>/fdm/jsbsim/fcs/warning-alert</property>
+    <value>0.9</value>
+   </greater-than>   
+   </and> 
+  </condition>
+<volume>
+
+</volume>
+ </overg>
+
+
+  <overg>
+  <name>Overgright</name>
+        <mode>once</mode>
+  <path>Aircraft/F-22/Sounds/sys/delayWarning.wav</path>
+  <condition>
+  <and>
+  	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+   <greater-than>
+<property>/fdm/jsbsim/fcs/warning-alert</property>
+    <value>0.9</value>
+   </greater-than>   
+   </and> 
+  </condition>
+<volume>
+
+</volume>
+ </overg>
+
+
  </fx>
 </PropertyList>
 
