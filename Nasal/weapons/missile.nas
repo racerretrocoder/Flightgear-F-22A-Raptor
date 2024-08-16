@@ -358,48 +358,20 @@ var MISSILE = {
         
         me.StartTime = props.globals.getNode("/sim/time/elapsed-sec", 1).getValue();
         
-        var phrase =  me.fox ~ " at " ~ me.Tgt.get_Callsign() ~ ". Release " ~ me.NameOfMissile; #Missile shot
+        var phrase =  me.fox ~ " at " ~ me.Tgt.get_Callsign() ~ ". Release " ~ me.NameOfMissile;
         print(phrase);
-        
-      if(MPMessaging.getValue() == 1)
-      {
+        if(MPMessaging.getValue() == 1)
+        {
             setprop("/sim/multiplay/chat", phrase);
             damage.damageLog.push(phrase);
-            me.sendinflight();
-
-
-
-      }
+#Add a inflight notifican of some kind
+        }
         else
         {
             setprop("/sim/messages/atc", phrase);
         }
         me.update();
     },
-
-
-sendinflight: func(){
-    #Send notify in flight
-                        if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
-                        if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
-                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}
-
-var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
-   
-        	msg.Position.set_latlon(0,0,0);
-        msg.Flags = 1;#bit #0
-        	msg.Flags = bits.set(msg.Flags, 1);#bit #1
-        msg.IsDistinct = 0;
-        msg.RemoteCallsign = me.Tgt.get_Callsign();
-        msg.UniqueIndex = ""~typeID~typeID;
-        msg.Pitch = me.pitch;
-        msg.Heading = me.hdg;
-        msg.u_fps = 0;
-        #msg.isValid();
-        notifications.geoBridgedTransmitter.NotifyAll(msg);
-        print("Missile alert sent");
-
-},
 
     update: func(){
         # calculate life time of the missile
