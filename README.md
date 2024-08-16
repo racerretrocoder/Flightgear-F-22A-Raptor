@@ -88,4 +88,4 @@ If you have suggestions or (nice) comments, add a Comment on the latest commit. 
 
 
 
-mfds coming soon
+What are you waiting for! Go on and download it! Have fun!
