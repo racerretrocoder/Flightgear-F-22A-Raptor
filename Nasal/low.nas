@@ -9,8 +9,8 @@ var low_loop = func {
 
 var calt = getprop("position/altitude-agl-ft");
 var cspd = getprop("velocities/groundspeed-kt");
-var burn0 = getprop("controls/engines/engine[0]/afterburner");
-var burn1 = getprop("controls/engines/engine[1]/afterburner");
+var burn0 = getprop("controls/engines/engine[0]/augmentation");
+var burn1 = getprop("controls/engines/engine[1]/augmentation");
 
 if((calt <= 300) and (cspd >= 450)) {
 setprop("controls/state/low_level", 1);

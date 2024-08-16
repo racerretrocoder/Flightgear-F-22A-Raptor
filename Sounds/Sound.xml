@@ -1696,7 +1696,139 @@ need a better idea for this
 </volume>
  </overg>
 
+  <jfsclick>
+   <name>Jfsclick</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sys/JFS-Switch-on.wav</path>
+   <condition>
+   <and>
+
+
+    	    <equals>
+		    <property>/sim/model/clickJFS</property>
+		    <value>true</value>
+		</equals>
+    
+<property>/sim/current-view/internal</property>
+
+     </and>
+   </condition>
+
+  </jfsclick>
+
+
+  <jfsclick>
+   <name>JfsclickL</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sys/JFS-Switch-on.wav</path>
+   <condition>
+   <and>
+
+
+    	    <equals>
+		    <property>/sim/model/clickJFSL</property>
+		    <value>true</value>
+		</equals>
+    
+<property>/sim/current-view/internal</property>
+
+     </and>
+   </condition>
+
+  </jfsclick>
+
+  <jfsclick>
+   <name>Jfsclickspringback</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sys/JFS-Switch-Off.wav</path>
+   <condition>
+   <and>
+
+
+    	    <equals>
+		    <property>/fdm/jsbsim/fcs/starter</property>
+		    <value>1</value>
+		</equals>
+    
+<property>/sim/current-view/internal</property>
+
+     </and>
+   </condition>
+
+  </jfsclick>
+
+  <jfsclick>
+   <name>JfsclickspringbackL</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sys/JFS-Switch-Off.wav</path>
+   <condition>
+   <and>
+
+
+    	    <equals>
+		    <property>/fdm/jsbsim/fcs/starter2</property>
+		    <value>1</value>
+		</equals>
+    
+<property>/sim/current-view/internal</property>
+
+     </and>
+   </condition>
+
+  </jfsclick>
+
+
+  <switchclick>
+   <name>switch click</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sys/SwitchBig.wav</path>
+   <condition>
+   <and>
+
+
+    	    <equals>
+		    <property>sim/model/click</property>
+		    <value>1</value>
+		</equals>
+    
+<property>/sim/current-view/internal</property>
+
+     </and>
+   </condition>
+
+  </switchclick>
+
+    <click>
+      <name>Clickoff</name>
+      <path>Aircraft/F-22/Sounds/sys/SwitchBig.wav</path>
+      <condition>
+        <not><property>sim/model/click</property></not>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
+
+    <click>
+      <name>wheelspin</name>
+      <path>Aircraft/F-22/Sounds/sys/Wheelknob.wav</path>
+      <condition>
+        <not><property>sim/model/wheel</property></not>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
+    <click>
+      <name>wheelspin2</name>
+      <path>Aircraft/F-22/Sounds/sys/Wheelknob.wav</path>
+      <condition>
+     <property>sim/model/wheel</property>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
 
  </fx>
 </PropertyList>
-
