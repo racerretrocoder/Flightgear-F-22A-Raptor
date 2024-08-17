@@ -753,9 +753,17 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 <command>property-toggle</command>
                 <property>/controls/armament/master-arm</property>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>controls/armament/master-arm-btn</property>
+		   <value>1</value>
+	   </binding>
     <mod-up>
-     <binding>
-     </binding>
+		<binding>
+			<command>property-assign</command>
+			<property>controls/armament/master-arm-btn</property>
+			<value>0</value>
+		</binding>
     </mod-up>
    </action>
  </animation>
@@ -1338,9 +1346,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>1</value>
                <wrap>true</wrap>
     </binding>
-
-       </action>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CSMS-btn</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CSMS-btn</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>CSMS</object-name>
+		<property>systems/MFD/CSMS-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 
 <animation>
@@ -1358,9 +1389,31 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>3</value>
                <wrap>true</wrap>
     </binding>
-
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CWEP-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/CWEP-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>CWEP</object-name>
+		<property>systems/MFD/CWEP-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 
 <animation>
@@ -1378,9 +1431,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>4</value>
                <wrap>true</wrap>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CFLT-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/CFLT-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
 
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>CFLT</object-name>
+		<property>systems/MFD/CFLT-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -1397,9 +1473,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>5</value>
                <wrap>true</wrap>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CRWR-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/CRWR-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
 
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>CRWR</object-name>
+		<property>systems/MFD/CRWR-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 <!--Left MFD buttons-->
 
@@ -1418,9 +1517,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>1</value>
                <wrap>true</wrap>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LSMS-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/LSMS-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
 
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>LSMS</object-name>
+		<property>systems/MFD/LSMS-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 
 <animation>
@@ -1438,9 +1560,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>3</value>
                <wrap>true</wrap>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LWEP-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/LWEP-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
 
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>LWEP</object-name>
+		<property>systems/MFD/LWEP-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 
 <animation>
@@ -1458,9 +1603,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>4</value>
                <wrap>true</wrap>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LFLT-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/LFLT-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
 
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>LFLT</object-name>
+		<property>systems/MFD/LFLT-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -1477,9 +1645,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>5</value>
                <wrap>true</wrap>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LRWR-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/LRWR-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
 
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>LRWR</object-name>
+		<property>systems/MFD/LRWR-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 
 <!--Right MFD buttons-->
@@ -1499,9 +1690,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>1</value>
                <wrap>true</wrap>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RSMS-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/RSMS-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
 
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>RSMS</object-name>
+		<property>systems/MFD/RSMS-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 
 <animation>
@@ -1519,9 +1733,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>3</value>
                <wrap>true</wrap>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RWEP-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/RWEP-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
 
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>RWEP</object-name>
+		<property>systems/MFD/RWEP-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 
 <animation>
@@ -1539,9 +1776,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>4</value>
                <wrap>true</wrap>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RFLT-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/RFLT-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
 
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>RFLT</object-name>
+		<property>systems/MFD/RFLT-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -1558,9 +1818,32 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <value>5</value>
                <wrap>true</wrap>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RRWR-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/RRWR-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
 
        </action>
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>RRWR</object-name>
+		<property>systems/MFD/RRWR-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
 
 
 
