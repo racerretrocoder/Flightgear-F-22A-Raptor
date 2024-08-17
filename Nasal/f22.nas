@@ -40,9 +40,7 @@ var cockpit_state = func {
 
 
 
-# what is this
 
-#idk ill just leave it
 var flares = func{
 	var flarerand = rand();
 props.globals.getNode("/rotors/main/blade[3]/flap-deg",1).setValue(flarerand);

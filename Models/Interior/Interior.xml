@@ -41,6 +41,11 @@ __/\\\\\\\\\\\__________________________________________________________________
                                                                                       
  -->
 
+
+
+
+
+
 <animation>
         <type>range</type>
         <min-m>0</min-m>
@@ -56,8 +61,86 @@ __/\\\\\\\\\\\__________________________________________________________________
     </offsets>
   </model>
   
-  <!-- Hud computer -->
+
+
+<!--INSTRUMENT LIGHTS-->
+
+
+<animation>
+    <type>material</type>
+
+   <object-name>1</object-name>
+      <object-name>2</object-name>
+         <object-name>3</object-name>
+            <object-name>4</object-name>
+               <object-name>5</object-name>  <!--Switch labels     Controlled with the consoles knob-->
+                  <object-name>6</object-name>
+                     <object-name>7</object-name>
+                        <object-name>8</object-name>
+                           <object-name>9</object-name>
+                              <object-name>10</object-name>
+                                 <object-name>11</object-name>
+                                    <object-name>12</object-name>
+                                       <object-name>13</object-name>
+                                          <object-name>14</object-name>
+                              <object-name>labBAT</object-name>
+                              <object-name>labJFSR</object-name>
+
+ 
+    <emission>
+      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <red>   0 </red>
+      <green> 0.8 </green>
+      <blue>  1 </blue>
+    </emission>
+  </animation> 
+
+<animation>
+    <type>material</type>
+
+   <object-name>num1</object-name>
+      <object-name>num2</object-name>
+         <object-name>num3</object-name>
+            <object-name>num4</object-name>
+               <object-name>num5</object-name>  <!--Switch labels     Controlled with the consoles knob-->
+                  <object-name>num6</object-name>
+                     <object-name>num7</object-name>
+                        <object-name>num8</object-name>
+                           <object-name>num9</object-name>
+                              <object-name>num0</object-name>
+                                 <object-name>numB</object-name>
+                                    <object-name>numA</object-name>
+
+                                          <object-name>navlights</object-name>
+                                          <object-name>beaconlights</object-name>
+                                          <object-name>jfsStartR</object-name>
+                                          <object-name>jfsStartL</object-name>
+                                          <object-name>cutoffL</object-name>
+                                          <object-name>cutoffR</object-name>
+                                          <object-name>FBWOVERRIDE</object-name>
+                                          <object-name>AAR</object-name>
+
+                                          <object-name>HUDKNOB</object-name>
+                                          <object-name>HUDKNOB2</object-name>
+                                          <object-name>consoleknob</object-name>
+                                          <object-name>panelknob</object-name>
+
+
+ 
+    <emission>
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+      <red>   0.5 </red>
+      <green> 0.1 </green>
+      <blue>  0.1 </blue>
+    </emission>
+  </animation> 
+
+
+
+
+
   <model>
+     <name>frontdatadisplays</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/comms.xml</path>
 			<offsets>
 				<x-m>-1.0</x-m>
@@ -157,6 +240,7 @@ __/\\\\\\\\\\\__________________________________________________________________
     <object-name>lowermfd</object-name>
      <object-name>rightsmall</object-name>
       <object-name>leftsmall</object-name>
+ <!--      <object-name>frontdatadisplays</object-name>   TODO! Make the AP Button text be there own file so they dont disapear when power not applied-->
   <type>select</type>
   <condition>
 
@@ -226,6 +310,11 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
         </action>
     </animation>
 
+
+
+
+
+
 <animation>
         <name>Hud brightness</name>
         <type>knob</type>
@@ -256,6 +345,10 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
      </binding>
         </action>
     </animation>
+
+
+
+
 
 
 <!--
@@ -948,6 +1041,69 @@ Thank you snail your awesome!-->
 
 
 <!--Lighting panel. Switchs stay off Straight up. Push them PORT (Left when facing the hud) to turn on-->
+
+
+<animation>
+        <name>Consoles knob</name>
+        <type>knob</type>
+        <object-name>consoleknob</object-name>
+        <property>controls/lighting/instruments-norm</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>controls/lighting/instruments-norm</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+    </animation>
+
+<animation>
+        <name>panel knob</name>
+        <type>knob</type>
+        <object-name>panelknob</object-name>
+        <property>controls/lighting/consoles</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>controls/lighting/panel-norm</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+    </animation>
+
+
 
 <animation>
   <type>pick</type>

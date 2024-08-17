@@ -102,8 +102,10 @@
 			 
   		</submodels>
 				
-		<systems include="System/Electrical.xml">
-
+		<systems>
+<electrical>
+<path>Aircraft/F-22/system/Electrical.xml</path>
+</electrical>
 
 			<autopilot>
 			   <path>Aircraft/F-22/System/Autopilot.xml</path>
