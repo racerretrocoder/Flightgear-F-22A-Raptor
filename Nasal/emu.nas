@@ -46,6 +46,12 @@ var autostart = func {
       gui.popupTip("Autostarting...");
 	  setprop("/sim/autostart/started", 1);
       setprop("/controls/electric/battery-switch", 1);
+         setprop("/controls/electric/computer", 1);
+         setprop("/controls/electric/MFD", 1);
+         setprop("/controls/electric/SMS", 1);
+         setprop("/controls/electric/CMS", 1);
+         setprop("/controls/electric/AESA", 1);
+         setprop("/controls/electric/controls", 1);
       settimer(engstart, 1);
 	  gui.popupTip("Starting Engines");
 	  }
