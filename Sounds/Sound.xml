@@ -1809,6 +1809,38 @@ need a better idea for this
       </volume>
     </click>
 
+  <switchclick>
+   <name>switch click small</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sys/switchsmall.wav</path>
+   <condition>
+   <and>
+
+
+    	    <equals>
+		    <property>sim/model/clicksmall</property>
+		    <value>1</value>
+		</equals>
+    
+<property>/sim/current-view/internal</property>
+
+     </and>
+   </condition>
+
+  </switchclick>
+
+    <click>
+      <name>Clickoffsmall</name>
+      <path>Aircraft/F-22/Sounds/sys/switchsmall.wav</path>
+      <condition>
+        <not><property>sim/model/clicksmall</property></not>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
+
+
     <click>
       <name>wheelspin</name>
       <path>Aircraft/F-22/Sounds/sys/Wheelknob.wav</path>

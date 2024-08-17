@@ -95,6 +95,8 @@ __/\\\\\\\\\\\__________________________________________________________________
     </emission>
   </animation> 
 
+
+<!--
 <animation>
     <type>material</type>
 
@@ -102,7 +104,7 @@ __/\\\\\\\\\\\__________________________________________________________________
       <object-name>num2</object-name>
          <object-name>num3</object-name>
             <object-name>num4</object-name>
-               <object-name>num5</object-name>  <!--Switch labels     Controlled with the consoles knob-->
+               <object-name>num5</object-name> 
                   <object-name>num6</object-name>
                      <object-name>num7</object-name>
                         <object-name>num8</object-name>
@@ -136,7 +138,7 @@ __/\\\\\\\\\\\__________________________________________________________________
   </animation> 
 
 
-
+-->
 
 
   <model>
@@ -607,6 +609,50 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 
 -->
 
+
+
+ <animation>
+ <!--Elec panel-->
+  <type>pick</type>
+   <object-name>BATSWITCH</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-cycle</command>
+                <property>/controls/electric/battswitch</property>
+
+<value>0</value> <!--Off-->
+<value>1</value> <!--Backup-->
+<value>2</value> <!--Main Power-->
+
+    </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+   </action>
+ </animation>
+
+
+<!--TODO: Animation for the Elec panel
+
+battery switch:
+When /controls/electric/battswitch is 0, the switch stays pointing up
+
+1 it is pointing Back. So pulling the switch will make it in the backup position
+When its 2 its on Main power. So Pushing the switch will make it in the Main power position
+
+EPU switch
+TODO: Make a saftey cover
+Pushing the switch turns it on
+
+-->
+
+
+
+
  <animation>
   <type>pick</type>
    <object-name>AAR</object-name>
@@ -621,6 +667,10 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
                <value>1</value>
                <wrap>true</wrap>
     </binding>
+          <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
        </action>
  </animation>
 
@@ -668,6 +718,10 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
                <value>1</value>
                <wrap>true</wrap>
     </binding>
+          <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
        </action>
  </animation>
 
@@ -753,17 +807,9 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 <command>property-toggle</command>
                 <property>/controls/armament/master-arm</property>
     </binding>
-	   <binding>
-		   <command>property-assign</command>
-		   <property>controls/armament/master-arm-btn</property>
-		   <value>1</value>
-	   </binding>
     <mod-up>
-		<binding>
-			<command>property-assign</command>
-			<property>controls/armament/master-arm-btn</property>
-			<value>0</value>
-		</binding>
+     <binding>
+     </binding>
     </mod-up>
    </action>
  </animation>
@@ -1127,7 +1173,7 @@ Thank you snail your awesome!-->
     </binding>
         <binding>
 <command>property-toggle</command>
-                <property>/sim/model/click</property>
+                <property>/sim/model/clicksmall</property>
     </binding>
        </action>
  </animation>
@@ -1183,7 +1229,7 @@ Thank you snail your awesome!-->
     </binding>
         <binding>
 <command>property-toggle</command>
-                <property>/sim/model/click</property>
+                <property>/sim/model/clicksmall</property>
     </binding>
        </action>
  </animation>
