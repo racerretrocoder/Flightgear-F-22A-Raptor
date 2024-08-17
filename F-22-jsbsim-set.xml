@@ -2152,7 +2152,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             <file>Aircraft/Generic/aar.nas</file>
         </aar>
 		<rwr>
-			<file>Aircraft/F-22/nasal/MiscRwr.nas</file>
+			<file>Aircraft/F-22/nasal/rwr.nas</file>
 		</rwr>
 		
     <radardist>

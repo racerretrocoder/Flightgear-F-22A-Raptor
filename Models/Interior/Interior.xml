@@ -168,6 +168,9 @@ __/\\\\\\\\\\\__________________________________________________________________
 	<!-- Small screens -->
 	
 	<!-- left -->
+
+	
+
 	<model>
      <name>leftsmall</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/left.xml</path>
@@ -178,7 +181,8 @@ __/\\\\\\\\\\\__________________________________________________________________
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
-	
+
+
 	<!-- right -->
 	<model>
      <name>rightsmall</name>
@@ -240,6 +244,22 @@ __/\\\\\\\\\\\__________________________________________________________________
   <object-name>rightmfd</object-name>
    <object-name>centermfd</object-name>
     <object-name>lowermfd</object-name>
+
+
+  <type>select</type>
+  <condition>
+
+<greater-than>
+				<property>fdm/jsbsim/fcs/elec-2</property> <!--MFD switch-->
+				<value>0.8</value>
+			</greater-than>
+  </condition>
+ </animation>
+
+
+
+
+ <animation>
      <object-name>rightsmall</object-name>
       <object-name>leftsmall</object-name>
  <!--      <object-name>frontdatadisplays</object-name>   TODO! Make the AP Button text be there own file so they dont disapear when power not applied-->
@@ -247,12 +267,11 @@ __/\\\\\\\\\\\__________________________________________________________________
   <condition>
 
 <greater-than>
-				<property>fdm/jsbsim/fcs/engine-gen-main</property>
+				<property>fdm/jsbsim/fcs/elec-1</property> <!--front controls switch-->
 				<value>0.8</value>
 			</greater-than>
   </condition>
  </animation>
-
 
 
 	
@@ -1517,6 +1536,138 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     </action>
 	
  </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>CFCR</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdc</property>
+               <value>0</value>
+               <value>2</value>
+               <wrap>true</wrap>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CFCR-btn</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CFCR-btn</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>LFCR</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdl</property>
+               <value>0</value>
+               <value>2</value>
+               <wrap>true</wrap>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LFCR-btn</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LFCR-btn</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>RFCR</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdr</property>
+               <value>0</value>
+               <value>2</value>
+               <wrap>true</wrap>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RFCR-btn</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RFCR-btn</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+	<animation>
+		<type>translate</type>
+		<object-name>RFCR</object-name>
+		<property>systems/MFD/RFCR-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
+    
+	<animation>
+		<type>translate</type>
+		<object-name>LFCR</object-name>
+		<property>systems/MFD/LFCR-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
+    
+	<animation>
+		<type>translate</type>
+		<object-name>CFCR</object-name>
+		<property>systems/MFD/CFCR-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
+
+
+
+
 
 	<animation>
 		<type>translate</type>
