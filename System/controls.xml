@@ -7,6 +7,7 @@
 		<nav-lights-switch type="bool">false</nav-lights-switch>
 		<beacon-switch type="bool">false</beacon-switch>
     <instruments-norm>0</instruments-norm>
+    <panel-norm></panel-norm>
 	</lighting>
 
 	<AAR>
