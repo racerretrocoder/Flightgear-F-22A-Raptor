@@ -10,6 +10,22 @@
     <panel-norm></panel-norm>
 	</lighting>
 
+<electric>
+		<battswitch type="int">0</battswitch> <!--0 OFF 1 Backup 2 Main Power-->
+    <EPUswitch type="int">0</EPUswitch> <!--0 OFF 1 Active-->
+    <controls type="int">0</controls> 
+     <MFD type="int">0</MFD>
+<computer type="int">0</computer>
+     <SMS type="int">0</SMS> 
+     <CMS type="int">0</CMS> 
+    <AESA type="int">0</AESA>  
+
+
+
+
+</electric>
+
+
 	<AAR>
 		<Switch type="int">0</Switch> <!--For Vector Disable. See FDM-->
 	</AAR>
