@@ -16,7 +16,7 @@ OBJECT world
 kids 132
 OBJECT poly
 name "indicatorlight"
-loc -5.11005 -0.344927 0.355661
+loc -5.11005 -0.342868 0.355661
 crease 45.000000
 numvert 8
 -0.00574923 0.0022915 -0.696941
@@ -166,7 +166,7 @@ refs 3
 kids 0
 OBJECT poly
 name "indicatorlight"
-loc -5.11035 -0.344927 0.33845
+loc -5.11026 -0.343198 0.33845
 crease 45.000000
 numvert 8
 -0.00574923 0.0022915 -0.696941

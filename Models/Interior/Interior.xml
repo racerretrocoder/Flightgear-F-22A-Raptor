@@ -636,6 +636,116 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
  </animation>
 
 
+
+
+ <animation>
+  <type>pick</type>
+   <object-name>elecswitch1</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/electric/controls</property>
+    </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>elecswitch2</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/electric/MFD</property>
+    </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>elecswitch3</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/electric/computer</property>
+    </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>elecswitch4</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/electric/SMS</property>
+    </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+   </action>
+ </animation>
+
+  <animation>
+  <type>pick</type>
+   <object-name>elecswitch5</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/electric/CMS</property>
+    </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+   </action>
+ </animation>
+
+  <animation>
+  <type>pick</type>
+   <object-name>elecswitch6</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-toggle</command>
+                <property>/controls/electric/AESA</property> <!--Radar power-->
+    </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+   </action>
+ </animation>
+
 <!--TODO: Animation for the Elec panel
 
 battery switch:

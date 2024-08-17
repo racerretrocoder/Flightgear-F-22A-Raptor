@@ -18,7 +18,7 @@
     <name>Alternator 1</name>
     <prop>/systems/electrical/suppliers/alternator[0]</prop>
     <kind>alternator</kind>
-    <rpm-source>/engines/engine[0]/rpm</rpm-source>
+    <rpm-source>/fdm/jsbsim/fcs/</rpm-source>
     <volts>28</volts> <!-- stubbed in -->
     <amps>60</amps>   <!-- from the 172S Skyhawk Information Manual -->
   </supplier>

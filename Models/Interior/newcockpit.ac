@@ -429,7 +429,7 @@ refs 4
 3 0 1
 kids 0
 OBJECT poly
-name "elecswitch2"
+name "elecswitch6"
 loc -5.20813 -0.342224 -0.320252
 crease 45.000000
 numvert 320
@@ -4392,7 +4392,7 @@ refs 3
 170 -1.8e-05 9.8e-05
 kids 0
 OBJECT poly
-name "elecswitch1"
+name "elecswitch5"
 loc -5.23289 -0.344645 -0.320407
 crease 45.000000
 numvert 320
