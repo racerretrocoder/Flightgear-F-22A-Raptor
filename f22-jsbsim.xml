@@ -336,7 +336,64 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   </tank>
  </propulsion>
 
+
+
+
  <flight_control name="FCS: F-22">
+
+
+
+
+   <function name="fcs/elevator-cmd-norm-power">  
+
+    
+        <table>
+            <independentVar lookup="column">fcs/elec-3</independentVar>
+            <independentVar lookup="row">fcs/elevator-cmd-norm</independentVar>
+            <tableData>   
+      0    1  
+-1    0   -1  
+ 0    0    0
+ 1    0    1
+  
+            </tableData>
+          </table>
+
+   </function>
+
+   <function name="fcs/aileron-cmd-norm-power">  
+
+    
+        <table>
+            <independentVar lookup="column">fcs/elec-3</independentVar>
+            <independentVar lookup="row">fcs/aileron-cmd-norm</independentVar>
+            <tableData>   
+      0    1  
+-1    0   -1  
+ 0    0    0
+ 1    0    1
+  
+            </tableData>
+          </table>
+
+   </function>
+
+   <function name="fcs/rudder-cmd-norm-power">  
+
+    
+        <table>
+            <independentVar lookup="column">fcs/elec-3</independentVar>
+            <independentVar lookup="row">fcs/rudder-cmd-norm</independentVar>
+            <tableData>   
+      0    1  
+-1    0   -1  
+ 0    0    0
+ 1    0    1
+  
+            </tableData>
+          </table>
+
+   </function>
 
 
 <!--Technicly an inverter-->
@@ -409,7 +466,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <function name="fcs/ail-pos-norm-limit-sum-main">  <!--Main Elevator POS with Limit-->
 <product>
       <property>fcs/Elev-pos-norm-limit-sum</property>
-      <property>fcs/aileron-cmd-norm</property>
+      <property>fcs/aileron-cmd-norm-power</property>
 </product>
    </function>
 
@@ -602,7 +659,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <channel name="Pitch">
 
    <summer name="Pitch Trim Sum">
-      <input>fcs/elevator-cmd-norm</input>
+      <input>fcs/elevator-cmd-norm-power</input>
       <input>fcs/pitch-trim-cmd-norm</input>
       <clipto>
         <min> -1 </min>
@@ -652,7 +709,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <channel name="Roll">
 
    <summer name="Roll Trim Sum">
-      <input>fcs/aileron-cmd-norm</input>
+      <input>fcs/aileron-cmd-norm-power</input>
       <input>fcs/roll-trim-cmd-norm</input>
       <clipto>
         <min> -1 </min>
@@ -709,7 +766,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <channel name="Yaw">
 
    <summer name="Rudder Command Sum">
-      <input>fcs/rudder-cmd-norm</input>
+      <input>fcs/rudder-cmd-norm-power</input>
       <input>fcs/yaw-trim-cmd-norm</input>
       <clipto>
         <min> -1 </min>
@@ -940,6 +997,95 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     </tableData>
    </table>
     </function>
+
+<!--Elec stuff-->
+
+<function name="fcs/elec-1">  
+ <description>elec</description>
+        <table>
+            <independentVar lookup="row">/controls/electric/controls</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <tableData>
+                   0    1
+              0    0    0
+              1    0    1
+            </tableData>
+        </table>
+
+   </function>
+
+<function name="fcs/elec-2">  
+ <description>elec</description>
+        <table>
+            <independentVar lookup="row">/controls/electric/MFD</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <tableData>
+                   0    1
+              0    0    0
+              1    0    1
+            </tableData>
+        </table>
+
+   </function>
+
+<function name="fcs/elec-3">  <!-- TODO! Disable Flight control input when this function is zero! -->
+ <description>elec</description>
+        <table>
+            <independentVar lookup="row">/controls/electric/computer</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <tableData>
+                     0    1
+              0      0    0
+              1      0    1
+            </tableData>
+        </table>
+
+   </function>
+
+<function name="fcs/elec-4">  
+ <description>elec</description>
+        <table>
+            <independentVar lookup="row">/controls/electric/SMS</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <tableData>
+                     0    1
+              0      0    0
+              1      0    1
+            </tableData>
+        </table>
+
+   </function>
+
+<function name="fcs/elec-5">  
+ <description>elec</description>
+        <table>
+            <independentVar lookup="row">/controls/electric/CMS</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <tableData>
+                     0    1
+              0      0    0
+              1      0    1
+            </tableData>
+        </table>
+
+   </function>
+
+<function name="fcs/elec-6">  
+ <description>elec</description>
+        <table>
+            <independentVar lookup="row">/controls/electric/AESA</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <tableData>
+                     0    1
+              0      0    0
+              1      0    1
+            </tableData>
+        </table>
+
+   </function>
+
+
+
   
 <channel name="Vectors">
    <aerosurface_scale name="Thrust Vector Control">
@@ -1023,7 +1169,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
    </channel>
-
 
 
 
