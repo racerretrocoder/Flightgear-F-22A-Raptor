@@ -23,6 +23,8 @@
   <object-name>bay</object-name>
   <object-name>canpy</object-name>
   <object-name>milthrust</object-name>
+    <object-name>TWS</object-name>
+   <object-name>PUS</object-name>
   <ambient>
     <red>0.0</red>
     <green>0.0</green>
@@ -67,6 +69,46 @@
         </condition>
     </animation>
 
+
+	 <text>
+  <name>TWS</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.04</y-m>
+   <z-m>-0.05</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">TWS AUTO</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>TWS</object-name>
+        
+		<condition>
+			<property>instrumentation/radar2/wcs-mode/tws-auto</property>
+		</condition>
+    </animation>
+
+
+
+<!--
+	<animation>
+		<type>translate</type>
+		<object-name>TWS</object-name>
+		<property alias="../../MP1/draw-range-nm"/>
+		<condition>
+			<not><property>instrumentation/radar/radar-standby</property></not>
+		</condition>
+		<factor>1</factor>
+		<axis><z>1</z></axis>
+	</animation>
+-->
 
 
 	<animation>
@@ -144,6 +186,10 @@
 			</greater-than>
 		</condition>
 	</animation>
+
+
+
+
 
 
  <!--Group MP1 -->

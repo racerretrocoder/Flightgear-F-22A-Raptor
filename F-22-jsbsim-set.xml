@@ -1569,19 +1569,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
         <tacview-recording type="bool">0</tacview-recording>
 		</sim>
 
-
         <sound>
             <rwr-new type="double">0</rwr-new>
         </sound>
-<f16>
-<ews>
-            <ew-rwr-switch type="int">1</ew-rwr-switch>
-</ews> 
 
-<avionics>
-            <power-ufc-warm type="int">1</power-ufc-warm>
-</avionics>
-</f16>
 
    <damage>
         <sound>
@@ -1803,6 +1794,13 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  <value>Aim-120</value>
  <value>GBU-39</value>
 </binding>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon-digit</property>
+ <value>1</value>
+ <value>2</value>
+ <value>3</value>
+</binding>
   <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
  </key> 
 		
@@ -1985,7 +1983,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <minimized type="bool" archive="y">false</minimized>
   <selected type="int">2</selected>
   <lock type="int">0</lock>
-
+  <threat-spotted type="int">0</threat-spotted> <!--for lockhelper.nas-->
       <!-- inicio en pruebas -->
   <enabled type="bool">0</enabled>
   <az-field type="double">120</az-field>
@@ -2198,6 +2196,11 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
     <radar>
       <file>Aircraft/F-22/Nasal/radar2.nas</file> 
     </radar>
+
+        <lockhelper>
+            <file>Aircraft/F-22/Nasal/lockhelper.nas</file><!-- my 3rd custom nasal script! :D -->
+        </lockhelper>
+
 		
     <WCS><file>Aircraft/F-22/Nasal/wcs-helper.nas</file> </WCS>
 

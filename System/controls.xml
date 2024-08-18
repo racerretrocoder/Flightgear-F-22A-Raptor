@@ -52,6 +52,8 @@
         Missile property. the value here doesn't really count, beacause it's reloaded
         by a Nasal file Loading_missiles.nas for each missile. Anyway this is nessecary for variable declaration
     -->
+    <selected-weapon-digit type="int">0</selected-weapon-digit>
+    <selected-weapon type="string">none</selected-weapon>
     <missile>
       <name>None_press_m</name>
       <type-id type="int">57</type-id>
