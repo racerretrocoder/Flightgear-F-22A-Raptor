@@ -4,30 +4,6 @@
  <fx>
 
 
-  <aim9>
-      <name>aim9-Sound</name>
-      <mode>looped</mode>
-      <path>Aircraft/F-22/Sounds/sys/Aim9lock.wav</path>
-      <condition>
-          <property>controls/armament/selected-weapon</property>
-          <value>Aim-9x</value>
-      </condition>
-       <reference-dist>100</reference-dist>
-      <max-dist>1000</max-dist>
-        <position>
-    	<x>-4.5</x>
-	<y>0.0</y>
-	<z>-5</z>
-   </position>
-  
-   <volume>
-    	
-    	<factor>1</factor>
-	<min>0.0</min>
-	<max>1.0</max>
-   </volume>
-   </aim9>
- 
  <engine>
       <name>engine-start-inside</name>
       <mode>once</mode>
@@ -2003,6 +1979,123 @@ Counter
                 <factor>1</factor>
             </volume>
         </rwr>
+
+
+            <aimninex>
+        <name>aim9armed</name>
+        <mode>looped</mode>
+        <path>Aircraft/F-22/Sounds/AV/sidearmed.wav</path>
+        <condition>
+<and>
+            <equals>
+                <property>instrumentation/radar/lock</property>
+                <value>0</value>
+            </equals>
+            <equals>
+                <property>controls/armament/selected-weapon-digit</property>
+                <value>1</value>
+            </equals>
+        <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+<not>
+<property>/gear/gear/wow</property>
+		    <value>true</value>
+</not>
+</and>
+        </condition>
+    </aimninex>
+
+                <aimninex>
+        <name>aim9arme2d</name>
+        <mode>looped</mode>
+        <path>Aircraft/F-22/Sounds/AV/sidearmed.wav</path>
+        <condition>
+<and>
+
+            <equals>
+                <property>instrumentation/radar/lock</property>
+                <value>0</value>
+            </equals>
+            <equals>
+                <property>controls/armament/selected-weapon-digit</property>
+                <value>1</value>
+            </equals>
+        <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+<not>
+<property>/gear/gear/wow</property>
+		    <value>true</value>
+</not>
+</and>
+        </condition>
+    </aimninex>
+
+                <aimninex>
+        <name>aim9lock</name>
+        <mode>looped</mode>
+        <path>Aircraft/F-22/Sounds/AV/sidelock.wav</path>
+        <condition>
+<and>
+
+            <equals>
+                <property>instrumentation/radar/lock</property>
+                <value>1</value>
+            </equals>
+            <equals>
+                <property>instrumentation/radar/threat-spotted</property>
+                <value>1</value>
+            </equals>
+            <equals>
+                <property>controls/armament/selected-weapon-digit</property>
+                <value>1</value>
+            </equals>
+        <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+<not>
+<property>/gear/gear/wow</property>
+		    <value>true</value>
+</not>
+</and>
+        </condition>
+    </aimninex>
+
+
+                <aimninex>
+        <name>aim9lock2</name>
+        <mode>looped</mode>
+        <path>Aircraft/F-22/Sounds/AV/sidelock.wav</path>
+        <condition>
+<and>
+
+            <equals>
+                <property>instrumentation/radar/lock</property>
+                <value>1</value>
+            </equals>
+            <equals>
+                <property>instrumentation/radar/threat-spotted</property>
+                <value>1</value>
+            </equals>
+            <equals>
+                <property>controls/armament/selected-weapon-digit</property>
+                <value>1</value>
+            </equals>
+        <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+<not>
+<property>/gear/gear/wow</property>
+		    <value>true</value>
+</not>
+</and>
+        </condition>
+    </aimninex>
 
 
  </fx>

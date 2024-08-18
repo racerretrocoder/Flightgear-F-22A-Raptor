@@ -15,12 +15,10 @@ fire_MG = func(b) {
     var time = getprop("/sim/time/elapsed-sec");
     if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
     
-    if(getprop("/controls/armament/stick-selector") == 1
-        and getprop("/ai/submodels/submodel/count") > 0
-        and isFiring == 0)
+    if(getprop("/controls/armament/stick-selector") == 1)
     {
         isFiring = 1;
-        setprop("/controls/armament/Gun_trigger", 1);
+        setprop("/controls/armament/trigger", 1);
         #settimer(stopFiring, 0.1);
     }
     if(getprop("/controls/armament/stick-selector") == 2)
@@ -42,7 +40,7 @@ fire_MG = func(b) {
 }
 
 var stopFiring = func() {
-    setprop("/controls/armament/Gun_trigger", 0);
+    setprop("/controls/armament/trigger", 0);
     isFiring = 0;
 }
 
@@ -155,7 +153,7 @@ var impact_listener = func {
 
 var hitmessage = func(typeOrd) {
     #print("inside hitmessage");
-    var phrase = typeOrd ~ " hit: " ~ hit_callsign ~ ": " ~ hits_count ~ " hits";
+    var phrase = "M61A1 shell" ~ " hit: " ~ hit_callsign ~ ": " ~ hits_count ~ " hits";
     if (getprop("payload/armament/msg") == 1) {
         #armament.defeatSpamFilter(phrase);
         var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells[typeOrd][0]+1));
@@ -164,7 +162,7 @@ var hitmessage = func(typeOrd) {
         msg.Distance = hits_count;
         msg.RemoteCallsign = hit_callsign;
         notifications.hitBridgedTransmitter.NotifyAll(msg);
-        damage.damageLog.push("You hit "~hit_callsign~" with "~typeOrd~", "~hits_count~" times.");
+        damage.damageLog.push("You hit "~hit_callsign~" with "~"M61A1 shells"~", "~hits_count~" times.");
     } else {
         setprop("/sim/messages/atc", phrase);
     }

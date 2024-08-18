@@ -393,7 +393,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
         msg.RemoteCallsign = me.Tgt.get_Callsign();
         msg.UniqueIndex = ""~typeID~typeID;
         msg.Pitch = me.pitch;
-        msg.Heading = me.hdg;
+        msg.Heading = OurHdg;
         msg.u_fps = 0;
         #msg.isValid();
         notifications.geoBridgedTransmitter.NotifyAll(msg);
@@ -537,7 +537,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
             {
                 me.update_track();
             }
-            #print(me.life_time);
+            print(me.life_time);
             if(init_launch == 0 )
             {
                 # use the rail or a/c pitch for the first frame.
@@ -558,8 +558,15 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
                 }
                 pitch_deg += me.track_signal_e;
                 hdg_deg += me.track_signal_h;
-                
-                #print("Still Tracking : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
+
+
+       # me.checkForFlare();
+
+		#me.checkForChaff();
+
+
+
+                print("Still Tracking : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
             }
         }
         #print("status :", me.status, "free ", me.free, "init_launch : ", init_launch);
@@ -642,6 +649,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
             settimer(func(){ me.update()}, 0);
         }
     },
+
 
     update_track: func()
     {
@@ -1114,6 +1122,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
 
 
     active: {},
+    
 };
 
 # Create impact report.
