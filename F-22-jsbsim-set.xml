@@ -309,7 +309,7 @@
 			<line></line>
 						<line></line>
 			<line>---------------------------------Specifications:</line>
-			<line></line>
+
 			<line>Maximum speed: Mach 2.25 @ 65000ft: Mach 1.8+ @ sea level</line>
 			<line>Super Cruise speed: Mach 1.10 20000-65000ft ~~ Mil Thrust</line>
 			<line>Sustained turn rate (FBW ON): 28+ deg/sec </line>
@@ -324,7 +324,7 @@
 <line>You will know its on when the green light just below the switch turns on, (You may have to press it twice when you spawn in)</line>
 			<line></line>		
 <line>To Start Raptor: Simply Press the 2 JFS switches on the bottom left console. Then press the 2 cutoff switches.</line>
-<line></line>
+			<line>Next switch the 6 switches on the Electrical panel to turn on instruments and flight controls</line>
 <line>---------------------------------Some info on Flight dynamics and Fly by wire---------------------------------</line>
 <line></line>
 <line>Rotate around 185 With auto flaps</line>
@@ -338,8 +338,10 @@
 <line>Manuel control of the flaps is available when the gear is up</line>
 <line>The FBW override switch disables the automatic flaps and allows you to control them no matter the gear possition</line>
 <line></line>
+			<line>RWR terminology: When you here 3 beeps: New Threat Deteced. When you here 1 beep: Redected threat.</line>
+<line>When you here Repeated delayed beeps: a bandit is locked on you. When you hear repeated quick beeps Missile inbound! Missile will show on RWR</line>
 <line>---------------------------------Autopilot:</line>
-<line></line>
+
 <line>The 3 buttons with right arrows disable the autopilot feature displayed in text to the right of the button Press Ctrl-c and youll see it</line>
 <line>Text will light up on the front panel showing which feature is active</line>	
 <line>Use the VS, ASI Up Down Rocker buttons to the right of the text panel to change the rates of the autopilot</line>	
@@ -1566,6 +1568,21 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
     </weight>
         <tacview-recording type="bool">0</tacview-recording>
 		</sim>
+
+
+        <sound>
+            <rwr-new type="double">0</rwr-new>
+        </sound>
+<f16>
+<ews>
+            <ew-rwr-switch type="int">1</ew-rwr-switch>
+</ews> 
+
+<avionics>
+            <power-ufc-warm type="int">1</power-ufc-warm>
+</avionics>
+</f16>
+
    <damage>
         <sound>
             <explode-on type="bool">false</explode-on>
@@ -1585,7 +1602,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             <hitable_by_cannon type="bool">true</hitable_by_cannon>
             <is_fleet type="bool">false</is_fleet>
             <rwr_to_screen type="bool">true</rwr_to_screen>
-            <rwr_audio_extended type="bool">false</rwr_audio_extended>
+            <rwr_audio_extended type="bool">true</rwr_audio_extended>
             <tacview_supported type="bool">false</tacview_supported>
             <m28_auto type="bool">false</m28_auto>
             <mlw_max type="double">0</mlw_max>
@@ -2116,10 +2133,18 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	</instrumentation>
 
 	<nasal>
-
+        <hack>
+            <file>Aircraft/F-22/Nasal/hackCanvas.nas</file><!-- must be first -->
+        </hack>
 	 <livery>
 <file>Aircraft/F-22/Nasal/liveries.nas</file>
 </livery>
+
+        <rcs>
+            <!-- must be before radar -->
+            <file>Aircraft/F-22/Nasal/rcs_mand.nas</file>
+            <file>Aircraft/F-22/Nasal/rcs.nas</file>
+        </rcs>
 		
 	 <notifications>
             <file>Aircraft/F-22/Nasal/ArmamentNotification.nas</file>
@@ -2151,10 +2176,21 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		<aar> 
             <file>Aircraft/Generic/aar.nas</file>
         </aar>
-		<rwr>
-			<file>Aircraft/F-22/nasal/rwr.nas</file>
-		</rwr>
+        <rwrs>
+            <file>Aircraft/F-22/Nasal/rwr.nas</file>
+        </rwrs>
 		
+
+        <radar_system>
+        	<file>Aircraft/F-22/Nasal/radar-system-database.nas</file>
+            <file>Aircraft/F-22/Nasal/radar-system.nas</file>
+            <file>Aircraft/F-22/Nasal/rwr-only.nas</file>
+        </radar_system>
+
+		        <rwrs>
+            <file>Aircraft/F-22/Nasal/rwr.nas</file>
+        </rwrs>
+
     <radardist>
       <file>Aircraft/Instruments-3d/radardist/radardist.nas</file>
     </radardist>
@@ -2177,6 +2213,11 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
     <m2000_load>
       <file>Aircraft/F-22/Nasal/weapons/ext_stores.nas</file>
     </m2000_load>
+
+<armament>
+      <file>Aircraft/F-22/Nasal/weapons/missile-code.nas</file>
+</armament>  <!--Only for RWR-->
+
 
     <guns>
       <file>Aircraft/F-22/Nasal/weapons.nas</file>

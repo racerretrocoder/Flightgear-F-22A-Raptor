@@ -1862,5 +1862,148 @@ need a better idea for this
       </volume>
     </click>
 
+<!--RWR Sound Effects
+
+New Threat
+Missile launch
+Counter
+
+-->
+
+
+
+
+        <rwr>
+            <name>rwr-new11</name>
+            <path>Aircraft/F-22/Sounds/AV/rwr-new-contact.wav</path>
+            <mode>once</mode>
+            <type>avionics</type>
+            <condition>
+                <equals>
+                    <property>sound/rwr-new</property>
+                    <value>1</value>
+                </equals>
+                                <greater-than>
+                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
+                  <value>0.9</value>
+                </greater-than>
+            </condition>
+
+
+        </rwr>
+
+        <rwr>
+            <name>rwr-new2</name>
+            <path>Aircraft/F-22/Sounds/AV/rwr-new-contact.wav</path>
+            <mode>once</mode>
+            <type>avionics</type>
+            <condition>
+                <equals>
+                    <property>sound/rwr-new</property>
+                    <value>0</value>
+                </equals>
+                                <greater-than>
+                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
+                  <value>0.9</value>
+                </greater-than>
+            </condition>
+
+
+        </rwr>
+
+
+
+        <rwr>
+            <name>rwr-new3</name>
+            <path>Aircraft/F-22/Sounds/AV/rwr-rep-contact.wav</path>
+            <mode>once</mode>
+            <type>avionics</type>
+            <condition>
+                <equals>
+                    <property>sound/rwr-pri</property>
+                    <value>1</value>
+                </equals>
+                                <greater-than>
+                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
+                  <value>0.9</value>
+                </greater-than>
+            </condition>
+
+
+        </rwr>
+
+        <rwr>
+            <name>launch</name>
+            <mode>single</mode>
+            <path>Aircraft/F-22/Sounds/AV/rwr-launch-detect.wav</path>
+            <type>avionics</type>
+            <condition>
+                <not>
+                    <equals>
+                        <property>sound/rwr-launch</property>
+                        <value type="string"></value>
+                    </equals>
+                </not>
+
+                                <greater-than>
+                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
+                  <value>0.9</value>
+                </greater-than>
+            </condition>
+            <volume>
+                <property>sim/current-view/internal</property>
+                <factor>1</factor>
+            </volume>
+
+        </rwr>
+
+        <rwr>
+            <name>launch2</name>
+            <mode>single</mode>
+            <path>Aircraft/F-22/Sounds/AV/rwr-launch-detect.wav</path>
+            <type>avionics</type>
+            <condition>
+                <not>
+                    <equals>
+                        <property>sound/rwr-launch</property>
+                        <value type="string"></value>
+                    </equals>
+                </not>
+                                <greater-than>
+                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
+                  <value>0.9</value>
+                </greater-than>
+            </condition>
+            <volume>
+                <property>sim/current-view/internal</property>
+                <factor>1</factor>
+            </volume>
+
+        </rwr>
+
+
+        <rwr>
+            <name>incoming</name> <!--When a missile is pitbul-->
+            <mode>once</mode>
+            <path>Aircraft/F-22/Sounds/sys/Counter.wav</path><!-- as of MLU tape 3 -->
+            <type>avionics</type>
+            <condition>
+                <!--not><property>fdm/jsbsim/gear/unit[2]/WOW</property></not-->
+                <or>
+                    <property>payload/armament/MAW-active</property>
+                    <property>payload/armament/MAW-semiactive</property>
+                </or>
+                <greater-than>
+                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
+                  <value>0.9</value>
+                </greater-than>
+            </condition>
+            <volume>
+                <property>sim/current-view/internal</property>
+                <factor>1</factor>
+            </volume>
+        </rwr>
+
+
  </fx>
 </PropertyList>

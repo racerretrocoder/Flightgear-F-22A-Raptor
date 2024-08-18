@@ -170,7 +170,6 @@ __/\\\\\\\\\\\__________________________________________________________________
 	<!-- left -->
 
 	
-
 	<model>
      <name>leftsmall</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/left.xml</path>
@@ -194,7 +193,6 @@ __/\\\\\\\\\\\__________________________________________________________________
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
-	
 	<!-- main MFD's -->
 	
 	<model>
@@ -261,7 +259,8 @@ __/\\\\\\\\\\\__________________________________________________________________
 
  <animation>
      <object-name>rightsmall</object-name>
-      <object-name>leftsmall</object-name>
+     <object-name>leftsmall</object-name>
+
  <!--      <object-name>frontdatadisplays</object-name>   TODO! Make the AP Button text be there own file so they dont disapear when power not applied-->
   <type>select</type>
   <condition>
@@ -274,7 +273,23 @@ __/\\\\\\\\\\\__________________________________________________________________
  </animation>
 
 
-	
+	 <animation>
+     <object-name>rwrtest</object-name>
+
+ <!--      <object-name>frontdatadisplays</object-name>   TODO! Make the AP Button text be there own file so they dont disapear when power not applied-->
+  <type>select</type>
+  <condition>
+
+<greater-than>
+				<property>fdm/jsbsim/fcs/elec-1</property> <!--front controls switch-->
+				<value>0.8</value>
+			</greater-than>
+  </condition>
+ </animation>
+
+
+
+
 <!--
 
                                                                                                                                                                                                               
