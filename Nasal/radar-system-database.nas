@@ -59,6 +59,7 @@ var Database = {
     "Typhoon":                {hasAirRadar:1, rwrCode:"EF", baseThreat:defaultFighterThreat},
     "MiG-23ML":               {hasAirRadar:1, rwrCode:"23", baseThreat:defaultFighterThreat},
     "MiG-23MLD":              {hasAirRadar:1, rwrCode:"23", baseThreat:defaultFighterThreat},
+    "seahawk-3d":              {hasAirRadar:1, rwrCode:"11", baseThreat:defaultFighterThreat},
 # Big aircraft
 	# TODO: Verify which of these big birds really has A/A radars
     "B-1B":                   {hasAirRadar:1, rwrCode:"B1"},
@@ -228,6 +229,7 @@ var Database = {
 	"ea-6b":                  {hasAirRadar:1, rwrCode:"A6", baseThreat:defaultFighterThreat},
 	"F-117":                  {},
 	"F-22-Raptor":            {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
+	"F-22A Raptor":            {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
 	"F-35A":                  {hasAirRadar:1, rwrCode:"35", baseThreat:defaultFighterThreat},
 	"F-35B":                  {hasAirRadar:1, rwrCode:"35", baseThreat:defaultFighterThreat},
 	"F-35C":                  {hasAirRadar:1, rwrCode:"35", baseThreat:defaultFighterThreat},
