@@ -1,211 +1,428 @@
-# RWR routines.
+print("*** LOADING rwr.nas ... ***");
 
-# Alexis Bory (xiii)
+var lineWidth = 2;
 
-var OurAlt            = props.globals.getNode("position/altitude-ft");
-var OurHdg            = props.globals.getNode("orientation/heading-deg");
-var EcmOn             = props.globals.getNode("instrumentation/ecm/on-off", 1);
-var EcmAlert1         = props.globals.getNode("instrumentation/ecm/alert-type1", 1);
-var EcmAlert2         = props.globals.getNode("instrumentation/ecm/alert-type2", 1);
+RWRCanvas = {
+    new: func (_ident, root, center, diameter) {
+        var rwr = {parents: [RWRCanvas]};
+        rwr.max_icons = 12;
+        var radius = diameter/2;
+        rwr.inner_radius = radius*0.30;
+        rwr.outer_radius = radius*0.75;
+        rwr.sep1_radius = radius*0.300;
+        rwr.sep2_radius = radius*0.525;
+        rwr.sep3_radius = radius*0.775;
+        rwr.circle_radius_big = radius*0.5;
+        rwr.circle_radius_small = radius*0.125;
+        var tick_long = radius*0.25;
+        var tick_short = tick_long*0.5;
+        var font = int(0.08*diameter);
+        var colorG = [0.3,1,0.3];
+        var colorLG = [0,0.5,0];
+        rwr.fadeTime = 7;#seconds
+        rwr.rootCenter = root.createChild("group")
+                .setTranslation(center[0],center[1]);
+        var rootOffset = root.createChild("group")
+                .setTranslation(center[0]-diameter/2,center[1]-diameter/2);
+        rootOffset.setCenter(diameter/2,diameter/2);
+#        root.createChild("path")
+#           .moveTo(0, diameter/2)
+#           .arcSmallCW(diameter/2, diameter/2, 0, diameter, 0)
+#           .arcSmallCW(diameter/2, diameter/2, 0, -diameter, 0)
+#           .setStrokeLineWidth(lineWidth)
+#           .setColor(1, 1, 1);
+        rootOffset.createChild("path")
+           .moveTo(diameter/2-rwr.circle_radius_small, diameter/2)
+           .arcSmallCW(rwr.circle_radius_small, rwr.circle_radius_small, 0, rwr.circle_radius_small*2, 0)
+           .arcSmallCW(rwr.circle_radius_small, rwr.circle_radius_small, 0, -rwr.circle_radius_small*2, 0)
+           .setStrokeLineWidth(lineWidth)
+           .setColor(colorLG);
+        rootOffset.createChild("path")
+           .moveTo(diameter/2-rwr.circle_radius_big, diameter/2)
+           .arcSmallCW(rwr.circle_radius_big, rwr.circle_radius_big, 0, rwr.circle_radius_big*2, 0)
+           .arcSmallCW(rwr.circle_radius_big, rwr.circle_radius_big, 0, -rwr.circle_radius_big*2, 0)
+           .setStrokeLineWidth(lineWidth)
+           .setColor(colorLG);
+        rootOffset.createChild("path")
+           .moveTo(diameter/2-rwr.circle_radius_small/2, diameter/2)
+           .lineTo(diameter/2+rwr.circle_radius_small/2, diameter/2)
+           .moveTo(diameter/2, diameter/2-rwr.circle_radius_small/2)
+           .lineTo(diameter/2, diameter/2+rwr.circle_radius_small/2)
+           .setStrokeLineWidth(lineWidth)
+           .setColor(colorLG);
+        rootOffset.createChild("path")
+           .moveTo(0,diameter*0.5)
+           .horiz(tick_long)
+           .moveTo(diameter,diameter*0.5)
+           .horiz(-tick_long)
+           .moveTo(diameter*0.5,0)
+           .vert(tick_long)
+           .moveTo(diameter*0.5,diameter)
+           .vert(-tick_long)
+           .setStrokeLineWidth(lineWidth)
+           .setColor(colorLG);
+        rwr.rootCenter.createChild("path")
+           .moveTo(radius*math.cos(30*D2R),radius*math.sin(-30*D2R))
+           .lineTo((radius-tick_short)*math.cos(30*D2R),(radius-tick_short)*math.sin(-30*D2R))
+           .moveTo(radius*math.cos(60*D2R),radius*math.sin(-60*D2R))
+           .lineTo((radius-tick_short)*math.cos(60*D2R),(radius-tick_short)*math.sin(-60*D2R))
+           .moveTo(radius*math.cos(30*D2R),radius*math.sin(30*D2R))
+           .lineTo((radius-tick_short)*math.cos(30*D2R),(radius-tick_short)*math.sin(30*D2R))
+           .moveTo(radius*math.cos(60*D2R),radius*math.sin(60*D2R))
+           .lineTo((radius-tick_short)*math.cos(60*D2R),(radius-tick_short)*math.sin(60*D2R))
 
-var our_alt           = 0;
-var Mp = props.globals.getNode("ai/models");
-var tgts_list         = [];
-var ecm_alert1        = 0;
-var ecm_alert2        = 0;
-var ecm_alert1_last   = 0;
-var ecm_alert2_last   = 0;
-var u_ecm_signal      = 0;
-var u_ecm_signal_norm = 0;
-var u_radar_standby   = 0;
-var u_ecm_type_num    = 0;
+           .moveTo(-radius*math.cos(30*D2R),radius*math.sin(-30*D2R))
+           .lineTo(-(radius-tick_short)*math.cos(30*D2R),(radius-tick_short)*math.sin(-30*D2R))
+           .moveTo(-radius*math.cos(60*D2R),radius*math.sin(-60*D2R))
+           .lineTo(-(radius-tick_short)*math.cos(60*D2R),(radius-tick_short)*math.sin(-60*D2R))
+           .moveTo(-radius*math.cos(30*D2R),radius*math.sin(30*D2R))
+           .lineTo(-(radius-tick_short)*math.cos(30*D2R),(radius-tick_short)*math.sin(30*D2R))
+           .moveTo(-radius*math.cos(60*D2R),radius*math.sin(60*D2R))
+           .lineTo(-(radius-tick_short)*math.cos(60*D2R),(radius-tick_short)*math.sin(60*D2R))
+           .setStrokeLineWidth(lineWidth)
+           .setColor(colorLG);
+        rwr.texts = setsize([],rwr.max_icons);
+        for (var i = 0;i<rwr.max_icons;i+=1) {
+            rwr.texts[i] = rwr.rootCenter.createChild("text")
+                .setText("00")
+                .setAlignment("center-center")
+                .setColor(colorG)
+                .setFontSize(font, 1.0)
+                .hide();
 
-var launched = 0;
+        }
+        rwr.symbol_hat = setsize([],rwr.max_icons);
+        for (var i = 0;i<rwr.max_icons;i+=1) {
+            rwr.symbol_hat[i] = rwr.rootCenter.createChild("path")
+                    .moveTo(0,-font)
+                    .lineTo(font*0.7,-font*0.5)
+                    .moveTo(0,-font)
+                    .lineTo(-font*0.7,-font*0.5)
+                    .setStrokeLineWidth(lineWidth)
+                    .setColor(colorG)
+                    .hide();
+        }
 
-init = func() {
-	if (! launched) {
-		radardist.init();
-		settimer(rwr_loop, 0.5);
-		launched = 1;
-	}
-}
+ #       me.symbol_16_SAM = setsize([],max_icons);
+#       for (var i = 0;i<max_icons;i+=1) {
+ #          me.symbol_16_SAM[i] = me.rootCenter.createChild("path")
+#                   .moveTo(-11, 7)
+#                   .lineTo(-9, -7)
+#                   .moveTo(-9, -7)
+#                   .lineTo(-9, -4)
+#                   .moveTo(-9, -8)
+#                   .lineTo(-11, -4)
+#                   .setStrokeLineWidth(lineWidth)
+#                   .setColor(1,0,0)
+#                   .hide();
+#        }
+        rwr.symbol_launch = setsize([],rwr.max_icons);
+        for (var i = 0;i<rwr.max_icons;i+=1) {
+            rwr.symbol_launch[i] = rwr.rootCenter.createChild("path")
+                    .moveTo(font*1.2, 0)
+                    .arcSmallCW(font*1.2, font*1.2, 0, -font*2.4, 0)
+                    .arcSmallCW(font*1.2, font*1.2, 0, font*2.4, 0)
+                    .setStrokeLineWidth(lineWidth)
+                    .setColor(colorG)
+                    .hide();
+        }
+        rwr.symbol_new = setsize([],rwr.max_icons);
+        for (var i = 0;i<rwr.max_icons;i+=1) {
+            rwr.symbol_new[i] = rwr.rootCenter.createChild("path")
+                    .moveTo(font*1.2, 0)
+                    .arcSmallCCW(font*1.2, font*1.2, 0, -font*2.4, 0)
+                    .setStrokeLineWidth(lineWidth)
+                    .setColor(colorG)
+                    .hide();
+        }
+#        rwr.symbol_16_lethal = setsize([],max_icons);
+#        for (var i = 0;i<max_icons;i+=1) {
+#           rwr.symbol_16_lethal[i] = rwr.rootCenter.createChild("path")
+#                   .moveTo(10, 10)
+#                   .lineTo(10, -10)
+#                   .lineTo(-10,-10)
+#                   .lineTo(-10,10)
+#                   .lineTo(10, 10)
+#                   .setStrokeLineWidth(lineWidth)
+#                   .setColor(1,0,0)
+#                   .hide();
+#        }
+        rwr.symbol_priority = rwr.rootCenter.createChild("path")
+                    .moveTo(0, font*1.2)
+                    .lineTo(font*1.2, 0)
+                    .lineTo(0,-font*1.2)
+                    .lineTo(-font*1.2,0)
+                    .lineTo(0, font*1.2)
+                    .setStrokeLineWidth(lineWidth)
+                    .setColor(colorG)
+                    .hide();
 
-# Main loop ###############
-var rwr_loop = func() {
-	ecm_on = EcmOn.getBoolValue();
-	if ( ecm_on) {
-		our_alt = OurAlt.getValue();
-		tgts_list = [];
-		var raw_list = Mp.getChildren();
-		foreach( var c; raw_list ) {
-			var type = c.getName();
-			if (!c.getNode("valid", 1).getValue()) {
-				continue;
-			}
-			var HaveRadarNode = c.getNode("radar");
-			if (type == "multiplayer" or type == "tanker" and HaveRadarNode != nil) {
-				var u = Threat.new(c);
-				u_ecm_signal      = 0;
-				u_ecm_signal_norm = 0;
-				u_radar_standby   = 0;
-				u_ecm_type_num    = 0;
-				if ( u.Range != nil) {
-					# Test if target has a radar. Compute if we are illuminated. This propery used by ECM
-					# over MP, should be standardized, like "ai/models/multiplayer[0]/radar/radar-standby".
-					var u_name = radardist.get_aircraft_name(u.string);
-					var u_maxrange = radardist.my_maxrange(u_name); # in kilometer, 0 is unknown or no radar.
-					var horizon = u.get_horizon( our_alt );
-					var u_rng = u.get_range();
-					var u_carrier = u.check_carrier_type();
-					if ( u.get_rdr_standby() == 0 and u_maxrange > 0  and u_rng < horizon ) {
-						# Test if we are in its radar field (hard coded 74°) or if we have a MPcarrier.
-						# Compute the signal strength.
-						var our_deviation_deg = deviation_normdeg(u.get_heading(), u.get_reciprocal_bearing());
-						if ( our_deviation_deg < 0 ) { our_deviation_deg *= -1 }
-						if ( our_deviation_deg < 37 or u_carrier == 1 ) {
-							u_ecm_signal = (((-our_deviation_deg/20)+2.5)*(!u_carrier )) + (-u_rng/20) + 2.6 + (u_carrier*1.8);
-							u_ecm_type_num = radardist.get_ecm_type_num(u_name);
-						}
-					} else {
-						u_ecm_signal = 0;
-					}	
-					# Compute global threat situation for undiscriminant warning lights
-					# and discrete (normalized) definition of threat strength.
-					if ( u_ecm_signal > 1 and u_ecm_signal < 3 ) {
-						EcmAlert1.setBoolValue(1);
-						ecm_alert1 = 1;
-						u_ecm_signal_norm = 2;
-					} elsif ( u_ecm_signal >= 3 ) {
-						EcmAlert2.setBoolValue(1);
-						ecm_alert2 = 1;
-						u_ecm_signal_norm = 1;
-					}
-					u.EcmSignal.setValue(u_ecm_signal);
-					u.EcmSignalNorm.setIntValue(u_ecm_signal_norm);
-					u.EcmTypeNum.setIntValue(u_ecm_type_num);
-				}
-			}
-		}
+	rwr.symbol_maw = rwr.rootCenter.createChild("path")
+                    .moveTo(0,-font*1.2)
+                    .lineTo(font*0.2, -font*1.0)
+                    .vert(font*2)
+                    .horiz(-font*0.4)
+                    .vert(-font*2)
+                    .lineTo(0,-font*1.2)
+                    .setStrokeLineWidth(lineWidth*1.2)
+                    .setColor(colorG)
+                    .hide();
 
-		# Summarize ECM alerts.
-		if ( ecm_alert1 == 0 and ecm_alert1_last == 0 ) { EcmAlert1.setBoolValue(0) }
-		if ( ecm_alert2 == 0 and ecm_alert1_last == 0 ) { EcmAlert2.setBoolValue(0) }
-		ecm_alert1_last = ecm_alert1; # And avoid alert blinking at each loop.
-		ecm_alert2_last = ecm_alert2;
-		ecm_alert1 = 0;
-		ecm_alert2 = 0;
-	} elsif ( size(tgts_list) > 0 ) {
-		foreach( u; tgts_list ) {
-			u.EcmSignal.setValue(0);
-			u.EcmSignalNorm.setIntValue(0);
-			u.EcmTypeNum.setIntValue(0);
-		}
-	}
-	settimer(rwr_loop, 0.05);
-}
+#        rwr.symbol_16_air = setsize([],max_icons);
+#        for (var i = 0;i<max_icons;i+=1) {
+ #          rwr.symbol_16_air[i] = rwr.rootCenter.createChild("path")
+#                   .moveTo(15, 0)
+#                   .lineTo(0,-15)
+#                   .lineTo(-15,0)
+#                   .setStrokeLineWidth(lineWidth)
+#                   .setColor(1,0,0)
+#                   .hide();
+#        }
+# Threat list ID:
+        rwr.AIRCRAFT_UNKNOWN  = "U";
+        rwr.ASSET_AI          = "AI";
+        rwr.AIRCRAFT_SEARCH   = "S";
+        rwr.shownList = [];
+        #
+        # recipient that will be registered on the global transmitter and connect this
+        # subsystem to allow subsystem notifications to be received
+        rwr.recipient = emesary.Recipient.new(_ident);
+        rwr.recipient.parent_obj = rwr;
+        rwr.vector_aicontacts = [];
+
+        rwr.recipient.Receive = func(notification)
+        {
+            if (notification.NotificationType == "FrameNotification")
+            {
+                #printf("RWR-canvas recv: %s", notification.NotificationType);
+                me.parent_obj.update();
+                return emesary.Transmitter.ReceiptStatus_OK;
+            }
+
+            return emesary.Transmitter.ReceiptStatus_NotProcessed;
+        };
+        emesary.GlobalTransmitter.Register(rwr.recipient);
+
+        return rwr;
+    },
+    assignSepSpot: func {
+        # me.dev        angle_deg
+        # me.sep_spots  0 to 2  45, 20, 15
+        # me.threat     0 to 2
+        # me.sep_angles 
+        # return   me.dev,  me.threat
+        me.newdev = me.dev;
+        me.assignIdealSepSpot();
+        me.plus = me.sep_angles[me.threat];
+        me.dir  = 0;
+        me.count = 1;
+        while(me.sep_spots[me.threat][me.spot] and me.count < size(me.sep_spots[me.threat])) {
+
+            if (me.dir == 0) me.dir = 1;
+            elsif (me.dir > 0) me.dir = -me.dir;
+            elsif (me.dir < 0) me.dir = -me.dir+1;
+
+            #printf("%2s: Spot %d taken. Trying %d direction.",me.typ, me.spot, me.dir);
+
+            me.newdev = me.dev + me.plus * me.dir;
+
+            me.assignIdealSepSpot();
+            me.count += 1;
+        }
+
+        me.sep_spots[me.threat][me.spot] += 1;
+
+        # finished assigning spot
+        #printf("%2s: Spot %d assigned. Ring=%d",me.typ, me.spot, me.threat);
+        me.dev = me.spot * me.plus;
+        if (me.threat == 0) {
+            me.threat = me.sep1_radius;
+        } elsif (me.threat == 1) {
+            me.threat = me.sep2_radius;
+        } elsif (me.threat == 2) {
+            me.threat = me.sep3_radius;
+        }
+    },
+    assignIdealSepSpot: func {
+        me.spot = math.round(geo.normdeg(me.newdev)/me.sep_angles[me.threat]);
+        if (me.spot >= size(me.sep_spots[me.threat])) me.spot = 0;
+    },
+    update: func {
+        var list = radar_system.getRWRList();
+	    var s = size(list);
+        me.elapsed = getprop("sim/time/elapsed-sec");
+        me.sep = getprop("A-10/avionics/cmsc/threat-separate");
+        var sorter = func(a, b) {
+            if(a[1] > b[1]){
+                return -1; # A should before b in the returned vector
+            }elsif(a[1] == b[1]){
+                return 0; # A is equivalent to b
+            }else{
+                return 1; # A should after b in the returned vector
+            }
+        }
+        me.sortedlist = sort(list, sorter);#sort threat
+
+#        me.sortedlist = [# This is for testing. Uncomment as needed.
+#            [{getModel:func{return "buk-m2";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.45, -0],
+#            [{getModel:func{return "s-300";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.45, -5],
+#            [{getModel:func{return "A-50";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.45, -15],
+#            [{getModel:func{return "s-200";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -25],
+#            [{getModel:func{return "S-75";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -30],
+#            [{getModel:func{return "MIM104D";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -30],
+#            [{getModel:func{return "fleet";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -25],
+#            [{getModel:func{return "SA-6";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -30],
+#            [{getModel:func{return "missile_frigate";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -30],
+#        ];
 
 
+        me.sep_spots = [[0,0,0,0,0,0,0,0],#45 degs  8
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],# 20 degs  18
+                        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];# 15 degs  24
+        me.sep_angles = [45,20,15];
 
-# Utilities.
-var deviation_normdeg = func(our_heading, target_bearing) {
-	var dev_norm = our_heading - target_bearing;
-	while (dev_norm < -180) dev_norm += 360;
-	while (dev_norm > 180) dev_norm -= 360;
-	return(dev_norm);
-}
+        me.newList = [];
+        me.i = 0;
+        me.prio = 0;
+        me.newsound = 0;
+        me.unk = 0;
+        foreach(me.contact; me.sortedlist) {
+	       #print("rwr: " ~ me.contact[0].get_Callsign() ~ " " ~ me.contact[0].getModel() ~ " " ~ me.contact[1]);
+            me.dbEntry = radar_system.getDBEntry(me.contact[0].getModel());
+            me.typ = me.dbEntry.rwrCode;
+	    # printf("type: %d, threat: %d", me.typ, me.contact[1]);
+            if (me.i > me.max_icons-1) {
+                break;
+            }
+            if (me.typ == nil) {
+                if (me.contact[0].prop.getName() != "multiplayer") {
+                    # AI planes are allowed to be unknowns
+                    me.typ = me.AIRCRAFT_UNKNOWN;
+                    me.unk = 1;
+                } else {
+                    continue;
+                }
+            }
+            me.threat = me.contact[1];
 
+            if (!me.sep) {
+                if (me.threat > 0.5 and me.typ != me.AIRCRAFT_UNKNOWN and me.typ != me.ASSET_AI and me.typ != me.AIRCRAFT_SEARCH) {
+                    me.threat = me.inner_radius;# inner circle
+                } elsif (me.threat > 0 and me.typ != me.ASSET_AI) {
+                    me.threat = me.outer_radius;# outer circle
+                } else {
+                    continue;
+                }
 
-setlistener("sim/signals/fdm-initialized", init);
+                me.dev = -me.contact[2]+90;
 
-# Target class
-var Threat = {
-	new : func (c) {
-		var obj = { parents : [Threat]};
-		obj.RdrProp = c.getNode("radar");
-		obj.Heading = c.getNode("orientation/true-heading-deg");
-		obj.Alt = c.getNode("position/altitude-ft");
-		obj.AcType = c.getNode("sim/model/ac-type");
-		obj.type = c.getName();
-		obj.index = c.getIndex();
-		obj.string = "ai/models/" ~ obj.type ~ "[" ~ obj.index ~ "]";
-		obj.shortstring = obj.type ~ "[" ~ obj.index ~ "]";
-		obj.InstrTgts = props.globals.getNode("instrumentation/radar2/targets", 1);
-		obj.TgtsFiles = obj.InstrTgts.getNode(obj.shortstring, 1);
+            } else {
 
-		obj.Range          = obj.RdrProp.getNode("range-nm");
-		obj.Bearing        = obj.RdrProp.getNode("bearing-deg");
-		obj.Elevation      = obj.RdrProp.getNode("elevation-deg");
-		obj.BBearing       = obj.TgtsFiles.getNode("bearing-deg", 1);
-		obj.BHeading       = obj.TgtsFiles.getNode("true-heading-deg", 1);
-		obj.RangeScore     = obj.TgtsFiles.getNode("range-score", 1);
-		obj.RelBearing     = obj.TgtsFiles.getNode("ddd-relative-bearing", 1);
-		obj.Carrier        = obj.TgtsFiles.getNode("carrier", 1);
-		obj.EcmSignal      = obj.TgtsFiles.getNode("ecm-signal", 1);
-		obj.EcmSignalNorm  = obj.TgtsFiles.getNode("ecm-signal-norm", 1);
-		obj.EcmTypeNum     = obj.TgtsFiles.getNode("ecm_type_num", 1);
+                me.dev = -me.contact[2]+90;
 
-		obj.RadarStandby = c.getNode("sim/multiplay/generic/int[2]");
-		obj.deviation = nil;
+                if (me.threat > 0.5 and me.typ != me.AIRCRAFT_UNKNOWN and me.typ != me.ASSET_AI and me.typ != me.AIRCRAFT_SEARCH) {
+                    me.threat = 0;
+                } elsif (me.threat > 0.25 and me.typ != me.ASSET_AI) {
+                    me.threat = 1;
+                } elsif (me.threat > 0.00 and me.typ != me.ASSET_AI) {
+                    me.threat = 2;
+                } else {
+                    continue;
+                }
+                me.assignSepSpot();
+            }
+            me.dev = -me.contact[2]+90;
+            me.x = math.cos(me.dev*D2R)*me.threat;
+            me.y = -math.sin(me.dev*D2R)*me.threat;
+            me.texts[me.i].setTranslation(me.x,me.y);
+            me.texts[me.i].setText(me.typ);
+            me.texts[me.i].show();
+            if (me.prio == 0 and me.typ != me.ASSET_AI and me.typ != me.AIRCRAFT_UNKNOWN) {#
+                me.symbol_priority.setTranslation(me.x,me.y);
+                me.symbol_priority.show();
+                me.prio = 1;
+            }
+            if (me.contact[0].getType() == armament.AIR) {
+                #air-borne
+                me.symbol_hat[me.i].setTranslation(me.x,me.y);
+                me.symbol_hat[me.i].show();
+            } else {
+                me.symbol_hat[me.i].hide();
+            }
+            if (me.contact[0].get_Callsign()==getprop("sound/rwr-launch") and 10*(me.elapsed-int(me.elapsed))>5) {#blink 2Hz
+                me.symbol_launch[me.i].setTranslation(me.x,me.y);
+                me.symbol_launch[me.i].show();
+            } else {
+                me.symbol_launch[me.i].hide();
+            }
+            me.popupNew = me.elapsed;
+            foreach(me.old; me.shownList) {
+                if(me.old[0].equals(me.contact[0])) {
+                    me.popupNew = me.old[1];
+                    break;
+                }
+            }
+            if (me.popupNew == me.elapsed) {
+                me.newsound = 1;
+            }
+            if (me.popupNew > me.elapsed-me.fadeTime) {
+                me.symbol_new[me.i].setTranslation(me.x,me.y);
+                me.symbol_new[me.i].show();
+                me.symbol_new[me.i].update();
+            } else {
+                me.symbol_new[me.i].hide();
+            }
+            #printf("display %s %d",contact[0].get_Callsign(), me.threat);
+            append(me.newList, [me.contact[0],me.popupNew]);
+            me.i += 1;
+        }
+        me.shownList = me.newList;
+        if (me.newsound == 1) setprop("sound/rwr-new", !getprop("sound/rwr-new"));
+        for (;me.i<me.max_icons;me.i+=1) {
+            me.texts[me.i].hide();
+            me.symbol_hat[me.i].hide();
+            me.symbol_new[me.i].hide();
+            me.symbol_launch[me.i].hide();
+        }
+        if (me.prio == 0) {
+            me.symbol_priority.hide();
+        }
+        setprop("sound/rwr-pri", me.prio);
+        setprop("sound/rwr-unk", me.unk);
 
-		return obj;
-	},
-	get_heading : func {
-		var n = me.Heading.getValue();
-		me.BHeading.setValue(n);
-		return n;
-	},
-	get_bearing : func {
-		var n = me.Bearing.getValue();
-		me.BBearing.setValue(n);
-		return n;
-	},
-	set_relative_bearing : func(n) {
-		me.RelBearing.setValue(n);
-	},
-	get_reciprocal_bearing : func {
-		return geo.normdeg(me.get_bearing() + 180);
-	},
-	get_deviation : func(true_heading_ref) {
-		me.deviation =  - deviation_normdeg(true_heading_ref, me.get_bearing());
-		return me.deviation;
-	},
-	get_altitude : func {
-		return me.Alt.getValue();
-	},
-	get_range : func {
-		return me.Range.getValue();
-	},
-	get_horizon : func(own_alt) {
-		var tgt_alt = me.get_altitude();
-		if ( tgt_alt != nil ) {
-			if ( own_alt < 0 ) { own_alt = 0.001 }
-			if ( debug.isnan(tgt_alt)) {
-				return(0);
-			}
-			if ( tgt_alt < 0 ) { tgt_alt = 0.001 }
-			return radardist.radar_horizon( own_alt, tgt_alt );
-		} else {
-			return(0);
-		}
-	},
-	check_carrier_type : func {
-		var type = "none";
-		var carrier = 0;
-		if ( me.AcType != nil ) { type = me.AcType.getValue() }
-		if ( type == "MP-Nimitz" or type == "MP-Eisenhower"  or type == "MP-Vinson") { carrier = 1 }
-		# This works only after the mp-carrier model has been loaded. Before that it is seen like a common aircraft.
-		me.Carrier.setBoolValue(carrier);
-		return carrier;
-	},
-	get_rdr_standby : func {
-		var s = 0;
-		if ( me.RadarStandby != nil ) {
-			s = me.RadarStandby.getValue();
-			if (s == nil) { s = 0 } elsif (s != 1) { s = 0 }
-		}
-		return s;
-	},
-	list : [],
+        if (getprop("payload/armament/MAW-active")) {
+          me.mawdegs = getprop("payload/armament/MAW-bearing");
+          me.dev = -geo.normdeg180(me.mawdegs-getprop("orientation/heading-deg"))+90;
+          me.x = math.cos(me.dev*D2R)*(me.inner_radius+me.outer_radius)*0.5;
+          me.y = -math.sin(me.dev*D2R)*(me.inner_radius+me.outer_radius)*0.5;
+          me.symbol_maw.setRotation(-(me.dev+90)*D2R);
+          me.symbol_maw.setTranslation(me.x, me.y);
+          me.symbol_maw.show();
+        } else {
+          me.symbol_maw.hide();
+        }
+    },
 };
+var rwr = nil;
+var cv = nil;
+var timer = nil;
 
+var main_init_listener = setlistener("sim/signals/fdm-initialized", func {
+   if (getprop("sim/signals/fdm-initialized") == 1) {
+      var diam = 512;
+      cv = canvas.new({
+         "name": "Rwr",
+         "size": [diam,diam],
+         "view": [diam,diam],
+         "mipmapping": 1
+     });
 
+     cv.addPlacement({"node": "bkg", "texture":"rwr-bkg.png"});
+     cv.setColorBackground(0.01, 0.0105, 0);
+     var root = cv.createGroup();
+     rwr = RWRCanvas.new("RWRCanvas", root, [diam/2,diam/2],diam);
+     removelistener(main_init_listener);
+     timer = maketimer(0.5, func rwr.update());
+     timer.start();
+   }
+}, 0, 0);

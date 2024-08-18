@@ -892,6 +892,28 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </table>
     </function>
 
+<!--Backup power for FLC-->
+    <function name="fcs/EPU">
+      <description>Backup power that triggers when you get hit by a missile</description>
+          <table>
+    <independentVar lookup="row">/velocities/mach</independentVar>
+    <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+    <tableData>
+          0       1     
+     0.0  0       0   
+     0.2  0       1    
+     0.4  0       1    
+     0.6  0       1    
+     0.8  0       1    
+     0.99 0       1    
+     1.0  0       1    
+
+    </tableData>
+   </table>
+    </function>
+
+
+
     <function name="fcs/warning-alert">  
 
         <table>
@@ -1028,11 +1050,25 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    </function>
 
-<function name="fcs/elec-3">  <!-- TODO! Disable Flight control input when this function is zero! -->
+<function name="fcs/elec-3-1">  <!-- TODO! Disable Flight control input when this function is zero! -->
+ <description>elec</description>
+        <table>
+            <independentVar lookup="row">fcs/EPU</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <tableData>
+                     0    1
+              0      0    1<!--But main engine will override it too-->
+              1      1    1 <!--EPU powers controls when engine dead-->
+            </tableData>
+        </table>
+
+   </function>
+
+<function name="fcs/elec-3">  <!-- TODO! Disable Flight control input when this function is zero! -Done! Add EPU support -Done! -->
  <description>elec</description>
         <table>
             <independentVar lookup="row">/controls/electric/computer</independentVar>
-            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <independentVar lookup="column">fcs/elec-3-1</independentVar> <!--Only for Flight controls EPU connect to this function-->
             <tableData>
                      0    1
               0      0    0
@@ -1041,6 +1077,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         </table>
 
    </function>
+
 
 <function name="fcs/elec-4">  
  <description>elec</description>
