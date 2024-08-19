@@ -666,9 +666,29 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
         <command>property-toggle</command>
         <property>sim/model/click</property>
       </binding>
+	<binding>
+	   <command>property-cycle</command>
+	   <property>controls/electric/battswitch-pos</property>
+	   <value>-1</value>
+	   <value>1</value>
+	   <value>0</value>
+	</binding>
    </action>
  </animation>
 
+<animation>
+	<type>rotate</type>
+	<object-name>BATSWITCH</object-name>
+	<property>controls/electric/battswitch-pos</property>
+	<factor>-20</factor>
+	<axis>
+		<x>1</x>
+	</axis>
+	<center>
+		<y-m>0.41825</y-m>
+		<z-m>-0.35995</z-m>
+	</center>
+</animation>
 
 
 
