@@ -184,6 +184,17 @@
         </binding>
 </item>
 
+
+                    <item>
+                        <label>Mig-28.nas dialog</label>
+                        <enabled type="bool">true</enabled>
+                        <name>scenario28</name>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>scenario28</dialog-name>
+                        </binding>
+                    </item>
+
 				</menu>
 			</default>
 		</menubar>
@@ -212,12 +223,14 @@
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
 
 
-<int n="12" type="int" alias="/controls/baydoors/AIM120"/>
+<int n="12" type="int" alias="/fdm/jsbsim/fcs/AIM120"/>
 
 
 <int n="13" type="int" alias="/controls/smoke/Switch"/> 
-<!--Missiles in bays on MP-->
+<int n="14" type="int" alias="/fdm/jsbsim/fcs/AIM9X"/>
 
+<!--Missiles in bays on MP-->
+<string n="6" type="string"></string><!-- string 6 used by radar lock RWR warning -->
 <string n="10" type="string" alias="/sim/weight/selected"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for extra 4 for extra 5 for extra-->
 <string n="11" type="string" alias="/sim/weight[1]/selected"/>
 <string n="12" type="string" alias="/sim/weight[2]/selected"/>
@@ -1398,9 +1411,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-          <x-m type="double"> 11.55 </x-m>
-          <y-m type="double"> 0.0 </y-m>
-          <z-m type="double"> -0.404 </z-m>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> 0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
       <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
@@ -1415,9 +1428,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-          <x-m type="double"> 16.00 </x-m>
-          <y-m type="double"> 0.0 </y-m>
-          <z-m type="double"> -0.404 </z-m>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> 0.67 </y-m>
+    <z-m type="double"> -1.6 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
       <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
@@ -1450,16 +1463,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-          <x-m type="double"> 14.000 </x-m>
-          <y-m type="double"> 4.836 </y-m>
-          <z-m type="double"> -0.24 </z-m>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> -0.67 </y-m>
+    <z-m type="double"> -1.6 </z-m>
       </offsets>
-      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
-      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
-      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
-      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
-      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
-      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
     </weight>
 
     <weight n="4">
@@ -1471,12 +1478,6 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
           <y-m type="double"> -6.490 </y-m>
           <z-m type="double"> -0.02 </z-m>
       </offsets>
-      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
-      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
-      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
-      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
-      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
-      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
     </weight>
 
     <weight n="5">
@@ -1484,9 +1485,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-          <x-m type="double"> 14.800 </x-m>
-          <y-m type="double"> 6.490 </y-m>
-          <z-m type="double"> -0.02 </z-m>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> -0.95 </y-m>
+    <z-m type="double"> -1.6 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
       <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
@@ -1501,9 +1502,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-          <x-m type="double"> 15.400 </x-m>
-          <y-m type="double"> -7.570 </y-m>
-          <z-m type="double"> 0.156  </z-m>
+<x-m type="double"> -1.0  </x-m>
+<y-m type="double"> 1.7 </y-m>
+<z-m type="double"> -1.3 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
       <opt><name>R-27R</name>             <lbs type="double">  230.21 </lbs></opt>
@@ -1519,9 +1520,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-          <x-m type="double"> 15.400 </x-m>
-          <y-m type="double"> 7.570  </y-m>
-          <z-m type="double"> 0.156  </z-m>
+<x-m type="double"> -1.0  </x-m>
+<y-m type="double"> -1.7 </y-m>
+<z-m type="double"> -1.3 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
       <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
@@ -1554,9 +1555,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-          <x-m type="double"> 13.550 </x-m>
-          <y-m type="double">  1.235 </y-m>
-          <z-m type="double"> -1.324 </z-m>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> -0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
       <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
@@ -1730,6 +1731,17 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <value>1</value> <!--i should move this to the FDM so i can make a nice smooth value-->
 				</binding>
 			</key>
+					<key n="6">
+				<name>Ctrl-d</name>
+				<desc>Open/close baydoors (aim-9x)</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>controls/baydoors/AIM9X</property>
+<value>0</value>
+<value>1</value> <!--i should move this to the FDM so i can make a nice smooth value-->
+				</binding>
+			</key>
+
 			
 			<key n="99">
 				<name>c</name>
@@ -1810,7 +1822,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <desc>Cycle Gun/Missile</desc>
   <binding>
  <command>property-cycle</command>
- <property>controls/armament/stick-selector</property> <!--Currently guns dont do anything with e-->
+ <property>controls/armament/stick-selector</property> <!--Working!! :D-->
  <value>1</value>
  <value>2</value>
 </binding>
@@ -2137,6 +2149,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	 <livery>
 <file>Aircraft/F-22/Nasal/liveries.nas</file>
 </livery>
+        <mig28>
+            <file>Aircraft/F-22/Nasal/mig28.nas</file>
+        </mig28>
+
 
         <rcs>
             <!-- must be before radar -->

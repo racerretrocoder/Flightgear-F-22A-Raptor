@@ -28,10 +28,10 @@
 
 		
 		<condition>
-			<greater-than>
-				<property>controls/baydoors/AIM120</property>
+			<less-than>
+				<property>sim/multiplay/generic/int[14]</property>
 				<value>0.1</value>
-			</greater-than>
+			</less-than>
 		</condition>
 	
 	</animation>	

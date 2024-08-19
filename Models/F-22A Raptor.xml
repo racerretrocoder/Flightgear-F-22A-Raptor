@@ -76,7 +76,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
 
 
   <!-- Impact explosion -->
-  <!--><model>
+<!--  <model>
   <path>Aircraft/SU-27SK/Models/Effects/Explosion/Explode.xml</path>
   <condition>
     <property>sim/multiplay/generic/int[1]</property>
@@ -87,7 +87,7 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
     <z-m>0</z-m>
     <heading-deg>0</heading-deg>
     </offsets>
-  </model><-->
+  </model> -->
   
   <!-- Impact fire -->
   <model>
@@ -601,7 +601,7 @@ Use below instead
    <z>0</z>
   </axis>
  </animation>
-
+<!-- this is old
 	<animation>
 		<type>rotate</type>
 		<object-name>Left_Rocket_Bay_D1</object-name>
@@ -611,10 +611,7 @@ Use below instead
 
 		<property>sim/multiplay/generic/int[12]</property>
 		<interpolation>
-			<!--<entry>
-				<ind>0.0</ind>
-				<dep>0</dep>
-			</entry> -->
+	
 			<entry>
 				<ind>0.0</ind>
 				<dep>0</dep>
@@ -640,10 +637,7 @@ Use below instead
 		<object-name>Right_Rocket_Bay_D2</object-name>
 		<property>sim/multiplay/generic/int[12]</property>
 		<interpolation>
-		<!--	<entry>
-				<ind>0.0</ind>
-				<dep>0</dep>
-			</entry> -->
+
 			<entry>
 				<ind>0.0</ind>
 				<dep>0</dep>
@@ -661,22 +655,169 @@ Use below instead
 			<y2-m> 0.1792</y2-m>
 			<z2-m>-1.7615</z2-m>
 		</axis>
+	</animation> -->
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Left_Rocket_Bay_D1</object-name>
+		<object-name>Left_Rocket_Bay_D2</object-name>
+		<property>sim/multiplay/generic/int[12]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>130</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>BAYLEFT-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
 	</animation>
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Right_Rocket_Bay_D1</object-name>
+		<object-name>Right_Rocket_Bay_D2</object-name>
+		<property>sim/multiplay/generic/int[12]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-130</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>BAYRIGHT-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+
+		<object-name>9xdl2</object-name>
+		<property>sim/multiplay/generic/int[14]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>110</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>9xdl2-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+
+		<animation>
+		<type>rotate</type>
+
+		<object-name>9xdl1</object-name>
+		<property>sim/multiplay/generic/int[14]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-130</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>9xdl1-axis</object-name>
+		</axis>
+	</animation>
+
+
+		<animation>
+		<type>rotate</type>
+
+		<object-name>9xdr2</object-name>
+		<property>sim/multiplay/generic/int[14]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-130</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>9xdr2-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+
+		<animation>
+		<type>rotate</type>
+
+		<object-name>9xdr1</object-name>
+		<property>sim/multiplay/generic/int[14]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>130</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>9xdr1-axis</object-name>
+		</axis>
+	</animation>
+
+
 
 <animation>
 		<type>select</type>
-		<object-name>9xdl1</object-name>
-		<object-name>9xdr1</object-name>
-		<object-name>9xdl2</object-name>
-		<object-name>9xdr2</object-name>
+
+
 		<object-name>AIM-9-R-RAIL</object-name>
 		<object-name>AIM-9-L-RAIL</object-name>
 		
 		<condition>
-			<greater-than>
-				<property>sim/multiplay/generic/int[12]</property>
-				<value>0.1</value>
-			</greater-than>
+			<less-than>
+				<property>sim/multiplay/generic/int[14]</property>
+				<value>0.99</value>
+			</less-than>
 		</condition>
 	
 	</animation>	
@@ -688,8 +829,8 @@ Use below instead
 		
 		<condition>
 			<greater-than>
-				<property>sim/multiplay/generic/int[12]</property>
-				<value>0.1</value>
+				<property>/baydoors/position-norm</property>
+				<value>-1</value>
 			</greater-than>
 		</condition>
 	

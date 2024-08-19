@@ -25,9 +25,6 @@ var Encode_Load = func()
         "none",
         "Aim-9X",
         "Aim-120",
-        "R-27ER",
-        "R-27T",
-        "R-27ET",
         "SmokeGenerator"
     ];
     var compiled = "";
@@ -71,9 +68,6 @@ var Decode_Load = {
         "none",
         "Aim-9X",
         "Aim-120",
-        "R-27ER",
-        "R-27T",
-        "R-27ET",
         "SmokeGenerator"
         ];
         return m;

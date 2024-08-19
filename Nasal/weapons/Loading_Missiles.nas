@@ -100,7 +100,7 @@ var Loading_missile = func(name)
         life = 90000;
         fox = "A/G";
         rail = "false";
-        cruisealt = 0;
+        cruisealt = 1000;
 
 
     }
