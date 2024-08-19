@@ -9,6 +9,7 @@ var AcModel        = props.globals.getNode("sim/model/F-22", 1);
 var OurHdg         = props.globals.getNode("orientation/heading-deg");
 var OurRoll        = props.globals.getNode("orientation/roll-deg");
 var OurPitch       = props.globals.getNode("orientation/pitch-deg");
+
 var MPMessaging    = props.globals.getNode("/payload/armament/msg", 1);
 MPMessaging.setBoolValue(0); # this thing here set the Damage to off on spawn!
 
@@ -365,7 +366,7 @@ var MISSILE = {
       {
 
             damage.damageLog.push(phrase);
-            me.sendinflight();
+            #me.sendinflight(); update() dose this now
 
 
 
@@ -378,7 +379,7 @@ var MISSILE = {
     },
 
 
-sendinflight: func(){
+sendinflight: func(lat,lon,alt){
     #Send notify in flight
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
@@ -393,11 +394,12 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
         msg.RemoteCallsign = me.Tgt.get_Callsign();
         msg.UniqueIndex = ""~typeID~typeID;
         msg.Pitch = me.pitch;
-        msg.Heading = OurHdg;
+        msg.Heading = me.hdg;
         msg.u_fps = 0;
         #msg.isValid();
         notifications.geoBridgedTransmitter.NotifyAll(msg);
         print("Missile alert sent");
+
 
 },
 
@@ -561,11 +563,16 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
 
 
        # me.checkForFlare();
-
+# todo, Get a big brain and make custom flare, chaff detection
 		#me.checkForChaff();
 
-
-
+   var OurAlt       = props.globals.getNode("position/altitude-ft");
+var OurLat       = props.globals.getNode("position/latitude-deg");
+var OurLon       = props.globals.getNode("position/longitude-deg");
+                # Missile is flying at target
+                # Lets tell out target hes in a sticky situation
+                    me.sendinflight(0,0,0); 
+                # hehehe
                 print("Still Tracking : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
             }
         }

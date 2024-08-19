@@ -1988,6 +1988,11 @@ Counter
         <condition>
 <and>
             <equals>
+                <property>controls/armament/stick-selector</property>
+                <value>2</value>
+            </equals>
+
+            <equals>
                 <property>instrumentation/radar/lock</property>
                 <value>0</value>
             </equals>
@@ -2013,7 +2018,10 @@ Counter
         <path>Aircraft/F-22/Sounds/AV/sidearmed.wav</path>
         <condition>
 <and>
-
+            <equals>
+                <property>controls/armament/stick-selector</property>
+                <value>2</value>
+            </equals>
             <equals>
                 <property>instrumentation/radar/lock</property>
                 <value>0</value>
@@ -2040,6 +2048,10 @@ Counter
         <path>Aircraft/F-22/Sounds/AV/sidelock.wav</path>
         <condition>
 <and>
+            <equals>
+                <property>controls/armament/stick-selector</property>
+                <value>2</value>
+            </equals>
 
             <equals>
                 <property>instrumentation/radar/lock</property>
@@ -2072,7 +2084,10 @@ Counter
         <path>Aircraft/F-22/Sounds/AV/sidelock.wav</path>
         <condition>
 <and>
-
+            <equals>
+                <property>controls/armament/stick-selector</property>
+                <value>2</value>
+            </equals>
             <equals>
                 <property>instrumentation/radar/lock</property>
                 <value>1</value>
