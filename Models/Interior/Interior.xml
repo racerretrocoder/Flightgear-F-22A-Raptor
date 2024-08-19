@@ -690,6 +690,24 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
    </action>
  </animation>
 
+	<animation>
+		<type>rotate</type>
+		<object-name>elecswitch1</object-name>
+		<property>controls/electric/controls</property>
+		<offset-deg>0</offset-deg>
+		<factor>-40</factor>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+		<center>
+			<x-m>-5.231</x-m>
+			<y-m> 0.34633</y-m>
+			<z-m>-0.3569</z-m>
+		</center>
+	</animation>
+
  <animation>
   <type>pick</type>
    <object-name>elecswitch2</object-name>
@@ -708,6 +726,24 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
    </action>
  </animation>
 
+	<animation>
+		<type>rotate</type>
+		<object-name>elecswitch2</object-name>
+		<property>controls/electric/MFD</property>
+		<offset-deg>0</offset-deg>
+		<factor>-40</factor>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+		<center>
+			<x-m>-5.2063</x-m>
+			<y-m> 0.3465</y-m>
+			<z-m>-0.35401</z-m>
+		</center>
+	</animation>
+
  <animation>
   <type>pick</type>
    <object-name>elecswitch3</object-name>
@@ -725,6 +761,23 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
       </binding>
    </action>
  </animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>elecswitch3</object-name>
+		<property>controls/electric/computer</property>
+		<offset-deg>0</offset-deg>
+		<factor>-40</factor>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+		<center>
+			<x-m>-5.1808</x-m>
+			<y-m> 0.34717</y-m>
+			<z-m>-0.35105</z-m>
+		</center>
+	</animation>
 
  <animation>
   <type>pick</type>
@@ -744,6 +797,24 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
    </action>
  </animation>
 
+	<animation>
+		<type>rotate</type>
+		<object-name>elecswitch4</object-name>
+		<property>controls/electric/SMS</property>
+		<offset-deg>0</offset-deg>
+		<factor>-40</factor>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+		<center>
+			<x-m>-5.1523</x-m>
+			<y-m> 0.34726</y-m>
+			<z-m>-0.34771</z-m>
+		</center>
+	</animation>
+
   <animation>
   <type>pick</type>
    <object-name>elecswitch5</object-name>
@@ -762,6 +833,24 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
    </action>
  </animation>
 
+	<animation>
+		<type>rotate</type>
+		<object-name>elecswitch5</object-name>
+		<property>controls/electric/CMS</property>
+		<offset-deg>0</offset-deg>
+		<factor>-40</factor>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+		<center>
+			<x-m>-5.231</x-m>
+			<y-m> 0.31665</y-m>
+			<z-m>-0.3569</z-m>
+		</center>
+	</animation>
+
   <animation>
   <type>pick</type>
    <object-name>elecswitch6</object-name>
@@ -779,6 +868,24 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
       </binding>
    </action>
  </animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>elecswitch6</object-name>
+		<property>controls/electric/AESA</property>
+		<offset-deg>0</offset-deg>
+		<factor>-40</factor>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+		<center>
+			<x-m>-5.2063</x-m>
+			<y-m> 0.31645</y-m>
+			<z-m>-0.35402</z-m>
+		</center>
+	</animation>
 
 <!--TODO: Animation for the Elec panel
 
