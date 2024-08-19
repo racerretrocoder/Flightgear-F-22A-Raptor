@@ -1,30 +1,46 @@
 
 
-
+Nasal stuff is currently main priority!
 
 
 =================================
 { List is in order of priority  }
 =================================
 
-Speacil: Make a livery with for my friend shooter. 
-. Green Body
-. Blue wings
-. John wayne on the tails
-. Shooter text in a cool font near the canopy
+FDM stuff:
+Make the rudders limmit themselves at speeds above 263kts
+speed brake needs to be set lower slows down too fast!
+improve landing gear stuff. it's buggy some times
 
+Nasal stuff
+Make a script to detect when radar is locked or not for aim9 sound  --Done! See l.. lol forget file name already xd
+Make missile.nas successfully find and respond to target chaff and flares --im so close in this 
+Make a script to detect the current mfd page and what function a button commences
+Make radar2.nas send a spike warning to the target its locked on to.
 
-1: Add radar spike and armament-in-flight warnings sent to the target
+Model / 3D stuff:
+Make canopy lock inflight to prevent mach 1 openings of the canopy... lmao
+More interior features! (Optional)
+Better Aim-120 3d model
+Make the front intake fans spin with N1 (Use objects as axises! :D)
+Make the wheels spin
+Make more stuff move 
+WEP page on MFD -ideas Gives status of the weapon like if it missed
+Make the main raptor raptor model look not like a star at night
+make rwr revamp look like example picture
+Make the smoke when gun fires over MP so you know when its being shot 
 
-2: Replace the old weapons payload canvas dialog with the new one
+Overall enhancements:
 
-3: Add RWR and more MFD functions
+Sound:
+WEAPONS SOUNDS! Explosion on a enemy target. Missile sound firing from inside and outside the cockpit 
+Missile drop sfx
+make mp sounds better
+Wheel touch down and spinning SFX
+better High g turn sounds over the wings
+no pilot sfx. Its just annoying 
 
-4: Make flaps weaker
-
-5: Make more switchs
-
-5: Make guns and missiles fireable from both keyboard and the joystick
-
-6: more liverys
+special:
+Secret entry
+You know what todo :)
 
