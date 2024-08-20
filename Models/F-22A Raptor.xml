@@ -369,9 +369,11 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
   <name>left-strake-vortex</name>
   <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.xml</path>
   <offsets>
-   <x-m>-2.5</x-m>
+   <x-m>-2.9</x-m>
    <y-m>-1.3</y-m>
-   <z-m>-0.6</z-m>
+   <z-m>-0.8</z-m>
+
+   <heading-deg>-10</heading-deg>
   </offsets>
  </model>
 
@@ -379,9 +381,11 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
   <name>right-strake-vortex</name>
   <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.xml</path>
   <offsets>
-   <x-m>-2.5</x-m>
+   <x-m>-2.9</x-m>
    <y-m>1.3</y-m>
-   <z-m>-0.6</z-m>
+   <z-m>-0.8</z-m>
+
+   <heading-deg>10</heading-deg>
   </offsets>
  </model>
 
@@ -1054,8 +1058,8 @@ FR
 		<type>rotate</type>
 			<object-name>Left_Prewing</object-name>
 				<!-- <property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property> -->
-	<property>sim/multiplay/generic/float[21]</property>
-					<factor>30</factor>
+	<property>sim/multiplay/generic/float[28]</property>
+					<factor>-30</factor>
 
 						<axis>
 			<object-name>LEF-LEFT-AXIS</object-name>
@@ -1066,8 +1070,8 @@ FR
 		<type>rotate</type>
 			<object-name>Right_Prewing</object-name>
 				<!-- <property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property> -->
-	<property>sim/multiplay/generic/float[21]</property>
-					<factor>-30</factor>
+	<property>sim/multiplay/generic/float[28]</property>
+					<factor>30</factor>
 
 						<axis>
 			<object-name>LEF-RIGHT-AXIS</object-name>
