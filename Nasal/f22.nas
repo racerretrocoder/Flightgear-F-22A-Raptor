@@ -2,30 +2,31 @@
 # toggle keystroke or 2 position switch
 
 var cnpy = aircraft.door.new("canopy", 10);
-var switch = props.globals.getNode("sim/model/f22/controls/canopy/canopy-switch", 1);
+var switch = getprop("canopy/enabled", 1);
 var pos = props.globals.getNode("canopy/position-norm", 1);
 
-var canopy_switch = func(v) {
+var canopy_switch = func(v,a) {
 
 	var p = pos.getValue();
+  var condition = getprop("/canopy/enabled");
 
-	if (v == 2 ) {
+	if (a == 2 ) {
 		if ( p < 1 ) {
-			v = 1;
+			a = 1;
 		} elsif ( p >= 1 ) {
-			v = -1;
+			a = -1;
 		}
 	}
-
-	if (v < 0) {
-		switch.setValue(1);
+if (v) {
+	if (a < 0) {
 		cnpy.close();
-
-	} elsif (v > 0) {
-		switch.setValue(3);
+		setprop("canopy/state", 0);
+	} elsif (a > 0) {
+		setprop("canopy/state", 1);
 		cnpy.open();
 
-	}
+  	}
+  }
 }
 
 # fixes cockpit when use of ac_state.nas #####
@@ -53,12 +54,22 @@ settimer(func   {
 }
 
 
+var cha_flare = func{
+
+	 if (getprop("/ai/submodels/submodel/flare-release")) {
+  setprop("Sound/flare", 1);
+interpolate("Sound/flare", 0, 1.2);
+   }
+}
+
+
 
 
 var timer_loop = func{
 # logic
 
-
+# Pull up alarm. 
+# From respective owners
 
 		 if (getprop("velocities/speed-east-fps") != 0 or getprop("velocities/speed-north-fps") != 0) {
       var start = geo.aircraft_position();
@@ -98,6 +109,15 @@ var timer_loop = func{
 
 
 };
+Flare_timer = maketimer(0.25, cha_flare);
+
+setlistener("sim/signals/fdm-initialized", func {
+    Flare_timer.start();
+});
+    Flare_timer.start();
+
+    # loop body
+
 
 timer_loopTimer = maketimer(0.25, timer_loop);
 
@@ -107,6 +127,5 @@ setlistener("sim/signals/fdm-initialized", func {
     timer_loopTimer.start();
 
     # loop body
-
 
 

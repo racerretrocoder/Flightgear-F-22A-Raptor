@@ -42,7 +42,7 @@
 	
 	Hey Phoenix look at this!
 
-Dont make these objects metel looking! it crashes flightgear apon loading them in! 
+Dont make these objects metal looking! it crashes flightgear apon loading them in! 
 
         <object-name>TAIL-L-OUT</object-name>
         <object-name>TAIL-R-OUT</object-name>
@@ -50,6 +50,11 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
 		I dont know why but i put this here so you remeber for later, not to waste time
 
 		Happy Coding :)
+
+		Oh and these. 	
+		<object-name>Right_Rocket_Bay</object-name>
+		<object-name>Left_Rocket_Bay</object-name>
+		Same reason. dont know
 -->
 
         <object-name>Fuselage_2</object-name>
@@ -72,6 +77,25 @@ Dont make these objects metel looking! it crashes flightgear apon loading them i
         <object-name>right-flap_0</object-name>
         <object-name>Fuselage_1</object-name>
 		<object-name>nose</object-name>
+		<object-name>nose-bottom-left</object-name>
+		<object-name>nose-bottom-right</object-name>
+		<object-name>right-slat_0</object-name>
+		<object-name>left-slat_0</object-name>
+		<object-name>right-slat_1</object-name>
+		<object-name>left-slat_1</object-name>
+
+		<object-name>left-flap_1</object-name>
+		<object-name>right-flap_1</object-name>
+
+		<object-name>left-elevator_1</object-name>
+		<object-name>right-elevator_1</object-name>
+		<object-name>left-aileron_1</object-name>
+		<object-name>right-aileron_1</object-name>
+		<object-name>Left_Rocket_Bay_D1</object-name>
+		<object-name>Right_Rocket_Bay_D1</object-name>
+
+
+
     </effect>
 
 
@@ -864,10 +888,10 @@ Use below instead
     <object-name>canopy in</object-name>
 <object-name>canopy out</object-name>
 		<object-name>cabin</object-name>
-   <property>canopy/position-norm</property>
+   <property>fdm/jsbsim/fcs/canopy</property>
     <interpolation>
       <entry><ind> 0 </ind><dep>  0 </dep></entry>
-      <entry><ind> 1 </ind><dep> 40 </dep></entry>
+      <entry><ind> 1 </ind><dep> 30 </dep></entry>
     </interpolation>
     <center>
       <x-m> -3.5 </x-m>
@@ -885,8 +909,8 @@ Use below instead
 		<type>spin</type>
 		<object-name>Right_Back_Turbina</object-name>
 	
-<factor>50</factor>		
-<property>engines/engine/n1</property>
+<factor>6</factor>		
+<property>engines/engine/n2</property>
      <center>
    <x-m>0</x-m>
    <y-m>0.65</y-m>
@@ -897,6 +921,8 @@ Use below instead
    <y>0</y>
    <z>0</z>
   </axis>
+
+
 	
 	
 	</animation>	
@@ -904,8 +930,8 @@ Use below instead
 		<type>spin</type>
 		<object-name>Left_Back_Turbina</object-name>
 	
-<factor>50</factor>		
-<property>engines/engine[1]/n1</property>
+<factor>6</factor>		
+<property>engines/engine[1]/n2</property>
      <center>
    <x-m>0</x-m>
    <y-m>-0.65</y-m>
@@ -919,6 +945,33 @@ Use below instead
 	
 	
 	</animation>	
+
+
+	<animation>
+		<type>spin</type>
+		<object-name>rightfrontturbine</object-name>
+	
+<factor>3</factor>		
+<property>engines/engine/n1</property>
+
+ <axis>
+		<object-name>rightfan-axis</object-name>
+  </axis>
+	
+	</animation>	
+
+	<animation>
+		<type>spin</type>
+		<object-name>leftfrontturbine</object-name>
+	
+<factor>3</factor>		
+<property>engines/engine/n1</property>
+
+ <axis>
+		<object-name>leftfan-axis</object-name>
+  </axis>
+	
+	</animation>		
 
 <!--
 FR
@@ -995,7 +1048,31 @@ FR
 		</axis>
 	</animation>
 
+<!--Leading edge flaps-->
 
+	<animation>
+		<type>rotate</type>
+			<object-name>Left_Prewing</object-name>
+				<!-- <property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property> -->
+	<property>sim/multiplay/generic/float[21]</property>
+					<factor>30</factor>
+
+						<axis>
+			<object-name>LEF-LEFT-AXIS</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+			<object-name>Right_Prewing</object-name>
+				<!-- <property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property> -->
+	<property>sim/multiplay/generic/float[21]</property>
+					<factor>-30</factor>
+
+						<axis>
+			<object-name>LEF-RIGHT-AXIS</object-name>
+		</axis>
+	</animation>
 
 <!-- Elevator animations -->
 
@@ -1689,7 +1766,10 @@ FR
     <g>0.7</g>
     <b>0.5</b>
    </specular>
+      <!-- ALS settings -->
+ 
   </params>
+  
  </overlay>
 </model>
 
@@ -1808,7 +1888,31 @@ FR
     </offsets>
 </model>
 
+ <!--
+
+
+ landing light todo
+
  
+   <dist-scale>10</dist-scale>
+   <inner_angle>0.1</inner_angle>
+   <outer_angle>0.4</outer_angle>
+   <zero_angle>0.5</zero_angle>
+   <outer_gain>0.0</outer_gain>
+
+ 
+   <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+   </attenuation>
+   <spot-cutoff>60</spot-cutoff>
+   <spot-exponent>45</spot-exponent>
+   <range-m>1500</range-m>
+
+ 
+ 
+ -->
 
 
 <model>
