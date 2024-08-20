@@ -748,28 +748,31 @@
 	<max>0.7</max>
    </pitch>
   </engine>
-  
+  <!--     TEST
   <engine>
    <name>Exhaust Internal</name>
    <mode>looped</mode>
-   <path>Aircraft/F-22/Sounds/Samples/engine-exhaust.wav</path>
+   <path>Aircraft/F-22/Sounds/intakefront.wav</path>
    <condition>
 	     <property>/sim/current-view/internal</property>
+       	 <not>
+	  <property>/engines/engine/out-of-fuel</property>
+	 </not>
    </condition>
    <volume>
-        <property>/controls/canopy/position-norm</property>
+        <property>/canopy/position-norm</property>
         <factor>1.0</factor>
         <min>0.0</min>
 	<max>1.0</max>
 	</volume>
    <pitch>
         <property>engines/engine/n2</property>
-	<factor>0.005</factor>
+	<factor>0.00005</factor>
 	<min>0</min>
 	<max>0.7</max>
    </pitch>
   </engine>
-  
+  -->
  
 
 <!-- old sounds setup from A-4 & AlMurSi tunning -->
@@ -1163,12 +1166,12 @@
 
 		<canopy> <!-- Sound from A-6E-->
 			<name>closed canopy</name>
-			<path>Aircraft/F-22/Sounds/Samples/canopy-close2.wav</path>
+			<path>Aircraft/F-22/Sounds/canopylock.wav</path>
 			<condition>
-				<less-than>
-				   <property>controls/canopy/position-norm</property>
-				   <value>0.03</value>
-				</less-than>
+				<equals>
+				   <property>fdm/jsbsim/fcs/canopy</property>
+				   <value>0</value>
+				</equals>
 			</condition>
 			<volume>
 				<factor>1</factor>
@@ -1176,6 +1179,63 @@
 			</volume>
 		</canopy>
 
+		<canopy> <!-- Sound from A-6E-->
+			<name>closed canopy2</name>
+			<path>Aircraft/F-22/Sounds/canopylock.wav</path>
+			<condition>
+				<equals>
+				   <property>fdm/jsbsim/fcs/canopy</property>
+				   <value>0</value>
+				</equals>
+			</condition>
+			<volume>
+				<factor>1</factor>
+				<max>1.0</max>
+			</volume>
+		</canopy>
+
+
+		<canopy> 
+			<name>Open canopy</name>
+			<path>Aircraft/F-22/Sounds/canopyopen.wav</path>
+			<condition>
+				<greater-than>
+				   <property>canopy/state</property>
+				   <value>0</value>
+				</greater-than>
+        <not>
+				<equals>
+				   <property>fdm/jsbsim/fcs/canopy</property>
+				   <value>1</value>
+				</equals>
+        </not>
+			</condition>
+			<volume>
+				<factor>1</factor>
+				<max>1.0</max>
+			</volume>
+		</canopy>
+
+    		<canopy> 
+			<name>close move canopy</name>
+			<path>Aircraft/F-22/Sounds/canopyclose.wav</path>
+			<condition>
+				<less-than>
+				   <property>canopy/state</property>
+				   <value>1</value>
+				</less-than>
+        <not>
+				<equals>
+				   <property>fdm/jsbsim/fcs/canopy</property>
+				   <value>0</value>
+				</equals>
+        </not>
+			</condition>
+			<volume>
+				<factor>1</factor>
+				<max>1.0</max>
+			</volume>
+		</canopy>
 
 <!-- Crashed -->
 
@@ -1671,6 +1731,22 @@ need a better idea for this
 
 </volume>
  </overg>
+
+
+<chaffflare>
+  <name>cha-flare</name>
+  <mode>once</mode>
+  <path>Aircraft/F-22/Sounds/sys/chaflare.wav</path>
+  <condition>
+<greater-than>
+     <property>ai/submodels/submodel/flare-release</property>
+    <value>-0.2</value>
+   </greater-than>   
+	
+  </condition>
+</chaffflare>
+
+
 
   <jfsclick>
    <name>Jfsclick</name>

@@ -278,7 +278,10 @@
 				<name>Ctrl+d</name>
 				<desc>Toggle Center bay doors</desc>
 			</key>
-			
+			<key>
+				<name>Ctrl+F</name>
+				<desc>Toggle Aim-9 bay doors</desc>
+			</key>			
 			<key>
 				<name>l  (Lower-case L)</name>
 				<desc>Launch flares</desc>
@@ -317,7 +320,7 @@
         <desc>Toggle New Smoke winders </desc>
       </key>
 
-			
+			<!--Todo: Make a scroll bar.. some how...-->
 			<line>Lockheed Martin F-22A</line>
 			<line></line>
 						<line></line>
@@ -369,27 +372,27 @@
 		   <visibility n="1">true</visibility> <!--Todo: Make this false when not view internal-->
 		   <palette>
 			<color n="0">
-			 <alpha type="float">0.85</alpha>
-			 <antialiased type="bool">true</antialiased>
-			 <brightness type="float">0.85</brightness>
+			 <alpha type="float">1</alpha>
+			 <antialiased type="bool">false</antialiased>
+			 <brightness type="float">1</brightness>
 			 <transparent type="bool">true</transparent>
 			 <red type="float">0.0</red>
 			 <green type="float">1.0</green>
 			 <blue type="float">0.0</blue>
 			</color>
 			<color n="1">
-			 <alpha type="float">0.85</alpha>
-			 <antialiased type="bool">true</antialiased>
-			 <brightness type="float">0.85</brightness>
+			 <alpha type="float">1</alpha>
+			 <antialiased type="bool">false</antialiased>
+			 <brightness type="float">1</brightness>
 			 <transparent type="bool">true</transparent>
 			 <red type="float">1.0</red>
 			 <green type="float">0.0</green>
 			 <blue type="float">0.0</blue>
 			</color>
 <color n="2">
-			 <alpha type="float">0.85</alpha>
-			 <antialiased type="bool">true</antialiased>
-			 <brightness type="float">0.85</brightness>
+			 <alpha type="float">1</alpha>
+			 <antialiased type="bool">false</antialiased>
+			 <brightness type="float">1</brightness>
 			 <transparent type="bool">true</transparent>
 			 <red type="float">1.0</red>
 			 <green type="float">1.0</green>
@@ -1709,7 +1712,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	</engines>
 	
 	<canopy>
-		<canopy-pos-norm type="float">1.0</canopy-pos-norm>
+		<state type="int">0</state>
 	</canopy>
 	
 	<environment>
@@ -1722,7 +1725,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		 <keyboard>
 	
 			<key n="4">
-				<name>Ctrl-d</name>
+				<name>Ctrl-D</name>
 				<desc>Open/close baydoors</desc>
 				<binding>
 					<command>property-cycle</command>
@@ -1732,7 +1735,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 				</binding>
 			</key>
 					<key n="6">
-				<name>Ctrl-d</name>
+				<name>Ctrl-F</name>
 				<desc>Open/close baydoors (aim-9x)</desc>
 				<binding>
 					<command>property-cycle</command>
@@ -1748,8 +1751,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 				<desc>Open/close canopy</desc>
 				<binding>
 					<command>nasal</command>
-					<script>f22.canopy_switch(2)</script>
+					<script>f22.canopy_switch(getprop("canopy/enabled"),2)</script>
 				</binding>
+
 			</key>
 
 			 <key n="113">
