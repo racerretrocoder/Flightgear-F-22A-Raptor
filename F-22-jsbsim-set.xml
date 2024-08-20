@@ -218,6 +218,8 @@
  <float n="25" type="double" alias="/fdm/jsbsim/fcs/tv-animation"/>
  <float n="26" type="double" alias="/fdm/jsbsim/fcs/ail-pos-norm-limit-sum-main"/>
   <float n="27" type="double" alias="/fdm/jsbsim/fcs/speedbrake-pos-norm"/>
+  <float n="28" type="double" alias="/fdm/jsbsim/fcs/leading-edge-flap"/>
+
 
  <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
