@@ -78,6 +78,12 @@
                 <splash type="bool">true</splash>
                 <path>gui/splashes/splash9.png</path>
             </preview>
+
+			    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash10.png</path>
+            </preview>
   </previews>
 
 		<fuel-fraction>1</fuel-fraction>
