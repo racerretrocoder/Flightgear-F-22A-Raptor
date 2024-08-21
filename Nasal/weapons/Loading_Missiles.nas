@@ -60,7 +60,8 @@ var Loading_missile = func(name)
         # AIM-9X:short-range A2A,IR seeker,
 	typeid = 98;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
-        NoSmoke = "Aircraft/SU-27SK/Models/Stores/Missiles/AIM-9/AIM-9.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9.xml";
+        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         maxdetectionrngnm = 12;                       # Not real Impact yet A little more than the MICA
         fovdeg = 80;                                 # seeker optical FOV
         detectionfovdeg = 80;                        # Search pattern diameter (rosette scan)
@@ -79,279 +80,32 @@ var Loading_missile = func(name)
         rail = "true";
         cruisealt = 0;
     }
-    elsif(name == "GBU39")
+    elsif(name == "GBU-39")
     {
-      address = "Aircraft/F-22/Models/Stores/Missiles/GBU39/GBU39DEPLOY.xml";
-        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/GBU39/DEPLOY.xml";
-        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        maxdetectionrngnm = 14;                       # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 15;
-        thrustlbs = 0;                              # guess
-        thrustdurationsec = 6000000;                       # Mk.36 Mod.7,8
-        weightlaunchlbs = 400;
-        weightwarheadlbs = 200;
-        dragcoeff = 0.157;                            # guess; original 0.05
-        dragarea = 0.135;                             # sq ft
-        maxExplosionRange = 50;                       # Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 1;                                 # In Mach
-        life = 90000;
-        fox = "A/G";
-        rail = "false";
-        cruisealt = 1000;
-
-
-    }
-    elsif(name == "R-27ER")
-    {
-        # 
-        address = "Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R-smoke.xml";
-        NoSmoke = "Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml";
-        maxdetectionrngnm = 8;                        # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 21;                                    # In turn
-        thrustlbs = 277;                              # guess
-        thrustdurationsec = 12;                       # Mk.36 Mod.7,8
-        weightlaunchlbs = 169;
-        weightwarheadlbs = 27;
-        dragcoeff = 0.051;                            # guess; original 0.05
-        dragarea = 0.044;                             # sq ft
-        maxExplosionRange = 900;                      # Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 2.7;                               # In Mach
-        life = 35;
-        fox = "Fox 2";
-        rail = "true";
-        cruisealt = 0;
-    }
-    elsif(name == "R-27T")
-    {
-        # 
-        address = "Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R-smoke.xml";
-        NoSmoke = "Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml";
-        maxdetectionrngnm = 14;                       # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 15;                                    # In turn
-        thrustlbs = 0;                                # guess
-        thrustdurationsec =  0;                       # Mk.36 Mod.7,8
-        weightlaunchlbs = 191;
+           # Mm yes much bomb,
+	    typeid = 18;
+        address = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml";
+        NoSmoke = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml";
+        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";
+        maxdetectionrngnm = 12;                       # Not real Impact yet A little more than the MICA
+        fovdeg = 80;                                 # seeker optical FOV
+        detectionfovdeg = 80;                        # Search pattern diameter (rosette scan)
+        trackmaxdeg = 80;                            # Seeker max total angular rotation
+        maxg = 50;                                    # TV baby!
+        thrustlbs = 0.05;                             # 
+        thrustdurationsec = 100;                        # To make it miss some times
+        weightlaunchlbs = 186;
         weightwarheadlbs = 20.8;
-        dragcoeff = 0.05;                             # guess; original 0.05
-        dragarea = 0.043;                             # sq ft
-        maxExplosionRange = 40;                       # Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 2.5;                               # In Mach
-        life = 220;
-        fox = "A/G";
-        rail = "false";
-        cruisealt = 0;
-    }
-    elsif(name == "GBU16")
-    {
-        address = "/Aircraft/Mirage-2000/Missiles/GBU16/gbu16.xml";
-        NoSmoke = "/Aircraft/Mirage-2000/Missiles/GBU16/gbu16.xml";
-        maxdetectionrngnm = 14;                       # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 15;
-        thrustlbs = 0;                                # guess
-        thrustdurationsec = 0;                        # Mk.36 Mod.7,8
-        weightlaunchlbs = 550;
-        weightwarheadlbs = 450;
-        dragcoeff = 0.10;                             # guess; original 0.05
-        dragarea = 0.195;                             # sq ft
-        maxExplosionRange = 40;                       # Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 1.5;                               # In Mach
-        life = 120;
-        fox = "A/G";
-        rail = "false";
-        cruisealt = 0;
-    }
-    elsif(name == "GBU12")
-    {
-        address = "/Aircraft/Mirage-2000/Missiles/GBU12/GBU12.xml";
-        NoSmoke = "/Aircraft/Mirage-2000/Missiles/GBU12/GBU12.xml";
-        maxdetectionrngnm = 14;                       # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 15;                                    # In turn
-        thrustlbs = 0;                                # guess
-        thrustdurationsec = 0;                        # Mk.36 Mod.7,8
-        weightlaunchlbs = 610;
-        weightwarheadlbs = 190;
-        dragcoeff = 0.10;                             # guess; original 0.05
-        dragarea = 0.19;                              # sq ft
-        maxExplosionRange = 40;                       # Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 1.5;                               # In Mach
-        life = 120;
-        fox = "A/G";
-        rail = "false";
-        cruisealt = 0;
-    }
-    elsif(name == "AGM65")
-    {
-        address = "/Aircraft/Mirage-2000/Missiles/AGM65/AGM65_smoke.xml";
-        NoSmoke = "/Aircraft/Mirage-2000/Missiles/AGM65/AGM65.xml";
-        maxdetectionrngnm = 14;                       # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 15;
-        thrustlbs = 785;                              # guess
-        thrustdurationsec = 60;                       # Mk.36 Mod.7,8
-        weightlaunchlbs = 400;
-        weightwarheadlbs = 200;
-        dragcoeff = 0.157;                            # guess; original 0.05
-        dragarea = 0.135;                             # sq ft
-        maxExplosionRange = 50;                       # Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 1;                                 # In Mach
-        life = 90;
-        fox = "A/G";
-        rail = "false";
-        cruisealt = 0;
-    }
-    elsif(name == "SCALP")
-    {
-        address = "/Aircraft/Mirage-2000/Missiles/SCALP/SCALP_smoke.xml";
-        NoSmoke = "/Aircraft/Mirage-2000/Missiles/SCALP/SCALP.xml";
-        maxdetectionrngnm = 135;                      # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 15;                                    # In turn
-        thrustlbs = 1500;                             # guess
-        thrustdurationsec = 1000;                     # Mk.36 Mod.7,8
-        weightlaunchlbs = 1870;
-        weightwarheadlbs = 992;
-        dragcoeff = 0.75;                             # guess; original 0.05
-        dragarea = 0.645;                             # sq ft
-        maxExplosionRange = 90;                       # Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 0.8;                               # In Mach
-        life = 1000;
-        fox = "A/G";
-        rail = "false";
-        cruisealt = 100;
-    }
-    elsif(name == "Sea Eagle")
-    {
-        address = "/Aircraft/Mirage-2000/Missiles/SeaEagle/seaeagle_smoke.xml";
-        NoSmoke = "/Aircraft/Mirage-2000/Missiles/SeaEagle/seaeagle.xml";
-        maxdetectionrngnm = 134;                      # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 15;                                    # In turn
-        thrustlbs = 1000;                             # guess
-        thrustdurationsec = 1000;                     # Mk.36 Mod.7,8
-        weightlaunchlbs = 1320;
-        weightwarheadlbs = 505;
-        dragcoeff = 0.478;                            # guess; original 0.05
-        dragarea = 0.411;                             # sq ft
-        maxExplosionRange = 80;                       # Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 0.8;                               # In Mach
-        life = 1000;
-        fox = "A/M";
-        rail = "false";
-        cruisealt = 40;
-    }
-    elsif(name == "R-27ET")
-    {
-        # aim-54 max range 1884 km for actual version. ->100 nm.. at mach 5 it's about 108 sec. I put a life of 1120, and thurst duration to 3/4 the travel time.
-        address = "Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R-smoke.xml";
-        NoSmoke = "Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml";
-        maxdetectionrngnm = 100;                      # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 30;                                    # In turn
-        thrustlbs = 2722;                             # guess
-        thrustdurationsec = 81;                       # Mk.36 Mod.7,8
-        weightlaunchlbs = 905;
-        weightwarheadlbs = 135;
-        dragcoeff = 0.272;                            # guess; original 0.05
-        dragarea = 0.234;                             # sq ft
-        maxExplosionRange = 70;                       # Due to the code, more the speed is important, more we need to have this figure high
+        dragcoeff = 0.01;                              # guess; original 0.05
+        dragarea = 0.075;                             # sq ft
+        maxExplosionRange = 50;                       
         maxspeed = 5;                                 # In Mach
-        life = 160;
-        fox = "Fox 3";
-        rail = "false";
-        cruisealt = 100000;
-    }
-    elsif(name == "Meteor")
-    {
-        # Meteor max range 180 km for actual version. ->100 nm.. at mach 5.8 it's about 95 sec. I put a life of 140, and thurst duration to 100% the travel time, and have vectorial thurst (So 35 G more than a similar missile wich have not vectorial thurst)
-        address = "/Aircraft/Mirage-2000/Missiles/Meteor/Meteor_smoke.xml";
-        NoSmoke = "/Aircraft/Mirage-2000/Missiles/Meteor/Meteor.xml";
-        maxdetectionrngnm = 100;                      # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 35;                                    # In turn
-        thrustlbs = 1200;                             # guess
-        thrustdurationsec = 95;                       # Mk.36 Mod.7,8
-        weightlaunchlbs = 357;
-        weightwarheadlbs = 55;
-        dragcoeff = 0.065;                            # guess; original 0.05
-        dragarea = 0.056;                             # sq ft
-        maxExplosionRange = 50;                       # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 5.8;                               # In Mach
-        life = 140;
-        fox = "Fox 3";
+        life = 80000000000000;
+        fox = "Fox 2";
         rail = "true";
         cruisealt = 0;
     }
-    elsif(name == "MATRA-R530")
-    {
-        # MATRA-R530 max range 20 km for actual version. ->10 nm.. at mach 2.7 it's about 20 sec. I put a life of 30, and thurst duration to 3/4 the travel time.
-        address = "/Aircraft/Mirage-2000/Missiles/MATRA-R530/MATRA-R530_smoke.xml";
-        NoSmoke = "/Aircraft/Mirage-2000/Missiles/MATRA-R530/MATRA-R530.xml";
-        maxdetectionrngnm = 10.8;                     # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 15;                                    # In turn
-        thrustlbs = 320;                              # guess  the doc says 17 000 = 83 lbs of thrust...need to readapt all the values.
-        thrustdurationsec = 20;                       # Mk.36 Mod.7,8
-        weightlaunchlbs = 357;
-        weightwarheadlbs = 55;
-        dragcoeff = 0.272;                            # guess; original 0.05
-        dragarea = 0.234;                             # sq ft
-        maxExplosionRange =  40;                      # Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 2.7;                               # In Mach
-        life = 30;
-        fox = "Fox 1";
-        rail = "false";
-        cruisealt = 0;
-    }
-    elsif(name == "R74")
-    {
-        # R74 max range 40 km for actual version. ->21 nm.. at mach 2.5 it's about 47 sec. I put a life of 55, and thurst duration to 3/4 the travel time.
-        address = "/Aircraft/Mirage-2000/Missiles/R74/R-74Smoke.xml";
-        NoSmoke = "/Aircraft/Mirage-2000/Missiles/R74/R-74.xml";
-        maxdetectionrngnm = 10.8;                     # Not real Impact yet
-        fovdeg = 25;                                  # seeker optical FOV
-        detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 110;                            # Seeker max total angular rotation
-        maxg = 25;                                    # In turn
-        thrustlbs = 752;                              # guess  the doc says 17 000 = 83 lbs of thrust...need to readapt all the values.
-        thrustdurationsec = 35;                       # Mk.36 Mod.7,8
-        weightlaunchlbs = 214;
-        weightwarheadlbs = 16;
-        dragcoeff = 0.06;                             # guess; original 0.05
-        dragarea = 0.0552;                            # sq ft
-        maxExplosionRange =  40;                      # Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 2.7;                               # In Mach
-        life = 55;
-        fox = "Fox 2";
-        rail = "false";
-        cruisealt = 0;
-    }
+  
     else
     {
         return 0;
