@@ -3,11 +3,11 @@
 <PropertyList>
 
   <model>
-    <path>Aircraft/SU-27SK/Models/Effects/MissileExplosion/explosionFire.xml</path>
+    <path>Aircraft/F-22/Models/Effects/MissileExplosion/explosionFire.xml</path>
   </model>
 
   <model>
-    <path>Aircraft/SU-27SK/Models/Effects/MissileExplosion/explosionSmoke.xml</path>
+    <path>Aircraft/F-22/Models/Effects/MissileExplosion/explosionSmoke.xml</path>
   </model>
 
 </PropertyList>

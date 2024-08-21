@@ -19,14 +19,14 @@ Make a script to detect the current mfd page and what function a button commence
 Make radar2.nas send a spike warning to the target its locked on to.
 
 Model / 3D stuff:
-Make canopy lock inflight to prevent mach 1 openings of the canopy... lmao
+Make canopy lock inflight to prevent mach 1 openings of the canopy... lmao--------DONE
 More interior features! (Optional)
 Better Aim-120 3d model
-Make the front intake fans spin with N1 (Use objects as axises! :D)
+Make the front intake fans spin with N1 (Use objects as axises! :D)---------DONE
 Make the wheels spin
-Make more stuff move 
+Make more stuff move -------------------------------------------Almost done, i made leading edge flaps
 WEP page on MFD -ideas Gives status of the weapon like if it missed
-Make the main raptor raptor model look not like a star at night
+Make the main raptor raptor model look not like a star at night------------ DONE
 make rwr revamp look like example picture
 Make the smoke when gun fires over MP so you know when its being shot 
 
@@ -38,7 +38,7 @@ Missile drop sfx
 make mp sounds better
 Wheel touch down and spinning SFX
 better High g turn sounds over the wings
-no pilot sfx. Its just annoying 
+no pilot sfx. Its just annoying -------done
 
 special:
 Secret entry
