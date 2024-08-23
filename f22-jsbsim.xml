@@ -341,12 +341,23 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
  <flight_control name="FCS: F-22">
 
+   <function name="fcs/AAR">  
 
+    
+        <table>
+            <independentVar lookup="row">/controls/refuel/Switch</independentVar>
+            <tableData>
+ 0     1
+ 1     0.5
+            </tableData>
+          </table>
+
+   </function>
 
 
    <function name="fcs/elevator-cmd-norm-power">  
-
-    
+<product>
+<property>fcs/AAR</property>
         <table>
             <independentVar lookup="column">fcs/elec-3</independentVar>
             <independentVar lookup="row">fcs/elevator-cmd-norm</independentVar>
@@ -358,12 +369,13 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   
             </tableData>
           </table>
-
+</product>
    </function>
 
    <function name="fcs/aileron-cmd-norm-power">  
 
-    
+    <product>
+<property>fcs/AAR</property>
         <table>
             <independentVar lookup="column">fcs/elec-3</independentVar>
             <independentVar lookup="row">fcs/aileron-cmd-norm</independentVar>
@@ -375,12 +387,12 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   
             </tableData>
           </table>
-
+</product>
    </function>
 
    <function name="fcs/rudder-cmd-norm-power">  
-
-    
+<product>
+<property>fcs/AAR</property>
         <table>
             <independentVar lookup="column">fcs/elec-3</independentVar>
             <independentVar lookup="row">fcs/rudder-cmd-norm</independentVar>
@@ -392,7 +404,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   
             </tableData>
           </table>
-
+</product>
    </function>
 
 

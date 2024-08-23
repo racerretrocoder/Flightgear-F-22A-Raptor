@@ -25,7 +25,9 @@
 
 </electric>
 
-
+	<refuel>
+		<Switch type="int">0</Switch> <!--AR mode. see FDM-->
+	</refuel>
 	<AAR>
 		<Switch type="int">0</Switch> <!--For Vector Disable. See FDM-->
 	</AAR>
