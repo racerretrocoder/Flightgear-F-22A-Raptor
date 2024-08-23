@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">249th EFS --ZD Zoid</name>     
+      <texture-AKfuselage>Liveries/AK-BODY.png</texture-AKfuselage>
+      <texture-tailR>Liveries/ZD-TAIL-R.png</texture-tailR>
+      <texture-tailL>Liveries/ZD-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/wing.png</texture-wing>
+ <texture-control>Liveries/wing.png</texture-control>
+  <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>
