@@ -205,7 +205,7 @@ var Radar = {
                 var u = Target.new(c);
                 #screen.log.write("New target detected.",255,255,0);
                 
-                print("Testing "~ u.get_Callsign()~"Type: " ~ type);
+           #     print("Testing "~ u.get_Callsign()~"Type: " ~ type);
                 
                 # set Check_List to void
                 me.Check_List = [];

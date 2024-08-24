@@ -173,6 +173,20 @@
 			</binding>
 		</item>
 
+<item>
+			<label>Repair damage (On Ground)</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if(getprop("/gear/gear/compression-ft") > 0.01){
+						f22.repair();
+					}else{
+						screen.log.write("You can only repair the aircraft while on the ground! The ground crew cant fly!.",1,0,0);
+					}
+				</script>
+			</binding>
+		</item>
+
    <item>
                         <label>Tacview Options [wip] (broken)</label>
                         <enabled type="bool">true</enabled>
@@ -1376,7 +1390,14 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
           <default-field-of-view-deg>95</default-field-of-view-deg>
         </config>
       </view>
-		
+		        <view n="101">
+            <!-- also used for ejection view, if change this number, also change it in MissileView.nas -->
+            <name>Missile View</name>
+            <type>lookat</type>
+            <enabled>true</enabled>
+            <heading-offset-deg>180</heading-offset-deg>
+            <pitch-offset-deg>10</pitch-offset-deg>
+        </view>
 		
 		<view n="1">
 			<config>
@@ -1578,8 +1599,28 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
 
     </weight>
+
+
+
+
+	    <weight n="10">
+      <name>pylon11</name>  <!--For ejection seat-->
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>eject</selected>
+      <offsets>
+
+			<x-m archive="y">0</x-m><!--  direita/esquerda/de z para x   -->
+			<y-m archive="y">0.3</y-m><!-- cima/baixo/de y para y   -->
+			<z-m archive="y">-5.1</z-m><!--  frente/atraz/de x para z  -->
+      </offsets>
+
+    </weight>
         <tacview-recording type="bool">0</tacview-recording>
 		</sim>
+
+<f22>
+<ejected type="int">0</ejected>
+</f22>
 
         <sound>
             <rwr-new type="double">0</rwr-new>
@@ -1721,6 +1762,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	
 	<canopy>
 		<state type="int">0</state>
+			<Jettison type="int">0</Jettison>	  
 	</canopy>
 	
 	<environment>
@@ -1849,6 +1891,17 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  <script>setprop("/ai/submodels/submodel/flare-release",1);f22.flares();damage.flare_released();settimer(func{setprop("/ai/submodels/submodel/flare-release",0);},0.1)</script>
       </binding>
 
+    <binding>
+     <command>nasal</command>
+ <script>f22.flare();</script>
+      </binding>
+    <mod-up>
+     <binding>
+     <command>nasal</command>
+ <script>f22.flarestop();</script>
+
+     </binding>
+    </mod-up>
     </key>
 	 <key n="114">
   <name>r</name>
@@ -2235,6 +2288,14 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <damage>
             <file>Aircraft/F-22/Nasal/damage.nas</file>
         </damage>
+
+	        <ai>
+          <file>Aircraft/F-22/Nasal/AI_list.nas</file> <!--From F-16-->
+        </ai>
+        <viewMissile>
+          <file>Aircraft/F-22/Nasal/MissileView.nas</file><!--From F-16-->
+        </viewMissile>
+
     <missile>
       <file>Aircraft/F-22/Nasal/weapons/missile.nas</file>
       <file>Aircraft/F-22/Nasal/weapons/Loading_Missiles.nas</file>
@@ -2279,6 +2340,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<file>Aircraft/F-22/Nasal/views.nas</file>
 			<file>Aircraft/F-22/Nasal/electrical.nas</file>
 		</f22>
+
+
 
 <datalink>
 			<file>Aircraft/F-22/Nasal/datalink.nas</file>

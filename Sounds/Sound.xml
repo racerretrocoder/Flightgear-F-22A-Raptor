@@ -1994,12 +1994,12 @@ Counter
             <name>launch</name>
             <mode>single</mode>
             <path>Aircraft/F-22/Sounds/AV/rwr-launch-detect.wav</path>
-            <type>avionics</type>
+            <type>once</type>
             <condition>
                 <not>
                     <equals>
                         <property>sound/rwr-launch</property>
-                        <value type="string"></value>
+                        <value></value>
                     </equals>
                 </not>
 
@@ -2016,15 +2016,78 @@ Counter
         </rwr>
 
         <rwr>
-            <name>launch2</name>
+            <name>chaflare</name>
             <mode>single</mode>
+            <path>Aircraft/F-22/Sounds/sys/chaflare.wav</path>
+            <type>avionics</type>
+            <condition>
+
+                        <property>controls/CMS/flaresound</property>
+                        <value>1</value>
+<!--
+                                <greater-than>
+                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
+                  <value>0.9</value>
+                </greater-than>-->
+            </condition>
+            <volume>
+                <property>sim/current-view/internal</property>
+                <factor>1</factor>
+            </volume>
+
+        </rwr>
+
+             <rwr>
+            <name>eject</name>
+            <mode>single</mode>
+            <path>Aircraft/F-22/Sounds/sys/Eject.wav</path>
+            <type>avionics</type>
+            <condition>
+
+                        <property>f22/ejected</property>
+                        <value>1</value>
+<!--
+                                <greater-than>
+                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
+                  <value>0.9</value>
+                </greater-than>-->
+            </condition>
+            <volume>
+
+            </volume>
+
+        </rwr>
+             <rwr>
+            <name>eject2</name>
+            <mode>single</mode>
+            <path>Aircraft/F-22/Sounds/sys/Eject.wav</path>
+            <type>avionics</type>
+            <condition>
+
+                        <property>f22/ejected</property>
+                        <value>1</value>
+<!--
+                                <greater-than>
+                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
+                  <value>0.9</value>
+                </greater-than>-->
+            </condition>
+            <volume>
+
+            </volume>
+
+        </rwr>
+
+        <rwr>
+            <name>launch2</name>
+            <mode>once</mode>
             <path>Aircraft/F-22/Sounds/AV/rwr-launch-detect.wav</path>
             <type>avionics</type>
             <condition>
                 <not>
                     <equals>
                         <property>sound/rwr-launch</property>
-                        <value type="string"></value>
+                        <value></value>
                     </equals>
                 </not>
                                 <greater-than>

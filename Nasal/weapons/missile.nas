@@ -358,9 +358,17 @@ var MISSILE = {
         #interpolate(HudReticleDev, 0, 2);
         
         me.StartTime = props.globals.getNode("/sim/time/elapsed-sec", 1).getValue();
-        
+   var target = radar.GetTarget();
+        if (target == nil) {
+       var phrase =  me.fox ~ " at Nothing. Release " ~ me.NameOfMissile; #Missile shot
+               print(phrase);
+        } 
+        else 
+        {
         var phrase =  me.fox ~ " at " ~ me.Tgt.get_Callsign() ~ ". Release " ~ me.NameOfMissile; #Missile shot
         print(phrase);
+        }
+
         
       if(MPMessaging.getValue() == 1)
       {
@@ -571,7 +579,7 @@ var OurLat       = props.globals.getNode("position/latitude-deg");
 var OurLon       = props.globals.getNode("position/longitude-deg");
                 # Missile is flying at target
                 # Lets tell out target hes in a sticky situation
-                    me.sendinflight(0,0,0); 
+                 #   me.sendinflight(0,0,0); 
                 # hehehe
                 print("Still Tracking : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
             }
@@ -901,6 +909,17 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
     
     poximity_detection: func()
     {
+
+        var target = radar.GetTarget();
+# If there is no target. Print. "there is no target"; to allow for shooting missiles at no targets. For ejecting etc.
+       if(target == nil)
+        {
+            print("poximity_detection(): There is no target! Not going to hit anyone");
+        return(1); # Missile still active
+        } 
+        else {
+                    print("poximity_detection(): Tgt exists: Checking if we hit");    
+
         me.t_coord.set_latlon(me.Tgt.get_Latitude(), me.Tgt.get_Longitude(), me.Tgt.get_altitude());
         var cur_dir_dist_m = me.coord.direct_distance_to(me.t_coord);
         var BC = cur_dir_dist_m;
@@ -1012,8 +1031,9 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         me.last_t_coord = me.t_coord;
         me.direct_dist_m = cur_dir_dist_m;
         return(1);
+      }
     },
-    
+
     check_t_in_fov: func(){
         # used only when not launched.
         # compute seeker total angular position clamped to seeker max total
@@ -1044,6 +1064,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
     
     search: func(c){
         var tgt = c;
+        var target = radar.GetTarget();
         if(me.status != 2)
         {
             var tempCoord = geo.aircraft_position();
@@ -1052,6 +1073,24 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         {
             var tempCoord = me.coord;
         }
+        if(target == nil)
+        {
+            print("There is no target! Missile.nas line 1066 Firing just to shoot");
+
+       me.status = 1;
+       me.TgtLon_prop       =  getprop("/position/longitude-deg");
+       me.TgtLat_prop       =  getprop("/position/latitude-deg");
+       me.TgtAlt_prop       =  getprop("/position/altitude-ft");
+       me.TgtHdg_prop       =  getprop("/orientation/heading-deg");
+       print("Assigned threat to self");
+       #print("TUTUTTUTUTU ", me.Tgt.get_Speed());
+       if(me.free == 0 and me.life_time > me.Life)
+       {
+           settimer(func(){me.update_track()}, 2);
+       }
+        } 
+        else {
+        print("Missile fired with target. missile.nas line 1070");
         var total_elev  = tgt.get_total_elevation(OurPitch.getValue());    # deg.
         var total_horiz = tgt.get_deviation(OurHdg.getValue(), tempCoord); # deg.
         # check if in range and in the (square shaped here) seeker FOV.
@@ -1070,6 +1109,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         {
             settimer(func(){me.update_track()}, 2);
         }
+      }
     },
     
     reset_steering: func(){

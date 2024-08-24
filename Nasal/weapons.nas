@@ -156,7 +156,8 @@ var hitmessage = func(typeOrd) {
     var phrase = "M61A1 shell" ~ " hit: " ~ hit_callsign ~ ": " ~ hits_count ~ " hits";
     if (getprop("payload/armament/msg") == 1) {
         #armament.defeatSpamFilter(phrase);
-        var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells[typeOrd][0]+1));
+    print("Guns hit target");
+            var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells["M61A1 shell"][0]+1));
         msg.RelativeAltitude = 0;
         msg.Bearing = 0;
         msg.Distance = hits_count;

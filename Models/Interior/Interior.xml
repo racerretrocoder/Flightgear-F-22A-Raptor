@@ -273,20 +273,21 @@ __/\\\\\\\\\\\__________________________________________________________________
  </animation>
 
 
-	 <animation>
-     <object-name>rwrtest</object-name>
 
- <!--      <object-name>frontdatadisplays</object-name>   TODO! Make the AP Button text be there own file so they dont disapear when power not applied-->
+	 <animation>
+     <object-name>ejection_seat</object-name>
+     <object-name>Top Fluff</object-name>
+     <object-name>seat cushion</object-name>
+     <object-name>seatobj</object-name>
   <type>select</type>
   <condition>
 
-<greater-than>
-				<property>fdm/jsbsim/fcs/elec-1</property> <!--front controls switch-->
-				<value>0.8</value>
-			</greater-than>
+<equals>
+				<property>f22/ejected</property> 
+				<value>0</value>
+			</equals>
   </condition>
  </animation>
-
 
 
 
@@ -2293,6 +2294,58 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
 			<z>-0.175925926</z>
 		</axis>
 	</animation>
+
+
+
+<!--
+
+
+
+
+Misc
+
+
+
+
+
+-->
+
+<animation>
+  <type>pick</type>
+   <object-name>EJECT</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>f22.eject();</script>
+</binding>
+       </action>
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>EJECT-ARM</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>property-toggle</command>
+		<property>controls/seat/ejection-safety-lever</property>
+	   <value>1</value>
+	   <value>0</value>
+</binding>
+
+   <binding>
+  <command>nasal</command>
+  <script>setprop("/sim/messages/atc", "Arm state:"~ getprop("controls/seat/ejection-safety-lever"));</script>
+
+</binding>
+       </action>
+ </animation>
+
 
 
 
