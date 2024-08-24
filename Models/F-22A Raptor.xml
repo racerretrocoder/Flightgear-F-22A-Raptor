@@ -255,6 +255,21 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 
 
 
+	 <animation>
+       <object-name>canopy in</object-name>
+       <object-name>canopy out</object-name>
+       <object-name>canopy</object-name>
+       <object-name>cabin</object-name>
+     <object-name>pilot</object-name>
+  <type>select</type>
+  <condition>
+
+			<equals>
+				<property>f22/ejected</property> 
+				<value>0</value>
+			</equals>
+  </condition>
+ </animation>
 
   
   	<!-- glass -->
@@ -595,6 +610,8 @@ Use below instead
 <!-- Pilot -->
 
 	<model>
+
+	     <name>pilot</name>
 		<path>Aircraft/F-22/Models/pilot/pilot.xml</path>
 		<offsets>
 			<x-m>-4.9</x-m>
@@ -604,6 +621,7 @@ Use below instead
 		</offsets>
 		<condition>
 			<not>
+
 				<property>/sim/current-view/internal</property>
 			</not>
 		</condition>

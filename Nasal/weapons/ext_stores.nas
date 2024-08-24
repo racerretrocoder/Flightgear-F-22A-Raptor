@@ -505,7 +505,8 @@ dropMissile = func(number)
     {
         if(target == nil)
         {
-            return;
+            print("There is no target! attempting to fire anyway");
+  var target = "none";
         }
         Current_missile = missile.MISSILE.new(number);
         Current_missile.status = 0;
@@ -707,8 +708,8 @@ var after_fire_next = func()
 # next missile selection after fire
 var SelectNextPylon = func()
 {
-		var leftPylons = [0,2,4,6,8];
-		var RightPylons = [1,3,5,7,9];
+		var leftPylons = [0,2,4,6,8,11];
+		var RightPylons = [1,3,5,7,9,10];
 
 		var SelectedPylon	= props.globals.getNode("controls/armament/missile/current-pylon", 1);
 		var Selectedweapon	= getprop("controls/armament/selected-weapon");

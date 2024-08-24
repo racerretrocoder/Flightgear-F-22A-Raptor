@@ -4,11 +4,7 @@
 
   <path>F35Pilot-2.ac</path>
   
-  <animation>
-        <type>range</type>
-        <min-m>0</min-m>
-        <max-m>200</max-m>
-    </animation>
+
 	
 	
   <animation>

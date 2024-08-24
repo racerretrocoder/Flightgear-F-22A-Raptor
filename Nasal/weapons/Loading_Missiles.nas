@@ -28,6 +28,7 @@ var Loading_missile = func(name)
     var rail              = "true";
     var cruisealt         = 0;
     var guidance	  = 0;
+    var chute         = 1;
     
     
     if(name == "Aim-120")
@@ -54,6 +55,7 @@ var Loading_missile = func(name)
         fox = "Fox 3";
         rail = "false";
         cruisealt = 0;
+        chute = 0;
     }
     elsif(name == "Aim-9x")
     {
@@ -66,7 +68,7 @@ var Loading_missile = func(name)
         fovdeg = 80;                                 # seeker optical FOV
         detectionfovdeg = 80;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 80;                            # Seeker max total angular rotation
-        maxg = 50;                                    # TV baby!
+        maxg = 50;                                    # Thurst vectoring rocket motor
         thrustlbs = 1000;                             # 
         thrustdurationsec = 10;                        # To make it miss some times
         weightlaunchlbs = 186;
@@ -79,6 +81,7 @@ var Loading_missile = func(name)
         fox = "Fox 2";
         rail = "true";
         cruisealt = 0;
+        chute = 0;
     }
     elsif(name == "GBU-39")
     {
@@ -91,9 +94,9 @@ var Loading_missile = func(name)
         fovdeg = 80;                                 # seeker optical FOV
         detectionfovdeg = 80;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 80;                            # Seeker max total angular rotation
-        maxg = 50;                                    # TV baby!
+        maxg = 50;                                    # 
         thrustlbs = 0.05;                             # 
-        thrustdurationsec = 100;                        # To make it miss some times
+        thrustdurationsec = 100;                        #
         weightlaunchlbs = 186;
         weightwarheadlbs = 20.8;
         dragcoeff = 0.01;                              # guess; original 0.05
@@ -104,6 +107,33 @@ var Loading_missile = func(name)
         fox = "Fox 2";
         rail = "true";
         cruisealt = 0;
+        chute = 0;
+    }
+    elsif(name == "eject")
+    {
+           # ejection seat   Aircraft/F-22/Models/pilot/eject.xml
+	    typeid = 98;
+        address = "Aircraft/F-22/Models/pilot/eject.xml";
+        NoSmoke = "Aircraft/F-22/Models/pilot/eject.xml";
+        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";
+        maxdetectionrngnm = 12;                       # Not real Impact yet A little more than the MICA
+        fovdeg = 80;                                 # seeker optical FOV
+        detectionfovdeg = 80;                        # Search pattern diameter (rosette scan)
+        trackmaxdeg = 80;                            # Seeker max total angular rotation
+        maxg = 12;                                    # eject
+        thrustlbs = 1000;                             # 
+        thrustdurationsec = 1;                        # 
+        weightlaunchlbs = 330;
+        weightwarheadlbs = 20.8;
+        dragcoeff = 1;                              # Parachute implementation attempt
+        dragarea = 0.075;                             # sq ft
+        maxExplosionRange = 50;                       
+        maxspeed = 5;                                 # In Mach
+        life = 50;
+        fox = "Fox 2";
+        rail = "true";
+        cruisealt = 0;
+        chute = 1;
     }
   
     else
@@ -111,6 +141,7 @@ var Loading_missile = func(name)
         return 0;
     }
     # SetProp
+    setprop("controls/armament/missile/chute", chute);
     setprop("controls/armament/missile/address", address);
     setprop("controls/armament/missile/addressNoSmoke", NoSmoke);
     setprop("controls/armament/missile/addressExplosion", Explosion);

@@ -25,6 +25,14 @@
 
 </electric>
 
+<seat>
+    <ejection-safety-lever type="bool">0</ejection-safety-lever>  
+</seat>
+
+	<CMS>
+		<flaresound type="int">0</flaresound> <!--AR mode. see FDM-->
+	</CMS>
+
 	<refuel>
 		<Switch type="int">0</Switch> <!--AR mode. see FDM-->
 	</refuel>
@@ -57,6 +65,10 @@
     <selected-weapon-digit type="int">0</selected-weapon-digit>
     <selected-weapon type="string">none</selected-weapon>
     <missile>
+<eject>
+      <current-pylon type="int"> 0 </current-pylon>
+</eject>
+
       <name>None_press_m</name>
       <type-id type="int">57</type-id>
       <address>Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml</address>
@@ -103,6 +115,8 @@
           "Fox3" for intern missile Radar AIM120, AIM54, A/G air to ground
       -->
       <fox>Fox 2</fox>
+
+      <chute>0</chute>
       <!--
         note :
           if the missile fall before thrust start or if there is some kind of "rail"
@@ -163,6 +177,10 @@
       <release type="bool">false</release>
     </station>
     
+    <station n="10">  <!--For ejection-->
+      <release type="bool">false</release>
+    </station>
+
   </armament>
 
 </PropertyList>

@@ -55,12 +55,84 @@ settimer(func   {
 
 
 var cha_flare = func{
+print("0");
+  setprop("controls/CMS/flaresound", 0);
 
-	 if (getprop("/ai/submodels/submodel/flare-release")) {
-  setprop("Sound/flare", 1);
-interpolate("Sound/flare", 0, 1.2);
-   }
 }
+
+var flare = func{
+      Flare_timer.stop();
+print("setting...");
+  setprop("controls/CMS/flaresound", 1);
+      print("set to one");
+
+}
+
+var flarestop = func{
+    Flare_timer.start();
+print("stop");
+}
+
+
+
+var repair = func{
+#f22.repair()
+
+ setprop("f22/ejected", 0);
+ setprop("/sim/failure-manager/engines/engine/serviceable",1);
+ setprop("/sim/failure-manager/engines/engine[1]/serviceable",1);
+
+}
+
+
+
+#eject
+
+
+
+var eject = func{
+    if (getprop("f22/ejected")==1 or !getprop("controls/seat/ejection-safety-lever")) {
+      print("Cant eject!");
+        return;
+    }
+    # ACES II activation
+  print("Eject Phase one starting");
+    setprop("/sim/messages/atc", "Ejecting!");
+    view.setViewByIndex(1);
+    setprop("f22/ejected",1);
+    setprop("/controls/engines/engine/cut-off",1);
+    setprop("/controls/engines/engine[2]/cut-off",1);
+    setprop("/sim/failure-manager/engines/engine/serviceable",0);
+    setprop("/sim/failure-manager/engines/engine[1]/serviceable",0);
+
+    settimer(eject2, .5);# this is to give the sim time to load the exterior view, so there is no stutter while seat fires and it gets stuck.
+    damage.damageLog.push("Pilot ejected");
+
+    print("Phase 1 done!")
+}
+
+var eject2 = func{
+    setprop("canopy/Jettison", 1);  # Jett the canopy
+
+#Spawning of the "Missile"  Lol
+print("made it this far, lets spawn a chair!");
+ setprop("/controls/flight/speedbrake",1);
+  setprop("/controls/armament/selected-weapon", "eject");
+  setprop("/sim/weight[9]/selected", "eject");
+  setprop("/controls/armament/station[9]/release", 0);
+                m2000_load. SelectNextPylon();
+                var pylon = getprop("/controls/armament/missile/current-pylon");
+                m2000_load.dropLoad(pylon);
+                print("Should eject!");
+
+   # viewMissile.view_firing_missile(es);
+    #setprop("sim/view[0]/enabled",0); #disabled since it might get saved so user gets no pilotview in next aircraft he flies in.
+#    settimer(func {crash.eject();},3.5);  turn off the jet if its still alive
+}
+
+
+
+
 
 
 
@@ -109,14 +181,8 @@ var timer_loop = func{
 
 
 };
-Flare_timer = maketimer(0.25, cha_flare);
+Flare_timer = maketimer(0.9, cha_flare);
 
-setlistener("sim/signals/fdm-initialized", func {
-    Flare_timer.start();
-});
-    Flare_timer.start();
-
-    # loop body
 
 
 timer_loopTimer = maketimer(0.25, timer_loop);
