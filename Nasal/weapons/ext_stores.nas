@@ -498,7 +498,7 @@ dropLoad_stop = func(n)
 dropMissile = func(number)
 {
    var target = radar.GetTarget();
-
+        setprop("damage/sounds/missile-hit", 0);
     var typeMissile = getprop("/sim/weight["~ number ~"]/selected");
     var isMissile = missile.Loading_missile(typeMissile);
     if(isMissile != 0)

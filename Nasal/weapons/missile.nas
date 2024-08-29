@@ -618,6 +618,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                 # we exploded, but need a few more secs to spawn
                 # the explosion animation.
                 settimer(func{me.del();}, 4);
+
                 print("booom he ded like a brick");
                 return;
             }
@@ -1153,6 +1154,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
     },
     
     animate_explosion: func(){
+        setprop("damage/sounds/nearby-explode-on", 0);
         var Dapath = me.missile_Explosion;
         if(me.model.getNode("path", 1).getValue() != Dapath)
         {
@@ -1165,6 +1167,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         #settimer( func(){ me.explode_prop.setBoolValue(0)}, 0.5 );
         #settimer( func(){ me.explode_smoke_prop.setBoolValue(1)}, 0.5 );
         #settimer( func(){ me.explode_smoke_prop.setBoolValue(0)}, 3 );
+        setprop("damage/sounds/missile-hit", 1);
     },
 
 

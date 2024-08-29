@@ -407,6 +407,29 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 </product>
    </function>
 
+  
+
+   <function name="fcs/rudder-cmd-limmiter">  
+<product>
+      <property>fcs/fbw-override</property>
+      <property>fcs/rudder-cmd-norm-power</property>
+        <table>
+
+            <independentVar lookup="row">/velocities/mach</independentVar>
+
+            <tableData> 
+               0      1   
+               0.5    1   
+               0.51   0.8
+               1      0.4   
+               1.3    0.2   
+               1.8    0.1
+            </tableData>
+          </table>
+</product>
+
+   </function>
+
 
 <!--Technicly an inverter-->
 <function name="fcs/fbw-override">  
@@ -744,7 +767,41 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    </function>
 
+   <function name="fcs/pitch-trim-fbw">  
+<product>
+      <property>fcs/fbw-override</property>
 
+        <table>
+
+
+
+                    <independentVar lookup="column">/controls/engines/engine/augmentation</independentVar>
+            <independentVar lookup="row">/velocities/mach</independentVar>
+
+            <tableData> 
+                      0       1
+               0      0       0
+               0.09   0       0
+               0.1    -0.1   -0.18
+               1      0       0
+               1.3    0       0 
+               1.8    0.15    0.15
+            </tableData>
+          </table>
+</product>
+
+   </function>
+
+
+   <function name="fcs/pitch-trim-main">  
+
+<sum>
+      <property>fcs/pitch-trim-fbw</property>
+      <property>fcs/pitch-trim-cmd-norm</property>
+
+</sum>
+
+   </function>
 
 
 
@@ -752,7 +809,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    <summer name="Pitch Trim Sum">
       <input>fcs/elevator-cmd-norm-power</input>
-      <input>fcs/pitch-trim-cmd-norm</input>
+      <input>fcs/pitch-trim-main</input>
       <clipto>
         <min> -1 </min>
         <max>  1 </max>
@@ -858,7 +915,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <channel name="Yaw">
 
    <summer name="Rudder Command Sum">
-      <input>fcs/rudder-cmd-norm-power</input>
+      <input>fcs/rudder-cmd-limmiter</input>
       <input>fcs/yaw-trim-cmd-norm</input>
       <clipto>
         <min> -1 </min>

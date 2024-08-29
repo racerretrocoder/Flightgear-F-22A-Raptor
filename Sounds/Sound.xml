@@ -824,7 +824,7 @@
 			</condition>
 		</gear>
 		<gear>
-			<name>gear</name>
+			<name>gearw</name>
 			<mode>in-transit</mode>
 			<path>Aircraft/F-22/Sounds/Samples/gear.wav</path>
 			<property>/gear/gear[1]/position-norm</property>
@@ -835,7 +835,7 @@
 			</pitch>
 		</gear>
 		<gear>
-			<name>gear-lock</name>
+			<name>gear-loc2k</name>
 			<path>Aircraft/F-22/Sounds/Samples/gear-lck.wav</path>
 			<condition>
 				<equals>
@@ -845,7 +845,7 @@
 			</condition>
 		</gear>
 		<gear>
-			<name>gear</name>
+			<name>gea3r</name>
 			<mode>in-transit</mode>
 			<path>Aircraft/F-22/Sounds/Samples/gear.wav</path>
 			<property>/gear/gear[2]/position-norm</property>
@@ -856,7 +856,7 @@
 			</pitch>
 		</gear>
 		<gear>
-			<name>gear-lock</name>
+			<name>gear-locdk</name>
 			<path>Aircraft/F-22/Sounds/Samples/gear-lck.wav</path>
 			<condition>
 				<equals>
@@ -898,68 +898,53 @@
 		<flap>
 			<name>flaps</name>
 			<mode>in-transit</mode>
-			<path>Aircraft/F-22/Sounds/Samples/flaps.wav</path>
+			<path>Aircraft/F-22/Sounds/flaps.wav</path>
+  
+
 				<property>/surface-positions/flap-pos-norm</property>
 				<property>/surface-positions/speedbrake-pos-norm</property>
 				<property>/surface-positions/slat-pos-norm</property>
-			<volume>
-				<offset>0.25</offset>
-				<max>0.9</max>
-			</volume>
+
+
 		</flap>
 		<flap>
 			<name>flaps</name>
 			<mode>in-transit</mode>
-			<path>Sounds/flaps.wav</path>
+			<path>Aircraft/F-22/Sounds/flaps.wav</path>
+
+
 				<property>/surface-positions/flap-pos-norm</property>
 				<property>/surface-positions/speedbrake-pos-norm</property>
 				<property>/surface-positions/slat-pos-norm</property>
-			<volume>
-				<offset>0.25</offset>
-				<max>0.9</max>
-			</volume>
+
+
+
 		</flap>
-		<speedbrake>
-			<name>speedbrake</name>
+		<flap>
+			<name>flapbs</name>
 			<mode>in-transit</mode>
-			<path>Aircraft/F-22/Sounds/Samples/flaps.wav</path>
-			<property>/surface-positions/speedbrake-pos-norm</property>
-			<volume>
-				<offset>0.25</offset>
-				<max>0.9</max>
-			</volume>
-		</speedbrake>
-		<speedbrake>
-			<name>speedbrake</name>
+			<path>Aircraft/F-22/Sounds/flaps.wav</path>
+  
+
+				<property>/surface-positions/flap-pos-norm</property>
+				<property>/surface-positions/speedbrake-pos-norm</property>
+				<property>/surface-positions/slat-pos-norm</property>
+
+
+		</flap>
+		<flap>
+			<name>flapas</name>
 			<mode>in-transit</mode>
-			<path>Sounds/flaps.wav</path>
-			<property>/surface-positions/speedbrake-pos-norm</property>
-			<volume>
-				<offset>0.25</offset>
-				<max>0.9</max>
-			</volume>
-		</speedbrake>
-		<slat>
-			<name>slats</name>
-			<mode>in-transit</mode>
-			<path>Aircraft/F-22/Sounds/Samples/flaps.wav</path>
-			<property>/surface-positions/slats-pos-norm</property>
-			<volume>
-				<offset>0.25</offset>
-				<max>0.9</max>
-			</volume>
-		</slat>
-		<slat>
-			<name>slats</name>
-			<mode>in-transit</mode>
-			<path>Sounds/flaps.wav</path>
-			<property>/surface-positions/slats-pos-norm</property>
-			<volume>
-				<offset>0.25</offset>
-				<max>0.9</max>
-			</volume>
-		</slat>
-		
+			<path>Aircraft/F-22/Sounds/flaps.wav</path>
+
+
+				<property>/surface-positions/flap-pos-norm</property>
+				<property>/surface-positions/speedbrake-pos-norm</property>
+				<property>/surface-positions/slat-pos-norm</property>
+
+
+
+		</flap>
 
 
 
@@ -1259,12 +1244,20 @@
 </crash>
 
 <guns>
-      <name>gunfire</name>
-      <mode>looped</mode>
-      <path>Aircraft/F-22/Sounds/m61.wav</path>
+      <name>gunstop</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstop.wav</path>
       <condition> 
+      <and>
+        	    <equals>
         <property>controls/armament/trigger</property>
-        <property>ai/submodels/submodel/count</property>
+		    <value>false</value>
+		</equals>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+    </and>
       </condition>
       <volume> 
         <factor>1.2</factor>
@@ -1273,6 +1266,471 @@
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
     </guns>
+<guns>
+      <name>gunstop</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstop.wav</path>
+      <condition> 
+      <and>
+        	    <equals>
+        <property>controls/armament/trigger</property>
+		    <value>false</value>
+		</equals>
+        
+
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+<guns>
+      <name>gunstop</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstop.wav</path>
+      <condition> 
+      <and>
+        	    <equals>
+        <property>controls/armament/trigger</property>
+		    <value>false</value>
+		</equals>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+
+
+
+
+
+<guns>
+      <name>gunstart</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstart.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+<guns>
+      <name>gunstart</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstart.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+<guns>
+      <name>gunstart</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstart.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+<guns>
+      <name>gunshoot</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunshootint.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+
+    <guns>
+      <name>gunshoot</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunshootint.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+      </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+    <guns>
+      <name>gunshoot</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunshootint.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+      </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+    <guns>
+      <name>gunshoot</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunshootint.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+        	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+              </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+
+
+<!-- Exterior gun sounds-->
+
+<guns>
+      <name>gunstop2</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstopext.wav</path>
+      <condition> 
+      <and>
+        	    <equals>
+        <property>controls/armament/trigger</property>
+		    <value>false</value>
+		</equals>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+<guns>
+      <name>gunstop2</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstopext.wav</path>
+      <condition> 
+      <and>
+        	    <equals>
+        <property>controls/armament/trigger</property>
+		    <value>false</value>
+		</equals>
+        
+
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+<guns>
+      <name>gunstop</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstopext.wav</path>
+      <condition> 
+      <and>
+        	    <equals>
+        <property>controls/armament/trigger</property>
+		    <value>false</value>
+		</equals>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+
+<guns>
+      <name>gunsstop</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstopext.wav</path>
+      <condition> 
+      <and>
+        	    <equals>
+        <property>controls/armament/trigger</property>
+		    <value>false</value>
+		</equals>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+
+
+
+
+
+<guns>
+      <name>g2unstart</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstartext.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+<guns>
+      <name>gunsta4rt</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/gunstartext.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+
+
+    <guns>
+      <name>gunshoot3</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunext.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+      </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+    <guns>
+      <name>gunshoot5</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunext.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+      </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+    <guns>
+      <name>gunshoot</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunext.wav</path>
+      <condition> 
+      <and>
+        <property>controls/armament/trigger</property>
+        	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+              </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+
+
+
+
+
+
+
+<missile>
+      <name>missilehit</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilehit.wav</path>
+      <condition> 
+        <property>damage/sounds/missile-hit</property>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+<missile>
+      <name>missilehit2</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilehit.wav</path>
+      <condition> 
+        <property>damage/sounds/missile-hit</property>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
+<missile>
+      <name>boom</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/boom.wav</path>
+      <condition> 
+        <property>damage/sounds/nearby-explode-on</property>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+<missile>
+      <name>missilehit4</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/boom.wav</path>
+      <condition> 
+        <property>damage/sounds/nearby-explode-on</property>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
 
 	
 

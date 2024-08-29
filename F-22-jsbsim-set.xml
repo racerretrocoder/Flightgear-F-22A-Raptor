@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 	
-<PropertyList include="F-22-common.xml">
+<PropertyList>
 
 	<sim>
 
@@ -1628,9 +1628,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 
    <damage>
-        <sound>
-            <explode-on type="bool">false</explode-on>
-        </sound>
+        <sounds>
+            <nearby-explode-on type="bool">false</nearby-explode-on>
+            <missile-hit type="bool">false</missile-hit>
+        </sounds>
         <fire>
             <serviceable type="bool">false</serviceable>
         </fire>
