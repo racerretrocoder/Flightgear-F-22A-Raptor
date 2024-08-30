@@ -723,7 +723,7 @@ var SelectNextPylon = func()
 					{
 							SelectedPylon.setValue(i);
 							print("Next selected = pylon",i);
-							setprop("/sim/messages/atc", "Next selected = pylon"~ SelectedPylon.getValue(i));
+							screen.log.write("Next selected = pylon"~ SelectedPylon.getValue(i));
 							break;
 					}
         }

@@ -381,7 +381,7 @@ var MISSILE = {
       }
         else
         {
-            setprop("/sim/messages/atc", phrase);
+           screen.log.write(phrase);
         }
         me.update();
     },
