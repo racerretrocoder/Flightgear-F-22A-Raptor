@@ -10,6 +10,7 @@ var OurHdg         = props.globals.getNode("orientation/heading-deg");
 var OurRoll        = props.globals.getNode("orientation/roll-deg");
 var OurPitch       = props.globals.getNode("orientation/pitch-deg");
 
+
 var MPMessaging    = props.globals.getNode("/payload/armament/msg", 1);
 MPMessaging.setBoolValue(0); # this thing here set the Damage to off on spawn!
 
@@ -383,7 +384,9 @@ var MISSILE = {
         {
            screen.log.write(phrase);
         }
+
         me.update();
+
     },
 
 
@@ -413,6 +416,8 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
 
     update: func(){
         # calculate life time of the missile
+
+
         var dt = getprop("sim/time/delta-sec");
         var init_launch = 0;
         if(me.life_time > 0)

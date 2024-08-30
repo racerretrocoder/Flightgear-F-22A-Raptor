@@ -265,7 +265,7 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
   <condition>
 
 			<equals>
-				<property>f22/ejected</property> 
+				<property>sim/multiplay/generic/int[15]</property> 
 				<value>0</value>
 			</equals>
   </condition>

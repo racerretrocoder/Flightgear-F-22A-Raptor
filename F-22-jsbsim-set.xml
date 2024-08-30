@@ -223,6 +223,8 @@
 <generic>
 
 
+<!--Multiplayer Variables-->
+
 <bool n="0" type="bool" alias="/damage/sounds/explode-on"/>
 <bool n="1" type="bool" alias="/damage/fire/serviceable"/> <!--Damage smoke looks Nice from people on MP. Good reactions :D-->
 <bool n="7" type="int" alias="/sim/crashed"/>
@@ -239,10 +241,13 @@
  <float n="26" type="double" alias="/fdm/jsbsim/fcs/ail-pos-norm-limit-sum-main"/>
   <float n="27" type="double" alias="/fdm/jsbsim/fcs/speedbrake-pos-norm"/>
   <float n="28" type="double" alias="/fdm/jsbsim/fcs/leading-edge-flap"/>
+  <float n="29" type="double" alias="/fdm/jsbsim/fcs/hook-pos-norm"/>
 
+<int n="15" type="int" alias="/f22/ejected"/>
 
  <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
+
 
 
 <int n="12" type="int" alias="/fdm/jsbsim/fcs/AIM120"/>
@@ -1847,6 +1852,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
     <binding>
       <command>nasal</command>
       <script>guns.stopFiring();</script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>setprop("/controls/armament/missile-trigger", 0);</script>
     </binding>
   </mod-up>
  </key>
