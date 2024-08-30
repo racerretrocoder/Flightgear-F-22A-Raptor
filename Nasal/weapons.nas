@@ -34,10 +34,17 @@ fire_MG = func(b) {
                 var pylon = getprop("/controls/armament/missile/current-pylon");
                 m2000_load.dropLoad(pylon);
                 print("Should fire Missile");
+                setprop("/controls/armament/missile-trigger", 1);
+maketimer(1, missile_sfx);
+
+
             }
         }
     }
 }
+
+
+
 
 var stopFiring = func() {
     setprop("/controls/armament/trigger", 0);

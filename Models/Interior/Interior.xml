@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
+<!--Note: This fixes the bug where the text is all glitched when spawning in-->
+<animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>50</max-m>
+    </animation>
 
 <!-- 
 

@@ -8,8 +8,8 @@
 <animation>
  <type>rotate</type>
  <object-name>hook</object-name>
- <property>gear/tailhook/position-norm</property>
- <factor>90</factor>
+ <property>sim/multiplay/generic/float[29]</property>
+ <factor>65</factor>
  <center>
   <x-m> 4</x-m>
   <y-m> 0.000</y-m>

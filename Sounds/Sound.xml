@@ -160,15 +160,18 @@
             </pitch> -->
   </engine>
   
-  <engine>
-   <name>AB</name>
+    <engine>
+   <name>AB1</name>
    <mode>looped</mode>
    <path>Aircraft/F-22/Sounds/AB.wav</path>
    <condition>
+
 <greater-than>  
- <property>engines/engine[0]/n1</property>
+ <property>engines/engine[1]/n1</property>
    <value>90</value>
   </greater-than>
+
+  
      <not>
 	 <property>/sim/current-view/internal</property>
 <property>/engines/engine/out-of-fuel</property>
@@ -187,12 +190,11 @@
                 <outer-angle>180.0</outer-angle>
                 <outer-gain>0.0</outer-gain>
             </orientation>
-   <volume>
-    <property>/fdm/jsbsim/fcs/burneranimation1</property>
-    <factor>1</factor>
-    <min>500000</min>
-    <max>500000</max>
-    <offset>0</offset>
+ <volume>
+    	<property>/fdm/jsbsim/fcs/burneranimation1</property>
+    	<factor>1</factor>
+	<min>500000</min>
+	<max>1000000.0</max>
    </volume>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
@@ -200,6 +202,7 @@
                 <factor>0.00455001673</factor>
             </pitch> -->
   </engine>
+
 
     <engine>
    <name>AB2</name>
@@ -1669,9 +1672,48 @@
 
 
 
+<missile>
+      <name>missile-launch-sfx</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire.wav</path>
+      <condition> 
+   <and>
+        <property>controls/armament/missile-trigger</property>
+        	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>true</value>
+		</equals>
+              </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
 
 
-
+<missile>
+      <name>missile-launch-sfx-ext</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire-ext.wav</path>
+      <condition> 
+   <and>
+        <property>/fdm/jsbsim/fcs/missile-eff2</property>
+        	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+              </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
 
 <missile>
       <name>missilehit</name>

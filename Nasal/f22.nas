@@ -4,6 +4,8 @@
 var cnpy = aircraft.door.new("canopy", 10);
 var switch = getprop("canopy/enabled", 1);
 var pos = props.globals.getNode("canopy/position-norm", 1);
+var dt = 0;
+
 
 var canopy_switch = func(v,a) {
 
@@ -41,6 +43,12 @@ var cockpit_state = func {
 
 
 
+var missile_sfx = func {
+                setprop("/controls/armament/missile-trigger", 0); 
+
+        }
+
+settimer(missile_sfx, 2); # runs myFunc after 2 seconds
 
 var flares = func{
 	var flarerand = rand();
@@ -183,7 +191,7 @@ var timer_loop = func{
 };
 Flare_timer = maketimer(0.9, cha_flare);
 
-
+settimer(missile_sfx, 2); # runs myFunc after 2 seconds
 
 timer_loopTimer = maketimer(0.25, timer_loop);
 
