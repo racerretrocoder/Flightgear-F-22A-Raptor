@@ -8,12 +8,11 @@
 
     <emissive>false</emissive>
     <lighting>true</lighting>
-
     <condition>
       <and>
         <greater-than>
           <property>/engines/engine[0]/n2</property>
-          <value>75</value>
+          <value>90</value>
         </greater-than>
 		<greater-than>
      <property>velocities/airspeed-kt</property>
@@ -21,7 +20,7 @@
 	 </greater-than>
         <less-than>
           <property>/position/altitude-ft</property>
-          <value>3000</value>
+          <value>15000</value>
         </less-than>
       </and>
     </condition>
@@ -54,8 +53,8 @@
     <counter>
       <particles-per-sec>
         <property>engines/engine/n1</property>
-        <factor>1</factor>
-        <spread>20</spread>
+        <factor>2</factor>
+        <spread>4</spread>
       </particles-per-sec>
     </counter>
 
@@ -70,7 +69,7 @@
           <alpha><value> 0.025 </value></alpha>
         </color>
         <size>
-          <value>0.75</value>
+          <value>1</value>
         </size>
       </start>
 
@@ -79,10 +78,10 @@
           <red><value>   0.9500 </value></red>
           <green><value> 0.9500 </value></green>
           <blue><value>  0.9500 </value></blue>
-          <alpha><value> 0.0125 </value></alpha>
+          <alpha><value> 0.0525 </value></alpha>
         </color>
         <size>
-          <value>7.5</value>
+          <value>8.5</value>
         </size>
       </end>
 
