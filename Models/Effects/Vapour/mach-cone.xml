@@ -9,12 +9,7 @@
   <inherits-from>Aircraft/F-22/Models/Effects/vapour/mach-cone</inherits-from>
   <object-name>Bounding_box</object-name>
   <parameters>
-      <flame_color_low_r><use>rendering/scene/diffuse/red-unbound</use></flame_color_low_r>
-      <flame_color_low_g><use>rendering/scene/diffuse/red-unbound</use></flame_color_low_g>
-      <flame_color_low_b><use>rendering/scene/diffuse/red-unbound</use></flame_color_low_b>
-      <flame_color_high_r><use>rendering/scene/diffuse/red-unbound</use></flame_color_high_r>
-      <flame_color_high_g><use>rendering/scene/diffuse/red-unbound</use></flame_color_high_g>
-      <flame_color_high_b><use>rendering/scene/diffuse/red-unbound</use></flame_color_high_b>
+
 
       <base_flame_b><use>rendering/scene/diffuse/red-unbound</use></base_flame_b>
       <base_flame_g><use>rendering/scene/diffuse/red-unbound</use></base_flame_g>

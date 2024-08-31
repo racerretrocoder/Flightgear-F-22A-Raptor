@@ -289,7 +289,7 @@ __/\\\\\\\\\\\__________________________________________________________________
   <condition>
 
 <equals>
-				<property>f22/ejected</property> 
+				<property>sim/multiplay/generic/int[15]</property> 
 				<value>0</value>
 			</equals>
   </condition>
