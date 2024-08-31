@@ -62,6 +62,24 @@ settimer(func   {
 }
 
 
+
+var checkforext = func {
+	var pylon3 = getprop("sim/weight[2]/selected");
+  	var pylon5 = getprop("sim/weight[4]/selected");
+
+
+	if ( pylon3 == "Aim-120" or pylon3 == "Aim-9x" or pylon5 == "Aim-120" or pylon5 == "Aim-9x"  ) {
+		setprop("controls/armament/extpylons", 1);
+	} else {
+		setprop("controls/armament/extpylons", 0);
+
+  }
+
+
+}
+
+
+
 var cha_flare = func{
 print("0");
   setprop("controls/CMS/flaresound", 0);
@@ -197,9 +215,10 @@ timer_loopTimer = maketimer(0.25, timer_loop);
 
 setlistener("sim/signals/fdm-initialized", func {
     timer_loopTimer.start();
+    timer_extpylons.start();
 });
     timer_loopTimer.start();
-
+    timer_extpylons.start();
     # loop body
 
-
+timer_extpylons = maketimer(0.25, checkforext);
