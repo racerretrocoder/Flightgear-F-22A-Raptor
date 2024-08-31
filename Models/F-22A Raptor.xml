@@ -582,7 +582,54 @@ Use below instead
 	<z-factor>0</z-factor>
 </animation>
 
+	<model>
+	<name>left-burner2</name>
+		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurnerB.xml</path>
+			<offsets>
+				<x-m>6.727</x-m>
+			<y-m>-0.6</y-m>
+			<z-m>-0.9</z-m>
+			   <heading-deg>90</heading-deg>
+   <pitch-deg>90</pitch-deg>
+		</offsets>
+	</model>
+  <animation>
+	<type>scale</type>
+	<object-name>left-burner2</object-name>
+	<property>sim/multiplay/generic/float[31]</property>    
+  <x-min>.1</x-min>
+  <y-min>1.0</y-min>
+  <z-min>1</z-min>    
+	<x-factor>1.05</x-factor>
+	<y-factor>0</y-factor>
+	<z-factor>0</z-factor>
+</animation>
 
+
+
+	<!--On MP!-->
+	<model>
+	<name>right-burner2</name>
+		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurnerA.xml</path>
+			<offsets>
+				<x-m>6.727</x-m>
+			<y-m>0.6</y-m>
+			<z-m>-0.9</z-m>
+			   <heading-deg>90</heading-deg>
+   <pitch-deg>90</pitch-deg>
+		</offsets>
+	</model>
+	  <animation>
+	<type>scale</type>
+	<object-name>right-burner2</object-name>
+	<property>sim/multiplay/generic/float[32]</property>    
+  <x-min>.1</x-min>
+  <y-min>1.0</y-min>
+  <z-min>1</z-min>    
+	<x-factor>1.05</x-factor>
+	<y-factor>0</y-factor>
+	<z-factor>0</z-factor>
+</animation>
 	
 <!-- Interior -->
 
@@ -1231,6 +1278,8 @@ FR
 			<object-name>left-up-vector</object-name>
 			<object-name>right-burner</object-name>
 			<object-name>left-burner</object-name>
+			<object-name>right-burner2</object-name>
+			<object-name>left-burner2</object-name>
 			<property>sim/multiplay/generic/float[25]</property>
 			<factor>20</factor>
 			<center>
@@ -1638,43 +1687,44 @@ FR
 			</less-than>
 		</condition>
 	</animation>
-	
-	<model>
-		<path>Aircraft/F-22/Models/Effects/Smoke/SmokeL.xml</path>
+		<model>
+
+
+		<path>Aircraft/F-22/Models/Effects/Smoke/SmokeR.xml</path>
 		<offsets>
 			<x-m>10.527</x-m>
-			<y-m>-0.629</y-m>
+			<y-m>0</y-m>
 			<z-m>-0.347</z-m>
 			<roll-deg>0</roll-deg>
 			<pitch-deg>0</pitch-deg>
 		<heading-deg>0</heading-deg>
 	</offsets>
 	</model>
-	
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Smoke/SmokeL.xml</path>
+		<offsets>
+			<x-m>10.527</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.347</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+		<heading-deg>0</heading-deg>
+	</offsets>
+	</model>
+	<!--
 	<model>
 		<path>Aircraft/F-22/Models/Effects/Smoke/SmokeR.xml</path>
 		<offsets>
 			<x-m>10.527</x-m>
-			<y-m>0.629</y-m>
+			<y-m>0.729</y-m>
 			<z-m>-0.347</z-m>
 			<roll-deg>0</roll-deg>
 			<pitch-deg>0</pitch-deg>
 		<heading-deg>0</heading-deg>
 		</offsets>
 	</model>
-	
-	<model>
-		<path>Aircraft/F-22/Models/Effects/Vapour/Vapour.xml</path>
-		<offsets>
-			<x-m>-2.71723</x-m>
-			<y-m>0</y-m>
-			<z-m>0.359822</z-m>
-			<roll-deg>0</roll-deg>
-			<pitch-deg>0</pitch-deg>
-			<heading-deg>0</heading-deg>
-		</offsets>
-	</model>
-	
+	-->
+
 	
 	<model>
 		<path>Aircraft/F-22/Models/Effects/Trail/TrailL.xml</path>
@@ -2061,7 +2111,7 @@ FR
 <model>
 		<path>Aircraft/F-22/Models/Effects/boom/fx.xml</path>
 		<offsets>
-			<x-m>1</x-m>
+			<x-m>-1</x-m>
 			<y-m>0</y-m>
 			<z-m>-0.5</z-m>
 			<pitch-deg>0</pitch-deg>
@@ -2071,7 +2121,7 @@ FR
 	<model>
 		<path>Aircraft/F-22/Models/Effects/Vapour/Vapour2.xml</path>
 		<offsets>
-			<x-m>2</x-m>
+			<x-m>-0.5</x-m>
 			<y-m>-2.5</y-m>
 			<z-m>0</z-m>
 			<pitch-deg>0</pitch-deg>
@@ -2079,9 +2129,49 @@ FR
 	</model> 
 	
 	<model>
-		<path>Aircraft/F-22/Models/Effects/Vapour/Vapour2.xml</path>
+		<path>Aircraft/F-22/Models/Effects/Vapour/Vapourslow.xml</path>
+		<offsets>
+			<x-m>1</x-m>
+			<y-m>2.5</y-m>
+			<z-m>0</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model> 
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Vapour/Vapourslow.xml</path>
+		<offsets>
+			<x-m>1</x-m>
+			<y-m>-2.5</y-m>
+			<z-m>0</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model> 
+	
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Vapour/Vapourslow.xml</path>
 		<offsets>
 			<x-m>2</x-m>
+			<y-m>2.8</y-m>
+			<z-m>0</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model> 
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Vapour/Vapourslow.xml</path>
+		<offsets>
+			<x-m>2</x-m>
+			<y-m>-2.8</y-m>
+			<z-m>0</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model> 
+
+
+
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Vapour/Vapour2.xml</path>
+		<offsets>
+			<x-m>-0.5</x-m>
 			<y-m>2.5</y-m>
 			<z-m>0</z-m>
 			<pitch-deg>0</pitch-deg>

@@ -44,6 +44,8 @@ __/\\\\\\\\\\\__________________________________________________________________
 /_/   /_/ /_/\____/\___/_/ /_/_/_/|_|  /_/  |_/_/ /_/\__,_/   /____/_/_/ |___/\___/_/        /____/_/ /_/\__,_/_/_/   
                                                                                                                       
 
+
+TODO: make the cockpit black like the real thing
                                                                                       
  -->
 
@@ -916,18 +918,60 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 
 <!--TODO: Animation for the Elec panel
 
-battery switch:
-When /controls/electric/battswitch is 0, the switch stays pointing up
-
-1 it is pointing Back. So pulling the switch will make it in the backup position
-When its 2 its on Main power. So Pushing the switch will make it in the Main power position
-
+ Battery switch done! Perfection :D
 EPU switch
 TODO: Make a saftey cover
 Pushing the switch turns it on
 
+
+
+
+
+
+
+New: Refuel in air switch. 
+
 -->
 
+
+
+
+
+
+<animation>
+  <type>pick</type>
+   <object-name>REFUELSWITCH</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+               <command>property-cycle</command>
+               <property>controls/refuel/Switch</property>
+               <value>0</value>
+               <value>1</value>
+               <wrap>true</wrap>
+    </binding>
+          <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+       </action>
+ </animation>
+
+
+
+ <animation>
+  <object-name>refuelswitchlight</object-name>
+  <type>select</type>
+  <condition>
+
+<greater-than>
+				<property>controls/refuel/Switch</property>
+				<value>0.001</value>
+			</greater-than>
+  </condition>
+ </animation>
 
 
 
@@ -1033,7 +1077,7 @@ Pushing the switch turns it on
     </animation>
 
 
- <animation>
+
   <animation>
   <type>material</type>
   <object-name>hud</object-name>
@@ -1051,7 +1095,7 @@ Pushing the switch turns it on
  </animation>
   
 
-
+ <animation>
   <object-name>aarlight</object-name>
   <type>select</type>
   <condition>
