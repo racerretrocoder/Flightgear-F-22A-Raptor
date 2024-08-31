@@ -548,7 +548,7 @@ Use below instead
   <animation>
 	<type>scale</type>
 	<object-name>left-burner</object-name>
-	<property>/engines/engine/nozzle-pos-norm</property>    
+	<property>sim/multiplay/generic/float[31]</property>    
   <x-min>.1</x-min>
   <y-min>1.0</y-min>
   <z-min>1</z-min>    
@@ -573,7 +573,7 @@ Use below instead
 	  <animation>
 	<type>scale</type>
 	<object-name>right-burner</object-name>
-	<property>/engines/engine[1]/nozzle-pos-norm</property>    
+	<property>sim/multiplay/generic/float[32]</property>    
   <x-min>.1</x-min>
   <y-min>1.0</y-min>
   <z-min>1</z-min>    

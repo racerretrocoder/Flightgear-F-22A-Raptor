@@ -232,7 +232,7 @@
  <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
 
-
+/engines/engine/nozzle-pos-norm
   <float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
  <float n="21" type="double" alias="/fdm/jsbsim/fcs/Elev-pos-norm-limit-sum-main"/>
  <float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
@@ -243,6 +243,11 @@
   <float n="28" type="double" alias="/fdm/jsbsim/fcs/leading-edge-flap"/>
   <float n="29" type="double" alias="/fdm/jsbsim/fcs/hook-pos-norm"/>
  <float n="30" type="double" alias="/velocities/mach"/><!--For the MP Sonic BOOM, Vapor, and more-->
+
+ <float n="31" type="double" alias="/engines/engine[0]/nozzle-pos-norm"/>	
+ <float n="32" type="double" alias="/engines/engine[1]/nozzle-pos-norm"/>	
+
+
 <int n="15" type="int" alias="/f22/ejected"/>
 
 <int n="16" type="int" alias="/controls/state/low_level"/>
