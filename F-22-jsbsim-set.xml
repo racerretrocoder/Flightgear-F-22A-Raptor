@@ -1488,9 +1488,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <tank>2</tank>
       <weight-lb type="double"> 0 </weight-lb>
       <offsets>
-          <x-m type="double"> 14.000 </x-m>
-          <y-m type="double"> -4.836 </y-m>
-          <z-m type="double"> -0.24 </z-m>
+          <x-m type="double"> 2.1 </x-m>
+          <y-m type="double"> -3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
       </offsets>
       <selected>none</selected>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
@@ -1517,9 +1517,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-          <x-m type="double"> 14.800 </x-m>
-          <y-m type="double"> -6.490 </y-m>
-          <z-m type="double"> -0.02 </z-m>
+          <x-m type="double"> 2.1 </x-m>
+          <y-m type="double"> 3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
       </offsets>
     </weight>
 

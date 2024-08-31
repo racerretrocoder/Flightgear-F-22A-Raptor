@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>AIM-120.ac</path>
+	
+	<animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>12000</max-m>
+    </animation>
+	<animation>
+<type>select</type>
+<object-name>AIM-120</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/multiplay/generic/string[14]</property>
+<value>Aim-120</value>
+</equals>
+<equals>
+<property>sim/multiplay/generic/bool[14]</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+</PropertyList>
