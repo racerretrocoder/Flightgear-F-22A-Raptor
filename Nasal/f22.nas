@@ -212,6 +212,8 @@ Flare_timer = maketimer(0.9, cha_flare);
 settimer(missile_sfx, 2); # runs myFunc after 2 seconds
 
 timer_loopTimer = maketimer(0.25, timer_loop);
+timer_extpylons = maketimer(0.25, checkforext);
+
 
 setlistener("sim/signals/fdm-initialized", func {
     timer_loopTimer.start();
@@ -221,4 +223,4 @@ setlistener("sim/signals/fdm-initialized", func {
     timer_extpylons.start();
     # loop body
 
-timer_extpylons = maketimer(0.25, checkforext);
+
