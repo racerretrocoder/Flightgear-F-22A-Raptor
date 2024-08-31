@@ -1761,10 +1761,43 @@ FR
  <overlay>
   <params>
    <name>RedLight</name>
-   <power-source>/controls/lighting/nav-lights</power-source>
+   <power-source>/fdm/jsbsim/fcs/light</power-source>
    <direction>
-    <x>2</x>
-    <y>2</y>
+    <x>1</x>
+    <y>1</y>
+    <z>0</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>0</g>
+    <b>0</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>0.7</g>
+    <b>0.5</b>
+   </specular>
+      <!-- ALS settings -->
+ 
+  </params>
+  
+ </overlay>
+</model>
+	<model>
+ <name>RedLight2</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>4.2</x-m>
+			<y-m>-6.0</y-m>
+			<z-m>-0.8</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>RedLight2</name>
+   <power-source>/fdm/jsbsim/fcs/light</power-source>
+   <direction>
+    <x>-1</x>
+    <y>-1</y>
     <z>0</z>
    </direction>
    <ambient>
@@ -1787,9 +1820,8 @@ FR
 
 
 
-
 	<model>
- <name>GreenLight</name>
+ <name>GreenLight2</name>
  <path>Aircraft/Generic/spotlight.xml</path>
  <offsets>
 			<x-m>4.2</x-m>
@@ -1798,8 +1830,8 @@ FR
  </offsets>
  <overlay>
   <params>
-   <name>GreenLight</name>
-   <power-source>/controls/lighting/nav-lights</power-source>
+   <name>GreenLight2</name>
+   <power-source>/fdm/jsbsim/fcs/light</power-source>
    <direction>
     <x>1</x>
     <y>1</y>
@@ -1819,6 +1851,36 @@ FR
  </overlay>
 </model>
 
+	<model>
+ <name>GreenLight</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>4.2</x-m>
+			<y-m>6.0</y-m>
+			<z-m>-0.8</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>GreenLight</name>
+   <power-source>/fdm/jsbsim/fcs/light</power-source>
+   <direction>
+    <x>-1</x>
+    <y>-1</y>
+    <z>0</z>
+   </direction>
+   <ambient>
+    <r>0</r>
+    <g>1</g>
+    <b>0</b>
+   </ambient>
+   <specular>
+    <r>0.7</r>
+    <g>1</g>
+    <b>0.5</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
 
 
 	<model>
@@ -1883,9 +1945,79 @@ FR
   </params>
  </overlay>
 </model>
+	<model>
+ <name>beacon3</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>4.2</x-m>
+			<y-m>6.2</y-m>
+			<z-m>-0.8</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>beacon2</name>
+   <power-source>/sim/model/lights/beacon/state</power-source>
+   <direction>
+    <x>-1</x>
+    <y>-1</y>
+    <z>0</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>0</g>
+    <b>0</b>
+   </ambient>
+   <specular>
+    <r>1</r>
+    <g>0</g>
+    <b>0</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
+
+	<model>
+ <name>beacon4</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>4.2</x-m>
+			<y-m>-6.2</y-m>
+			<z-m>-0.8</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>beacon1</name>
+   <power-source>/sim/model/lights/beacon/state</power-source>
+   <direction>
+    <x>-1</x>
+    <y>-1</y>
+    <z>0</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>0</g>
+    <b>0</b>
+   </ambient>
+   <specular>
+    <r>1</r>
+    <g>0</g>
+    <b>0</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
 
 
 
+<animation>
+      <type>select</type>
+      <object-name>navlight</object-name>
+      <condition>
+
+		<property>sim/multiplay/generic/int[10]</property>
+
+	</condition>
+</animation>
 
 	<model>
    

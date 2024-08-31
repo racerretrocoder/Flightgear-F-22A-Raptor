@@ -1368,6 +1368,19 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             </table>
    </function>
 
+
+    <function name="fcs/light">
+      <description>g force</description>
+          <table>
+    <independentVar lookup="row">/controls/lighting/nav-lights</independentVar>
+    <tableData>
+     0     0  
+     1     4
+
+    </tableData>
+   </table>
+    </function>
+
   
 <channel name="Vectors">
    <aerosurface_scale name="Thrust Vector Control">
@@ -1633,7 +1646,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/speedbrake-pos-norm</property>
-           <value>1</value>
+           <value>0.2</value>
          </product>
     </function>
 
