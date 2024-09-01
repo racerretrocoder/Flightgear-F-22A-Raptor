@@ -630,7 +630,57 @@ Use below instead
 	<y-factor>0</y-factor>
 	<z-factor>0</z-factor>
 </animation>
+
+
+<!--
+	<model>
+	<name>right-burner21</name>
+		<path>Aircraft/F-22/Models/Effects/flammes/flammesD.xml</path>
+			<offsets>
+				<x-m>6.727</x-m>
+			<y-m>0.6</y-m>
+			<z-m>-0.9</z-m>
+
+		</offsets>
+	</model>
+	  <animation>
+	<type>scale</type>
+	<object-name>right-burner21</object-name>
+	<property>sim/multiplay/generic/float[32]</property>    
+  <x-min>.1</x-min>
+  <y-min>1.0</y-min>
+  <z-min>1</z-min>    
+	<x-factor>1.1</x-factor>
+	<y-factor>0</y-factor>
+	<z-factor>0</z-factor>
+</animation>
+
 	
+
+		<model>
+	<name>right-burner22</name>
+		<path>Aircraft/F-22/Models/Effects/flammes/flammesD.xml</path>
+			<offsets>
+				<x-m>6.727</x-m>
+			<y-m>-0.6</y-m>
+			<z-m>-0.9</z-m>
+
+		</offsets>
+	</model>
+
+		  <animation>
+	<type>scale</type>
+	<object-name>right-burner22</object-name>
+	<property>sim/multiplay/generic/float[32]</property>    
+  <x-min>.1</x-min>
+  <y-min>1.0</y-min>
+  <z-min>1</z-min>    
+	<x-factor>1.1</x-factor>
+	<y-factor>0</y-factor>
+	<z-factor>0</z-factor>
+</animation>
+-->
+
 <!-- Interior -->
 
 	<model>
@@ -658,7 +708,7 @@ Use below instead
 		<condition>
 			<not>
 
-				<property>/sim/current-view/internal</property>
+				<property>sim/current-view/internal</property>
 			</not>
 		</condition>
 	</model>
@@ -913,6 +963,50 @@ Use below instead
 			<greater-than>
 				<property>/baydoors/position-norm</property>
 				<value>-1</value>
+			</greater-than>
+		</condition>
+	
+	</animation>	
+
+
+
+
+<!--Gun Door-->
+
+	<animation>
+		<type>rotate</type>
+		<object-name>gundoor</object-name>
+		<property>fdm/jsbsim/fcs/gundoor</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>gundoor-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+
+
+
+	<animation>
+		<type>select</type>
+		<object-name>gundoor</object-name>
+		
+		
+		<condition>
+			<greater-than>
+				<property>fdm/jsbsim/fcs/gundoor</property>
+				<value>0.0000000001</value>
 			</greater-than>
 		</condition>
 	

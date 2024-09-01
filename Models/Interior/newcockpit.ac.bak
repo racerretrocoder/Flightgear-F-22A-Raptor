@@ -17,7 +17,7 @@ OBJECT world
 kids 145
 OBJECT poly
 name "refuelswitchlight"
-loc -5.26336 -0.353109 0.41102
+loc -5.26361 -0.35784 0.41102
 crease 180.000000
 numvert 81
 0.00348949 0 0.00483179

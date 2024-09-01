@@ -8,7 +8,7 @@
     <trigger>controls/armament/trigger</trigger>
     <speed>2500</speed>
     <repeat>true</repeat>
-    <delay>0.15</delay>
+    <delay>0</delay>
     <count>-1</count>
     <x-offset> 21.0 </x-offset>
     <y-offset> 1.50 </y-offset>
@@ -27,7 +27,7 @@
     <trigger>controls/armament/trigger</trigger>
     <speed>2041</speed>
     <repeat>true</repeat>
-    <delay>0.1</delay>
+    <delay>0.0</delay>
     <count>-1</count>
     <x-offset> 21.0</x-offset>
     <y-offset> 1.50 </y-offset>
@@ -49,9 +49,9 @@
     <name>smoke</name>
     <model>Aircraft/F-22/Models/Effects/Smoke.xml</model>
     <trigger>controls/armament/trigger</trigger>
-    <speed>10</speed>
+    <speed>5</speed>
     <repeat>true</repeat>
-    <delay>0.1</delay>
+    <delay>0</delay>
     <count>-1</count>
     <x-offset>-2.50 </x-offset>
     <y-offset> 1.50 </y-offset>
@@ -62,9 +62,27 @@
     <eda>10</eda>
     <wind>true</wind>
     <buoyancy>33</buoyancy>
-    <life>1</life>
+    <life>2</life>
   </submodel>
-  
+    <submodel> 
+    <name>smoke2</name>
+    <model>Aircraft/F-22/Models/Effects/Smoke.xml</model>
+    <trigger>controls/armament/trigger</trigger>
+    <speed>6</speed>
+    <repeat>true</repeat>
+    <delay>0</delay>
+    <count>-1</count>
+    <x-offset>-2.50 </x-offset>
+    <y-offset> 1.50 </y-offset>
+    <z-offset> 0.53</z-offset>
+    <pitch-offset> 0 </pitch-offset>
+    <yaw-offset> 0.0 </yaw-offset>
+    <pitch-offset> 0 </pitch-offset>
+    <eda>10</eda>
+    <wind>true</wind>
+    <buoyancy>33</buoyancy>
+    <life>2</life>
+  </submodel>
   
   <!-- Countermeasures -->
 
