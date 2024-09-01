@@ -1436,6 +1436,22 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <channel name="Misc">
 
 
+   <kinematic name="gundoor">
+     <input>/controls/armament/trigger</input>
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>      0 </time>
+       </setting>
+       <setting>
+          <position>  1 </position>
+          <time>      0.3 </time>
+       </setting>
+     </traverse>
+     <output>fcs/gundoor</output>
+   </kinematic>
+
+
 
    <kinematic name="missile eff">
      <input>/controls/armament/missile-trigger</input>
