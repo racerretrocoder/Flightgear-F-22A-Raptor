@@ -362,6 +362,7 @@ var MISSILE = {
    var target = radar.GetTarget();
         if (target == nil) {
        var phrase =  me.fox ~ " at Nothing. Release " ~ me.NameOfMissile; #Missile shot
+       me.fox = "Fox 1";  # Set only for proximity detect to fire missile with out lock and relock if target is back.
                print(phrase);
         } 
         else 
@@ -416,6 +417,8 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
 
     update: func(){
         # calculate life time of the missile
+
+
 
 
         var dt = getprop("sim/time/delta-sec");
@@ -637,7 +640,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                     {
                         # target unreachable, fly free.
                         me.free = 1;
-                        print("Too much G in missile! Print from line 553: Missile.nas");
+                        print("Too much G in missile! Print from line 641: Missile.nas");
                         # Disable for the moment
                     }
                 }
@@ -652,6 +655,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                 {
                     print("Ground");
                     me.free = 1;
+                                        me.animate_explosion();
                     settimer(func(){ me.del(); }, 1);
                     return;
                 }
@@ -676,6 +680,8 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
     {
         if(me.Tgt == nil)
         {
+            me.fox = "Fox 1";
+                            me.free = 1;
             return(1);
         }
         if(me.status == 0)
@@ -913,18 +919,32 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
     },
 
     
-    poximity_detection: func()
-    {
-
+    poximity_detection: func() {
+var semiactive = 0;
         var target = radar.GetTarget();
 # If there is no target. Print. "there is no target"; to allow for shooting missiles at no targets. For ejecting etc.
-       if(target == nil)
-        {
+       if( me.fox == "Fox 1" )   {
+            semiactive = 1;
+
+            if( target == nil ) {
+                
             print("poximity_detection(): There is no target! Not going to hit anyone");
-        return(1); # Missile still active
-        } 
-        else {
-                    print("poximity_detection(): Tgt exists: Checking if we hit");    
+        return(1); # Missile searching
+          
+          }
+       
+
+
+       }
+
+
+
+
+
+
+
+                  if ( me.fox != "Fox 4") { # ejecting only Fox 4 dosent exist
+                    print("poximity_detection(): Fox isnt 1 so Tgt exists: Checking if we hit");    
 
         me.t_coord.set_latlon(me.Tgt.get_Latitude(), me.Tgt.get_Longitude(), me.Tgt.get_altitude());
         var cur_dir_dist_m = me.coord.direct_distance_to(me.t_coord);
@@ -1096,7 +1116,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
        }
         } 
         else {
-        print("Missile fired with target. missile.nas line 1070");
+        print("Missile fired with target. missile.nas line 1108");
         var total_elev  = tgt.get_total_elevation(OurPitch.getValue());    # deg.
         var total_horiz = tgt.get_deviation(OurHdg.getValue(), tempCoord); # deg.
         # check if in range and in the (square shaped here) seeker FOV.

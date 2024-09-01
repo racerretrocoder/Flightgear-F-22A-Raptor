@@ -35,7 +35,7 @@ fire_MG = func(b) {
                 m2000_load.dropLoad(pylon);
                 print("Should fire Missile");
                 setprop("/controls/armament/missile-trigger", 1);
-maketimer(1, missile_sfx);
+
 
 
             }
