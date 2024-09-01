@@ -976,7 +976,7 @@ Use below instead
 	<animation>
 		<type>rotate</type>
 		<object-name>gundoor</object-name>
-		<property>fdm/jsbsim/fcs/gundoor</property>
+		<property>sim/multiplay/generic/float[33]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
