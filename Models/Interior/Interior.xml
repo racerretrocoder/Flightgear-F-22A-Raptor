@@ -959,6 +959,21 @@ New: Refuel in air switch.
        </action>
  </animation>
 
+<animation>
+		<type>rotate</type>
+		<object-name>REFUELSWITCH</object-name>
+		<property>controls/refuel/Switch</property>
+		<factor>-20</factor>
+		<center>
+			<x-m>-5.27157</x-m>
+			<y-m>-0.406869</y-m>
+			<z-m>-0.360392</z-m>
+		</center>
+		<axis>
+			<y>1</y>
+		</axis>
+	</animation>
+
 
 
  <animation>
