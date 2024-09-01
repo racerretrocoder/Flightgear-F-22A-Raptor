@@ -218,12 +218,25 @@
 				</menu>
 			</default>
 		</menubar>
+
+
+
+
+
 <multiplay>
 <chat_display>1</chat_display>
 <generic>
 
 
-<!--Multiplayer Variables-->
+<!--
+
+
+Multiplayer Variables   note: doubles used instead of floats to save space and prevent lag Works nicely :)
+
+
+Theres soo many! Lol!   
+
+-->
 
 <bool n="0" type="bool" alias="/damage/sounds/explode-on"/>
 <bool n="1" type="bool" alias="/damage/fire/serviceable"/> <!--Damage smoke looks Nice from people on MP. Good reactions :D-->
@@ -232,7 +245,7 @@
  <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
 
-/engines/engine/nozzle-pos-norm
+
   <float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
  <float n="21" type="double" alias="/fdm/jsbsim/fcs/Elev-pos-norm-limit-sum-main"/>
  <float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
@@ -248,13 +261,20 @@
  <float n="32" type="double" alias="/engines/engine[1]/nozzle-pos-norm"/>	
 
 
+
+ <float n="33" type="double" alias="/fdm/jsbsim/fcs/gundoor"/>	
+
+
+
 <int n="15" type="int" alias="/f22/ejected"/>
 
 <int n="16" type="int" alias="/controls/state/low_level"/>
  <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
 
-
+<int n="17" type="int" alias="/controls/armament/extpylons"/>  <!--Ext pylons-->
+<int n="18" type="int" alias="/controls/armament/rdt"/> 
+<int n="19" type="int" alias="/controls/armament/ldt"/>   <!--Drop tanks--> 
 
 <int n="12" type="int" alias="/fdm/jsbsim/fcs/AIM120"/>
 
@@ -264,7 +284,7 @@
 
 <!--Missiles in bays on MP-->
 <string n="6" type="string"></string><!-- string 6 used by radar lock RWR warning -->
-<string n="10" type="string" alias="/sim/weight/selected"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for extra 4 for extra 5 for extra-->
+<string n="10" type="string" alias="/sim/weight/selected"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for GBU39 4 for extra 5 for extra-->
 <string n="11" type="string" alias="/sim/weight[1]/selected"/>
 <string n="12" type="string" alias="/sim/weight[2]/selected"/>
 <string n="13" type="string" alias="/sim/weight[3]/selected"/>
@@ -275,7 +295,7 @@
 <string n="18" type="string" alias="/sim/weight[8]/selected"/>
 <string n="19" type="string" alias="/sim/weight[9]/selected"/>
 
-<bool n="10" type="bool" alias="/controls/armament/station/release"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for extra 4 for extra 5 for extra-->
+<bool n="10" type="bool" alias="/controls/armament/station/release"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for GBU39 4 for extra 5 for extra-->
 <bool n="11" type="bool" alias="/controls/armament/station[1]/release"/>
 <bool n="12" type="bool" alias="/controls/armament/station[2]/release"/>
 <bool n="13" type="bool" alias="/controls/armament/station[3]/release"/>

@@ -5,7 +5,7 @@
   <path>pylons.ac</path>
 
 
- 
+
   <!--station left 1 -->
   <animation>
     <type>select</type>
@@ -18,7 +18,7 @@
     <object-name>pylon1.R</object-name>
     <condition>
       <equals>
-        <property>controls/armament/extpylons</property>
+        <property>sim/multiplay/generic/int[17]</property>
         <value>1</value>
       </equals>
     </condition>
@@ -51,7 +51,7 @@
     <condition>
 
         <equals>
-          <property>controls/armament/ldt</property>
+          <property>sim/multiplay/generic/int[19]</property>
           <value>1</value>
         </equals>
 
@@ -65,7 +65,7 @@
     <condition>
 
         <equals>
-          <property>controls/armament/rdt</property>
+          <property>sim/multiplay/generic/int[18]</property>
           <value>1</value>
         </equals>
 
