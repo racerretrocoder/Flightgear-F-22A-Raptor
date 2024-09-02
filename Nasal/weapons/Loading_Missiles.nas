@@ -35,8 +35,8 @@ var Loading_missile = func(name)
     {
         # AIM-120 :Advanced Medium Range Missile,      
 	typeid = 52;
-        address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R-smoke.xml";
-        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/R-27R.xml";
+        address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         maxdetectionrngnm = 38.8;                    #  
         fovdeg = 140;                                #
@@ -83,6 +83,36 @@ var Loading_missile = func(name)
         cruisealt = 0;
         chute = 0;
     }
+    elsif(name == "Aim-9m")
+    {
+        # AIM-9m :short-range A2A,IR seeker,
+	typeid = 69; # This is not a Aim-9m this is an Aim-9x with way less homing capabilites. So you can evade it with out the need for flares. just pull a manuver so that its 30deg away from the seeker and there you go   
+        address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9M-smoke.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9M.xml";
+        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
+        maxdetectionrngnm = 12;                       # Not real Impact yet A little more than the MICA
+        fovdeg = 30;                                 # Test missile for evading with no countermessures
+        detectionfovdeg = 30;                        # Test missile for evading with no countermessures
+        trackmaxdeg = 30;                            # Test missile for evading with no countermessures
+        maxg = 5;                                    #
+        thrustlbs = 700;                             #  its fast to make it less likely to hit
+        thrustdurationsec = 10;                        # To make it miss some times
+        weightlaunchlbs = 186;
+        weightwarheadlbs = 20.8;
+        dragcoeff = 0.8;                              # guess; original 0.05
+        dragarea = 0.075;                             # sq ft
+        maxExplosionRange = 50;                       
+        maxspeed = 5;                                 # In Mach
+        life = 100;
+        fox = "Fox 2";
+        rail = "false";
+        cruisealt = 0;
+        chute = 0;
+    }
+
+
+
+
     elsif(name == "GBU-39")
     {
            # Mm yes much bomb,
@@ -109,7 +139,88 @@ var Loading_missile = func(name)
         cruisealt = 0;
         chute = 0;
     }
-    elsif(name == "eject")
+    elsif(name == "JDAM")
+    {
+           # Mm yes much bomb,
+	    typeid = 18;
+        address = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml"; #for now
+        NoSmoke = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml"; # for now
+        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";
+        maxdetectionrngnm = 12;                       # Less manuverability but bigger BOOM!
+        fovdeg = 30;                                 # seeker optical FOV
+        detectionfovdeg = 30;                        # Search pattern diameter (rosette scan)
+        trackmaxdeg = 30;                            # Seeker max total angular rotation
+        maxg = 4;                                    # 
+        thrustlbs = 0.00;                             # 
+        thrustdurationsec = 100;                        #
+        weightlaunchlbs = 186;
+        weightwarheadlbs = 20.8;
+        dragcoeff = 0.05;                              # guess; original 0.05
+        dragarea = 0.075;                             # sq ft
+        maxExplosionRange = 50;                       
+        maxspeed = 5;                                 # In Mach
+        life = 80000000000000;
+        fox = "Fox 1";    #If the target is out of radar loose track. Simulates targeting pod. Kinda
+        rail = "true";
+        cruisealt = 0;
+        chute = 0;
+    }
+    elsif(name == "Aim-7") #Debug missile
+    {
+  	typeid = 52; #Overridden at the end of missile.nas
+        address = "Aircraft/F-22/Models/Stores/Missiles/AIM7/AIM7-smoke.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM7/AIM7.xml";
+        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
+        maxdetectionrngnm = 38.8;                    #  
+        fovdeg = 360;                                # all 50
+        detectionfovdeg = 360;                       # TODO implent data link system so we can control these variables while missile is in flight. im sure its possible
+        trackmaxdeg = 360;                           #  Testing not real
+        maxg = 5;                                   # 
+        thrustlbs = 500;                             # 
+        thrustdurationsec = 120;                     # 
+        weightlaunchlbs = 291;
+        weightwarheadlbs = 44;
+        dragcoeff = 0.3;                             # guess; original 0.05
+        dragarea = 0.056;                            # sq ft
+        maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
+        maxspeed = 8.5;                              # In Mach
+        life = 1200;
+        fox = "Fox 1";
+        rail = "false";
+        cruisealt = 0;
+        chute = 0;
+    }
+    elsif(name == "XMAA") #Debug missile
+    {
+        # TEST BVR Experimental missile
+  	typeid = 52; #Overridden at the end of missile.nas
+        address = "Aircraft/F-22/Models/stores/Missiles/XMAA/XMAA-smoke.xml";
+        NoSmoke = "Aircraft/F-22/Models/stores/Missiles/XMAA/XMAA.xml";
+        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
+        maxdetectionrngnm = 150.8;                    #  
+        fovdeg = 360;                                #
+        detectionfovdeg = 360;                       # TODO implent data link system so we can control these variables while missile is in flight. im sure its possible
+        trackmaxdeg = 360;                           #  Testing not real
+        maxg = 4;                                   # 
+        thrustlbs = 2000;                             # 
+        thrustdurationsec = 902;                     # 
+        weightlaunchlbs = 291;
+        weightwarheadlbs = 44;
+        dragcoeff = 0.3;                             # guess; original 0.05
+        dragarea = 0.056;                            # sq ft
+        maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
+        maxspeed = 8.5;                              # In Mach
+        life = 9000;
+        fox = "Fox 3";
+        rail = "false";
+        cruisealt = 0;
+        chute = 0;
+    }
+
+
+
+
+    elsif(name == "eject")   # Used for the ejction seat. Not a missile so we do fox one and leave it
     {
            # ejection seat   Aircraft/F-22/Models/pilot/eject.xml
 	    typeid = 98;

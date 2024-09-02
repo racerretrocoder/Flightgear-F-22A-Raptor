@@ -5,19 +5,20 @@
 
  <path>GBU39.ac</path>
 
- <nasal>
-  <load>
-   ##############################################################################
-   # The on-load Nasal is not executed when this file is loaded as the user
-   # aircraft.
-   ##############################################################################
-   var rplayer = cmdarg();
-   # Set up property aliases for animations.
-   rplayer.getNode("mig29/weapons/podv/T1", 1).
-     alias(rplayer.getNode("sim/multiplay/generic/int[27]"));
-   ##############################################################################
-  </load>
- </nasal>
+
+
+
+  <animation>
+    <type>dist-scale</type>
+    <object-name>AIM-120</object-name>
+    <interpolation>
+      <entry><ind>    0 </ind><dep> 0 </dep></entry>
+      <entry><ind>   20 </ind><dep> 3 </dep></entry>
+      <entry><ind> 1500 </ind><dep> 7 </dep></entry>
+    </interpolation>
+  </animation>
+
+
 
 
 </PropertyList>

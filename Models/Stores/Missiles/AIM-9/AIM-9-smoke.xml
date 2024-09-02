@@ -7,36 +7,12 @@
 
  <path>AIM-9.ac</path>
 
- <nasal>
-  <load>
-   ##############################################################################
-   # The on-load Nasal is not executed when this file is loaded as the user
-   # aircraft.
-   ##############################################################################
-   var rplayer = cmdarg();
-   # Set up property aliases for animations.
-   rplayer.getNode("mig29/weapons/podv/T2", 1).
-     alias(rplayer.getNode("sim/multiplay/generic/int[28]"));
-   ##############################################################################
-  </load>
- </nasal>
+ <effect>
+ <inherits-from>Effects/model-transparent</inherits-from>
+<object-name>FlameModel</object-name>
+</effect>
 
-<!--
- <animation>
-  <type>select</type>
-  <object-name>AIM-120</object-name>
-  <object-name>RuliR</object-name>
-  <object-name>UzelKrep1R</object-name>
-  <object-name>UzelKrep2R</object-name>
-  <object-name>UzelKrep3R</object-name>
-  <condition>
-   <equals>
-    <property>su-27/WCS/pylon9</property>
-    <value>R-27R</value>
-   </equals>
-  </condition>
- </animation>
--->
+
 
  <model>
   <name>R-27R_smoke</name>
@@ -47,5 +23,17 @@
    <z-m>0.0  </z-m>
   </offsets>
  </model>
+
+
+  <animation>
+    <type>dist-scale</type>
+    <object-name>AIM-120</object-name>
+    <interpolation>
+      <entry><ind>    0 </ind><dep> 0 </dep></entry>
+      <entry><ind>   20 </ind><dep> 1 </dep></entry>
+      <entry><ind> 1500 </ind><dep> 6 </dep></entry>
+    </interpolation>
+  </animation>
+
 
 </PropertyList>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>XMAA.ac</path>
+	
+	<animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>120000000000</max-m>
+    </animation>
+	<animation>
+<type>select</type>
+<object-name>XMAA</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/multiplay/generic/string[15]</property> <!--Sim weight station 5-->
+<value>XMAA</value>
+</equals>
+<equals>
+<property>sim/multiplay/generic/bool[15]</property> <!--controls station 5 realease-->
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+</PropertyList>

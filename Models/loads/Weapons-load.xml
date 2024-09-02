@@ -119,11 +119,66 @@
 </offsets>
 </model>
 
+<model>
+<name>aim7</name>
+<path>Aircraft/F-22/Models/loads/7p3.xml</path>
+<offsets>
+<x-m> 2.1  </x-m>
+    <y-m> -3.4 </y-m>
+    <z-m> -1.1 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+<model>
+<name>aim7-2</name>
+<path>Aircraft/F-22/Models/loads/7p5.xml</path>
+<offsets>
+<x-m> 2.1  </x-m>
+    <y-m> 3.4 </y-m>
+    <z-m> -1.1 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+
+
+<model>
+<name>aim9m</name>
+<path>Aircraft/F-22/Models/loads/9mp3.xml</path>
+<offsets>
+<x-m> 2.1  </x-m>
+    <y-m> -3.4 </y-m>
+    <z-m> -1.1 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+<model>
+<name>aim9m-2</name>
+<path>Aircraft/F-22/Models/loads/9mp5.xml</path>
+<offsets>
+<x-m> 2.1  </x-m>
+    <y-m> 3.4 </y-m>
+    <z-m> -1.1 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
 
 
 
 <!--left belly -->
-
+<model>
+<name>left-bellyxmaa</name>
+<path>Aircraft/F-22/Models/loads/XMAAp6.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> -0.95 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
 
 <model>
 <name>left-belly1</name>
@@ -237,6 +292,16 @@
 </offsets>
 </model>
 
+<model>
+<name>right-bellyie</name>
+<path>Aircraft/F-22/Models/loads/XMAAp9.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> 0.95 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
 
 
 <!--station right 3 -->
