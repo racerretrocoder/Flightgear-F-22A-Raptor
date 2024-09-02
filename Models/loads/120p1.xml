@@ -3,7 +3,10 @@
 <PropertyList>
 
 	<path>AIM-120.ac</path>
-	
+
+<!--Never put effects on missiles. Crashes flightgear when the model loads in. same thing for the inner tails on the main model-->
+
+
 	<animation>
         <type>range</type>
         <min-m>0</min-m>

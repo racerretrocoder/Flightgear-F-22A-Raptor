@@ -5,6 +5,14 @@
 	<path>AIM-9M.ac</path>
 	
 	<animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+   <object-name>seeker</object-name>
+  </animation>
+
+
+	<animation>
         <type>range</type>
         <min-m>0</min-m>
         <max-m>12000</max-m>

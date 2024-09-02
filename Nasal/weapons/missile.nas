@@ -29,7 +29,7 @@ var MISSILE = {
         # 1 = locked
         # 2 = fired
         m.status            = 0;
-        
+        setprop("/controls/armament/missile/status",0);
         # m.free :
         # 0 = status fired with lock
         # 1 = status fired but having lost lock.
@@ -399,7 +399,9 @@ sendinflight: func(lat,lon,alt){
 
 var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
    
-        	msg.Position.set_latlon(0,0,0);
+
+
+        	msg.Position.set_latlon(me.model.getNode("latitude-deg-prop", 1),me.model.getNode("longitude-deg-prop", 1),me.model.getNode("heading-deg-prop", 1));
         msg.Flags = 1;#bit #0
         	msg.Flags = bits.set(msg.Flags, 1);#bit #1
         msg.IsDistinct = 0;

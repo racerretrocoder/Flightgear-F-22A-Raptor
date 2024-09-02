@@ -55,6 +55,11 @@
 	
 	  <armament>
 
+<status type="int">0</status>
+
+
+
+
       <missile-trigger type="float">0</missile-trigger>
 
 <rdt type="int">0</rdt> <!--Right Drop Tank Show/Hide-->
