@@ -97,7 +97,7 @@
 <name>extaim1201</name>
 <path>Aircraft/F-22/Models/loads/120p3.xml</path>
 <offsets>
-<x-m> 2.1  </x-m>
+    <x-m> 2.1  </x-m>
     <y-m> -3.4 </y-m>
     <z-m> -1.1 </z-m>
 <pitch-deg>  </pitch-deg>
@@ -108,7 +108,7 @@
 <name>extaim1202</name>
 <path>Aircraft/F-22/Models/loads/120p5.xml</path>
 <offsets>
-<x-m> 2.1  </x-m>
+    <x-m> 2.1  </x-m>
     <y-m> 3.4 </y-m>
     <z-m> -1.1 </z-m>
 <pitch-deg>  </pitch-deg>
@@ -199,11 +199,14 @@
 </offsets>
 </model>
 
+
+<!--Center bays-->
+
 <model>
 <name>left-belly1</name>
 <path>Aircraft/F-22/Models/loads/120p6.xml</path>
 <offsets>
-<x-m> -0.4  </x-m>
+    <x-m> -0.4  </x-m>
     <y-m> -0.95 </y-m>
     <z-m> -1.6 </z-m>
 <pitch-deg>  </pitch-deg>
@@ -214,7 +217,7 @@
 <name>left-bellym</name>
 <path>Aircraft/F-22/Models/loads/120p4.xml</path>
 <offsets>
-<x-m> -0.4  </x-m>
+    <x-m> -0.4  </x-m>
     <y-m> -0.67 </y-m>
     <z-m> -1.6 </z-m>
 <pitch-deg>  </pitch-deg>
@@ -237,7 +240,7 @@
 <name>left-bellyis</name>
 <path>Aircraft/F-22/Models/loads/120p10.xml</path>
 <offsets>
-<x-m> -0.4  </x-m>
+    <x-m> -0.4  </x-m>
     <y-m> -0.39 </y-m>
     <z-m> -1.6 </z-m>
 <pitch-deg>  </pitch-deg>
@@ -259,7 +262,7 @@
 <name>right-belly1</name>
 <path>Aircraft/F-22/Models/loads/120p1.xml</path>
 <offsets>
-<x-m> -0.4  </x-m>
+    <x-m> -0.4  </x-m>
     <y-m> 0.39 </y-m>
     <z-m> -1.6 </z-m>
 <pitch-deg>  </pitch-deg>
@@ -270,7 +273,7 @@
 <name>right-belly2</name>
 <path>Aircraft/F-22/Models/loads/AG/GBUp1.xml</path>
 <offsets>
-<x-m> -0.4  </x-m>
+    <x-m> -0.4  </x-m>
     <y-m> 0.39 </y-m>
     <z-m> -1.57 </z-m>
 <pitch-deg>  </pitch-deg>
@@ -282,7 +285,7 @@
 <name>right-bellym</name>
 <path>Aircraft/F-22/Models/loads/120p2.xml</path>
 <offsets>
-<x-m> -0.4  </x-m>
+    <x-m> -0.4  </x-m>
     <y-m> 0.67 </y-m>
     <z-m> -1.6 </z-m>
 <pitch-deg>  </pitch-deg>
@@ -304,7 +307,7 @@
 <name>right-bellyi</name>
 <path>Aircraft/F-22/Models/loads/120p9.xml</path>
 <offsets>
-<x-m> -0.4  </x-m>
+    <x-m> -0.4  </x-m>
     <y-m> 0.95 </y-m>
     <z-m> -1.6 </z-m>
 <pitch-deg>  </pitch-deg>
