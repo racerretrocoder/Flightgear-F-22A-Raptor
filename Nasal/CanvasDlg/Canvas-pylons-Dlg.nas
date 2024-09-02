@@ -152,16 +152,16 @@ btn_P8_R_73.listen("clicked", func {
 		});
 P8Ctls.addItem(btn_P8_R_73);
 
-# click button P8:smoke-red
+# click button P8:aim-9m
 var btn_P8_smk_red = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("smoke: red")
+        .setText("Aim-9m")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P8_smk_red.listen("clicked", func {
         # add code here to react on click on button.
-		print("P8: smoke-red");
-		setprop("sim/weight[7]/selected","smoke-red");
+		print("P8: Aim-9m");
+		setprop("sim/weight[7]/selected","Aim-9m");
 		setprop("/controls/armament/station[7]/release","false");
 		setprop("fdm/jsbsim/inertia/pointmass-weight-lbs[7]",33); # WEIGHT HERE IS A GUESS !
 		pylons_update();
@@ -170,14 +170,14 @@ P8Ctls.addItem(btn_P8_smk_red);
 
 # click button P8:smoke-yellow
 var btn_P8_smk_yellw = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("smoke: yellow")
+        .setText("smoke: red")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P8_smk_yellw.listen("clicked", func {
         # add code here to react on click on button.
-		print("P8: smoke-yellow");
-		setprop("sim/weight[7]/selected","smoke-yellow");
+		print("P8: smoke-red");
+		setprop("sim/weight[7]/selected","smoke-red");
 		setprop("/controls/armament/station[7]/release","false");
 		setprop("fdm/jsbsim/inertia/pointmass-weight-lbs[7]",33); # WEIGHT HERE IS A GUESS !
 		pylons_update();
@@ -900,14 +900,14 @@ P7Ctls.addItem(btn_P7_R_73);
 
 # click button P7:smoke-red
 var btn_P7_smk_red = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("smoke: red")
+        .setText("Aim-9m")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P7_smk_red.listen("clicked", func {
         # add code here to react on click on button.
-		print("P7: smoke-red");
-		setprop("sim/weight[6]/selected","smoke-red");
+		print("P7: Aim-9m");
+		setprop("sim/weight[6]/selected","Aim-9m");
 		setprop("/controls/armament/station[6]/release","false");
 		setprop("fdm/jsbsim/inertia/pointmass-weight-lbs[6]",33); # WEIGHT HERE IS A GUESS !
 		pylons_update();
@@ -916,14 +916,14 @@ P7Ctls.addItem(btn_P7_smk_red);
 
 # click button P7:smoke-yellow
 var btn_P7_smk_yellw = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("smoke: yellow")
+        .setText("smoke: red")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P7_smk_yellw.listen("clicked", func {
         # add code here to react on click on button.
-		print("P7: smoke-yellow");
-		setprop("sim/weight[6]/selected","smoke-yellow");
+		print("P7: smoke-red");
+		setprop("sim/weight[6]/selected","red");
 		setprop("/controls/armament/station[6]/release","false");
 		setprop("fdm/jsbsim/inertia/pointmass-weight-lbs[6]",33); # WEIGHT HERE IS A GUESS !
 		pylons_update();

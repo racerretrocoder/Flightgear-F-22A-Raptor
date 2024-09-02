@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>AIM-9M.ac</path>
+	
+	
+<animation>
+<type>select</type>
+<object-name>AIM-9</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/multiplay/generic/string[17]</property>
+<value>Aim-9m</value>
+</equals>
+<equals>
+<property>sim/multiplay/generic/bool[17]</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+<animation>
+		<type>select</type>
+		<object-name>AIM-9</object-name>
+
+		
+		<condition>
+			<less-than>
+				<property>sim/multiplay/generic/int[14]</property>
+				<value>0.1</value>
+			</less-than>
+		</condition>
+	
+	</animation>	
+	
+</PropertyList>
