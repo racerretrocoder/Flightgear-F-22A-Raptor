@@ -9,12 +9,18 @@
 			</key>
 						<key>
 				<name>Joystick: Military Trigger</name>
-				<desc>Fire Guns</desc>
+				<desc>Fire Guns in missile mode</desc>
 			</key>
 			
+			
+			<key>
+				<name>w</name>
+				<desc>Switch the weapon type between guns and missiles</desc>
+			</key>
+
 			<key>
 				<name>e</name>
-				<desc>Fire Missiles</desc>
+				<desc>Fire the current weapon type</desc>
 			</key>
 			
 			<key>
@@ -51,8 +57,18 @@
       </key>
       <key>
         <name>m</name>
-        <desc>Change Missile Type</desc>
+        <desc>Select an Air to Air Weapon</desc>
       </key>
+      <key>
+        <name>m</name>
+        <desc>Select an Air to ground Weapon</desc>
+      </key>
+      <key>
+        <name>i</name>
+        <desc>Select a DEBUG Missile. Your callsign must be a developers callsign for this to work</desc>
+      </key>
+
+
 	   <key>
         <name>y</name>
         <desc>Lock Next Target</desc>
@@ -68,6 +84,8 @@
 			<line></line>
 						<line></line>
 			<line>---------------------------------Specifications:</line>
+
+						<line>The debug XMAA Missile is a experimental 160nm Long range missile. Flys at mach 5</line>
 
 			<line>Maximum speed: Mach 2.25 @ 65000ft: Mach 1.8+ @ sea level</line>
 			<line>Super Cruise speed: Mach 1.10 20000-65000ft ~~ Mil Thrust</line>
