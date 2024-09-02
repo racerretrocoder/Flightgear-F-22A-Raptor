@@ -111,13 +111,128 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </location>
    <pointmass name="Payload">
     <description> 2580 LBS + full (12420 LBS) fuel should bring model up to entered max weight</description>
-    <weight unit="LBS">   1290.0 </weight>
+    <weight unit="LBS">   0 </weight>
     <location name="POINTMASS" unit="IN">
       <x> 446.40 </x>
       <y>   0.00 </y>
       <z> -18.60 </z>
     </location>
   </pointmass> 
+
+   <pointmass name="pylon8">
+    <description>left side bay payload</description>
+    <weight unit="LBS"> 0 </weight>
+    <location name="POINTMASS" unit="M">
+<x> -1.0 </x>
+<y> -1.7 </y>
+<z> -1.3 </z>
+    </location>
+  </pointmass> 
+   <pointmass name="pylon6">
+    <description>center bay 1</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x> -0.4  </x>
+<y> -0.95</y>
+<z> -1.6  </z>
+    </location>
+  </pointmass> 
+   <pointmass name="pylon4">
+    <description>center bay 2</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x>-0.4 </x>
+<y>-0.67</y>
+<z>-1.6 </z>
+    </location>
+  </pointmass> 
+   <pointmass name="pylon10">
+    <description>center bay 3</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x>-0.4 </x>
+<y>-0.39</y>
+<z>-1.6 </z>
+    </location>
+  </pointmass> 
+   <pointmass name="pylon2">
+    <description>center bay 4</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x>-0.4</x>
+<y>0.67</y>
+<z>-1.6</z>
+    </location>
+  </pointmass> 
+   <pointmass name="pylon1">
+    <description>center bay 5</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x> -0.4 </x>
+<y> 0.39 </y>
+<z> -1.6 </z>
+    </location>
+  </pointmass> 
+
+   <pointmass name="pylon9">
+    <description>center bay 6</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x> -0.4 </x>
+<y> 0.95 </y>
+<z> -1.6 </z>
+    </location>
+  </pointmass> 
+
+   <pointmass name="pylon7">
+    <description>right side bay door</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x> -1.0</x>
+<y> 1.7 </y>
+<z> -1.3</z>
+    </location>
+  </pointmass> 
+
+   <pointmass name="9">
+    <description>leftext</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x> 2.1  </x>
+<y> -3.4 </y>
+<z> -1.1 </z>
+    </location>
+  </pointmass> 
+   <pointmass name="10">
+    <description>leftexttank</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x> 2.1  </x>
+<y> -3.4 </y>
+<z> -1.1 </z>
+    </location>
+  </pointmass> 
+
+     <pointmass name="11">
+    <description>rightext</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x> 2.1 </x>
+<y> 3.4 </y>
+<z> -1.1</z>
+    </location>
+  </pointmass> 
+     <pointmass name="12">
+    <description>rightexttank</description>
+    <weight unit="LBS">  0 </weight>
+    <location name="POINTMASS" unit="M">
+<x>2.1 </x>
+<y>3.4 </y>
+<z>-1.1</z>
+    </location>
+  </pointmass> 
+
+
  </mass_balance>
 
  <ground_reactions>
