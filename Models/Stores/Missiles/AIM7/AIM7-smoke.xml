@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!-- R-27R                                      -->
+<!-- Sergey "Mercenary_Mercury" Salov, Dec 2012 -->
+
+<PropertyList>
+
+ <path>AIM7.ac</path>
+
+
+ <model>
+  <name>AIM-7smoke</name>
+  <path>Aircraft/F-22/Models/smoke/smoke2.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.0  </y-m>
+   <z-m>0.0  </z-m>
+  </offsets>
+ </model>
+
+</PropertyList>

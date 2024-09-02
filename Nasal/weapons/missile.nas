@@ -1025,8 +1025,14 @@ var semiactive = 0;
                         #var typeID = 0;
     			var typeID = getprop("controls/armament/missile/typeid");
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
+                        if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
                         if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  
+                        if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
+                        if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
+                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132      This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
+
+
                         var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
                         msg.RelativeAltitude = 0;
                         msg.Bearing = me.coord.course_to(geo.aircraft_position());
@@ -1048,7 +1054,7 @@ var semiactive = 0;
                 {
                     if(me.life_time > 3 and me.free == 0)
                     {
-                        # you don't have a second chance. Missile missed
+                        # Missile missed
                         me.free = 1;
                     }
                 }

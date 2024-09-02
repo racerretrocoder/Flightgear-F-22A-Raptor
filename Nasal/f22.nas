@@ -68,7 +68,7 @@ var checkforext = func {
   	var pylon5 = getprop("sim/weight[4]/selected");
 
 
-	if ( pylon3 == "Aim-120" or pylon3 == "Aim-9x" or pylon5 == "Aim-120" or pylon5 == "Aim-9x"  ) {
+	if ( pylon3 == "Aim-120" or pylon3 == "Aim-9x" or pylon3 == "Aim-7" or pylon3 == "Aim-9m" or pylon5 == "Aim-120" or pylon5 == "Aim-9x" or pylon5 == "Aim-7" or pylon5 == "Aim-9m"  ) {
 		setprop("controls/armament/extpylons", 1);
 	} else {
 		setprop("controls/armament/extpylons", 0);

@@ -1779,13 +1779,13 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
  <key n="109">
   <name>m</name>
-  <desc>Cycle selected WCS weapon</desc>
+  <desc>Cycle selected WCS AA weapon</desc>
   <binding>
  <command>property-cycle</command>
  <property>controls/armament/selected-weapon</property>
  <value>Aim-9x</value>
  <value>Aim-120</value>
- <value>GBU-39</value>
+
 </binding>
   <binding>
  <command>property-cycle</command>
@@ -1797,6 +1797,52 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
  </key> 
 		
+
+		 <key n="110">
+  <name>n</name>
+  <desc>Cycle selected WCS AG weapon</desc>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon</property>
+
+ <value>GBU-39</value>
+ <value>JDAM</value>
+</binding>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon-digit</property>
+
+ <value>3</value>
+
+  <value>4</value>
+</binding>
+  <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
+ </key> 
+
+
+ 
+		 <key n="105">
+  <name>n</name>
+  <desc>Cycle selected DEBUG MISSILE</desc>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon</property>
+
+ <value>Aim-7</value>
+ <value>XMAA</value>
+ <value>Aim-9m</value>
+</binding>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon-digit</property>
+
+ <value>5</value>
+
+  <value>6</value>
+</binding>
+  <binding><command>nasal</command><script>screen.log.write("Selected Debug missile: " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
+ </key> 
+
 
 <key n="119">
   <name>w</name>
