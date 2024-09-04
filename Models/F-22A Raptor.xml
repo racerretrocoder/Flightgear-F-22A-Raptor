@@ -813,6 +813,31 @@ Use below instead
 		<object-name>BAYLEFT-axis</object-name> <!--This works SOOO GOOD!!-->
 		</axis>
 	</animation>
+	<animation>
+		<type>rotate</type>
+
+		<object-name>leftmidbay</object-name>
+		<property>sim/multiplay/generic/int[12]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-10</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>mbaydoor-axis-L</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+
+
 
 
 	<animation>
@@ -972,6 +997,67 @@ Use below instead
 
 
 <!--Gun Door-->
+
+	<animation>
+		<type>select</type>
+		<object-name>fueldoorL</object-name>
+		
+				<object-name>fueldoorR</object-name>
+		<condition>
+			<greater-than>
+		<property>fdm/jsbsim/fcs/refuel</property>
+				<value>0.0000000001</value>
+			</greater-than>
+		</condition>
+	
+	</animation>	
+
+	<animation>
+		<type>rotate</type>
+		<object-name>fueldoorL</object-name>
+		<property>fdm/jsbsim/fcs/refuel</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-120</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>fueldoor-L-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+	
+	
+		<animation>
+		<type>rotate</type>
+		<object-name>fueldoorR</object-name>
+		<property>fdm/jsbsim/fcs/refuel</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>120</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>fueldoor-R-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
 
 	<animation>
 		<type>rotate</type>
@@ -1523,6 +1609,51 @@ FR
 	</animation>
 
 <!-- Main gear animations -->
+rearwheelsaxis
+
+	<animation>
+		<type>spin</type>
+		<object-name>nwheel2</object-name>
+
+			<condition>
+			<greater-than>
+				<property>gear/gear[1]/position-norm</property>
+				<value>0.999999999999</value>
+			</greater-than>
+		</condition>
+		<property>gear/gear/rollspeed-ms</property>
+  <factor>25</factor>
+
+          <center>
+            <x-m>-3.66829</x-m>
+            <y-m> 0</y-m>   <!--I still dont know how to get these numbers in AC3d. Snail got these for nose gear turning fyi-->
+            <z-m>0.00083</z-m>
+        </center>
+
+		<axis>   
+		<object-name>frontwheelsaxis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>spin</type>
+		<object-name>backwheels</object-name>
+			<condition>
+			<greater-than>
+				<property>gear/gear[1]/position-norm</property>
+				<value>0.999999999999</value>
+			</greater-than>
+		</condition>
+		<property>gear/gear/rollspeed-ms</property>
+  <factor>25</factor>
+
+		<axis>   
+		<object-name>rearwheelsaxis</object-name>
+		</axis>
+	</animation>
+
+
+
 
 	<animation>
 		<type>select</type>
@@ -2430,9 +2561,9 @@ FR
 <!-- Nose gear turning -->
 <animation>
         <type>rotate</type>
-        <object-name>Nose_Gear_Cylinde</object-name>
-	<object-name>Nose_Wheel_Disk</object-name>
-	<object-name>Nose_Wheel_Pnevmatic</object-name>
+
+
+	<object-name>nwheel</object-name>
         <property>controls/flight/rudder</property>
         <offset-deg>0</offset-deg>
         <factor>-60</factor>
