@@ -239,7 +239,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <contact type="BOGEY" name="NOSE">
    <location unit="IN">
-     <x>  96.40 </x>
+     <x>  -464 </x>
      <y>   0.00 </y>
      <z> -110.60 </z>
    </location>
@@ -284,7 +284,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <brake_group>RIGHT</brake_group>
    <retractable>1</retractable>
   </contact>
-
+<!--Todo: Fix these so there in the right spot-->
    <contact type="STRUCTURE" name="RADOME_NOSE">
     <location unit="IN">
      <x>   0    </x>
@@ -445,7 +445,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        <y>  -24.92 </y>
        <z>   0    </z>
      </location>
-<priority>1</priority>  <!--Tanks 3 and 2 wont feed to the engine when they have fuel.  Fix me id: LSX-->
+<priority>1</priority>
      <capacity unit="LBS"> 8140.00 </capacity>
      <contents unit="LBS"> 0 </contents>
   </tank>
@@ -1550,6 +1550,20 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <channel name="Misc">
 
+   <kinematic name="refuel">
+     <input>/controls/refuel/Switch</input>
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>      0 </time>
+       </setting>
+       <setting>
+          <position>  1 </position>
+          <time>      0.5 </time>
+       </setting>
+     </traverse>
+     <output>fcs/refuel</output>
+   </kinematic>
 
    <kinematic name="gundoor">
      <input>/controls/armament/trigger</input>
