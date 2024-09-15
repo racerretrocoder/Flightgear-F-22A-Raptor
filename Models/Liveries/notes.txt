@@ -1,0 +1,6 @@
+when using texture coridantor. 
+
+when i make the little objects be mapped on a huge texture. in ac3d they appear transparent at certain camera angles too. 
+
+So sticking to use one file per texture seems like a good alternative
+and they can be greatly customized
