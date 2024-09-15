@@ -80,7 +80,7 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
         <object-name>left-flap_0</object-name>
         <object-name>right-flap_0</object-name>
         <object-name>Fuselage_1</object-name>
-		<object-name>nose</object-name>
+		<object-name>nose-top</object-name>
 		<object-name>nose-bottom-left</object-name>
 		<object-name>nose-bottom-right</object-name>
 		<object-name>right-slat_0</object-name>
