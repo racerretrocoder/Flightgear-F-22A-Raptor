@@ -64,6 +64,10 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
         <object-name>Right_Keel_1</object-name>
         <object-name>left-elevator_0</object-name>
         <object-name>right-elevator_0</object-name>
+
+
+		        <object-name>left-elevator_1</object-name>
+        <object-name>right-elevator_1</object-name>
         <object-name>Fuselage_0</object-name>
         <object-name>Right_Wing_1</object-name>
         <object-name>Left_Wing_1</object-name>
@@ -87,8 +91,8 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 		<object-name>left-flap_1</object-name>
 		<object-name>right-flap_1</object-name>
 
-		<object-name>left-elevator_1</object-name>
-		<object-name>right-elevator_1</object-name>
+		<object-name>Right_Stabilizer</object-name>
+		<object-name>Right_Stabilizer</object-name>
 		<object-name>left-aileron_1</object-name>
 		<object-name>right-aileron_1</object-name>
 		<object-name>Left_Rocket_Bay_D1</object-name>
@@ -159,7 +163,7 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 
 <animation>
   <type>material</type>
-  <object-name>Body</object-name>
+  <object-name>Fuselage_2</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-AKfuselage</texture-prop>
   <texture>Liveries/AK-BODY.png</texture>
@@ -204,8 +208,6 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
   <type>material</type>
 <object-name>Right_Prewing</object-name>
  <object-name>Left_Prewing</object-name>
- <object-name>Left_Stabilizer</object-name>
- <object-name>Right_Stabilizer</object-name>
 <object-name>Left_Eleron01</object-name>
  <object-name>Left_Eleron02</object-name>
 <object-name>Right_Eleron01</object-name>
@@ -215,11 +217,39 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
   <texture>Liveries/wing.png</texture>
 </animation>
 
+
 <animation>
   <type>material</type>
-<object-name>nose</object-name>
- <object-name>nose-bottom-right</object-name>
- <object-name>nose-bottom-left</object-name>
+ <object-name>left-elevator_0</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-left-elev-top</texture-prop>
+  <texture>Liveries/maps/leftelev.dds</texture>
+</animation>
+
+<animation>
+  <type>material</type>
+ <object-name>right-elevator_0</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-right-elev-top</texture-prop>
+  <texture>Liveries/maps/rightelev.dds</texture>
+</animation>
+
+
+
+<animation>
+  <type>material</type>
+<object-name>nose-bottom-right</object-name>
+<object-name>nose-bottom-left</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-nose</texture-prop>
+  <texture>Liveries/wing.png</texture>
+</animation>
+
+
+
+<animation>
+  <type>material</type>
+<object-name>nose-top</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-nose</texture-prop>
   <texture>Liveries/wing.png</texture>
@@ -241,13 +271,37 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 
 <animation>
   <type>material</type>
-  <object-name>Left_Wing</object-name>
- <object-name>Right_Wing</object-name>
+  <object-name>Left_Wing_1</object-name>
+
 
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-wing</texture-prop>
   <texture>Liveries/wing.png</texture>
 </animation>	
+
+
+<animation>
+  <type>material</type>
+  <object-name>Right_Wing_1</object-name>
+
+
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-wing-right</texture-prop>
+  <texture>Liveries/wing.png</texture>
+</animation>
+
+
+
+<animation>
+  <type>material</type>
+  <object-name>sides</object-name>
+
+
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-sides</texture-prop>
+  <texture>Liveries/elevs.png</texture>
+</animation>	
+
 	<!-- MP sound call -->
   <sound><path>Aircraft/F-22/Sounds/mp-sound.xml</path></sound>
   
