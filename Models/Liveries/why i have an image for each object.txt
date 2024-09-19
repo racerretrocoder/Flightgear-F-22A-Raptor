@@ -1,0 +1,7 @@
+
+when i make the little objects be mapped on a huge texture. in ac3d they appear transparent ish at certain camera angles. this problem appears in flightgear too.
+The solution is to make an object be mapped on the image of its size 
+This makes intel GPUs run this aircraft better.
+
+So sticking to use one file per texture seems like a good alternative
+and they can be greatly customized to an unlimited extent with high quality

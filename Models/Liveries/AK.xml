@@ -5,18 +5,22 @@
 <sim>
   <model>
     <livery>
-      <name type="string">249th FS AK</name>     
+      <name type="string">249th EFS AK (The beta Squadron)</name>     
       <texture-AKfuselage>Liveries/maps/body.dds</texture-AKfuselage>
  <texture-sides>Liveries/elevs.png</texture-sides>
-
-
-      <texture-tailR>Liveries/AK-TAIL-R.png</texture-tailR>
-      <texture-tailL>Liveries/AK-TAIL-L.png</texture-tailL>
- <texture-wing>Liveries/maps/wing.dds</texture-wing>
-  <texture-wing-right>Liveries/maps/wingright.dds</texture-wing-right>
+ <texture-left-elev-top>Liveries/AK/leftelev.dds</texture-left-elev-top>
+ <texture-right-elev-top>Liveries/AK/rightelev.dds</texture-right-elev-top>
+      <texture-tailR>Liveries/AK/AK-TAIL-R.png</texture-tailR>
+      <texture-tailL>Liveries/AK/AK-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/AK/wing.dds</texture-wing>
+  <texture-wing-right>Liveries/AK/wingright.dds</texture-wing-right>
  <texture-control>Liveries/wing.png</texture-control>
-  <texture-nose>Liveries/maps/attemptnose.dds</texture-nose>
+  <texture-nose>Liveries/AK/attemptnose.dds</texture-nose>
+
+
   <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
+
+
     </livery>
   </model>
 </sim>

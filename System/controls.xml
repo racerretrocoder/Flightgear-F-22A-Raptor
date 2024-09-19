@@ -2,7 +2,7 @@
  
 <!-- F-22 avionics and lighting controls -->
 <PropertyList>
-
+    <night>0</night>
 	<lighting>
 		<nav-lights-switch type="bool">false</nav-lights-switch>
 		<beacon type="bool">false</beacon>
@@ -20,10 +20,15 @@
      <CMS type="int">0</CMS> 
     <AESA type="int">0</AESA>  
 
-
+<engine>
+    <start-r type="int">0</start-r>  
+    <start-l type="int">0</start-l>  <!--Integers because of the animations--> 
+</engine>
 
 
 </electric>
+
+
 
 <seat>
     <ejection-safety-lever type="bool">0</ejection-safety-lever>  
@@ -41,7 +46,7 @@
 	</AAR>
 
 	<FBW>
-		<Switch type="int">0</Switch> <!--For G limiter Disable. See FDM-->
+		<Switch type="int">0</Switch> <!-- Connected to FDM-->
 	</FBW>
 <smoke>
 <Switch type="int">0</Switch>
@@ -50,7 +55,7 @@
 
 <baydoors>
 <AIM120 type="int">0</AIM120>
-<AIM9X type="int">0</AIM9X>
+<AIM9X type="int">1</AIM9X> <!--TODO: reverse aim-9x animations so that 1 is not closed. change this in F-22.nas too-->
 </baydoors>
 	
 	  <armament>

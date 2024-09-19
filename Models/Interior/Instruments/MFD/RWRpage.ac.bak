@@ -9,7 +9,7 @@ loc 0.0242069 0 0
 kids 1
 OBJECT poly
 name "bkg"
-loc -0.0225552 0.00644858 -0.00197589
+loc -0.0225552 0.00557065 -0.00812142
 data 8
 bkg.mesh
 texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Interior/Instruments/rwr/rwr-bkg.png"

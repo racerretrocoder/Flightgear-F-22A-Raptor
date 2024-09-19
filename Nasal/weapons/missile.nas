@@ -1023,7 +1023,7 @@ var semiactive = 0;
                     
                     if(getprop("/payload/armament/msg"))
                     {
-                        #setprop("/sim/multiplay/chat", phrase);
+                       # setprop("/sim/multiplay/chat", phrase);
                         #var typeID = 0;
     			var typeID = getprop("controls/armament/missile/typeid");
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}

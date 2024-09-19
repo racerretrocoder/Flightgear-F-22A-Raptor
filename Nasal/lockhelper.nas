@@ -2,13 +2,13 @@
 # Radar Lock identifier
 #
 # Created by Phoenix
-# My 3rd nasal script that works! Yay lol
+# My 3rd nasal script that works! Yay!
 #
 
 
 # first lets see if the radar is displaying some threats on the screen
-# capable of detecting 19 targets at once.
-# time for some copy paste lol
+# capable of detecting 19 targets at once... or thats how many propertys there are to read
+# time for some copy paste lol this is going to take a while
 # TODO stop forgetting semi colons lmao
 
 var checklock = func(){ # The radars database for displaying stuff on a screen.
@@ -148,7 +148,7 @@ var mp18 = getprop("/instrumentation/radar2/targets/multiplayer[18]/display");
     }
 
 else {
-#   print("aw man no one deteced on radar. That sucks.");
+   print("Radar is running, no threats.");
    setprop("instrumentation/radar/threat-spotted", 0); # Change our status so that nothing is on the screen
    setprop("instrumentation/radar/lock", 0); # Important. Loose the lock by setting this property to zero.
                                               #Lock is set to one when you change targets and radar sees someone

@@ -30,22 +30,29 @@ var eng2start = func {
    settimer(eng2fuelon, 2);
 };
 
+var battery = func {
+      setprop("/controls/electric/batteryswitch", 2);
+};
+
+
 var engstart = func {
+   
    settimer(eng1start, 2);
    settimer(eng2start, 18);
+   settimer(battery, 36);
 }
 
 var engstop = func {
    eng1fueloff();
    eng2fueloff();
-}
+}      setprop("/controls/electric/batteryswitch", 0);
 
 var autostart = func {
    var startstatus = getprop("/sim/autostart/started");
    if ( startstatus == 0 ) {
       gui.popupTip("Autostarting...");
+		f22.cnpy.close();
 	  setprop("/sim/autostart/started", 1);
-      setprop("/controls/electric/battery-switch", 1);
          setprop("/controls/electric/computer", 1);
          setprop("/controls/electric/MFD", 1);
          setprop("/controls/electric/SMS", 1);
@@ -57,9 +64,11 @@ var autostart = func {
 	  }
    if ( startstatus == 1 ) {
       gui.popupTip("Shutting Down...");
+		f22.cnpy.open();
       setprop("/sim/autostart/started", 0);
 	  eng1fueloff();
       eng2fueloff();
+      setprop("/controls/electric/batteryswitch", 0);
    }
 }
 

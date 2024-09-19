@@ -1,3 +1,8 @@
+# Hide the hud when not in the cockpit view
+setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
+
+
+
 # used to the animation of the canopy switch and the canopy move
 # toggle keystroke or 2 position switch
 
@@ -5,6 +10,107 @@ var cnpy = aircraft.door.new("canopy", 10);
 var switch = getprop("canopy/enabled", 1);
 var pos = props.globals.getNode("canopy/position-norm", 1);
 var dt = 0;
+var time = getprop("/sim/time/elapsed-sec");
+
+
+
+# Electric system for the engines:
+
+# Detect the status of the main power switch. then check if the engines are dead. 
+# if all's good. start the engines
+
+var engloop = func{
+var jfsr = getprop("controls/electric/engine/start-r");
+var jfsl = getprop("controls/electric/engine/start-l");
+var bat = getprop("controls/electric/battswitch");
+            if(getprop("controls/electric/battswitch") >= 1) {
+
+              if(getprop("/engines/engine/n1") < 28) {
+              setprop("/controls/engines/engine/starter",getprop("controls/electric/engine/start-r"));
+              print("eng1 rebound disarmed");
+            }
+
+            if(getprop("/engines/engine[1]/n1") < 28) {
+              setprop("/controls/engines/engine[1]/starter",getprop("controls/electric/engine/start-l"));
+              print("eng2 rebound disarmed");
+            } 
+
+
+
+            if(getprop("/engines/engine/n1") > 28) {
+              # Rebound the switches when its good
+              setprop("controls/electric/engine/start-r",getprop("/controls/engines/engine/starter"));
+              print("eng2 rebound armed");
+            }
+
+            if(getprop("/engines/engine[1]/n1") > 28) {
+
+              # Rebound the switches when its good
+              setprop("controls/electric/engine/start-l",getprop("/controls/engines/engine[1]/starter"));
+              print("eng2 rebound armed");
+            } 
+
+            }
+
+
+
+
+
+}
+
+
+
+
+
+var fire = func(v,a) {
+# This controls the Bay doors automaticly
+# Call this when you shoot a missile.
+var dt = 0;
+var time = getprop("/sim/time/elapsed-sec");
+var weapon = getprop("/controls/armament/selected-weapon-digit");
+
+
+# Open the bay doors
+# Determine weapon
+
+	if (weapon == 2) {
+# aim-120
+            if(time - dt > 1)
+            {
+                dt = time;
+	            	setprop("/controls/baydoors/AIM120", 1);
+                print("bay doors open");
+                timer_baydoorsclose.start();
+            }
+
+
+
+
+	} elsif (weapon == 1) {
+# aim-9X
+            if(time - dt > 1)
+            {
+                dt = time;
+	            	setprop("/controls/baydoors/AIM9X", 0);          # animations are inverted: todo fix the bay door animations
+                print("9x doors open");
+                timer_baydoorsclose.start();     
+            }
+
+
+
+
+  }
+}
+
+
+var closebays = func{
+	            	setprop("/controls/baydoors/AIM120", 0);
+	            	setprop("/controls/baydoors/AIM9X", 1);  # animations are inverted: todo fix the bay door animations
+                print("closed");
+                timer_baydoorsclose.stop();
+}
+
+
 
 
 var canopy_switch = func(v,a) {
@@ -68,7 +174,7 @@ var checkforext = func {
   	var pylon5 = getprop("sim/weight[4]/selected");
 
 
-	if ( pylon3 == "Aim-120" or pylon3 == "Aim-9x" or pylon3 == "Aim-7" or pylon3 == "Aim-9m" or pylon5 == "Aim-120" or pylon5 == "Aim-9x" or pylon5 == "Aim-7" or pylon5 == "Aim-9m"  ) {
+	if ( pylon3 == "Aim-120" or pylon3 == "Aim-9x" or pylon3 == "Aim-7" or pylon3 == "Aim-9m" or pylon5 == "Aim-120" or pylon5 == "Aim-9x" or pylon5 == "Aim-7" or pylon5 == "Aim-9m" ) {
 		setprop("controls/armament/extpylons", 1);
 	} else {
 		setprop("controls/armament/extpylons", 0);
@@ -210,14 +316,15 @@ var timer_loop = func{
 Flare_timer = maketimer(0.9, cha_flare);
 
 settimer(missile_sfx, 2); # runs myFunc after 2 seconds
-
+timer_eng = maketimer(0.25, engloop);
 timer_loopTimer = maketimer(0.25, timer_loop);
 timer_extpylons = maketimer(0.25, checkforext);
-
+timer_baydoorsclose = maketimer(0.5, closebays);
 
 setlistener("sim/signals/fdm-initialized", func {
-    timer_loopTimer.start();
-    timer_extpylons.start();
+    timer_eng.start();          # engines
+    timer_loopTimer.start();    # Pullup alarm
+    timer_extpylons.start();    # External pylon detection
 });
     timer_loopTimer.start();
     timer_extpylons.start();

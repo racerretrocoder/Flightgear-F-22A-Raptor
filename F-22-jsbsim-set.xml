@@ -1544,6 +1544,14 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <ejected type="int">0</ejected>
 </f22>
 
+
+<su-27>
+<instrumentation>
+<N010-radar>
+        <emitting type="bool">false</emitting>
+</N010-radar>
+</instrumentation>
+</su-27>
         <sound>
             <rwr-new type="double">0</rwr-new>
         </sound>
@@ -1792,9 +1800,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  <property>controls/armament/selected-weapon-digit</property>
  <value>1</value>
  <value>2</value>
- <value>3</value>
 </binding>
   <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
+   <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 0)</script></binding>
  </key> 
 		
 
@@ -1817,6 +1825,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <value>4</value>
 </binding>
   <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
+   <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 1)</script></binding>
  </key> 
 
 

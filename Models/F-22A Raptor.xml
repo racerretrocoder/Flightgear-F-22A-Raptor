@@ -589,6 +589,45 @@ Use below instead
 
 <!-- Afterburner -->
 
+  <animation>
+	<type>select</type>
+	<object-name>left-burner2</object-name>
+  <condition>
+ <or>
+            <greater-than>
+				<property>/sim/time/local-day-seconds</property>
+				<value>66000</value>
+			</greater-than>
+			            <less-than>
+				<property>/sim/time/local-day-seconds</property>
+				<value>22000</value>
+			</less-than>
+			</or>
+  </condition>
+
+</animation>
+
+
+  <animation>
+	<type>select</type>
+	<object-name>right-burner2</object-name>
+  <condition>
+  <or>
+            <greater-than>
+				<property>/sim/time/local-day-seconds</property>
+				<value>66000</value>
+			</greater-than>
+			            <less-than>
+				<property>/sim/time/local-day-seconds</property>
+				<value>22000</value>
+			</less-than>
+			</or>
+  </condition>
+
+</animation>
+
+
+
 	<model>
 	<name>left-burner</name>
 		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurner2.xml</path>
@@ -654,7 +693,7 @@ Use below instead
   <x-min>.1</x-min>
   <y-min>1.0</y-min>
   <z-min>1</z-min>    
-	<x-factor>1.05</x-factor>
+	<x-factor>1.03</x-factor>
 	<y-factor>0</y-factor>
 	<z-factor>0</z-factor>
 </animation>
@@ -680,7 +719,7 @@ Use below instead
   <x-min>.1</x-min>
   <y-min>1.0</y-min>
   <z-min>1</z-min>    
-	<x-factor>1.05</x-factor>
+	<x-factor>1.03</x-factor>
 	<y-factor>0</y-factor>
 	<z-factor>0</z-factor>
 </animation>

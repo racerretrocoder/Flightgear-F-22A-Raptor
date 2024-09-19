@@ -25,12 +25,13 @@ fire_MG = func(b) {
     {
         if(b == 1)
         {
-            # Adjust this for Missile Firing speed limit
+            
             # var time = getprop("/sim/time/elapsed-sec");
-            if(time - dt > 0)
+            if(time - dt > 0) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
             {
                 dt = time;
                 m2000_load. SelectNextPylon();
+                f22.fire(0,0); # Open the bay doors of the currently selected weapon
                 var pylon = getprop("/controls/armament/missile/current-pylon");
                 m2000_load.dropLoad(pylon);
                 print("Should fire Missile");
@@ -162,6 +163,7 @@ var hitmessage = func(typeOrd) {
     #print("inside hitmessage");
     var phrase = "M61A1 shell" ~ " hit: " ~ hit_callsign ~ ": " ~ hits_count ~ " hits";
     if (getprop("payload/armament/msg") == 1) {
+      #                                                                                                                 setprop("/sim/multiplay/chat", phrase);   Old damage system
         #armament.defeatSpamFilter(phrase);
     print("Guns hit target");
             var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells["M61A1 shell"][0]+1));

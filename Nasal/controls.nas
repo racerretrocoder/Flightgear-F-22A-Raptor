@@ -8,7 +8,7 @@
 
 
 
-var checkflight = func(){ # The radars database for displaying stuff on a screen.
+var checkflight = func(){ 
 var limit = getprop("/fdm/jsbsim/fcs/inflight");
 
 

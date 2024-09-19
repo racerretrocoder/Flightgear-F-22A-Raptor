@@ -2758,5 +2758,46 @@ Counter
     </aimninex>
 
 
+                <battery>
+        <name>alternator</name>
+        <mode>looped</mode>
+        <path>Aircraft/F-22/Sounds/AV/alt.wav</path>
+        <condition>
+<and>
+            <equals>
+                <property>controls/electric/battswitch</property>
+                <value>1</value>
+            </equals>
+
+<not>
+<property>/engines/engine/running</property>
+		    <value>true</value>
+</not>
+</and>
+        </condition>
+    </battery>
+                <battery>
+        <name>alternator2</name>
+        <mode>looped</mode>
+        <path>Aircraft/F-22/Sounds/AV/alt.wav</path>
+        <condition>
+<and>
+<property>/sim/current-view/internal</property>
+            <equals>
+                <property>controls/electric/battswitch</property>
+                <value>2</value>
+            </equals>
+
+<not>
+<property>/engines/engine/running</property>
+
+		    <value>true</value>
+</not>
+</and>
+        </condition>
+    </battery>
+
+
+
  </fx>
 </PropertyList>
