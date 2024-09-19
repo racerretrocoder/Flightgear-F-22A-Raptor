@@ -2,15 +2,35 @@
  
 <PropertyList>
 
+<!--
+To Snail. Thank you sooooo much for helping with this plane. I couldnt get all those switches moving perfectly without you
+Because i dont know how! XD
+
+Thank you. 
+
+Here is your updated livery!
+-->
+
+
 <sim>
   <model>
     <livery>
-      <name type="string">249th EFS --SN "Snail"</name>
-      <texture-AKfuselage>Liveries/AK-BODY.png</texture-AKfuselage>
-      <texture-tailR>Liveries/SN-TAIL-R.png</texture-tailR>
-      <texture-tailL>Liveries/SN-TAIL-L.png</texture-tailL>
- <texture-wing>Liveries/wing.png</texture-wing>
+      <name type="string">249th EFS SN --Snail </name>     
+      <texture-AKfuselage>Liveries/maps/body.dds</texture-AKfuselage>
+ <texture-sides>Liveries/elevs.png</texture-sides>
+ <texture-left-elev-top>Liveries/SN/leftelev.dds</texture-left-elev-top>
+ <texture-right-elev-top>Liveries/SN/rightelev.dds</texture-right-elev-top>
+      <texture-tailR>Liveries/SN/SN-TAIL-R.png</texture-tailR>
+      <texture-tailL>Liveries/SN/SN-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/SN/wing.dds</texture-wing>
+  <texture-wing-right>Liveries/SN/wingright.dds</texture-wing-right>
  <texture-control>Liveries/wing.png</texture-control>
+  <texture-nose>Liveries/SN/attemptnose.dds</texture-nose>
+
+
+  <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
+
+
     </livery>
   </model>
 </sim>

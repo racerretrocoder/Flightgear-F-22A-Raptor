@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">108th TFS YV "Omega 1"</name>     
+      <texture-AKfuselage>Liveries/maps/body.dds</texture-AKfuselage>
+ <texture-sides>Liveries/elevs.png</texture-sides>
+ <texture-left-elev-top>Liveries/YV/leftelev.dds</texture-left-elev-top>
+ <texture-right-elev-top>Liveries/YV/rightelev.dds</texture-right-elev-top>
+      <texture-tailR>Liveries/YV/YV-TAIL-R.png</texture-tailR>
+      <texture-tailL>Liveries/YV/YV-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/YV/wing.dds</texture-wing>
+  <texture-wing-right>Liveries/YV/wingright.dds</texture-wing-right>
+ <texture-control>Liveries/wing.png</texture-control>
+  <texture-nose>Liveries/YV/attemptnose.dds</texture-nose>
+
+
+  <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
+
+
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>

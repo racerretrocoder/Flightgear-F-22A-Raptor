@@ -14,6 +14,8 @@ It Dosent have to be like this but i think this looks good
 For the 2 big main letters 
 ie. AK FF YV, etc 
 use Arial with a bold effect and a font size of 98
+Not the Arial Bold font
+Arial font with a bold effect
 
 
 for the AF letters underneath to the left of the main letters and the numbers underneath AF,  
