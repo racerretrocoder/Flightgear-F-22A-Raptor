@@ -60,18 +60,16 @@
         <desc>Select an Air to Air Weapon</desc>
       </key>
       <key>
-        <name>m</name>
+        <name>n</name>
         <desc>Select an Air to ground Weapon</desc>
       </key>
       <key>
         <name>i</name>
-        <desc>Select a DEBUG Missile. Your callsign must be a developers callsign for this to work</desc>
+        <desc>Select a DEBUG Missile</desc>
       </key>
-
-
 	   <key>
         <name>y</name>
-        <desc>Lock Next Target</desc>
+        <desc>Lock on to the Next Target</desc>
       </key>
 	  
 	  	   <key>
@@ -100,8 +98,8 @@
 <line>To turn on the Radar HUD, Press the switch on the lower right console that is labled power.</line>
 <line>You will know its on when the green light just below the switch turns on, (You may have to press it twice when you spawn in)</line>
 			<line></line>		
-<line>To Start Raptor: Simply Press the 2 JFS switches on the bottom left console. Then press the 2 cutoff switches.</line>
-			<line>Next switch the 6 switches on the Electrical panel to turn on instruments and flight controls</line>
+<line>To Start Raptor: Simply click the battery switch till its at main power (Twice) then Press the 2 JFS switches on the bottom left console. Then press the 2 cutoff switches.</line>
+			<line>Next switch the 6 switches on the Electrical panel to turn on instruments, flight controls, Counter messures, and more. then click the POWER switch on the HUD panel to turn on the canvas hud</line>
 <line>---------------------------------Some info on Flight dynamics and Fly by wire---------------------------------</line>
 <line></line>
 <line>Rotate around 185 With auto flaps</line>
