@@ -545,6 +545,15 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    </function>
 
+    
+   <function name="fcs/rudder-cmd-limmiter-no-fbw">  <!--Allows rudder to move when fbw is disabled-->
+<product>
+      <property>fcs/fbw-override2</property>
+      <property>fcs/rudder-cmd-norm-power</property>
+</product>
+
+   </function>
+
 
 <!--Technicly an inverter-->
 <function name="fcs/fbw-override">  
@@ -1030,6 +1039,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <channel name="Yaw">
 
    <summer name="Rudder Command Sum">
+            <input>fcs/rudder-cmd-limmiter-no-fbw</input>
       <input>fcs/rudder-cmd-limmiter</input>
       <input>fcs/yaw-trim-cmd-norm</input>
       <clipto>
