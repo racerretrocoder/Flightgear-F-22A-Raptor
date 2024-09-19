@@ -1,0 +1,39 @@
+Tips for making Tail letters like the AK livery!
+
+This implies mainly for gimp. 
+
+Start with the left tail. Create a copy of Blanktail.png (Models/Liveries)
+
+Add some text on the tail With this formating to make it stand out on the model.
+
+
+As always: See the Example tails in the folder AK for some ideas.
+
+It Dosent have to be like this but i think this looks good
+
+For the 2 big main letters 
+ie. AK FF YV, etc 
+use Arial with a bold effect and a font size of 98
+
+
+for the AF letters underneath to the left of the main letters and the numbers underneath AF,  
+use Arial with bold again and with a size of 37
+
+For secondary numbers  ie "001" that i have on the AK tail
+
+Use font size 60
+Arial with bold effect
+
+
+Then once your done with the left tail. Before you anchore it all down to the blank tail. merge all the text into one layer.
+Then export it as PNG. Besure to turn on interlacing in the export menu. (not that this means anything 
+
+Now to make the right one. 
+If you merged all the text into one layer. 
+Press Shift-F to get into the flip mode. and flip all the text.
+
+then save that as the right tail.
+
+Hope this helped!
+
+Have fun!

@@ -1,5 +1,6 @@
 #==============================================================================
 					# F22 hud
+          # Origanle from SU-27SK Yanes Bechir
 #==============================================================================
  
 var pow2 = func(x) { return x * x; };
@@ -271,12 +272,13 @@ var HUD = {
 		me.GSIndicator.setVisible(0);
 		me.modeLndg.setVisible(0);
 		me.NavDirector.setVisible(0);
-		me.Glidingpath.setVisible(0);
+
 		}
-		
+				me.Glidingpath.setVisible(0);
 		me.modeRtn.setVisible(0);	# Until implemented , this should be hidden unconditionnally	
-			
+			var lock= getprop("instrumentation/radar/lock");		
 		var radarON= getprop("su-27/instrumentation/N010-radar/emitting");
+  		var missile= getprop("controls/armament/selected-weapon-digit");
 		if (radarON == 0)
 		{
 			#print("Radar off ");
@@ -291,9 +293,25 @@ var HUD = {
 			me.tgt9Marker.setVisible(0);
 			me.tgt10Marker.setVisible(0);
       me.lockMarker.setVisible(0);
+      me.NavDirector.setVisible(0);
+		me.Glidingpath.setVisible(0);
 		}
-		if (radarON == 0){me.Rdr_Indicator.setVisible(0);}else {me.Rdr_Indicator.setVisible(1);}
-		
+		if (radarON == 0){me.Rdr_Indicator.setVisible(1);}else {me.Rdr_Indicator.setVisible(0);}
+		if (missile == 2){
+      if (lock == 1){
+        me.NavDirector.setVisible(0);
+        me.Glidingpath.setVisible(1);
+      }else {
+        me.NavDirector.setVisible(1);
+        me.Glidingpath.setVisible(0);
+        }	
+        }else {
+          me.NavDirector.setVisible(0);
+          }		
+
+
+
+
 #**************LOCK MARKER *********************#
 		if(radar.GetTarget() != nil){
       var target1_x = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("h-offset",1).getValue();

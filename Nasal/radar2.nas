@@ -1310,7 +1310,11 @@ next_Target_Index = func(){
     {
         Target_Index = 0;
     }
-    if(GetTarget()!=nil)screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+    if(GetTarget()!=nil){
+        
+        screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+                    setprop("instrumentation/radar/lock", 1);
+    }
 }
 
 previous_Target_Index = func(){

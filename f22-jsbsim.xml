@@ -1732,7 +1732,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
              -0.26    0.031
               0.00    0.024
               0.26    0.031
-              1.57    2.500
+              1.57    2.400
             </tableData>
           </table>
        </product>
@@ -1791,7 +1791,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/speedbrake-pos-norm</property>
-           <value>0.2</value>
+           <value>0.3</value>
          </product>
     </function>
 
@@ -1904,15 +1904,15 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
 <function name="aero/moment/PITCHTVCLIMIT">
-       <description>Vector limiter due to speed</description>
+       <description>jets heavy so vectors cant push it hard</description>
        <table>
             <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
             <tableData>
               0.0    -100
-              380    -500
-              400    -1000
-              450    -5000
-              500    -10000
+              380    -300
+              400    -500
+              450    -1000
+              500    -5000
               550    -15000
               600    -20000
               650    -25000
@@ -1935,7 +1935,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <sin>
            <property>fcs/tv-animation</property>
           </sin>
-          <value>-30</value>
+          <value>-33</value>
        </product>
 </product>
     </function>
