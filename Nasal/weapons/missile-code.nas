@@ -1,3 +1,6 @@
+# this is for rwr functionality only. See Missile.nas for the code that the missiles fly off
+
+
 #########################################################################################
 #######
 ####### Guided/Cruise missiles, rockets and dumb/glide/guided bombs code for Flightgear.

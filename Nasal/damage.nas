@@ -862,7 +862,10 @@ var reckon_create = func (kee, dyna, stime) {
     path = getprop("payload/armament/models") ~ "heavy_smoke.xml";
   } elsif (dyna[7] ==3) {
     path = getprop("payload/armament/models") ~ "the-flare.xml";
+    setprop("payload/armament/flares", 1);
+    print("someone is flaring Looks like hes smart.");
   } elsif (dyna[7] == -1) {
+    setprop("payload/armament/flares", 0);
     return nil;
   }
   var static = ModelManager.new(path, dyna[1],dyna[2],dyna[3]*M2FT,dyna[5],dyna[6],dyna[7]==0);#path,lat,lon,alt_m,heading,pitch

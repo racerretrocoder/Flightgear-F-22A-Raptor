@@ -29,6 +29,7 @@ var Loading_missile = func(name)
     var cruisealt         = 0;
     var guidance	  = 0;
     var chute         = 1;
+    var flareres      = 0;          # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
     
     
     if(name == "Aim-120")
@@ -38,6 +39,7 @@ var Loading_missile = func(name)
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
+        flareres = 0.992; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed. 
         maxdetectionrngnm = 38.8;                    #  
         fovdeg = 140;                                #
         detectionfovdeg = 140;                       # TODO implent data link system so we can control these variables while missile is in flight. im sure its possible
@@ -61,6 +63,7 @@ var Loading_missile = func(name)
     {
         # AIM-9X:short-range A2A,IR seeker,
 	typeid = 98;
+        flareres = 0.983; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
@@ -274,5 +277,6 @@ var Loading_missile = func(name)
     setprop("controls/armament/missile/rail", rail);
     setprop("controls/armament/missile/cruise_alt", cruisealt);
     setprop("controls/armament/missile/type-id", typeid);
+    setprop("controls/armament/missile/flareres", flareres);
     return 1;
 }

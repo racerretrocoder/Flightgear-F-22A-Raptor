@@ -2,8 +2,15 @@ print("LOADING missile.nas .");
 ################################################################################
 #
 #             Customized MISSILE MANAGER for the F-22
-# 	Amazing Thanks to Ghost!
+# 	Amazing Thanks to Ghost! (developer)
+# and the mirage 2000 developers.
+# Code was modifed for emersary damage support. Flare detection added.
+# by Ghost and Phoenix
 ################################################################################
+
+
+# Notify missile alert timer
+
 
 var AcModel        = props.globals.getNode("sim/model/F-22", 1);
 var OurHdg         = props.globals.getNode("orientation/heading-deg");
@@ -90,6 +97,7 @@ var MISSILE = {
         m.fox               = getprop("controls/armament/missile/fox");
         m.rail              = getprop("controls/armament/missile/rail");
         m.cruisealt         = getprop("controls/armament/missile/cruise_alt");
+        m.flareres          = getprop("controls/armament/missile/flareres");
         m.last_coord        = nil;
         
         # Find the next index for "models/model" and create property node.
@@ -391,6 +399,49 @@ var MISSILE = {
     },
 
 
+checkflares: func(){
+                # flare detection
+                # THIS IS REALLY SIMPLE CODE! Dont think its the best in the world.
+                # this script is intended to run when damage.nas detecs a flare. line 864 in damage.nas is where it loads in the flare model deployed by a threat. we can set a prop to 1 when a flare is realeased then have it be set to 0 2 seconds later.  
+                # Advanced ideas that would be cool: Lower the max-g when the target is throughing out flares so its less likely to hit in another degree. But not too much to not cause any strange movements
+                # make the range 10nm or less. so that my aim-120 wont get fooled by a chaff flare at 38nm
+                # Make it so that... a person 50nm distant can NOT defend against my missile i shot at a different person 8nm away. (make the flares target dependent. if if someone else flares but my target isnt. the missile will still do the RNG. This might need to be thought into a bit more...)
+                # then run a random number gen to figure out if the missile locks onto it  -- DONE! the coeff. is in Loading_missiles.nas  the var is flareres. and if its 1, then the missile is invinceable to flares
+                # if its 0 then it will fail everytime someone deploys a flare. fail everytime. (Decimals are to be used here)
+
+if (getprop("payload/armament/flares")) {
+
+var num2 = rand() < (1-me.flareres);
+print("Flare resistance number:");
+print(num2);
+if (num2 == 1) {
+    print("Missile saw the flare!");
+    me.reset_steering();
+    me.free = 1; # missile missed
+    print("Missile gave up and decided to miss.");
+            var phrase = me.NameOfMissile ~ " Report : Fooled by enemy's Countermessures and missed.";
+            if(MPMessaging.getValue() == 1)
+            {
+                damage.damageLog.push(phrase);
+            }
+            else
+            {
+                setprop("/sim/messages/atc", phrase);
+            }
+        }
+    }
+},
+
+
+# i cant belive i did it.
+# really amazing.
+
+
+
+
+
+
+
 sendinflight: func(lat,lon,alt){
     #Send notify in flight
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
@@ -398,9 +449,6 @@ sendinflight: func(lat,lon,alt){
                         if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}
 
 var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
-   
-
-
         	msg.Position.set_latlon(me.model.getNode("latitude-deg-prop", 1),me.model.getNode("longitude-deg-prop", 1),me.model.getNode("heading-deg-prop", 1));
         msg.Flags = 1;#bit #0
         	msg.Flags = bits.set(msg.Flags, 1);#bit #1
@@ -412,7 +460,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
         msg.u_fps = 0;
         #msg.isValid();
         notifications.geoBridgedTransmitter.NotifyAll(msg);
-        print("Missile alert sent");
+        print("Missile alert sending");
 
 
 },
@@ -570,7 +618,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
                 var myG = steering_speed_G(me.track_signal_e, me.track_signal_h, (total_s_ft / dt), mass, dt);
                 if(me.max_g < myG)
                 {
-                    #print("MyG");
+                    print("Flying to target! Weeeeee!");
                     var MyCoef = max_G_Rotation(me.track_signal_e, me.track_signal_h, total_s_ft, mass, 1, me.max_g);
                     me.track_signal_e = me.track_signal_e * MyCoef;
                     me.track_signal_h = me.track_signal_h * MyCoef;
@@ -579,22 +627,21 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
                 pitch_deg += me.track_signal_e;
                 hdg_deg += me.track_signal_h;
 
+                #me.checkflares();
+                #check for flares!   this is done via. damage.nas
 
-       # me.checkForFlare();
-# todo, Get a big brain and make custom flare, chaff detection
-		#me.checkForChaff();
 
    var OurAlt       = props.globals.getNode("position/altitude-ft");
 var OurLat       = props.globals.getNode("position/latitude-deg");
 var OurLon       = props.globals.getNode("position/longitude-deg");
-                # Missile is flying at target
-                # Lets tell out target hes in a sticky situation
+
                  #   me.sendinflight(0,0,0); 
-                # hehehe
+
                 print("Still Tracking : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
+                me.checkflares();
             }
         }
-        #print("status :", me.status, "free ", me.free, "init_launch : ", init_launch);
+        print("status :", me.status, "free ", me.free, "init_launch : ", init_launch);
         #print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, "**Speed : ", speed_m, " dt :", dt);
         
         # get horizontal distance and set position and orientation.
@@ -628,8 +675,8 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                 # we exploded, but need a few more secs to spawn
                 # the explosion animation.
                 settimer(func{me.del();}, 4);
-
                 print("booom he ded like a brick");
+                    setprop("payload/armament/flares", 0);
                 return;
             }
             if(me.life_time > 3)
@@ -641,9 +688,12 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                     if(g > me.max_g)
                     {
                         # target unreachable, fly free.
+
                         me.free = 1;
-                        print("Too much G in missile! Print from line 641: Missile.nas");
+                            setprop("payload/armament/flares", 0);
+                        print("Too much G in missile! Print from line 682: Missile.nas");
                         # Disable for the moment
+                        
                     }
                 }
             }
@@ -655,8 +705,10 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
             {
                 if(ground > alt_ft*FT2M)
                 {
+
                     print("Ground");
                     me.free = 1;
+                        setprop("payload/armament/flares", 0);
                                         me.animate_explosion();
                     settimer(func(){ me.del(); }, 1);
                     return;
@@ -684,6 +736,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         {
             me.fox = "Fox 1";
                             me.free = 1;
+                                setprop("payload/armament/flares", 0);
             return(1);
         }
         if(me.status == 0)
@@ -837,6 +890,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
             {
                 #print("me.missile_fov:", me.missile_fov, "me.curr_tgt_e:", me.curr_tgt_e, "degree h me.curr_tgt_h:", me.curr_tgt_h, "t_course:", t_course, "me.hdg:", me.hdg, "modulo180:", modulo180);
                 me.free = 1;
+                    setprop("payload/armament/flares", 0);
             }
             #print("Target Elevation(ft): ", t_alt, " Missile Elevation(ft):", me.alt, " Delta(meters):", t_alt_delta_m);
             # The t_course is false. Prevision is false
@@ -1058,6 +1112,7 @@ var semiactive = 0;
                     {
                         # Missile missed
                         me.free = 1;
+                            setprop("payload/armament/flares", 0);
                     }
                 }
             }
@@ -1316,3 +1371,6 @@ var MPReport = func(){
     phrase = "MP messaging : " ~ phrase;
     setprop("/sim/messages/atc", phrase);
 }
+
+
+
