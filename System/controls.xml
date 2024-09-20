@@ -81,7 +81,7 @@
 <eject>
       <current-pylon type="int"> 0 </current-pylon>
 </eject>
-
+      <flareres type="double"> 0.80 </flareres>
       <name>None_press_m</name>
       <type-id type="int">57</type-id>
       <address>Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml</address>

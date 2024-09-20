@@ -1588,6 +1588,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 		
 	  <armament>
+	              <flares type="int">0</flares>
             <enable-craters type="bool">true</enable-craters>
             <MLW-bearing type="double">0</MLW-bearing>
             <MLW-count type="int">0</MLW-count>

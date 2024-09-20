@@ -40,14 +40,14 @@ var bat = getprop("controls/electric/battswitch");
             if(getprop("/engines/engine/n1") > 28) {
               # Rebound the switches when its good
               setprop("controls/electric/engine/start-r",getprop("/controls/engines/engine/starter"));
-              print("eng2 rebound armed");
+              #print("eng1 rebound armed");
             }
 
             if(getprop("/engines/engine[1]/n1") > 28) {
 
               # Rebound the switches when its good
               setprop("controls/electric/engine/start-l",getprop("/controls/engines/engine[1]/starter"));
-              print("eng2 rebound armed");
+              #print("eng2 rebound armed");
             } 
 
             }
@@ -206,6 +206,12 @@ print("stop");
 }
 
 
+var flarecheck = func{
+        setprop("payload/armament/flares", 0);
+}
+
+
+
 
 var repair = func{
 #f22.repair()
@@ -314,7 +320,7 @@ var timer_loop = func{
 
 };
 Flare_timer = maketimer(0.9, cha_flare);
-
+timer_flarecheck = maketimer(1.8, flarecheck);  # To make the target need to keep putting out flares for the number to stay 1 and make missiles detect them
 settimer(missile_sfx, 2); # runs myFunc after 2 seconds
 timer_eng = maketimer(0.25, engloop);
 timer_loopTimer = maketimer(0.25, timer_loop);
@@ -322,6 +328,7 @@ timer_extpylons = maketimer(0.25, checkforext);
 timer_baydoorsclose = maketimer(0.5, closebays);
 
 setlistener("sim/signals/fdm-initialized", func {
+      timer_flarecheck.start();          # flare checker
     timer_eng.start();          # engines
     timer_loopTimer.start();    # Pullup alarm
     timer_extpylons.start();    # External pylon detection

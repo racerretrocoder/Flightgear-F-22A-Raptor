@@ -148,7 +148,7 @@ var mp18 = getprop("/instrumentation/radar2/targets/multiplayer[18]/display");
     }
 
 else {
-   print("Radar is running, no threats.");
+ # print("Radar is running, no threats.");
    setprop("instrumentation/radar/threat-spotted", 0); # Change our status so that nothing is on the screen
    setprop("instrumentation/radar/lock", 0); # Important. Loose the lock by setting this property to zero.
                                               #Lock is set to one when you change targets and radar sees someone
