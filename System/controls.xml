@@ -2,6 +2,9 @@
  
 <!-- F-22 avionics and lighting controls -->
 <PropertyList>
+    <flare type="int">0</flare> 
+        <missile type="int">0</missile> 
+        <missile2 type="int">0</missile2> 
     <night>0</night>
 	<lighting>
 		<nav-lights-switch type="bool">false</nav-lights-switch>
