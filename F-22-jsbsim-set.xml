@@ -1774,6 +1774,11 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
     <command>nasal</command>
     <script>guns.fire_MG(1);</script>
   </binding>
+    <binding>
+   <command>property-toggle</command>
+   <property>controls/missile</property>
+  </binding>
+
   <mod-up>
     <binding>
       <command>nasal</command>
@@ -1804,6 +1809,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 </binding>
   <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
    <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 0)</script></binding>
+      <binding><command>nasal</command><script>setprop("/controls/missile", 3)</script></binding>
  </key> 
 		
 
@@ -1827,12 +1833,13 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 </binding>
   <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
    <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 1)</script></binding>
+      <binding><command>nasal</command><script>setprop("/controls/missile", 3)</script></binding>
  </key> 
 
 
  
 		 <key n="105">
-  <name>n</name>
+  <name>i</name>
   <desc>Cycle selected DEBUG MISSILE</desc>
   <binding>
  <command>property-cycle</command>
@@ -1873,18 +1880,11 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
      <command>nasal</command>
  <script>setprop("/ai/submodels/submodel/flare-release",1);f22.flares();damage.flare_released();settimer(func{setprop("/ai/submodels/submodel/flare-release",0);},0.1)</script>
       </binding>
+  <binding>
+   <command>property-toggle</command>
+   <property>controls/flare</property>
+  </binding>
 
-    <binding>
-     <command>nasal</command>
- <script>f22.flare();</script>
-      </binding>
-    <mod-up>
-     <binding>
-     <command>nasal</command>
- <script>f22.flarestop();</script>
-
-     </binding>
-    </mod-up>
     </key>
 	 <key n="114">
   <name>r</name>
