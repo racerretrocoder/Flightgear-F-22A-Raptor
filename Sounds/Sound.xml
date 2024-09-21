@@ -34,6 +34,38 @@
       <max-dist>1000</max-dist>
    </engine>
  
+
+  <engine>
+   <name>Exhaust Internal2</name>
+   <mode>looped</mode>
+   <path>Aircraft/F-22/Sounds/intakefront.wav</path>
+      <condition>
+      <and>
+      <equals>
+<property>/fdm/jsbsim/fcs/ismach</property>
+<value>0</value>
+</equals>
+  <property>/sim/current-view/internal</property>
+     <not>
+<property>/engines/engine/out-of-fuel</property>
+
+     </not>
+
+    </and>
+   </condition>
+   <volume>
+    <property>fdm/jsbsim/fcs/N2SOUND</property>
+    <factor>0.01</factor>
+    <offset>-0.45</offset>
+   </volume>
+    <pitch>
+                <property>engines/engine[0]/n1</property>
+                <offset>0.86349949816</offset>
+                <factor>0.00455001673</factor>
+            </pitch>
+  </engine>
+
+
   <engine>
    <name>interior engine1</name>
    <mode>looped</mode>
@@ -85,9 +117,9 @@
 	<z>-5</z>
    </position>
       <volume>
-    <property>engines/engine[0]/n1</property>
-    <factor>0.014</factor>
-    <offset>-0.45</offset>
+    <property>/engines/engine/nozzle-pos-norm</property>
+    <factor>1</factor>
+    <offset>0</offset>
    </volume>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
@@ -148,10 +180,10 @@
 	<y>0.0</y>
 	<z>-5</z>
    </position>
-      <volume>
-    <property>engines/engine[1]/n1</property>
-    <factor>0.014</factor>
-    <offset>-0.45</offset>
+         <volume>
+    <property>/engines/engine/nozzle-pos-norm</property>
+    <factor>1</factor>
+    <offset>0</offset>
    </volume>
   <!--  <pitch>
                 <property>engines/engine[1]/n1</property>
@@ -190,11 +222,10 @@
                 <outer-angle>180.0</outer-angle>
                 <outer-gain>0.0</outer-gain>
             </orientation>
- <volume>
-    	<property>/fdm/jsbsim/fcs/burneranimation1</property>
-    	<factor>1</factor>
-	<min>500000</min>
-	<max>1000000.0</max>
+      <volume>
+    <property>/engines/engine/nozzle-pos-norm</property>
+    <factor>1</factor>
+    <offset>0</offset>
    </volume>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
@@ -234,11 +265,10 @@
                 <outer-angle>180.0</outer-angle>
                 <outer-gain>0.0</outer-gain>
             </orientation>
- <volume>
-    	<property>/fdm/jsbsim/fcs/burneranimation1</property>
-    	<factor>1</factor>
-	<min>500000</min>
-	<max>1000000.0</max>
+      <volume>
+    <property>/engines/engine/nozzle-pos-norm</property>
+    <factor>1</factor>
+    <offset>0</offset>
    </volume>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
@@ -277,11 +307,10 @@
                 <outer-angle>180.0</outer-angle>
                 <outer-gain>0.0</outer-gain>
             </orientation>
-<volume>
-    	<property>/fdm/jsbsim/fcs/burneranimation1</property>
-    	<factor>1</factor>
-	<min>1000000</min>
-	<max>1000000.0</max>
+      <volume>
+    <property>/engines/engine/nozzle-pos-norm</property>
+    <factor>1</factor>
+    <offset>0</offset>
    </volume>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
@@ -2110,14 +2139,14 @@
 		    <value>true</value>
 		</equals>
    <greater-than>
-    <property>/fdm/jsbsim/fcs/gforce</property>
-    <value>0.78</value>
+<property>/accelerations/pilot-gdamped</property>
+    <value>3.5</value>
    </greater-than>   
    </and> 
   </condition>
 <volume>
-<property>/accelerations/pilot-g</property>
-<factor>2</factor>
+<property>/fdm/jsbsim/fcs/leading-edge-flap-main</property>
+<factor>4</factor>
 </volume>
  </air>
  <air>
@@ -2131,14 +2160,14 @@
 		    <value>true</value>
 		</equals>
    <greater-than>
-    <property>/fdm/jsbsim/fcs/gforce</property>
-    <value>0.78</value>
+<property>/accelerations/pilot-gdamped</property>
+    <value>3.5</value>
    </greater-than>   
-   </and>
+   </and> 
   </condition>
 <volume>
-<property>/accelerations/pilot-g</property>
-<factor>2</factor>
+<property>/fdm/jsbsim/fcs/leading-edge-flap-main</property>
+<factor>4</factor>
 </volume>
  </air>
 
@@ -2146,21 +2175,21 @@
   <name>Geforce-over-wings-fast-loudd</name>
         <mode>looped</mode>
   <path>Aircraft/F-22/Sounds/highgfast.wav</path>
-  <condition>
+   <condition>
   <and>
   	    <equals>
 		    <property>/sim/current-view/internal</property>
 		    <value>true</value>
 		</equals>
    <greater-than>
-    <property>/fdm/jsbsim/fcs/gforce</property>
-    <value>0.78</value>
-   </greater-than>
-   </and>   
+<property>/accelerations/pilot-gdamped</property>
+    <value>3.5</value>
+   </greater-than>   
+   </and> 
   </condition>
 <volume>
-<property>/accelerations/pilot-g</property>
-<factor>2</factor>
+<property>/fdm/jsbsim/fcs/leading-edge-flap-main</property>
+<factor>4</factor>
 </volume>
  </air>
  
@@ -2181,8 +2210,8 @@
 		</equals>
 	</and>
    </condition>
-           <reference-dist>10</reference-dist>
-        <max-dist>10</max-dist>
+      <reference-dist>100</reference-dist>
+      <max-dist>90</max-dist>
   </sonicboom>
 
     <sonicboom2>
@@ -2201,8 +2230,8 @@
 		</equals>
 	</and>
    </condition>
-              <reference-dist>10</reference-dist>
-        <max-dist>10</max-dist>
+      <reference-dist>100</reference-dist>
+      <max-dist>90</max-dist>
   </sonicboom2>
   
 
@@ -2222,12 +2251,12 @@
 		</equals>
 	</and>
    </condition>
-              <reference-dist>5</reference-dist>
-        <max-dist>5</max-dist>
+      <reference-dist>100</reference-dist>
+      <max-dist>90</max-dist>
   </sonicboom3>
   
     <sonicboom3>
-   <name>Sonic Boom3</name>
+   <name>Sonic Boom3f</name>
 	<mode>once</mode>
    <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
    <condition>
@@ -2242,11 +2271,13 @@
 		</equals>
 	</and>
    </condition>
+      <reference-dist>100</reference-dist>
+      <max-dist>90</max-dist>
   </sonicboom3>
   
   
     <sonicboom3>
-   <name>Sonic Boom3</name>
+   <name>Sonic Boom23b</name>
 	<mode>once</mode>
    <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
    <condition>
@@ -2261,10 +2292,12 @@
 		</equals>
 	</and>
    </condition>
+      <reference-dist>100</reference-dist>
+      <max-dist>90</max-dist>
   </sonicboom3>
   
       <sonicboom3>
-   <name>Sonic Boom4</name>
+   <name>Sonic Boomw4</name>
 	<mode>once</mode>
    <path>Aircraft/F-22/Sounds/sonicboom.wav</path>
    <condition>
@@ -2279,6 +2312,8 @@
 		</equals>
 	</and>
    </condition>
+      <reference-dist>100</reference-dist>
+      <max-dist>90</max-dist>
   </sonicboom3>
 
         <sonicboom3>
@@ -2297,6 +2332,8 @@
 		</equals>
 	</and>
    </condition>
+      <reference-dist>100</reference-dist>
+      <max-dist>90</max-dist>
   </sonicboom3>
 <!--Note: this is like this to make it louder. Because volume will not over clip. And this sounds really really good-->
  
