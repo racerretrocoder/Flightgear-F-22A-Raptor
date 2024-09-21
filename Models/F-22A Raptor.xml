@@ -2005,8 +2005,33 @@ rearwheelsaxis
 			</less-than>
 		</condition>
 	</animation>
+
+			<model>
+
+
+		<path>Aircraft/F-22/Models/Effects/Smoke/SmokeRidle.xml</path>
+		<offsets>
+			<x-m>7.527</x-m>
+			<y-m>0.6</y-m>
+			<z-m>-0.447</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+		<heading-deg>0</heading-deg>
+	</offsets>
+	</model>
 		<model>
 
+		<path>Aircraft/F-22/Models/Effects/Smoke/SmokeLidle.xml</path>
+		<offsets>
+			<x-m>7.527</x-m>
+			<y-m>-0.6</y-m>
+			<z-m>-0.447</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+		<heading-deg>0</heading-deg>
+	</offsets>
+	</model>
+		<model>
 
 		<path>Aircraft/F-22/Models/Effects/Smoke/SmokeR.xml</path>
 		<offsets>

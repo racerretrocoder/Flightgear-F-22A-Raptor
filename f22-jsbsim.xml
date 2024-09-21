@@ -576,17 +576,17 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
     <table>
             <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
-            <independentVar lookup="column">/accelerations/pilot-g</independentVar>
+            <independentVar lookup="column">/controls/engines/engine/throttle</independentVar>
             <tableData>
-                     1    2    3    4    5    6    7    8    9    10   12
+                     0    0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1
               380    1    1    1    1    1    1    1    1    1    1    1
-<!--6.2-->    400    0.9  0.9  0.9  0.9  0.9  0.9  0.9  0.9  0.9  0.9  0.9
-<!--8.6-->    450    0.8  0.8  0.8  0.8  0.8  0.8  0.8  0.8  0.8  0.8  0.8
-<!--6.2-->    500    0.7  0.7  0.7  0.7  0.7  0.7  0.7  0.7  0.7  0.7  0.7  
-<!--6.2-->    550    0.6  0.6  0.6  0.6  0.6  0.6  0.6  0.6  0.6  0.6  0.6  
-<!--6.2-->    600    0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5  0.5  
-<!--6.2-->    700    0.4  0.4  0.4  0.4  0.4  0.4  0.4  0.4  0.4  0.4  0.4
-<!--6.2-->    800    0.3  0.3  0.3  0.3  0.3  0.3  0.3  0.3  0.3  0.3  0.3  
+<!--6.2-->    400    1    1    1    1    1    1    0.9  0.9  0.9  0.9  0.9
+<!--8.6-->    450    0.9  0.9  0.9  0.9  0.9  0.9  0.8  0.8  0.8  0.8  0.8
+<!--6.2-->    500    0.8  0.8  0.8  0.8  0.8  0.8  0.7  0.7  0.7  0.7  0.7  
+<!--6.2-->    550    0.7  0.7  0.7  0.7  0.7  0.7  0.6  0.6  0.6  0.6  0.6  
+<!--6.2-->    600    0.6  0.6  0.6  0.6  0.6  0.6  0.5  0.5  0.5  0.5  0.5  
+<!--6.2-->    700    0.5  0.5  0.5  0.5  0.5  0.5  0.4  0.4  0.4  0.4  0.4
+<!--6.2-->    800    0.4  0.4  0.4  0.4  0.4  0.4  0.3  0.3  0.3  0.3  0.3  
             </tableData>
           </table>
 </product>
@@ -930,6 +930,22 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
   <channel name="Pitch">
+
+   <kinematic name="leading edge flaps">
+     <input>fcs/leading-edge-flap-gear</input> <!--Auto flaps when gear down, Manuel control when up-->
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>      0 </time>
+       </setting>
+       <setting>
+          <position> 1 </position>
+          <time>      0.8 </time>
+       </setting>
+
+     </traverse>
+     <output>fcs/leading-edge-flap-main</output>
+   </kinematic>
 
    <summer name="Pitch Trim Sum">
       <input>fcs/elevator-cmd-norm-power</input>

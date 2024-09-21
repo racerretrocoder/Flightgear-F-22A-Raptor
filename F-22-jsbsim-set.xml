@@ -236,11 +236,12 @@ Multiplayer Variables   note: doubles used instead of floats to save space and p
 
 Theres soo many! Lol!   
 
--->
+-->engines/engine/cutoff
 
 <bool n="0" type="bool" alias="/damage/sounds/explode-on"/>
 <bool n="1" type="bool" alias="/damage/fire/serviceable"/> <!--Damage smoke looks Nice from people on MP. Good reactions :D-->
 <bool n="7" type="int" alias="/sim/crashed"/>
+<bool n="8" type="bool" alias="/engines/engine/cutoff"/>
  <float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor! -->
  <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
@@ -253,7 +254,7 @@ Theres soo many! Lol!
  <float n="25" type="double" alias="/fdm/jsbsim/fcs/tv-animation"/>
  <float n="26" type="double" alias="/fdm/jsbsim/fcs/ail-pos-norm-limit-sum-main"/>
   <float n="27" type="double" alias="/fdm/jsbsim/fcs/speedbrake-pos-norm"/>
-  <float n="28" type="double" alias="/fdm/jsbsim/fcs/leading-edge-flap"/>
+  <float n="28" type="double" alias="/fdm/jsbsim/fcs/leading-edge-flap-main"/>
   <float n="29" type="double" alias="/fdm/jsbsim/fcs/hook-pos-norm"/>
  <float n="30" type="double" alias="/velocities/mach"/><!--For the MP Sonic BOOM, Vapor, and more-->
 
