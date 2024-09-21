@@ -429,6 +429,8 @@ if (num2 == 1) {
                 setprop("/sim/messages/atc", phrase);
             }
         }
+    } else {
+        print("Flare detect: There are no deployed flares");
     }
 },
 
@@ -444,24 +446,40 @@ if (num2 == 1) {
 
 sendinflight: func(lat,lon,alt){
     #Send notify in flight
-                        if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
+    if(me.free == 1) {
+        print("Missile missed. not sending"); 
+    } else {
+
+
+            if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
+                        if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
-                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}
+                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  
+                        if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
+                        if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
+                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132      This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
+
 
 var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
-        	msg.Position.set_latlon(me.model.getNode("latitude-deg-prop", 1),me.model.getNode("longitude-deg-prop", 1),me.model.getNode("heading-deg-prop", 1));
+        	msg.Position.set_latlon(lon,lat,1);
         msg.Flags = 1;#bit #0
         	msg.Flags = bits.set(msg.Flags, 1);#bit #1
         msg.IsDistinct = 0;
-        msg.RemoteCallsign = me.Tgt.get_Callsign();
+          var target = radar.GetTarget();
+        if (target == nil) {
+                            msg.RemoteCallsign = "none";
+        } else {
+msg.RemoteCallsign = me.Tgt.get_Callsign();
+        }
+
         msg.UniqueIndex = ""~typeID~typeID;
-        msg.Pitch = me.pitch;
-        msg.Heading = me.hdg;
+        msg.Pitch = 0;
+        msg.Heading = 0;
         msg.u_fps = 0;
         #msg.isValid();
         notifications.geoBridgedTransmitter.NotifyAll(msg);
         print("Missile alert sending");
-
+    }
 
 },
 
@@ -627,15 +645,15 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
                 pitch_deg += me.track_signal_e;
                 hdg_deg += me.track_signal_h;
 
-                #me.checkflares();
-                #check for flares!   this is done via. damage.nas
+                me.checkflares();
+                #check for flares!
 
 
    var OurAlt       = props.globals.getNode("position/altitude-ft");
 var OurLat       = props.globals.getNode("position/latitude-deg");
 var OurLon       = props.globals.getNode("position/longitude-deg");
 
-                 #   me.sendinflight(0,0,0); 
+
 
                 print("Still Tracking : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
                 me.checkflares();
@@ -643,7 +661,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         }
         print("status :", me.status, "free ", me.free, "init_launch : ", init_launch);
         #print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, "**Speed : ", speed_m, " dt :", dt);
-        
+                           me.sendinflight(0,0,0); 
         # get horizontal distance and set position and orientation.
         var dist_h_m = speed_horizontal_fps * dt * FT2M;
         me.coord.apply_course_distance(hdg_deg, dist_h_m);

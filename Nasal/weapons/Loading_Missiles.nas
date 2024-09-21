@@ -63,7 +63,7 @@ var Loading_missile = func(name)
     {
         # AIM-9X:short-range A2A,IR seeker,
 	typeid = 98;
-        flareres = 0.983; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
+        flareres = 0.985; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
@@ -89,6 +89,7 @@ var Loading_missile = func(name)
     elsif(name == "Aim-9m")
     {
         # AIM-9m :short-range A2A,IR seeker,
+           flareres = 0.80; 
 	typeid = 69; # This is not a Aim-9m this is an Aim-9x with way less homing capabilites. So you can evade it with out the need for flares. just pull a manuver so that its 30deg away from the seeker and there you go   
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9M-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9M.xml";
@@ -119,6 +120,7 @@ var Loading_missile = func(name)
     elsif(name == "GBU-39")
     {
            # Mm yes much bomb,
+                      flareres = 1; # countermessueres cannont fool this. If your radar loosses lock on the target. the missile will miss 
 	    typeid = 18;
         address = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml";
         NoSmoke = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml";
@@ -137,7 +139,7 @@ var Loading_missile = func(name)
         maxExplosionRange = 50;                       
         maxspeed = 5;                                 # In Mach
         life = 80000000000000;
-        fox = "Fox 1";    #If the target is out of radar loose track. Simulates targeting pod. Kinda
+        fox = "Fox 1";    #If the target is out of radar loose track. Simulates a targeting pod. Kinda
         rail = "true";
         cruisealt = 0;
         chute = 0;
@@ -145,31 +147,35 @@ var Loading_missile = func(name)
     elsif(name == "JDAM")
     {
            # Mm yes much bomb,
+                                 flareres = 1;
 	    typeid = 18;
-        address = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml"; #for now
-        NoSmoke = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml"; # for now
+        address = "Aircraft/F-22/Models/Stores/Missiles/JDAM/JDAM.xml"; 
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/JDAM/JDAM.xml"; # for now
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";
-        maxdetectionrngnm = 12;                       # Less manuverability but bigger BOOM!
-        fovdeg = 30;                                 # seeker optical FOV
-        detectionfovdeg = 30;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 30;                            # Seeker max total angular rotation
-        maxg = 4;                                    # 
+        maxdetectionrngnm = 30;                       # 
+
+        #GPS system
+        fovdeg = 360;                                 # seeker optical FOV
+        detectionfovdeg = 360;                        # Search pattern diameter (rosette scan)
+        trackmaxdeg = 360;                            # Seeker max total angular rotation
+        maxg = 3;                                    # 
         thrustlbs = 0.00;                             # 
         thrustdurationsec = 100;                        #
         weightlaunchlbs = 186;
-        weightwarheadlbs = 20.8;
+        weightwarheadlbs = 1000;
         dragcoeff = 0.05;                              # guess; original 0.05
         dragarea = 0.075;                             # sq ft
         maxExplosionRange = 50;                       
         maxspeed = 5;                                 # In Mach
         life = 80000000000000;
-        fox = "Fox 1";    #If the target is out of radar loose track. Simulates targeting pod. Kinda
-        rail = "true";
+        fox = "Fox 3";    #If the target is out of radar loose track. Simulates targeting pod. Kinda
+        rail = "false";
         cruisealt = 0;
         chute = 0;
     }
     elsif(name == "Aim-7") #Debug missile
     {
+                              flareres = 0.8;
   	typeid = 52; #Overridden at the end of missile.nas
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM7/AIM7-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM7/AIM7.xml";
@@ -196,6 +202,7 @@ var Loading_missile = func(name)
     elsif(name == "XMAA") #Debug missile
     {
         # TEST BVR Experimental missile
+                              flareres = 0.998;
   	typeid = 52; #Overridden at the end of missile.nas
         address = "Aircraft/F-22/Models/stores/Missiles/XMAA/XMAA-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/stores/Missiles/XMAA/XMAA.xml";
@@ -226,6 +233,7 @@ var Loading_missile = func(name)
     elsif(name == "eject")   # Used for the ejction seat. Not a missile so we do fox one and leave it
     {
            # ejection seat   Aircraft/F-22/Models/pilot/eject.xml
+                                 flareres = 1;
 	    typeid = 98;
         address = "Aircraft/F-22/Models/pilot/eject.xml";
         NoSmoke = "Aircraft/F-22/Models/pilot/eject.xml";

@@ -574,7 +574,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
       <property>fcs/fbw-override</property> <!--if its Zero. Itll Cancel out the glimit, Making this function output 0-->
 
-        <table>
+    <table>
             <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
             <independentVar lookup="column">/accelerations/pilot-g</independentVar>
             <tableData>
@@ -2027,7 +2027,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>metrics/bw-ft</property>
            <property>aero/bi2vel</property>
            <property>velocities/r-aero-rad_sec</property>
-           <value>-0.15</value>
+           <value>-1</value>
        </product>
     </function>
 

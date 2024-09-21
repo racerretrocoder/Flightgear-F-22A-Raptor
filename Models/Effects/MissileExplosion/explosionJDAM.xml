@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<PropertyList>
+
+  <model>
+    <path>Aircraft/F-22/Models/Effects/MissileExplosion/explosionFireAG2.xml</path>
+  </model>
+
+  <model>
+    <path>Aircraft/F-22/Models/Effects/MissileExplosion/explosionSmoke2.xml</path>
+  </model>
+
+</PropertyList>

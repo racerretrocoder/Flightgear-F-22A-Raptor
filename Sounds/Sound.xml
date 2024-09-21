@@ -764,7 +764,9 @@
    <path>Aircraft/F-22/Sounds/intakefront.wav</path>
    <condition>
 	     <property>/sim/current-view/internal</property>
- 
+ 	 <not>
+	  <property>/engines/engine/out-of-fuel</property>
+	 </not>
 
 
    </condition>
