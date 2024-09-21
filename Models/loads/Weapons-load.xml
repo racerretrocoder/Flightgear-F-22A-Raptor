@@ -97,9 +97,9 @@
 <name>extaim1201</name>
 <path>Aircraft/F-22/Models/loads/120p3.xml</path>
 <offsets>
-    <x-m>  2.26097  </x-m>
-    <y-m>  -1.66952 </y-m>
-    <z-m>  -2.29705 </z-m>
+    <x-m> 2.1  </x-m>
+    <y-m> -3.4 </y-m>
+    <z-m> -1.1 </z-m>
 <pitch-deg>  </pitch-deg>
 </offsets>
 </model>
@@ -224,6 +224,31 @@
 </offsets>
 </model>	
 
+
+
+<!--JDAM-->
+
+<model>
+<name>left-bellymsd2</name>
+<path>Aircraft/F-22/Models/loads/AG/JDAMp4.xml</path>
+<offsets>
+<x-m> -0.4  </x-m>
+    <y-m> -0.63 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+<model>
+<name>left-bellyis2</name>
+<path>Aircraft/F-22/Models/loads/AG/JDAMp1.xml</path>
+<offsets>
+    <x-m> -0.4  </x-m>
+    <y-m> 0.62 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>	
 
 <model>
 <name>left-bellymsd</name>
