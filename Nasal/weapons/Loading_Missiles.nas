@@ -24,6 +24,7 @@ var Loading_missile = func(name)
     var maxExplosionRange =  0;
     var maxspeed          = 0;
     var life              = 0;
+    var sdspeed           = 0;
     var fox               = "nothing";
     var rail              = "true";
     var cruisealt         = 0;
@@ -39,21 +40,22 @@ var Loading_missile = func(name)
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        flareres = 0.992; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed. 
+        flareres = 0.992; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
         maxdetectionrngnm = 38.8;                    #  
         fovdeg = 140;                                #
         detectionfovdeg = 140;                       # TODO implent data link system so we can control these variables while missile is in flight
         trackmaxdeg = 140;                           # 
-        maxg = 40;                                   # 
-        thrustlbs = 500;                             # 
+        maxg = 40;                                   # wikipedia
+        thrustlbs = 1500;                             # 1,500 to 2,500 pounds of thrust maybe
         thrustdurationsec = 9;                     # 
-        weightlaunchlbs = 291;
+        weightlaunchlbs = 400;
         weightwarheadlbs = 44;
-        dragcoeff = 0.3;                             # guess; original 0.05
+        dragcoeff = 0.008;                             #
         dragarea = 0.056;                            # sq ft
         maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 2.8;                              # In Mach
-        life = 1200;
+        maxspeed = 3.8;                              # In mach ( source is a guess )
+        life = 10000000; # 
+        sdspeed = 0.6999999; # Test Self Destruct Speed. in mach
         fox = "Fox 3";
         rail = "false";
         cruisealt = 0;
@@ -71,18 +73,18 @@ var Loading_missile = func(name)
         fovdeg = 80;                                 # seeker optical FOV
         detectionfovdeg = 80;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 80;                            # Seeker max total angular rotation
-        maxg = 50;                                    # Thurst vectoring rocket motor
-        thrustlbs = 800;                             # 
-        thrustdurationsec = 10;                        # To make it miss some times
+        maxg = 80;                                    # Thurst vectoring rocket motor
+        thrustlbs = 1800;                             # 
+        thrustdurationsec = 2.2;                        #
         weightlaunchlbs = 186;
         weightwarheadlbs = 20.8;
-        dragcoeff = 0.8;                              # guess; original 0.05
+        dragcoeff = 0.001;                              # guess; original 0.05
         dragarea = 0.075;                             # sq ft
         maxExplosionRange = 50;                       
-        maxspeed = 5;                                 # In Mach
-        life = 80;
+        maxspeed = 2.9;                                 # In Mach
+        life = 80; # The ammount of time before it arms the missile to self distruct when its slower than 100kts
         fox = "Fox 2";
-        rail = "false";
+        rail = "true";
         cruisealt = 0;
         chute = 0;
     }
@@ -107,7 +109,7 @@ var Loading_missile = func(name)
         dragarea = 0.075;                             # sq ft
         maxExplosionRange = 50;                       
         maxspeed = 5;                                 # In Mach
-        life = 100;
+        life = 10000; # will self destruct when the missile is slower than  sdspeed and is "armed" (3 seconds pasted sense it shot)
         fox = "Fox 2";
         rail = "false";
         cruisealt = 0;
@@ -281,6 +283,7 @@ var Loading_missile = func(name)
     setprop("controls/armament/missile/maxExplosionRange", maxExplosionRange);
     setprop("controls/armament/missile/maxspeed", maxspeed);
     setprop("controls/armament/missile/life", life);
+    setprop("controls/armament/missile/sdspeed", sdspeed);
     setprop("controls/armament/missile/fox", fox);
     setprop("controls/armament/missile/rail", rail);
     setprop("controls/armament/missile/cruise_alt", cruisealt);

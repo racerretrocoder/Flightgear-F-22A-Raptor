@@ -1597,7 +1597,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             <MAW-bearing type="double">0</MAW-bearing>
             <MAW-active type="bool">false</MAW-active>
             <MAW-semiactive type="bool">false</MAW-semiactive>
-            <msg type="bool">true</msg> <!--NOTE!!!: This gets set to false in nasal on startup. maybe weapons.nas?         Todo: , And make the missiles appear on Target. dadadadadadadadaadadadadadadaadadad acording to all known laws of avation. theres no way a bee should be able to fly-->
+            <msg type="bool">true</msg>
             <spike type="bool">false</spike>
             <models type="string">Aircraft/F-22/Models/emesary/</models>
         </armament>
@@ -1637,12 +1637,12 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			</tank>
 			<tank n="2">
 
-        <name>Left-tank</name> <!--Todo. Make this give fuel to engine first before aft and fwd. like it should... stupid fuel tank-->
+        <name>Left-tank</name> 
         <selected type="bool">false</selected>
       </tank>
       <tank n="3">
 
-        <name>Right-Tank</name> <!--Same for this one. but with extra trial and error-->
+        <name>Right-Tank</name> 
         <selected type="bool">false</selected>
       </tank>
 			
@@ -1662,7 +1662,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <latitude type="double">   0 </latitude>
     </closest>
 	<scenario>
-	   <path>Aircraft/F-22/AI/EGOD_arrestor_cables.xml</path> <!--unnessory because hook dosent work (YET! HAHAHAH)-->
+	   <path>Aircraft/F-22/AI/EGOD_arrestor_cables.xml</path> <!--Not needed-->
 	  </scenario>
   </ai>
   

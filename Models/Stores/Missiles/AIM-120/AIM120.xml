@@ -11,4 +11,15 @@
  <inherits-from>Effects/model-transparent</inherits-from>
 <object-name>FlameModel</object-name>
 </effect>
+
+ <model>
+  <name>AIM-120smokesmall</name>
+  <path>Aircraft/F-22/Models/smoke/smoke3.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.0  </y-m>
+   <z-m>0.0  </z-m>
+  </offsets>
+ </model>
+
 </PropertyList>
