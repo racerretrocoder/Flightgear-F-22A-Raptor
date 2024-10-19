@@ -92,7 +92,8 @@ var MISSILE = {
         m.max_g             = getprop("controls/armament/missile/max-g");
         m.maxExplosionRange = getprop("controls/armament/missile/maxExplosionRange");
         m.maxSpeed          = getprop("controls/armament/missile/maxspeed");
-        m.Life              = getprop("controls/armament/missile/life");
+        m.Life              = getprop("controls/armament/missile/life"); # the amount of time before the missile arms its self distruct speed. when this timer gose up itll enable it to destroy itself when its speed gose below the listed speed
+        m.SDspeed           = getprop("controls/armament/missile/sdspeed");        
         # for messaging but also for the missile's detection capability (not implemented Yet)
         m.fox               = getprop("controls/armament/missile/fox");
         m.rail              = getprop("controls/armament/missile/rail");
@@ -435,17 +436,13 @@ if (num2 == 1) {
 },
 
 
-# i cant belive i did it.
-# really amazing.
-
-
-
 
 
 
 
 sendinflight: func(lat,lon,alt){
     #Send notify in flight
+    if(getprop("payload/armament/msg")){
     if(me.free == 1) {
         print("Missile missed. not sending"); 
     } else {
@@ -457,28 +454,29 @@ sendinflight: func(lat,lon,alt){
                         if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  
                         if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
-                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132      This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
+                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
 
 
 var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
-        	msg.Position.set_latlon(lon,lat,1);
+        msg.Position.set_latlon(lon,lat,1,0);
         msg.Flags = 1;#bit #0
-        	msg.Flags = bits.set(msg.Flags, 1);#bit #1
+        msg.Flags = bits.set(msg.Flags, 1);#bit #1
         msg.IsDistinct = 0;
-          var target = radar.GetTarget();
+        var target = radar.GetTarget();
         if (target == nil) {
-                            msg.RemoteCallsign = "none";
+        msg.RemoteCallsign = "none";
         } else {
 msg.RemoteCallsign = me.Tgt.get_Callsign();
         }
 
         msg.UniqueIndex = ""~typeID~typeID;
         msg.Pitch = 0;
-        msg.Heading = 0;
+        msg.Heading = getprop("orientation/heading-deg", 1);
         msg.u_fps = 0;
         #msg.isValid();
         notifications.geoBridgedTransmitter.NotifyAll(msg);
-        print("Missile alert sending");
+        print("Missile alert sent");
+    }
     }
 
 },
@@ -504,20 +502,8 @@ msg.RemoteCallsign = me.Tgt.get_Callsign();
         # Cut rocket thrust after boost duration.
         # Also cut rocket when misile is "dropped", and ignitie it 1 second after
         var f_lbs = me.force_lbs;
-        if(me.rail == "true")
-        {
-            if(me.life_time > 0)
-            {
-                f_lbs = me.force_lbs * 4;
-            }
-            if(me.life_time > 4)
-            {
-                f_lbs = me.force_lbs * 0.3;
-            }
-        }
-        else
-        {
-            f_lbs = 0;
+        if(getprop("controls/armament/missile/rail") == "true"){
+            print("railed");
             if(me.life_time > 1)
             {
                 f_lbs = me.force_lbs;
@@ -526,6 +512,18 @@ msg.RemoteCallsign = me.Tgt.get_Callsign();
             {
                 f_lbs = me.force_lbs * 0.3;
             }
+        }
+         else{
+            f_lbs = 0;
+            if(me.life_time > 0.5)
+            {
+                f_lbs = me.force_lbs;
+            }
+            if(me.life_time > 0.6)
+            {
+                f_lbs = me.force_lbs * 0.3;
+            }
+
         }
         # this do work for the moment... need to know how to reload a 3D model...
         if(me.life_time > me.thrust_duration)
@@ -541,7 +539,9 @@ msg.RemoteCallsign = me.Tgt.get_Callsign();
             #me.smoke_prop.setBoolValue(0);
         }
         
-        # kill the AI after a while.
+
+
+
         if(me.life_time > me.Life)
         {
             me.free = 1;
@@ -566,7 +566,7 @@ msg.RemoteCallsign = me.Tgt.get_Callsign();
         # for a conventional shell/bullet (no boat-tail).
         var cdm = 0;
         var speed_m = (total_s_ft / dt) / sound_fps;
-        #print(speed_m);
+        print(speed_m);
         if(speed_m < 0.7)
         {
             cdm = 0.0125 * speed_m + me.cd;
@@ -580,6 +580,21 @@ msg.RemoteCallsign = me.Tgt.get_Callsign();
             cdm = 0.2965 * math.pow(speed_m, -1.1506) + me.cd;
         }
         
+        # arm the sds
+        
+               if(me.life_time > 3) {
+            if(speed_m < getprop("controls/armament/missile/sdspeed")){
+                print("missile should die here");
+                    me.free = 1;
+                        setprop("payload/armament/flares", 0);
+                                        me.animate_explosion();
+                    settimer(func(){ me.del(); }, 1);
+                    setprop("sim/messages/atc", "missile self distructed");
+                    return;
+            }
+        }
+
+
         # add drag to the total speed using Standard Atmosphere
         # (15C sealevel temperature);
         # rho is adjusted for altitude in environment.rho_sndspeed(altitude),
@@ -636,7 +651,6 @@ msg.RemoteCallsign = me.Tgt.get_Callsign();
                 var myG = steering_speed_G(me.track_signal_e, me.track_signal_h, (total_s_ft / dt), mass, dt);
                 if(me.max_g < myG)
                 {
-                    print("Flying to target! Weeeeee!");
                     var MyCoef = max_G_Rotation(me.track_signal_e, me.track_signal_h, total_s_ft, mass, 1, me.max_g);
                     me.track_signal_e = me.track_signal_e * MyCoef;
                     me.track_signal_h = me.track_signal_h * MyCoef;
@@ -656,12 +670,14 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
 
 
                 print("Still Tracking : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
+                print("Speed");
+                print(speed_m);
                 me.checkflares();
             }
         }
         print("status :", me.status, "free ", me.free, "init_launch : ", init_launch);
-        #print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, "**Speed : ", speed_m, " dt :", dt);
-                           me.sendinflight(0,0,0); 
+        print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, "**Speed : ", speed_m, " dt :", dt);
+                           me.sendinflight(1,1,1); 
         # get horizontal distance and set position and orientation.
         var dist_h_m = speed_horizontal_fps * dt * FT2M;
         me.coord.apply_course_distance(hdg_deg, dist_h_m);
@@ -743,6 +759,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         me.hdg = hdg_deg;
         if(me.life_time < me.Life)
         {
+
             settimer(func(){ me.update()}, 0);
         }
     },

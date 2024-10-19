@@ -124,6 +124,7 @@
       <maxspeed type="double"> 4 </maxspeed>
       <!-- ' in Mach -->
       <life> 60 </life>
+      <sdspeed> 60 </sdspeed>
       <!--
         note :
           "Fox1" for guided by the aircraft radar (semi active) AIM7,
