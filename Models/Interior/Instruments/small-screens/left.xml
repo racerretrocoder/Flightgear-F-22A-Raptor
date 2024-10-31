@@ -29,68 +29,7 @@
   </emission> 
  </animation>
  
-  <text>
-  <name>U</name>
-   <font>condensed.txf</font>
-  <character-size type="double">0.0045</character-size>
-  <offsets>
-  <x-m>-4.776</x-m>
-   <y-m>-0.282</y-m>
-   <z-m>0.781</z-m>
-  </offsets>
-   <axis-alignment>yz-plane</axis-alignment>
-  <type type="string">literal</type>
-  <text type="string">U</text>
-  <draw-text type="bool">true</draw-text>
-  <alignment>left-top</alignment>
- </text>
-
- 
- <text>
-  <name>left-arrow</name>
-  <font>charter.txf</font>
-  <character-size type="double">0.0095</character-size>
-  <offsets>
-      <x-m>-4.776</x-m>
-   <y-m>-0.252</y-m>
-   <z-m>0.776</z-m>
-  <roll-deg>-180</roll-deg>
-  </offsets>
-  <axis-alignment>yz-plane</axis-alignment>
-  <type type="string">literal</type>
-  <text type="string">></text>
-  <draw-text type="bool">true</draw-text>
-  <alignment>left-top</alignment>
- </text>
- 
-  <text>
-  <name>right-arrow</name>
-  <font>charter.txf</font>
-  <character-size type="double">0.0095</character-size>
-  <offsets>
-      <x-m>-4.7768</x-m>
-   <y-m>-0.232</y-m>
-   <z-m>0.782</z-m>
-  </offsets>
-  <axis-alignment>yz-plane</axis-alignment>
-  <type type="string">literal</type>
-  <text type="string">></text>
-  <draw-text type="bool">true</draw-text>
-  <alignment>left-top</alignment>
- </text>
- 
- <!-- target data -->
- <model>
-		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/target.xml</path>
-			<offsets>
-				<x-m>-0.2</x-m>
-					<y-m>-0.412</y-m>
-				<z-m>0.295</z-m>
-			<pitch-deg>0</pitch-deg>
-		</offsets>
-	</model>
- 
- 
+  
    <model>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/ai/stby-ai.xml</path>
 			<offsets>

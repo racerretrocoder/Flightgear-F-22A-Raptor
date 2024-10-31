@@ -6,14 +6,14 @@
   Inputs:
     name:           F119-PW-100
     type:           turbine
-    thrust:         25000 lb
+    thrust:         25000-27000 lb
     augmented?      yes
     injected?       no
 -->
 
 <turbine_engine name="F119-PW-100">
   <milthrust> 27000.0 </milthrust>
-  <maxthrust> 38000.0 </maxthrust>
+  <maxthrust> 35000.0 </maxthrust>
   <bypassratio>     0.3 </bypassratio>
   <tsfc>            0.8 </tsfc>
   <atsfc>           1.7 </atsfc>

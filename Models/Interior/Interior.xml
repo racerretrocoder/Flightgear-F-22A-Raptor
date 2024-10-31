@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
-<!--Note: This fixes the bug where the text is all glitched when spawning in-->
-<animation>
-        <type>range</type>
-        <min-m>0</min-m>
-        <max-m>50</max-m>
-    </animation>
 
 <!-- 
+October 30th 2024: Revamped the whole cockpit
+thank you pigensworth for the use of his 3d model!!!
+https://github.com/pigensworth/F-22-New-Cockpit/
+
+
+
+Now thats said:
 
 __/\\\\\\\\\\\\\\\__________________/\\\\\\\\\________/\\\\\\\\\_________/\\\\\\\\\_________________/\\\\\\\\\____________________________________________________________________________        
  _\/\\\///////////_________________/\\\///////\\\____/\\\///////\\\_____/\\\\\\\\\\\\\_____________/\\\///////\\\__________________________________________________________________________       
@@ -45,7 +46,7 @@ __/\\\\\\\\\\\__________________________________________________________________
                                                                                                                       
 
 
-TODO: make the cockpit black like the real thing
+TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
                                                                                       
  -->
 
@@ -54,14 +55,9 @@ TODO: make the cockpit black like the real thing
 
 
 
-<animation>
-        <type>range</type>
-        <min-m>0</min-m>
-        <max-m>50</max-m>  <!--Set at 50 to Give more computer resources-->
-    </animation>
 
 <model>
-    <path>newcockpit.ac</path>
+    <path>protocp.ac</path>
 	<offsets>
       <x-m> 0 </x-m>
       <y-m>0 </y-m>
@@ -77,20 +73,23 @@ TODO: make the cockpit black like the real thing
 <animation>
     <type>material</type>
 
-   <object-name>1</object-name>
-      <object-name>2</object-name>
-         <object-name>3</object-name>
-            <object-name>4</object-name>
-               <object-name>5</object-name>  <!--Switch labels     Controlled with the consoles knob-->
-                  <object-name>6</object-name>
-                     <object-name>7</object-name>
-                        <object-name>8</object-name>
-                           <object-name>9</object-name>
-                              <object-name>10</object-name>
-                                 <object-name>11</object-name>
-                                    <object-name>12</object-name>
-                                       <object-name>13</object-name>
-                                          <object-name>14</object-name>
+   <object-name>rect</object-name>
+      <object-name>bt</object-name>
+         <object-name>RFCR</object-name>
+            <object-name>CFCR</object-name>
+               <object-name>LFCR</object-name>  <!--Switch labels     Controlled with the consoles knob-->
+                  <object-name>RSMS</object-name>
+                     <object-name>CSMS</object-name>
+                        <object-name>LSMS</object-name>
+                           <object-name>RWEP</object-name>
+                              <object-name>CWEP</object-name>
+                                 <object-name>LWEP</object-name>
+                                    <object-name>RFLT</object-name>
+                                       <object-name>CFLT</object-name>
+                                          <object-name>LFLT</object-name>
+                                    <object-name>RRWR</object-name>
+                                       <object-name>CRWR</object-name>
+                                          <object-name>LRWR</object-name>
                               <object-name>labBAT</object-name>
                               <object-name>labJFSR</object-name>
 
@@ -148,17 +147,17 @@ TODO: make the cockpit black like the real thing
 
 -->
 
-
+<!--
   <model>
      <name>frontdatadisplays</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/comms.xml</path>
 			<offsets>
 				<x-m>-1.0</x-m>
-					<y-m>0</y-m>
+					<y-m>1</y-m>
 				<z-m>-0.85</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
-	</model>
+	</model>-->
 
 
 
@@ -182,10 +181,10 @@ TODO: make the cockpit black like the real thing
      <name>leftsmall</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/left.xml</path>
 			<offsets>
-				<x-m>-1.0</x-m>
-					<y-m>0</y-m>
-				<z-m>-0.8491</z-m>
-			<pitch-deg>0</pitch-deg>
+				<x-m>-0.965</x-m>
+					<y-m>-0.03</y-m>
+				<z-m>-0.77</z-m>
+			<pitch-deg>-0</pitch-deg>
 		</offsets>
 	</model>
 
@@ -197,7 +196,7 @@ TODO: make the cockpit black like the real thing
 			<offsets>
 				<x-m>-1.0</x-m>
 					<y-m>0</y-m>
-				<z-m>-0.85</z-m>
+				<z-m>-0.95</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
@@ -207,9 +206,9 @@ TODO: make the cockpit black like the real thing
      <name>rightmfd</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/right-enav-mfd.xml</path>
 			<offsets>
-				<x-m>-5.767</x-m>
-					<y-m>0.242</y-m>
-				<z-m>-0.24</z-m>
+				<x-m>-5.751</x-m>
+					<y-m>0.208</y-m>
+				<z-m>-0.11</z-m>
 			<pitch-deg>-10</pitch-deg>
 		</offsets>
 	</model>
@@ -218,9 +217,9 @@ TODO: make the cockpit black like the real thing
      <name>centermfd</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/centre-mfd.xml</path>
 			<offsets>
-				<x-m>-5.767</x-m>
-					<y-m>-0.01</y-m>
-				<z-m>-0.24</z-m>
+				<x-m>-5.751</x-m>
+					<y-m>-0.008</y-m>
+				<z-m>-0.11</z-m>
 			<pitch-deg>-10</pitch-deg>
 		</offsets>
 	</model>	
@@ -228,9 +227,9 @@ TODO: make the cockpit black like the real thing
      <name>leftmfd</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/left-enav-mfd.xml</path>
 			<offsets>
-				<x-m>-5.767</x-m>
-					<y-m>-0.262</y-m>
-				<z-m>-0.24</z-m>
+				<x-m>-5.751</x-m>
+					<y-m>-0.219</y-m>
+				<z-m>-0.11</z-m>
 			<pitch-deg>-10</pitch-deg>
 		</offsets>
 	</model>	
@@ -238,9 +237,9 @@ TODO: make the cockpit black like the real thing
      <name>lowermfd</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/lower-mfd.xml</path>
 			<offsets>
-				<x-m>-5.65</x-m>
-					<y-m>-0.01</y-m>
-				<z-m>-0.48</z-m>
+				<x-m>-5.59</x-m>  <!--  -  -->
+					<y-m>-0</y-m>
+				<z-m>-0.33</z-m> <!--  +  -->
 			<pitch-deg>-45</pitch-deg>
 		</offsets>
 	</model>
@@ -684,7 +683,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 	</binding>
    </action>
  </animation>
-
+<!-- Needs a revamp!
 <animation>
 	<type>rotate</type>
 	<object-name>BATSWITCH</object-name>
@@ -697,7 +696,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 		<y-m>0.41825</y-m>
 		<z-m>-0.35995</z-m>
 	</center>
-</animation>
+</animation> -->
 
 
 
@@ -1191,7 +1190,7 @@ New: Refuel in air switch.
       </binding>
    </action>
  </animation>
-
+<!--
 <animation>
         <type>rotate</type>
         <object-name>jfsStartR</object-name>
@@ -1219,7 +1218,7 @@ New: Refuel in air switch.
             <y>0.01</y>
             <z>0.0</z>
         </axis>
-    </animation>
+    </animation> -->
 
 <animation>
   <type>pick</type>
@@ -1242,7 +1241,7 @@ New: Refuel in air switch.
     </mod-up>
    </action>
  </animation>
-
+<!--
 <animation>
         <type>rotate</type>
         <object-name>jfsStartL</object-name>
@@ -1270,7 +1269,7 @@ New: Refuel in air switch.
             <y>0.01</y>
             <z>0.0</z>
         </axis>
-    </animation>
+    </animation>-->
 
 <animation>
   <type>pick</type>
@@ -1290,6 +1289,7 @@ New: Refuel in air switch.
 
    </action>
  </animation>
+ <!--
 <animation>
         <type>rotate</type>
         <object-name>cutoffR</object-name>
@@ -1317,7 +1317,7 @@ New: Refuel in air switch.
             <y>-0.01</y>
             <z>0.38</z>
         </axis>
-    </animation>
+    </animation>-->
 
 <animation>
   <type>pick</type>
@@ -1337,7 +1337,7 @@ New: Refuel in air switch.
  
    </action>
  </animation>
-
+<!--
 <animation>
         <type>rotate</type>
         <object-name>cutoffL</object-name>
@@ -1366,9 +1366,8 @@ New: Refuel in air switch.
             <z>0.38</z>
         </axis>
     </animation>
+-->
 
-<!--Im going to need these to move! These stay in there current position when off (When off they stay pointing straight up, The lights and FBW switchs)
-Thank you snail your awesome!-->
     <animation>
     <object-name>FBWLIGHT</object-name>
   <type>select</type>
@@ -1514,7 +1513,7 @@ Thank you snail your awesome!-->
     </binding>
        </action>
  </animation>
-
+<!--Needs to be redone! Theres a new cockpit!
 <animation>
         <type>rotate</type>
         <object-name>navlights</object-name>
@@ -1543,7 +1542,7 @@ Thank you snail your awesome!-->
             <z> 1</z>
         </axis>
     </animation>
-
+-->
  <animation>
   <object-name>navlightlight</object-name>
   <type>select</type>
@@ -1633,12 +1632,12 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
  
  -->
 
- <!--Note to snail: Hi! Stick, throttle animations can go here. I tried but i couldnt get it. the throttle would be 2 buildings high above the plane lmao    -Phoenix -->
 
-<!--Note to Phoenix: I had the same problem a bit ago, but when I did it recently, it worked well. I have no idea what the difference was but now it works. Also, cool way of putting words in here! Both the throttle stick and joystick are done, enjoy!    -Snail -->
+<!--Needs to be revamped!!
+Flight control stick should move less
+-->
 
 
-<!--Thank you! Lol-->
 
 <animation>
         <type>rotate</type>

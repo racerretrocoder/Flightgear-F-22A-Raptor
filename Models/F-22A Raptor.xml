@@ -91,8 +91,6 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 		<object-name>left-flap_1</object-name>
 		<object-name>right-flap_1</object-name>
 
-		<object-name>Right_Stabilizer</object-name>
-		<object-name>Right_Stabilizer</object-name>
 		<object-name>left-aileron_1</object-name>
 		<object-name>right-aileron_1</object-name>
 		<object-name>Left_Rocket_Bay_D1</object-name>

@@ -236,7 +236,7 @@ Multiplayer Variables   note: doubles used instead of floats to save space and p
 
 Theres soo many! Lol!   
 
--->engines/engine/cutoff
+-->
 
 <bool n="0" type="bool" alias="/damage/sounds/explode-on"/>
 <bool n="1" type="bool" alias="/damage/fire/serviceable"/> <!--Damage smoke looks Nice from people on MP. Good reactions :D-->

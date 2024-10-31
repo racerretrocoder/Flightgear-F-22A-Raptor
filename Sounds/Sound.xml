@@ -234,7 +234,47 @@
             </pitch> -->
   </engine>
 
+    <engine>
+   <name>ABs1</name>
+   <mode>looped</mode>
+   <path>Aircraft/F-22/Sounds/AB.wav</path>
+   <condition>
 
+<greater-than>  
+ <property>engines/engine[1]/n1</property>
+   <value>90</value>
+  </greater-than>
+
+  
+     <not>
+	 <property>/sim/current-view/internal</property>
+<property>/engines/engine/out-of-fuel</property>
+     </not>
+   </condition>
+   <position>
+    	<x>0</x>
+	<y>0.0</y>
+	<z>0</z>
+   </position>
+               <orientation>
+                <x>1.0</x>
+                <y>0.001</y>
+                <z>0.001</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>0.0</outer-gain>
+            </orientation>
+      <volume>
+    <property>/engines/engine/nozzle-pos-norm</property>
+    <factor>1</factor>
+    <offset>0</offset>
+   </volume>
+  <!--  <pitch>
+                <property>engines/engine[0]/n1</property>
+                <offset>0.86349949816</offset>
+                <factor>0.00455001673</factor>
+            </pitch> -->
+  </engine>
     <engine>
    <name>AB2</name>
    <mode>looped</mode>
