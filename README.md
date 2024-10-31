@@ -23,10 +23,9 @@ Or if you have a custom aircraft folder put F-22 in there
 
 
 --
-See the aircraft help in game to learn how to use every single feature in the jet!
-And information on the FDM
+Aircraft help in game shows every single feature in the jet
 --
-A good aircraft has to have a nice help option! very Important
+
 
 
 This model is a heavily edited version of the F-22 from the FGUK Hangar.
