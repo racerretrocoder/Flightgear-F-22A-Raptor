@@ -390,6 +390,40 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
         </action>
     </animation>
 
+<!--
+
+<animation>
+        <name>Air Source Knob</name>
+        <type>knob</type>
+        <object-name>airsource</object-name>
+        <property></property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+        <property>sim/hud/color/brightness</property>
+                <value>0</value>
+                <value>0.3</value>
+                <value>0.6</value>
+                <value>1</value>
+                <wrap>false</wrap>
+            </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+    </animation>
+
+-->
 
 
 

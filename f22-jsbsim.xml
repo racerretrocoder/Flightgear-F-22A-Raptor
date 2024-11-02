@@ -1133,7 +1133,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        </setting>
        <setting>
           <position> 1 </position>
-          <time>     5 </time>
+          <time>     3 </time>
        </setting>
      </traverse>
      <output>gear/gear-pos-norm</output>
@@ -1552,6 +1552,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <output>fcs/tvlscaled</output>
    </aerosurface_scale>
 
+
     <kinematic name="Animation and Movement in FDM">
       <input>fcs/vector-main-control</input>
       <traverse>
@@ -1565,6 +1566,21 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         </setting>
        </traverse>
       <output>fcs/tv-animation</output>
+   </kinematic>
+
+    <kinematic name="roll">
+      <input>fcs/left-aileron-pos-rad</input>
+      <traverse>
+        <setting>
+          <position>-1</position>
+          <time>0.8</time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>0.8</time>
+        </setting>
+       </traverse>
+      <output>fcs/left-aileron-pos-rad-sm</output>
    </kinematic>
 
    <kinematic name="TV Position">
@@ -1943,7 +1959,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/bw-ft</property>
-          <property>fcs/left-aileron-pos-rad</property>
+          <property>fcs/left-aileron-pos-rad-sm</property>
           <value>0.12</value>
        </product>
     </function>

@@ -381,6 +381,12 @@ Theres soo many! Lol!
 				<warnings>
 					<master-caution type="bool">0</master-caution>
 				</warnings>
+				<datalink>
+				
+				<power_prop>12.1</power_prop>
+
+				<channel_prop>0000</channel_prop>				
+				</datalink>
 
 <!-- Radar Visibility Calculator Datas -->
 
@@ -2328,7 +2334,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 
 <datalink>
-			<file>Aircraft/F-22/Nasal/datalink.nas</file>
+<file>Aircraft/F-22/Nasal/datalink.nas</file>
 </datalink>
 	</nasal>
 

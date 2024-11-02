@@ -272,6 +272,24 @@ print("made it this far, lets spawn a chair!");
 
 
 
+var damagedetect = func{
+
+var a = getprop("/sim/failure-manager/controls/flight/aileron/serviceable");
+var b = getprop("/sim/failure-manager/controls/flight/elevator/serviceable");
+var c = getprop("/sim/failure-manager/controls/flight/rudder/serviceable");
+	if ( a == 0 ) {
+            setprop("sim/multiplay/generic/bool[1]",1);
+		if ( b == 0 ) {
+              setprop("sim/multiplay/generic/bool[1]",1);
+			if ( c == 0 ) {
+        setprop("sim/multiplay/generic/bool[1]",1);
+        }
+    }
+  }else{
+            setprop("sim/multiplay/generic/bool[1]",0);
+  }
+
+}
 
 
 
@@ -326,15 +344,16 @@ timer_eng = maketimer(0.25, engloop);
 timer_loopTimer = maketimer(0.25, timer_loop);
 timer_extpylons = maketimer(0.25, checkforext);
 timer_baydoorsclose = maketimer(0.5, closebays);
+timer_damage = maketimer(0.5, damagedetect);
 
 setlistener("sim/signals/fdm-initialized", func {
       timer_flarecheck.start();          # flare checker
     timer_eng.start();          # engines
     timer_loopTimer.start();    # Pullup alarm
     timer_extpylons.start();    # External pylon detection
+        timer_damage.start();
 });
     timer_loopTimer.start();
     timer_extpylons.start();
     # loop body
-
 
