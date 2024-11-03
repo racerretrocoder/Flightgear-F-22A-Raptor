@@ -2,7 +2,7 @@ print("LOADING missile.nas .");
 ################################################################################
 #
 #             Customized MISSILE MANAGER for the F-22
-# 	Amazing Thanks to Ghost! (developer)
+# 	Amazing Thanks to Ghost! (developer0607)
 # and the mirage 2000 developers.
 # Code was modifed for emersary damage support. Flare detection added.
 # by Ghost and Phoenix

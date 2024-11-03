@@ -1122,7 +1122,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>fueldoor-L-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>fueldoor-L-axis</object-name> 
 		</axis>
 	</animation>
 	
@@ -1146,7 +1146,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>fueldoor-R-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>fueldoor-R-axis</object-name> 
 		</axis>
 	</animation>
 
@@ -1182,10 +1182,40 @@ Use below instead
 		
 		<condition>
 			<greater-than>
-				<property>fdm/jsbsim/fcs/gundoor</property>
+				<property>sim/multiplay/generic/float[33]</property>
 				<value>0.0000000001</value>
 			</greater-than>
 		</condition>
+	
+	</animation>	
+
+	
+	<animation>
+		<type>select</type>
+		<object-name>gun</object-name>
+		
+		
+		<condition>
+			<greater-than>
+				<property>sim/multiplay/generic/float[33]</property>
+				<value>0.0000000001</value>
+			</greater-than>
+		</condition>
+	
+	</animation>	
+	<animation>
+		<type>spin</type>
+		<object-name>gun</object-name>
+	
+<factor>600</factor>		
+<property>sim/multiplay/generic/float[33]</property>
+
+ <axis>
+		<object-name>gunaxis</object-name>
+  </axis>
+
+
+	
 	
 	</animation>	
 
