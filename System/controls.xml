@@ -2,6 +2,14 @@
  
 <!-- F-22 avionics and lighting controls -->
 <PropertyList>
+
+
+		<winch>
+			<place type="bool">false</place>
+		</winch>
+		<aerotow>
+			<find-aircraft type="bool">false</find-aircraft>
+		</aerotow>
     <flare type="int">0</flare> 
         <missile type="int">0</missile> 
         <missile2 type="int">0</missile2> 

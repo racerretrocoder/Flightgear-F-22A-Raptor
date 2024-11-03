@@ -22,10 +22,48 @@
 			<model type="int">4</model>
 		</rating>
 	
+
+
+
 		<flight-model>jsb</flight-model>
 		
 		<aero>f22-jsbsim</aero>
-	
+
+
+
+	<hitches>
+			<!-- make sure some properties do exist, when the list for multiplayer transfere is defined-->
+			<!-- they need to be in the same value, as they are initialized in the FDM, to get the same values after reset should fix this somehow-->
+			<hook-open type="bool">false</hook-open>
+			<aerotow>
+				<tow>
+					<local-pos-x type="float">0</local-pos-x>
+					<local-pos-y type="float">0</local-pos-y>
+					<local-pos-z type="float">0</local-pos-z>
+					<length type="float">28</length>
+					<elastic-constant type="float">10000</elastic-constant>
+					<weight-per-m-kg-m type="float">1</weight-per-m-kg-m>
+					<dist type="float">1</dist>
+					<connected-to-property-node type="bool"/>
+					<brake-force type="float">100000</brake-force>
+					<connected-to-ai-or-mp-callsign type="string">*</connected-to-ai-or-mp-callsign>
+					<end-force-x type="float">-3.50</end-force-x>
+					<end-force-y type="float">0</end-force-y>
+					<end-force-z type="float">0</end-force-z>
+				</tow>
+				<speed-in-tow-direction type="float">0</speed-in-tow-direction>
+				<open type="bool">true</open>
+				<is-slave type="bool">false</is-slave>
+				<rope>
+				<path_to_model type="string">Aircraft/F-22/Models/rope.xml</path_to_model>
+				</rope>
+			</aerotow>
+			<winch>
+				<automatic-release-angle-deg type="float">90.0</automatic-release-angle-deg>
+			</winch>
+		</hitches>
+
+
 	<previews>
 <!--Got rid of that silly preview. I need more! Itll be nice to have around 20ish previews-->
             <preview>                
@@ -1713,6 +1751,59 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	<input>
 		 <keyboard>
 	
+			<key n="15">
+				<name>Ctrl-o</name>
+				<desc>Find aircraft for aerotow</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/aerotow/find-aircraft</property>
+					<value type="bool">true</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>towing.findBestAIObject()</script>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>property-assign</command>
+						<property>/controls/aerotow/find-aircraft</property>
+						<value type="bool">false</value>
+					</binding>
+				</mod-up>
+			</key>
+			<key n="111">
+				<name>o</name>
+				<desc>Open hook</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/sim/hitches/hook-open</property>
+					<value type="bool">true</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/sim/hitches/aerotow/open</property>
+					<value type="bool">true</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/sim/hitches/winch/open</property>
+					<value type="bool">true</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>towing.releaseHitch("aerotow")</script>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>property-assign</command>
+						<property>/sim/hitches/hook-open</property>
+						<value type="bool">false</value>
+					</binding>
+				</mod-up>
+			</key>
+
+
+
 			<key n="4">
 				<name>Ctrl-D</name>
 				<desc>Open/close baydoors</desc>

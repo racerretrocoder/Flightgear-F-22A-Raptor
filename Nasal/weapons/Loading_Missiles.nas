@@ -213,8 +213,8 @@ var Loading_missile = func(name)
         fovdeg = 360;                                #
         detectionfovdeg = 360;                       # TODO implent data link system so we can control these variables while missile is in flight. im sure its possible
         trackmaxdeg = 360;                           #  Testing not real
-        maxg = 4;                                   # 
-        thrustlbs = 2600;                             #  Mach 4 plus
+        maxg = 96;                                   # 
+        thrustlbs = 300;                             #  Mach 4 plus
         thrustdurationsec = 902;                     # 
         weightlaunchlbs = 291;
         weightwarheadlbs = 44;
@@ -223,9 +223,9 @@ var Loading_missile = func(name)
         maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
         maxspeed = 8.5;                              # In Mach
         life = 10000;
-        fox = "Fox 3";
+        fox = "A/G";
         rail = "false";
-        cruisealt = 0;
+        cruisealt = 3000;
         chute = 0;
     }
 

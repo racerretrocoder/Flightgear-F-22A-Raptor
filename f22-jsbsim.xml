@@ -2138,6 +2138,21 @@ The Force that pushes the aircraft for increased manuverability should be lowere
                 <z>   0.01 </z>
             </direction>
         </force>
+
+<!--For New Refueling Code.-->
+ <force name="hitch" frame="BODY" unit="LBS" >
+  <location unit="M">
+   <x>0</x>
+   <y> 0.0</y>
+   <z>0</z>
+  </location>
+  <direction>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </direction>
+ </force>
+
  </external_reactions>
 
 </fdm_config>
