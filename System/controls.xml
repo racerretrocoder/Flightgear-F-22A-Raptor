@@ -71,6 +71,14 @@
 	
 	  <armament>
 
+<pos>
+<lat type="float">0</lat>
+<lon type="float">0</lon>
+<alt type="float">0</alt>
+<hdg type="float">0</hdg>
+</pos>
+
+
 <status type="int">0</status>
 
 

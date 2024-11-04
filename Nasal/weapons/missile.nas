@@ -336,6 +336,11 @@ var MISSILE = {
         var alat = me.ac.lat() + out[0];
         var alon = me.ac.lon() + out[1];
         var aalt = (me.ac.alt() * M2FT) + out[2];
+        setprop("controls/armament/pos/lat",alat);
+        setprop("controls/armament/pos/lon",alon);
+        setprop("controls/armament/pos/alt",aalt);
+
+
         me.latN.setDoubleValue(alat);
         me.lonN.setDoubleValue(alon);
         me.altN.setDoubleValue(aalt);
@@ -439,40 +444,47 @@ if (num2 == 1) {
 
 
 
-
-sendinflight: func(lat,lon,alt){
+#  me.sendinflight(msllat,msllon,mslalt,hdg_deg);
+sendinflight: func(lat,lon,alt,hdg){
     #Send notify in flight
     if(getprop("payload/armament/msg")){
     if(me.free == 1) {
-        print("Missile missed. not sending"); 
+        print("Missile missed. not sending alert"); 
     } else {
 
 
-            if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
+                        if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
-                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  
+# Missile definitions   if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  
                         if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
                         if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
 
 
 var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
-        msg.Position.set_latlon(lon,lat,1,0);
-        msg.Flags = 1;#bit #0
-        msg.Flags = bits.set(msg.Flags, 1);#bit #1
-        msg.IsDistinct = 0;
-        var target = radar.GetTarget();
+        var altM = alt*FT2M;
+        msg.Position.set_latlon(lat,lon,altM);
+        msg.Flags = 1;#bit # Radar is there
+        msg.Flags = bits.set(msg.Flags, 0);#bit #Its not semiactive
+        msg.IsDistinct = 1; # The missile is "Not" dead
+        var target = me.Tgt.get_Callsign();  # Todo. set that to a property. then leave it be...  Done
         if (target == nil) {
+        print("No target, Missile alert");
+        print("No target, Missile alert");
+        print("No target, Missile alert");
+        print("No target, Missile alert");
+        print("No target, Missile alert");
+        print("No target, Missile alert");
         msg.RemoteCallsign = "none";
         } else {
-msg.RemoteCallsign = me.Tgt.get_Callsign();
+        msg.RemoteCallsign = me.Tgt.get_Callsign();
         }
 
         msg.UniqueIndex = ""~typeID~typeID;
         msg.Pitch = 0;
-        msg.Heading = getprop("orientation/heading-deg", 1);
-        msg.u_fps = 0;
+        msg.Heading = hdg;
+        msg.u_fps = 500;
         #msg.isValid();
         notifications.geoBridgedTransmitter.NotifyAll(msg);
         print("Missile alert sent");
@@ -677,7 +689,8 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         }
         print("status :", me.status, "free ", me.free, "init_launch : ", init_launch);
         print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, "**Speed : ", speed_m, " dt :", dt);
-                           me.sendinflight(1,1,1); 
+
+
         # get horizontal distance and set position and orientation.
         var dist_h_m = speed_horizontal_fps * dt * FT2M;
         me.coord.apply_course_distance(hdg_deg, dist_h_m);
@@ -687,7 +700,19 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         me.coord.set_alt(alt_ft);
         me.pitchN.setDoubleValue(pitch_deg);
         me.hdgN.setDoubleValue(hdg_deg);
-        
+
+        setprop("controls/armament/pos/lat",me.coord.lat());
+        setprop("controls/armament/pos/lon",me.coord.lon());
+        setprop("controls/armament/pos/alt",alt_ft);
+        setprop("controls/armament/pos/hdg",hdg_deg);
+        var msllat = getprop("controls/armament/pos/lat");
+        var msllon = getprop("controls/armament/pos/lon");    # This props are Accurate and update every time the function update() is called (this function btw :D)
+        var mslalt = getprop("controls/armament/pos/alt");
+
+
+        me.sendinflight(msllat,msllon,mslalt,hdg_deg); # Theres a missile in teh air guys!!1!1!
+
+
         # Velocities Set
         me.trueAirspeedKt.setValue(speed_m*661); #Coz the speed is in mach
         me.verticalSpeedFps.setValue(speed_down_fps);
