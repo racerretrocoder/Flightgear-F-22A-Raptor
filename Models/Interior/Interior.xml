@@ -1685,9 +1685,9 @@ Flight control stick should move less
             <z>0.0</z>
         </axis>
         <center>
-            <x-m>-5.3876</x-m>
-            <y-m> -0.380558</y-m>
-            <z-m>-0.385</z-m>
+            <x-m>-5.34754</x-m>
+	    <y-m> -0.284115</y-m>
+	    <z-m>-0.25021</z-m>
         </center>
     </animation>
 
@@ -1703,9 +1703,9 @@ Flight control stick should move less
             <z>0.0</z>
         </axis>
         <center>
-            <x-m>-5.4510802</x-m>
-            <y-m> 0.37943</y-m>
-            <z-m>-0.385</z-m>
+            <x-m>-5.28505</x-m>
+	    <y-m> 0.300321</y-m>
+	    <z-m>-0.260612</z-m>
         </center>
     </animation>
 
@@ -1723,9 +1723,9 @@ Flight control stick should move less
             <z>0.0</z>
         </axis>
         <center>
-            <x-m>-5.4510802</x-m>
-            <y-m> 0.37943</y-m>
-            <z-m>-0.385</z-m>
+            <x-m>-5.28505</x-m>
+	    <y-m> 0.300321</y-m>
+	    <z-m>-0.260612</z-m>
         </center>
     </animation>
 
