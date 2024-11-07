@@ -1894,6 +1894,112 @@
 
     <!--Aim-9's-->
 <missile>
+      <name>missile-launch-sfx113</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire2.wav</path>
+    <condition> 
+      <and>
+      		    <property>/sim/current-view/internal</property>
+
+        	    <equals>
+
+        <property>controls/missile</property>
+		    <value>0</value>
+		</equals>
+
+            	    <equals>
+
+        <property>controls/armament/stick-selector</property>
+		    <value>2</value>
+		</equals>
+
+                	    <equals>
+
+        <property>controls/armament/selected-weapon-digit</property>
+		    <value>1</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>100.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
+
+    <missile>
+      <name>missile-launch-sfx1asf13</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire2.wav</path>
+    <condition> 
+      <and>
+      		    <property>/sim/current-view/internal</property>
+
+        	    <equals>
+
+        <property>controls/missile</property>
+		    <value>0</value>
+		</equals>
+
+            	    <equals>
+
+        <property>controls/armament/stick-selector</property>
+		    <value>2</value>
+		</equals>
+
+                	    <equals>
+
+        <property>controls/armament/selected-weapon-digit</property>
+		    <value>1</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>100.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
+<missile>
+      <name>missile-launch-sfx114</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire2.wav</path>
+    <condition> 
+      <and>
+      		    <property>/sim/current-view/internal</property>
+
+        	    <equals>
+
+        <property>controls/missile</property>
+		    <value>1</value>
+		</equals>
+
+            	    <equals>
+
+        <property>controls/armament/stick-selector</property>
+		    <value>2</value>
+		</equals>
+
+                	    <equals>
+
+        <property>controls/armament/selected-weapon-digit</property>
+		    <value>1</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>100.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
+<missile>
       <name>missile-launch-sfx11</name>
       <mode>once</mode>
       <path>Aircraft/F-22/Sounds/missilefire2.wav</path>
@@ -2102,6 +2208,283 @@
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
     </missile>
+
+
+
+
+
+
+<missile>
+      <name>missile-launch-sfx-asdfext134</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire-ext.wav</path>
+       <condition> 
+      <and>
+      <not>
+      		    <property>/sim/current-view/internal</property>
+</not>
+
+        	    <equals>
+
+        <property>controls/missile</property>
+		    <value>0</value>
+		</equals>
+
+            	    <equals>
+
+        <property>controls/armament/stick-selector</property>
+		    <value>2</value>
+		</equals>
+
+                	    <equals>
+
+        <property>controls/armament/selected-weapon-digit</property>
+		    <value>2</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <property>controls/armament/selected-weapon-digit</property>
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+<missile>
+      <name>missile-launch-sfx-asdfext12</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire-ext.wav</path>
+       <condition> 
+      <and>
+      <not>
+      		    <property>/sim/current-view/internal</property>
+</not>
+
+        	    <equals>
+
+        <property>controls/missile</property>
+		    <value>1</value>
+		</equals>
+
+            	    <equals>
+
+        <property>controls/armament/stick-selector</property>
+		    <value>2</value>
+		</equals>
+
+                	    <equals>
+
+        <property>controls/armament/selected-weapon-digit</property>
+		    <value>2</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <property>controls/armament/selected-weapon-digit</property>
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
+<missile>
+      <name>missile-launch-sfx-asdfext1</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire-ext.wav</path>
+       <condition> 
+      <and>
+      <not>
+      		    <property>/sim/current-view/internal</property>
+</not>
+
+        	    <equals>
+
+        <property>controls/missile</property>
+		    <value>1</value>
+		</equals>
+
+            	    <equals>
+
+        <property>controls/armament/stick-selector</property>
+		    <value>2</value>
+		</equals>
+
+                	    <equals>
+
+        <property>controls/armament/selected-weapon-digit</property>
+		    <value>2</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <property>controls/armament/selected-weapon-digit</property>
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
+<missile>
+      <name>missile-launch-sfx-ext1</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire-ext.wav</path>
+       <condition> 
+      <and>
+      <not>
+      		    <property>/sim/current-view/internal</property>
+</not>
+
+        	    <equals>
+
+        <property>controls/missile</property>
+		    <value>1</value>
+		</equals>
+
+            	    <equals>
+
+        <property>controls/armament/stick-selector</property>
+		    <value>2</value>
+		</equals>
+
+                	    <equals>
+
+        <property>controls/armament/selected-weapon-digit</property>
+		    <value>2</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <property>controls/armament/selected-weapon-digit</property>
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
+
+
+<missile>
+      <name>missile-launch-sfx-extz</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire-ext.wav</path>
+       <condition> 
+      <and>
+      <not>
+      		    <property>/sim/current-view/internal</property>
+</not>
+
+        	    <equals>
+
+        <property>controls/missile</property>
+		    <value>0</value>
+		</equals>
+
+            	    <equals>
+
+        <property>controls/armament/stick-selector</property>
+		    <value>2</value>
+		</equals>
+
+                	    <equals>
+
+        <property>controls/armament/selected-weapon-digit</property>
+		    <value>2</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <property>controls/armament/selected-weapon-digit</property>
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
+
+
+<missile>
+      <name>missile-launch-sfx-extab</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire-ext.wav</path>
+       <condition> 
+      <and>
+      <not>
+      		    <property>/sim/current-view/internal</property>
+</not>
+
+        	    <equals>
+
+        <property>controls/missile</property>
+		    <value>1</value>
+		</equals>
+
+            	    <equals>
+
+        <property>controls/armament/stick-selector</property>
+		    <value>2</value>
+		</equals>
+
+                	    <equals>
+
+        <property>controls/armament/selected-weapon-digit</property>
+		    <value>2</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <property>controls/armament/selected-weapon-digit</property>
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
+
+
+<missile>
+      <name>missile-launch-sfx-exta</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/missilefire-ext.wav</path>
+       <condition> 
+      <and>
+      <not>
+      		    <property>/sim/current-view/internal</property>
+</not>
+
+        	    <equals>
+
+        <property>controls/missile</property>
+		    <value>0</value>
+		</equals>
+
+            	    <equals>
+
+        <property>controls/armament/stick-selector</property>
+		    <value>2</value>
+		</equals>
+
+                	    <equals>
+
+        <property>controls/armament/selected-weapon-digit</property>
+		    <value>2</value>
+		</equals>
+    </and>
+      </condition>
+      <volume> 
+        <property>controls/armament/selected-weapon-digit</property>
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </missile>
+
 
 
 

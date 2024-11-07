@@ -883,7 +883,7 @@ Use below instead
 
 	<animation>
 		<type>rotate</type>
-		<object-name>Left_Rocket_Bay_D1</object-name>
+		<object-name>LEFTMAINDOOR</object-name>
 		<object-name>Left_Rocket_Bay_D2</object-name>
 		<property>sim/multiplay/generic/int[12]</property>
 		<interpolation>
@@ -931,9 +931,27 @@ Use below instead
 
 
 
+
+
+	<animation>
+		<type>select</type>
+		<object-name>Left_Rocket_Bay_D2</object-name>
+		<property>sim/multiplay/generic/int[12]</property>
+	
+
+	</animation>
+
+
+	<animation>
+		<type>select</type>
+		<object-name>Right_Rocket_Bay_D2</object-name>
+		<property>sim/multiplay/generic/int[12]</property>
+	
+
+	</animation>
 	<animation>
 		<type>rotate</type>
-		<object-name>Right_Rocket_Bay_D1</object-name>
+		<object-name>RIGHTMAINDOOR</object-name>
 		<object-name>Right_Rocket_Bay_D2</object-name>
 		<property>sim/multiplay/generic/int[12]</property>
 		<interpolation>
@@ -954,6 +972,109 @@ Use below instead
 		<object-name>BAYRIGHT-axis</object-name> <!--This works SOOO GOOD!!-->
 		</axis>
 	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>RIGHTMAINDOOR2</object-name>
+		<property>sim/multiplay/generic/int[12]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>130</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>baydoor2R</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+
+<animation>
+		<type>rotate</type>
+		<object-name>LEFTMAINDOOR2</object-name>
+		<property>sim/multiplay/generic/int[12]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-130</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>baydoor2L</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>RIGHTMAINDOOR2</object-name>
+  <property>sim/multiplay/generic/int[12]</property>
+  <factor>0.15</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>RIGHTMAINDOOR2</object-name>
+  <property>sim/multiplay/generic/int[12]</property>
+  <factor>-0.08</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+
+
+ <animation>
+  <type>translate</type>
+  <object-name>LEFTMAINDOOR2</object-name>
+  <property>sim/multiplay/generic/int[12]</property>
+  <factor>0.15</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>LEFTMAINDOOR2</object-name>
+  <property>sim/multiplay/generic/int[12]</property>
+  <factor>0.08</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+
+	<!--9X-->
 
 	<animation>
 		<type>rotate</type>
@@ -1024,7 +1145,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>9xdr2-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>9xdr3-axis</object-name> <!--This works SOOO GOOD!!-->
 		</axis>
 	</animation>
 
