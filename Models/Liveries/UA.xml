@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+
+
+
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">249th EFS UA --uapilot </name>     
+      <texture-AKfuselage>Liveries/maps/body.dds</texture-AKfuselage>
+ <texture-sides>Liveries/elevs.png</texture-sides>
+ <texture-left-elev-top>Liveries/UA/leftelev.dds</texture-left-elev-top>
+ <texture-right-elev-top>Liveries/UA/rightelev.dds</texture-right-elev-top>
+      <texture-tailR>Liveries/UA/PH-TAIL-R.png</texture-tailR>
+      <texture-tailL>Liveries/UA/PH-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/UA/wing.dds</texture-wing>
+  <texture-wing-right>Liveries/UA/wingright.dds</texture-wing-right>
+ <texture-control>Liveries/wing.png</texture-control>
+  <texture-nose>Liveries/UA/attemptnose.dds</texture-nose>
+
+
+  <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
+
+
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>

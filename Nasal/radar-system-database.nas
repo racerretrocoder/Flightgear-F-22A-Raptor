@@ -228,7 +228,8 @@ var Database = {
 	"A-6E":                   {hasAirRadar:1, rwrCode:"A6", baseThreat:defaultFighterThreat},
 	"ea-6b":                  {hasAirRadar:1, rwrCode:"A6", baseThreat:defaultFighterThreat},
 	"F-117":                  {},
-	"F-22-Raptor":            {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
+	"F-22A-Raptor":           {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
+	"F-22A_Raptor":           {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
 	"F-22A Raptor":           {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
 	"F-22A":                  {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
 	"F-35A":                  {hasAirRadar:1, rwrCode:"35", baseThreat:defaultFighterThreat},
@@ -252,7 +253,7 @@ var Database = {
 	"F-23C_BlackWidow-II":    {hasAirRadar:1, rwrCode:"U",  baseThreat:defaultFighterThreat},
 };
 
-var debugDatabaseLevel = 0;
+var debugDatabaseLevel = 1;
 
 if (rcs["rcs_database"] != nil) {
 	foreach(entry ; keys(rcs.rcs_database)) {

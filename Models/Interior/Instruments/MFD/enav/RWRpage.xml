@@ -3,17 +3,10 @@
 
 <PropertyList>
 
- <model>
-		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/RWRpage.ac</path>
-			<offsets>
-				<x-m>0</x-m>
-					<y-m>0</y-m>
-				<z-m>0</z-m>
-			<pitch-deg>0</pitch-deg>
-		</offsets>
-	</model>
 
-	
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/RWRpage.ac</path>
+
+	<!---->
     <animation>
         <object-name>bkg</object-name>
         <type>material</type>
