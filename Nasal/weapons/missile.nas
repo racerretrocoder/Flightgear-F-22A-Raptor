@@ -468,9 +468,10 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
         msg.Flags = 1;#bit # Radar is there
         msg.Flags = bits.set(msg.Flags, 0);#bit #Its not semiactive
         msg.IsDistinct = 1; # The missile is "Not" dead
-        if (me.Tgt.get_Callsign() == nil) {
-            var target = "none";
-             # Todo. set that to a property. then leave it be...  Done
+        var target = radar.GetTarget();              # Todo. set that to a property. then leave it be
+        if (target == nil) {
+            var callsign = "none";
+
         print("No target, Missile alert");
         print("No target, Missile alert");
         print("No target, Missile alert");
@@ -479,10 +480,10 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
         print("No target, Missile alert");
         msg.RemoteCallsign = "none";
         } else {
-            var target = me.Tgt.get_Callsign(); 
-        msg.RemoteCallsign = target;
-        }
+            var callsign = me.Tgt.get_Callsign(); 
 
+        }
+        msg.RemoteCallsign = callsign;
         msg.UniqueIndex = ""~typeID~typeID;
         msg.Pitch = 0;
         msg.Heading = hdg;

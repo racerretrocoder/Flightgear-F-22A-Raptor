@@ -334,6 +334,18 @@ Theres soo many! Lol!
 <string n="18" type="string" alias="/sim/weight[8]/selected"/>
 <string n="19" type="string" alias="/sim/weight[9]/selected"/>
 
+<string n="20" type="string" alias="/sim/weight[11]/selected"/>
+<string n="21" type="string" alias="/sim/weight[12]/selected"/>
+<string n="22" type="string" alias="/sim/weight[13]/selected"/>
+<string n="23" type="string" alias="/sim/weight[14]/selected"/>
+<!--
+20  11
+21  12
+22  13
+23  14 
+-->
+
+
 <bool n="10" type="bool" alias="/controls/armament/station/release"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for GBU39 4 for extra 5 for extra-->
 <bool n="11" type="bool" alias="/controls/armament/station[1]/release"/>
 <bool n="12" type="bool" alias="/controls/armament/station[2]/release"/>
@@ -345,6 +357,10 @@ Theres soo many! Lol!
 <bool n="18" type="bool" alias="/controls/armament/station[8]/release"/>
 <bool n="19" type="bool" alias="/controls/armament/station[9]/release"/>
 
+<bool n="20" type="bool" alias="/controls/armament/station[11]/release"/>
+<bool n="21" type="bool" alias="/controls/armament/station[12]/release"/>
+<bool n="22" type="bool" alias="/controls/armament/station[13]/release"/>
+<bool n="23" type="bool" alias="/controls/armament/station[14]/release"/>
 
 
 </generic>		
@@ -1582,6 +1598,71 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       </offsets>
 
     </weight>
+
+
+   <weight n="11">
+      <name>pylon4-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> -0.67 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+    </weight>
+
+
+    <weight n="12">
+      <name>pylon10-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> -0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+
+    </weight>
+	    <weight n="13">
+      <name>pylon1-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> 0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="14">
+      <name>pylon2-1</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> 0.67 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
         <tacview-recording type="bool">0</tacview-recording>
 		</sim>
 

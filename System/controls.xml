@@ -214,6 +214,23 @@
       <release type="bool">false</release>
     </station>
 
+
+    <!--Double GBUs-->
+
+    <station n="11">  
+      <release type="bool">false</release>
+    </station>
+        <station n="12">  
+      <release type="bool">false</release>
+    </station>
+        <station n="13">  
+      <release type="bool">false</release>
+    </station>
+        <station n="14">  
+      <release type="bool">false</release>
+    </station>
+
+
   </armament>
 
 </PropertyList>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>GBU-folded.ac</path>
+	
+	<animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>12000</max-m>
+    </animation>
+	<animation>
+<type>select</type>
+<object-name>GBU</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/multiplay/generic/string[21]</property>
+<value>GBU-39</value>
+</equals>
+<equals>
+<property>sim/multiplay/generic/bool[21]</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+
+<!--
+20  11
+21  12
+22  13
+23  14 
+-->
+
+</PropertyList>

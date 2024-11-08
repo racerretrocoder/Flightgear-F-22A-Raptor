@@ -681,6 +681,52 @@ var after_fire_next = func()
     {
         SelectedPylon = 8;
     }
+
+    if(SelectedPylon == 10)
+    {
+        SelectedPylon = 9;
+    }
+    elsif(SelectedPylon == 9)
+    {
+        SelectedPylon = 10;
+    }
+
+    if(SelectedPylon == 11)
+    {
+        SelectedPylon = 10;
+    }
+    elsif(SelectedPylon == 10)
+    {
+        SelectedPylon = 11;
+    }
+
+
+    if(SelectedPylon == 13)
+    {
+        SelectedPylon = 12;
+    }
+    elsif(SelectedPylon == 12)
+    {
+        SelectedPylon = 13;
+    }
+
+    if(SelectedPylon == 13)
+    {
+        SelectedPylon = 12;
+    }
+    elsif(SelectedPylon == 12)
+    {
+        SelectedPylon = 13;
+    }
+    
+    if(SelectedPylon == 15)
+    {
+        SelectedPylon = 14;
+    }
+   elsif(SelectedPylon == 14)
+   {
+       SelectedPylon = 15;
+   }
     
     if(getprop("/sim/weight["~ SelectedPylon ~"]/weight-lb") < 1)
     {
@@ -708,13 +754,13 @@ var after_fire_next = func()
 # next missile selection after fire
 var SelectNextPylon = func()
 {
-		var leftPylons = [0,2,4,6,8,11];
-		var RightPylons = [1,3,5,7,9,10];
+	     var leftPylons = [0,2,4,6,8,11,12,14];
+		var RightPylons = [1,3,5,7,9,10,13];
 
 		var SelectedPylon	= props.globals.getNode("controls/armament/missile/current-pylon", 1);
 		var Selectedweapon	= getprop("controls/armament/selected-weapon");
 		
-		for(var i = 0 ; i < 10 ; i += 1)
+		for(var i = 0 ; i < 15 ; i += 1)
         {
 					print(i);
 					print("Selected at i :  " ~ getprop("sim/weight["~ i ~"]/selected"));

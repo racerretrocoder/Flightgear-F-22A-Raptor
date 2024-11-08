@@ -5,7 +5,7 @@
 
 <PropertyList>
 
- <path>AIM-120.ac</path>
+ <path>AIM-120-NF.ac</path>
 
 <effect>
  <inherits-from>Effects/model-transparent</inherits-from>
@@ -21,5 +21,14 @@
    <z-m>0.0  </z-m>
   </offsets>
  </model>
+  <animation>
+    <type>dist-scale</type>
+    <object-name>AIM-120</object-name>
+    <interpolation>
+      <entry><ind>    0 </ind><dep> 0 </dep></entry>
+      <entry><ind>   300 </ind><dep> 1 </dep></entry>
+      <entry><ind> 1500 </ind><dep> 2 </dep></entry>
+    </interpolation>
+  </animation>
 
 </PropertyList>

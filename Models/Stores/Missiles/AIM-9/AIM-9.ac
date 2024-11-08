@@ -18,7 +18,7 @@ OBJECT world
 kids 2
 OBJECT group
 name "FlameModel"
-loc 8.65526 0.74337 0.00264084
+loc 6.29854 0.0700207 0.00264084
 kids 48
 OBJECT poly
 name "FlameModel"
@@ -31558,7 +31558,7 @@ refs 4
 kids 0
 OBJECT poly
 name "AIM-9"
-loc 7.45166 0.742469 0.00257426
+loc 5.09494 0.0691197 0.00257426
 crease 45.000000
 numvert 3581
 1.16143 0.126231 -0.125109
