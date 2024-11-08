@@ -250,16 +250,7 @@
 </offsets>
 </model>	
 
-<model>
-<name>left-bellymsd</name>
-<path>Aircraft/F-22/Models/loads/AG/GBUp4.xml</path>
-<offsets>
-<x-m> -0.4  </x-m>
-    <y-m> -0.52 </y-m>
-    <z-m> -1.57 </z-m>
-<pitch-deg>  </pitch-deg>
-</offsets>
-</model>
+
 
 <model>
 <name>left-bellyis</name>
@@ -271,18 +262,6 @@
 <pitch-deg>  </pitch-deg>
 </offsets>
 </model>	
-
-<model>
-<name>left-bellyi</name>
-<path>Aircraft/F-22/Models/loads/AG/GBUp10.xml</path>
-<offsets>
-<x-m> -0.4  </x-m>
-    <y-m> -0.25</y-m>
-    <z-m> -1.57 </z-m>
-<pitch-deg>  </pitch-deg>
-</offsets>
-</model>
-
 <model>
 <name>right-belly1</name>
 <path>Aircraft/F-22/Models/loads/120p1.xml</path>
@@ -294,16 +273,104 @@
 </offsets>
 </model>
 
+
+
+
+<!--GBU-->
+
+<model>
+<name>left-bellymsd</name>
+<path>Aircraft/F-22/Models/loads/AG/GBUp4.xml</path>
+<offsets>
+<x-m> -1  </x-m>
+    <y-m> -0.52 </y-m>
+    <z-m> -1.57 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+<model>
+<name>left-bellyi</name>
+<path>Aircraft/F-22/Models/loads/AG/GBUp10.xml</path>
+<offsets>
+<x-m> -1  </x-m>
+    <y-m> -0.25</y-m>
+    <z-m> -1.57 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+
 <model>
 <name>right-belly2</name>
 <path>Aircraft/F-22/Models/loads/AG/GBUp1.xml</path>
 <offsets>
-    <x-m> -0.4  </x-m>
+    <x-m> -1  </x-m>
     <y-m> 0.25 </y-m>
     <z-m> -1.57 </z-m>
 <pitch-deg>  </pitch-deg>
 </offsets>
 </model>
+
+
+<model>
+<name>right-bellymy</name>
+<path>Aircraft/F-22/Models/loads/AG/GBUp2.xml</path>
+<offsets>
+<x-m> -1  </x-m>
+    <y-m> 0.52 </y-m>
+    <z-m> -1.57 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+<!--Rear GBU's-->
+
+
+<model>
+<name>left-bellymsd12</name>
+<path>Aircraft/F-22/Models/loads/AG/GBUp4R.xml</path>
+<offsets>
+<x-m> 0.1  </x-m>
+    <y-m> -0.52 </y-m>
+    <z-m> -1.57 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+<model>
+<name>left-bellyi12</name>
+<path>Aircraft/F-22/Models/loads/AG/GBUp10R.xml</path>
+<offsets>
+<x-m> 0.1  </x-m>
+    <y-m> -0.25</y-m>
+    <z-m> -1.57 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+
+<model>
+<name>right-belly22</name>
+<path>Aircraft/F-22/Models/loads/AG/GBUp1R.xml</path>
+<offsets>
+    <x-m> 0.1  </x-m>
+    <y-m> 0.25 </y-m>
+    <z-m> -1.57 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+
+<model>
+<name>right-bellymy2</name>
+<path>Aircraft/F-22/Models/loads/AG/GBUp2R.xml</path>
+<offsets>
+<x-m> 0.1 </x-m>
+    <y-m> 0.52 </y-m>
+    <z-m> -1.57 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
 
 
 <model>
@@ -317,16 +384,6 @@
 </offsets>
 </model>
 
-<model>
-<name>right-bellymy</name>
-<path>Aircraft/F-22/Models/loads/AG/GBUp2.xml</path>
-<offsets>
-<x-m> -0.4  </x-m>
-    <y-m> 0.52 </y-m>
-    <z-m> -1.57 </z-m>
-<pitch-deg>  </pitch-deg>
-</offsets>
-</model>
 
 <model>
 <name>right-bellyi</name>

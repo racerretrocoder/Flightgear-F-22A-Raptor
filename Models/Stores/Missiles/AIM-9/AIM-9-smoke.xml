@@ -25,15 +25,6 @@
  </model>
 
 
-  <animation>
-    <type>dist-scale</type>
-    <object-name>AIM-120</object-name>
-    <interpolation>
-      <entry><ind>    0 </ind><dep> 0 </dep></entry>
-      <entry><ind>   20 </ind><dep> 1 </dep></entry>
-      <entry><ind> 1500 </ind><dep> 6 </dep></entry>
-    </interpolation>
-  </animation>
 
 
 </PropertyList>
