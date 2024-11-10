@@ -546,11 +546,11 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
             
                 <greater-than>
                  <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
-                 <value>13.0</value>
+                 <value>18.0</value>
                 </greater-than>
                 <greater-than>
                  <property>sim/multiplay/generic/float[19]</property><!-- velocities/airspeed-kt -->
-                 <value>200</value>
+                 <value>280</value>
                 </greater-than>
            </and>
       </condition>

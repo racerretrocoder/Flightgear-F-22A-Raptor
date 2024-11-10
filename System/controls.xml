@@ -47,6 +47,7 @@
 
 	<CMS>
 		<flaresound type="int">0</flaresound> <!--AR mode. see FDM-->
+    <threat-sep type="int">0</threat-sep>
 	</CMS>
 
 	<refuel>

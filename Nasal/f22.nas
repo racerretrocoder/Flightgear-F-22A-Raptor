@@ -292,6 +292,42 @@ var c = getprop("/sim/failure-manager/controls/flight/rudder/serviceable");
 }
 
 
+var tgtlock = func{
+if (getprop("instrumentation/radar/lock") == 1){
+var target1_x = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("h-offset",1).getValue();
+var target1_z = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("v-offset",1).getValue();
+setprop("instrumentation/radar2/lockmarker", target1_x / 10);
+setprop("instrumentation/radar2/lockmarker", target1_x / 10);
+setprop("instrumentation/radar/az-field", 161);
+# setprop("instrumentation/radar/grid", 0);
+print(target1_x / 10);
+setprop("instrumentation/radar2/sweep-speed", 10);
+  } elsif (getprop("instrumentation/radar/lock") == 0){
+
+  
+    if(getprop("instrumentation/radar/mode/main") == 1)
+    {
+        setprop("instrumentation/radar/az-field", 120);
+        setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
+        setprop("instrumentation/radar2/sweep-speed", 1);   
+      #  wcs_mode = "pulse-srch";
+      #  AzField.setValue(120);
+      #  swp_diplay_width = 0.0844;
+    }
+    elsif(getprop("instrumentation/radar/mode/main") == 0)
+    {
+        setprop("instrumentation/radar/az-field", 60);
+        setprop("instrumentation/radar/mode/main", 0);
+        #wcs_mode = "tws-auto";
+        setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
+        setprop("instrumentation/radar2/sweep-speed", 2);   
+        tgts_list = [];
+    }
+  }
+}
+
+
+
 
 var timer_loop = func{
 # logic
@@ -337,6 +373,15 @@ var timer_loop = func{
 
 
 };
+
+
+# Timers
+
+
+
+
+locktgt_timer = maketimer(0.1, tgtlock);
+
 Flare_timer = maketimer(0.9, cha_flare);
 timer_flarecheck = maketimer(1.8, flarecheck);  # To make the target need to keep putting out flares for the number to stay 1 and make missiles detect them
 settimer(missile_sfx, 2); # runs myFunc after 2 seconds
@@ -355,5 +400,6 @@ setlistener("sim/signals/fdm-initialized", func {
 });
     timer_loopTimer.start();
     timer_extpylons.start();
+    locktgt_timer.start();
     # loop body
 

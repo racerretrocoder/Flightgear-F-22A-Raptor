@@ -2561,6 +2561,731 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
  </animation>
 
 
+<animation>
+  <type>pick</type>
+   <object-name>CR1</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD2.CR1();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CR1</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CR1</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>CR2</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD2.CR2();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CR2</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CR2</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>CR3</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD2.CR3();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CR3</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CR3</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>CR4</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD2.CR4();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CR4</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CR4</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>CR5</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD2.CR5();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CR5</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CR5</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+<!--Left MFD-->
+
+
+
+<animation>
+  <type>pick</type>
+   <object-name>LR1</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD1.LR1();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LR1</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LR1</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>LR2</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD1.LR2();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LR2</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LR2</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>LR3</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD1.LR3();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LR3</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LR3</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>LR4</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD1.LR4();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LR4</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LR4</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>LR5</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD1.LR5();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LR5</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LR5</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+
+
+
+
+ 
+<animation>
+  <type>pick</type>
+   <object-name>LL1</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD1.LL1();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LL1</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LL1</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>LL2</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD1.LL2();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LL2</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LL2</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>LL3</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD1.LL3();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LL3</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LL3</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>LL4</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD1.LL4();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LL4</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LL4</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+
+ <animation>
+  <type>pick</type>
+   <object-name>LL5</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD1.LL5();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LL5</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LL5</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+
+ <!--Right MFD-->
+
+
+
+ <animation>
+  <type>pick</type>
+   <object-name>RR1</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD3.RR1();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RR1</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RR1</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>RR2</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD3.RR2();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RR2</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RR2</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>RR3</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD3.RR3();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RR3</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RR3</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>RR4</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD3.RR4();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RR4</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RR4</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>RR5</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD3.RR5();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RR5</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RR5</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+
+
+
+
+ 
+<animation>
+  <type>pick</type>
+   <object-name>RL1</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD3.RL1();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RL1</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RL1</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>RL2</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD3.RL2();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RL2</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RL2</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>RL3</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD3.RL3();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RL3</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RL3</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>RL4</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD3.RL4();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RL4</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RL4</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+
+ <animation>
+  <type>pick</type>
+   <object-name>RL5</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD3.RL5();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/RL5</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/RL5</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
 
 <!--
 

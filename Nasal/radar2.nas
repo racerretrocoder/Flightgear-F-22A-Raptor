@@ -57,7 +57,7 @@ var hud_eye_dist      = HudEyeDist.getValue() ; # distance eye <-> HUD plane.
 var hud_radius        = HudRadius.getValue() ; # used to clamp the nearest target marker.
 var hud_voffset       = 0 ; # used to verticaly offset the clamp border.
 
-var wcs_mode          = "rws" ; # FIXME should handled as properties choice, not harcoded.
+var wcs_mode          = "rws" ; # FIXME should handled as properties choice, not harcoded. props.globals.getNode("instrumentation/radar2/wcsmode", 1);
 var tmp_nearest_rng   = nil;
 var tmp_nearest_u     = nil;
 var nearest_rng       = 0;
@@ -118,9 +118,11 @@ var Radar = {
         
         # sweep :
         m.SwpMarker         = props.globals.getNode("instrumentation/radar2/sweep-marker-norm", 1);
-        m.sweep_frequency   = m.MyTimeLimit / 4; # in seconds
+        m.sweep_frequency   = m.MyTimeLimit / getprop("instrumentation/radar2/sweep-speed"); # in seconds
         m.haveSweep         = 1;
-        
+        m.sweepwidth        = 1;
+
+
         # option
         m.showAI =1;
         # return our new object
@@ -307,7 +309,7 @@ var Radar = {
         
         
         # compute mp position in our B-scan like display. (Bearing/horizontal + Range/Vertical).
-        SelectedObject.set_relative_bearing(swp_diplay_width / az_fld * mydeviation);
+        SelectedObject.set_relative_bearing(getprop("instrumentation/radar2/sweep-display-width") / az_fld * mydeviation);
         var factor_range_radar = rng_diplay_width / me.RangeSelected.getValue(); # length of the distance range on the B-scan screen.
         SelectedObject.set_ddd_draw_range_nm(factor_range_radar * u_rng);
         u_fading = 1;
@@ -491,7 +493,7 @@ var Radar = {
         var myHeading = math.mod(me.fieldazCenter.getValue() + me.OurHdg.getValue(), 360);
         if(me.haveSweep)
         {
-            myHeading = math.mod(myHeading + me.SwpMarker.getValue() * (0.0844 / swp_diplay_width) * tempAz / 4, 360);
+            myHeading = math.mod(myHeading + me.SwpMarker.getValue() * (0.0844 / getprop("instrumentation/radar2/sweep-display-width")) * tempAz / 4, 360);  # Property Implement 1
             mydeviation = SelectedObject.get_deviation(myHeading, me.MyCoord);
             #print("Heading:"~ myHeading ~" My deviation:"~ mydeviation);
             inMyAzimuth = (abs(mydeviation) < (tempAz / 4));
@@ -558,9 +560,9 @@ var Radar = {
     },
 
     maj_sweep:func(){
-        var x = (getprop("sim/time/elapsed-sec") / (me.sweep_frequency)) * (0.0844 / swp_diplay_width); # shorten the period time when illuminating a target
+        var x = (getprop("sim/time/elapsed-sec") / (me.MyTimeLimit / getprop("instrumentation/radar2/sweep-speed"))) * (0.0844 / getprop("instrumentation/radar2/sweep-display-width")); # shorten the period time when illuminating a target    me.sweep_frequency    swp_diplay_width
         #print("SINUS (X) = "~math.sin(x);
-        me.SwpMarker.setValue(math.sin(3.14 * x) * (swp_diplay_width / 0.0844)); # shorten the period amplitude when illuminating
+        me.SwpMarker.setValue(math.sin(3.14 * x) * (getprop("instrumentation/radar2/sweep-display-width") / 0.0844)); # shorten the period amplitude when illuminating
     },
 
     targetRange: func(SelectedObject){
@@ -1277,29 +1279,25 @@ radar_mode_sel = func(mode){
 radar_mode_toggle = func(){
     # FIXME: Modes props should provide their own data instead of being hardcoded.
     # Toggles between the available modes.
-    foreach(var n ; props.globals.getNode("instrumentation/radar/mode").getChildren())
+    print("changing mode");
+    if(getprop("instrumentation/radar/mode/main") == 1)
     {
-        if(n.getBoolValue())
-        {
-            wcs_mode = n.getName();
-        }
-    }
-    if(wcs_mode == "rws")
-    {
-        setprop("instrumentation/radar/mode/rws", 0);
-        setprop("instrumentation/radar/mode/tws-auto", 1);
-        wcs_mode = "tws-auto";
-        AzField.setValue(60);
-        swp_diplay_width = 0.0422;
+        setprop("instrumentation/radar/az-field", 60);
+        setprop("instrumentation/radar/mode/main", 0);
+        #wcs_mode = "tws-auto";
+        setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
+        setprop("instrumentation/radar2/sweep-speed", 2);   
         tgts_list = [];
     }
-    elsif(wcs_mode == "tws-auto")
+    elsif(getprop("instrumentation/radar/mode/main") == 0)
     {
-        setprop("instrumentation/radar/mode/tws-auto", 0);
-        setprop("instrumentation/radar/mode/rws", 1);
-        wcs_mode = "pulse-srch";
-        AzField.setValue(120);
-        swp_diplay_width = 0.0844;
+        setprop("instrumentation/radar/az-field", 120);
+        setprop("instrumentation/radar/mode/main", 1);
+        setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
+        setprop("instrumentation/radar2/sweep-speed", 1);   
+      #  wcs_mode = "pulse-srch";
+      #  AzField.setValue(120);
+      #  swp_diplay_width = 0.0844;
     }
 }
 

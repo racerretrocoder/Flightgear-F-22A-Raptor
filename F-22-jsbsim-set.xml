@@ -2228,6 +2228,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <threat-spotted type="int">0</threat-spotted> <!--for lockhelper.nas-->
       <!-- inicio en pruebas -->
   <enabled type="bool">0</enabled>
+  <grid type="bool">1</grid>
   <az-field type="double">120</az-field>
   <range type="double">150</range>
   <range-selected type="double">50</range-selected>
@@ -2237,18 +2238,22 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <mode>
   <rws type="bool">true</rws>
   <tws-auto type="bool">false</tws-auto>
+    <main type="int">0</main> <!--0 TWS 1 RWS 2 Custom-->
 </mode>
 
 </radar> 
 
 
   <radar2>
+	<lockmarker type="double">0</lockmarker>
    <sweep-width-m type="double">0.0844</sweep-width-m>
    <range-width-m type="double">0.0846</range-width-m>
    <radius-ppi-display-m type="double">0.0846</radius-ppi-display-m>
    <hud-eye-dist-m type="double">0.6705</hud-eye-dist-m>
    <hud-radius-m type="double">0.071</hud-radius-m>
-   <sweep-speed type="double">2</sweep-speed>
+   <sweep-speed type="double">1.5</sweep-speed>
+   <!--RWS Mode to start-->
+   <sweep-display-width type="double">0.0846</sweep-display-width>
    <hud>
     <target type="bool">1</target>
    </hud>
@@ -2517,8 +2522,12 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <MFD2>
 <file>Aircraft/F-22/Nasal/MFD2.nas</file>
 </MFD2>
-
-
+<MFD1>
+<file>Aircraft/F-22/Nasal/MFD1.nas</file>
+</MFD1>
+<MFD3>
+<file>Aircraft/F-22/Nasal/MFD3.nas</file>
+</MFD3>
 	</nasal>
 
 </PropertyList>

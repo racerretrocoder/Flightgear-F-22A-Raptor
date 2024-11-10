@@ -252,7 +252,7 @@ RWRCanvas = {
         var list = radar_system.getRWRList();
 	    var s = size(list);
         me.elapsed = getprop("sim/time/elapsed-sec");
-        me.sep = getprop("A-10/avionics/cmsc/threat-separate");
+        me.sep = getprop("controls/CMS/threat-sep");
         var sorter = func(a, b) {
             if(a[1] > b[1]){
                 return -1; # A should before b in the returned vector
@@ -264,17 +264,17 @@ RWRCanvas = {
         }
         me.sortedlist = sort(list, sorter);#sort threat
 
-#        me.sortedlist = [# This is for testing. Uncomment as needed.
+  #      me.sortedlist = [# This is for testing. Uncomment as needed.
 #            [{getModel:func{return "buk-m2";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.45, -0],
-#            [{getModel:func{return "s-300";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.45, -5],
+#            [{getModel:func{return "s-300";}, get_range:func{return 5;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.45, -5],
 #            [{getModel:func{return "A-50";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.45, -15],
 #            [{getModel:func{return "s-200";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -25],
-#            [{getModel:func{return "S-75";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -30],
+ #           [{getModel:func{return "S-75";}, get_range:func{return 5;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -30],
 #            [{getModel:func{return "MIM104D";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -30],
 #            [{getModel:func{return "fleet";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -25],
 #            [{getModel:func{return "SA-6";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -30],
 #            [{getModel:func{return "missile_frigate";}, get_range:func{return 30;}, get_Speed:func{return 65;}, get_Callsign:func{return "";},equals:func (it){return it.getModel()==me.getModel();}}, 0.20, -30],
-#        ];
+  #      ];
 
 
         me.sep_spots = [[0,0,0,0,0,0,0,0],#45 degs  8

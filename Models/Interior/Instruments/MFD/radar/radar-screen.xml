@@ -59,11 +59,53 @@
  </animation>
 
 
+  <animation>
+        <type>select</type>
+        <object-name>marker</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/lock</property>
+				<value>0</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+  <animation>
+        <type>select</type>
+        <object-name>marker2</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/lock</property>
+				<value>1</value>
+			</equals>
+
+        </condition>
+    </animation>
 
 
 
 
-
+ <animation>
+  <type>translate</type>
+  <object-name>marker2</object-name>
+  <property>instrumentation/radar2/lockmarker</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
 
 	 <animation>
   <type>material</type>
@@ -73,9 +115,13 @@
   <object-name>canpy</object-name>
   <object-name>milthrust</object-name>
     <object-name>TWS</object-name>
-   <object-name>PUS</object-name>
+   <object-name>RWS2</object-name>
+   <object-name>mode</object-name>
+   <object-name>mode2</object-name>
 
-   <object-name>10nm</object-name>				<!--todo make all elements green-->
+
+
+   <object-name>10nm</object-name>			
       <object-name>20nm</object-name>
 	     <object-name>40nm</object-name>
 		    <object-name>60nm</object-name>
@@ -98,9 +144,122 @@
   </emission> 
  </animation>
 
+	 <animation>
+  <type>material</type>
+  <object-name>lock</object-name>
+  <object-name>a</object-name>
+  <object-name>b</object-name>
+  <object-name>c</object-name>
+
+
+  <ambient>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.1</red>
+    <green>0.1</green>
+    <blue>0.1</blue>
+  </diffuse>
+  <emission>
+    <red>0</red>
+    <green>1</green>
+    <blue>1</blue>
+  </emission> 
+ </animation>
+
+	 <text>
+  <name>mode</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.07</y-m>
+   <z-m>0.028</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Grid</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>mode</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/grid</property>
+				<value>0</value>
+			</equals>
+
+        </condition>
+    </animation>
+	 <text>
+  <name>mode2</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.07</y-m>
+   <z-m>0.028</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">PLN</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>mode2</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/grid</property>
+				<value>1</value>
+			</equals>
+
+        </condition>
+    </animation>
 
 
 
+	 <text>
+  <name>lock</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0065</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.01</y-m>
+   <z-m>0.03</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Locked</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>lock</object-name>
+        
+        <condition>
+
+       <property>instrumentation/radar/lock</property>
+
+        </condition>
+    </animation>
 
 
 	 <text>
@@ -131,7 +290,99 @@
     </animation>
 
 
+  <animation>
+        <type>select</type>
+        <object-name>grid</object-name>
+        
+        <condition>
+		
 
+			<equals>
+
+       <property>instrumentation/radar/grid</property>
+				<value>1</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
+	 <text>
+  <name>TWS</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.07</y-m>
+   <z-m>0.06</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">TWS</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>TWS</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/mode/main</property>
+				<value>0</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
+
+	 <text>
+  <name>RWS2</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.07</y-m>
+   <z-m>0.06</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">RWS</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>RWS2</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/mode/main</property>
+				<value>1</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+  <animation>
+        <type>select</type>
+        <object-name>TWS2</object-name>
+        
+		<condition>
+			<property>instrumentation/radar2/wcs-mode/tws-auto</property>
+		</condition>
+    </animation>
+
+<!--Range Numbers-->
 
 	 <text>
   <name>10nm</name>
@@ -297,30 +548,9 @@
         </condition>
     </animation>
 
-	 <text>
-  <name>TWS</name>
-  <font>condensed.txf</font>
-  <character-size type="double">0.0055</character-size>
-  <offsets>
-  <x-m>0.01</x-m>
-   <y-m>0.04</y-m>
-   <z-m>-0.05</z-m>
-  </offsets>
-  <axis-alignment>yz-plane</axis-alignment>
-  <type type="string">literal</type>
-  <text type="string">TWS AUTO</text>
-  <draw-text type="bool">true</draw-text>
-  <alignment>left-top</alignment>
- </text>
 
-  <animation>
-        <type>select</type>
-        <object-name>TWS</object-name>
-        
-		<condition>
-			<property>instrumentation/radar2/wcs-mode/tws-auto</property>
-		</condition>
-    </animation>
+
+
 
 
 
@@ -365,7 +595,13 @@
 		<condition>
 			<equals>
 				<property>instrumentation/radar/az-field</property>
-				<value>121</value>
+				<value>120</value>
+		
+			</equals>
+					<equals>
+
+       <property>instrumentation/radar/grid</property>
+				<value>false</value>
 			</equals>
 		</condition>
 	</animation>
@@ -375,7 +611,12 @@
 		<condition>
 			<equals>
 				<property>instrumentation/radar/az-field</property>
-				<value>61</value>
+				<value>60</value>
+			</equals>
+					<equals>
+
+       <property>instrumentation/radar/grid</property>
+				<value>false</value>
 			</equals>
 		</condition>
 	</animation>
