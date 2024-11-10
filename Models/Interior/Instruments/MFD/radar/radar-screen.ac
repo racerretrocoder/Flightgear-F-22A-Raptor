@@ -4,7 +4,25 @@ MATERIAL "ac3dmat7" rgb 1 1 1  amb 0.2 0.2 0.2  emis 1 1 1  spec 0 0 0  shi 0  t
 MATERIAL "ac3dmat10" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 MATERIAL "ac3dmat6" rgb 0 1 0  amb 0.2 0.2 0.2  emis 0 1 0  spec 0.2 0.2 0.2  shi 0  trans 0
 OBJECT world
-kids 10
+kids 11
+OBJECT poly
+name "marker2"
+loc 0.000369906 -0.0703013 0.000150057
+crease 45.000000
+numvert 4
+0 0.000621475 -0.000603198
+0 0.000621475 0.000603198
+0 -0.000621475 0.000603198
+0 -0.000621475 -0.000603198
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+3 0 0
+2 1 0
+1 1 1
+0 0 1
+kids 0
 OBJECT poly
 name "box"
 loc 0.000225361 0.0284296 0.0774573

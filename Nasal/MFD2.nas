@@ -358,6 +358,18 @@ var pg = getprop("systems/MFD/modemfdc");
 
 if (pg == 2) {
     print(pg);
+    # Change grid mode.
+    var grid = getprop("instrumentation/radar/grid");
+    print(grid);
+    if(grid == 1)
+    {
+    setprop("instrumentation/radar/grid", 0); # turn off the grid
+    }
+    elsif(grid == 0)
+    {
+    setprop("instrumentation/radar/grid", 1); # Turn on the grid
+    }
+
 } elsif (pg == 1){
     print(pg);   
 } elsif (pg == 3){
@@ -379,6 +391,7 @@ var pg = getprop("systems/MFD/modemfdc");
 
 if (pg == 2) {
     print(pg);
+    radar.radar_mode_toggle();
 } elsif (pg == 1){
     print(pg);   
 } elsif (pg == 3){

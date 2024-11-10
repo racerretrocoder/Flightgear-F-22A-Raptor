@@ -789,6 +789,26 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </function>
 
 
+
+<function name="fcs/engine-gen-inflight">  
+
+<!--When off the ground this function is allways true-->
+
+    <product>
+      <property>/systems/electrical/serviceable</property>
+        <table>
+            <independentVar lookup="row">fcs/engine-gen-main</independentVar>
+            <independentVar lookup="column">/gear/gear/wow</independentVar>
+            <tableData>
+                     0    1  
+              0      0    1  
+              1      1    1
+            </tableData>
+          </table>
+</product>
+   </function>
+
+
 <function name="fcs/starter">  
 
  
@@ -1191,19 +1211,19 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <tableData>
           0       1     
      0.0  0       0   
-     0.2  0       1    
-     0.4  0       1    
-     0.6  0       1    
-     0.8  0       1    
-     0.99 0       1    
-     1.0  0       1    
+     0.2  1       1    
+     0.4  1       1    
+     0.6  1       1    
+     0.8  1       1    
+     0.99 1       1    
+     1.0  1       1    
 
     </tableData>
    </table>
     </function>
 
     <function name="fcs/inflight">
-      <description>Lets the FBW know if where in flight</description>
+      <description>Lets the FBW know if were in flight</description>
           <table>
     <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
     <tableData>
@@ -1385,11 +1405,11 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    </function>
 
-<function name="fcs/elec-3-1">  <!-- TODO! Disable Flight control input when this function is zero! -->
+<function name="fcs/elec-3-1">  
  <description>elec</description>
         <table>
             <independentVar lookup="row">fcs/EPU</independentVar>
-            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-inflight</independentVar>
             <tableData>
                      0    1
               0      0    1<!--But main engine will override it too-->

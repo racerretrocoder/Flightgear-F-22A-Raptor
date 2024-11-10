@@ -2978,6 +2978,60 @@
 </low-fuel5>
 
 
+
+
+
+  <locked>
+            <name>locked</name>
+            <path>Aircraft/F-22/Sounds/AV/Lock.wav</path>
+            <mode>once</mode>
+            <type>avionics</type>
+            <condition>
+                <not>
+                
+<property>gear/gear/position-norm</property>
+</not>
+                <and>
+                    <equals>
+                        <property>instrumentation/radar/lock</property>
+                        <value>1</value>
+                    </equals>
+
+                </and>
+                
+            </condition>
+            <volume>
+                <property>sim/current-view/internal</property>
+                <factor>1</factor>
+            </volume>
+
+        </locked>
+
+  <locked>
+            <name>locked2</name>
+            <path>Aircraft/F-22/Sounds/AV/Lock.wav</path>
+            <mode>once</mode>
+            <type>avionics</type>
+            <condition>
+                <not>
+                
+<property>gear/gear/position-norm</property>
+</not>
+                <and>
+                    <equals>
+                        <property>instrumentation/radar/lock</property>
+                        <value>1</value>
+                    </equals>
+
+                </and>
+                
+            </condition>
+            <volume>
+                <property>sim/current-view/internal</property>
+                <factor>1</factor>
+            </volume>
+
+        </locked>
   <pullup>
             <name>pullUp</name>
             <path>Aircraft/F-22/Sounds/sys/Pullup.wav</path>
