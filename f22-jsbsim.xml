@@ -1756,7 +1756,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <tableData>
               -0.20 -0.640
                0.00  0.080
-               0.26  1.000
+               0.36  1.000
                0.60  0.448
             </tableData>
           </table>
@@ -1809,7 +1809,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
              -0.26    0.031
               0.00    0.024
               0.26    0.031
-              1.57    2.400
+              1.57    2.300
             </tableData>
           </table>
        </product>

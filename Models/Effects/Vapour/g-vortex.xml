@@ -16,10 +16,10 @@
   <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
   <x-min>0.8</x-min>
   <y-min>4.5</y-min>
-  <z-min>0.2</z-min>
+  <z-min>0.35</z-min>
   <x-factor>0.02</x-factor>
   <y-factor>0.0</y-factor>
-  <z-factor>0.035</z-factor>
+  <z-factor>0</z-factor>
  </animation>
 
  <animation>

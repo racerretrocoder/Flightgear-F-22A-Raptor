@@ -70,17 +70,13 @@
 	<and>
     <greater-than>
      <property>orientation/alpha-deg</property>
-     <value>40</value>
+     <value>30</value>
     </greater-than>
     <greater-than>
      <property>velocities/airspeed-kt</property>
-     <value>60</value>
+     <value>200</value>
     </greater-than>
-
-	<less-than>
-     <property>velocities/airspeed-kt</property>
-     <value>200</value>	
-	</less-than>
+	
    </and>
 	</condition>
 
@@ -142,7 +138,7 @@
 						<alpha><value> 0.1 </value></alpha>
 					</color>
 				<size>
-			<value>3</value>
+			<value>2</value>
 		</size>
 	</start>
 
@@ -154,7 +150,7 @@
 						<alpha><value> 1.0 </value></alpha>
 					</color>
 				<size>
-			<value>3</value>
+			<value>1</value>
 		</size>
 	</end>
 

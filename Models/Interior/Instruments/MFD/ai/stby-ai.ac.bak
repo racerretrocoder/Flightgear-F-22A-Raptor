@@ -4,7 +4,7 @@ OBJECT world
 kids 2
 OBJECT poly
 name "Plane.028"
-loc 0.012695 0.0102918 0.00134218
+loc -0.00010073 0.0103728 0.00134218
 data 4
 Mesh
 texture "flightdeck.png"

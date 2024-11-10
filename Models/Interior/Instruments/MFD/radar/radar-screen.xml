@@ -9,11 +9,60 @@
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/radar/radar-screen.ac</path>
 			<offsets>
 				<x-m>0</x-m>
-					<y-m>0</y-m>
+					<y-m>0.0045</y-m>
 				<z-m>0</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
+
+
+
+
+ <animation>
+  <type>translate</type>
+  <object-name>ADI</object-name>
+  <property>orientation/pitch-deg</property>
+  <factor>0.0005</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ADI</object-name>
+  <property>orientation/roll-deg</property>
+  <factor>1</factor>
+
+  <axis>
+  <object-name>adi-axis</object-name>
+  </axis>
+ </animation>
+
+
+ <animation>
+  <type>translate</type>
+  <object-name>marker</object-name>
+  <property>instrumentation/radar2/sweep-marker-norm</property>
+  <factor>0.07</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+
+
+
+
 
 
 	 <animation>
@@ -25,6 +74,13 @@
   <object-name>milthrust</object-name>
     <object-name>TWS</object-name>
    <object-name>PUS</object-name>
+
+   <object-name>10nm</object-name>				<!--todo make all elements green-->
+      <object-name>20nm</object-name>
+	     <object-name>40nm</object-name>
+		    <object-name>60nm</object-name>
+			   <object-name>160nm</object-name>
+
   <ambient>
     <red>0.0</red>
     <green>0.0</green>
@@ -36,11 +92,16 @@
     <blue>0.1</blue>
   </diffuse>
   <emission>
-    <red>0.8</red>
-    <green>0.8</green>
-    <blue>0.8</blue>
+    <red>0</red>
+    <green>1</green>
+    <blue>0</blue>
   </emission> 
  </animation>
+
+
+
+
+
 
 	 <text>
   <name>STANDBY</name>
@@ -48,7 +109,7 @@
   <character-size type="double">0.0055</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>-0.017</y-m>
+   <y-m>-0.01</y-m>
    <z-m>0.03</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
@@ -69,6 +130,172 @@
         </condition>
     </animation>
 
+
+
+
+	 <text>
+  <name>10nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">10</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>10nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>10</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
+
+
+	 <text>
+  <name>20nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">20</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>20nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>20</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+	 <text>
+  <name>40nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">40</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>40nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>40</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+	 <text>
+  <name>60nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">60</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>60nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>60</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
+	 <text>
+  <name>160nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">160</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>160nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>160</value>
+			</equals>
+
+        </condition>
+    </animation>
 
 	 <text>
   <name>TWS</name>
@@ -138,7 +365,7 @@
 		<condition>
 			<equals>
 				<property>instrumentation/radar/az-field</property>
-				<value>120</value>
+				<value>121</value>
 			</equals>
 		</condition>
 	</animation>
@@ -148,7 +375,7 @@
 		<condition>
 			<equals>
 				<property>instrumentation/radar/az-field</property>
-				<value>60</value>
+				<value>61</value>
 			</equals>
 		</condition>
 	</animation>

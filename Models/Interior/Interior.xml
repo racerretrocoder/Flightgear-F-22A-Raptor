@@ -1732,7 +1732,7 @@ Flight control stick should move less
 
 
 <!--
-
+MFD Buttons
 __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\\\\\\\______________________________________________________________________________________        
  _\/\\\\\\________/\\\\\\_\/\\\///////////__\/\\\////////\\\____________\/\\\/////////\\\____________________________________________________________________________________       
   _\/\\\//\\\____/\\\//\\\_\/\\\_____________\/\\\______\//\\\___________\/\\\_______\/\\\___________________/\\\__________/\\\_______________________________________________      
@@ -1746,7 +1746,7 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
 
 
 
-
+<!--Main Lower Rows-->
 <animation>
   <type>pick</type>
    <object-name>CSMS</object-name> 
@@ -2395,12 +2395,179 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+<!--Center MFD Left Row-->
+
+
+<!-- Nasal scripting:  MFD1.CL1();   MFD 1 is the left MFD 2 is the center MFD 3 is the right   .CL1 means CenterMFD Left row. Lowest button-->
+
+
+<animation>
+  <type>pick</type>
+   <object-name>CL1</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD2.CL1();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CL1</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CL1</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+
+<animation>
+  <type>pick</type>
+   <object-name>CL2</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD2.CL2();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CL2</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CL2</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+
+<animation>
+  <type>pick</type>
+   <object-name>CL3</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD2.CL3();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CL3</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CL3</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+
+<animation>
+  <type>pick</type>
+   <object-name>CL4</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD2.CL4();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CL4</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CL4</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+
+<animation>
+  <type>pick</type>
+   <object-name>CL5</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+        <command>nasal</command>
+        <script>MFD2.CL5();</script>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/CL5</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/CL5</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+
+
 <!--
 
 
 
 
-Misc
+Eject handle
 
 
 
@@ -2422,6 +2589,18 @@ Misc
        </action>
  </animation>
 
+
+
+
+<!--Todo Make an arm lever
+
+Though i dont think thats really needed rn
+MFD buttons first
+
+
+Lowest priority then
+-->
+
 <animation>
   <type>pick</type>
    <object-name>EJECT-ARM</object-name>
@@ -2438,7 +2617,7 @@ Misc
 
    <binding>
   <command>nasal</command>
-  <script>setprop("/sim/messages/atc", "Arm state:"~ getprop("controls/seat/ejection-safety-lever"));</script>
+  <script>setprop("/sim/messages/atc", "Arm state:"~ getprop("controls/seat/ejection-safety-lever"));</script> <!--Lets us know the state of the lever TODO: make an animation instead-->
 
 </binding>
        </action>

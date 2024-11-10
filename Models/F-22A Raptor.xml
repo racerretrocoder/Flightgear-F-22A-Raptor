@@ -444,20 +444,45 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
    <heading-deg>10</heading-deg>
   </offsets>
  </model>
+  <model>
+  <name>left-strake-vortex2</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.xml</path>
+  <offsets>
+   <x-m>-2.7</x-m>
+   <y-m>-1.53</y-m>
+   <z-m>-0.8</z-m>
+
+   <heading-deg>-10</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>right-strake-vortex2</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.xml</path>
+  <offsets>
+   <x-m>-2.7</x-m>
+   <y-m>1.53</y-m>
+   <z-m>-0.8</z-m>
+
+   <heading-deg>10</heading-deg>
+  </offsets>
+ </model>
 
  <animation>
     <type>select</type>
     <object-name>right-strake-vortex</object-name>
     <object-name>left-strake-vortex</object-name>
+    <object-name>right-strake-vortex2</object-name>
+    <object-name>left-strake-vortex2</object-name>
     <condition>
        <and>
     
           <greater-than>
-           <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
-           <value>10</value>
+           <property>accelerations/pilot-gdamped</property>
+           <value>5</value>
           </greater-than>
           <greater-than>
-           <property>sim/multiplay/generic/float[19]</property><!-- velocities/airspeed-kt -->
+           <property>sim/multiplay/generic/float[19]</property>
            <value>200</value>
           </greater-than>
        </and>
@@ -468,8 +493,8 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
   <name>g-vortexR</name>
   <path>Aircraft/F-22/Models/Effects/Vapour/g-vortex.xml</path>
   <offsets>
-   <x-m>1</x-m>
-   <y-m>1.9</y-m>
+   <x-m>1.5</x-m>
+   <y-m>2.9</y-m>
    <z-m>-0.8</z-m>
    <heading-deg>0</heading-deg>
    <roll-deg>-10</roll-deg>
@@ -480,8 +505,8 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
   <name>g-vortexL</name>
   <path>Aircraft/F-22/Models/Effects/Vapour/g-vortex.xml</path>
   <offsets>
-   <x-m>1</x-m>
-   <y-m>-1.9</y-m>
+   <x-m>1.5</x-m>
+   <y-m>-2.9</y-m>
    <z-m>-0.8</z-m>
    <heading-deg>0</heading-deg>
    <roll-deg>10</roll-deg>
@@ -521,7 +546,7 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
             
                 <greater-than>
                  <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
-                 <value>12.0</value>
+                 <value>13.0</value>
                 </greater-than>
                 <greater-than>
                  <property>sim/multiplay/generic/float[19]</property><!-- velocities/airspeed-kt -->
@@ -2613,9 +2638,9 @@ rearwheelsaxis
 	<model>
 		<path>Aircraft/F-22/Models/Effects/Vapour/Vapour2.xml</path>
 		<offsets>
-			<x-m>-0.5</x-m>
-			<y-m>-2.5</y-m>
-			<z-m>0</z-m>
+			<x-m>0.5</x-m>
+			<y-m>-2.0</y-m>
+			<z-m>-1</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model> 
@@ -2625,7 +2650,7 @@ rearwheelsaxis
 		<offsets>
 			<x-m>1</x-m>
 			<y-m>2.5</y-m>
-			<z-m>0</z-m>
+			<z-m>-1.5</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model> 
@@ -2634,7 +2659,7 @@ rearwheelsaxis
 		<offsets>
 			<x-m>1</x-m>
 			<y-m>-2.5</y-m>
-			<z-m>0</z-m>
+			<z-m>-1.5</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model> 
@@ -2644,7 +2669,7 @@ rearwheelsaxis
 		<offsets>
 			<x-m>2</x-m>
 			<y-m>2.8</y-m>
-			<z-m>0</z-m>
+			<z-m>-1.5</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model> 
@@ -2653,19 +2678,55 @@ rearwheelsaxis
 		<offsets>
 			<x-m>2</x-m>
 			<y-m>-2.8</y-m>
-			<z-m>0</z-m>
+			<z-m>-1.5</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model> 
 
 
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Vapour/Vapourslow.xml</path>
+		<offsets>
+			<x-m>2</x-m>
+			<y-m>0</y-m>
+			<z-m>-1.5</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model> 
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Vapour/Vapourslow.xml</path>
+		<offsets>
+			<x-m>2</x-m>
+			<y-m>-0</y-m>
+			<z-m>-1.5</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model> 
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Vapour/Vapourslow.xml</path>
+		<offsets>
+			<x-m>-2</x-m>
+			<y-m>0</y-m>
+			<z-m>-1.5</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model> 
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Vapour/Vapourslow.xml</path>
+		<offsets>
+			<x-m>-1</x-m>
+			<y-m>-0</y-m>
+			<z-m>-1.5</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model> 
 
 	<model>
 		<path>Aircraft/F-22/Models/Effects/Vapour/Vapour2.xml</path>
 		<offsets>
-			<x-m>-0.5</x-m>
-			<y-m>2.5</y-m>
-			<z-m>0</z-m>
+			<x-m>0.5</x-m>
+			<y-m>2.0</y-m>
+			<z-m>-1</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model> 

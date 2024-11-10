@@ -18,8 +18,8 @@ RWRCanvas = {
         var tick_short = tick_long*0.5;
         var tick_tiny = tick_long*0.05;        
         var font = int(0.08*diameter);
-        var colorG = [0.3,1,0.3];
-        var colorLG = [0,0.5,0];
+        var colorG = [0,1,0];
+        var colorLG = [0,1,0];
         rwr.fadeTime = 7;#seconds
         rwr.rootCenter = root.createChild("group")
                 .setTranslation(center[0],center[1]);

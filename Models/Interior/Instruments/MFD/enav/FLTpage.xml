@@ -11,8 +11,46 @@ Y is Left to right
 X is In and Out 
 Z is Up and down
 
+
 Use increments of .01 Because the unit is meters.
 
+
+
+
+
+<text>
+  <name>fuel-head</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.02</y-m>
+   <z-m>-0.03</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Fuel:</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>fuel-lb</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.03</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.2f lb</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/total-fuel-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
 -->
 
  <model>
@@ -288,7 +326,7 @@ Use increments of .01 Because the unit is meters.
    <type type="string">number-value</type>
    <format type="string">AoA%5.f</format>
   <truncate type="bool">true</truncate>
-  <property>/fdm/jsbsim/aero/alpha-deg</property>
+  <property>/fdm/jsbsim/aero/alpha-rad</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
