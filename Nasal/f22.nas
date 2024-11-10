@@ -229,10 +229,10 @@ var repair = func{
 
 
 var eject = func{
-    if (getprop("f22/ejected")==1 or !getprop("controls/seat/ejection-safety-lever")) {
-      print("Cant eject!");
-        return;
-    }
+#    if (getprop("f22/ejected")==1 or !getprop("controls/seat/ejection-safety-lever")) {
+#      print("Cant eject!");
+#        return;
+#    }
     # ACES II activation
   print("Eject Phase one starting");
     setprop("/sim/messages/atc", "Ejecting!");

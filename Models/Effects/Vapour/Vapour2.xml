@@ -70,13 +70,17 @@
 	<and>
     <greater-than>
      <property>orientation/alpha-deg</property>
-     <value>30</value>
+     <value>40</value>
     </greater-than>
     <greater-than>
      <property>velocities/airspeed-kt</property>
-     <value>200</value>
+     <value>60</value>
     </greater-than>
-	
+
+	<less-than>
+     <property>velocities/airspeed-kt</property>
+     <value>200</value>	
+	</less-than>
    </and>
 	</condition>
 
@@ -122,7 +126,7 @@
 
 	<counter>
 		<particles-per-sec>
-			<value>500</value>
+			<value>30</value>
 			<spread>10</spread>
 		</particles-per-sec>
 	</counter>
@@ -138,7 +142,7 @@
 						<alpha><value> 0.1 </value></alpha>
 					</color>
 				<size>
-			<value>3</value>
+			<value>2.8</value>
 		</size>
 	</start>
 
@@ -150,7 +154,7 @@
 						<alpha><value> 1.0 </value></alpha>
 					</color>
 				<size>
-			<value>3</value>
+			<value>2.8</value>
 		</size>
 	</end>
 

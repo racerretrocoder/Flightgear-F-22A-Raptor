@@ -1673,6 +1673,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 <su-27>
 <instrumentation>
+<HUD>
+            <brightness type="double">1</brightness>
+</HUD>
 <N010-radar>
         <emitting type="bool">false</emitting>
 </N010-radar>
@@ -2245,6 +2248,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
    <radius-ppi-display-m type="double">0.0846</radius-ppi-display-m>
    <hud-eye-dist-m type="double">0.6705</hud-eye-dist-m>
    <hud-radius-m type="double">0.071</hud-radius-m>
+   <sweep-speed type="double">2</sweep-speed>
    <hud>
     <target type="bool">1</target>
    </hud>
@@ -2508,6 +2512,13 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <datalink>
 <file>Aircraft/F-22/Nasal/datalink.nas</file>
 </datalink>
+
+<!--MFD's Lowest if i want to implement other name space code with them-->
+<MFD2>
+<file>Aircraft/F-22/Nasal/MFD2.nas</file>
+</MFD2>
+
+
 	</nasal>
 
 </PropertyList>

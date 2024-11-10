@@ -21,6 +21,30 @@
       <z-m>0.0</z-m>
     </offsets>
   </model>
-  
+  <animation>
+
+  <object-name>pullup</object-name>
+
+
+  <type>select</type>
+
+            <condition>
+                <not>
+                
+<property>gear/gear/position-norm</property>
+</not>
+                <and>
+                    <greater-than>
+                        <property>sim/model/radar/time-until-impact</property>
+                        <value>0</value>
+                    </greater-than>
+                    <less-than>
+                        <property>sim/model/radar/time-until-impact</property>
+                        <value>8</value>
+                    </less-than>
+                </and>
+                
+            </condition>
+ </animation>
  
 </PropertyList>

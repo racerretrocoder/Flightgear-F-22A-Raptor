@@ -5,7 +5,7 @@ OBJECT world
 kids 2
 OBJECT poly
 name "bkg"
-loc 0.0042474 -0.00367526 -0.00564174
+loc 0.0042474 -0.00367526 -0.00296003
 texture "rwr-bkg.png"
 crease 180.000000
 numvert 81
