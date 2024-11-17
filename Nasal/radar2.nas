@@ -124,7 +124,7 @@ var Radar = {
 
 
         # option
-        m.showAI =1;
+        m.showAI = 1;
         # return our new object
         #screen.log.write("Radar created.");
         return m;

@@ -406,16 +406,26 @@ var MISSILE = {
 
 
 checkflares: func(){
-                # flare detection
-                # THIS IS REALLY SIMPLE CODE! Dont think its the best in the world.
-                # this script is intended to run when damage.nas detecs a flare. line 864 in damage.nas is where it loads in the flare model deployed by a threat. we can set a prop to 1 when a flare is realeased then have it be set to 0 2 seconds later.  
-                # Advanced ideas that would be cool: Lower the max-g when the target is throughing out flares so its less likely to hit in another degree. But not too much to not cause any strange movements
-                # make the range 10nm or less. so that my aim-120 wont get fooled by a chaff flare at 38nm
-                # Make it so that... a person 50nm distant can NOT defend against my missile i shot at a different person 8nm away. (make the flares target dependent. if if someone else flares but my target isnt. the missile will still do the RNG. This might need to be thought into a bit more...)
-                # then run a random number gen to figure out if the missile locks onto it  -- DONE! the coeff. is in Loading_missiles.nas  the var is flareres. and if its 1, then the missile is invinceable to flares
-                # if its 0 then it will fail everytime someone deploys a flare. fail everytime. (Decimals are to be used here)
 
-if (getprop("payload/armament/flares")) {
+# Updated Version 2
+# First lets avoid having a nil in our variable.
+
+
+if (me.Tgt != nil) {
+var bandit = me.Tgt.get_Callsign();
+
+
+
+# There is a target
+# Lets search for him
+misc.search(bandit);
+# Then the flare prop should be updated.
+# Lets read it
+
+
+if (getprop("payload/armament/flares")) { # Flares are being realeased
+
+# RNG
 
 var num2 = rand() < (1-me.flareres);
 print("Flare resistance number:");
@@ -423,12 +433,14 @@ print(num2);
 if (num2 == 1) {
     print("Missile saw the flare!");
     me.reset_steering();
-    me.free = 1; # missile missed
+    me.free = 1; # missile off the target.
     print("Missile gave up and decided to miss.");
+
             var phrase = me.NameOfMissile ~ " Report : Fooled by enemy's Countermessures and missed.";
             if(MPMessaging.getValue() == 1)
             {
                 damage.damageLog.push(phrase);
+                setprop("/sim/messages/atc", "Missile Missed");
             }
             else
             {
@@ -438,6 +450,15 @@ if (num2 == 1) {
     } else {
         print("Flare detect: There are no deployed flares");
     }
+
+
+
+} else {
+
+    print("Flare detect: there is no target. Not searching for flares");
+}
+
+
 },
 
 
@@ -951,7 +972,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
             if((math.abs(me.curr_tgt_e) > me.missile_fov)
                 or (math.abs(modulo180) > me.missile_fov))
             {
-                #print("me.missile_fov:", me.missile_fov, "me.curr_tgt_e:", me.curr_tgt_e, "degree h me.curr_tgt_h:", me.curr_tgt_h, "t_course:", t_course, "me.hdg:", me.hdg, "modulo180:", modulo180);
+                print("me.missile_fov:", me.missile_fov, "me.curr_tgt_e:", me.curr_tgt_e, "degree h me.curr_tgt_h:", me.curr_tgt_h, "t_course:", t_course, "me.hdg:", me.hdg, "modulo180:", modulo180);
                 me.free = 1;
                     setprop("payload/armament/flares", 0);
             }

@@ -11,32 +11,23 @@
         <emissive type="bool">false</emissive>
         <lighting type="bool">false</lighting>
 
-     <condition>
+    <condition>
       <and>
         <greater-than>
           <property>/environment/relative-humidity</property>
-          <value>30</value>
+          <value>50</value>
         </greater-than>
         <greater-than>
           <property>/environment/temperature-degc</property>
           <value>0</value>
         </greater-than>
         <greater-than>
-          <property>sim/multiplay/generic/float[19]</property>
+          <property>velocities/airspeed-kt</property>
           <value>125</value>
         </greater-than>
-
-                  <less-than>
-          <property>sim/multiplay/generic/float[24]</property>
-          <value>15</value>
-        </less-than>
             <greater-than>
-          <property>sim/multiplay/generic/float[24]</property>
-          <value>-15</value>
-        </greater-than>
-                  <greater-than>
-          <property>sim/multiplay/generic/float[17]</property>
-          <value>8</value>
+          <property>fdm/jsbsim/aero/alpha-deg</property>
+          <value>7</value>
         </greater-than>
       </and>
     </condition>

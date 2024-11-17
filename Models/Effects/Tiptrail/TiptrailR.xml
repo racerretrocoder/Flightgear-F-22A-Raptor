@@ -11,7 +11,7 @@
         <emissive type="bool">false</emissive>
         <lighting type="bool">false</lighting>
 
-     <condition>
+    <condition>
       <and>
         <greater-than>
           <property>/environment/relative-humidity</property>
@@ -28,16 +28,9 @@
 
                   <less-than>
           <property>sim/multiplay/generic/float[24]</property>
-          <value>15</value>
-        </less-than>
-            <greater-than>
-          <property>sim/multiplay/generic/float[24]</property>
           <value>-15</value>
-        </greater-than>
-                  <greater-than>
-          <property>sim/multiplay/generic/float[17]</property>
-          <value>8</value>
-        </greater-than>
+        </less-than>
+
       </and>
     </condition>
 

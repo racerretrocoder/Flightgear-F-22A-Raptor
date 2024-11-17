@@ -2274,16 +2274,29 @@ rearwheelsaxis
 	</model>
 	
 	<model>
-		<path>Aircraft/F-22/Models/Effects/Tiptrail/Tiptrail.xml</path>
+		<path>Aircraft/F-22/Models/Effects/Tiptrail/TiptrailL.xml</path>
 		<offsets>
 			<x-m>4.704</x-m>
 			<y-m>-6.41627</y-m>
-			<z-m>-0.372509</z-m>
+			<z-m>-0.672509</z-m>
 			<roll-deg>0</roll-deg>
 			<pitch-deg>45</pitch-deg>
 			<heading-deg>0</heading-deg>
 		</offsets>
 	</model>
+	<!--Main-->
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Tiptrail/Tiptrail.xml</path>
+		<offsets>
+			<x-m>4.704</x-m>
+			<y-m>-6.41627</y-m>
+			<z-m>-0.672509</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>45</pitch-deg>
+			<heading-deg>0</heading-deg>
+		</offsets>
+	</model>
+
 <!--	
 	<model>
 		<path>Aircraft/F-22/Models/Effects/Tiptrail/Tiptrail.xml</path>
@@ -2310,11 +2323,25 @@ rearwheelsaxis
 	</model>
 
 	<model>
+		<path>Aircraft/F-22/Models/Effects/Tiptrail/TiptrailR.xml</path>
+		<offsets>
+			<x-m>4.704</x-m>
+			<y-m>6.41627</y-m>
+			<z-m>-0.672509</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>45</pitch-deg>
+			<heading-deg>0</heading-deg>
+		</offsets>
+	</model>
+	<!--Main-->
+
+	
+	<model>
 		<path>Aircraft/F-22/Models/Effects/Tiptrail/Tiptrail.xml</path>
 		<offsets>
 			<x-m>4.704</x-m>
 			<y-m>6.41627</y-m>
-			<z-m>-0.372509</z-m>
+			<z-m>-0.672509</z-m>
 			<roll-deg>0</roll-deg>
 			<pitch-deg>45</pitch-deg>
 			<heading-deg>0</heading-deg>
