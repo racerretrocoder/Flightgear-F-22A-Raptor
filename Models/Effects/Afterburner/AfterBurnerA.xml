@@ -28,12 +28,19 @@
 		<condition>
 
 
-			
+<and>
+
+				<greater-than>
+			<property>sim/multiplay/generic/float[31]</property>
+				<value>0.6</value>
+
+			</greater-than>		
 			<greater-than>
 			<property>engines/engine[1]/n1</property>
 				<value>90</value>
 
 			</greater-than>
+</and>
 
 		</condition>
 </animation>
@@ -96,7 +103,7 @@
   <z-min>0.5</z-min>    
 	<x-factor>1.0</x-factor>
 	<y-factor>0</y-factor>
-	<z-factor>1.5</z-factor>
+	<z-factor>1.7</z-factor>
 </animation>
   
 </PropertyList>

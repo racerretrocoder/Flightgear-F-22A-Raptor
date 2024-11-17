@@ -39,9 +39,6 @@
         <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
 
 <!-- 
-	
-	Hey Phoenix look at this!
-
 Dont make these objects metal looking! it crashes flightgear apon loading them in! 
 
         <object-name>TAIL-L-OUT</object-name>
@@ -64,6 +61,10 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
         <object-name>Right_Keel_1</object-name>
         <object-name>left-elevator_0</object-name>
         <object-name>right-elevator_0</object-name>
+
+		        <object-name>frontcp2</object-name>
+        <object-name>Body-side-right</object-name>
+        <object-name>Body-side-left</object-name>
 
 
 		        <object-name>left-elevator_1</object-name>
@@ -292,11 +293,11 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 
 <animation>
   <type>material</type>
-  <object-name>sides</object-name>
+  <object-name>Body-side-left</object-name>
 
 
   <property-base>sim/model/livery</property-base>
-  <texture-prop>texture-sides</texture-prop>
+  <texture-prop>texture-sideL</texture-prop>
   <texture>Liveries/elevs.png</texture>
 </animation>	
 
@@ -1200,6 +1201,23 @@ Use below instead
 
 
 
+
+
+<animation>
+		<type>select</type>
+
+
+		<object-name>9xdr</object-name>
+		<object-name>9dxl</object-name>
+		
+		<condition>
+			<greater-than>
+				<property>sim/multiplay/generic/int[14]</property>
+				<value>0.99</value>
+			</greater-than>
+		</condition>
+	
+	</animation>	
 <animation>
 		<type>select</type>
 

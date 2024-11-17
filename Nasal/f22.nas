@@ -388,7 +388,7 @@ settimer(missile_sfx, 2); # runs myFunc after 2 seconds
 timer_eng = maketimer(0.25, engloop);
 timer_loopTimer = maketimer(0.25, timer_loop);
 timer_extpylons = maketimer(0.25, checkforext);
-timer_baydoorsclose = maketimer(0.5, closebays);
+timer_baydoorsclose = maketimer(1, closebays);
 timer_damage = maketimer(0.5, damagedetect);
 
 setlistener("sim/signals/fdm-initialized", func {
