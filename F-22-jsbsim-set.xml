@@ -2519,6 +2519,13 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <file>Aircraft/F-22/Nasal/datalink.nas</file>
 </datalink>
 
+
+<!--AI Searcher-->
+		<misc>
+			<file>Aircraft/F-22/Nasal/misc.nas</file>
+		</misc>
+
+
 <!--MFD's Lowest if i want to implement other name space code with them-->
 <MFD2>
 <file>Aircraft/F-22/Nasal/MFD2.nas</file>
