@@ -14,10 +14,14 @@
 <turbine_engine name="F119-PW-100">
   <milthrust> 27000.0 </milthrust>
   <maxthrust> 35000.0 </maxthrust>
-  <bypassratio>     0.3 </bypassratio>
+  <bypassratio>     1 </bypassratio>
   <tsfc>            0.8 </tsfc>
   <atsfc>           1.7 </atsfc>
   <bleed>           0.03</bleed>
+  <n1spinup>        0.5 </n1spinup>
+  <n2spinup>        1.0 </n2spinup>
+  <n1startrate>     1.2 </n1startrate>
+  <n2startrate>     1.6 </n2startrate>
   <idlen1>         30.0 </idlen1>
   <idlen2>         60.0 </idlen2>
   <maxn1>         100.0 </maxn1>

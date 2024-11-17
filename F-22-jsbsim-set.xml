@@ -304,6 +304,7 @@ Theres soo many! Lol!
  <float n="33" type="double" alias="/fdm/jsbsim/fcs/gundoor"/>	
 
 
+ <float n="34" type="double" alias="/engines/engine/n1"/>	
 
 <int n="15" type="int" alias="/f22/ejected"/>
 

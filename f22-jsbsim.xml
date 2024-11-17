@@ -236,7 +236,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  </mass_balance>
 
  <ground_reactions>
-
   <contact type="BOGEY" name="NOSE">
    <location unit="IN">
      <x>  -464 </x>
@@ -344,6 +343,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <spring_coeff unit="LBS/FT">      41750.00 </spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 4175.00  </damping_coeff>
   </contact> 
+
+
 
  </ground_reactions>
 
@@ -1631,6 +1632,34 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <channel name="Misc">
 
+
+        <fcs_function name="/engines/engine[0]/n2-60-to-80-log">
+            <function>
+                <log10>
+                    <table>
+                        <independentVar lookup="row">/engines/engine/n2</independentVar>
+                        <tableData>
+                              60          1.0
+                              80          10.0
+                        </tableData>
+                    </table>
+                </log10>
+            </function>
+        </fcs_function>
+
+      <fcs_function name="/engines/engine[1]/n2-60-to-80-log">
+            <function>
+                <log10>
+                    <table>
+                        <independentVar lookup="row">/engines/engine/n2</independentVar>
+                        <tableData>
+                              60          1.0
+                              80          10.0
+                        </tableData>
+                    </table>
+                </log10>
+            </function>
+        </fcs_function>
    <kinematic name="mil2">
      <input>fcs/mil</input>
      <traverse>
@@ -1746,7 +1775,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        </setting>
        <setting>
           <position>  1 </position>
-          <time>      0.3 </time>
+          <time>      0.45 </time>
        </setting>
      </traverse>
      <output>fcs/AIM120</output>
@@ -1790,6 +1819,15 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>metrics/Sw-sqft</property>
            <property>fcs/flap-pos-deg</property>
            <value> 0.01167 </value>
+       </product>
+    </function>
+          <function name="aero/force/Lift_flap_edge">
+       <description>Delta Lift due to leading edge flaps</description>
+       <product>
+           <property>aero/qbar-psf</property>
+           <property>metrics/Sw-sqft</property>
+           <property>fcs/leading-edge-flap-main</property>
+           <value> 0.08167 </value>
        </product>
     </function>
 
