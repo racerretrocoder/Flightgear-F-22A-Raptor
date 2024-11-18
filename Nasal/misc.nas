@@ -208,11 +208,16 @@ var track = func(mpid){
     print(getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign")); #threat is the right one. 
     var flareint = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/rotors/main/blade[3]/flap-deg");
     # Is our bandit flaring?
+    if (flareint != nil){
     if (flareint > 0) {
     setprop("payload/armament/flares", 1);
     print("Flares detected.");
     } else {
         setprop("payload/armament/flares", 0);
+    }
+
+    } else {
+        print("Target dose not support counter messures");
     }
 
 
