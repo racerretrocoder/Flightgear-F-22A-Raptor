@@ -251,6 +251,7 @@ var MISSILE = {
     # g = specific heat ratio, which is usually equal to 1.4
     # R = specific gas constant, which equals 1716 ft-lb/slug/R
     var snd_speed = math.sqrt( 1.4 * 1716 * (T + 459.7) );
+
     return [rho, snd_speed];
 	},
 
@@ -339,7 +340,7 @@ var MISSILE = {
         setprop("controls/armament/pos/lat",alat);
         setprop("controls/armament/pos/lon",alon);
         setprop("controls/armament/pos/alt",aalt);
-
+        setprop("controls/armament/pos/ptch",ac_pitch);
 
         me.latN.setDoubleValue(alat);
         me.lonN.setDoubleValue(alon);
@@ -466,7 +467,7 @@ if (num2 == 1) {
 
 
 #  me.sendinflight(msllat,msllon,mslalt,hdg_deg);
-sendinflight: func(lat,lon,alt,hdg){
+sendinflight: func(lat,lon,alt,hdg,ptch,speed){
     #Send notify in flight
     if(getprop("payload/armament/msg")){
     if(me.free == 1) {
@@ -485,7 +486,7 @@ sendinflight: func(lat,lon,alt,hdg){
 
 var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
         var altM = alt*FT2M;
-        msg.Position.set_latlon(lat,lon,altM);
+        msg.Position.set_latlon(lat,lon,alt);
         msg.Flags = 1;#bit # Radar is there
         msg.Flags = bits.set(msg.Flags, 0);#bit #Its not semiactive
         msg.IsDistinct = 1; # The missile is "Not" dead
@@ -506,9 +507,9 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
         }
         msg.RemoteCallsign = callsign;
         msg.UniqueIndex = ""~typeID~typeID;
-        msg.Pitch = 0;
+        msg.Pitch = ptch;
         msg.Heading = hdg;
-        msg.u_fps = 500;
+        msg.u_fps = speed;
         #msg.isValid();
         notifications.geoBridgedTransmitter.NotifyAll(msg);
         print("Missile alert sent");
@@ -602,6 +603,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
         # for a conventional shell/bullet (no boat-tail).
         var cdm = 0;
         var speed_m = (total_s_ft / dt) / sound_fps;
+        setprop("controls/armament/pos/speed",speed_m);
         print(speed_m);
         if(speed_m < 0.7)
         {
@@ -732,9 +734,10 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         var msllat = getprop("controls/armament/pos/lat");
         var msllon = getprop("controls/armament/pos/lon");    # This props are Accurate and update every time the function update() is called (this function btw :D)
         var mslalt = getprop("controls/armament/pos/alt");
+        var mslptch = getprop("controls/armament/pos/ptch");
+        var mslspeed = getprop("controls/armament/pos/speed");
 
-
-        me.sendinflight(msllat,msllon,mslalt,hdg_deg); # Theres a missile in teh air guys!!1!1!
+        me.sendinflight(msllat,msllon,mslalt,hdg_deg,mslptch,mslspeed); # Theres a missile in teh air guys!!1!1!
 
 
         # Velocities Set

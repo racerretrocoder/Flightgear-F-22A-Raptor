@@ -101,10 +101,10 @@ var rcs_database = {
     #Stealth
     "b2-spirit":                0.0001,  #actual: 0.0001
     "B-2A":                     0.0001,  #actual: 0.0001
-    "F-22A Raptor":				2,	 #actual: 0.0001
-    "F-22A":				    2,	 #actual: 0.0001
+    "F-22A Raptor":				3,	 #actual: 0.0001
+    "F-22A":				    3,	 #actual: 0.0001
     "F-35A":					0.0015,
-    "F-35B":					0.0015,
+    "F-35B":					3,
     "F-35C":                    0.0015,
     "daVinci_F-35A":            0.0015,
     "daVinci_F-35B":            0.0015,

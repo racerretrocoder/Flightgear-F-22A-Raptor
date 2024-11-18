@@ -77,6 +77,8 @@
 <lon type="float">0</lon>
 <alt type="float">0</alt>
 <hdg type="float">0</hdg>
+<ptch type="float">0</ptch>
+<speed type="float">0</speed>
 </pos>
 
 
