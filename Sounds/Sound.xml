@@ -117,7 +117,7 @@
 	<z>-5</z>
    </position>
       <volume>
-    <property>/engines/engine/nozzle-pos-norm</property>
+    <property>/fdm/jsbsim/fcs/ab1</property>
     <factor>1</factor>
     <offset>0</offset>
    </volume>
@@ -181,7 +181,7 @@
 	<z>-5</z>
    </position>
          <volume>
-    <property>/engines/engine/nozzle-pos-norm</property>
+    <property>/fdm/jsbsim/fcs/ab2</property>
     <factor>1</factor>
     <offset>0</offset>
    </volume>
@@ -223,7 +223,7 @@
                 <outer-gain>0.0</outer-gain>
             </orientation>
       <volume>
-    <property>/engines/engine/nozzle-pos-norm</property>
+    <property>/fdm/jsbsim/fcs/ab2</property>
     <factor>1</factor>
     <offset>0</offset>
    </volume>
@@ -265,7 +265,7 @@
                 <outer-gain>0.0</outer-gain>
             </orientation>
       <volume>
-    <property>/engines/engine/nozzle-pos-norm</property>
+    <property>/fdm/jsbsim/fcs/ab2</property>
     <factor>1</factor>
     <offset>0</offset>
    </volume>
@@ -306,7 +306,7 @@
                 <outer-gain>0.0</outer-gain>
             </orientation>
       <volume>
-    <property>/engines/engine/nozzle-pos-norm</property>
+    <property>/fdm/jsbsim/fcs/ab2</property>
     <factor>1</factor>
     <offset>0</offset>
    </volume>
@@ -348,7 +348,7 @@
                 <outer-gain>0.0</outer-gain>
             </orientation>
       <volume>
-    <property>/engines/engine/nozzle-pos-norm</property>
+    <property>/fdm/jsbsim/fcs/ab2</property>
     <factor>1</factor>
     <offset>0</offset>
    </volume>
@@ -962,6 +962,8 @@
    <mode>looped</mode>
    <path>Aircraft/F-22/Sounds/Samples/engine-intake.wav</path>
    <condition>
+
+            <property>/engines/engine/running</property>
          <property>/sim/current-view/internal</property>
    </condition>
    <volume>
@@ -987,7 +989,7 @@
  	 <not>
 	  <property>/engines/engine/out-of-fuel</property>
 	 </not>
-
+            <property>/engines/engine/running</property>
 
    </condition>
    <volume>

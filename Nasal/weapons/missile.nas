@@ -478,11 +478,11 @@ sendinflight: func(lat,lon,alt,hdg,ptch,speed){
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
-# Missile definitions   if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  
+                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  # Missile definitions   
                         if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
                         if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
-
+                        if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;}
 
 var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
         var altM = alt*FT2M;
@@ -791,11 +791,13 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
             {
                 if(ground > alt_ft*FT2M)
                 {
-
+                    if(me.NameOfMissile == "TB-01") { # We are an armed Nuclear bomb
+                        TB01.explode(); # Explode the Nuke
+                    } 
                     print("Ground");
                     me.free = 1;
-                        setprop("payload/armament/flares", 0);
-                                        me.animate_explosion();
+                    setprop("payload/armament/flares", 0);
+                    me.animate_explosion();
                     settimer(func(){ me.del(); }, 1);
                     return;
                 }

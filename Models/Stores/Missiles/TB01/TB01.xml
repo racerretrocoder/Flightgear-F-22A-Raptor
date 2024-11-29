@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!-- NOTE: I dont think XML files here really do anything See F-22A Raptor.xml -->
+<PropertyList>
+
+ <path>JDAM.ac</path>
+
+
+
+
+  <animation>
+    <type>dist-scale</type>
+    <object-name>JDAMt</object-name>
+    <interpolation>
+      <entry><ind>    0 </ind><dep> 0 </dep></entry>
+      <entry><ind>   20 </ind><dep> 3 </dep></entry>
+      <entry><ind> 1500 </ind><dep> 7 </dep></entry>
+    </interpolation>
+  </animation>
+
+
+
+
+</PropertyList>

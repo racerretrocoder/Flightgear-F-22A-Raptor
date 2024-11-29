@@ -3,7 +3,7 @@
 <!-- F-22 avionics and lighting controls -->
 <PropertyList>
 
-
+      <jitter type="float"> 0 </jitter>
 		<winch>
 			<place type="bool">false</place>
 		</winch>

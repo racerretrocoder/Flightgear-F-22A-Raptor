@@ -375,6 +375,15 @@ var timer_loop = func{
 };
 
 
+
+# Jitter
+
+var jitter = func{
+	            	setprop("/controls/rand", rand());
+	            	setprop("/controls/rand2", rand());
+}
+
+
 # Timers
 
 
@@ -390,8 +399,10 @@ timer_loopTimer = maketimer(0.25, timer_loop);
 timer_extpylons = maketimer(0.25, checkforext);
 timer_baydoorsclose = maketimer(1, closebays);
 timer_damage = maketimer(0.5, damagedetect);
+timer_jitter = maketimer(0.1, jitter);
 
 setlistener("sim/signals/fdm-initialized", func {
+    timer_jitter.start();  
       timer_flarecheck.start();          # flare checker
     timer_eng.start();          # engines
     timer_loopTimer.start();    # Pullup alarm
