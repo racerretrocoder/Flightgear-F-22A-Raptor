@@ -40,7 +40,7 @@ var Loading_missile = func(name)
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        flareres = 0.988; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
+        flareres = 0.998; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
         maxdetectionrngnm = 38.8;                    #  
         fovdeg = 140;                                #
         detectionfovdeg = 140;                       # TODO implent data link system so we can control these variables while missile is in flight
@@ -65,7 +65,7 @@ var Loading_missile = func(name)
     {
         # AIM-9X:short-range A2A,IR seeker,
 	typeid = 98;
-        flareres = 0.985; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
+        flareres = 0.995; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
@@ -92,7 +92,7 @@ var Loading_missile = func(name)
     elsif(name == "Aim-9m")
     {
         # AIM-9m :short-range A2A,IR seeker,
-        flareres = 0.85; 
+        flareres = 0.95; 
 	typeid = 69; # This is not a Aim-9m this is an Aim-9x with way less homing capabilites. So you can evade it with out the need for flares. just pull a manuver so that its 30deg away from the seeker and there you go   
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9M-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9M.xml";
@@ -235,8 +235,40 @@ var Loading_missile = func(name)
         chute = 0;
     }
 
+  elsif(name == "TB-01")
+    {
+        # This is a dangerous experimental Nasal Deployed bomb
+        # see TB01.nas for what happens when this bomb hits the ground!
+        # Debug Weapon
 
+        flareres = 1;
+	    typeid = 18;
+        address = "Aircraft/F-22/Models/Stores/Missiles/TB01/TB01.xml"; 
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/TB01/TB01.xml"; # for now
+        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";
+        maxdetectionrngnm = 30;                       # 
+        
+        # This is a free drop bomb.
 
+        fovdeg = 0;                                 # seeker optical FOV
+        detectionfovdeg = 0;                        # Search pattern diameter (rosette scan)
+        trackmaxdeg = 0;                            # Seeker max total angular rotation
+        maxg = 2;                                    # 
+        thrustlbs = 0.00;                             # 
+        thrustdurationsec = 100;                        #
+        weightlaunchlbs = 186;
+        weightwarheadlbs = 1000;
+        dragcoeff = 0.05;                              # guess; original 0.05
+        dragarea = 0.075;                             # sq ft
+        maxExplosionRange = 50;                       
+        maxspeed = 5;                                 # In Mach
+        life = 80000000000000;
+        fox = "Fox 3";    
+        rail = "false";
+        cruisealt = 0;
+        sdspeed = 0; # Weapon self distructs if its slower than mach  0
+        chute = 0;
+    }
 
     elsif(name == "eject")   # Used for the ejction seat. Not a missile so we call fox 1 and leave it
     {

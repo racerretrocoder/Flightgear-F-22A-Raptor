@@ -1551,7 +1551,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
     <function name="fcs/light">
-      <description>g force</description>
+      <description>light</description>
           <table>
     <independentVar lookup="row">/controls/lighting/nav-lights</independentVar>
     <tableData>
@@ -1562,7 +1562,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </table>
     </function>
 
-  
+ 
+
 <channel name="Vectors">
    <aerosurface_scale name="Thrust Vector Control">
       <input>fcs/vector-main-control</input>
@@ -1619,7 +1620,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <output>fcs/tv-pos-rad</output>
    </kinematic>
 </channel>
-
+  
 <!--
     <channel name="Hook">
 
@@ -1788,6 +1789,95 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </channel>
 
 
+   <function name="fcs/abani1">
+      <description>engine0ab</description>
+          <table>
+    <independentVar lookup="row">/engines/engine[0]/augmentation</independentVar>
+      <independentVar lookup="column">/engines/engine[0]/n1</independentVar>
+    <tableData>
+           0     99.9    100
+     0     0      0       1  
+     1     0      0       1
+
+    </tableData>
+   </table>
+    </function>
+
+      <function name="fcs/abani2">
+      <description>engine1ab</description>
+          <table>
+    <independentVar lookup="row">/engines/engine[0]/augmentation</independentVar>
+      <independentVar lookup="column">/engines/engine[1]/n1</independentVar>
+    <tableData>
+           0     99.9    100
+     0     0      0       1  
+     1     0      0       1
+
+    </tableData>
+   </table>
+    </function>
+
+
+  <channel name="Throttle Control">
+
+    <scheduled_gain name="Throttle1">
+      <input>fcs/throttle-cmd-norm[0]</input>
+        <table>
+          <independentVar>fcs/throttle-pos-norm[0]</independentVar>
+          <tableData>
+            0.00    0.0
+            0.78    1.0
+            1.00    2.0
+          </tableData>
+        </table>
+      <output>fcs/throttle-pos-norm[0]</output>
+    </scheduled_gain>
+
+        <scheduled_gain name="Throttle2">
+      <input>fcs/throttle-cmd-norm[1]</input>
+        <table>
+          <independentVar>fcs/throttle-pos-norm[1]</independentVar>
+          <tableData>
+            0.00    0.0
+            0.78    1.0
+            1.00    2.0
+          </tableData>
+        </table>
+      <output>fcs/throttle-pos-norm[1]</output>
+    </scheduled_gain>
+
+    
+<!--Burner-->
+   <kinematic name="ab1">
+     <input>fcs/abani1</input>
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>      0 </time>
+       </setting>
+       <setting>
+          <position>  1 </position>
+          <time>      1 </time>
+       </setting>
+     </traverse>
+     <output>fcs/ab1</output>
+   </kinematic>
+
+      <kinematic name="ab1">
+     <input>fcs/abani2</input>
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>      0 </time>
+       </setting>
+       <setting>
+          <position>  1 </position>
+          <time>      1 </time>
+       </setting>
+     </traverse>
+     <output>fcs/ab2</output>
+   </kinematic>
+           </channel>
 
  </flight_control>
 

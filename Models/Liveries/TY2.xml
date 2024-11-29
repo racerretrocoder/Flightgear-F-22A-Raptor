@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+
+
+
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">325th FW #018</name>     
+      <texture-AKfuselage>Liveries/maps/body.dds</texture-AKfuselage>
+ <texture-sides>Liveries/elevs.png</texture-sides>
+ <texture-sideL>Liveries/TY2/SIDESL.DDS</texture-sideL>
+  <texture-sideR>Liveries/TY2/SIDESR.DDS</texture-sideR>
+ <texture-left-elev-top>Liveries/TY2/leftelev.dds</texture-left-elev-top>
+ <texture-right-elev-top>Liveries/TY2/rightelev.dds</texture-right-elev-top>
+      <texture-tailR>Liveries/TY2/TY-TAIL-R.png</texture-tailR>
+      <texture-tailL>Liveries/TY2/TY-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/TY2/wing.dds</texture-wing>
+  <texture-wing-right>Liveries/TY2/wingright.dds</texture-wing-right>
+ <texture-control>Liveries/wing.png</texture-control>
+  <texture-nose>Liveries/TY2/attemptnose.dds</texture-nose>
+
+
+  <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
+
+
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>

@@ -296,8 +296,8 @@ Theres soo many! Lol!
   <float n="29" type="double" alias="/fdm/jsbsim/fcs/hook-pos-norm"/>
  <float n="30" type="double" alias="/velocities/mach"/><!--For the MP Sonic BOOM, Vapor, and more-->
 
- <float n="31" type="double" alias="/engines/engine[0]/nozzle-pos-norm"/>	
- <float n="32" type="double" alias="/engines/engine[1]/nozzle-pos-norm"/>	
+ <float n="31" type="double" alias="/fdm/jsbsim/fcs/ab1"/>	
+ <float n="32" type="double" alias="/fdm/jsbsim/fcs/ab2"/>	
 
 
 
@@ -1816,9 +1816,11 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	<engines>
 		<engine n="0">
 			<running>false</running>
+			<augmentation type="int">0</augmentation>	
 		</engine>
 		<engine n="1">
 			<running>false</running>
+		<augmentation type="int">0</augmentation>
 		</engine>
 	</engines>
 	
@@ -2524,6 +2526,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		<misc>
 			<file>Aircraft/F-22/Nasal/misc.nas</file>
 		</misc>
+
+		        <TB01>
+          <file>Aircraft/F-22/Nasal/weapons/tb01.nas</file> <!--System for a Debug Bomb-->
+        </TB01>
 
 
 <!--MFD's Lowest if i want to implement other name space code with them-->
