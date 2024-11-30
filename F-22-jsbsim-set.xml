@@ -2197,6 +2197,23 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	 </input>
 
 	<instrumentation>
+
+		<frontcontrols>
+			<digit1 type="int">0</digit1>
+			<digit2 type="int">0</digit2>
+			<digit3 type="int">0</digit3>
+			<digit4 type="int">0</digit4>
+			<digit5 type="int">0</digit5>
+			<digit6 type="int">0</digit6>
+			<all type="double">000.000</all>
+			<c1a type="double">000.000</c1a>
+			<c1b type="double">000.000</c1b>
+			<c2a type="double">000.000</c2a>
+			<c2b type="double">000.000</c2b>
+		</frontcontrols>
+
+
+
 		<tacan>
 			<switch-position type="int">1</switch-position>
 		</tacan>
@@ -2542,6 +2559,13 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <MFD3>
 <file>Aircraft/F-22/Nasal/MFD3.nas</file>
 </MFD3>
+
+<!--Front Radio Controls-->
+
+
+		<fc>
+			<file>Aircraft/F-22/Nasal/RAD.nas</file>
+		</fc>
 	</nasal>
 
 </PropertyList>

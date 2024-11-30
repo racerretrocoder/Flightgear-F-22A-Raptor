@@ -1701,7 +1701,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        </setting>
        <setting>
           <position>  1 </position>
-          <time>      0.3 </time>
+          <time>      0.1 </time>
        </setting>
      </traverse>
      <output>fcs/gundoor</output>

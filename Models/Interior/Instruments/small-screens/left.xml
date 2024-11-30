@@ -7,11 +7,10 @@
  <!--  Front HUD computer -->
    <animation>
   <type>material</type>
-  <object-name>U</object-name>
-   <object-name>left-arrow</object-name>
-    <object-name>right-arrow</object-name>
-    
-  
+
+    <object-name>COMM</object-name>
+        <object-name>dash</object-name>
+          <object-name>HDG</object-name>
   <ambient>
     <red>0.0</red>
     <green>1.0</green>
@@ -23,9 +22,9 @@
     <blue>0.0</blue>
   </diffuse>
   <emission>
-    <red>0.3</red>
-    <green>0.8</green>
-    <blue>0.3</blue>
+    <red>1</red>
+    <green>1</green>
+    <blue>1</blue>
   </emission> 
  </animation>
  
@@ -39,5 +38,463 @@
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
- 
+
+<!--Front Integrated Keypad System-->
+
+<!--it took so long to get all these points!-->
+
+
+<!--Y is Left to right
+X is In and Out 
+Z is Up and down-->
+
+
+<!--Left side is y = 0.016-->
+<!--Right side is <y-m>0.096</y-m>-->
+
+<!--1st spot
+
+				<z-m>0.907</z-m>
+-->
+
+
+<!--2nd Spot
+
+				<z-m>0.885</z-m>
+-->
+
+
+<!--3rd spot
+Z = 0.865
+X = -4.6398
+  -->
+
+<!--4th Spot
+
+				<x-m>-4.6398</x-m>
+					<y-m>0.016</y-m>
+				<z-m>0.843</z-m>
+-->
+
+<!--5th Spot
+
+				<x-m>-4.6398</x-m>
+					<y-m>0.016</y-m>
+				<z-m>0.823</z-m>
+        
+        -->
+
+
+
+
+<!--AP-->
+
+ 	 <text>
+  <name>HDG</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.016</y-m>
+				<z-m>0.865</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">text-value</type>
+  <property>autopilot/locks/heading</property>
+   <format type="string">%s</format>
+
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ 	 <text>
+  <name>HDG</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.016</y-m>
+				<z-m>0.843</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">text-value</type>
+  <property>autopilot/locks/altitude</property>
+   <format type="string">%s</format>
+
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+   	 <text>
+  <name>HDG</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.096</y-m>
+				<z-m>0.843</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">text-value</type>
+  <property>autopilot/settings/vertical-speed-fpm</property>
+   <format type="string">%s</format>
+
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+  	 <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.066</y-m>
+				<z-m>0.843</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">AP V/S (ft):</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  	 <text>
+  <name>HDG</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.016</y-m>
+				<z-m>0.823</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">text-value</type>
+  <property>autopilot/locks/speed</property>
+   <format type="string">%s</format>
+
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+   	 <text>
+  <name>HDG</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.096</y-m>
+				<z-m>0.823</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+  <property>autopilot/settings/target-speed-kt</property>
+   <format type="string">%5.0lf</format>
+
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  	 <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.066</y-m>
+				<z-m>0.823</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">AP Speed kt:</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+<!--Constant Text-->
+ 	 <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.016</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">COMM1</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.016</y-m>
+				<z-m>0.885</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">COMM2</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+<!--Comm1 Standby-->
+ <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.089</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.3lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/comm/frequencies/standby-mhz</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ 	 <text>
+  <name>dash</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.079</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">--</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+  <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.05</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.3lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/comm/frequencies/selected-mhz</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ 	 <text>
+  <name>dash</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.079</y-m>
+				<z-m>0.885</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">--</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.05</y-m>
+				<z-m>0.885</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.3lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/comm[1]/frequencies/selected-mhz</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.089</y-m>
+				<z-m>0.885</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.3lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/comm[1]/frequencies/standby-mhz</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ <!--Swap's-->
+
+  <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.119</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Swap</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.119</y-m>
+				<z-m>0.887</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Swap</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+<!--Pre digits-->
+
+ 	 <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>-0.076</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+   <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/frontcontrols/digit1</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  	 <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>-0.073</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/frontcontrols/digit2</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+   	 <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>-0.07</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/frontcontrols/digit3</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+
+
+
+    	 <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>-0.063</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/frontcontrols/digit4</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+    	 <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>-0.060</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/frontcontrols/digit5</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+    	 <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>-0.057</y-m>
+				<z-m>0.907</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/frontcontrols/digit6</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 </PropertyList>
