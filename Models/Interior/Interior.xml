@@ -93,7 +93,29 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
                               <object-name>labBAT</object-name>
                               <object-name>labJFSR</object-name>
 
- 
+                              <!--numpad-->
+<object-name>i1</object-name>
+<object-name>i2</object-name>
+<object-name>i3</object-name>
+<object-name>i4</object-name>
+<object-name>i5</object-name>
+<object-name>i6</object-name>
+<object-name>i7</object-name>
+<object-name>i8</object-name>
+<object-name>i9</object-name>
+<object-name>i0</object-name>
+<object-name>iclr</object-name>
+<object-name>iundo</object-name>
+<object-name>tsend1</object-name>
+<object-name>tsend2</object-name>
+<object-name>tsend3</object-name>
+<object-name>tsend4</object-name>
+<object-name>tsend5</object-name>
+
+<object-name>ALTCANCLE</object-name>
+<object-name>IASCANCLE</object-name>
+<object-name>HDGCANCLE</object-name>
+
     <emission>
       <factor-prop>controls/lighting/instruments-norm</factor-prop>
       <red>   0 </red>
@@ -189,7 +211,7 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
 	</model>
 
 
-	<!-- right -->
+	<!-- right 
 	<model>
      <name>rightsmall</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/radar.xml</path>
@@ -199,7 +221,7 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
 				<z-m>-0.95</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
-	</model>
+	</model>-->
 	<!-- main MFD's -->
 	
 	<model>
@@ -575,7 +597,7 @@ _____/\\\\\\\\\_________________________________________________________________
                 <value>15000</value>
                 <value>20000</value>
                 <value>30000</value>
-                <wrap>false</wrap>
+                <wrap>true</wrap>
             </binding>
         </action>
     </animation>
@@ -3285,6 +3307,292 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
 	</mod-up>
     </action>
 	
+ </animation>
+
+
+
+
+
+
+
+<!--
+
+ICP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+
+
+<!--Numbers-->
+<animation>
+  <type>pick</type>
+   <object-name>i1</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.setnum(1);</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>i2</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.setnum(2);</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>i3</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.setnum(3);</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>i4</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.setnum(4);</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>i5</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.setnum(5);</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>i6</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.setnum(6);</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>i7</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.setnum(7);</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>i8</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.setnum(8);</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>i9</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.setnum(9);</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>i0</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.setnum(0);</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<!--Function buttons-->
+
+<animation>
+  <type>pick</type>
+   <object-name>iclr</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.clearnum();</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>tsend1</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.addtocomm1();</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>tsend2</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.addtocomm2();</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>c1swap</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.swapc1();</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>c2swap</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.swapc2();</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
  </animation>
 
 <!--
