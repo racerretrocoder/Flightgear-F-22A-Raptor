@@ -52,7 +52,7 @@
          <alpha><value> 0.5 </value></alpha>
        </color>
        <size>
-         <value>9</value>
+         <value>50</value>
        </size>
      </start>
 
@@ -64,7 +64,7 @@
          <alpha><value> 0.1 </value></alpha>
        </color>
        <size>
-         <value>15</value>
+         <value>51</value>
        </size>
      </end>
 

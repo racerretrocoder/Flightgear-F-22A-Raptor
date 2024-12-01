@@ -3311,10 +3311,57 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
 
 
 
+<animation>
+  <type>pick</type>
+   <object-name>t2</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.aamode();</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
 
 
+<animation>
+  <type>pick</type>
+   <object-name>t3</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.agmode();</script>
+    </binding>
+  <mod-up>
 
+	</mod-up>
+    </action>	
+ </animation>
 
+<animation>
+  <type>pick</type>
+   <object-name>t1</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.nav();</script>
+    </binding>
+  <mod-up>
+
+	</mod-up>
+    </action>	
+ </animation>
 <!--
 
 ICP

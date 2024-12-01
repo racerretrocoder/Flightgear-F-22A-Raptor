@@ -196,3 +196,30 @@ setprop("instrumentation/comm[1]/frequencies/selected-mhz", stdby);
 setprop("instrumentation/comm[1]/frequencies/standby-mhz", active);
 
 }
+
+# system modes
+
+
+var aamode = func{
+
+setprop("systems/MFD/modemfdc", 2);
+setprop("systems/MFD/modemfdl", 1);
+setprop("systems/MFD/modemfdr", 5);
+
+}
+
+var agmode = func{
+
+setprop("systems/MFD/modemfdc", 5);
+setprop("systems/MFD/modemfdl", 1);
+setprop("systems/MFD/modemfdr", 4);
+
+}
+
+
+var nav = func{
+setprop("systems/MFD/modemfdc", 4);
+setprop("systems/MFD/modemfdl", 0);
+setprop("systems/MFD/modemfdr", 5);
+
+}

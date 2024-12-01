@@ -20,8 +20,8 @@
   <bleed>           0.03</bleed>
   <n1spinup>        0.5 </n1spinup>
   <n2spinup>        1.0 </n2spinup>
-  <n1startrate>     1.2 </n1startrate>
-  <n2startrate>     1.6 </n2startrate>
+  <n1startrate>     2.2 </n1startrate>
+  <n2startrate>     2.6 </n2startrate>
   <idlen1>         30.0 </idlen1>
   <idlen2>         60.0 </idlen2>
   <maxn1>         100.0 </maxn1>
