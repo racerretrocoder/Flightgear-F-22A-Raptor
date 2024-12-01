@@ -2,7 +2,7 @@
 For flightgear!
 ![image](/pic.png)
 
-To install: Download useing the green code button and select ZIP
+To install: Download useing the green code button and select ZIP. or just click here! https://github.com/racerretrocoder/Flightgear-F-22A-Raptor/archive/refs/heads/master.zip
 once its done, Open the zip, Rename the folder inside (flightgear-f-22a-raptor-master) to F-22
 Then drag that folder to where you keep your installed aircraft's
 
