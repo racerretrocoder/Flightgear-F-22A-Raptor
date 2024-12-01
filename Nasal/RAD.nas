@@ -168,6 +168,57 @@ digit6 = nil;
 }
 
 
+# Add to datalink
+
+var addtodlink = func{
+
+
+#digit1 = 1;
+#digit2 = 2;
+#digit3 = 3;
+#digit4 = 6;
+#digit5 = 5;
+#digit6 = 4;
+
+# nil Detection
+if (digit1 == nil) {
+digit1 = 0;
+} elsif (digit2 == nil) {
+digit2 = 0;
+} elsif (digit3 == nil) {
+digit3 = 0;
+} elsif (digit4 == nil) {
+digit4 = 0;
+}
+
+var num1 = digit1 * 1000;
+var num2 = digit2 * 100;
+var num3 = digit3 * 10;
+var num4 = digit4 * 1;
+
+var numfinal = num1 + num2 + num3 + num4;
+print(numfinal);
+
+setprop("instrumentation/datalink/channel", numfinal);
+setprop("instrumentation/frontcontrols/digit1", 0);
+setprop("instrumentation/frontcontrols/digit2", 0);
+setprop("instrumentation/frontcontrols/digit3", 0);
+setprop("instrumentation/frontcontrols/digit4", 0);
+
+
+# Reset the system
+
+digit1 = nil;
+digit2 = nil;
+digit3 = nil;
+digit4 = nil;
+digit5 = nil;
+digit6 = nil;
+
+}
+
+
+
 # Swap functions
 
 

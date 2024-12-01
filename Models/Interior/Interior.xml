@@ -597,7 +597,7 @@ _____/\\\\\\\\\_________________________________________________________________
                 <value>15000</value>
                 <value>20000</value>
                 <value>30000</value>
-                <wrap>true</wrap>
+                <wrap>false</wrap>
             </binding>
         </action>
     </animation>
@@ -3641,7 +3641,22 @@ ICP
 	</mod-up>
     </action>	
  </animation>
+<animation>
+  <type>pick</type>
+   <object-name>dlnkupdat</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+        <command>nasal</command>
+        <script>fc.addtodlink();</script>
+    </binding>
+  <mod-up>
 
+	</mod-up>
+    </action>	
+ </animation>
 <!--
 
 

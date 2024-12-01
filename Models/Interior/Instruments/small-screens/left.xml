@@ -349,7 +349,41 @@ X = -4.6398
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
+<!--Datalink-->
 
+
+ <text>
+  <name>COMM</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.089</y-m>
+				<z-m>0.865</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0lf</format>
+  <truncate type="bool">false</truncate>
+  <property>instrumentation/datalink/channel</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+  	 <text>
+  <name>dash</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+				<x-m>-4.6398</x-m>
+					<y-m>0.069</y-m>
+				<z-m>0.865</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string"> Datalink</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 
  <!--Swap's-->
 
