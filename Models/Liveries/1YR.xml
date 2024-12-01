@@ -12,8 +12,8 @@
       <name type="string">1 Year of Development Special</name>     
       <texture-AKfuselage>Liveries/maps/body.dds</texture-AKfuselage>
  <texture-sides>Liveries/elevs.png</texture-sides>
- <texture-sideL>Liveries/1YR/SIDESL.DDS</texture-sideL>
-  <texture-sideR>Liveries/1YR/SIDESR.DDS</texture-sideR>
+ <texture-sideL>Liveries/1YR/SIDEL.DDS</texture-sideL>
+  <texture-sideR>Liveries/1YR/SIDER.DDS</texture-sideR>
  <texture-left-elev-top>Liveries/1YR/leftelev.dds</texture-left-elev-top>
  <texture-right-elev-top>Liveries/1YR/rightelev.dds</texture-right-elev-top>
       <texture-tailR>Liveries/1YR/1YR-TAIL-R.png</texture-tailR>

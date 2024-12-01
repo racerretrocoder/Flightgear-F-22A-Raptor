@@ -17,7 +17,7 @@ var OurHdg         = props.globals.getNode("orientation/heading-deg");
 var OurRoll        = props.globals.getNode("orientation/roll-deg");
 var OurPitch       = props.globals.getNode("orientation/pitch-deg");
 
-
+var fox2_unique_id = -100;
 var MPMessaging    = props.globals.getNode("/payload/armament/msg", 1);
 MPMessaging.setBoolValue(0); # this thing here set the Damage to off on spawn!
 
@@ -100,7 +100,7 @@ var MISSILE = {
         m.cruisealt         = getprop("controls/armament/missile/cruise_alt");
         m.flareres          = getprop("controls/armament/missile/flareres");
         m.last_coord        = nil;
-        
+        m.unique_id         = -100;
         # Find the next index for "models/model" and create property node.
         # Find the next index for "ai/models/missile" and create property node.
         # (M. Franz, see Nasal/tanker.nas)
@@ -373,6 +373,13 @@ var MISSILE = {
         #settimer(func(){ HudReticleDeg.setValue(0) }, 2);
         #interpolate(HudReticleDev, 0, 2);
         
+        # set up Missile uni ID
+
+        fox2_unique_id += 1;
+		if (fox2_unique_id >100) fox2_unique_id = -100;
+        me.unique_id = fox2_unique_id;
+
+
         me.StartTime = props.globals.getNode("/sim/time/elapsed-sec", 1).getValue();
    var target = radar.GetTarget();
         if (target == nil) {
@@ -391,7 +398,7 @@ var MISSILE = {
       {
 
             damage.damageLog.push(phrase);
-            #me.sendinflight(); update() dose this now
+
 
 
 
@@ -407,7 +414,7 @@ var MISSILE = {
 
 
 checkflares: func(){
-
+var enabled = 0;
 # Updated Version 2
 # First lets avoid having a nil in our variable.
 
@@ -425,31 +432,49 @@ misc.search(bandit);
 
 
 if (getprop("payload/armament/flares")) { # Flares are being realeased
+# What kind of missile are we?
 
-# RNG
+if (me.fox == "Fox 2") {
+    if (me.direct_dist_m < 6000) {
+        enabled = 1;
+    }
+} else {
+        if (me.direct_dist_m < 12874) {
+        enabled = 1;
+    }
+}
+
 
 var num2 = rand() < (1-me.flareres);
+
 print("Flare resistance number:");
 print(num2);
-           screen.log.write("DEBUG: Flares Detected");
+screen.log.write("DEBUG: Flares Detected");
+
+
+if (enabled == 1) {
+
+screen.log.write("DEBUG: missile in range of flares");
+# Where in range. see whats up
 if (num2 == 1) {
     print("Missile saw the flare!");
     me.reset_steering();
-    me.free = 1; # missile off the target.
+    me.free = 1;
     print("Missile gave up and decided to miss.");
 
             var phrase = me.NameOfMissile ~ " Report : Fooled by enemy's Countermessures and missed.";
             if(MPMessaging.getValue() == 1)
             {
                 damage.damageLog.push(phrase);
-                setprop("/sim/messages/atc", "Missile Missed");
+                setprop("/sim/messages/atc", "Missile missed due to flares");
             }
             else
             {
                 setprop("/sim/messages/atc", phrase);
             }
         }
-    } else {
+    }
+} else {
         print("Flare detect: There are no deployed flares");
     }
 
@@ -464,18 +489,21 @@ if (num2 == 1) {
 },
 
 
+                #nil, -1, -1, 0,   tID,  "delete()"
+				#lat,lon,alt,rdar,typeID,typ,unique,thrustOn,callsign, heading, pitch, speed, is_deleted=0
+				#appendTimer(AIM.timerQueue, [AIM, AIM.notifyInFlight, [nil, -1, -1, 0, 0, me.typeID, "delete()", me.unique_id, 0,"", 0, 0, 0, 1], -1]);
 
-
-
-#  me.sendinflight(msllat,msllon,mslalt,hdg_deg);
-sendinflight: func(lat,lon,alt,hdg,ptch,speed){
+sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
     #Send notify in flight
     if(getprop("payload/armament/msg")){
+
     if(me.free == 1) {
         print("Missile missed. not sending alert"); 
     } else {
+print(unique);
 
-
+    if(tid == 0) { # where not given a typeID
+ 
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
@@ -484,14 +512,17 @@ sendinflight: func(lat,lon,alt,hdg,ptch,speed){
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
                         if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
                         if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;}
-
-var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
+    }  else {
+        typeID = tid;
+    }
+var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
         var altM = alt*FT2M;
-        msg.Position.set_latlon(lat,lon,alt);
+        msg.Position.set_latlon(lat,lon,altM);
         msg.Flags = 1;#bit # Radar is there
         msg.Flags = bits.set(msg.Flags, 1);#bit #Its not semiactive
-        msg.IsDistinct = 1; # The missile is "Not" dead
+        msg.IsDistinct = !deleted; # The missile is "Not" dead
         var target = radar.GetTarget();              # Todo. set that to a property. then leave it be
+                if (call == 1) {
         if (target == nil) {
             var callsign = "none";
 
@@ -506,8 +537,12 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
             var callsign = me.Tgt.get_Callsign(); 
 
         }
+    } else {
+            var callsign = ""; 
+
+        }
         msg.RemoteCallsign = callsign;
-        msg.UniqueIndex = ""~typeID~typeID;
+        msg.UniqueIndex = ""~typeID~unique;
         msg.Pitch = ptch;
         msg.Heading = hdg;
         msg.u_fps = speed;
@@ -544,22 +579,22 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
             print("railed");
             if(me.life_time > 0)
             {
-                f_lbs = me.force_lbs * 0.4;
+                f_lbs = me.force_lbs * 0.3;
             }
             if(me.life_time > 1)
             {
-                f_lbs = me.force_lbs * 0.4;
+                f_lbs = me.force_lbs * 0.3;
             }
         }
          else{
             f_lbs = 0;
             if(me.life_time > 0)
             {
-                f_lbs = me.force_lbs * 0.4;
+                f_lbs = me.force_lbs * 0.3;
             }
             if(me.life_time > 1)
             {
-                f_lbs = me.force_lbs * 0.4;
+                f_lbs = me.force_lbs * 0.3;
             }
 
         }
@@ -738,7 +773,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
         var mslptch = getprop("controls/armament/pos/ptch");
         var mslspeed = getprop("controls/armament/pos/speed");
 
-        me.sendinflight(msllat,msllon,mslalt,hdg_deg,mslptch,mslspeed); # Theres a missile in teh air guys!!1!1!
+        me.sendinflight(1,msllat,msllon,mslalt,hdg_deg,mslptch,mslspeed,me.unique_id,0,0); # Theres a missile in teh air guys!!1!1!
 
 
         # Velocities Set
@@ -764,6 +799,18 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                 settimer(func{me.del();}, 4);
                 print("booom he ded like a brick");
                     setprop("payload/armament/flares", 0);
+                    # Delete the missile over damage
+                    #sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
+                    var typeID = 0;
+                        if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
+                        if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
+                        if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
+                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  # Missile definitions   
+                        if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
+                        if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
+                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
+                        if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;}
+                    me.sendinflight(0,0,0,0,0,0,0,me.unique_id,1,typeID);
                 return;
             }
             if(me.life_time > 3)
@@ -1131,7 +1178,7 @@ var semiactive = 0;
                 #print(" Dist=", y3, "AC =", AC, " AB=", AB, " BC=", BC);
             }
             #print(me.last_coord.alt());
-            #print("cur_dir_dist_m = ", cur_dir_dist_m, " me.direct_dist_m = ", me.direct_dist_m);
+            print("cur_dir_dist_m = ", cur_dir_dist_m, " me.direct_dist_m = ", me.direct_dist_m);
             
             if(me.tpsApproch == 0)
             {

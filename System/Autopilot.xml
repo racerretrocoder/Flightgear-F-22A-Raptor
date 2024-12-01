@@ -26,8 +26,8 @@
    <property>/autopilot/internal/bank-angle-limit-deg</property>
   </output>
   <gain>0.15</gain>
-  <u_min>20.0</u_min>
-  <u_max>45.0</u_max>
+  <u_min>35.0</u_min>
+  <u_max>75.0</u_max>
  </filter>
  
  <filter>
@@ -217,7 +217,7 @@
    <value>0</value>
   </reference>
     <output>
-	<property>/controls/flight/aileron-trim</property>
+	<property>/controls/flight/aileron</property>
 	</output>
     <config>
       <Kp>0.0025</Kp>        <!-- proportional gain -->
@@ -280,7 +280,7 @@
       <scale>0.01667</scale>
     </reference>
     <output>
-      <prop>/controls/flight/elevator-trim</prop>
+      <prop>/controls/flight/elevator</prop>
     </output>
     <config>
       <Kp>-0.0025</Kp>      <!-- proportional gain -->
@@ -377,7 +377,7 @@
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </reference>
     <output>
-      <prop>/controls/flight/elevator-trim</prop>
+      <prop>/controls/flight/elevator</prop>
     </output>
     <config>
       <Kp>-0.05</Kp>      <!-- proportional gain -->
@@ -420,7 +420,7 @@
     </config>
   </pi-simple-controller>
 
-  <!-- Stage #2 drives the elevator-trim to achieve the desired climb rate. -->
+  <!-- Stage #2 drives the elevator to achieve the desired climb rate. -->
   <pid-controller>
     <name>Altitude Hold (Altimeter based) Stage 2</name>
     <debug>false</debug>
@@ -435,7 +435,7 @@
       <prop>/autopilot/internal/target-climb-rate-fps</prop>
     </reference>
     <output>
-      <prop>/controls/flight/elevator-trim</prop>
+      <prop>/controls/flight/elevator</prop>
     </output>
     <config>
 	    <Kp>-0.0025</Kp>      <!-- proportional gain -0.01 -->

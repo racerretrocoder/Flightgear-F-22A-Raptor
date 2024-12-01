@@ -3345,6 +3345,42 @@ need a better idea for this-->
   </condition>
 </chaffflare>
 
+
+    <comm>
+      <name>mikeclick</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/mike.wav</path>
+      <condition>
+        <and>
+        <equals>
+          <property>/controls/radios/comm-ptt</property>
+              <value>0</value>
+          </equals> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/sim/current-view/internal</property>
+        </and>
+      </condition>
+
+       <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+   </comm>
+    <comm>
+      <name>mikeclick2</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/mike.wav</path>
+      <condition>
+        <and>
+        <equals>
+          <property>/controls/radios/comm-ptt</property>
+              <value>0</value>
+          </equals> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/sim/current-view/internal</property>
+        </and>
+      </condition>
+
+       <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+   </comm>
+
   <jfsclick>
    <name>Jfsclick</name>
    <mode>once</mode>

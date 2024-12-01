@@ -283,7 +283,7 @@ Theres soo many! Lol!
  <float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor! -->
  <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
-
+7
 
   <float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
  <float n="21" type="double" alias="/fdm/jsbsim/fcs/Elev-pos-norm-limit-sum-main"/>
@@ -324,6 +324,7 @@ Theres soo many! Lol!
 
 <!--Missiles in bays on MP-->
 <string n="6" type="string"></string><!-- string 6 used by radar lock RWR warning -->
+<string n="7" type="string"></string><!-- string 7 used by datalink -->
 <string n="10" type="string" alias="/sim/weight/selected"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for GBU39 4 for extra 5 for extra-->
 <string n="11" type="string" alias="/sim/weight[1]/selected"/>
 <string n="12" type="string" alias="/sim/weight[2]/selected"/>
@@ -436,13 +437,14 @@ Theres soo many! Lol!
 				<warnings>
 					<master-caution type="bool">0</master-caution>
 				</warnings>
-				<datalink>
-				
-				<power_prop>12.1</power_prop>
-
-				<channel_prop>0000</channel_prop>				
-				</datalink>
-
+        <datalink>
+            <data type="int">0</data>
+            <power type="bool">true</power>
+            <channel type="int">1212</channel>
+            <power_prop type="string">/instrumentation/datalink/power</power_prop>
+            <channel_prop type="string">instrumentation/datalink/channel</channel_prop>
+            <receive_period type="double">1</receive_period>
+        </datalink>
 <!-- Radar Visibility Calculator Datas -->
 
 <!-- Jettoo (glazmax) and xiii (Alexis Bory) -->
@@ -2211,8 +2213,27 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<c2a type="double">000.000</c2a>
 			<c2b type="double">000.000</c2b>
 		</frontcontrols>
-
-
+        <comm n="0">
+            <operable type="bool">1</operable>
+            <volume type="double">1</volume>
+            <frequencies>
+                <selected-mhz type="double">385.40</selected-mhz>
+                <standby-mhz type="double">291.73</standby-mhz>
+         <!--       <current-mhz-digit-1 type="int">0</current-mhz-digit-1>
+                <current-mhz-digit-2 type="int">0</current-mhz-digit-2>
+                <current-mhz-digit-3 type="int">0</current-mhz-digit-3>
+                <current-mhz-digit-4 type="int">0</current-mhz-digit-4>
+                <current-mhz-digit-5 type="int">0</current-mhz-digit-5>-->
+            </frequencies>
+        </comm>
+        <comm n="1">
+	            <operable type="bool">1</operable>
+            <volume type="double">1</volume>
+            <frequencies>
+                <selected-mhz type="double">121.80</selected-mhz>
+                <standby-mhz type="double">132.55</standby-mhz>
+            </frequencies>
+        </comm>
 
 		<tacan>
 			<switch-position type="int">1</switch-position>
@@ -2224,11 +2245,14 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			</frequencies>
 		</nav>
 		
-		<datalink>
-<power-prop type="int">90</power-prop>
-<channel-prop type="int">2924</channel-prop>
-</datalink>
-
+        <datalink>
+            <data type="int">0</data>
+            <power type="bool">true</power>
+            <channel type="int">1212</channel>
+            <power_prop type="string">/instrumentation/datalink/power</power_prop>
+            <channel_prop type="string">instrumentation/datalink/channel</channel_prop>
+            <receive_period type="double">1</receive_period>
+        </datalink>
  
  
  
