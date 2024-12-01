@@ -1,90 +1,45 @@
-# F-22 Raptor for FlightGear
-
+# Lockheed Martin F-22A Raptor
+For flightgear!
 ![image](/pic.png)
-Shoot down mirages and flankers with this Stealthy F-22A!
 
-This is a JSBsim F-22A Equiped with a fly by wire. Working MFDs and more. This jet is still in development!
-Cant stop uploading pictures lol 
-![image](/coolpic.png)
+To install: Download useing the green code button and select ZIP
+once its done, Open the zip, Rename the folder inside (flightgear-f-22a-raptor-master) to F-22
+Then drag that folder to where you keep your installed aircraft's
 
+Bam! You just acheived air supporiority 
 
-# To install 
-Download the zip, open the zip and rename the folder Flightgear-f-22a-raptor-master to F-22 (notice the Capital F)
-Then drag that to 
- 
-Windows: C:\Program Files\FlightGear 2020.3\data\Aircraft  
+How to use the missiles:
 
-Linux:  Put the newly made F-22 folder in usr/share/games/flightgear/aircraft
+# Important keys:
 
-Or if you have a custom aircraft folder put F-22 in there
+l (lower Case L) is chaff and flares. if theres a missile on you. turn around. fly low. gain as much speed as possible. and drop l
+if its a heat seeking missile (aim-9)
+Turn hard in any direction (left or right) and spam l
 
+m switches the current air-to-air missile
+n switches the current air-to-gnd bomb/missile
 
-"Or the directory your installed aircrafts are" --realuapilot
+w switches the master weapon mode. eaither guns or missiles.
+When in missile mode. use n/m to chose what weapon you shoot
 
+e shoots the currently selected weapon, itll shoot the gun when your Guns are selected. 
 
---
-Aircraft help in game shows every single feature in the jet
---
+# Radar stuff:
 
+The FCR on the MFD's is the radar screen
 
+press Shift-R to enable / disable the radar.
 
-This model is a heavily edited version of the F-22 from the FGUK Hangar.
+r changes the radars range.
+y locks between the currently sighted targets. if you see a target press y to select it. 
 
-Missile status: They track and shoot just fine. Damage over multiplayer works too, but the target recives no missile alert. and i dont know if there affected by chaff/flare
+Once your selected. Drop a missile and the missile will home to its target. Same for the bombs!
 
-MK83 JDAMs are on my todo list...
+# known bugs:
+the landing gear acts funny. in general. 
+alot more. that are not on my mind rn. lol
 
+# Our Development Discord Server is live!
+100% non toxic gurranty! Lol
+https://discord.gg/Q3tXXqQsdJ
 
-# Mainly Edited by:
-<<<<<<<
- Phoenix, Silver-Snail, Developer0607
-The 3 legendary coders!
-
-======= Callsigns on MP
-Phoenix (MPcallsign: Phoenix) 
-Silver-Snail (MPcallsign: Snail), (tho he prefers to fly fast)
- Developer0607 (MPcallsign: Ghost)
-
- FDM: Phoenix. Yep its All me!! Kinda crazy that im soloing a really big task :D, its fun. Aeromatic v9 (or the newest version, see f-22-jsbsim.xml for fdm)
-
- Interior: Phoenix, Silver-snail
-
-
- Ext. textures: Phoenix, Fox3studios
-
-
- Damage, Missile, and radar implentation:
-Developer0607, Phoenix
-
-
-
-Test Pilots: Phoenix, Silver-snail, Epsilon, Realuapilot, Zoid, Fox3studios, Pigensworth, and more! Thank you all
-
-Support: Phoenix, Developer0607, Silver-snail, and test pilots             
-
-If you have suggestions or (nice) comments, add a Comment on the latest commit. Ill usually respond within a day. or if im actively coding on this!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-What are you waiting for! Go on and download it! Have fun!
