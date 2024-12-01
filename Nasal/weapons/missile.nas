@@ -431,6 +431,7 @@ if (getprop("payload/armament/flares")) { # Flares are being realeased
 var num2 = rand() < (1-me.flareres);
 print("Flare resistance number:");
 print(num2);
+           screen.log.write("DEBUG: Flares Detected");
 if (num2 == 1) {
     print("Missile saw the flare!");
     me.reset_steering();
@@ -488,7 +489,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
         var altM = alt*FT2M;
         msg.Position.set_latlon(lat,lon,alt);
         msg.Flags = 1;#bit # Radar is there
-        msg.Flags = bits.set(msg.Flags, 0);#bit #Its not semiactive
+        msg.Flags = bits.set(msg.Flags, 1);#bit #Its not semiactive
         msg.IsDistinct = 1; # The missile is "Not" dead
         var target = radar.GetTarget();              # Todo. set that to a property. then leave it be
         if (target == nil) {
@@ -541,24 +542,24 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", 78, 0?damage.DE
         var f_lbs = me.force_lbs;
         if(getprop("controls/armament/missile/rail") == "true"){
             print("railed");
+            if(me.life_time > 0)
+            {
+                f_lbs = me.force_lbs * 0.4;
+            }
             if(me.life_time > 1)
             {
-                f_lbs = me.force_lbs;
-            }
-            if(me.life_time > 3)
-            {
-                f_lbs = me.force_lbs * 0.3;
+                f_lbs = me.force_lbs * 0.4;
             }
         }
          else{
             f_lbs = 0;
-            if(me.life_time > 0.5)
+            if(me.life_time > 0)
             {
-                f_lbs = me.force_lbs;
+                f_lbs = me.force_lbs * 0.4;
             }
-            if(me.life_time > 0.6)
+            if(me.life_time > 1)
             {
-                f_lbs = me.force_lbs * 0.3;
+                f_lbs = me.force_lbs * 0.4;
             }
 
         }
