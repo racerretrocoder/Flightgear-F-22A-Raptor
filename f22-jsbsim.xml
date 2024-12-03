@@ -1707,7 +1707,20 @@ The Force that pushes the aircraft for increased manuverability should be lowere
      <output>fcs/gundoor</output>
    </kinematic>
 
-
+   <kinematic name="flaredoor">
+     <input>/controls/CMS/flaresound</input>
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>      0 </time>
+       </setting>
+       <setting>
+          <position>  1 </position>
+          <time>      0.23 </time>
+       </setting>
+     </traverse>
+     <output>fcs/flaredoor</output>
+   </kinematic>
 
    <kinematic name="missile eff">
      <input>/controls/armament/missile-trigger</input>

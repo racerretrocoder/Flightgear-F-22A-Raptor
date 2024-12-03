@@ -157,6 +157,7 @@ var missile_sfx = func {
 settimer(missile_sfx, 2); # runs myFunc after 2 seconds
 
 var flares = func{
+  flare();
 	var flarerand = rand();
 props.globals.getNode("/rotors/main/blade[3]/flap-deg",1).setValue(flarerand);
 props.globals.getNode("/rotors/main/blade[3]/position-deg",1).setValue(flarerand);
@@ -197,7 +198,7 @@ var flare = func{
 print("setting...");
   setprop("controls/CMS/flaresound", 1);
       print("set to one");
-
+      Flare_timer.start();
 }
 
 var flarestop = func{
@@ -391,8 +392,8 @@ var jitter = func{
 
 locktgt_timer = maketimer(0.1, tgtlock);
 
-Flare_timer = maketimer(0.9, cha_flare);
-timer_flarecheck = maketimer(1.8, flarecheck);  # To make the target need to keep putting out flares for the number to stay 1 and make missiles detect them
+Flare_timer = maketimer(1.8, cha_flare);
+timer_flarecheck = maketimer(2, flarecheck);  # To make the target need to keep putting out flares for the number to stay 1 and make missiles detect them
 settimer(missile_sfx, 2); # runs myFunc after 2 seconds
 timer_eng = maketimer(0.25, engloop);
 timer_loopTimer = maketimer(0.25, timer_loop);
@@ -413,4 +414,4 @@ setlistener("sim/signals/fdm-initialized", func {
     timer_extpylons.start();
     locktgt_timer.start();
     # loop body
-
+    Flare_timer.start();

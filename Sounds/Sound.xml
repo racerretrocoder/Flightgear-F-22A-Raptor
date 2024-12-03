@@ -3641,7 +3641,7 @@ Counter
             </volume>
 
         </rwr>
-
+<!--
         <rwr>
             <name>chaflare</name>
             <mode>single</mode>
@@ -3651,18 +3651,18 @@ Counter
 
                         <property>controls/CMS/flaresound</property>
                         <value>1</value>
-<!--
+
                                 <greater-than>
                   <property>fdm/jsbsim/fcs/engine-gen-main/</property>
                   <value>0.9</value>
-                </greater-than>-->
+                </greater-than>
             </condition>
             <volume>
                 <property>sim/current-view/internal</property>
                 <factor>1</factor>
             </volume>
 
-        </rwr>
+        </rwr>-->
 
              <rwr>
             <name>eject</name>

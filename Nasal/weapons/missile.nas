@@ -439,7 +439,7 @@ if (me.fox == "Fox 2") {
         enabled = 1;
     }
 } else {
-        if (me.direct_dist_m < 12874) {
+        if (me.direct_dist_m < 6874) {
         enabled = 1;
     }
 }
@@ -497,9 +497,9 @@ sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
     #Send notify in flight
     if(getprop("payload/armament/msg")){
 
-    if(me.free == 1) {
+    if(me.free == 0) {
         print("Missile missed. not sending alert"); 
-    } else {
+    }
 print(unique);
 
     if(tid == 0) { # where not given a typeID
@@ -512,6 +512,7 @@ print(unique);
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
                         if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
                         if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;}
+                        if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;}
     }  else {
         typeID = tid;
     }
@@ -549,7 +550,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
         #msg.isValid();
         notifications.geoBridgedTransmitter.NotifyAll(msg);
         print("Missile alert sent");
-    }
+    
     }
 
 },
@@ -809,6 +810,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                         if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
                         if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
+                        if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;}
                         if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;}
                     me.sendinflight(0,0,0,0,0,0,0,me.unique_id,1,typeID);
                 return;
@@ -1223,7 +1225,7 @@ var semiactive = 0;
                         if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  
                         if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
-                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132      This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
+                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 35;}  # Aim-132      This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
 
 
                         var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
