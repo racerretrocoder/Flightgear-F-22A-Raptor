@@ -1690,8 +1690,97 @@ Use below instead
 	
 	</animation>	
 
+<!--Flare door left-->
 
-
+	<animation>
+		<type>rotate</type>
+		<object-name>lfd</object-name>
+		<property>sim/multiplay/generic/float[35]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>lfd-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>lfd2</object-name>
+		<property>sim/multiplay/generic/float[35]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>lfd2-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+<!--Right-->
+	<animation>
+		<type>rotate</type>
+		<object-name>rfd</object-name>
+		<property>sim/multiplay/generic/float[35]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>rfd-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>rfd2</object-name>
+		<property>sim/multiplay/generic/float[35]</property>
+		<interpolation>
+		<!--	<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry> -->
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>rfd2-axis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
 <!--
 
   <x-m> -0.933 </x-m>

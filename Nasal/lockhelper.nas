@@ -11,6 +11,20 @@
 # time for some copy paste lol this is going to take a while
 # TODO stop forgetting semi colons lmao
 
+
+var mutexLock = thread.newlock();
+
+var clearSingleLock = func () {
+	thread.lock(mutexLock);
+	if (getprop("instrumentation/radar/lock2") == 0) {
+		setprop("sim/multiplay/generic/string[6]", "");
+		datalink.clear_data();
+	} else {
+		setprop("sim/multiplay/generic/string[6]", left(md5(radar.tgts_list[radar.Target_Index].Callsign.getValue()), 4));
+		datalink.send_data({"contacts":[{"callsign":radar.tgts_list[radar.Target_Index].Callsign.getValue(),"iff":0}]});
+	}
+	thread.unlock(mutexLock);
+}
 var checklock = func(){ # The radars database for displaying stuff on a screen.
 var mp0 = getprop("/instrumentation/radar2/targets/multiplayer[0]/display");
 var mp1 = getprop("/instrumentation/radar2/targets/multiplayer[1]/display");
@@ -32,6 +46,7 @@ var mp16 = getprop("/instrumentation/radar2/targets/multiplayer[16]/display");
 var mp17 = getprop("/instrumentation/radar2/targets/multiplayer[17]/display");
 var mp18 = getprop("/instrumentation/radar2/targets/multiplayer[18]/display");
 
+		clearSingleLock();
 
     if(mp0) # instrumentation/radar2/targets/multiplayer[0]/display is true
     {
@@ -149,9 +164,14 @@ var mp18 = getprop("/instrumentation/radar2/targets/multiplayer[18]/display");
 
 else {
  # print("Radar is running, no threats.");
-   setprop("instrumentation/radar/threat-spotted", 0); # Change our status so that nothing is on the screen
-   setprop("instrumentation/radar/lock", 0); # Important. Loose the lock by setting this property to zero.
-                                              #Lock is set to one when you change targets and radar sees someone
+   setprop("/instrumentation/radar/threat-spotted", 0); # Change our status so that nothing is on the screen
+   setprop("/instrumentation/radar/lock", 0); # Important. Loose the lock by setting this property to zero.
+       setprop("/instrumentation/radar/lock2", 0);                                          #Lock is set to one when you change targets and radar sees someone
+
+		clearSingleLock();
+		thread.lock(mutexLock);
+		#semi_active_track = nil;
+		thread.unlock(mutexLock);
    }
 }
 
@@ -160,3 +180,4 @@ else {
 
      finder = maketimer(0.5, func checklock() );
      finder.start();
+

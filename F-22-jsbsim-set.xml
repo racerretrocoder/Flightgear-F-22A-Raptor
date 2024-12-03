@@ -305,7 +305,7 @@ Theres soo many! Lol!
 
 
  <float n="34" type="double" alias="/engines/engine/n1"/>	
-
+ <float n="35" type="double" alias="/fdm/jsbsim/fcs/flaredoor"/>	
 <int n="15" type="int" alias="/f22/ejected"/>
 
 <int n="16" type="int" alias="/controls/state/low_level"/>
@@ -2269,6 +2269,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <minimized type="bool" archive="y">false</minimized>
   <selected type="int">2</selected>
   <lock type="int">0</lock>
+  <lock2 type="int">0</lock2>
   <threat-spotted type="int">0</threat-spotted> <!--for lockhelper.nas-->
       <!-- inicio en pruebas -->
   <enabled type="bool">0</enabled>
