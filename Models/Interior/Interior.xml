@@ -1442,7 +1442,7 @@ New: Refuel in air switch.
     </animation>
 
 
-<!--Lighting panel. Switchs stay off Straight up. Push them PORT (Left when facing the hud) to turn on-->
+<!--Lighting panel. Switchs stay off Straight up. Push them PORT (Left when facing the hud) to turn on--> <!--Is this still the right direction?-->
 
 
 <animation>
@@ -1527,7 +1527,6 @@ New: Refuel in air switch.
     </binding>
        </action>
  </animation>
-<!--Needs to be redone! Theres a new cockpit!-->
 <animation>
         <type>rotate</type>
         <object-name>navlights</object-name>
