@@ -106,7 +106,7 @@ var weapon = getprop("/controls/armament/selected-weapon-digit");
 var closebays = func{
 	            	setprop("/controls/baydoors/AIM120", 0);
 	            	setprop("/controls/baydoors/AIM9X", 1);  # animations are inverted: todo fix the bay door animations
-                print("closed");
+                print("bay doors closed");
                 timer_baydoorsclose.stop();
 }
 
@@ -188,22 +188,22 @@ var checkforext = func {
 
 
 var cha_flare = func{
-print("0");
+#print("0");
   setprop("controls/CMS/flaresound", 0);
 
 }
 
 var flare = func{
       Flare_timer.stop();
-print("setting...");
+print("f22.flare(): setting...");
   setprop("controls/CMS/flaresound", 1);
-      print("set to one");
+      print("f22.flare(): set to one");
       Flare_timer.start();
 }
 
 var flarestop = func{
     Flare_timer.start();
-print("stop");
+print("f22.flarestop(): stop");
 }
 
 
@@ -263,7 +263,7 @@ print("made it this far, lets spawn a chair!");
                 var pylon = getprop("/controls/armament/missile/current-pylon");
                 m2000_load.dropLoad(pylon);
                 print("Should eject!");
-
+  setprop("/sim/weight[9]/selected", "none");
    # viewMissile.view_firing_missile(es);
     #setprop("sim/view[0]/enabled",0); #disabled since it might get saved so user gets no pilotview in next aircraft he flies in.
 #    settimer(func {crash.eject();},3.5);  turn off the jet if its still alive
@@ -301,7 +301,7 @@ setprop("instrumentation/radar2/lockmarker", target1_x / 10);
 setprop("instrumentation/radar2/lockmarker", target1_x / 10);
 setprop("instrumentation/radar/az-field", 161);
 # setprop("instrumentation/radar/grid", 0);
-print(target1_x / 10);
+#print(target1_x / 10);
 setprop("instrumentation/radar2/sweep-speed", 10);
   } elsif (getprop("instrumentation/radar/lock") == 0){
 

@@ -57,7 +57,7 @@ var hud_eye_dist      = HudEyeDist.getValue() ; # distance eye <-> HUD plane.
 var hud_radius        = HudRadius.getValue() ; # used to clamp the nearest target marker.
 var hud_voffset       = 0 ; # used to verticaly offset the clamp border.
 
-var wcs_mode          = "rws" ; # FIXME should handled as properties choice, not harcoded. props.globals.getNode("instrumentation/radar2/wcsmode", 1);
+var wcs_mode          = "rws" ; # Fixed
 var tmp_nearest_rng   = nil;
 var tmp_nearest_u     = nil;
 var nearest_rng       = 0;
@@ -95,7 +95,7 @@ var Radar = {
         m.rangeIndex    = 1; # tab starts at index 1 so here it's 20
         m.RangeSelected = props.globals.getNode("instrumentation/radar/range-selected", 1);
         m.MyCoord       = geo.aircraft_position(); # this is when the radar is on our own aircraft. This part have to change if we want to put the radar on a missile/AI
-        m.radarHeading  = 0;                       # in this we fix the radar position in the nose. We will change it to make rear radar or RWR etc
+        m.radarHeading  = getprop("instrumentation/radar2/direction"); # in seconds;                       # in this we fix the radar position in the nose. We will change it to make rear radar or RWR etc
         m.az_fld        = props.globals.getNode("instrumentation/radar/az-field", 1);
         m.vt_az_fld     = m.az_fld;
         m.fieldazCenter = props.globals.getNode("instrumentation/radar/az-fieldCenter", 1);

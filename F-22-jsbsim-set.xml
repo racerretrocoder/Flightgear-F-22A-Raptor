@@ -1349,6 +1349,16 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			</redout>
 		</rendering>
 	
+
+			    <!--    <view n="101">
+
+            <name>Missile View</name>
+            <type>lookat</type>
+            <enabled>true</enabled>
+            <heading-offset-deg>180</heading-offset-deg>
+            <pitch-offset-deg>10</pitch-offset-deg>
+        </view> -->
+
 		<view n="0">
 		<name>Cockpit View</name>
 		<type>lookfrom</type>
@@ -1376,14 +1386,33 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
           <default-field-of-view-deg>95</default-field-of-view-deg>
         </config>
       </view>
+
 		        <view n="101">
-            <!-- also used for ejection view, if change this number, also change it in MissileView.nas -->
-            <name>Missile View</name>
+
+            <name>Ai Model Viewer</name>
             <type>lookat</type>
             <enabled>true</enabled>
+			<config>
+          <default-field-of-view-deg>300</default-field-of-view-deg>
             <heading-offset-deg>180</heading-offset-deg>
             <pitch-offset-deg>10</pitch-offset-deg>
+		      <eye-lat-deg-path>/controls/armament/missile/pos2/a1</eye-lat-deg-path>
+      <eye-lon-deg-path>/controls/armament/missile/pos2/a2</eye-lon-deg-path>
+      <eye-alt-ft-path>/controls/armament/missile/pos2/a3</eye-alt-ft-path>
+      <eye-heading-deg-path>/controls/armament/missile/pos2/a4</eye-heading-deg-path>
+
+      <target-lat-deg-path>/controls/armament/missile/pos2/a5</target-lat-deg-path>
+      <target-lon-deg-path>/controls/armament/missile/pos2/a6</target-lon-deg-path>
+      <target-alt-ft-path>/controls/armament/missile/pos2/a7</target-alt-ft-path>
+
+      <target-heading-deg-path>/controls/armament/missile/pos2/a8</target-heading-deg-path>
+      <target-pitch-deg-path>/controls/armament/missile/pos2/a9</target-pitch-deg-path>
+      <target-roll-deg-path>/controls/armament/missile/pos2/a10</target-roll-deg-path>
+	  </config>
         </view>
+
+
+
 		
 		<view n="1">
 			<config>
@@ -1391,7 +1420,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 				<pitch-offset-deg>0</pitch-offset-deg>
 			</config>
 		</view>
-	
+
+
 		<view n="2">
 			<config>
 				<y-offset-m archive="y" type="double">6.0</y-offset-m>
@@ -2275,6 +2305,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <enabled type="bool">0</enabled>
   <grid type="bool">1</grid>
   <az-field type="double">120</az-field>
+
   <range type="double">150</range>
   <range-selected type="double">50</range-selected>
   <radar2-range type="double">150</radar2-range>
@@ -2290,6 +2321,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 
   <radar2>
+  <direction type="double">0</direction>
 	<lockmarker type="double">0</lockmarker>
    <sweep-width-m type="double">0.0844</sweep-width-m>
    <range-width-m type="double">0.0846</range-width-m>
@@ -2508,9 +2540,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	        <ai>
           <file>Aircraft/F-22/Nasal/AI_list.nas</file> <!--From F-16-->
         </ai>
-        <viewMissile>
-          <file>Aircraft/F-22/Nasal/MissileView.nas</file><!--From F-16-->
-        </viewMissile>
+       <!-- <viewMissile>
+          <file>Aircraft/F-22/Nasal/MissileView.nas</file>From F-16
+        </viewMissile>-->
 
     <missile>
       <file>Aircraft/F-22/Nasal/weapons/missile.nas</file>

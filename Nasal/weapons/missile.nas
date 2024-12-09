@@ -1,15 +1,101 @@
-print("LOADING missile.nas .");
+print("LOADING Missiles, Bombs and more!: missile.nas .");
 ################################################################################
 #
 #             Customized MISSILE MANAGER for the F-22
-# 	Amazing Thanks to Ghost! (developer0607)
-# and the mirage 2000 developers.
-# Code was modifed for emersary damage support. Flare detection added.
-# by Ghost and Phoenix
+#       this file is all the code for missiles
+#       Thanks to the mirage 2000 developers.
+#       This Code was modifed for emersary damage support. Flare detection added, Crater spawner, Missile alert sender, 
+#       This code is majorly edited by Ghost and Phoenix
 ################################################################################
 
+# Information on how to use!:
 
-# Notify missile alert timer
+# If you want to have missile flight data print out into the console set this to 1
+var debugflight = 0;
+
+# if you want to print messages into the console that relate to releasing of the missile, and it hitting set this to 1
+var debugmessages = 0;
+
+# If you want status on missile alert, and chaff flare detection status set this to 1
+var debugsysmessages = 0;
+
+# if you want to have debug chaff and flare detection be displayed in the game set this to 1
+var flaremsg = 0;
+
+
+# How to install Missiles onto your plane!
+# First and for most your going to need damage installed on it
+# Secondly Follow the install instructions to setup the missile pylons and weapon controller,   (ext_pylons.nas, weapons.nas)
+# extpylons is used to see what and how many missiles we have left
+# weapons.nas is just used to make the user be able to shoot the missiles
+# Next in /controls/armament/ add these properties
+#       <missile>
+#   <eject>
+#         <current-pylon type="int"> 0 </current-pylon>
+#   </eject>
+#         <flareres type="double"> 0.80 </flareres>
+#         <name>None_press_m</name>
+#         <type-id type="int">57</type-id>
+#         <address>Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml</address>
+#         <addressNoSmoke>Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml</addressNoSmoke>
+#         <addressExplosion>Aircraft/SU-27SK/Models/Effects/MissileExplosion/explosion.xml</addressExplosion>
+#         <count type="int">0</count>
+#         <nearest-target type="int"> -1 </nearest-target>
+#         <sound-on-off type="bool">false</sound-on-off>
+#         <sound-volume type="double"> 0.12 </sound-volume>
+#         <target-range-nm type="double"> 0 </target-range-nm>
+#         <max-detection-rng-nm type="int"> 45 </max-detection-rng-nm>
+#         <!-- ' not real impact yet-->
+#         <fov-deg type="int"> 25 </fov-deg>
+#         <!-- ' seeker optical FOV -->
+#         <detection-fov-deg type="int"> 60 </detection-fov-deg>
+#         <!-- ' search pattern diameter (rosette scan) -->
+#         <track-max-deg type="int"> 110 </track-max-deg>
+#         <!-- ' seeker max total angular rotation -->
+#         <max-g type="int"> 100 </max-g>
+#         <!-- ' in turn -->
+#         <thrust-lbs type="double"> 300 </thrust-lbs>
+#         <!-- ' guess -->
+#         <thrust-duration-sec type="int"> 30 </thrust-duration-sec>
+#         <!-- ' Mk.36 Mod.7,8 -->
+#         <weight-launch-lbs> 216 </weight-launch-lbs>
+#         <weight-warhead-lbs> 30 </weight-warhead-lbs>
+#         <drag-coeff type="double"> 0.05 </drag-coeff>
+#         <!-- ' guess - original 0.05-->
+#         <drag-area type="double"> 0.043 </drag-area>
+#         <!-- ' sq ft -->
+#         <maxExplosionRange type="int"> 200 </maxExplosionRange>
+#         <!--
+#           note :
+#             due to the code, more the speed is important, more we need to have this
+#             figure high
+#         -->
+#         <maxspeed type="double"> 4 </maxspeed>
+#         <!-- ' in Mach -->
+#         <life> 60 </life>
+#         <sdspeed> 60 </sdspeed>
+#         <!--
+#           note :
+#             "Fox1" for guided by the aircraft radar (semi active) AIM7,
+#             "Fox2" for infrared AIM9,
+#             "Fox3" for intern missile Radar AIM120, AIM54 
+#             "A/G" air to ground
+#         -->
+#         <fox>Fox 2</fox>
+#         <isbomb>0</isbomb>
+#         <chute>0</chute>
+#         <!--
+#           note :
+#             if the missile fall before thrust start or if there is some kind of "rail"
+#         -->
+#         <rail type="bool">true</rail>
+#         <!--
+#           note :
+#             for cruise missile, in feet.0 is off.below 10000 feet is terrain following
+#         -->
+#         <cruise_alt type="int"> 0 </cruise_alt>
+#         <current-pylon type="int"> 0 </current-pylon>
+#       </missile>
 
 
 var AcModel        = props.globals.getNode("sim/model/F-22", 1);
@@ -92,13 +178,14 @@ var MISSILE = {
         m.max_g             = getprop("controls/armament/missile/max-g");
         m.maxExplosionRange = getprop("controls/armament/missile/maxExplosionRange");
         m.maxSpeed          = getprop("controls/armament/missile/maxspeed");
-        m.Life              = getprop("controls/armament/missile/life"); # the amount of time before the missile arms its self distruct speed. when this timer gose up itll enable it to destroy itself when its speed gose below the listed speed
+        m.Life              = getprop("controls/armament/missile/life"); # the amount of time before the missile arms its self distruct speed. when the flight time is greater than this, missile enables it to destroy itself when its speed gose below the listed speed (mach)
         m.SDspeed           = getprop("controls/armament/missile/sdspeed");        
         # for messaging but also for the missile's detection capability (not implemented Yet)
         m.fox               = getprop("controls/armament/missile/fox");
         m.rail              = getprop("controls/armament/missile/rail");
         m.cruisealt         = getprop("controls/armament/missile/cruise_alt");
         m.flareres          = getprop("controls/armament/missile/flareres");
+        m.isbomb            = getprop("controls/armament/missile/isbomb");
         m.last_coord        = nil;
         m.unique_id         = -100;
         # Find the next index for "models/model" and create property node.
@@ -167,32 +254,7 @@ var MISSILE = {
     },
 
 
-	notifyInFlight: func (lat,lon,alt,rdar,semiRdr,typeID,typ,unique,thrustOn,callsign, heading, pitch, speed, is_deleted=0) {
-		## thrustON cannot be named 'thrust' as FG for some reason will then think its a function (probably fixed by the way call() now is used)
-		var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, is_deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
-        if (lat != nil) {
-        	msg.Position.set_latlon(lat,lon,alt);
-        } else {
-        	msg.Position.set_latlon(0,0,0);
-        }
-        msg.Flags = rdar;#bit #0
-        if (thrustOn) {
-        	msg.Flags = bits.set(msg.Flags, 1);#bit #1
-        }
-        if (semiRdr) {
-        	msg.Flags = bits.set(msg.Flags, 2);#bit #2
-        }
-        msg.IsDistinct = !is_deleted;
-        msg.RemoteCallsign = callsign;
-        msg.UniqueIndex = ""~typeID~unique;
-        msg.Pitch = pitch;
-        msg.Heading = heading;
-        msg.u_fps = speed;
-        #msg.isValid();
-        notifications.geoBridgedTransmitter.NotifyAll(msg);
-#print("fox2.nas: transmit in flight");
-#f14.debugRecipient.Receive(msg);
-	},
+
 
 
     # this is the dl function : to delete the object when it's not needed anymore
@@ -385,12 +447,17 @@ var MISSILE = {
         if (target == nil) {
        var phrase =  me.fox ~ " at Nothing. Release " ~ me.NameOfMissile; #Missile shot
        me.fox = "Fox 1";  # Set only for proximity detect to fire missile with out lock and relock if target is back.
+            if (debugmessages == 1) {
                print(phrase);
+            }
+
         } 
         else 
         {
         var phrase =  me.fox ~ " at " ~ me.Tgt.get_Callsign() ~ ". Release " ~ me.NameOfMissile; #Missile shot
-        print(phrase);
+            if (debugmessages == 1) {
+               print(phrase);
+            }
         }
 
         
@@ -446,22 +513,31 @@ if (me.fox == "Fox 2") {
 
 
 var num2 = rand() < (1-me.flareres);
-
+if (debugsysmessages == 1) {
 print("Flare resistance number:");
 print(num2);
+}
+if (flaremsg == 1) {
 screen.log.write("DEBUG: Flares Detected");
+}
+
 
 
 if (enabled == 1) {
-
+if (flaremsg == 1) {
 screen.log.write("DEBUG: missile in range of flares");
+}
+
 # Where in range. see whats up
 if (num2 == 1) {
+    if (debugsysmessages == 1) {
     print("Missile saw the flare!");
+    }
     me.reset_steering();
     me.free = 1;
-    print("Missile gave up and decided to miss.");
-
+if (debugmessages == 1) {
+    print("Missile gave up and decided to miss due to flare / chaff.");
+}
             var phrase = me.NameOfMissile ~ " Report : Fooled by enemy's Countermessures and missed.";
             if(MPMessaging.getValue() == 1)
             {
@@ -475,14 +551,19 @@ if (num2 == 1) {
         }
     }
 } else {
+    if (debugsysmessages == 1) {
+
         print("Flare detect: There are no deployed flares");
+    }
     }
 
 
 
 } else {
-
+    if (debugsysmessages == 1) {
     print("Flare detect: there is no target. Not searching for flares");
+    }
+
 }
 
 
@@ -498,9 +579,14 @@ sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
     if(getprop("payload/armament/msg")){
 
     if(me.free == 0) {
-        print("Missile missed. not sending alert"); 
+    if (debugsysmessages == 1) {
+        print("Missile is currently free, sendinflight()"); 
+        }
     }
-print(unique);
+        if (debugsysmessages == 1) {
+-print(unique);
+    }
+
 
     if(tid == 0) { # where not given a typeID
  
@@ -526,14 +612,16 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
                 if (call == 1) {
         if (target == nil) {
             var callsign = "none";
+        if (debugsysmessages == 1) {
+-        print("No target, Missile alert");
+        print("No target, Missile alert");
+        print("No target, Missile alert");
+        print("No target, Missile alert");
+        print("No target, Missile alert");
+        print("No target, Missile alert");
+    }
 
-        print("No target, Missile alert");
-        print("No target, Missile alert");
-        print("No target, Missile alert");
-        print("No target, Missile alert");
-        print("No target, Missile alert");
-        print("No target, Missile alert");
-        msg.RemoteCallsign = "none";
+        msg.RemoteCallsign = "";
         } else {
             var callsign = me.Tgt.get_Callsign(); 
 
@@ -549,18 +637,41 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
         msg.u_fps = speed;
         #msg.isValid();
         notifications.geoBridgedTransmitter.NotifyAll(msg);
-        print("Missile alert sent");
-    
+                if (debugsysmessages == 1) {
+-        print("Missile alert sent");
     }
 
+    
+    }
 },
+
+#setprop("controls/armament/pos/lat",me.coord.lat());
+#setprop("controls/armament/pos/lon",me.coord.lon());
+#setprop("controls/armament/pos/alt",alt_ft);
+#setprop("controls/armament/pos/hdg",hdg_deg);
+#var msllat = getprop("controls/armament/pos/lat");
+#var msllon = getprop("controls/armament/pos/lon");    
+#var mslalt = getprop("controls/armament/pos/alt");
+#var mslptch = getprop("controls/armament/pos/ptch");
+#var mslspeed = getprop("controls/armament/pos/speed");
+
+# craters
+
+	sendCrater: func (lat,lon,alt,size,hdg,static) {
+		var uni = int(rand()*15000000);
+		var msg = notifications.StaticNotification.new("stat", uni, 1, size);
+        var altM = alt*FT2M;
+        msg.Position.set_latlon(lat,lon,altM);
+        msg.IsDistinct = 0;
+        msg.Heading = hdg;
+        notifications.hitBridgedTransmitter.NotifyAll(msg);
+#print("fox2.nas: transmit crater");
+#f14.debugRecipient.Receive(msg);
+		damage.statics["obj_"~uni] = [static, lat,lon,alt, hdg,size];
+	},
 
     update: func(){
         # calculate life time of the missile
-
-
-
-
         var dt = getprop("sim/time/delta-sec");
         var init_launch = 0;
         if(me.life_time > 0)
@@ -576,8 +687,11 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
         # Cut rocket thrust after boost duration.
         # Also cut rocket when misile is "dropped", and ignitie it 1 second after
         var f_lbs = me.force_lbs;
-        if(getprop("controls/armament/missile/rail") == "true"){
-            print("railed");
+        if(getprop("controls/armament/missile/rail") == 1){
+                    if (debugsysmessages == 1) {
+-            print("Missile launched from a rail");
+                        }
+
             if(me.life_time > 0)
             {
                 f_lbs = me.force_lbs * 0.3;
@@ -591,7 +705,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
             f_lbs = 0;
             if(me.life_time > 0)
             {
-                f_lbs = me.force_lbs * 0.3;
+                f_lbs = me.force_lbs * 0;
             }
             if(me.life_time > 1)
             {
@@ -641,7 +755,11 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
         var cdm = 0;
         var speed_m = (total_s_ft / dt) / sound_fps;
         setprop("controls/armament/pos/speed",speed_m);
-        print(speed_m);
+                if (debugflight == 1) {
+            print("Speed (mach):")
+-        print(speed_m);
+    }
+
         if(speed_m < 0.7)
         {
             cdm = 0.0125 * speed_m + me.cd;
@@ -659,7 +777,10 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
         
                if(me.life_time > 3) {
             if(speed_m < getprop("controls/armament/missile/sdspeed")){
-                print("missile should die here");
+        if (debugflight == 1) {
+-                print("missile is slower then the SDSPEED (in mach)");
+    }
+
                     me.free = 1;
                         setprop("payload/armament/flares", 0);
                                         me.animate_explosion();
@@ -713,7 +834,12 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
             {
                 me.update_track();
             }
+        if (debugflight == 1) {
+-            print("Life time:");
             print(me.life_time);
+    }
+
+        
             if(init_launch == 0 )
             {
                 # use the rail or a/c pitch for the first frame.
@@ -743,15 +869,20 @@ var OurLat       = props.globals.getNode("position/latitude-deg");
 var OurLon       = props.globals.getNode("position/longitude-deg");
 
 
+        if (debugflight == 1) {
+-                print("MSL Still Tracking Target : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
+    }
 
-                print("Still Tracking : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
-                print("Speed");
-                print(speed_m);
+
+
                 me.checkflares();
             }
         }
-        print("status :", me.status, "free ", me.free, "init_launch : ", init_launch);
-        print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, "**Speed : ", speed_m, " dt :", dt);
+                if (debugflight == 1) {
+-        print("Missile Main Status: ", me.status, " Is the missile delocked? ", me.free, " Is the missile fired? : ", init_launch);
+        print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, " dt :", dt);
+    }
+
 
 
         # get horizontal distance and set position and orientation.
@@ -798,7 +929,10 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                 # we exploded, but need a few more secs to spawn
                 # the explosion animation.
                 settimer(func{me.del();}, 4);
-                print("booom he ded like a brick");
+                        if (debugmessages == 1) {
+-                print("booom he ded like a brick (missile hit target successfully!)");
+                    }
+
                     setprop("payload/armament/flares", 0);
                     # Delete the missile over damage
                     #sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
@@ -813,6 +947,19 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                         if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;}
                         if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;}
                     me.sendinflight(0,0,0,0,0,0,0,me.unique_id,1,typeID);
+
+                    # are we a bomb?
+                    if (me.isbomb == 1) {
+		       	var static = geo.put_model(getprop("payload/armament/models") ~ "crater_big.xml", me.coord.lat(), me.coord.lon());
+		       	if(getprop("payload/armament/msg")) {
+                        #sendCrater: func (lat,lon,alt,size,hdg,static) 
+var msllat = getprop("controls/armament/pos/lat");
+var msllon = getprop("controls/armament/pos/lon");    # This props are Accurate and update every time the function update() is called (this function btw :D)
+var mslalt = getprop("controls/armament/pos/alt");
+                        me.sendCrater(msllat, msllon, mslalt, 1, 0, static);
+				}
+            }
+
                 return;
             }
             if(me.life_time > 3)
@@ -827,7 +974,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
 
                         me.free = 1;
                             setprop("payload/armament/flares", 0);
-                        print("Too much G in missile! Print from line 682: Missile.nas");
+                        print("Too much G in missile to hit the target");
                         # Disable for the moment
                         
                     }
@@ -843,8 +990,21 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                 {
                     if(me.NameOfMissile == "TB-01") { # We are an armed Nuclear bomb
                         TB01.explode(); # Explode the Nuke
-                    } 
-                    print("Ground");
+                    }
+                    if (me.isbomb == 1){
+                var static = geo.put_model(getprop("payload/armament/models") ~ "crater_big.xml", me.coord.lat(), me.coord.lon());
+		       	if(getprop("payload/armament/msg")) {
+                        #sendCrater: func (lat,lon,alt,size,hdg,static)
+var msllat = getprop("controls/armament/pos/lat");
+var msllon = getprop("controls/armament/pos/lon");    # This props are Accurate and update every time the function update() is called (this function btw :D)
+var mslalt = getprop("controls/armament/pos/alt");
+                        me.sendCrater(msllat, msllon, mslalt, 1, 0, static);
+				}
+                    }
+                            if (debugflight == 1) {
+-                    print("Missile hit the ground");
+    }
+
                     me.free = 1;
                     setprop("payload/armament/flares", 0);
                     me.animate_explosion();
@@ -968,7 +1128,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                     {
                         # it's 1 or 2 seconds for this kinds of missiles...
                         var t_alt_delta_m = (me.cruisealt + Daground - me.alt) * FT2M;
-                        print("var t_alt_delta_m : "~t_alt_delta_m);
+                        #print("var t_alt_delta_m : "~t_alt_delta_m);
                         if(me.cruisealt + Daground > me.alt)
                         {
                             # 200 is for a very short reaction to terrain
@@ -1027,7 +1187,10 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
             if((math.abs(me.curr_tgt_e) > me.missile_fov)
                 or (math.abs(modulo180) > me.missile_fov))
             {
-                print("me.missile_fov:", me.missile_fov, "me.curr_tgt_e:", me.curr_tgt_e, "degree h me.curr_tgt_h:", me.curr_tgt_h, "t_course:", t_course, "me.hdg:", me.hdg, "modulo180:", modulo180);
+                        if (debugflight == 1) {
+-                print("me.missile_fov:", me.missile_fov, "me.curr_tgt_e:", me.curr_tgt_e, "degree h me.curr_tgt_h:", me.curr_tgt_h, "t_course:", t_course, "me.hdg:", me.hdg, "modulo180:", modulo180)
+    }
+;
                 me.free = 1;
                     setprop("payload/armament/flares", 0);
             }
@@ -1122,8 +1285,10 @@ var semiactive = 0;
             semiactive = 1;
 
             if( target == nil ) {
-                
-            print("poximity_detection(): There is no target! Not going to hit anyone");
+                        if (debugsysmessages == 1) {
+-            print("poximity_detection(): There is no target! Not going to hit anyone");
+    }
+
         return(1); # Missile searching
           
           }
@@ -1139,7 +1304,10 @@ var semiactive = 0;
 
 
                   if ( me.fox != "Fox 4") { # ejecting only Fox 4 dosent exist
-                    print("poximity_detection(): Fox isnt 1 so Tgt exists: Checking if we hit");    
+        if (debugsysmessages == 1) {
+-                    print("poximity_detection(): Fox isnt 1 so Tgt exists: Checking if we hit");    
+    }
+
 
         me.t_coord.set_latlon(me.Tgt.get_Latitude(), me.Tgt.get_Longitude(), me.Tgt.get_altitude());
         var cur_dir_dist_m = me.coord.direct_distance_to(me.t_coord);
@@ -1180,7 +1348,10 @@ var semiactive = 0;
                 #print(" Dist=", y3, "AC =", AC, " AB=", AB, " BC=", BC);
             }
             #print(me.last_coord.alt());
-            print("cur_dir_dist_m = ", cur_dir_dist_m, " me.direct_dist_m = ", me.direct_dist_m);
+                    if (debugflight == 1) {
+-            print("cur_dir_dist_m = ", cur_dir_dist_m, " Distance to target = ", me.direct_dist_m);
+    }
+
             
             if(me.tpsApproch == 0)
             {
@@ -1208,7 +1379,10 @@ var semiactive = 0;
                     me.t_coord.apply_course_distance(t_bearing_deg, t_dist_m);
                     me.t_coord.set_alt(new_t_alt_m);
                     var wh_mass = me.weight_whead_lbs / slugs_to_lbs;
-                    print("FOX2: me.direct_dist_m = ", me.direct_dist_m, " time ", getprop("sim/time/elapsed-sec"));
+        if (debugflight == 1) {
+- print("Missile flight complete: me.direct_dist_m = ", me.direct_dist_m, " time ", getprop("sim/time/elapsed-sec"));
+    }
+                   
                     impact_report(me.t_coord, wh_mass, "missile"); # pos, alt, mass_slug, (speed_mps)
                     
                     
@@ -1303,14 +1477,19 @@ var semiactive = 0;
         }
         if(target == nil)
         {
-            print("There is no target! Missile.nas line 1066 Firing just to shoot");
-
+        if (debugflight == 1) {
+            
+            print("There is no target! Firing just to shoot it");
+        }
        me.status = 1;
        me.TgtLon_prop       =  getprop("/position/longitude-deg");
        me.TgtLat_prop       =  getprop("/position/latitude-deg");
        me.TgtAlt_prop       =  getprop("/position/altitude-ft");
        me.TgtHdg_prop       =  getprop("/orientation/heading-deg");
+        if (debugflight == 1) {
+
        print("Assigned threat to self");
+        }
        #print("TUTUTTUTUTU ", me.Tgt.get_Speed());
        if(me.free == 0 and me.life_time > me.Life)
        {
@@ -1318,7 +1497,10 @@ var semiactive = 0;
        }
         } 
         else {
-        print("Missile fired with target. missile.nas line 1108");
+        if (debugflight == 1) {
+
+        print("Missile fired with a target.");
+        }
         var total_elev  = tgt.get_total_elevation(OurPitch.getValue());    # deg.
         var total_horiz = tgt.get_deviation(OurHdg.getValue(), tempCoord); # deg.
         # check if in range and in the (square shaped here) seeker FOV.

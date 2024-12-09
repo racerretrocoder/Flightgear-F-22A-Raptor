@@ -50,35 +50,35 @@ var missile_view_handler = {
     if (!me.find(me.current))
       me.select(0);
   },
-  setup: func(data) {
-    if (data.root == '/') {
-      var zoffset = getprop("/sim/chase-distance-m");
-      var ident = '[' ~ data.callsign ~ ']';
-    } else {
-      var zoffset = 70;
-      #var ident = '"' ~ data.callsign ~ '" (' ~ data.model ~ ')';
-      var ident = '"' ~ data.callsign ~ '"';
-    }
+  setup: func(mpid) {
+#  
+#  
+#  
+#  
+#  
+#  
+#  
+#  
 
-    me.current = data.callsign;
-    me.legendN.setValue(ident);
-    setprop("/sim/current-view/z-offset-m", zoffset);
+    me.current = "eject";
+   me.legendN.setValue("eject");
+    setprop("/sim/current-view/z-offset-m", 10);
     setprop("/sim/current-view/heading-offset-deg", 110);
     setprop("/sim/current-view/pitch-offset-deg", 30);
     
     #print(me.current);
 
     me.viewN.getNode("config").setValues({
-      "eye-lat-deg-path": data.root ~ "/position/latitude-deg",
-      "eye-lon-deg-path": data.root ~ "/position/longitude-deg",
-      "eye-alt-ft-path": data.root ~ "/position/altitude-ft",
-      "eye-heading-deg-path": data.root ~ "/orientation/true-heading-deg",
-      "target-lat-deg-path": data.root ~ "/position/latitude-deg",
-      "target-lon-deg-path": data.root ~ "/position/longitude-deg",
-      "target-alt-ft-path": data.root ~ "/position/altitude-ft",
-      "target-heading-deg-path": data.root ~ "/orientation/true-heading-deg",
-      "target-pitch-deg-path": data.root ~ "/orientation/pitch-deg",
-      "target-roll-deg-path": data.root ~ "/orientation/roll-deg",
+      "eye-lat-deg-path": "/ai/models/missile[" ~ mpid ~ "]/position/latitude-deg",
+      "eye-lon-deg-path": "/ai/models/missile[" ~ mpid ~ "]/longitude-deg",
+      "eye-alt-ft-path": "/ai/models/missile[" ~ mpid ~ "]/position/altitude-ft",
+      "eye-heading-deg-path": "/ai/models/missile[" ~ mpid ~ "]/orientation/true-heading-deg",
+      "target-lat-deg-path": "/ai/models/missile[" ~ mpid ~ "]/position/latitude-deg",
+      "target-lon-deg-path": "/ai/models/missile[" ~ mpid ~ "]/position/longitude-deg",
+      "target-alt-ft-path": "/ai/models/missile[" ~ mpid ~ "]/position/altitude-ft",
+      "target-heading-deg-path": "/ai/models/missile[" ~ mpid ~ "]/orientation/true-heading-deg",
+      "target-pitch-deg-path": "/ai/models/missile[" ~ mpid ~ "]/orientation/pitch-deg",
+      "target-roll-deg-path": "/ai/models/missile[" ~ mpid ~ "]/orientation/roll-deg",
       "heading-offset-deg":180
     });
   },
@@ -90,24 +90,16 @@ myModel.init();
 view.manager.register("Missile View",missile_view_handler);
 
 
-var view_firing_missile = func(myMissile)
+var view_firing_missile = func(mpid)
 {
 
-    # We select the missile name
-    var myMissileName = string.replace(myMissile.ai.getPath(), "/ai/models/", "");
-    if (myMissile.ai.getNode("callsign") != nil and myMissile.ai.getNode("name").getValue()!=nil) {
-      myMissileName = myMissile.ai.getNode("name").getValue();
-    }
 
     # We memorize the initial view number
     var actualView = getprop("/sim/current-view/view-number");
-
-    # We recreate the data vector to feed the missile_view_handler  
-    var data = { node: myMissile.ai, callsign: myMissileName, root: myMissile.ai.getPath()};
 
     # We activate the AI view (on this aircraft it is the number 8)
     view.setViewByIndex(101);
     
     # We feed the handler
-    missile_view_handler.setup(data);
+    missile_view_handler.setup(mpid);
 }
