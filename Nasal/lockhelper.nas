@@ -50,120 +50,120 @@ var mp18 = getprop("/instrumentation/radar2/targets/multiplayer[18]/display");
 
     if(mp0) # instrumentation/radar2/targets/multiplayer[0]/display is true
     {
-        print("I see someone! on mp0");
+        #print("I see someone! on mp0");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
  else if(mp1)
     {
-        print("I see someone! On mp1");
+        #print("I see someone! On mp1");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp2)
     {
-        print("I see someone! On mp2");
+        #print("I see someone! On mp2");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp3)
     {
-        print("I see someone! On mp3");
+        #print("I see someone! On mp3");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp4)
     {
-        print("I see someone!"); # lol too much work to make it say mp4~18 
+        #print("I see someone!"); # lol too much work to make it say mp4~18 
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp5)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp6)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp7)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp8)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp9)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp10)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp11)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp12)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp13)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp14)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp15)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp16)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp17)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp18)
     {
-        print("I see someone!");
+        #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
 else {
- # print("Radar is running, no threats.");
+ # #print("Radar is running, no threats.");
    setprop("/instrumentation/radar/threat-spotted", 0); # Change our status so that nothing is on the screen
    setprop("/instrumentation/radar/lock", 0); # Important. Loose the lock by setting this property to zero.
        setprop("/instrumentation/radar/lock2", 0);                                          #Lock is set to one when you change targets and radar sees someone

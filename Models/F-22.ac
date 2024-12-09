@@ -2,7 +2,7 @@ AC3Db
 MATERIAL "ac3dmat0" rgb 0 0 0  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "ac3dmat11" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "ac3dmat12" rgb 0.266667 0.266667 0.266667  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
-MATERIAL "ac3dmat13" rgb 0.8 0.794737 0.794737  amb 0.284211 0.284211 0.294737  emis 0 0 0  spec 0.0263158 0.0315789 0.0368421  shi 0  trans 0
+MATERIAL "ac3dmat13" rgb 0.794737 0.794737 0.794737  amb 0.542105 0.542105 0.542105  emis 0 0 0  spec 0.0684211 0.0684211 0.0684211  shi 0  trans 0
 MATERIAL "ac3dmat7" rgb 0.142105 0.126316 0.126316  amb 0.668421 0.673684 0.647368  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "ac3dmat8" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 1 1 1  shi 128  trans 0
 MATERIAL "ac3dmat2" rgb 0.627451 0.25098 0.25098  amb 0.2 0.2 0.2  emis 1 1 1  spec 0.2 0.2 0.2  shi 128  trans 0
@@ -27,7 +27,7 @@ OBJECT world
 kids 219
 OBJECT poly
 name "rfd-axis"
-loc 1.37191 -1.27111 -1.58282
+loc 1.37154 -1.27557 -1.58282
 crease 45.000000
 numvert 2
 1.5589 0 0
@@ -41,7 +41,7 @@ refs 2
 kids 0
 OBJECT poly
 name "lfd-axis"
-loc 1.389 -1.25766 1.51685
+loc 1.38863 -1.26212 1.51685
 crease 45.000000
 numvert 2
 -1.5589 0 0
@@ -55,7 +55,7 @@ refs 2
 kids 0
 OBJECT poly
 name "rfd2-axis"
-loc 1.40141 -1.59697 -1.34
+loc 1.40104 -1.60143 -1.34
 crease 45.000000
 numvert 2
 -1.5589 0 0
@@ -69,7 +69,7 @@ refs 2
 kids 0
 OBJECT poly
 name "lfd2-axis"
-loc 1.52151 -1.59697 1.29022
+loc 1.52114 -1.60143 1.29022
 crease 45.000000
 numvert 2
 1.5589 0 0
@@ -83,7 +83,7 @@ refs 2
 kids 0
 OBJECT group
 name "9xdl"
-loc -0.805058 -1.30608 1.52093
+loc -0.805427 -1.31054 1.52093
 kids 2
 OBJECT poly
 name "9xdr"
@@ -189,7 +189,7 @@ refs 3
 kids 0
 OBJECT group
 name "9xdr"
-loc -0.805058 -1.25517 -1.56327
+loc -0.805427 -1.25963 -1.56327
 kids 2
 OBJECT poly
 name "9xdr"
@@ -295,7 +295,7 @@ refs 3
 kids 0
 OBJECT poly
 name "baydoor2L"
-loc -0.533199 -1.72608 0.468371
+loc -0.533568 -1.73054 0.468371
 crease 45.000000
 numvert 2
 -1.5589 0 0
@@ -309,7 +309,7 @@ refs 2
 kids 0
 OBJECT group
 name "RIGHTMAINDOOR"
-loc -0.291077 -1.78397 -0.565901
+loc -0.291446 -1.78843 -0.565901
 kids 2
 OBJECT poly
 name "RIGHTMAINDOOR2"
@@ -591,7 +591,7 @@ refs 3
 kids 0
 OBJECT poly
 name "9xdr2"
-loc -0.825459 -1.5699 -1.63022
+loc -0.825828 -1.57436 -1.63022
 crease 45.000000
 numvert 8
 1.74523 -0.000223637 0.000123739
@@ -642,7 +642,7 @@ refs 3
 kids 0
 OBJECT poly
 name "9xdr1-axis"
-loc -0.151964 -1.00383 -1.69597
+loc -0.152333 -1.00829 -1.69597
 crease 45.000000
 numvert 2
 -1.20381 0 0
@@ -656,7 +656,7 @@ refs 2
 kids 0
 OBJECT poly
 name "9xdr3-axis"
-loc -0.0877323 -1.36965 -1.39556
+loc -0.088101 -1.37411 -1.39556
 crease 45.000000
 numvert 2
 -1.49141 -2.38419e-007 1.19209e-007
@@ -670,7 +670,7 @@ refs 2
 kids 0
 OBJECT poly
 name "9xdr1"
-loc -0.82874 -1.07084 -1.9194
+loc -0.829109 -1.0753 -1.9194
 crease 45.000000
 numvert 8
 1.36719 0.114385 0.377562
@@ -721,7 +721,7 @@ refs 3
 kids 0
 OBJECT poly
 name "AIM-9-L-RAIL"
-loc -0.828619 -1.22553 -1.60061
+loc -0.828988 -1.22999 -1.60061
 crease 45.000000
 numvert 256
 1.34269 -0.0139445 -0.0326047
@@ -2748,7 +2748,7 @@ refs 4
 kids 0
 OBJECT poly
 name "9xdl2"
-loc -0.81327 -1.56913 1.65055
+loc -0.813639 -1.57359 1.65055
 crease 45.000000
 numvert 8
 -1.39505 0.196386 -0.342154
@@ -2799,7 +2799,7 @@ refs 3
 kids 0
 OBJECT group
 name "sides"
-loc 0 0.00367188 -0.00885004
+loc -0.000368714 -0.000788693 -0.00885004
 kids 2
 OBJECT poly
 name "Body-side-right"
@@ -4811,7 +4811,7 @@ refs 3
 kids 0
 OBJECT poly
 name "rearwheelsaxis"
-loc 2.40051 -2.23026 1.32905
+loc 2.40014 -2.23472 1.32905
 crease 45.000000
 numvert 2
 0 0 -1.5589
@@ -4825,7 +4825,7 @@ refs 2
 kids 0
 OBJECT poly
 name "frontwheelsaxis"
-loc -3.66832 -2.34867 1.32905
+loc -3.66869 -2.35313 1.32905
 crease 45.000000
 numvert 2
 0 0 1.5589
@@ -4839,7 +4839,7 @@ refs 2
 kids 0
 OBJECT poly
 name "fueldoor-L-axis"
-loc 0.824219 -0.0448448 0.194039
+loc 0.82385 -0.0493054 0.194039
 crease 45.000000
 numvert 2
 0.291891 0 0
@@ -4853,7 +4853,7 @@ refs 2
 kids 0
 OBJECT poly
 name "fueldoor-R-axis"
-loc 0.81825 -0.0448448 -0.184975
+loc 0.817881 -0.0493054 -0.184975
 crease 45.000000
 numvert 2
 -0.291891 0 0
@@ -4867,7 +4867,7 @@ refs 2
 kids 0
 OBJECT poly
 name "fueldoorL"
-loc 0.819093 -0.0438682 0.0933478
+loc 0.818724 -0.0483288 0.0933478
 crease 45.000000
 numvert 4
 -0.292311 0 0.0930479
@@ -4885,7 +4885,7 @@ refs 4
 kids 0
 OBJECT poly
 name "gundoor-axis"
-loc -0.150521 -0.527385 -1.60468
+loc -0.15089 -0.531846 -1.60468
 crease 45.000000
 numvert 2
 0.551445 0 0
@@ -4899,7 +4899,7 @@ refs 2
 kids 0
 OBJECT poly
 name "navlight"
-loc 5.14762 1.54744 -2.58392
+loc 5.14725 1.54298 -2.58392
 crease 45.000000
 numvert 4
 -0.194796 -0.361659 0.17638
@@ -4917,7 +4917,7 @@ refs 4
 kids 0
 OBJECT poly
 name "navlight"
-loc 5.13697 1.55731 2.60505
+loc 5.1366 1.55285 2.60505
 crease 45.000000
 numvert 4
 -0.194796 -0.361649 -0.176401
@@ -4935,7 +4935,7 @@ refs 4
 kids 0
 OBJECT poly
 name "navlight"
-loc 5.11834 1.55543 -2.58392
+loc 5.11797 1.55097 -2.58392
 crease 45.000000
 numvert 4
 -0.194796 -0.361659 0.17638
@@ -4953,7 +4953,7 @@ refs 4
 kids 0
 OBJECT poly
 name "navlight"
-loc 5.11568 1.57062 2.60505
+loc 5.11531 1.56616 2.60505
 crease 45.000000
 numvert 4
 0.164478 0.371675 0.182088
@@ -4971,7 +4971,7 @@ refs 4
 kids 0
 OBJECT poly
 name "navlight"
-loc 5.08639 1.56608 -2.58392
+loc 5.08602 1.56162 -2.58392
 crease 45.000000
 numvert 4
 0.164478 0.372313 -0.180779
@@ -4989,7 +4989,7 @@ refs 4
 kids 0
 OBJECT poly
 name "leftfan-axis"
-loc -0.818868 -0.759928 0.37472
+loc -0.819237 -0.764389 0.37472
 crease 45.000000
 numvert 2
 -1.5589 0 0
@@ -5003,7 +5003,7 @@ refs 2
 kids 0
 OBJECT poly
 name "rightfan-axis"
-loc -0.818868 -0.756652 -0.347513
+loc -0.819237 -0.761113 -0.347513
 crease 45.000000
 numvert 2
 -1.5589 0 0
@@ -5017,7 +5017,7 @@ refs 2
 kids 0
 OBJECT poly
 name "LEF-RIGHT-AXIS"
-loc 1.81482 -0.78846 -4.29938
+loc 1.81445 -0.792921 -4.29938
 crease 45.000000
 numvert 2
 1.10231 0 -1.10231
@@ -5031,7 +5031,7 @@ refs 2
 kids 0
 OBJECT poly
 name "LEF-LEFT-AXIS"
-loc 2.49629 -0.78846 4.91014
+loc 2.49592 -0.792921 4.91014
 crease 45.000000
 numvert 2
 -1.10231 0 -1.10231
@@ -5045,7 +5045,7 @@ refs 2
 kids 0
 OBJECT poly
 name "BAYLEFT-axis"
-loc -0.508507 -1.75044 1.10726
+loc -0.508876 -1.7549 1.10726
 crease 45.000000
 numvert 2
 -1.5589 0 0
@@ -5059,7 +5059,7 @@ refs 2
 kids 0
 OBJECT poly
 name "BAYRIGHT-axis"
-loc -0.508507 -1.75044 -1.11307
+loc -0.508876 -1.7549 -1.11307
 crease 45.000000
 numvert 2
 -1.5589 0 0
@@ -5073,7 +5073,7 @@ refs 2
 kids 0
 OBJECT poly
 name "9xdr2-axis"
-loc -0.918107 -1.48083 -1.35385
+loc -0.918476 -1.48529 -1.35385
 crease 45.000000
 numvert 2
 -1.5589 0 0
@@ -5087,7 +5087,7 @@ refs 2
 kids 0
 OBJECT poly
 name "9xdl1-axis"
-loc -0.819404 -1.00561 1.66079
+loc -0.819773 -1.01007 1.66079
 crease 45.000000
 numvert 2
 -1.20381 0 0
@@ -5101,7 +5101,7 @@ refs 2
 kids 0
 OBJECT poly
 name "AIM-9-L-RAIL"
-loc -0.81068 -1.22265 1.61451
+loc -0.811049 -1.22711 1.61451
 crease 45.000000
 numvert 256
 -1.34269 -0.0197499 0.0294527
@@ -7128,7 +7128,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Line01"
-loc 12.6266 1.35205 0.00832656
+loc 12.6262 1.34759 0.00832656
 data 6
 Line01
 crease 30.000000
@@ -7936,7 +7936,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Line02"
-loc 12.6266 1.35205 0.00832656
+loc 12.6262 1.34759 0.00832656
 data 6
 Line02
 crease 30.000000
@@ -8744,7 +8744,7 @@ refs 4
 kids 0
 OBJECT group
 name "Left_Back_Turbina"
-loc 0 -0.000171065 1.34838
+loc -0.000368714 -0.00463164 1.34838
 kids 2
 OBJECT poly
 name "Right_Back_Turbina_0"
@@ -17815,6 +17815,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box100"
+loc -0.000368714 -0.00446057 0
 data 6
 Box100
 crease 30.000000
@@ -17873,6 +17874,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box101"
+loc -0.000368714 -0.00446057 0
 data 6
 Box101
 crease 30.000000
@@ -17931,6 +17933,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box102"
+loc -0.000368714 -0.00446057 0
 data 6
 Box102
 crease 30.000000
@@ -17989,6 +17992,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box103"
+loc -0.000368714 -0.00446057 0
 data 6
 Box103
 crease 30.000000
@@ -18047,6 +18051,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box104"
+loc -0.000368714 -0.00446057 0
 data 6
 Box104
 crease 30.000000
@@ -18105,6 +18110,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box105"
+loc -0.000368714 -0.00446057 0
 data 6
 Box105
 crease 30.000000
@@ -18163,6 +18169,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box106"
+loc -0.000368714 -0.00446057 0
 data 6
 Box106
 crease 30.000000
@@ -18221,6 +18228,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box108"
+loc -0.000368714 -0.00446057 0
 data 6
 Box108
 crease 30.000000
@@ -18279,6 +18287,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box109"
+loc -0.000368714 -0.00446057 0
 data 6
 Box109
 crease 30.000000
@@ -18337,6 +18346,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box110"
+loc -0.000368714 -0.00446057 0
 data 6
 Box110
 crease 30.000000
@@ -18395,6 +18405,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box111"
+loc -0.000368714 -0.00446057 0
 data 6
 Box111
 crease 30.000000
@@ -18453,6 +18464,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box112"
+loc -0.000368714 -0.00446057 0
 data 6
 Box112
 crease 30.000000
@@ -18511,6 +18523,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box113"
+loc -0.000368714 -0.00446057 0
 data 6
 Box113
 crease 30.000000
@@ -18569,6 +18582,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box114"
+loc -0.000368714 -0.00446057 0
 data 6
 Box114
 crease 30.000000
@@ -18627,6 +18641,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box115"
+loc -0.000368714 -0.00446057 0
 data 6
 Box115
 crease 30.000000
@@ -18685,6 +18700,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box116"
+loc -0.000368714 -0.00446057 0
 data 6
 Box116
 crease 30.000000
@@ -18743,6 +18759,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box117"
+loc -0.000368714 -0.00446057 0
 data 6
 Box117
 crease 30.000000
@@ -18801,6 +18818,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box118"
+loc -0.000368714 -0.00446057 0
 data 6
 Box118
 crease 30.000000
@@ -18859,6 +18877,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box119"
+loc -0.000368714 -0.00446057 0
 data 6
 Box119
 crease 30.000000
@@ -18917,6 +18936,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box120"
+loc -0.000368714 -0.00446057 0
 data 6
 Box120
 crease 30.000000
@@ -18975,6 +18995,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box122"
+loc -0.000368714 -0.00446057 0
 data 6
 Box122
 crease 30.000000
@@ -19033,6 +19054,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box123"
+loc -0.000368714 -0.00446057 0
 data 6
 Box123
 crease 30.000000
@@ -19091,6 +19113,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box124"
+loc -0.000368714 -0.00446057 0
 data 6
 Box124
 crease 30.000000
@@ -19149,6 +19172,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box126"
+loc -0.000368714 -0.00446057 0
 data 6
 Box126
 crease 30.000000
@@ -19207,6 +19231,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box127"
+loc -0.000368714 -0.00446057 0
 data 6
 Box127
 crease 30.000000
@@ -19265,6 +19290,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box128"
+loc -0.000368714 -0.00446057 0
 data 6
 Box128
 crease 30.000000
@@ -19323,6 +19349,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box129"
+loc -0.000368714 -0.00446057 0
 data 6
 Box129
 crease 30.000000
@@ -19381,6 +19408,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box130"
+loc -0.000368714 -0.00446057 0
 data 6
 Box130
 crease 30.000000
@@ -19439,6 +19467,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box131"
+loc -0.000368714 -0.00446057 0
 data 6
 Box131
 crease 30.000000
@@ -19497,6 +19526,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box132"
+loc -0.000368714 -0.00446057 0
 data 6
 Box132
 crease 30.000000
@@ -19555,6 +19585,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box133"
+loc -0.000368714 -0.00446057 0
 data 6
 Box133
 crease 30.000000
@@ -19613,6 +19644,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box134"
+loc -0.000368714 -0.00446057 0
 data 6
 Box134
 crease 30.000000
@@ -19671,6 +19703,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box135"
+loc -0.000368714 -0.00446057 0
 data 6
 Box135
 crease 30.000000
@@ -19729,6 +19762,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box136"
+loc -0.000368714 -0.00446057 0
 data 6
 Box136
 crease 30.000000
@@ -19787,6 +19821,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box137"
+loc -0.000368714 -0.00446057 0
 data 6
 Box137
 crease 30.000000
@@ -19845,6 +19880,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box138"
+loc -0.000368714 -0.00446057 0
 data 6
 Box138
 crease 30.000000
@@ -19903,6 +19939,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box139"
+loc -0.000368714 -0.00446057 0
 data 6
 Box139
 crease 30.000000
@@ -19961,6 +19998,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box140"
+loc -0.000368714 -0.00446057 0
 data 6
 Box140
 crease 30.000000
@@ -20019,6 +20057,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box141"
+loc -0.000368714 -0.00446057 0
 data 6
 Box141
 crease 30.000000
@@ -20077,6 +20116,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box142"
+loc -0.000368714 -0.00446057 0
 data 6
 Box142
 crease 30.000000
@@ -20135,6 +20175,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box143"
+loc -0.000368714 -0.00446057 0
 data 6
 Box143
 crease 30.000000
@@ -20193,6 +20234,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box144"
+loc -0.000368714 -0.00446057 0
 data 6
 Box144
 crease 30.000000
@@ -20251,6 +20293,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box145"
+loc -0.000368714 -0.00446057 0
 data 6
 Box145
 crease 30.000000
@@ -20309,6 +20352,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box146"
+loc -0.000368714 -0.00446057 0
 data 6
 Box146
 crease 30.000000
@@ -20367,6 +20411,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box147"
+loc -0.000368714 -0.00446057 0
 data 6
 Box147
 crease 30.000000
@@ -20425,6 +20470,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box148"
+loc -0.000368714 -0.00446057 0
 data 6
 Box148
 crease 30.000000
@@ -20483,6 +20529,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box149"
+loc -0.000368714 -0.00446057 0
 data 6
 Box149
 crease 30.000000
@@ -20541,6 +20588,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box150"
+loc -0.000368714 -0.00446057 0
 data 6
 Box150
 crease 30.000000
@@ -20599,6 +20647,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box151"
+loc -0.000368714 -0.00446057 0
 data 6
 Box151
 crease 30.000000
@@ -20657,6 +20706,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box152"
+loc -0.000368714 -0.00446057 0
 data 6
 Box152
 crease 30.000000
@@ -20715,6 +20765,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box153"
+loc -0.000368714 -0.00446057 0
 data 6
 Box153
 crease 30.000000
@@ -20773,6 +20824,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box154"
+loc -0.000368714 -0.00446057 0
 data 6
 Box154
 crease 30.000000
@@ -20831,6 +20883,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box155"
+loc -0.000368714 -0.00446057 0
 data 6
 Box155
 crease 30.000000
@@ -20889,6 +20942,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box156"
+loc -0.000368714 -0.00446057 0
 data 6
 Box156
 crease 30.000000
@@ -20947,6 +21001,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box157"
+loc -0.000368714 -0.00446057 0
 data 6
 Box157
 crease 30.000000
@@ -21005,6 +21060,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box158"
+loc -0.000368714 -0.00446057 0
 data 6
 Box158
 crease 30.000000
@@ -21063,6 +21119,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box159"
+loc -0.000368714 -0.00446057 0
 data 6
 Box159
 crease 30.000000
@@ -21121,6 +21178,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box160"
+loc -0.000368714 -0.00446057 0
 data 6
 Box160
 crease 30.000000
@@ -21179,6 +21237,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box161"
+loc -0.000368714 -0.00446057 0
 data 6
 Box161
 crease 30.000000
@@ -21237,6 +21296,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box162"
+loc -0.000368714 -0.00446057 0
 data 6
 Box162
 crease 30.000000
@@ -21295,6 +21355,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box163"
+loc -0.000368714 -0.00446057 0
 data 6
 Box163
 crease 30.000000
@@ -21353,6 +21414,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box164"
+loc -0.000368714 -0.00446057 0
 data 6
 Box164
 crease 30.000000
@@ -21411,6 +21473,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box165"
+loc -0.000368714 -0.00446057 0
 data 6
 Box165
 crease 30.000000
@@ -21469,6 +21532,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box166"
+loc -0.000368714 -0.00446057 0
 data 6
 Box166
 crease 30.000000
@@ -21527,6 +21591,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box167"
+loc -0.000368714 -0.00446057 0
 data 6
 Box167
 crease 30.000000
@@ -21585,6 +21650,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box168"
+loc -0.000368714 -0.00446057 0
 data 6
 Box168
 crease 30.000000
@@ -21643,6 +21709,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box169"
+loc -0.000368714 -0.00446057 0
 data 6
 Box169
 crease 30.000000
@@ -21701,6 +21768,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box170"
+loc -0.000368714 -0.00446057 0
 data 6
 Box170
 crease 30.000000
@@ -21759,6 +21827,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box171"
+loc -0.000368714 -0.00446057 0
 data 6
 Box171
 crease 30.000000
@@ -21817,6 +21886,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box172"
+loc -0.000368714 -0.00446057 0
 data 6
 Box172
 crease 30.000000
@@ -21875,6 +21945,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box173"
+loc -0.000368714 -0.00446057 0
 data 6
 Box173
 crease 30.000000
@@ -21933,6 +22004,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box174"
+loc -0.000368714 -0.00446057 0
 data 6
 Box174
 crease 30.000000
@@ -21991,6 +22063,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box175"
+loc -0.000368714 -0.00446057 0
 data 6
 Box175
 crease 30.000000
@@ -22049,6 +22122,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box90"
+loc -0.000368714 -0.00446057 0
 data 5
 Box90
 crease 30.000000
@@ -22107,6 +22181,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box91"
+loc -0.000368714 -0.00446057 0
 data 5
 Box91
 crease 30.000000
@@ -22165,6 +22240,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box92"
+loc -0.000368714 -0.00446057 0
 data 5
 Box92
 crease 30.000000
@@ -22223,6 +22299,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box93"
+loc -0.000368714 -0.00446057 0
 data 5
 Box93
 crease 30.000000
@@ -22281,6 +22358,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box94"
+loc -0.000368714 -0.00446057 0
 data 5
 Box94
 crease 30.000000
@@ -22339,6 +22417,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box95"
+loc -0.000368714 -0.00446057 0
 data 5
 Box95
 crease 30.000000
@@ -22397,6 +22476,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box96"
+loc -0.000368714 -0.00446057 0
 data 5
 Box96
 crease 30.000000
@@ -22455,6 +22535,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box97"
+loc -0.000368714 -0.00446057 0
 data 5
 Box97
 crease 30.000000
@@ -22513,6 +22594,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box98"
+loc -0.000368714 -0.00446057 0
 data 5
 Box98
 crease 30.000000
@@ -22571,6 +22653,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Box99"
+loc -0.000368714 -0.00446057 0
 data 5
 Box99
 crease 30.000000
@@ -22629,6 +22712,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Cylinder09"
+loc -0.000368714 -0.00446057 0
 data 10
 Cylinder09
 crease 30.000000
@@ -23449,6 +23533,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Cylinder10"
+loc -0.000368714 -0.00446057 0
 data 10
 Cylinder10
 crease 30.000000
@@ -24269,6 +24354,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Cylinder11"
+loc -0.000368714 -0.00446057 0
 data 10
 Cylinder11
 crease 30.000000
@@ -24855,6 +24941,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Cylinder12"
+loc -0.000368714 -0.00446057 0
 data 10
 Cylinder12
 crease 30.000000
@@ -25441,6 +25528,7 @@ refs 4
 kids 0
 OBJECT group
 name "gear-door1"
+loc -0.000368714 -0.00446057 0
 kids 2
 OBJECT poly
 name "left-nosegear-door"
@@ -28158,6 +28246,7 @@ refs 3
 kids 0
 OBJECT group
 name "gear-door2"
+loc -0.000368714 -0.00446057 0
 kids 2
 OBJECT poly
 name "right-nosegear-door"
@@ -30875,6 +30964,7 @@ refs 3
 kids 0
 OBJECT poly
 name "left-rudder"
+loc -0.000368714 -0.00446057 0
 data 10
 Left_Ruler
 texture "Map__9_Mix.png"
@@ -31255,6 +31345,7 @@ refs 4
 kids 0
 OBJECT group
 name "Left_Eleron01"
+loc -0.000368714 -0.00446057 0
 kids 1
 OBJECT group
 name "left-flap"
@@ -33926,6 +34017,7 @@ refs 3
 kids 0
 OBJECT group
 name "Left_Eleron02"
+loc -0.000368714 -0.00446057 0
 kids 1
 OBJECT group
 name "left-aileron"
@@ -37107,6 +37199,7 @@ refs 3
 kids 0
 OBJECT group
 name "Left_Keel"
+loc -0.000368714 -0.00446057 0
 kids 1
 OBJECT poly
 name "Left_Keel_1"
@@ -37501,7 +37594,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Left_Main_Gear_Bay"
-loc 0 0 1.19209e-007
+loc -0.000368714 -0.00446057 1.19209e-007
 data 18
 Left_Main_Gear_Bay
 crease 30.000000
@@ -45133,11 +45226,11 @@ refs 3
 kids 0
 OBJECT group
 name "vectors"
-loc -2.38418e-007 -0.0190578 0
+loc -0.000368953 -0.0235184 0
 kids 4
 OBJECT group
 name "Left_Nozzle_Botto.001"
-loc 2.38418e-007 0.0190578 0
+loc 2.38419e-007 0.0190578 0
 kids 1
 OBJECT poly
 name "left-down-vector"
@@ -48007,7 +48100,7 @@ refs 4
 kids 0
 OBJECT group
 name "Left_Nozzle_Top_P.001"
-loc -2.38418e-007 -0.0190578 0
+loc -2.38419e-007 -0.0190578 0
 kids 1
 OBJECT poly
 name "left-up-vector"
@@ -50879,7 +50972,7 @@ refs 4
 kids 0
 OBJECT group
 name "Right_Nozzle_Bott.001"
-loc 2.38418e-007 0.0190578 0
+loc 2.38419e-007 0.0190578 0
 kids 1
 OBJECT poly
 name "right-down-vector"
@@ -53749,7 +53842,7 @@ refs 4
 kids 0
 OBJECT group
 name "Right_Nozzle_Top_.001"
-loc -2.38418e-007 -0.0190578 0
+loc -2.38419e-007 -0.0190578 0
 kids 1
 OBJECT poly
 name "right-up-vector"
@@ -56619,6 +56712,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Left_Nozzle_Inner_Sid"
+loc -0.000368714 -0.00446057 0
 data 21
 Left_Nozzle_Inner_Sid
 crease 30.000000
@@ -57002,6 +57096,7 @@ refs 4
 kids 0
 OBJECT group
 name "Left_Prewing"
+loc -0.000368714 -0.00446057 0
 kids 1
 OBJECT group
 name "left-slat"
@@ -57510,7 +57605,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Left_Rocket_Bay"
-loc 0 0 -0.214781
+loc -0.000368714 -0.00446057 -0.214781
 data 15
 Left_Rocket_Bay
 crease 30.000000
@@ -58996,6 +59091,7 @@ refs 4
 kids 0
 OBJECT group
 name "Left_Stabilizer"
+loc -0.000368714 -0.00446057 0
 kids 1
 OBJECT group
 name "left-elevator"
@@ -59402,6 +59498,7 @@ refs 4
 kids 0
 OBJECT group
 name "Left_Wing"
+loc -0.000368714 -0.00446057 0
 kids 2
 OBJECT poly
 name "Left_Wing_0"
@@ -64907,6 +65004,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Left_Wing_1"
+loc 1.19209e-007 0 0
 data 13
 Left_Wing.001
 texture "Liveries/maps/wingdefault.dds"
@@ -64926,7 +65024,7 @@ numvert 120
 4.95663 -0.78399 4.29211
 4.77581 -0.877 4.93397
 4.595 -0.89428 5.57583
-0.0570898 -0.81229 2.38789
+0.0570896 -0.81229 2.38789
 1.90826 -0.74208 1.85204
 2.72837 -0.74995 1.85204
 2.72837 -0.83608 1.85204
@@ -64952,8 +65050,8 @@ numvert 120
 0.52928 -0.73463 1.85204
 0.52928 -0.82274 1.85204
 0.35246 -0.823 2.05309
-0.0571098 -0.73997 2.38789
-0.0570898 -0.66765 2.38789
+0.0571096 -0.73997 2.38789
+0.0570896 -0.66765 2.38789
 0.34265 -0.65437 2.06598
 0.52928 -0.64651 1.85204
 1.00272 -0.78808 3.38961
@@ -65713,6 +65811,7 @@ refs 3
 kids 0
 OBJECT group
 name "lgear-door1"
+loc -0.000368714 -0.00446057 0
 kids 2
 OBJECT poly
 name "left-main-door-down"
@@ -69252,6 +69351,7 @@ refs 3
 kids 0
 OBJECT group
 name "lgear-door2"
+loc -0.000368714 -0.00446057 0
 kids 5
 OBJECT group
 name "Left_Main_Gear_Do.003"
@@ -73025,7 +73125,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Line01"
-loc -0.776761 0 0.021908
+loc -0.77713 -0.00446057 0.021908
 data 6
 Line01
 crease 30.000000
@@ -73833,7 +73933,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Line02"
-loc -0.776761 0 0.021908
+loc -0.77713 -0.00446057 0.021908
 data 6
 Line02
 crease 30.000000
@@ -74641,6 +74741,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Line03"
+loc -0.000368714 -0.00446057 0
 data 6
 Line03
 crease 30.000000
@@ -75448,6 +75549,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Line04"
+loc -0.000368714 -0.00446057 0
 data 6
 Line04
 crease 30.000000
@@ -76255,6 +76357,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Nose_Gear_Bay"
+loc -0.000368714 -0.00446057 0
 data 13
 Nose_Gear_Bay
 crease 30.000000
@@ -76655,6 +76758,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank01"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank01
 crease 30.000000
@@ -77493,6 +77597,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank02"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank02
 crease 30.000000
@@ -78331,6 +78436,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank03"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank03
 crease 30.000000
@@ -79169,6 +79275,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank04"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank04
 crease 30.000000
@@ -80007,6 +80114,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank05"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank05
 crease 30.000000
@@ -80845,6 +80953,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank06"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank06
 crease 30.000000
@@ -81683,6 +81792,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank07"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank07
 crease 30.000000
@@ -82521,6 +82631,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank08"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank08
 crease 30.000000
@@ -83359,6 +83470,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank09"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank09
 crease 30.000000
@@ -84197,6 +84309,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank10"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank10
 crease 30.000000
@@ -85035,6 +85148,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank11"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank11
 crease 30.000000
@@ -85873,6 +85987,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank12"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank12
 crease 30.000000
@@ -86711,6 +86826,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank13"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank13
 crease 30.000000
@@ -87549,6 +87665,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank14"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank14
 crease 30.000000
@@ -88387,6 +88504,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank15"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank15
 crease 30.000000
@@ -89225,6 +89343,7 @@ refs 3
 kids 0
 OBJECT poly
 name "OilTank16"
+loc -0.000368714 -0.00446057 0
 data 9
 OilTank16
 crease 30.000000
@@ -90063,6 +90182,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Pilot_Fuel_Ctrl"
+loc -0.000368714 -0.00446057 0
 data 15
 Pilot_Fuel_Ctrl
 crease 30.000000
@@ -90883,6 +91003,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Pilot_Horizon"
+loc -0.000368714 -0.00446057 0
 data 13
 Pilot_Horizon
 crease 30.000000
@@ -91703,6 +91824,7 @@ refs 4
 kids 0
 OBJECT group
 name "rgear-door1"
+loc -0.000368714 -0.00446057 0
 kids 2
 OBJECT poly
 name "right-main-door-down"
@@ -95242,6 +95364,7 @@ refs 3
 kids 0
 OBJECT group
 name "rgear-door2"
+loc -0.000368714 -0.00446057 0
 kids 5
 OBJECT group
 name "Right_Main_Gear_D.001"
@@ -99015,6 +99138,7 @@ refs 4
 kids 0
 OBJECT poly
 name "right-rudder"
+loc -0.000368714 -0.00446057 0
 data 11
 Right_Ruler
 texture "Map__9_Mix.png"
@@ -99395,7 +99519,7 @@ refs 4
 kids 0
 OBJECT group
 name "Right_Back_Turbina"
-loc 0 -0.00021404 0.0479062
+loc -0.000368714 -0.00467461 0.0479062
 kids 2
 OBJECT poly
 name "Right_Back_Turbina_0"
@@ -108466,6 +108590,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Right_Display03"
+loc -0.000368714 -0.00446057 0
 data 15
 Right_Display03
 crease 30.000000
@@ -108748,6 +108873,7 @@ refs 4
 kids 0
 OBJECT group
 name "Right_Eleron01"
+loc -0.000368714 -0.00446057 0
 kids 1
 OBJECT group
 name "right-flap"
@@ -111419,6 +111545,7 @@ refs 3
 kids 0
 OBJECT group
 name "Right_Eleron02"
+loc -0.000368714 -0.00446057 0
 kids 1
 OBJECT group
 name "right-aileron"
@@ -114600,6 +114727,7 @@ refs 3
 kids 0
 OBJECT group
 name "Right_Keel"
+loc -0.000368714 -0.00446057 0
 kids 1
 OBJECT poly
 name "Right_Keel_1"
@@ -114994,6 +115122,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Right_Main_Gear_Bay"
+loc -0.000368714 -0.00446057 0
 data 19
 Right_Main_Gear_Bay
 crease 30.000000
@@ -122625,6 +122754,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Right_Nozzle_Inner_Si"
+loc -0.000368714 -0.00446057 0
 data 21
 Right_Nozzle_Inner_Si
 crease 30.000000
@@ -123008,6 +123138,7 @@ refs 4
 kids 0
 OBJECT group
 name "Right_Prewing"
+loc -0.000368714 -0.00446057 0
 kids 1
 OBJECT group
 name "right-slat"
@@ -123516,7 +123647,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Right_Rocket_Bay"
-loc 0 0 0.201982
+loc -0.000368714 -0.00446057 0.201982
 data 16
 Right_Rocket_Bay
 crease 30.000000
@@ -125002,6 +125133,7 @@ refs 4
 kids 0
 OBJECT group
 name "Right_Stabilizer"
+loc -0.000368714 -0.00446057 0
 kids 1
 OBJECT group
 name "right-elevator"
@@ -125411,21 +125543,22 @@ refs 4
 kids 0
 OBJECT poly
 name "mesh"
+loc -0.000368714 -0.00446057 0
 crease 180.000000
 kids 0
 OBJECT poly
 name "9xdorl"
-loc -0.856997 -1.2544 1.53467
+loc -0.857366 -1.25886 1.53467
 crease 45.000000
 kids 0
 OBJECT poly
 name "9xdorr"
-loc -0.856997 -1.26357 -1.52504
+loc -0.857366 -1.26803 -1.52504
 crease 45.000000
 kids 0
 OBJECT poly
 name "TAIL-R-OUT"
-loc 5.27519 0.822585 -2.11935
+loc 5.27482 0.818124 -2.11935
 crease 45.000000
 numvert 24
 -1.65843 -1.30558 0.65979
@@ -125561,6 +125694,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Right_Keel_0"
+loc -0.000368714 -0.00446057 0
 data 10
 Right_Keel
 texture "Map__2_Mix.png"
@@ -125721,7 +125855,7 @@ refs 3
 kids 0
 OBJECT poly
 name "TAIL-L-OUT"
-loc 5.31069 0.7456 2.07234
+loc 5.31032 0.741139 2.07234
 crease 45.000000
 numvert 26
 -1.69392 -1.22859 -0.612775
@@ -125866,6 +126000,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Left_Keel_0"
+loc -0.000368714 -0.00446057 0
 data 9
 Left_Keel
 texture "Map__2_Mix.png"
@@ -126019,7 +126154,7 @@ refs 3
 kids 0
 OBJECT poly
 name "canopy in"
-loc 0 0.0107643 0
+loc -0.000368714 0.00630373 0
 data 11
 Cabin_Glass
 crease 30.000000
@@ -128899,6 +129034,7 @@ refs 4
 kids 0
 OBJECT poly
 name "cabin"
+loc -0.000368714 -0.00446057 0
 data 12
 Cabin_Carcas
 crease 30.000000
@@ -141304,6 +141440,7 @@ refs 4
 kids 0
 OBJECT poly
 name "canopy out"
+loc -0.000368714 -0.00446057 0
 data 11
 Cabin_Glass
 crease 30.000000
@@ -144183,6 +144320,7 @@ refs 3
 kids 0
 OBJECT group
 name "Right_Wing"
+loc -0.000368714 -0.00446057 0
 kids 2
 OBJECT poly
 name "Right_Wing_0"
@@ -149688,6 +149826,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Right_Wing_1"
+loc -1.19209e-007 0 -2.38419e-007
 data 14
 Right_Wing.001
 texture "Liveries/maps/defaultwingright.dds"
@@ -149707,7 +149846,7 @@ numvert 120
 4.95663 -0.78399 -4.29211
 4.595 -0.89428 -5.57584
 4.77581 -0.87701 -4.93397
-0.05709 -0.81229 -2.38789
+0.0570898 -0.81229 -2.38789
 1.90826 -0.82959 -1.85204
 2.72837 -0.83608 -1.85204
 2.72837 -0.74995 -1.85204
@@ -149733,9 +149872,9 @@ numvert 120
 0.52928 -0.82274 -1.85204
 0.52928 -0.73463 -1.85204
 0.34757 -0.73869 -2.05953
-0.05711 -0.73997 -2.38789
+0.0571101 -0.73997 -2.38789
 0.34265 -0.65437 -2.06598
-0.05709 -0.66765 -2.38789
+0.0570898 -0.66765 -2.38789
 0.52928 -0.64652 -1.85204
 0.97036 -0.85691 -3.3536
 1.00272 -0.78808 -3.38961
@@ -150494,35 +150633,35 @@ refs 3
 kids 0
 OBJECT poly
 name "Right_Front_Turbina_1"
-loc 0 -5.94258e-005 0.0577532
+loc -0.000368714 -0.00452 0.0577532
 data 17
 Right_Front_Turbi
 crease 30.000000
 kids 0
 OBJECT poly
 name "Right_Front_Turbina_0"
-loc 0 -5.94258e-005 0.0577532
+loc -0.000368714 -0.00452 0.0577532
 data 19
 Right_Front_Turbina
 crease 30.000000
 kids 0
 OBJECT poly
 name "Right_Front_Turbina_1"
-loc 0 -0.00359702 0.780268
+loc -0.000368714 -0.00805759 0.780268
 data 17
 Right_Front_Turbi
 crease 30.000000
 kids 0
 OBJECT poly
 name "Right_Front_Turbina_0"
-loc 0 -0.00359702 0.780268
+loc -0.000368714 -0.00805759 0.780268
 data 19
 Right_Front_Turbina
 crease 30.000000
 kids 0
 OBJECT poly
 name "9xdl2-axis"
-loc -0.883636 -1.39149 1.38663
+loc -0.884005 -1.39595 1.38663
 crease 45.000000
 numvert 2
 -1.49141 0 0
@@ -150536,7 +150675,7 @@ refs 2
 kids 0
 OBJECT poly
 name "navlight"
-loc 5.08906 1.58127 2.60505
+loc 5.08869 1.57681 2.60505
 crease 45.000000
 numvert 4
 -0.194796 -0.361649 -0.176401
@@ -150573,7 +150712,7 @@ refs 4
 kids 0
 OBJECT poly
 name "fueldoorR"
-loc 0.819093 -0.0438682 -0.0909924
+loc 0.818724 -0.0483288 -0.0909924
 crease 45.000000
 numvert 4
 -0.292311 0 -0.0930479
@@ -150591,7 +150730,7 @@ refs 4
 kids 0
 OBJECT poly
 name "leftfrontturbine"
-loc -0.64814 -0.759892 0.374768
+loc -0.648509 -0.764353 0.374768
 crease 45.000000
 numvert 1081
 -0.10173 5.00679e-006 -3.57628e-007
@@ -159623,7 +159762,7 @@ refs 4
 kids 0
 OBJECT poly
 name "rightfrontturbine"
-loc -0.64814 -0.756354 -0.347746
+loc -0.648509 -0.760815 -0.347746
 crease 45.000000
 numvert 1081
 -0.10173 5.00679e-006 -4.76837e-007
@@ -168655,7 +168794,7 @@ refs 3
 kids 0
 OBJECT poly
 name "rect"
-loc -0.577713 -0.906323 0
+loc -0.578082 -0.910784 0
 crease 45.000000
 numvert 4
 -0.59387 -0.39801 0
@@ -168673,6 +168812,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Right_Intake"
+loc -0.000368714 -0.00446057 0
 data 12
 Right_Intake
 crease 30.000000
@@ -172208,6 +172348,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Left_Intake"
+loc -0.000368714 -0.00446057 0
 data 11
 Left_Intake
 crease 30.000000
@@ -175743,6 +175884,7 @@ refs 4
 kids 0
 OBJECT group
 name "Body"
+loc -0.000368714 -0.00446057 0
 kids 3
 OBJECT poly
 name "Fuselage_0"
@@ -202611,6 +202753,7 @@ refs 4
 kids 0
 OBJECT group
 name "rwheel"
+loc -0.000368714 -0.00446057 0
 kids 6
 OBJECT group
 name "Right_Main_Gear_C"
@@ -213111,7 +213254,7 @@ refs 4
 kids 0
 OBJECT group
 name "nwheel"
-loc -1.83321 -1.17606 0.000527497
+loc -1.83358 -1.18052 0.000527497
 kids 2
 OBJECT group
 name "nwheel"
@@ -233047,29 +233190,29 @@ numvert 1473
 0 0.28903 -0.00105499
 0 0.28619 0.018975
 0.05584 0.28069 0.018975
-0.05639 0.28348 -0.00105499
+0.0563903 0.28348 -0.00105499
 0 0.27786 0.037635
-0.0542099 0.27253 0.037635
+0.0542102 0.27253 0.037635
 0 0.26462 0.053665
 0.05163 0.25954 0.053665
 0 0.14677 0.053665
-0.02864 0.14395 0.053665
+0.0286403 0.14395 0.053665
 0 0.13353 0.037635
 0.0260501 0.13096 0.037635
 0 0.1252 0.018975
-0.02443 0.1228 0.018975
+0.0244303 0.1228 0.018975
 0 0.12236 -0.00105499
 0.02388 0.12001 -0.00105499
 0 0.1252 -0.021085
-0.02443 0.1228 -0.021085
+0.0244303 0.1228 -0.021085
 0 0.13353 -0.039745
 0.0260501 0.13096 -0.039745
 0 0.14677 -0.055775
-0.02864 0.14395 -0.055775
+0.0286403 0.14395 -0.055775
 0 0.26462 -0.055775
 0.05163 0.25954 -0.055775
 0 0.27786 -0.039745
-0.0542099 0.27253 -0.039745
+0.0542102 0.27253 -0.039745
 0 0.28619 -0.021085
 0.05584 0.28069 -0.021085
 0.10952 0.2644 0.018975
@@ -233077,11 +233220,11 @@ numvert 1473
 0.10634 0.25671 0.037635
 0.10127 0.24448 0.053665
 0.05617 0.1356 0.053665
-0.0511 0.12336 0.037635
-0.04792 0.11567 0.018975
-0.0468299 0.11305 -0.00105499
-0.04792 0.11567 -0.021085
-0.0511 0.12336 -0.039745
+0.0511003 0.12336 0.037635
+0.0479202 0.11567 0.018975
+0.0468302 0.11305 -0.00105499
+0.0479202 0.11567 -0.021085
+0.0511003 0.12336 -0.039745
 0.05617 0.1356 -0.055775
 0.10127 0.24448 -0.055775
 0.10634 0.25671 -0.039745
@@ -233091,11 +233234,11 @@ numvert 1473
 0.15438 0.23103 0.037635
 0.14702 0.22002 0.053665
 0.0815401 0.12203 0.053665
-0.0741899 0.11102 0.037635
+0.0741901 0.11102 0.037635
 0.0695601 0.1041 0.018975
-0.0679801 0.10174 -0.00105499
+0.0679803 0.10174 -0.00105499
 0.0695601 0.1041 -0.021085
-0.0741899 0.11102 -0.039745
+0.0741901 0.11102 -0.039745
 0.0815401 0.12203 -0.055775
 0.14702 0.22002 -0.055775
 0.15438 0.23103 -0.039745
@@ -233107,7 +233250,7 @@ numvert 1473
 0.10379 0.10378 0.053665
 0.09442 0.0944204 0.037635
 0.0885301 0.0885301 0.018975
-0.08653 0.0865202 -0.00105499
+0.0865302 0.0865202 -0.00105499
 0.0885401 0.0885301 -0.021085
 0.09442 0.0944204 -0.039745
 0.10379 0.10378 -0.055775
@@ -233219,7 +233362,7 @@ numvert 1473
 0.10379 -0.10378 0.053665
 0.09442 -0.09442 0.037635
 0.0885301 -0.0885296 0.018975
-0.08653 -0.0865202 -0.00105499
+0.0865302 -0.0865202 -0.00105499
 0.0885401 -0.0885296 -0.021085
 0.09442 -0.09442 -0.039745
 0.10379 -0.10379 -0.055775
@@ -233231,11 +233374,11 @@ numvert 1473
 0.15438 -0.23104 0.037635
 0.14702 -0.22003 0.053665
 0.0815401 -0.12204 0.053665
-0.0741899 -0.11103 0.037635
+0.0741901 -0.11103 0.037635
 0.0695601 -0.1041 0.018975
-0.0679801 -0.10174 -0.00105499
+0.0679803 -0.10174 -0.00105499
 0.0695601 -0.1041 -0.021085
-0.0741899 -0.11103 -0.039745
+0.0741901 -0.11103 -0.039745
 0.0815401 -0.12204 -0.055775
 0.14702 -0.22003 -0.055765
 0.15438 -0.23104 -0.039745
@@ -233245,28 +233388,28 @@ numvert 1473
 0.10634 -0.25672 0.037635
 0.10127 -0.24448 0.053665
 0.05617 -0.1356 0.053665
-0.0511 -0.12336 0.037635
-0.04792 -0.11567 0.018975
-0.0468299 -0.11305 -0.00105499
-0.04792 -0.11567 -0.021085
-0.0511 -0.12336 -0.039745
+0.0511003 -0.12336 0.037635
+0.0479202 -0.11567 0.018975
+0.0468302 -0.11305 -0.00105499
+0.0479202 -0.11567 -0.021085
+0.0511003 -0.12336 -0.039745
 0.05617 -0.1356 -0.055775
 0.10127 -0.24448 -0.055765
 0.10634 -0.25672 -0.039745
 0.10952 -0.26441 -0.021085
 0.05584 -0.28069 0.018975
-0.05639 -0.28348 -0.00105499
-0.0542099 -0.27253 0.037635
+0.0563903 -0.28348 -0.00105499
+0.0542102 -0.27253 0.037635
 0.05163 -0.25954 0.053665
-0.02864 -0.14395 0.053665
+0.0286403 -0.14395 0.053665
 0.0260501 -0.13096 0.037635
-0.02443 -0.1228 0.018975
+0.0244303 -0.1228 0.018975
 0.02388 -0.12001 -0.00105499
-0.02443 -0.1228 -0.021085
+0.0244303 -0.1228 -0.021085
 0.0260501 -0.13096 -0.039745
-0.02864 -0.14395 -0.055775
+0.0286403 -0.14395 -0.055775
 0.05163 -0.25954 -0.055765
-0.0542099 -0.27253 -0.039745
+0.0542102 -0.27253 -0.039745
 0.05584 -0.28069 -0.021085
 0 -0.28619 0.018975
 0 -0.28903 -0.00105499
@@ -233283,29 +233426,29 @@ numvert 1473
 0 -0.27787 -0.039745
 0 -0.28619 -0.021085
 -0.05583 -0.28069 0.018975
--0.05638 -0.28348 -0.00105499
--0.0542099 -0.27253 0.037635
+-0.0563798 -0.28348 -0.00105499
+-0.0542097 -0.27253 0.037635
 -0.05162 -0.25954 0.053665
--0.02863 -0.14395 0.053665
+-0.0286298 -0.14395 0.053665
 -0.0260501 -0.13096 0.037635
--0.02442 -0.1228 0.018975
+-0.0244198 -0.1228 0.018975
 -0.02387 -0.12001 -0.00105499
--0.02442 -0.1228 -0.021085
+-0.0244198 -0.1228 -0.021085
 -0.0260501 -0.13096 -0.039745
--0.02863 -0.14395 -0.055775
+-0.0286298 -0.14395 -0.055775
 -0.05162 -0.25954 -0.055765
--0.0542099 -0.27253 -0.039745
+-0.0542097 -0.27253 -0.039745
 -0.05583 -0.28069 -0.021085
 -0.10952 -0.26441 0.018975
 -0.1106 -0.26703 -0.00105499
 -0.10633 -0.25672 0.037635
 -0.10126 -0.24448 0.053665
 -0.05616 -0.1356 0.053665
--0.0511 -0.12336 0.037635
--0.04791 -0.11567 0.018975
--0.0468199 -0.11305 -0.00105499
--0.04791 -0.11567 -0.021085
--0.0511 -0.12336 -0.039745
+-0.0510998 -0.12336 0.037635
+-0.0479097 -0.11567 0.018975
+-0.0468197 -0.11305 -0.00105499
+-0.0479097 -0.11567 -0.021085
+-0.0510998 -0.12336 -0.039745
 -0.05616 -0.1356 -0.055775
 -0.10126 -0.24448 -0.055775
 -0.10633 -0.25672 -0.039745
@@ -233315,11 +233458,11 @@ numvert 1473
 -0.15437 -0.23104 0.037635
 -0.14701 -0.22003 0.053665
 -0.0815401 -0.12204 0.053665
--0.0741799 -0.11103 0.037635
+-0.0741796 -0.11103 0.037635
 -0.0695601 -0.1041 0.018975
--0.0679801 -0.10174 -0.00105499
+-0.0679798 -0.10174 -0.00105499
 -0.0695601 -0.1041 -0.021085
--0.0741799 -0.11103 -0.039745
+-0.0741796 -0.11103 -0.039745
 -0.0815401 -0.12204 -0.055775
 -0.14701 -0.22003 -0.055775
 -0.15437 -0.23104 -0.039745
@@ -233331,7 +233474,7 @@ numvert 1473
 -0.10378 -0.10378 0.053665
 -0.0944099 -0.09442 0.037635
 -0.0885301 -0.0885296 0.018975
--0.08652 -0.0865202 -0.00105499
+-0.0865197 -0.0865202 -0.00105499
 -0.0885301 -0.0885296 -0.021085
 -0.0944099 -0.09442 -0.039745
 -0.10378 -0.10378 -0.055775
@@ -233443,7 +233586,7 @@ numvert 1473
 -0.10378 0.10378 0.053665
 -0.0944099 0.0944204 0.037635
 -0.0885301 0.0885301 0.018975
--0.08652 0.0865202 -0.00105499
+-0.0865197 0.0865202 -0.00105499
 -0.0885301 0.0885301 -0.021085
 -0.0944099 0.0944204 -0.039745
 -0.10378 0.10378 -0.055775
@@ -233455,11 +233598,11 @@ numvert 1473
 -0.15437 0.23103 0.037635
 -0.14701 0.22002 0.053665
 -0.0815401 0.12203 0.053665
--0.0741799 0.11102 0.037635
+-0.0741796 0.11102 0.037635
 -0.0695601 0.1041 0.018975
--0.0679801 0.10174 -0.00105499
+-0.0679798 0.10174 -0.00105499
 -0.0695601 0.1041 -0.021085
--0.0741799 0.11102 -0.039745
+-0.0741796 0.11102 -0.039745
 -0.0815401 0.12203 -0.055775
 -0.14701 0.22002 -0.055775
 -0.15437 0.23103 -0.039745
@@ -233469,80 +233612,80 @@ numvert 1473
 -0.10633 0.25671 0.037635
 -0.10126 0.24448 0.053665
 -0.05616 0.1356 0.053665
--0.0511 0.12336 0.037635
--0.04791 0.11567 0.018975
--0.0468199 0.11305 -0.00105499
--0.04791 0.11567 -0.021085
--0.0511 0.12336 -0.039745
+-0.0510998 0.12336 0.037635
+-0.0479097 0.11567 0.018975
+-0.0468197 0.11305 -0.00105499
+-0.0479097 0.11567 -0.021085
+-0.0510998 0.12336 -0.039745
 -0.05616 0.1356 -0.055775
 -0.10126 0.24448 -0.055775
 -0.10633 0.25671 -0.039745
 -0.10952 0.2644 -0.021085
 -0.05583 0.28069 0.018975
--0.05638 0.28348 -0.00105499
--0.0542099 0.27253 0.037635
+-0.0563798 0.28348 -0.00105499
+-0.0542097 0.27253 0.037635
 -0.05162 0.25954 0.053665
--0.02863 0.14395 0.053665
+-0.0286298 0.14395 0.053665
 -0.0260501 0.13096 0.037635
--0.02442 0.1228 0.018975
+-0.0244198 0.1228 0.018975
 -0.02387 0.12001 -0.00105499
--0.02442 0.1228 -0.021085
+-0.0244198 0.1228 -0.021085
 -0.0260501 0.13096 -0.039745
--0.02863 0.14395 -0.055775
+-0.0286298 0.14395 -0.055775
 -0.05162 0.25954 -0.055775
--0.0542099 0.27253 -0.039745
+-0.0542097 0.27253 -0.039745
 -0.05583 0.28069 -0.021085
 0 0.26462 0.053665
 0.05163 0.25954 0.053665
 0 0.24736 0.065955
-0.04826 0.24261 0.065955
+0.0482602 0.24261 0.065955
 0 0.22726 0.073685
-0.0443399 0.2229 0.073685
+0.0443401 0.2229 0.073685
 0 0.20569 0.076325
-0.0401299 0.20174 0.076325
+0.0401301 0.20174 0.076325
 0 0.18413 0.073685
-0.0359199 0.18059 0.073685
+0.0359201 0.18059 0.073685
 0 0.16403 0.065955
 0.0320001 0.16088 0.065955
 0 0.14677 0.053665
-0.02864 0.14395 0.053665
+0.0286403 0.14395 0.053665
 0 0.14677 -0.055775
-0.02864 0.14395 -0.055775
+0.0286403 0.14395 -0.055775
 0 0.16403 -0.068065
 0.0320001 0.16088 -0.068065
 0 0.18413 -0.075795
-0.0359199 0.18059 -0.075795
+0.0359201 0.18059 -0.075795
 0 0.20569 -0.078435
-0.0401299 0.20174 -0.078435
+0.0401301 0.20174 -0.078435
 0 0.22726 -0.075795
-0.0443399 0.2229 -0.075795
+0.0443401 0.2229 -0.075795
 0 0.24736 -0.068065
-0.04826 0.24261 -0.068065
+0.0482602 0.24261 -0.068065
 0 0.26462 -0.055775
 0.05163 0.25954 -0.055775
 0.10127 0.24448 0.053665
-0.0946701 0.22853 0.065955
-0.0869701 0.20996 0.073685
+0.0946703 0.22853 0.065955
+0.0869703 0.20996 0.073685
 0.0787201 0.19004 0.076325
-0.0704701 0.17011 0.073685
+0.0704703 0.17011 0.073685
 0.0627699 0.15154 0.065955
 0.05617 0.1356 0.053665
 0.05617 0.1356 -0.055775
 0.0627699 0.15154 -0.068065
-0.0704701 0.17011 -0.075795
+0.0704703 0.17011 -0.075795
 0.0787201 0.19004 -0.078435
-0.0869701 0.20996 -0.075795
-0.0946701 0.22853 -0.068065
+0.0869703 0.20996 -0.075795
+0.0946703 0.22853 -0.068065
 0.10127 0.24448 -0.055775
 0.14702 0.22002 0.053665
 0.13743 0.20567 0.065955
 0.12627 0.18896 0.073685
 0.11428 0.17103 0.076325
 0.1023 0.15309 0.073685
-0.09113 0.13638 0.065955
+0.0911303 0.13638 0.065955
 0.0815401 0.12203 0.053665
 0.0815401 0.12203 -0.055775
-0.09113 0.13638 -0.068065
+0.0911303 0.13638 -0.068065
 0.1023 0.15309 -0.075795
 0.11428 0.17103 -0.078435
 0.12627 0.18896 -0.075795
@@ -233679,42 +233822,42 @@ numvert 1473
 0.12627 -0.18897 0.073685
 0.11428 -0.17103 0.076325
 0.1023 -0.1531 0.073685
-0.09113 -0.13639 0.065955
+0.0911303 -0.13639 0.065955
 0.0815401 -0.12204 0.053665
 0.0815401 -0.12204 -0.055775
-0.09113 -0.13639 -0.068065
+0.0911303 -0.13639 -0.068065
 0.1023 -0.1531 -0.075795
 0.11428 -0.17103 -0.078435
 0.12627 -0.18897 -0.075795
 0.13743 -0.20568 -0.068065
 0.14702 -0.22003 -0.055765
 0.10127 -0.24448 0.053665
-0.0946701 -0.22854 0.065955
-0.0869701 -0.20997 0.073685
+0.0946703 -0.22854 0.065955
+0.0869703 -0.20997 0.073685
 0.0787201 -0.19004 0.076325
-0.0704701 -0.17011 0.073685
+0.0704703 -0.17011 0.073685
 0.0627699 -0.15155 0.065955
 0.05617 -0.1356 0.053665
 0.05617 -0.1356 -0.055775
 0.0627699 -0.15155 -0.068065
-0.0704701 -0.17011 -0.075795
+0.0704703 -0.17011 -0.075795
 0.0787201 -0.19004 -0.078435
-0.0869701 -0.20997 -0.075795
-0.0946701 -0.22854 -0.068065
+0.0869703 -0.20997 -0.075795
+0.0946703 -0.22854 -0.068065
 0.10127 -0.24448 -0.055765
 0.05163 -0.25954 0.053665
-0.04826 -0.24261 0.065955
-0.0443399 -0.2229 0.073685
-0.0401299 -0.20175 0.076325
-0.0359199 -0.18059 0.073685
+0.0482602 -0.24261 0.065955
+0.0443401 -0.2229 0.073685
+0.0401301 -0.20175 0.076325
+0.0359201 -0.18059 0.073685
 0.0320001 -0.16088 0.065955
-0.02864 -0.14395 0.053665
-0.02864 -0.14395 -0.055775
+0.0286403 -0.14395 0.053665
+0.0286403 -0.14395 -0.055775
 0.0320001 -0.16088 -0.068065
-0.0359199 -0.18059 -0.075795
-0.0401299 -0.20175 -0.078435
-0.0443399 -0.2229 -0.075795
-0.04826 -0.24261 -0.068065
+0.0359201 -0.18059 -0.075795
+0.0401301 -0.20175 -0.078435
+0.0443401 -0.2229 -0.075795
+0.0482602 -0.24261 -0.068065
 0.05163 -0.25954 -0.055765
 0 -0.26463 0.053665
 0 -0.24737 0.065955
@@ -233731,42 +233874,42 @@ numvert 1473
 0 -0.24737 -0.068065
 0 -0.26463 -0.055765
 -0.05162 -0.25954 0.053665
--0.04825 -0.24261 0.065955
+-0.0482497 -0.24261 0.065955
 -0.0443301 -0.2229 0.073685
--0.0401299 -0.20175 0.076325
--0.0359199 -0.18059 0.073685
+-0.0401297 -0.20175 0.076325
+-0.0359197 -0.18059 0.073685
 -0.0320001 -0.16088 0.065955
--0.02863 -0.14395 0.053665
--0.02863 -0.14395 -0.055775
+-0.0286298 -0.14395 0.053665
+-0.0286298 -0.14395 -0.055775
 -0.0320001 -0.16088 -0.068065
--0.0359199 -0.18059 -0.075795
--0.0401299 -0.20175 -0.078435
+-0.0359197 -0.18059 -0.075795
+-0.0401297 -0.20175 -0.078435
 -0.0443301 -0.2229 -0.075795
--0.04825 -0.24261 -0.068065
+-0.0482497 -0.24261 -0.068065
 -0.05162 -0.25954 -0.055765
 -0.10126 -0.24448 0.053665
--0.09466 -0.22854 0.065955
--0.0869701 -0.20997 0.073685
+-0.0946598 -0.22854 0.065955
+-0.0869699 -0.20997 0.073685
 -0.0787101 -0.19004 0.076325
--0.0704601 -0.17011 0.073685
+-0.0704598 -0.17011 0.073685
 -0.0627699 -0.15155 0.065955
 -0.05616 -0.1356 0.053665
 -0.05616 -0.1356 -0.055775
 -0.0627699 -0.15155 -0.068065
--0.0704601 -0.17011 -0.075795
+-0.0704598 -0.17011 -0.075795
 -0.0787101 -0.19004 -0.078435
--0.0869701 -0.20997 -0.075795
--0.09466 -0.22854 -0.068065
+-0.0869699 -0.20997 -0.075795
+-0.0946598 -0.22854 -0.068065
 -0.10126 -0.24448 -0.055775
 -0.14701 -0.22003 0.053665
 -0.13742 -0.20568 0.065955
 -0.12626 -0.18897 0.073685
 -0.11428 -0.17103 0.076325
 -0.10229 -0.1531 0.073685
--0.09113 -0.13639 0.065955
+-0.0911298 -0.13639 0.065955
 -0.0815401 -0.12204 0.053665
 -0.0815401 -0.12204 -0.055775
--0.09113 -0.13639 -0.068065
+-0.0911298 -0.13639 -0.068065
 -0.10229 -0.1531 -0.075795
 -0.11428 -0.17103 -0.078435
 -0.12626 -0.18897 -0.075795
@@ -233903,68 +234046,68 @@ numvert 1473
 -0.12626 0.18896 0.073685
 -0.11428 0.17103 0.076325
 -0.10229 0.15309 0.073685
--0.09113 0.13638 0.065955
+-0.0911298 0.13638 0.065955
 -0.0815401 0.12203 0.053665
 -0.0815401 0.12203 -0.055775
--0.09113 0.13638 -0.068065
+-0.0911298 0.13638 -0.068065
 -0.10229 0.15309 -0.075795
 -0.11428 0.17103 -0.078435
 -0.12626 0.18896 -0.075795
 -0.13742 0.20567 -0.068065
 -0.14701 0.22002 -0.055775
 -0.10126 0.24448 0.053665
--0.09466 0.22853 0.065955
--0.0869701 0.20996 0.073685
+-0.0946598 0.22853 0.065955
+-0.0869699 0.20996 0.073685
 -0.0787101 0.19004 0.076325
--0.0704601 0.17011 0.073685
+-0.0704598 0.17011 0.073685
 -0.0627699 0.15154 0.065955
 -0.05616 0.1356 0.053665
 -0.05616 0.1356 -0.055775
 -0.0627699 0.15154 -0.068065
--0.0704601 0.17011 -0.075795
+-0.0704598 0.17011 -0.075795
 -0.0787101 0.19004 -0.078435
--0.0869701 0.20996 -0.075795
--0.09466 0.22853 -0.068065
+-0.0869699 0.20996 -0.075795
+-0.0946598 0.22853 -0.068065
 -0.10126 0.24448 -0.055775
 -0.05162 0.25954 0.053665
--0.04825 0.24261 0.065955
+-0.0482497 0.24261 0.065955
 -0.0443301 0.2229 0.073685
--0.0401299 0.20174 0.076325
--0.0359199 0.18059 0.073685
+-0.0401297 0.20174 0.076325
+-0.0359197 0.18059 0.073685
 -0.0320001 0.16088 0.065955
--0.02863 0.14395 0.053665
--0.02863 0.14395 -0.055775
+-0.0286298 0.14395 0.053665
+-0.0286298 0.14395 -0.055775
 -0.0320001 0.16088 -0.068065
--0.0359199 0.18059 -0.075795
--0.0401299 0.20174 -0.078435
+-0.0359197 0.18059 -0.075795
+-0.0401297 0.20174 -0.078435
 -0.0443301 0.2229 -0.075795
--0.04825 0.24261 -0.068065
+-0.0482497 0.24261 -0.068065
 -0.05162 0.25954 -0.055775
 0.0579 0.0194602 -0.039645
 0.0590601 0.0106401 -0.039645
-0.03492 0.00615025 -0.039645
+0.0349202 0.00615025 -0.039645
 0.0340199 0.0130601 -0.039645
-0.0517199 0.03438 -0.039645
-0.0302999 0.0220203 -0.039645
-0.0244 0.0297098 -0.039645
-0.03181 0.0371199 -0.039645
-0.0395401 0.0359402 -0.039645
+0.0517201 0.03438 -0.039645
+0.0303001 0.0220203 -0.039645
+0.0244002 0.0297098 -0.039645
+0.0318103 0.0371199 -0.039645
+0.0395403 0.0359402 -0.039645
 0.0271101 0.0261803 -0.039645
-0.0296199 0.0399303 -0.039645
-0.0222399 0.0313702 -0.039645
+0.0296202 0.0399303 -0.039645
+0.0222402 0.0313702 -0.039645
 0.0290699 0.0570302 -0.039645
-0.0141499 0.0632105 -0.039645
-0.01671 0.0356102 -0.039645
+0.0141501 0.0632105 -0.039645
+0.0167103 0.0356102 -0.039645
 0.00775003 0.03932 -0.039645
--0.0018599 0.0405903 -0.039645
--0.0018599 0.0510602 -0.039645
-0.00444007 0.0557003 -0.039645
-0.00254989 0.0400105 -0.039645
+-0.00185966 0.0405903 -0.039645
+-0.00185966 0.0510602 -0.039645
+0.00444031 0.0557003 -0.039645
+0.00255013 0.0400105 -0.039645
 -0.0178699 0.0632105 -0.039645
 -0.00904989 0.0643702 -0.039645
 -0.00457001 0.0402298 -0.039645
--0.0114801 0.03932 -0.039645
--0.0328 0.0570302 -0.039645
+-0.0114799 0.03932 -0.039645
+-0.0327997 0.0570302 -0.039645
 -0.0204301 0.0356102 -0.039645
 -0.0281301 0.0297098 -0.039645
 -0.0355301 0.0371199 -0.039645
@@ -233973,17 +234116,17 @@ numvert 1473
 -0.0383501 0.0349302 -0.039645
 -0.0297899 0.0275402 -0.039645
 -0.0554399 0.03438 -0.039645
--0.06162 0.0194602 -0.039645
+-0.0616198 0.0194602 -0.039645
 -0.03403 0.0220203 -0.039645
--0.03774 0.0130601 -0.039645
+-0.0377398 0.0130601 -0.039645
 -0.039 0.00345039 -0.039645
 -0.04948 0.00345039 -0.039645
 -0.0541201 0.00975037 -0.039645
--0.03842 0.00785017 -0.039645
--0.06162 -0.0125699 -0.039645
+-0.0384197 0.00785017 -0.039645
+-0.0616198 -0.0125699 -0.039645
 -0.0627799 -0.00373983 -0.039645
 -0.03865 0.000740051 -0.039645
--0.03774 -0.0061698 -0.039645
+-0.0377398 -0.0061698 -0.039645
 -0.0554399 -0.0274897 -0.039645
 -0.03403 -0.01513 -0.039645
 -0.0281301 -0.0228195 -0.039645
@@ -233992,32 +234135,32 @@ numvert 1473
 -0.0308299 -0.01929 -0.039645
 -0.03334 -0.03304 -0.039645
 -0.02596 -0.0244799 -0.039645
--0.0328 -0.0501299 -0.039645
+-0.0327997 -0.0501299 -0.039645
 -0.0178699 -0.0563097 -0.039645
 -0.0204301 -0.0287199 -0.039645
--0.0114801 -0.0324297 -0.039645
--0.0018599 -0.0337 -0.039645
--0.0018599 -0.0441699 -0.039645
+-0.0114799 -0.0324297 -0.039645
+-0.00185966 -0.0337 -0.039645
+-0.00185966 -0.0441699 -0.039645
 -0.00816011 -0.04881 -0.039645
 -0.00626993 -0.0331202 -0.039645
-0.0141499 -0.0563097 -0.039645
+0.0141501 -0.0563097 -0.039645
 0.00533009 -0.0574799 -0.039645
-0.000849962 -0.0333395 -0.039645
+0.000850201 -0.0333395 -0.039645
 0.00775003 -0.0324297 -0.039645
 0.0290699 -0.0501299 -0.039645
-0.01671 -0.0287199 -0.039645
-0.0244 -0.0228195 -0.039645
-0.03181 -0.03022 -0.039645
-0.0306399 -0.0379601 -0.039645
-0.02088 -0.0255198 -0.039645
-0.03462 -0.0280299 -0.039645
-0.0260699 -0.0206499 -0.039645
-0.0517199 -0.0274897 -0.039645
+0.0167103 -0.0287199 -0.039645
+0.0244002 -0.0228195 -0.039645
+0.0318103 -0.03022 -0.039645
+0.0306401 -0.0379601 -0.039645
+0.0208802 -0.0255198 -0.039645
+0.0346203 -0.0280299 -0.039645
+0.0260701 -0.0206499 -0.039645
+0.0517201 -0.0274897 -0.039645
 0.0579 -0.0125699 -0.039645
-0.0302999 -0.01513 -0.039645
+0.0303001 -0.01513 -0.039645
 0.0340199 -0.0061698 -0.039645
-0.0504 -0.00284958 -0.039645
-0.03528 0.00345039 -0.039645
+0.0504003 -0.00284958 -0.039645
+0.0352802 0.00345039 -0.039645
 0.08952 0.0124702 -0.039645
 0.11766 0.03547 -0.039645
 0.12188 0.00345039 -0.039645
@@ -234025,59 +234168,59 @@ numvert 1473
 0.0463099 0.0414305 -0.039645
 0.0691299 0.0675101 -0.039645
 0.0856299 0.0909405 -0.039645
-0.0659201 0.0712299 -0.039645
-0.05638 0.07444 -0.039645
+0.0659204 0.0712299 -0.039645
+0.0563803 0.07444 -0.039645
 0.06001 0.11061 -0.039645
 0.03016 0.12297 -0.039645
 0.0053401 0.0643702 -0.039645
-0.00304008 0.0989399 -0.039645
+0.00304031 0.0989399 -0.039645
 -0.01088 0.09483 -0.039645
--0.03389 0.12297 -0.039645
--0.0018599 0.12718 -0.039645
--0.06373 0.11061 -0.039645
--0.03985 0.0516205 -0.039645
--0.0659201 0.07444 -0.039645
--0.08936 0.0909405 -0.039645
--0.0696399 0.0712299 -0.039645
--0.07285 0.0616798 -0.039645
+-0.0338898 0.12297 -0.039645
+-0.00185966 0.12718 -0.039645
+-0.0637298 0.11061 -0.039645
+-0.0398498 0.0516205 -0.039645
+-0.0659199 0.07444 -0.039645
+-0.0893598 0.0909405 -0.039645
+-0.0696397 0.0712299 -0.039645
+-0.0728498 0.0616798 -0.039645
 -0.10902 0.0653105 -0.039645
 -0.12138 0.03547 -0.039645
 -0.0627799 0.0106502 -0.039645
--0.0973599 0.00835037 -0.039645
--0.09324 -0.00556993 -0.039645
+-0.0973597 0.00835037 -0.039645
+-0.0932398 -0.00556993 -0.039645
 -0.12138 -0.0285797 -0.039645
 -0.1256 0.00345039 -0.039645
 -0.10902 -0.0584202 -0.039645
--0.05003 -0.0345402 -0.039645
--0.07285 -0.0606098 -0.039645
--0.08936 -0.0840502 -0.039645
--0.0696399 -0.0643301 -0.039645
+-0.0500298 -0.0345402 -0.039645
+-0.0728498 -0.0606098 -0.039645
+-0.0893598 -0.0840502 -0.039645
+-0.0696397 -0.0643301 -0.039645
 -0.0601001 -0.0675497 -0.039645
--0.06373 -0.10371 -0.039645
--0.03389 -0.11608 -0.039645
+-0.0637298 -0.10371 -0.039645
+-0.0338898 -0.11608 -0.039645
 -0.00905991 -0.0574799 -0.039645
 -0.00676012 -0.0920496 -0.039645
-0.00715995 -0.0879297 -0.039645
+0.00716019 -0.0879297 -0.039645
 0.03016 -0.11608 -0.039645
--0.0018599 -0.12029 -0.039645
+-0.00185966 -0.12029 -0.039645
 0.06001 -0.10371 -0.039645
 0.0361199 -0.0447197 -0.039645
 0.0622001 -0.0675497 -0.039645
 0.0856299 -0.0840502 -0.039645
-0.0659201 -0.0643301 -0.039645
+0.0659204 -0.0643301 -0.039645
 0.0691299 -0.0547895 -0.039645
 0.1053 -0.0584202 -0.039645
 0.11766 -0.0285797 -0.039645
 0.0590601 -0.00375986 -0.039645
-0.0936401 -0.00146008 -0.039645
+0.0936403 -0.00146008 -0.039645
 0.11928 0.0359001 -0.054625
 0.12355 0.00345039 -0.054625
 0.10675 0.0661502 -0.054625
-0.0868199 0.0921202 -0.054625
-0.0608399 0.11205 -0.054625
+0.0868201 0.0921202 -0.054625
+0.0608401 0.11205 -0.054625
 0.0306001 0.12458 -0.054625
--0.0018599 0.12885 -0.054625
--0.0343201 0.12458 -0.054625
+-0.00185966 0.12885 -0.054625
+-0.0343199 0.12458 -0.054625
 -0.06457 0.11205 -0.054625
 -0.0905399 0.0921202 -0.054625
 -0.11047 0.0661502 -0.054625
@@ -234087,11 +234230,11 @@ numvert 1473
 -0.11047 -0.0592599 -0.054625
 -0.0905399 -0.0852299 -0.054625
 -0.06457 -0.10516 -0.054625
--0.0343201 -0.11769 -0.054625
--0.0018599 -0.12196 -0.054625
+-0.0343199 -0.11769 -0.054625
+-0.00185966 -0.12196 -0.054625
 0.0306001 -0.11769 -0.054625
-0.0608399 -0.10516 -0.054625
-0.0868199 -0.0852299 -0.054625
+0.0608401 -0.10516 -0.054625
+0.0868201 -0.0852299 -0.054625
 0.10675 -0.0592599 -0.054625
 0.11928 -0.0290098 -0.054625
 0.13738 0.0407505 -0.054625
@@ -234100,9 +234243,9 @@ numvert 1473
 0.10007 0.10538 -0.054625
 0.07021 0.12828 -0.054625
 0.03545 0.14268 -0.054625
--0.0018599 0.14759 -0.054625
--0.03917 0.14268 -0.054625
--0.07394 0.12828 -0.054625
+-0.00185966 0.14759 -0.054625
+-0.0391698 0.14268 -0.054625
+-0.0739398 0.12828 -0.054625
 -0.10379 0.10538 -0.054625
 -0.1267 0.07552 -0.054625
 -0.1411 0.0407505 -0.054625
@@ -234110,9 +234253,9 @@ numvert 1473
 -0.1411 -0.0338602 -0.054625
 -0.1267 -0.0686297 -0.054625
 -0.10379 -0.0984797 -0.054625
--0.07394 -0.12139 -0.054625
--0.03917 -0.13579 -0.054625
--0.0018599 -0.1407 -0.054625
+-0.0739398 -0.12139 -0.054625
+-0.0391698 -0.13579 -0.054625
+-0.00185966 -0.1407 -0.054625
 0.03545 -0.13579 -0.054625
 0.07021 -0.12139 -0.054625
 0.10007 -0.0984797 -0.054625
@@ -234124,9 +234267,9 @@ numvert 1473
 0.10007 0.10538 0.054175
 0.07021 0.12828 0.054175
 0.03545 0.14268 0.054175
--0.0018599 0.14759 0.054175
--0.03917 0.14268 0.054175
--0.07394 0.12828 0.054175
+-0.00185966 0.14759 0.054175
+-0.0391698 0.14268 0.054175
+-0.0739398 0.12828 0.054175
 -0.10379 0.10538 0.054175
 -0.1267 0.07552 0.054175
 -0.1411 0.0407505 0.054175
@@ -234134,9 +234277,9 @@ numvert 1473
 -0.1411 -0.0338602 0.054175
 -0.1267 -0.0686297 0.054175
 -0.10379 -0.0984797 0.054175
--0.07394 -0.12139 0.054175
--0.03917 -0.13579 0.054175
--0.0018599 -0.1407 0.054175
+-0.0739398 -0.12139 0.054175
+-0.0391698 -0.13579 0.054175
+-0.00185966 -0.1407 0.054175
 0.03545 -0.13579 0.054175
 0.07021 -0.12139 0.054175
 0.10007 -0.0984797 0.054175
@@ -234145,11 +234288,11 @@ numvert 1473
 0.11928 0.0359001 0.054175
 0.12355 0.00345039 0.054175
 0.10675 0.0661502 0.054175
-0.0868199 0.0921202 0.054175
-0.0608399 0.11205 0.054175
+0.0868201 0.0921202 0.054175
+0.0608401 0.11205 0.054175
 0.0306001 0.12458 0.054175
--0.0018599 0.12885 0.054175
--0.0343201 0.12458 0.054175
+-0.00185966 0.12885 0.054175
+-0.0343199 0.12458 0.054175
 -0.06457 0.11205 0.054175
 -0.0905399 0.0921202 0.054175
 -0.11047 0.0661502 0.054175
@@ -234159,11 +234302,11 @@ numvert 1473
 -0.11047 -0.0592599 0.054175
 -0.0905399 -0.0852299 0.054175
 -0.06457 -0.10516 0.054175
--0.0343201 -0.11769 0.054175
--0.0018599 -0.12196 0.054175
+-0.0343199 -0.11769 0.054175
+-0.00185966 -0.12196 0.054175
 0.0306001 -0.11769 0.054175
-0.0608399 -0.10516 0.054175
-0.0868199 -0.0852299 0.054175
+0.0608401 -0.10516 0.054175
+0.0868201 -0.0852299 0.054175
 0.10675 -0.0592599 0.054175
 0.11928 -0.0290098 0.054175
 0.11766 0.03547 0.039195
@@ -234172,19 +234315,19 @@ numvert 1473
 0.0856299 0.0909405 0.039195
 0.06001 0.11061 0.039195
 0.03016 0.12297 0.039195
--0.0018599 0.12718 0.039195
--0.03389 0.12297 0.039195
--0.06373 0.11061 0.039195
--0.08936 0.0909405 0.039195
+-0.00185966 0.12718 0.039195
+-0.0338898 0.12297 0.039195
+-0.0637298 0.11061 0.039195
+-0.0893598 0.0909405 0.039195
 -0.10902 0.0653105 0.039195
 -0.12138 0.03547 0.039195
 -0.1256 0.00345039 0.039195
 -0.12138 -0.0285797 0.039195
 -0.10902 -0.0584202 0.039195
--0.08936 -0.0840502 0.039195
--0.06373 -0.10371 0.039195
--0.03389 -0.11608 0.039195
--0.0018599 -0.12029 0.039195
+-0.0893598 -0.0840502 0.039195
+-0.0637298 -0.10371 0.039195
+-0.0338898 -0.11608 0.039195
+-0.00185966 -0.12029 0.039195
 0.03016 -0.11608 0.039195
 0.06001 -0.10371 0.039195
 0.0856299 -0.0840502 0.039195
@@ -234192,64 +234335,64 @@ numvert 1473
 0.11766 -0.0285797 0.039195
 0.0579 0.0194602 0.039195
 0.08952 0.0124602 0.039195
-0.0517199 0.03438 0.039195
-0.0659201 0.0712299 0.039195
+0.0517201 0.03438 0.039195
+0.0659204 0.0712299 0.039195
 0.0691299 0.0675001 0.039195
-0.05638 0.07444 0.039195
-0.0141499 0.0632105 0.039195
+0.0563803 0.07444 0.039195
+0.0141501 0.0632105 0.039195
 0.0290699 0.0570302 0.039195
--0.0018599 0.0993004 0.039195
-0.00304008 0.0989399 0.039195
+-0.00185966 0.0993004 0.039195
+0.00304031 0.0989399 0.039195
 -0.0178699 0.0632105 0.039195
 -0.01088 0.09483 0.039195
--0.0328 0.0570302 0.039195
--0.0696399 0.0712299 0.039195
--0.0659201 0.07444 0.039195
--0.07285 0.0616903 0.039195
--0.06162 0.0194602 0.039195
+-0.0327997 0.0570302 0.039195
+-0.0696397 0.0712299 0.039195
+-0.0659199 0.07444 0.039195
+-0.0728498 0.0616903 0.039195
+-0.0616198 0.0194602 0.039195
 -0.0554399 0.03438 0.039195
--0.0977199 0.00345039 0.039195
+-0.0977197 0.00345039 0.039195
 -0.0973501 0.00835037 0.039195
--0.06162 -0.0125699 0.039195
--0.09324 -0.00556993 0.039195
+-0.0616198 -0.0125699 0.039195
+-0.0932398 -0.00556993 0.039195
 -0.0554399 -0.0274897 0.039195
--0.0696399 -0.0643301 0.039195
--0.07285 -0.0606098 0.039195
+-0.0696397 -0.0643301 0.039195
+-0.0728498 -0.0606098 0.039195
 -0.0601001 -0.0675402 0.039195
 -0.0178699 -0.0563097 0.039195
--0.0328 -0.0501299 0.039195
--0.0018599 -0.0924101 0.039195
+-0.0327997 -0.0501299 0.039195
+-0.00185966 -0.0924101 0.039195
 -0.00676012 -0.0920496 0.039195
-0.0141499 -0.0563097 0.039195
-0.00715995 -0.0879297 0.039195
+0.0141501 -0.0563097 0.039195
+0.00716019 -0.0879297 0.039195
 0.0290699 -0.0501299 0.039195
-0.0659201 -0.0643301 0.039195
+0.0659204 -0.0643301 0.039195
 0.0622001 -0.0675402 0.039195
 0.0691299 -0.0547895 0.039195
 0.0579 -0.0125699 0.039195
-0.0517199 -0.0274897 0.039195
-0.0940001 0.00345039 0.039195
-0.0936301 -0.00146008 0.039195
+0.0517201 -0.0274897 0.039195
+0.0940003 0.00345039 0.039195
+0.0936303 -0.00146008 0.039195
 0.0340199 0.0130601 0.039195
-0.03492 0.00615025 0.039195
-0.0462 0.00697994 0.039195
+0.0349202 0.00615025 0.039195
+0.0462003 0.00697994 0.039195
 0.0590601 0.0106401 0.039195
-0.0302999 0.0220203 0.039195
-0.03181 0.0371199 0.039195
-0.0244 0.0297098 0.039195
+0.0303001 0.0220203 0.039195
+0.0318103 0.0371199 0.039195
+0.0244002 0.0297098 0.039195
 0.0271101 0.0261803 0.039195
-0.0395401 0.0359402 0.039195
-0.0296199 0.0399303 0.039195
+0.0395403 0.0359402 0.039195
+0.0296202 0.0399303 0.039195
 0.03613 0.05161 0.039195
-0.01671 0.0356102 0.039195
+0.0167103 0.0356102 0.039195
 0.00775003 0.03932 0.039195
--0.0018599 0.0510602 0.039195
--0.0018599 0.0405903 0.039195
-0.00254989 0.0400105 0.039195
-0.00444007 0.0557003 0.039195
--0.0114801 0.03932 0.039195
+-0.00185966 0.0510602 0.039195
+-0.00185966 0.0405903 0.039195
+0.00255013 0.0400105 0.039195
+0.00444031 0.0557003 0.039195
+-0.0114799 0.03932 0.039195
 -0.00457001 0.0402298 0.039195
--0.00539994 0.0515003 0.039195
+-0.0053997 0.0515003 0.039195
 -0.00904989 0.0643702 0.039195
 -0.0204301 0.0356102 0.039195
 -0.0355301 0.0371199 0.039195
@@ -234257,14 +234400,14 @@ numvert 1473
 -0.0246 0.0324202 0.039195
 -0.0343599 0.0448503 0.039195
 -0.0383501 0.0349302 0.039195
--0.05002 0.04144 0.039195
+-0.0500197 0.04144 0.039195
 -0.03403 0.0220203 0.039195
--0.03774 0.0130601 0.039195
+-0.0377398 0.0130601 0.039195
 -0.04948 0.00345039 0.039195
 -0.039 0.00345039 0.039195
--0.03842 0.00785017 0.039195
+-0.0384197 0.00785017 0.039195
 -0.0541201 0.00975037 0.039195
--0.03774 -0.0061698 0.039195
+-0.0377398 -0.0061698 0.039195
 -0.03865 0.000740051 0.039195
 -0.0499201 -8.96454e-005 0.039195
 -0.0627799 -0.00373983 0.039195
@@ -234274,249 +234417,249 @@ numvert 1473
 -0.0308299 -0.01929 0.039195
 -0.0432701 -0.0290499 0.039195
 -0.03334 -0.03304 0.039195
--0.03986 -0.0447197 0.039195
+-0.0398598 -0.0447197 0.039195
 -0.0204301 -0.0287199 0.039195
--0.0114801 -0.0324297 0.039195
--0.0018599 -0.0441699 0.039195
--0.0018599 -0.0337 0.039195
+-0.0114799 -0.0324297 0.039195
+-0.00185966 -0.0441699 0.039195
+-0.00185966 -0.0337 0.039195
 -0.00626993 -0.0331202 0.039195
 -0.00816011 -0.04881 0.039195
 0.00775003 -0.0324297 0.039195
-0.000849962 -0.0333395 0.039195
+0.000850201 -0.0333395 0.039195
 0.0016799 -0.04461 0.039195
 0.00533009 -0.0574799 0.039195
-0.01671 -0.0287199 0.039195
-0.03181 -0.03022 0.039195
-0.0244 -0.0228195 0.039195
-0.02088 -0.0255198 0.039195
-0.0306399 -0.0379601 0.039195
-0.03462 -0.0280299 0.039195
+0.0167103 -0.0287199 0.039195
+0.0318103 -0.03022 0.039195
+0.0244002 -0.0228195 0.039195
+0.0208802 -0.0255198 0.039195
+0.0306401 -0.0379601 0.039195
+0.0346203 -0.0280299 0.039195
 0.0462999 -0.0345497 0.039195
-0.0302999 -0.01513 0.039195
+0.0303001 -0.01513 0.039195
 0.0340199 -0.0061698 0.039195
 0.0346999 -0.000959873 0.039195
-0.0504 -0.00284958 0.039195
-0.03528 0.00345039 0.039195
+0.0504003 -0.00284958 0.039195
+0.0352802 0.00345039 0.039195
 0.0463099 0.0414305 0.039195
 0.03613 0.05161 -0.039645
-0.0222399 0.0313702 0.039195
-0.0940001 0.00345039 -0.039645
+0.0222402 0.0313702 0.039195
+0.0940003 0.00345039 -0.039645
 0.0590601 -0.00375986 0.039195
-0.0457499 0.00345039 0.039195
-0.0462 0.00697994 -0.039645
-0.0457499 0.00345039 -0.039645
+0.0457501 0.00345039 0.039195
+0.0462003 0.00697994 -0.039645
+0.0457501 0.00345039 -0.039645
 0.0361199 -0.0447197 0.039195
 0.0462999 -0.0345497 -0.039645
-0.0260699 -0.0206499 0.039195
--0.0018599 -0.0924101 -0.039645
+0.0260701 -0.0206499 0.039195
+-0.00185966 -0.0924101 -0.039645
 -0.00905991 -0.0574799 0.039195
 0.0016799 -0.04461 -0.039645
--0.05003 -0.0345402 0.039195
--0.03986 -0.0447197 -0.039645
+-0.0500298 -0.0345402 0.039195
+-0.0398598 -0.0447197 -0.039645
 -0.02596 -0.0244799 0.039195
--0.0977199 0.00345039 -0.039645
+-0.0977197 0.00345039 -0.039645
 -0.0627799 0.0106502 0.039195
 -0.0499201 -8.96454e-005 -0.039645
--0.03985 0.0516205 0.039195
--0.05002 0.04144 -0.039645
+-0.0398498 0.0516205 0.039195
+-0.0500197 0.04144 -0.039645
 -0.0297899 0.0275402 0.039195
--0.0018599 0.0993004 -0.039645
+-0.00185966 0.0993004 -0.039645
 0.0053401 0.0643702 0.039195
--0.00539994 0.0515003 -0.039645
--0.0018599 0.00345039 -0.093565
-0.00710988 0.00584984 -0.093565
+-0.0053997 0.0515003 -0.039645
+-0.00185966 0.00345039 -0.093565
+0.00711012 0.00584984 -0.093565
 0.00743008 0.00345039 -0.093565
-0.00618005 0.00809002 -0.093565
-0.00469995 0.0100102 -0.093565
+0.00618029 0.00809002 -0.093565
+0.00470018 0.0100102 -0.093565
 0.00277996 0.0114899 -0.093565
-0.000540018 0.0124102 -0.093565
--0.0018599 0.0127301 -0.093565
+0.000540257 0.0124102 -0.093565
+-0.00185966 0.0127301 -0.093565
 -0.00427008 0.0124102 -0.093565
--0.00650001 0.0114899 -0.093565
+-0.00649977 0.0114899 -0.093565
 -0.00843 0.0100102 -0.093565
 -0.00990009 0.00809002 -0.093565
 -0.0108299 0.00584984 -0.093565
--0.0111501 0.00345039 -0.093565
+-0.0111499 0.00345039 -0.093565
 -0.0108299 0.00104046 -0.093565
 -0.00990009 -0.00119972 -0.093565
 -0.00843 -0.00311995 -0.093565
--0.00650001 -0.00459957 -0.093565
+-0.00649977 -0.00459957 -0.093565
 -0.00427008 -0.00551987 -0.093565
--0.0018599 -0.00583982 -0.093565
-0.000540018 -0.00551987 -0.093565
+-0.00185966 -0.00583982 -0.093565
+0.000540257 -0.00551987 -0.093565
 0.00277996 -0.00459957 -0.093565
-0.00469995 -0.00311995 -0.093565
-0.00618005 -0.00119972 -0.093565
-0.00710988 0.00104046 -0.093565
+0.00470018 -0.00311995 -0.093565
+0.00618029 -0.00119972 -0.093565
+0.00711012 0.00104046 -0.093565
 0.0160799 0.00825024 -0.093565
-0.01671 0.00345039 -0.093565
-0.01422 0.0127301 -0.093565
+0.0167103 0.00345039 -0.093565
+0.0142202 0.0127301 -0.093565
 0.01127 0.0165801 -0.093565
 0.00743008 0.0195303 -0.093565
-0.00294995 0.0213804 -0.093565
--0.0018599 0.0220203 -0.093565
+0.00295019 0.0213804 -0.093565
+-0.00185966 0.0220203 -0.093565
 -0.00667 0.0213804 -0.093565
--0.0111501 0.0195303 -0.093565
--0.0149901 0.0165801 -0.093565
+-0.0111499 0.0195303 -0.093565
+-0.0149899 0.0165801 -0.093565
 -0.0179501 0.0127301 -0.093565
--0.0197999 0.00825024 -0.093565
+-0.0197997 0.00825024 -0.093565
 -0.0204301 0.00345039 -0.093565
--0.0197999 -0.00135994 -0.093565
+-0.0197997 -0.00135994 -0.093565
 -0.0179501 -0.00583982 -0.093565
--0.0149901 -0.00968981 -0.093565
--0.0111501 -0.01264 -0.093565
+-0.0149899 -0.00968981 -0.093565
+-0.0111499 -0.01264 -0.093565
 -0.00667 -0.0144901 -0.093565
--0.0018599 -0.01513 -0.093565
-0.00294995 -0.0144901 -0.093565
+-0.00185966 -0.01513 -0.093565
+0.00295019 -0.0144901 -0.093565
 0.00743008 -0.01264 -0.093565
 0.01127 -0.00968981 -0.093565
-0.01422 -0.00583982 -0.093565
+0.0142202 -0.00583982 -0.093565
 0.0160799 -0.00135994 -0.093565
-0.0250499 0.0106602 -0.093565
+0.0250502 0.0106602 -0.093565
 0.026 0.00345039 -0.093565
-0.02226 0.0173702 -0.093565
+0.0222602 0.0173702 -0.093565
 0.0178399 0.02314 -0.093565
-0.0120699 0.0275702 -0.093565
+0.0120702 0.0275702 -0.093565
 0.00535011 0.0303502 -0.093565
--0.0018599 0.0313001 -0.093565
+-0.00185966 0.0313001 -0.093565
 -0.00906992 0.0303502 -0.093565
 -0.01579 0.0275702 -0.093565
--0.02156 0.02314 -0.093565
+-0.0215597 0.02314 -0.093565
 -0.02599 0.0173702 -0.093565
 -0.02877 0.0106602 -0.093565
--0.0297201 0.00345039 -0.093565
+-0.0297198 0.00345039 -0.093565
 -0.02877 -0.00375986 -0.093565
 -0.02599 -0.0104799 -0.093565
--0.02156 -0.0162497 -0.093565
+-0.0215597 -0.0162497 -0.093565
 -0.01579 -0.02068 -0.093565
 -0.00906992 -0.0234599 -0.093565
--0.0018599 -0.0244098 -0.093565
+-0.00185966 -0.0244098 -0.093565
 0.00535011 -0.0234599 -0.093565
-0.0120699 -0.02068 -0.093565
+0.0120702 -0.02068 -0.093565
 0.0178399 -0.0162497 -0.093565
-0.02226 -0.0104799 -0.093565
-0.0250499 -0.00375986 -0.093565
+0.0222602 -0.0104799 -0.093565
+0.0250502 -0.00375986 -0.093565
 0.0340199 0.0130601 -0.093565
-0.03528 0.00345039 -0.093565
-0.0302999 0.0220203 -0.093565
-0.0244 0.0297098 -0.093565
-0.01671 0.0356102 -0.093565
+0.0352802 0.00345039 -0.093565
+0.0303001 0.0220203 -0.093565
+0.0244002 0.0297098 -0.093565
+0.0167103 0.0356102 -0.093565
 0.00775003 0.03932 -0.093565
--0.0018599 0.0405903 -0.093565
--0.0114801 0.03932 -0.093565
+-0.00185966 0.0405903 -0.093565
+-0.0114799 0.03932 -0.093565
 -0.0204301 0.0356102 -0.093565
 -0.0281301 0.0297098 -0.093565
 -0.03403 0.0220203 -0.093565
--0.03774 0.0130601 -0.093565
+-0.0377398 0.0130601 -0.093565
 -0.039 0.00345039 -0.093565
--0.03774 -0.0061698 -0.093565
+-0.0377398 -0.0061698 -0.093565
 -0.03403 -0.01513 -0.093565
 -0.0281301 -0.0228195 -0.093565
 -0.0204301 -0.0287199 -0.093565
--0.0114801 -0.0324297 -0.093565
--0.0018599 -0.0337 -0.093565
+-0.0114799 -0.0324297 -0.093565
+-0.00185966 -0.0337 -0.093565
 0.00775003 -0.0324297 -0.093565
-0.01671 -0.0287199 -0.093565
-0.0244 -0.0228195 -0.093565
-0.0302999 -0.01513 -0.093565
+0.0167103 -0.0287199 -0.093565
+0.0244002 -0.0228195 -0.093565
+0.0303001 -0.01513 -0.093565
 0.0340199 -0.0061698 -0.093565
-0.03528 0.00345039 0.093565
+0.0352802 0.00345039 0.093565
 0.0340199 0.0130601 0.093565
-0.0250499 0.0106602 0.093565
+0.0250502 0.0106602 0.093565
 0.026 0.00345039 0.093565
-0.0302999 0.0220203 0.093565
-0.02226 0.0173702 0.093565
-0.0244 0.0297098 0.093565
+0.0303001 0.0220203 0.093565
+0.0222602 0.0173702 0.093565
+0.0244002 0.0297098 0.093565
 0.0178399 0.02314 0.093565
-0.01671 0.0356102 0.093565
-0.0120699 0.0275702 0.093565
+0.0167103 0.0356102 0.093565
+0.0120702 0.0275702 0.093565
 0.00775003 0.03932 0.093565
 0.00535011 0.0303502 0.093565
--0.0018599 0.0405903 0.093565
--0.0018599 0.0313001 0.093565
--0.0114801 0.03932 0.093565
+-0.00185966 0.0405903 0.093565
+-0.00185966 0.0313001 0.093565
+-0.0114799 0.03932 0.093565
 -0.00906992 0.0303502 0.093565
 -0.0204301 0.0356102 0.093565
 -0.01579 0.0275702 0.093565
 -0.0281301 0.0297098 0.093565
--0.02156 0.02314 0.093565
+-0.0215597 0.02314 0.093565
 -0.03403 0.0220203 0.093565
 -0.02599 0.0173702 0.093565
--0.03774 0.0130601 0.093565
+-0.0377398 0.0130601 0.093565
 -0.02877 0.0106602 0.093565
 -0.039 0.00345039 0.093565
--0.0297201 0.00345039 0.093565
--0.03774 -0.0061698 0.093565
+-0.0297198 0.00345039 0.093565
+-0.0377398 -0.0061698 0.093565
 -0.02877 -0.00375986 0.093565
 -0.03403 -0.01513 0.093565
 -0.02599 -0.0104799 0.093565
 -0.0281301 -0.0228195 0.093565
--0.02156 -0.0162497 0.093565
+-0.0215597 -0.0162497 0.093565
 -0.0204301 -0.0287199 0.093565
 -0.01579 -0.02068 0.093565
--0.0114801 -0.0324297 0.093565
+-0.0114799 -0.0324297 0.093565
 -0.00906992 -0.0234599 0.093565
--0.0018599 -0.0337 0.093565
--0.0018599 -0.0244098 0.093565
+-0.00185966 -0.0337 0.093565
+-0.00185966 -0.0244098 0.093565
 0.00775003 -0.0324297 0.093565
 0.00535011 -0.0234599 0.093565
-0.01671 -0.0287199 0.093565
-0.0120699 -0.02068 0.093565
-0.0244 -0.0228195 0.093565
+0.0167103 -0.0287199 0.093565
+0.0120702 -0.02068 0.093565
+0.0244002 -0.0228195 0.093565
 0.0178399 -0.0162497 0.093565
-0.0302999 -0.01513 0.093565
-0.02226 -0.0104799 0.093565
+0.0303001 -0.01513 0.093565
+0.0222602 -0.0104799 0.093565
 0.0340199 -0.0061698 0.093565
-0.0250499 -0.00375986 0.093565
+0.0250502 -0.00375986 0.093565
 0.0160799 0.00825024 0.093565
-0.01671 0.00345039 0.093565
-0.01422 0.0127301 0.093565
+0.0167103 0.00345039 0.093565
+0.0142202 0.0127301 0.093565
 0.01127 0.0165801 0.093565
 0.00743008 0.0195303 0.093565
-0.00294995 0.0213804 0.093565
--0.0018599 0.0220203 0.093565
+0.00295019 0.0213804 0.093565
+-0.00185966 0.0220203 0.093565
 -0.00667 0.0213804 0.093565
--0.0111501 0.0195303 0.093565
--0.0149901 0.0165801 0.093565
+-0.0111499 0.0195303 0.093565
+-0.0149899 0.0165801 0.093565
 -0.0179501 0.0127301 0.093565
--0.0197999 0.00825024 0.093565
+-0.0197997 0.00825024 0.093565
 -0.0204301 0.00345039 0.093565
--0.0197999 -0.00135994 0.093565
+-0.0197997 -0.00135994 0.093565
 -0.0179501 -0.00583982 0.093565
--0.0149901 -0.00968981 0.093565
--0.0111501 -0.01264 0.093565
+-0.0149899 -0.00968981 0.093565
+-0.0111499 -0.01264 0.093565
 -0.00667 -0.0144901 0.093565
--0.0018599 -0.01513 0.093565
-0.00294995 -0.0144901 0.093565
+-0.00185966 -0.01513 0.093565
+0.00295019 -0.0144901 0.093565
 0.00743008 -0.01264 0.093565
 0.01127 -0.00968981 0.093565
-0.01422 -0.00583982 0.093565
+0.0142202 -0.00583982 0.093565
 0.0160799 -0.00135994 0.093565
-0.00710988 0.00584984 0.093565
+0.00711012 0.00584984 0.093565
 0.00743008 0.00345039 0.093565
-0.00618005 0.00809002 0.093565
-0.00469995 0.0100102 0.093565
+0.00618029 0.00809002 0.093565
+0.00470018 0.0100102 0.093565
 0.00277996 0.0114899 0.093565
-0.000540018 0.0124102 0.093565
--0.0018599 0.0127301 0.093565
+0.000540257 0.0124102 0.093565
+-0.00185966 0.0127301 0.093565
 -0.00427008 0.0124102 0.093565
--0.00650001 0.0114899 0.093565
+-0.00649977 0.0114899 0.093565
 -0.00843 0.0100102 0.093565
 -0.00990009 0.00809002 0.093565
 -0.0108299 0.00584984 0.093565
--0.0111501 0.00345039 0.093565
+-0.0111499 0.00345039 0.093565
 -0.0108299 0.00104046 0.093565
 -0.00990009 -0.00119972 0.093565
 -0.00843 -0.00311995 0.093565
--0.00650001 -0.00459957 0.093565
+-0.00649977 -0.00459957 0.093565
 -0.00427008 -0.00551987 0.093565
--0.0018599 -0.00583982 0.093565
-0.000540018 -0.00551987 0.093565
+-0.00185966 -0.00583982 0.093565
+0.000540257 -0.00551987 0.093565
 0.00277996 -0.00459957 0.093565
-0.00469995 -0.00311995 0.093565
-0.00618005 -0.00119972 0.093565
-0.00710988 0.00104046 0.093565
--0.0018599 0.00345039 0.093565
+0.00470018 -0.00311995 0.093565
+0.00618029 -0.00119972 0.093565
+0.00711012 0.00104046 0.093565
+-0.00185966 0.00345039 0.093565
 numsurf 1431
 SURF 0x10
 mat 10
@@ -244394,6 +244537,7 @@ refs 3
 kids 0
 OBJECT group
 name "lwheel"
+loc -0.000368714 -0.00446057 0
 kids 6
 OBJECT group
 name "Left_Main_Gear_Cy"
@@ -254898,6 +255042,7 @@ refs 4
 kids 0
 OBJECT group
 name "backwheels"
+loc -0.000368714 -0.00446057 0
 kids 2
 OBJECT group
 name "leftwheel"
@@ -278028,7 +278173,7 @@ refs 4
 kids 0
 OBJECT light
 name "light"
-loc 1.31557 -1.18594 2.34878
+loc 1.3152 -1.1904 2.34878
 kids 0
 OBJECT poly
 name "gun"
@@ -863763,7 +863908,7 @@ refs 3
 kids 0
 OBJECT poly
 name "gunaxis"
-loc -0.769191 -0.63757 -1.73936
+loc -0.76956 -0.642031 -1.73936
 crease 45.000000
 numvert 2
 0.411318 0 0
@@ -863777,7 +863922,7 @@ refs 2
 kids 0
 OBJECT poly
 name "9xdl1"
-loc -0.809989 -1.07488 1.90584
+loc -0.810358 -1.07934 1.90584
 crease 45.000000
 numvert 8
 -1.71038 -0.000253201 -3.55244e-005
@@ -863828,6 +863973,7 @@ refs 3
 kids 0
 OBJECT group
 name "nose"
+loc -0.000368714 -0.00446057 0
 kids 3
 OBJECT poly
 name "nose-bottom-right"
@@ -865348,6 +865494,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Right_Rocket_Bay_D2"
+loc -0.000368714 -0.00446057 0
 data 21
 Right_Rocket_Bay_Door
 crease 30.000000
@@ -866825,7 +866972,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Left_Rocket_Bay_D2"
-loc 0 -0.00222182 0.00222172
+loc -0.000368714 -0.00668239 0.00222172
 data 20
 Left_Rocket_Bay_Door
 crease 30.000000
@@ -867960,7 +868107,7 @@ refs 3
 kids 0
 OBJECT poly
 name "baydoor2R"
-loc -0.533199 -1.7254 -0.505131
+loc -0.533568 -1.72986 -0.505131
 crease 45.000000
 numvert 2
 1.5589 0 0
@@ -867974,7 +868121,7 @@ refs 2
 kids 0
 OBJECT group
 name "LEFTMAINDOOR"
-loc -0.421083 -1.77595 -0.554387
+loc -0.421452 -1.78041 -0.554387
 kids 2
 OBJECT poly
 name "LEFTMAINDOOR2"
@@ -868256,6 +868403,7 @@ refs 3
 kids 0
 OBJECT group
 name "abovecp2"
+loc -0.000368714 -0.00446057 0
 kids 2
 OBJECT group
 name "Body"
@@ -869682,7 +869830,7 @@ refs 4
 kids 0
 OBJECT poly
 name "lfd2"
-loc 1.29483 -1.42516 1.4013
+loc 1.29446 -1.42962 1.4013
 crease 45.000000
 numvert 28
 -0.103473 -0.124178 -0.0928057
@@ -870029,7 +870177,7 @@ refs 3
 kids 0
 OBJECT poly
 name "rfd2"
-loc 1.29274 -1.42835 1.42532
+loc 1.29237 -1.43281 1.42532
 crease 45.000000
 numvert 28
 -0.103473 -0.124178 -2.76844
@@ -870376,7 +870524,7 @@ refs 3
 kids 0
 OBJECT poly
 name "lfd"
-loc 1.29593 -1.42393 1.40707
+loc 1.29556 -1.42839 1.40707
 crease 45.000000
 numvert 28
 0.0194786 0.139695 0.0990964
@@ -870723,7 +870871,7 @@ refs 3
 kids 0
 OBJECT poly
 name "rfd"
-loc 1.29316 -1.43394 1.40707
+loc 1.29279 -1.4384 1.40707
 crease 45.000000
 numvert 28
 0.0194786 0.139695 -2.95737

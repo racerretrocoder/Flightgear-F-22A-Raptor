@@ -148,10 +148,11 @@
         note :
           "Fox1" for guided by the aircraft radar (semi active) AIM7,
           "Fox2" for infrared AIM9,
-          "Fox3" for intern missile Radar AIM120, AIM54, A/G air to ground
+          "Fox3" for intern missile Radar AIM120, AIM54 
+          "A/G" air to ground
       -->
       <fox>Fox 2</fox>
-
+      <isbomb>0</isbomb>
       <chute>0</chute>
       <!--
         note :
@@ -164,6 +165,19 @@
       -->
       <cruise_alt type="int"> 0 </cruise_alt>
       <current-pylon type="int"> 0 </current-pylon>
+<pos2>
+      <a1 type="double"> 0 </a1>
+      <a2 type="double"> 0 </a2>
+      <a3 type="double"> 0 </a3>
+      <a4 type="double"> 0 </a4>
+      <a5 type="double"> 0 </a5>             <!--Optional Missile View-->
+      <a6 type="double"> 0 </a6>  <!--Used for setting the camera to the ejection seat-->
+      <a7 type="double"> 0 </a7>           <!--See Misc.nas to see how it works-->
+      <a8 type="double"> 0 </a8>               
+      <a9 type="double"> 0 </a9>
+      <a10 type="double"> 0 </a10>
+</pos2>  
+
     </missile>
     
     <selected-weapon>R-27R</selected-weapon>

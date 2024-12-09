@@ -31,6 +31,7 @@ var Loading_missile = func(name)
     var guidance	  = 0;
     var chute         = 1;
     var flareres      = 0;          # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
+    var isbomb        = 0; # if this weapon is a bomb
     
     
     if(name == "Aim-120")
@@ -46,20 +47,21 @@ var Loading_missile = func(name)
         detectionfovdeg = 140;                       # TODO implent data link system so we can control these variables while missile is in flight
         trackmaxdeg = 140;                           # 
         maxg = 40;                                   # wikipedia
-        thrustlbs = 1500;                             # 1,500 to 2,500 pounds of thrust maybe
-        thrustdurationsec = 8;                     # 
+        thrustlbs = 2700;                             # 1,500 to 2,500 pounds of thrust maybe
+        thrustdurationsec = 28;                     # 
         weightlaunchlbs = 400;
         weightwarheadlbs = 44;
-        dragcoeff = 0.007;                             #
-        dragarea = 0.046;                            # sq ft
+        dragcoeff = 0.001;                             #
+        dragarea = 0.036;                            # sq ft
         maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 3.7;                              # In mach ( source is a guess )
+        maxspeed = 4.5;                              # In mach ( source is a guess )
         life = 10000000; # 
         sdspeed = 0.6999999; # Test Self Destruct Speed. in mach
         fox = "Fox 3";
         rail = "false";
         cruisealt = 0;
         chute = 0;
+        isbomb = 0;
     }
     elsif(name == "Aim-9x")
     {
@@ -74,7 +76,7 @@ var Loading_missile = func(name)
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 180;                            # Seeker max total angular rotation
         maxg = 50;                                    # Thurst vectoring rocket motor
-        thrustlbs = 600;                             # 
+        thrustlbs = 800;                             # 
         thrustdurationsec = 5.2;                        #
         weightlaunchlbs = 186;
         weightwarheadlbs = 20.8;
@@ -88,6 +90,7 @@ var Loading_missile = func(name)
         cruisealt = 0;
         chute = 0;
         sdspeed = 0;
+        isbomb = 0;
     }
     elsif(name == "Aim-9m")
     {
@@ -116,6 +119,7 @@ var Loading_missile = func(name)
         cruisealt = 0;
         chute = 0;
         sdspeed = 0.0;
+        isbomb = 0;
     }
 
 
@@ -148,37 +152,39 @@ var Loading_missile = func(name)
         cruisealt = 0;
         sdspeed = 0;
         chute = 0;
+        isbomb = 1;
     }
-    elsif(name == "JDAM")
-    {
-           # Mm yes much bomb,
-                                 flareres = 1;
+ elsif(name == "JDAM")
+ {
+        # Mm yes much bomb,
+                              flareres = 1;
 	    typeid = 18;
-        address = "Aircraft/F-22/Models/Stores/Missiles/JDAM/JDAM.xml"; 
-        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/JDAM/JDAM.xml"; # for now
-        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";
-        maxdetectionrngnm = 30;                       # 
+     address = "Aircraft/F-22/Models/Stores/Missiles/JDAM/JDAM.xml"; 
+     NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/JDAM/JDAM.xml"; # for now
+     Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";
+     maxdetectionrngnm = 30;                       # 
 
-        #GPS system
-        fovdeg = 360;                                 # seeker optical FOV
-        detectionfovdeg = 360;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 360;                            # Seeker max total angular rotation
-        maxg = 2;                                    # 
-        thrustlbs = 0.00;                             # 
-        thrustdurationsec = 100;                        #
-        weightlaunchlbs = 186;
-        weightwarheadlbs = 1000;
-        dragcoeff = 0.05;                              # guess; original 0.05
-        dragarea = 0.075;                             # sq ft
-        maxExplosionRange = 50;                       
-        maxspeed = 5;                                 # In Mach
-        life = 80000000000000;
-        fox = "Fox 3";    #If the target is out of radar loose track. Simulates targeting pod. Kinda
-        rail = "false";
-        cruisealt = 0;
-        sdspeed = 0;
-        chute = 0;
-    }
+     #GPS system
+     fovdeg = 360;                                 # seeker optical FOV
+     detectionfovdeg = 360;                        # Search pattern diameter (rosette scan)
+     trackmaxdeg = 360;                            # Seeker max total angular rotation
+     maxg = 2;                                    # 
+     thrustlbs = 0.00;                             # 
+     thrustdurationsec = 100;                        #
+     weightlaunchlbs = 186;
+     weightwarheadlbs = 1000;
+     dragcoeff = 0.05;                              # guess; original 0.05
+     dragarea = 0.075;                             # sq ft
+     maxExplosionRange = 50;                       
+     maxspeed = 5;                                 # In Mach
+     life = 80000000000000;
+     fox = "Fox 3";    #If the target is out of radar loose track. Simulates targeting pod. Kinda
+     rail = "false";
+     cruisealt = 0;
+     sdspeed = 0;
+     chute = 0;
+     isbomb = 1;
+ }
     elsif(name == "Aim-7") #Debug missile
     {
                               flareres = 0.8;
@@ -204,6 +210,7 @@ var Loading_missile = func(name)
         rail = "false";
         cruisealt = 0;
         chute = 0;
+        isbomb = 0;
     }
     elsif(name == "XMAA") #Debug missile
     {
@@ -233,6 +240,7 @@ var Loading_missile = func(name)
         rail = "false";
         cruisealt = 0;                 # Will fly at 3000 Until strike
         chute = 0;
+        isbomb = 0;
     }
 
   elsif(name == "TB-01")
@@ -268,6 +276,7 @@ var Loading_missile = func(name)
         cruisealt = 0;
         sdspeed = 0; # Weapon self distructs if its slower than mach  0
         chute = 0;
+        isbomb = 1;
     }
 
     elsif(name == "eject")   # Used for the ejction seat. Not a missile so we call fox 1 and leave it
@@ -297,8 +306,8 @@ var Loading_missile = func(name)
         cruisealt = 0;
         sdspeed = 0;
         chute = 1;
+        isbomb = 0;
     }
-  
     else
     {
         return 0;
@@ -328,5 +337,14 @@ var Loading_missile = func(name)
     setprop("controls/armament/missile/cruise_alt", cruisealt);
     setprop("controls/armament/missile/type-id", typeid);
     setprop("controls/armament/missile/flareres", flareres);
+    setprop("controls/armament/missile/isbomb", isbomb);
     return 1;
 }
+
+
+
+
+
+
+
+

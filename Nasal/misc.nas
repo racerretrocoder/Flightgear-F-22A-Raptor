@@ -223,3 +223,219 @@ var track = func(mpid){
 
 
 }
+
+
+# Missile view stuff
+# Same thing but where searching for missiles
+var mslsearch = func(cs){
+
+ var mp0 = getprop("/ai/models/missile[0]/name");
+ var mp1 = getprop("/ai/models/missile[1]/name");
+ var mp2 = getprop("/ai/models/missile[2]/name");
+ var mp3 = getprop("/ai/models/missile[3]/name");
+ var mp4 = getprop("/ai/models/missile[4]/name");
+ var mp5 = getprop("/ai/models/missile[5]/name");
+ var mp6 = getprop("/ai/models/missile[6]/name");
+ var mp7 = getprop("/ai/models/missile[7]/name");
+ var mp8 = getprop("/ai/models/missile[8]/name");
+ var mp9 = getprop("/ai/models/missile[9]/name");
+var mp10 = getprop("/ai/models/missile[10]/name");
+var mp11 = getprop("/ai/models/missile[11]/name");
+var mp12 = getprop("/ai/models/missile[12]/name");
+var mp13 = getprop("/ai/models/missile[13]/name");
+var mp14 = getprop("/ai/models/missile[14]/name");
+var mp15 = getprop("/ai/models/missile[15]/name");
+var mp16 = getprop("/ai/models/missile[16]/name");
+var mp17 = getprop("/ai/models/missile[17]/name");
+var mp18 = getprop("/ai/models/missile[18]/name");
+
+# Up to 18 + 1 targets at once (Not including ourselfs).
+# Now lets look through it
+# Mm yes if then statement time
+
+    if(mp0 == cs) # If our request callsign is the callsign on Multiplayer[0]; set 0 as our ID then run a function called tracked with a parameter that consists of 0.
+    {
+
+        var tracked = 0;
+        track(tracked);
+
+    }
+
+ else if(mp1 == cs)
+    {
+
+        var missileid = 1;
+        missile(missileid);
+
+    }
+
+       else if(mp2 == cs)
+    {
+
+        var missileid = 2;
+        missile(missileid);
+
+    }
+
+       else if(mp3 == cs)
+    {
+
+        var missileid = 3;
+        missile(missileid);
+
+    }
+
+       else if(mp4 == cs)
+    {
+
+        var missileid = 4;
+        missile(missileid);
+
+    }
+
+       else if(mp5 == cs)
+    {
+
+        var missileid = 5;
+        missile(missileid);
+
+    }
+
+       else if(mp6 == cs)
+    {
+
+        var missileid = 6;
+        missile(missileid);
+
+    }
+
+       else if(mp7 == cs)
+    {
+
+        var missileid = 7;
+        missile(missileid);
+
+    }
+
+       else if(mp8 == cs)
+    {
+
+        var missileid = 8;
+        missile(missileid);
+
+    }
+
+       else if(mp9 == cs)
+    {
+
+        var missileid = 9;
+        missile(missileid);
+
+    }
+
+       else if(mp10 == cs)
+    {
+
+        var missileid = 10;
+        missile(missileid);
+
+    }
+
+       else if(mp11 == cs)
+    {
+
+        var missileid = 11;
+        missile(missileid);
+
+    }
+
+       else if(mp12 == cs)
+    {
+
+        var missileid = 12;
+        missile(missileid);
+
+    }
+
+       else if(mp13 == cs)
+    {
+
+        var missileid = 13;
+        missile(missileid);
+
+    }
+
+       else if(mp14 == cs)
+    {
+
+        var missileid = 14;
+        missile(missileid);
+
+    }
+
+       else if(mp15 == cs)
+    {
+
+        var missileid = 15;
+        missile(missileid);
+
+    }
+
+       else if(mp16 == cs)
+    {
+
+        var missileid = 16;
+        missile(missileid);
+
+    }
+
+       else if(mp17 == cs)
+    {
+
+        var missileid = 17;
+        missile(missileid);
+
+    }
+
+       else if(mp18 == cs)
+    {
+
+        var missileid = 18;
+        missile(missileid);
+
+    }
+
+else {
+  print("Missile dose not exist. or there are more than 19 Missiles!"); # Callsign dose not match the callsign of the 19 players
+   }
+
+}
+
+var missile = func(mpid){
+
+    print(mpid); # We have our number
+    print(getprop("ai/models/missile[" ~ mpid ~ "]/name")); #threat is the right one.
+    # lets view it
+
+var s1 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/latitude-deg");
+var s2 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/longitude-deg");
+var s3 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/altitude-ft");
+var s4 = getprop("/ai/models/missile[" ~ mpid ~ "]/orientation/true-heading-deg");
+var s5 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/latitude-deg");
+var s6 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/longitude-deg");
+var s7 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/altitude-ft");
+var s8 = getprop("/ai/models/missile[" ~ mpid ~ "]/orientation/true-heading-deg");
+var s9 = getprop("/ai/models/missile[" ~ mpid ~ "]/orientation/pitch-deg");
+var s10 = getprop("/ai/models/missile[" ~ mpid ~ "]/orientation/roll-deg");
+setprop("controls/armament/missile/pos2/a1", s1);
+setprop("controls/armament/missile/pos2/a2", s2);
+setprop("controls/armament/missile/pos2/a3", s3);
+setprop("controls/armament/missile/pos2/a4", s4);
+setprop("controls/armament/missile/pos2/a5", s5);
+setprop("controls/armament/missile/pos2/a6", s6);
+setprop("controls/armament/missile/pos2/a7", s7);
+setprop("controls/armament/missile/pos2/a8", s8);
+setprop("controls/armament/missile/pos2/a9", s9);
+setprop("controls/armament/missile/pos2/a10", s10);
+    view.setViewByIndex(101);
+}
