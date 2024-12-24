@@ -159,13 +159,18 @@ settimer(missile_sfx, 2); # runs myFunc after 2 seconds
 var flares = func{
   flare();
 	var flarerand = rand();
-props.globals.getNode("/rotors/main/blade[3]/flap-deg",1).setValue(flarerand);
-props.globals.getNode("/rotors/main/blade[3]/position-deg",1).setValue(flarerand);
+  #
+  # every time these numbers change. the shooter runs chaff flare probability 
+  # so if we change them really fast that will be good
+    setprop("/rotors/main/blade[3]/flap-deg", flarerand);  #flarerand
+    setprop("/rotors/main/blade[3]/position-deg", flarerand);
 settimer(func   {
-    props.globals.getNode("/rotors/main/blade[3]/flap-deg").setValue(0);
-    props.globals.getNode("/rotors/main/blade[3]/position-deg").setValue(0);
-                },1);
-
+  setprop("/rotors/main/blade[3]/flap-deg", 0);
+    setprop("/rotors/main/blade[3]/position-deg", 0);
+    #props.globals.getNode("/rotors/main/blade[3]/flap-deg").setValue(0);
+    #props.globals.getNode("/rotors/main/blade[3]/position-deg").setValue(0);
+                },0.1); # this may be the key to our speed
+ 
 }
 
 
@@ -303,6 +308,7 @@ setprop("instrumentation/radar/az-field", 161);
 # setprop("instrumentation/radar/grid", 0);
 #print(target1_x / 10);
 setprop("instrumentation/radar2/sweep-speed", 10);
+setprop("instrumentation/radar/lock2", 2);
   } elsif (getprop("instrumentation/radar/lock") == 0){
 
   

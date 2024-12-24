@@ -727,7 +727,18 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
             #me.smoke_prop.setBoolValue(0);
         }
         
+# Anti-Rad
 
+                    if(me.fox == "Magnum") {
+                        print("Anti-Rad: Checking");
+                        if ( getprop("payload/armament/spike") == 0 ) {
+                            print("Anti-Rad Missile Lost track because the target stopped locking on us!");
+                    #me.animate_explosion();
+                            me.reset_steering();
+                            me.free = 1;
+
+                        }
+                    }
 
 
         if(me.life_time > me.Life)
@@ -1031,6 +1042,11 @@ var mslalt = getprop("controls/armament/pos/alt");
 
     update_track: func()
     {
+
+
+
+
+
         if(me.Tgt == nil)
         {
             me.fox = "Fox 1";
