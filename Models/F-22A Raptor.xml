@@ -324,26 +324,40 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
   </condition>
  </animation>
 
+
+<!--Flood tail light-->
+
+
+<animation>
+    <type>material</type>
+<object-name>Right_Keel_1</object-name>
+<object-name>Left_Keel_1</object-name>
+<object-name>left-rudder</object-name>
+<object-name>right-rudder</object-name>
+    <emission>
+      <factor-prop>controls/lighting/logo-lights</factor-prop>
+      <red>   0.5 </red>
+      <green> 0.5 </green>
+      <blue>  0.4 </blue>
+    </emission>
+  </animation> 
+
+
   
   	<!-- glass -->
-	<animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
-   <object-name>canopy in</object-name>
-  </animation>
-	
+
 	<animation>
     <type>shader</type>
     <shader>chrome</shader>
     <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
    <object-name>canopy out</object-name>
+   
   </animation>
 
 
 	<effect>
       <inherits-from>Effects/model-transparent</inherits-from>
-       <object-name>canopy</object-name>
+       <object-name>canopy in</object-name>
 		
 		
    </effect>
@@ -2133,7 +2147,6 @@ FR
 
 <!-- Nozzle vector animations -->
 	
-
 
 	<animation>
 		<type>rotate</type>
