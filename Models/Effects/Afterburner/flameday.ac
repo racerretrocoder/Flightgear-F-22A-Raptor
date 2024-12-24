@@ -661,7 +661,7 @@ refs 3
 kids 0
 OBJECT poly
 name "FlameModel"
-loc -0.00040245 -0.81779 0.0332628
+loc -0.000402451 -0.81779 0.0332628
 data 10
 FlameModel
 texture "transparentday.png"
@@ -1318,7 +1318,7 @@ refs 3
 kids 0
 OBJECT poly
 name "FlameModel"
-loc -0.00040269 -0.81779 0.0332628
+loc -0.000402691 -0.81779 0.0332628
 data 10
 FlameModel
 texture "transparentday.png"
@@ -2632,7 +2632,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FlameModel"
-loc -0.00040245 -0.81779 0.0332628
+loc -0.000402451 -0.81779 0.0332628
 data 10
 FlameModel
 texture "transparentday.png"
@@ -3289,7 +3289,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FlameModel"
-loc -0.00040269 -0.81779 0.0332628
+loc -0.000402691 -0.81779 0.0332628
 data 10
 FlameModel
 texture "transparentday.png"
@@ -4603,7 +4603,7 @@ refs 3
 kids 0
 OBJECT poly
 name "FlameModel"
-loc -0.00040245 -0.81779 0.0332628
+loc -0.000402451 -0.81779 0.0332628
 data 10
 FlameModel
 texture "transparentday.png"
@@ -5260,7 +5260,7 @@ refs 3
 kids 0
 OBJECT poly
 name "FlameModel"
-loc -0.00040269 -0.81779 0.0332628
+loc -0.000402691 -0.81779 0.0332628
 data 10
 FlameModel
 texture "transparentday.png"

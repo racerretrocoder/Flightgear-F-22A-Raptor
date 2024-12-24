@@ -85,10 +85,16 @@
 	<name>NoseGearLandinglight</name> 
 	
      <condition>
+     <and>
       <equals>
         <property>gear/gear[0]/position-norm</property>
         <value> 1 </value>
       </equals>
+      <equals>
+        <property>sim/multiplay/generic/int[20]</property> <!--controls/lighting/landing-lights-->
+        <value> 1 </value>
+      </equals>
+      </and>
     </condition>
   </animation> 
   

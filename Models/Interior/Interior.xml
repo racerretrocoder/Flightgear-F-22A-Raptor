@@ -703,7 +703,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
       __/\\\______\//\\\___\//\\\\\/\\\\\___\/\\\____\/\\\_/\\__\//\\\________\/\\\___\/\\\_\//\\///////___\////////\\\_  
        _\///\\\\\\\\\\\/_____\//\\\\//\\\____\/\\\____\//\\\\\____\///\\\\\\\\_\/\\\___\/\\\__\//\\\\\\\\\\__/\\\\\\\\\\_ 
         ___\///////////________\///__\///_____\///______\/////_______\////////__\///____\///____\//////////__\//////////__
-
+(switches)
 
 -->
 
@@ -1508,6 +1508,86 @@ New: Refuel in air switch.
     </animation>
 
 
+<!--Landing Lights
+
+-->
+<animation>
+  <type>pick</type>
+   <object-name>LDGLIGHT</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+               <command>property-toggle</command>
+               <property>controls/lighting/landing-lights</property>
+
+    </binding>
+        <binding>
+<command>property-toggle</command>
+                <property>/sim/model/clicksmall</property>
+    </binding>
+       </action>
+ </animation>
+<animation>
+        <type>rotate</type>
+        <object-name>LDGLIGHT</object-name>
+        <property>controls/lighting/landing-lights</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m> -5.04721 </x-m>
+            <y-m> 0.288851 </y-m>
+            <z-m> -0.196174 </z-m>
+        </center>
+    </animation>
+
+
+<!--Tail Flood Switch (The panel LT swtch)-->
+
+<animation>
+  <type>pick</type>
+   <object-name>PNLLT</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+               <command>property-toggle</command>
+               <property>controls/lighting/logo-lights</property>
+
+    </binding>
+        <binding>
+<command>property-toggle</command>
+                <property>/sim/model/clicksmall</property>
+    </binding>
+       </action>
+ </animation>
+<animation>
+        <type>rotate</type>
+        <object-name>PNLLT</object-name>
+        <property>controls/lighting/logo-lights</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m> -5.04721 </x-m>
+            <y-m> 0.288851 </y-m>
+            <z-m> -0.196174 </z-m>
+        </center>
+    </animation>
+
+
+
 
 <animation>
   <type>pick</type>
@@ -1620,13 +1700,11 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
       _\/\\\________________\/\\\____\/\\\__/\\_____\\\_\/\\\___\/\\\____\/\\\_/\\_____________\///\\\__________\//\\\__/\\\__\/\\\___\/\\\____\/\\\_/\\__\/\\\_________\//\\\__/\\\_____\/\\\____\////////\\\_  
        _\/\\\______________/\\\\\\\\\_\/\\\_\//\\\\\\\\__\/\\\___\/\\\____\//\\\\\________________\////\\\\\\\\\__\///\\\\\/___\/\\\___\/\\\____\//\\\\\___\/\\\__________\///\\\\\/____/\\\\\\\\\__/\\\\\\\\\\_ 
         _\///______________\/////////__\///___\////////___\///____\///______\/////____________________\/////////_____\/////_____\///____\///______\/////____\///_____________\/////_____\/////////__\//////////__
- 
+ flight controls
  -->
 
 
-<!--Needs to be revamped!!
-Flight control stick should move less
--->
+<!--Good!-->
 
 
 
