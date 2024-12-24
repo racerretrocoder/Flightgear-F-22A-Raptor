@@ -46,118 +46,137 @@ var mp16 = getprop("/instrumentation/radar2/targets/multiplayer[16]/display");
 var mp17 = getprop("/instrumentation/radar2/targets/multiplayer[17]/display");
 var mp18 = getprop("/instrumentation/radar2/targets/multiplayer[18]/display");
 
-		clearSingleLock();
+
 
     if(mp0) # instrumentation/radar2/targets/multiplayer[0]/display is true
     {
+        		clearSingleLock();
         #print("I see someone! on mp0");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
  else if(mp1)
     {
+        		clearSingleLock();
         #print("I see someone! On mp1");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp2)
     {
+        		clearSingleLock();
         #print("I see someone! On mp2");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp3)
     {
+        		clearSingleLock();
         #print("I see someone! On mp3");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp4)
     {
+        		clearSingleLock();
         #print("I see someone!"); # lol too much work to make it say mp4~18 
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp5)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp6)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp7)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp8)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp9)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp10)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp11)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp12)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp13)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp14)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp15)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp16)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp17)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
 
        else if(mp18)
     {
+        		clearSingleLock();
         #print("I see someone!");
         setprop("instrumentation/radar/threat-spotted", 1); #let us know that theres a pilot on the screen 
     }
@@ -168,8 +187,10 @@ else {
    setprop("/instrumentation/radar/lock", 0); # Important. Loose the lock by setting this property to zero.
        setprop("/instrumentation/radar/lock2", 0);                                          #Lock is set to one when you change targets and radar sees someone
 
-		clearSingleLock();
+
 		thread.lock(mutexLock);
+        		setprop("sim/multiplay/generic/string[6]", "");
+		datalink.clear_data();
 		#semi_active_track = nil;
 		thread.unlock(mutexLock);
    }
