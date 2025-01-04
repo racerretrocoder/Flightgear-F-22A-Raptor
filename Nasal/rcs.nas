@@ -32,6 +32,7 @@ var rcs_database = {
     "FA-18C_Hornet":            3.5,    #later Blocks have 1
     "FA-18D_Hornet":            3.5,
     "FA-18":                    3.5,
+    "FA-18D":                   300.7,
     "FA-18E_CVW5":              1.0,
     "F-5E-TigerII":             4,      #close to actual
     "F-5ENinja":                4,      #close to actual
@@ -101,8 +102,8 @@ var rcs_database = {
     #Stealth
     "b2-spirit":                0.0001,  #actual: 0.0001
     "B-2A":                     0.0001,  #actual: 0.0001
-    "F-22A Raptor":				3,	 #actual: 0.0001
-    "F-22A":				    3,	 #actual: 0.0001
+    "F-22A Raptor":				0.0001,	 #actual: 0.0001
+    "F-22A":				    0.0001,	 #actual: 0.0001
     "F-35A":					0.0015,
     "F-35B":					3,
     "F-35C":                    0.0015,

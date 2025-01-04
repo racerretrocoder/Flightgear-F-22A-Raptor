@@ -41,7 +41,7 @@ var Loading_missile = func(name)
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        flareres = 0.99; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
+        flareres = 0.995; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
         maxdetectionrngnm = 38.8;                    #  
         fovdeg = 140;                                #
         detectionfovdeg = 140;                       # TODO implent data link system so we can control these variables while missile is in flight
@@ -67,7 +67,7 @@ var Loading_missile = func(name)
     {
         # AIM-9X:short-range A2A,IR seeker,
 	typeid = 98;
-        flareres = 0.985; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
+        flareres = 0.989; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
@@ -147,7 +147,7 @@ var Loading_missile = func(name)
         maxExplosionRange = 50;                       
         maxspeed = 5;                                 # In Mach
         life = 80000000000000;
-        fox = "Fox 1";    #If the target is out of radar loose track. Simulates a targeting pod. Kinda
+        fox = "Fox 3";  
         rail = "true";
         cruisealt = 0;
         sdspeed = 0;
