@@ -47,7 +47,9 @@ var RWR = {
 		#       IFF info
 		#       ECM
 		#       radar on/off
-		if (!getprop("instrumentation/rwr/serviceable") or getprop("systems/electrical/outputs/rwr") < 20) {
+        var prop1 = 0;
+        var prop2 = 0;
+		if (prop1 or prop2 > 20) {
             setprop("sound/rwr-lck", 0);
             setprop("ai/submodels/submodel[0]/flare-auto-release-cmd", 0);
             return;
@@ -130,7 +132,7 @@ var RWR = {
 
 var datalink_power = props.globals.getNode("instrumentation/datalink/power",0);
 enable_tacobject = 1;
-props.globals.getNode("sim/multiplay/generic/int[2]",1).setIntValue(1);# A-10 has no radar, so put it on standby
+props.globals.getNode("sim/multiplay/generic/int[2]",1).setIntValue(0);
 props.globals.getNode("instrumentation/rwr/serviceable",1).setBoolValue(1);
 
 # start generic radar system

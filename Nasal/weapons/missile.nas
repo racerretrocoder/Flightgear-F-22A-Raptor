@@ -1421,7 +1421,7 @@ var semiactive = 0;
                         var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
                         msg.RelativeAltitude = 0;
                         msg.Bearing = me.coord.course_to(geo.aircraft_position());
-                        msg.Distance = me.direct_dist_m;
+                        msg.Distance = 1;
                         msg.RemoteCallsign = me.Tgt.get_Callsign();
                         notifications.hitBridgedTransmitter.NotifyAll(msg);
                         damage.damageLog.push(sprintf("You hit "~me.Tgt.get_Callsign()~" with "~me.NameOfMissile~" at %.1f meters", me.direct_dist_m));

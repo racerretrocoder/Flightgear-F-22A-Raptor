@@ -272,7 +272,7 @@
 Multiplayer Variables   note: doubles used instead of floats to save space and prevent lag Works nicely :)
 
 
-Theres soo many! Lol!   
+Theres soo many
 
 -->
 
@@ -282,7 +282,7 @@ Theres soo many! Lol!
 <bool n="8" type="bool" alias="/engines/engine/cutoff"/>  <!--For Idleing Smoke-->
  <float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor -->
  <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
- <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic BOOM, Vapor, and more-->
+ <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the MP Sonic Boom, Vapor, and more-->
 7
 
   <float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
@@ -294,7 +294,7 @@ Theres soo many! Lol!
   <float n="27" type="double" alias="/fdm/jsbsim/fcs/speedbrake-pos-norm"/>
   <float n="28" type="double" alias="/fdm/jsbsim/fcs/leading-edge-flap-main"/>
   <float n="29" type="double" alias="/fdm/jsbsim/fcs/hook-pos-norm"/>
- <float n="30" type="double" alias="/velocities/mach"/><!--For the MP Sonic BOOM, Vapor, and more-->
+ <float n="30" type="double" alias="/velocities/mach"/><!--For the MP Sonic Boom, Vapor, and more-->
 
  <float n="31" type="double" alias="/fdm/jsbsim/fcs/ab1"/>	
  <float n="32" type="double" alias="/fdm/jsbsim/fcs/ab2"/>	  <!--Burner-->
@@ -306,6 +306,7 @@ Theres soo many! Lol!
 
  <float n="34" type="double" alias="/engines/engine/n1"/>	 
  <float n="35" type="double" alias="/fdm/jsbsim/fcs/flaredoor"/>	
+                 <int n="2" type="int">0</int><!-- radar-standby -->
 <int n="15" type="int" alias="/f22/ejected"/>
 
 <int n="16" type="int" alias="/controls/state/low_level"/>

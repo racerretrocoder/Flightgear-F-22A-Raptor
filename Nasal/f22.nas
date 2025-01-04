@@ -52,10 +52,6 @@ var bat = getprop("controls/electric/battswitch");
 
             }
 
-
-
-
-
 }
 
 
@@ -95,10 +91,6 @@ var weapon = getprop("/controls/armament/selected-weapon-digit");
                 print("9x doors open");
                 timer_baydoorsclose.start();     
             }
-
-
-
-
   }
 }
 
