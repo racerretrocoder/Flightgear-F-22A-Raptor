@@ -54,9 +54,68 @@ var bat = getprop("controls/electric/battswitch");
 
 }
 
+# from 707 and m2005
+
+
+var shake = func() {# from m2005
+var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
+	var G       = getprop("/accelerations/pilot-g");
+	var alpha   = getprop("/orientation/alpha-deg");
+	var mach    = getprop("velocities/mach");
+	var wow     = getprop("/gear/gear[1]/wow");
+	var gun     = getprop("controls/armament/trigger");
+	var myTime  = getprop("/sim/time/elapsed-sec");
+
+	#sf = ((rSpeed / 500000 + G / 25000 + alpha / 20000 ) / 3) ;
+	# I want to find a way to improve vibration amplitude with sf, but to tired actually to make it.
+
+	if ((((G > 9 or alpha > 28) and rSpeed > 40) or (mach > 0.99 and mach < 1.01) or (wow and rSpeed > 100) or gun)) {
+		setprop("controls/cabin/shaking", math.sin(48 * myTime) / 222.222);
+	}
+	else {
+		setprop("controls/cabin/shaking", 0);
+print("no")
+	}
+}# from m2005
 
 
 
+
+shake_timer = maketimer(0.0001, shake);
+shake_timer.start();
+
+
+
+
+# damage shake
+
+# shake like bonkers when the plane is damaged
+var shake2 = func() {# from m2005
+var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
+	var G       = getprop("/accelerations/pilot-g");
+	var alpha   = getprop("/orientation/alpha-deg");
+	var mach    = getprop("velocities/mach");
+	var wow     = getprop("/gear/gear[1]/wow");
+	var gun     = getprop("controls/armament/trigger");
+	var myTime  = getprop("/sim/time/elapsed-sec");
+
+	#sf = ((rSpeed / 500000 + G / 25000 + alpha / 20000 ) / 3) ;
+	# I want to find a way to improve vibration amplitude with sf, but to tired actually to make it.
+
+	if (getprop("damage/sounds/nearby-explode-on")) {
+		setprop("controls/cabin/shaking2", math.sin(48 * myTime) / 10.999);
+	}
+	else {
+		setprop("controls/cabin/shaking2", 0);
+print("no")
+	}
+}# from m2005
+
+
+
+
+shake_timer2 = maketimer(0.00001, shake2);
+shake_timer2.start();
 
 var fire = func(v,a) {
 # This controls the Bay doors automaticly
