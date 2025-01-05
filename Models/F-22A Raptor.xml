@@ -1122,6 +1122,7 @@ Use below instead
 <!-- Interior -->
 
 	<model>
+		     <name>Interior</name>
 		<path>Aircraft/F-22/Models/Interior/Interior.xml</path>
 			<offsets>
 				<x-m>0</x-m>
@@ -1131,6 +1132,40 @@ Use below instead
 		</offsets>
 	</model>
 	
+
+	  <animation>
+    <type>translate</type>
+    <object-name>Interior</object-name>
+    <object-name>cabin</object-name>
+    <object-name>canopy in</object-name>
+<object-name>canopy out</object-name>
+    <property>controls/cabin/shaking</property>
+    <axis>
+      <x1-m>  0.0 </x1-m>
+      <y1-m>  0.0 </y1-m>
+      <z1-m>  0.0 </z1-m>
+      <x2-m>  0.5 </x2-m>
+      <y2-m> -0.6 </y2-m>
+      <z2-m>  0.9 </z2-m>
+    </axis>
+  </animation>
+
+  	  <animation>
+    <type>translate</type>
+    <object-name>Interior</object-name>
+    <object-name>cabin</object-name>
+    <object-name>canopy in</object-name>
+<object-name>canopy out</object-name>
+    <property>controls/cabin/shaking2</property>
+    <axis>
+      <x1-m>  0</x1-m>
+      <y1-m>  0 </y1-m>
+      <z1-m>  0</z1-m>
+      <x2-m>  0.1 </x2-m>
+      <y2-m> -0.1 </y2-m>
+      <z2-m>  0.1 </z2-m>
+    </axis>
+  </animation>
 <!-- Pilot -->
 
 	<model>
