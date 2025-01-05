@@ -63,18 +63,18 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 	var alpha   = getprop("/orientation/alpha-deg");
 	var mach    = getprop("velocities/mach");
 	var wow     = getprop("/gear/gear[1]/wow");
-	var gun     = getprop("controls/armament/trigger");
+	var gun     = getprop("controls/armament/gun-trigger");
 	var myTime  = getprop("/sim/time/elapsed-sec");
 
 	#sf = ((rSpeed / 500000 + G / 25000 + alpha / 20000 ) / 3) ;
 	# I want to find a way to improve vibration amplitude with sf, but to tired actually to make it.
 
-	if ((((G > 9 or alpha > 28) and rSpeed > 40) or (mach > 0.99 and mach < 1.01) or (wow and rSpeed > 100) or gun)) {
+	if ((((G > 9 or alpha > 28) and rSpeed > 40) or (mach > 0.99 and mach < 1.01) or (wow and rSpeed > 100) or gun) or getprop("damage/sounds/missile-hit")) {
+    timer_hit.start();
 		setprop("controls/cabin/shaking", math.sin(48 * myTime) / 222.222);
 	}
 	else {
 		setprop("controls/cabin/shaking", 0);
-print("no")
 	}
 }# from m2005
 
@@ -96,7 +96,7 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 	var alpha   = getprop("/orientation/alpha-deg");
 	var mach    = getprop("velocities/mach");
 	var wow     = getprop("/gear/gear[1]/wow");
-	var gun     = getprop("controls/armament/trigger");
+	var gun     = getprop("controls/armament/gun-trigger");
 	var myTime  = getprop("/sim/time/elapsed-sec");
 
 	#sf = ((rSpeed / 500000 + G / 25000 + alpha / 20000 ) / 3) ;
@@ -107,7 +107,6 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 	}
 	else {
 		setprop("controls/cabin/shaking2", 0);
-print("no")
 	}
 }# from m2005
 
@@ -442,10 +441,21 @@ var jitter = func{
 }
 
 
+
+
+# missile hit set back
+
+var mslhit = func{
+	            	setprop("damage/sounds/missile-hit", 0);
+                timer_hit.stop();
+
+}
+
 # Timers
 
-
-
+                # seconds , function
+timer_hit = maketimer(1.5, mslhit);
+#  timer_hit.start();
 
 locktgt_timer = maketimer(0.1, tgtlock);
 

@@ -11,24 +11,27 @@ var isFiring = 0;
 var splashdt = 0;
 var MPMessaging = props.globals.getNode("/payload/armament/msg", 1);
 
-fire_MG = func(b) {
+fire_MG = func() {  # b would be in the ()
+
     var time = getprop("/sim/time/elapsed-sec");
     if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
     
     if(getprop("/controls/armament/stick-selector") == 1)
     {
         isFiring = 1;
-        setprop("/controls/armament/trigger", 1);
+        setprop("/controls/armament/gun-trigger", 1);
         #settimer(stopFiring, 0.1);
     }
     if(getprop("/controls/armament/stick-selector") == 2)
     {
-        if(b == 1)
-        {
+     #   if(b == 1)
+     #   {
             
             # var time = getprop("/sim/time/elapsed-sec");
-            if(time - dt > 0) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
+            if(time - dt > 1) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
             {
+                    var missile = getprop("controls/missile");
+    setprop("controls/missile", !missile);
                 dt = time;
                 m2000_load. SelectNextPylon();
                f22.fire(0,0); # Open the bay doors of the currently selected weapon
@@ -40,7 +43,7 @@ fire_MG = func(b) {
 
 
             }
-        }
+      #  }
     }
 }
 
@@ -48,9 +51,16 @@ fire_MG = func(b) {
 
 
 var stopFiring = func() {
-    setprop("/controls/armament/trigger", 0);
+    if (getprop("controls/armament/trigger") == 0) {
+
+        setprop("/controls/armament/missile-trigger", 0);
+    setprop("/controls/armament/gun-trigger", 0);
     isFiring = 0;
+    }
 }
+
+gun_timer = maketimer(0.01, stopFiring);
+gun_timer.start();
 
 reload_Cannon = func() {
     setprop("/ai/submodels/submodel/count",    510);
@@ -185,10 +195,13 @@ var hitmessage = func(typeOrd) {
 setlistener("/ai/models/model-impact", impact_listener, 0, 0);
 
 
-
+setlistener("/controls/armament/trigger",fire_MG);
 
 var stickreporter = func(){
     if(getprop("/controls/armament/stick-selector") == 1)screen.log.write("Selected M61A1 Vulcon.",1,0.4,0.4);
     else{screen.log.write("Selected missiles.",1,0.4,0.4);}
 }
 setlistener("/controls/armament/stick-selector",stickreporter);
+
+
+

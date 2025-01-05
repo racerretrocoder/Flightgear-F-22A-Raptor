@@ -1693,7 +1693,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </kinematic>
 
    <kinematic name="gundoor">
-     <input>/controls/armament/trigger</input>
+     <input>/controls/armament/gun-trigger</input>
      <traverse>
        <setting>
           <position>  0 </position>
