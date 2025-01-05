@@ -5,7 +5,7 @@
  <submodel>
     <name>Tracer</name> 
     <model>Aircraft/F-22/Models/Effects/Tracer.xml</model>
-    <trigger>controls/armament/trigger</trigger>
+    <trigger>controls/armament/gun-trigger</trigger>
     <speed>2500</speed>
     <repeat>true</repeat>
     <delay>0</delay>
@@ -24,7 +24,7 @@
    <submodel>
     <name>Round</name>
     <model>Aircraft/F-22/Models/Effects/Null.ac</model>
-    <trigger>controls/armament/trigger</trigger>
+    <trigger>controls/armament/gun-trigger</trigger>
     <speed>2041</speed>
     <repeat>true</repeat>
     <delay>0.0</delay>
@@ -48,7 +48,7 @@
   <submodel> 
     <name>smoke</name>
     <model>Aircraft/F-22/Models/Effects/Smoke.xml</model>
-    <trigger>controls/armament/trigger</trigger>
+    <trigger>controls/armament/gun-trigger</trigger>
     <speed>5</speed>
     <repeat>true</repeat>
     <delay>0</delay>
@@ -67,7 +67,7 @@
     <submodel> 
     <name>smoke2</name>
     <model>Aircraft/F-22/Models/Effects/Smoke.xml</model>
-    <trigger>controls/armament/trigger</trigger>
+    <trigger>controls/armament/gun-trigger</trigger>
     <speed>6</speed>
     <repeat>true</repeat>
     <delay>0</delay>
