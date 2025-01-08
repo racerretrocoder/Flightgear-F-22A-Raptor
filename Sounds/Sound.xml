@@ -227,6 +227,8 @@
     <factor>1</factor>
     <offset>0</offset>
    </volume>
+               <reference-dist>900</reference-dist>
+            <max-dist>6000</max-dist>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
                 <offset>0.86349949816</offset>
@@ -269,6 +271,8 @@
     <factor>1</factor>
     <offset>0</offset>
    </volume>
+               <reference-dist>900</reference-dist>
+            <max-dist>6000</max-dist>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
                 <offset>0.86349949816</offset>
@@ -315,6 +319,8 @@
                 <offset>0.86349949816</offset>
                 <factor>0.00455001673</factor>
             </pitch> -->
+                        <reference-dist>900</reference-dist>
+            <max-dist>6000</max-dist>
   </engine>
 
    <engine>
@@ -357,6 +363,8 @@
                 <offset>0.86349949816</offset>
                 <factor>0.00455001673</factor>
             </pitch> -->
+                        <reference-dist>900</reference-dist>
+            <max-dist>6000</max-dist>
   </engine>
 
 
