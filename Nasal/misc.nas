@@ -5,15 +5,17 @@
 # it can be used for counter messure detection. and more.
 
 
-# Skid
+# Skid, Phoenix
 
 # Search Funtion V2
 # The way i want this to work is you input it a callsign misc.search("Skid"); then itll search ai/models/multiplayer for Skid
 # If it finds what we want. That will check out successfully, then itll read from the ID of our MP target and see if our target is flaring or not. via the rotors prop 
 # Its kinda like Phoenix's Lockhelper.nas But expanded apon
 
-var search = func(cs){
 
+var search = func(cs,isuav = 0){
+# i made = 0 in there so i dont have to include both parameters when calling the function. 
+# missile.nas dosent need to be changed
  var mp0 = getprop("/ai/models/multiplayer[0]/callsign");
  var mp1 = getprop("/ai/models/multiplayer[1]/callsign");
  var mp2 = getprop("/ai/models/multiplayer[2]/callsign");
@@ -42,7 +44,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 0;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -50,7 +52,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 1;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -58,7 +60,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 2;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -66,7 +68,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 3;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -74,7 +76,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 4;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -82,7 +84,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 5;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -90,7 +92,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 6;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -98,7 +100,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 7;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -106,7 +108,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 8;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -114,7 +116,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 9;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -122,7 +124,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 10;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -130,7 +132,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 11;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -138,7 +140,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 12;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -146,7 +148,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 13;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -154,7 +156,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 14;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -162,7 +164,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 15;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -170,7 +172,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 16;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -178,7 +180,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 17;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -186,7 +188,7 @@ var mp18 = getprop("/ai/models/multiplayer[18]/callsign");
     {
 
         var tracked = 18;
-        track(tracked);
+        track(tracked,isuav);
 
     }
 
@@ -200,242 +202,89 @@ else {
 # Phoenix
 # This reads the property assigned to flares on the selected MPid
 
+var lastflare = 0;
 
-
-var track = func(mpid){
-
-    print(mpid); # We have our number
-    print(getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign")); #threat is the right one. 
-    var flareint = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/rotors/main/blade[3]/flap-deg");
-    # Is our bandit flaring?
-    if (flareint != nil){
-    if (flareint > 0) {
-    setprop("payload/armament/flares", 1);
-    print("Flares detected.");
+var track = func(mpid,isuav) {
+    if (isuav == 0) {
+          print("Misc.track: MPID:");
+          print(mpid); # We have our number
+          print(getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign")); #threat is the right one. 
+          var flareint = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/rotors/main/blade[3]/flap-deg");
+          # Is our bandit flaring?
+          if (flareint != nil){
+          if (flareint != lastflare){
+          if (flareint > 0) {
+          setprop("payload/armament/flares", 1);
+          print("misc.nas Flares detected.");
+          lastflare = flareint;
+          print("Last flareint:");
+          print(lastflare);
+            }
+          } else {
+              setprop("payload/armament/flares", 0);
+              print("bandit has not released a new flare");
+            }
+          } else {
+              print("Bandit dose not support counter messures  flareint = nil");
+          }
     } else {
-        setprop("payload/armament/flares", 0);
+
+          if (getprop("/gear/gear/wow") == 1) {
+        # Where a UAV on the ground looking for a threat
+          print("misc.nas: Searching if one of the threats are within our range");
+          print(mpid); # We have our number
+          print(getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign")); #threat is the right one. 
+          var distance = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm"); # Distance away from threat in nm
+          print("Threat Distance from us:");
+          print(distance);
+          var threatradius = getprop("controls/AI/deploy-range");
+          print("Our Deploy Range: ");
+          print(threatradius);
+        # Is our threat within our set radius?
+          if (distance < threatradius) {
+
+            # Shit Bandit is in our radius
+            # lets Check to see if we can deploy or some other UAV already deployed
+            # Lets deploy at threat
+            print("Bandit in our airspace Deploying...");
+            setprop("payload/armament/msg", 1); # Turn on damage
+            print(getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign"));
+            var bandit = getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign");
+            drone.enableauto(); # Automaticaly enable the UAV and Launch from the launcher
+            drone.engagebandit(bandit); # Engage the threat
+            setprop("controls/AI/attack", 1); # Enable attacking
+        
+            setprop("sim/weight[0]/selected", "Aim-120");
+            setprop("sim/weight[1]/selected", "Aim-120");
+            setprop("sim/weight[2]/selected", "Aim-120");
+            setprop("sim/weight[3]/selected", "Aim-120");
+            setprop("sim/weight[4]/selected", "Aim-120");
+            setprop("sim/weight[5]/selected", "Aim-120");
+            setprop("sim/weight[6]/selected", "Aim-120");
+            setprop("sim/weight[7]/selected", "Aim-120");    
+            setprop("sim/weight[8]/selected", "Aim-120");
+            setprop("sim/weight[9]/selected", "Aim-120");
+            setprop("sim/weight[10]/selected", "Aim-120");
+
+#
+# Load the weapons
+#
+
+            setprop("controls/armament/station[0]/release", 0);
+            setprop("controls/armament/station[1]/release", 0);
+            setprop("controls/armament/station[2]/release", 0);
+            setprop("controls/armament/station[3]/release", 0);
+            setprop("controls/armament/station[4]/release", 0);
+            setprop("controls/armament/station[5]/release", 0);
+            setprop("controls/armament/station[6]/release", 0);
+            setprop("controls/armament/station[7]/release", 0);    
+            setprop("controls/armament/station[8]/release", 0);
+            setprop("controls/armament/station[9]/release", 0);
+            setprop("controls/armament/station[10]/release", 0);
+
+            setprop("controls/drone/owner", getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign"));
+                        # UAV owner is now the sam control center
+            }
+        }
     }
-
-    } else {
-        print("Target dose not support counter messures");
-    }
-
-
-
-}
-
-
-# Missile view stuff
-# Same thing but where searching for missiles
-var mslsearch = func(cs){
-
- var mp0 = getprop("/ai/models/missile[0]/name");
- var mp1 = getprop("/ai/models/missile[1]/name");
- var mp2 = getprop("/ai/models/missile[2]/name");
- var mp3 = getprop("/ai/models/missile[3]/name");
- var mp4 = getprop("/ai/models/missile[4]/name");
- var mp5 = getprop("/ai/models/missile[5]/name");
- var mp6 = getprop("/ai/models/missile[6]/name");
- var mp7 = getprop("/ai/models/missile[7]/name");
- var mp8 = getprop("/ai/models/missile[8]/name");
- var mp9 = getprop("/ai/models/missile[9]/name");
-var mp10 = getprop("/ai/models/missile[10]/name");
-var mp11 = getprop("/ai/models/missile[11]/name");
-var mp12 = getprop("/ai/models/missile[12]/name");
-var mp13 = getprop("/ai/models/missile[13]/name");
-var mp14 = getprop("/ai/models/missile[14]/name");
-var mp15 = getprop("/ai/models/missile[15]/name");
-var mp16 = getprop("/ai/models/missile[16]/name");
-var mp17 = getprop("/ai/models/missile[17]/name");
-var mp18 = getprop("/ai/models/missile[18]/name");
-
-# Up to 18 + 1 targets at once (Not including ourselfs).
-# Now lets look through it
-# Mm yes if then statement time
-
-    if(mp0 == cs) # If our request callsign is the callsign on Multiplayer[0]; set 0 as our ID then run a function called tracked with a parameter that consists of 0.
-    {
-
-        var tracked = 0;
-        track(tracked);
-
-    }
-
- else if(mp1 == cs)
-    {
-
-        var missileid = 1;
-        missile(missileid);
-
-    }
-
-       else if(mp2 == cs)
-    {
-
-        var missileid = 2;
-        missile(missileid);
-
-    }
-
-       else if(mp3 == cs)
-    {
-
-        var missileid = 3;
-        missile(missileid);
-
-    }
-
-       else if(mp4 == cs)
-    {
-
-        var missileid = 4;
-        missile(missileid);
-
-    }
-
-       else if(mp5 == cs)
-    {
-
-        var missileid = 5;
-        missile(missileid);
-
-    }
-
-       else if(mp6 == cs)
-    {
-
-        var missileid = 6;
-        missile(missileid);
-
-    }
-
-       else if(mp7 == cs)
-    {
-
-        var missileid = 7;
-        missile(missileid);
-
-    }
-
-       else if(mp8 == cs)
-    {
-
-        var missileid = 8;
-        missile(missileid);
-
-    }
-
-       else if(mp9 == cs)
-    {
-
-        var missileid = 9;
-        missile(missileid);
-
-    }
-
-       else if(mp10 == cs)
-    {
-
-        var missileid = 10;
-        missile(missileid);
-
-    }
-
-       else if(mp11 == cs)
-    {
-
-        var missileid = 11;
-        missile(missileid);
-
-    }
-
-       else if(mp12 == cs)
-    {
-
-        var missileid = 12;
-        missile(missileid);
-
-    }
-
-       else if(mp13 == cs)
-    {
-
-        var missileid = 13;
-        missile(missileid);
-
-    }
-
-       else if(mp14 == cs)
-    {
-
-        var missileid = 14;
-        missile(missileid);
-
-    }
-
-       else if(mp15 == cs)
-    {
-
-        var missileid = 15;
-        missile(missileid);
-
-    }
-
-       else if(mp16 == cs)
-    {
-
-        var missileid = 16;
-        missile(missileid);
-
-    }
-
-       else if(mp17 == cs)
-    {
-
-        var missileid = 17;
-        missile(missileid);
-
-    }
-
-       else if(mp18 == cs)
-    {
-
-        var missileid = 18;
-        missile(missileid);
-
-    }
-
-else {
-  print("Missile dose not exist. or there are more than 19 Missiles!"); # Callsign dose not match the callsign of the 19 players
-   }
-
-}
-
-var missile = func(mpid){
-
-    print(mpid); # We have our number
-    print(getprop("ai/models/missile[" ~ mpid ~ "]/name")); #threat is the right one.
-    # lets view it
-
-var s1 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/latitude-deg");
-var s2 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/longitude-deg");
-var s3 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/altitude-ft");
-var s4 = getprop("/ai/models/missile[" ~ mpid ~ "]/orientation/true-heading-deg");
-var s5 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/latitude-deg");
-var s6 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/longitude-deg");
-var s7 = getprop("/ai/models/missile[" ~ mpid ~ "]/position/altitude-ft");
-var s8 = getprop("/ai/models/missile[" ~ mpid ~ "]/orientation/true-heading-deg");
-var s9 = getprop("/ai/models/missile[" ~ mpid ~ "]/orientation/pitch-deg");
-var s10 = getprop("/ai/models/missile[" ~ mpid ~ "]/orientation/roll-deg");
-setprop("controls/armament/missile/pos2/a1", s1);
-setprop("controls/armament/missile/pos2/a2", s2);
-setprop("controls/armament/missile/pos2/a3", s3);
-setprop("controls/armament/missile/pos2/a4", s4);
-setprop("controls/armament/missile/pos2/a5", s5);
-setprop("controls/armament/missile/pos2/a6", s6);
-setprop("controls/armament/missile/pos2/a7", s7);
-setprop("controls/armament/missile/pos2/a8", s8);
-setprop("controls/armament/missile/pos2/a9", s9);
-setprop("controls/armament/missile/pos2/a10", s10);
-    view.setViewByIndex(101);
 }

@@ -12,18 +12,18 @@
 <object-name>FlameModel</object-name>
 </effect>
 
-
+<!--
 
  <model>
   <name>R-27R_smoke</name>
-  <path>Aircraft/F-22/Models/smoke/smoke.xml</path>
+  <path>Aircraft/F-22/Models/smoke/smokesmall.xml</path>
   <offsets>
-   <x-m>0.0</x-m>
+   <x-m>-8</x-m>
    <y-m>0.0  </y-m>
    <z-m>0.0  </z-m>
   </offsets>
  </model>
-
+-->
 
 
 

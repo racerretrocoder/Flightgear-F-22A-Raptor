@@ -13,7 +13,7 @@
 </effect>
 
 
-
+<!--
  <model>
   <name>AIM-9_smoke</name>
   <path>Aircraft/F-22/Models/smoke/smoke.xml</path>
@@ -22,6 +22,6 @@
    <y-m>0.0  </y-m>
    <z-m>0.0  </z-m>
   </offsets>
- </model>
+ </model>-->
 
 </PropertyList>
