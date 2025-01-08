@@ -187,7 +187,8 @@ var MISSILE = {
         m.flareres          = getprop("controls/armament/missile/flareres");
         m.isbomb            = getprop("controls/armament/missile/isbomb");
         m.last_coord        = nil;
-        m.unique_id         = -100;
+        m.unique_id         = -100;  # For missile alert to give each missile a number
+        m.isradarmissile    = 0;   # again, for missile alert sender to let our target know if this is radar or heat missile
         # Find the next index for "models/model" and create property node.
         # Find the next index for "ai/models/missile" and create property node.
         # (M. Franz, see Nasal/tanker.nas)
@@ -502,7 +503,7 @@ if (getprop("payload/armament/flares")) { # Flares are being realeased
 # What kind of missile are we?
 
 if (me.fox == "Fox 2") {
-    if (me.direct_dist_m < 6000) {
+    if (me.direct_dist_m < 5000) {
         enabled = 1;
     }
 } else {
@@ -542,7 +543,7 @@ if (debugmessages == 1) {
             if(MPMessaging.getValue() == 1)
             {
                 damage.damageLog.push(phrase);
-                setprop("/sim/messages/atc", "Missile missed due to flares");
+                setprop("/sim/messages/atc", "Missile missed due to chaff and flares");
             }
             else
             {
@@ -571,11 +572,9 @@ if (debugmessages == 1) {
 
 
                 #nil, -1, -1, 0,   tID,  "delete()"
-				#lat,lon,alt,rdar,typeID,typ,unique,thrustOn,callsign, heading, pitch, speed, is_deleted=0
-				#appendTimer(AIM.timerQueue, [AIM, AIM.notifyInFlight, [nil, -1, -1, 0, 0, me.typeID, "delete()", me.unique_id, 0,"", 0, 0, 0, 1], -1]);
 
 sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
-    #Send notify in flight
+    #Missile alert sender/missile smoke over damage MP
     if(getprop("payload/armament/msg")){
 
     if(me.free == 0) {
@@ -584,36 +583,45 @@ sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
         }
     }
         if (debugsysmessages == 1) {
--print(unique);
+print("Unique ID: ");
+ print(unique);
     }
-
-
     if(tid == 0) { # where not given a typeID
  
-                        if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
-                        if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
-                        if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
-                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  # Missile definitions   
-                        if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
-                        if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
-                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
-                        if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;}
-                        if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;}
+                        if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;me.isradarmissile = 1;}
+                        if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;me.isradarmissile = 1;}
+                        if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;me.isradarmissile = 0;}
+                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;me.isradarmissile = 2;}  # Missile definitions   
+                        if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;me.isradarmissile = 2;}  
+                        if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;me.isradarmissile = 0;}  
+                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;me.isradarmissile = 1;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
+                        if(me.NameOfMissile == "AGM-154"){me.NameOfMissile="AGM-154";typeID = 4;me.isradarmissile = 2;}
+                        if(me.NameOfMissile == "AGM-84"){me.NameOfMissile="AGM-84";typeID = 1;me.isradarmissile = 2;}         
+                        if(me.NameOfMissile == "AGM-88"){me.NameOfMissile="AGM-88";typeID = 2;me.isradarmissile = 2;}    
+                        if(me.NameOfMissile == "AGM-65"){me.NameOfMissile="AGM-65";typeID = 58;me.isradarmissile = 2;}
+                        if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;me.isradarmissile = 2;}
+                        if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;me.isradarmissile = 1;}
     }  else {
         typeID = tid;
     }
 var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
         var altM = alt*FT2M;
         msg.Position.set_latlon(lat,lon,altM);
-        msg.Flags = 1;#bit # Radar is there
-        msg.Flags = bits.set(msg.Flags, 1);#bit #Its not semiactive
+        if (me.isradarmissile != 0){
+            msg.Flags = 1;#bit # Radar is there
+        } else {
+            msg.Flags = 0;#bit # Radar isnt' there
+        }
+
+        msg.Flags = bits.set(msg.Flags, 1); # engine is running
+        # Add this to the line if its semi active (todo) msg.Flags = bits.set(msg.Flags, 2);
         msg.IsDistinct = !deleted; # The missile is "Not" dead
         var target = radar.GetTarget();              # Todo. set that to a property. then leave it be
                 if (call == 1) {
         if (target == nil) {
             var callsign = "none";
         if (debugsysmessages == 1) {
--        print("No target, Missile alert");
+        print("No target, Missile alert");
         print("No target, Missile alert");
         print("No target, Missile alert");
         print("No target, Missile alert");
@@ -631,14 +639,14 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
 
         }
         msg.RemoteCallsign = callsign;
-        msg.UniqueIndex = ""~typeID~unique;
-        msg.Pitch = ptch;
-        msg.Heading = hdg;
-        msg.u_fps = speed;
+        msg.UniqueIndex = ""~typeID~unique; # tid and the current missile number
+        msg.Pitch = ptch; # simple
+        msg.Heading = hdg; # simple
+        msg.u_fps = speed; # simple
         #msg.isValid();
-        notifications.geoBridgedTransmitter.NotifyAll(msg);
+        notifications.geoBridgedTransmitter.NotifyAll(msg); # send
                 if (debugsysmessages == 1) {
--        print("Missile alert sent");
+        print("Missile alert sent successfully");
     }
 
     
@@ -655,13 +663,13 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
 #var mslptch = getprop("controls/armament/pos/ptch");
 #var mslspeed = getprop("controls/armament/pos/speed");
 
-# craters
+# craters, because why not!
 
 	sendCrater: func (lat,lon,alt,size,hdg,static) {
 		var uni = int(rand()*15000000);
 		var msg = notifications.StaticNotification.new("stat", uni, 1, size);
         var altM = alt*FT2M;
-        msg.Position.set_latlon(lat,lon,altM);
+        msg.Position.set_latlon(lat,lon,altM); # MUST BE METERS! LEARNED HARD WAY
         msg.IsDistinct = 0;
         msg.Heading = hdg;
         notifications.hitBridgedTransmitter.NotifyAll(msg);
@@ -696,7 +704,7 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
             {
                 f_lbs = me.force_lbs * 0.3;
             }
-            if(me.life_time > 1)
+            if(me.life_time > 0.5)
             {
                 f_lbs = me.force_lbs * 0.3;
             }
@@ -955,8 +963,12 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                         if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
                         if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
-                        if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;}
+                        if(me.NameOfMissile == "AGM-154"){me.NameOfMissile="AGM-154";typeID = 4;}
+                        if(me.NameOfMissile == "AGM-84"){me.NameOfMissile="AGM-84";typeID = 1;}         
+                        if(me.NameOfMissile == "AGM-88"){me.NameOfMissile="AGM-88";typeID = 2;}    
+                        if(me.NameOfMissile == "AGM-65"){me.NameOfMissile="AGM-65";typeID = 58;}
                         if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;}
+                        if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;}
                     me.sendinflight(0,0,0,0,0,0,0,me.unique_id,1,typeID);
 
                     # are we a bomb?
@@ -1409,19 +1421,26 @@ var semiactive = 0;
                        # setprop("/sim/multiplay/chat", phrase);
                         #var typeID = 0;
     			var typeID = getprop("controls/armament/missile/typeid");
+                # missile defs
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
-                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  
+                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  # Missile definitions   
                         if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
-                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 35;}  # Aim-132      This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
-
-
+                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
+                        if(me.NameOfMissile == "AGM-84"){me.NameOfMissile="AGM-84";typeID = 1;}  
+                        if(me.NameOfMissile == "AGM-154"){me.NameOfMissile="AGM-154";typeID = 4;}       
+                        if(me.NameOfMissile == "AGM-88"){me.NameOfMissile="AGM-88";typeID = 2;}    
+                        if(me.NameOfMissile == "AGM-65"){me.NameOfMissile="AGM-65";typeID = 58;}
+                        if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;}
+                        if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;}
+                        
+                        
                         var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
                         msg.RelativeAltitude = 0;
                         msg.Bearing = me.coord.course_to(geo.aircraft_position());
-                        msg.Distance = 1;
+                        msg.Distance = 1;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
                         msg.RemoteCallsign = me.Tgt.get_Callsign();
                         notifications.hitBridgedTransmitter.NotifyAll(msg);
                         damage.damageLog.push(sprintf("You hit "~me.Tgt.get_Callsign()~" with "~me.NameOfMissile~" at %.1f meters", me.direct_dist_m));
