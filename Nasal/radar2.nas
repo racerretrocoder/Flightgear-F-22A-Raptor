@@ -91,7 +91,7 @@ var Radar = {
     new: func(){
         var m = { parents : [Radar]};
         m.loop_running  = 0;
-        m.rangeTab      = [10, 20, 40, 60, 160, 800]; # radar Ranges in nm
+        m.rangeTab      = [10, 20, 40, 60, 160, 300]; # radar Ranges in nm
         m.rangeIndex    = 1; # tab starts at index 1 so here it's 20
         m.RangeSelected = props.globals.getNode("instrumentation/radar/range-selected", 1);
         m.MyCoord       = geo.aircraft_position(); # this is when the radar is on our own aircraft. This part have to change if we want to put the radar on a missile/AI
