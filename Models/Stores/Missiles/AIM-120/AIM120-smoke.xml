@@ -23,6 +23,17 @@
   </offsets>
  </model>
 -->
+  <animation>
+    <type>dist-scale</type>
+    <object-name>AIM-120</object-name>
+<object-name>FlameModel</object-name>
+    <interpolation>
+      <entry><ind>    0 </ind><dep> 1 </dep></entry>
+      <entry><ind>   100 </ind><dep> 1 </dep></entry>
+            <entry><ind>   250 </ind><dep> 2 </dep></entry>
+      <entry><ind> 10000 </ind><dep> 6 </dep></entry>
+    </interpolation>
+  </animation>
 
 
 

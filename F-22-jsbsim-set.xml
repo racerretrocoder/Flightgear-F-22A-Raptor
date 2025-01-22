@@ -372,9 +372,9 @@ Theres soo many
 </generic>		
 	</multiplay>
 	        <help n="0" include="System/help.xml"/>
-		<hud>
+<!--		<hud>
 		   <path n="1">Aircraft/F-22/HUD/hud.xml</path>
-		   <visibility n="1">true</visibility> <!--Todo: Make this false when not view internal-->
+		   <visibility n="1">true</visibility> 
 		   <palette>
 			<color n="0">
 			 <alpha type="float">1</alpha>
@@ -410,7 +410,7 @@ Theres soo many
     <top type="double">45</top>
     <bottom type="double">-165</bottom>
      </clipping>
-		  </hud>
+		  </hud> -->
 		
 		<instrumentation>
 				<path>Aircraft/F-22/Systems/Instrumentation.xml</path>
@@ -1741,9 +1741,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 <payload>
         <d-config>
-            <full_damage_dist_m type="double">3</full_damage_dist_m>
+            <full_damage_dist_m type="double">-1</full_damage_dist_m>
             <use_hitpoints_instead_of_failure_modes_bool type="bool">false</use_hitpoints_instead_of_failure_modes_bool>
-            <hp_max type="double">90</hp_max>
+            <hp_max type="double">100</hp_max>
             <hitable_by_air_munitions type="bool">true</hitable_by_air_munitions>
             <hitable_by_cannon type="bool">true</hitable_by_cannon>
             <is_fleet type="bool">false</is_fleet>
