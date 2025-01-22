@@ -1,6 +1,6 @@
 # Hide the hud when not in the cockpit view
-setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
-
+# setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
+# Not needed anymore because of the new canvas hud
 
 
 # used to the animation of the canopy switch and the canopy move

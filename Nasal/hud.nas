@@ -59,6 +59,9 @@ var HUD = {
     m.modeEnRte = m.get_element("Rte-Mode-indic");
     m.modeRtn = m.get_element("Rtn-Mode-indic");
     m.modeLndg = m.get_element("Ldng-Mode-indic");
+
+    m.speedtape = m.get_element("ias_range");
+    m.alttape = m.get_element("alt_range");
     
     m.tgt1Marker = m.get_element("tgt1-marker");
     m.tgt2Marker = m.get_element("tgt2-marker");
@@ -71,6 +74,7 @@ var HUD = {
     m.tgt9Marker = m.get_element("tgt9-marker");
     m.tgt10Marker = m.get_element("tgt10-marker");
     m.lockMarker = m.get_element("lock-marker");
+    m.VV = m.get_element("VelocityVector");
   
     #########################################    
     m.text =
@@ -84,24 +88,35 @@ var HUD = {
     m.airspeed =
       m.text.createChild("text")
             .setAlignment("center-top")
-            .setTranslation(30,30)#(left,Top)
+            .setTranslation(30,100)#(left,Top)
             #.setFont("Liberation Sans Narrow")
-            .setFontSize(16,1.5);
+            .setFontSize(06,0.5);
             
     #AP Airspeed Setting
-    m.APairspeed =
+    m.machspeed =
       m.text.createChild("text")
             .setAlignment("center-top")
-            .setTranslation(30,15)#(left,Top)
+            .setTranslation(30,190)#(left,Top)
             #.setFont("Liberation Sans Narrow")
-            .setFontSize(12,1.4);
- 
+            .setFontSize(06,0.56);
+    m.gmeter =
+      m.text.createChild("text")
+            .setAlignment("center-top")
+            .setTranslation(30,198)#(left,Top)
+            #.setFont("Liberation Sans Narrow")
+            .setFontSize(06,0.56);
+   m.aoaind =
+      m.text.createChild("text")
+            .setAlignment("center-top")
+            .setTranslation(30,206)#(left,Top)
+            #.setFont("Liberation Sans Narrow")
+            .setFontSize(06,0.56);
 #    # Altitude
     m.altitude =
       m.text.createChild("text")
             .setAlignment("center-top")
-            .setTranslation(220,30) #(left,Top)
-            .setFontSize(16,1.5);
+            .setTranslation(233,100) #(left,Top)
+            .setFontSize(06,0.5);
             
     #AP Altitude Setting
     m.APaltitude =
@@ -139,10 +154,12 @@ var HUD = {
   
  
     # Horizon line
-    m.horizon_group.createChild("path")
-                   .moveTo(51, 0)
-                   .horizTo(200)
-                   .setStrokeLineWidth(1.0);
+ #  m.horizon_group.createChild("path")
+ #                 .moveTo(51, 0)
+ #                 .horizTo(200)
+ #                 .setStrokeLineWidth(1.0);
+
+
                    
 
     m.input = {
@@ -159,6 +176,8 @@ var HUD = {
 		vs:         "/velocities/vertical-speed-fps",
 		rad_alt:    "/instrumentation/radar-altimeter/radar-altitude-ft",
 		airspeed:   "velocities/airspeed-kt",
+		mach:   "velocities/mach",
+    gdamped: "accelerations/pilot-gdamped",
 		target_spd  : "/autopilot/settings/target-speed-kt",
 		target_alt  : "/autopilot/settings/target-altitude-ft",
 		PNK_Mode	: "su-27/instrumentation/PNK-10/active-mode",
@@ -232,8 +251,27 @@ var HUD = {
 		me.svg.show();
 #	print ("SEE hud");
 		}
-		
+    me.attitudeInd.setScale(1,0.558);
+    var rot = -me.input.roll.getValue() * math.pi / 180.0;
+    var pitch_factor=11.18;
+    var ptch = 392+ me.input.pitch.getValue() * pitch_factor;
+    me.attitudeInd.setTranslation(0,ptch);
+    me.attitudeInd.setRotation(rot);
+    if (me.input.pitch.getValue()>0) {
+           me.attitudeInd.setCenter(110,900-me.input.pitch.getValue()*(1815/90));
+    }
 
+     else{
+        me.attitudeInd.setCenter(110,900+me.input.pitch.getValue()*-(1772/90));
+     }
+    me.gmeter.setText(sprintf("G %1.1f", me.input.gdamped.getValue()));
+        me.aoaind.setText(sprintf("A %1.2f", me.input.alpha.getValue()));
+    me.machspeed.setText(sprintf("M %1.2f", me.input.mach.getValue()));
+    me.airspeed.setText(sprintf("%d", me.input.ias.getValue()));
+    me.altitude.setText(sprintf("%d", me.input.altitude.getValue()));
+    var VVx = me.input.beta.getValue() * 10; # adjust for view
+    var VVy = me.input.alpha.getValue() * 10; # adjust for view
+    me.VV.setTranslation (VVx,VVy);
    
 ##########################
 		#ROUTE MODE :#
@@ -274,11 +312,16 @@ var HUD = {
 		me.NavDirector.setVisible(0);
 
 		}
+      me.speedtape.setVisible(0);
+      me.alttape.setVisible(0);
+      me.speedtape.setTranslation(13.508,getprop("velocities/airspeed-kt"));
+
 				me.Glidingpath.setVisible(0);
 		me.modeRtn.setVisible(0);	# Until implemented , this should be hidden unconditionnally	
 			var lock= getprop("instrumentation/radar/lock");		
 		var radarON= getprop("su-27/instrumentation/N010-radar/emitting");
   		var missile= getprop("controls/armament/selected-weapon-digit");
+
 		if (radarON == 0)
 		{
 			#print("Radar off ");
@@ -368,7 +411,7 @@ var HUD = {
           }
       }
       if (radarON == 1){
-						me.tgt1Marker.setVisible(1);
+						me.tgt1Marker.setVisible(0);
 						me.tgt1Marker.setTranslation(target1_x*18, -190+ -target1_z*16);}
 		}
 #		#**************TARGET2 MARKER *********************#
@@ -396,7 +439,7 @@ var HUD = {
           }
       }
       if (radarON == 1){
-						me.tgt2Marker.setVisible(1);
+						me.tgt2Marker.setVisible(0);
 						me.tgt2Marker.setTranslation(target2_x*18, -190+ -target2_z*16);}
 		}
 #		#**************TARGET3 MARKER *********************#
@@ -424,7 +467,7 @@ var HUD = {
         }
       }
       if (radarON == 1){
-						me.tgt3Marker.setVisible(1);
+						me.tgt3Marker.setVisible(0);
 						me.tgt3Marker.setTranslation(target3_x*18, -190+ -target3_z*16);}
 		}
 #		#**************TARGET4 MARKER *********************#
@@ -452,7 +495,7 @@ var HUD = {
         }
       }
       if (radarON == 1){
-						me.tgt4Marker.setVisible(1);
+						me.tgt4Marker.setVisible(0);
 						me.tgt4Marker.setTranslation(target4_x*15, -190+ -target4_z*16);}
 		}
 #		#**************TARGET5 MARKER *********************#
@@ -480,7 +523,7 @@ var HUD = {
           }
       }
 			if (radarON == 1){
-						me.tgt5Marker.setVisible(1);
+						me.tgt5Marker.setVisible(0);
 						me.tgt5Marker.setTranslation(target1_x*20, -190+ -target1_z*16);}
 		}
 #		#**************TARGET6 MARKER *********************#
@@ -508,7 +551,7 @@ var HUD = {
           }
       }
 			if (radarON == 1){
-						me.tgt6Marker.setVisible(1);
+						me.tgt6Marker.setVisible(0);
 						me.tgt6Marker.setTranslation(target1_x*20, -195+ -target1_z*16);}
 		}
 #		#**************TARGET7 MARKER *********************#
@@ -517,7 +560,7 @@ var HUD = {
 		if (target7_x or 0 > 0 and radarON ==1)
 		{
 			if (radarON == 1){
-						me.tgt7Marker.setVisible(1);
+						me.tgt7Marker.setVisible(0);
 						me.tgt7Marker.setTranslation(target7_x*15, -145+ -target7_z*16);}
 		}
 #		#**************TARGET8 MARKER *********************#
@@ -545,7 +588,7 @@ var HUD = {
           }
       }
 			if (radarON == 1){
-						me.tgt8Marker.setVisible(1);
+						me.tgt8Marker.setVisible(0);
 						me.tgt8Marker.setTranslation(target1_x*18, -190+ -target1_z*16);}
 		}
 #		#**************TARGET9 MARKER *********************#
@@ -573,7 +616,7 @@ var HUD = {
           }
       }
       if (radarON == 1){
-						me.tgt9Marker.setVisible(1);
+						me.tgt9Marker.setVisible(0);
 						me.tgt9Marker.setTranslation(target1_x*18, -190+ -target1_z*16);}
 		}
 #		#**************TARGET10 MARKER *********************#
@@ -601,7 +644,7 @@ var HUD = {
           }
       }
 			if (radarON == 1){
-						me.tgt10Marker.setVisible(1);
+						me.tgt10Marker.setVisible(0);
 						me.tgt10Marker.setTranslation(target1_x*18, -190+ -target1_z*16);}
 		}
  
