@@ -186,9 +186,15 @@ var MISSILE = {
         m.cruisealt         = getprop("controls/armament/missile/cruise_alt");
         m.flareres          = getprop("controls/armament/missile/flareres");
         m.isbomb            = getprop("controls/armament/missile/isbomb");
+        m.drop_time             = 0;    
+        m.deploy_time           = 0;  
         m.last_coord        = nil;
         m.unique_id         = -100;  # For missile alert to give each missile a number
         m.isradarmissile    = 0;   # again, for missile alert sender to let our target know if this is radar or heat missile
+        m.eject_speed       = 0;
+       # m.ccip_altC = 0;
+       # m.ccip_dens = 0;
+       # m.ccip
         # Find the next index for "models/model" and create property node.
         # Find the next index for "ai/models/missile" and create property node.
         # (M. Franz, see Nasal/tanker.nas)
@@ -557,21 +563,14 @@ if (debugmessages == 1) {
         print("Flare detect: There are no deployed flares");
     }
     }
-
-
-
 } else {
     if (debugsysmessages == 1) {
     print("Flare detect: there is no target. Not searching for flares");
+        }
     }
-
-}
-
-
 },
 
 
-                #nil, -1, -1, 0,   tID,  "delete()"
 
 sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
     #Missile alert sender/missile smoke over damage MP
@@ -652,6 +651,8 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
     
     }
 },
+
+
 
 #setprop("controls/armament/pos/lat",me.coord.lat());
 #setprop("controls/armament/pos/lon",me.coord.lon());
@@ -1583,6 +1584,131 @@ var semiactive = 0;
         }
         return(v);
     },
+
+
+
+    	extrapolate: func (x, x1, x2, y1, y2) {
+    	return y1 + ((x - x1) / (x2 - x1)) * (y2 - y1);
+	},
+
+
+	clamp: func(v, min, max) { v < min ? min : v > max ? max : v },
+
+	getTerrain: func (from, to) {
+		me.xyz = {"x":from.x(),                  "y":from.y(),                 "z":from.z()};
+        me.dir = {"x":to.x()-from.x(),  "y":to.y()-from.y(), "z":to.z()-from.z()};
+        me.v = get_cart_ground_intersection(me.xyz, me.dir);
+        if (me.v != nil) {
+            me.terrain = geo.Coord.new();
+            me.terrain.set_latlon(me.v.lat, me.v.lon, me.v.elevation);
+            return me.terrain;
+        }
+        return nil;
+	},
+
+#missile.MISSILE.getCCIPdv(20,0.2);
+getCCIPdv: func (maxFallTime_sec, timeStep) {
+		# for non flat areas. Lower falltime or higher timestep means using less CPU time.
+		# returns nil for higher than maxFallTime_sec. Else a vector with [Coord, hasTimeToArm].
+        me.ccip_altC = getprop("position/altitude-ft")*FT2M;
+        me.ccip_dens = getprop("fdm/jsbsim/atmosphere/density-altitude");
+        me.ccip_speed_down_fps = getprop("velocities/speed-down-fps");
+        me.ccip_speed_east_fps = getprop("velocities/speed-east-fps");
+        me.ccip_speed_north_fps = getprop("velocities/speed-north-fps");
+
+		#   if (me.eject_speed != 0 and !me.rail) {
+		#   	# add ejector speed down from belly:
+		#   	me.aircraft_vec = [me.ccip_speed_north_fps,-me.ccip_speed_east_fps,-me.ccip_speed_down_fps];
+		#   	me.eject_vec    = me.myMath.normalize(me.myMath.eulerToCartesian3Z(-OurHdg.getValue(),OurPitch.getValue(),OurRoll.getValue()));
+		#   	me.eject_vec    = me.myMath.product(-me.eject_speed, me.eject_vec);
+		#   	me.init_rel_vec = me.myMath.plus(me.aircraft_vec, me.eject_vec);
+		#   	me.ccip_speed_down_fps = -me.init_rel_vec[2];
+		#   	me.ccip_speed_east_fps = -me.init_rel_vec[1];
+		#   	me.ccip_speed_north_fps = me.init_rel_vec[0];
+		#   }
+
+        me.ccip_t = 0.0;
+        me.ccip_dt = timeStep;
+        me.ccip_fps_z = -me.ccip_speed_down_fps;
+        me.ccip_fps_x = math.sqrt(me.ccip_speed_east_fps*me.ccip_speed_east_fps+me.ccip_speed_north_fps*me.ccip_speed_north_fps);
+        me.ccip_bomb = me;
+
+        me.ccip_rs = me.ccip_bomb.rho_sndspeed(getprop("sim/flight-model") == "jsb"?me.ccip_dens:me.ccip_altC*M2FT);
+        me.ccip_rho = me.ccip_rs[0];
+        me.weight_launch_lbs = getprop("controls/armament/missile/weight-launch-lbs");
+        me.ccip_mass = me.weight_launch_lbs * slugs_to_lbs;
+
+        me.ccipPos = geo.Coord.new(geo.aircraft_position());
+
+        # we calc heading from composite speeds, due to alpha and beta might influence direction bombs will fall:
+        if(me.ccip_fps_x == 0) return nil;
+        me.ccip_heading = geo.normdeg(math.atan2(me.ccip_speed_east_fps,me.ccip_speed_north_fps)*R2D);
+        #print();
+       # printf("CCIP     %.1f", me.ccip_heading);
+		me.ccip_pitch = math.atan2(me.ccip_fps_z, me.ccip_fps_x);
+        while (me.ccip_t <= maxFallTime_sec) {
+			me.ccip_t += me.ccip_dt;
+			#me.ccip_bomb.deploy = me.clamp(me.extrapolate(me.ccip_t, me.drop_time, me.drop_time+me.deploy_time,0,1),0,1);
+            me.ccip_bomb.deploy = me.clamp(me.extrapolate(me.ccip_t, 0, 0+0,0,1),0,1);
+			# Apply drag
+			me.ccip_fps = math.sqrt(me.ccip_fps_x*me.ccip_fps_x+me.ccip_fps_z*me.ccip_fps_z);
+			if (me.ccip_fps==0) return nil;
+			me.ccip_q = 0.5 * me.ccip_rho * me.ccip_fps * me.ccip_fps;
+			me.ccip_mach = me.ccip_fps / me.ccip_rs[1];
+            var cdm2 = 0;
+                    me.cd = getprop("controls/armament/missile/drag-coeff");
+                   # print(me.cd);
+            if(me.ccip_mach < 0.7)
+            {
+                cdm2 = 0.0125 * me.ccip_mach  + me.cd;
+            }
+            elsif(me.ccip_mach < 1.2)
+            {
+                cdm2 = 0.3742 * math.pow(me.ccip_mach, 2) - 0.252 * me.ccip_mach + 0.0021 + me.cd;
+            }
+            else
+            {
+                cdm2 = 0.2965 * math.pow(me.ccip_mach, -1.1506) + me.cd;
+            }
+			me.ccip_Cd = cdm2;
+            me.eda = getprop("controls/armament/missile/drag-area");
+			me.ccip_deacc = (me.ccip_Cd * me.ccip_q * me.eda) / me.ccip_mass;
+			me.ccip_fps -= me.ccip_deacc*me.ccip_dt;
+
+			# new components and pitch
+			me.ccip_fps_z = me.ccip_fps*math.sin(me.ccip_pitch);
+			me.ccip_fps_x = me.ccip_fps*math.cos(me.ccip_pitch);
+			me.ccip_fps_z -= g_fps * me.ccip_dt;
+			me.ccip_pitch = math.atan2(me.ccip_fps_z, me.ccip_fps_x);
+
+			# new position
+			me.ccip_altC = me.ccip_altC + me.ccip_fps_z*me.ccip_dt*FT2M;
+			me.ccip_dist = me.ccip_fps_x*me.ccip_dt*FT2M;
+			me.ccip_oldPos = geo.Coord.new(me.ccipPos);
+			me.ccipPos.apply_course_distance(me.ccip_heading, me.ccip_dist);
+			me.ccipPos.set_alt(me.ccip_altC);
+
+			# test terrain
+			me.ccip_grnd = geo.elevation(me.ccipPos.lat(),me.ccipPos.lon());
+			if (me.ccip_grnd != nil) {
+				if (me.ccip_grnd > me.ccip_altC) {
+					#return [me.ccipPos,me.arming_time<me.ccip_t];
+					me.result = me.getTerrain(me.ccip_oldPos, me.ccipPos);
+                            me.arming_time = 1;
+					if (me.result != nil) {
+						return [me.result, me.arming_time<me.ccip_t, me.ccip_t];
+					}
+					return [me.ccipPos,me.arming_time<me.ccip_t, me.ccip_t];
+					#var inter = me.extrapolate(me.ccip_grnd,me.ccip_altC,me.ccip_oldPos.alt(),0,1);
+					#return [me.interpolate(me.ccipPos,me.ccip_oldPos,inter),me.arming_time<me.ccip_t];
+				}
+			} else {
+				return nil;
+			}
+        }
+        return nil;
+},
+
     
 # TODO To be corrected...
     animation_flags_props: func(){

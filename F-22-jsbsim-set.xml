@@ -2100,11 +2100,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
  <key n="108">
 	 <name>l</name>
-     <desc>Trigger flare release</desc>
-    <!--This puts out ALOT of flares. I love it!-->
-      <binding>
+     <desc>Trigger flare release</desc>      
+	 <binding>
      <command>nasal</command>
- <script>setprop("/ai/submodels/submodel/flare-release",1);f22.flares();damage.flare_released();settimer(func{setprop("/ai/submodels/submodel/flare-release",0);},0.1)</script>
+ <script>f22.startflare();</script>
       </binding>
   <binding>
    <command>property-toggle</command>
@@ -2499,7 +2498,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		<low>
             <file>Aircraft/F-22/Nasal/low.nas</file>
         </low>
-		
+		        <hudmath>
+            <file>Aircraft/F-22/Nasal/hud_math.nas</file>
+        </hudmath>
   <canvas_HUD>
             <file>Aircraft/F-22/Nasal/hud.nas</file>
     </canvas_HUD>    

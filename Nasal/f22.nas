@@ -14,6 +14,16 @@ var time = getprop("/sim/time/elapsed-sec");
 
 
 
+var autoflares = func{
+  setprop("/ai/submodels/submodel/flare-release",1);
+  f22.flares();
+  damage.flare_released();
+  settimer(func{setprop("/ai/submodels/submodel/flare-release",0);},0.1)
+}
+
+
+
+
 # Electric system for the engines:
 
 # Detect the status of the main power switch. then check if the engines are dead. 
@@ -482,3 +492,33 @@ setlistener("sim/signals/fdm-initialized", func {
     locktgt_timer.start();
     # loop body
     Flare_timer.start();
+
+timer_autoflare = maketimer(0.1, autoflares);
+
+
+var flareswitch = 0;
+
+var startflare = func{
+  if (flareswitch == 0) {
+  timer_autoflare.start();
+  flareswitch = 1;
+  } else {
+      timer_autoflare.stop();
+      flareswitch = 0;
+  }
+}
+
+
+var getCCIP = func {
+      # get loading missiles
+      var msltyp = getprop("controls/armament/selected-weapon");
+      missile.Loading_missile(msltyp);
+      # Needed for missile.nas calculation
+      if (msltyp == "JDAM") {
+          # 20s fall time limit and calculate fall trajectory at every 0.20s on the way to ground.
+          return missile.MISSILE.getCCIPdv(20, 0.20);
+      } elsif (msltyp == "GBU-39") {
+          # 35s fall time limit and calculate fall trajectory at every 0.30s on the way to ground.
+          return missile.MISSILE.getCCIPdv(35, 0.30);
+      }
+}
