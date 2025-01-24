@@ -344,7 +344,7 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 
 
   
-  	<!-- glass -->
+  	<!-- glass 
 
 	<animation>
     <type>shader</type>
@@ -352,13 +352,13 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
     <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
    <object-name>canopy out</object-name>
    
-  </animation>
+  </animation>-->
 
 
 	<effect>
       <inherits-from>Effects/model-transparent</inherits-from>
        <object-name>canopy in</object-name>
-		
+		   <object-name>canopy out</object-name>
 		
    </effect>
 <effect>
