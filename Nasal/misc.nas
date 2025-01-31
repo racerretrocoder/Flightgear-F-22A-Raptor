@@ -204,7 +204,7 @@ else {
 
 var lastflare = 0;
 
-var track = func(mpid,isuav) {
+var track = func(mpid,isuav=0) {
     if (isuav == 0) {
           print("Misc.track: MPID:");
           print(mpid); # We have our number
@@ -243,9 +243,11 @@ var track = func(mpid,isuav) {
         # Is our threat within our set radius?
           if (distance < threatradius) {
 
-            # Shit Bandit is in our radius
+            # Bandit is in our radius 
             # lets Check to see if we can deploy or some other UAV already deployed
-            # Lets deploy at threat
+            # Never mind. too difficult
+
+            # Lets deploy at threat when the sam control center has us in the correct UAV slot
             print("Bandit in our airspace Deploying...");
             setprop("payload/armament/msg", 1); # Turn on damage
             print(getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign"));
@@ -287,4 +289,24 @@ var track = func(mpid,isuav) {
             }
         }
     }
+}
+
+var smallsearch = func(cs=nil) {
+  var list = props.globals.getNode("/ai/models").getChildren("multiplayer");
+  var total = size(list);
+  var mpid = 0;
+  for(var i = 0; i < total; i += 1) {
+      if (cs != nil) {
+      # were searching for someone...
+      if (getprop("ai/models/multiplayer[" ~ i ~ "]/callsign") == cs) {
+          # we have our number
+          print(mpid);
+          mpid = i;
+          track(mpid); # run the flare detection/RND on this Multiplayer property
+          return mpid; # Bam!
+          
+     }
+      var callsign = list[i].getNode("callsign").getValue();
+     }
+   }
 }
