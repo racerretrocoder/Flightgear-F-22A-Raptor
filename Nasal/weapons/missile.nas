@@ -1055,17 +1055,17 @@ var mslalt = getprop("controls/armament/pos/alt");
 
     update_track: func()
     {
-
-
-
-
-
         if(me.Tgt == nil)
         {
             me.fox = "Fox 1";
-                            me.free = 1;
+                            
                                 setprop("payload/armament/flares", 0);
-            return(1);
+            print("tgt nil");
+        if (getprop("controls/radar/weaponcoords") == 0) {
+            me.free = 1;
+                    return(1);
+        }
+
         }
         if(me.status == 0)
         {
@@ -1108,22 +1108,78 @@ var mslalt = getprop("controls/armament/pos/alt");
         else
         {
             # status = launched : compute target position relative to seeker head.
-            
             # Get target position.
+            if (getprop("controls/radar/weaponcoords") == 1){
+                            var lat = getprop("controls/radar/gpslock/lat");
+    var lon = getprop("controls/radar/gpslock/lon");
+    var alt = getprop("controls/radar/gpslock/alt");
+    var coord = geo.Coord.new();
+    var gndelev = alt*FT2M;
+    print("coord: lat:" ~ lat);
+    print("coord: lon:" ~ lon);
+    print("coord: alt:" ~ alt);
+    if (gndelev <= 0) {
+        gndelev = geo.elevation(lat, lon);
+       if (gndelev != nil){
+            print("gndelev: " ~ gndelev);
+        }
+       if (gndelev == nil){
+            # oh no
+            gndelev = 0;
+        }
+    }
+    print(gndelev);
+            var t_alt =  gndelev;
+            } else {
             var t_alt =  me.Tgt.get_altitude();
+            }
+
             
             # problem here : We have to calculate de alt difference before
             # calculate the other coord.
             # Prevision of the next position with speed & heading and dt->time to next position
             # Prevision of the next altitude depend on the target appproch on the next second. dt = 0.1
             #me.vApproch;
-            
-            var next_alt = t_alt - math.sin(me.Tgt.get_Pitch() * D2R) * me.Tgt.get_Speed() * 0.5144 * 0.1;
+                        if (getprop("controls/radar/weaponcoords") == 1){
+                    var next_alt = t_alt;
+                        } else {
+                     var next_alt = t_alt - math.sin(me.Tgt.get_Pitch() * D2R) * me.Tgt.get_Speed() * 0.5144 * 0.1;
+                        }
+
             
             # nextGeo, depending of the new alt, with a constant speed of the
             # aircraft, 0.2 is the "time"of the precision, in second. This need
             # to be not arbitrary
             
+                    if (getprop("controls/radar/weaponcoords") == 1) {
+                    var lat = getprop("controls/radar/gpslock/lat");
+    var lon = getprop("controls/radar/gpslock/lon");
+    var alt = getprop("controls/radar/gpslock/alt");
+    var coord = geo.Coord.new();
+    var gndelev = alt*FT2M;
+    print("coord: lat:" ~ lat);
+    print("coord: lon:" ~ lon);
+    print("coord: alt:" ~ alt);
+    if (gndelev <= 0) {
+        gndelev = geo.elevation(lat, lon);
+       if (gndelev != nil){
+            print("gndelev: " ~ gndelev);
+        }
+       if (gndelev == nil){
+            # oh no
+            gndelev = 0;
+        }
+    }
+    print(gndelev);
+    
+            var nextGeo = nextGeoloc(lat,
+                lon,
+                0,
+                0,
+                0.1);
+                t_alt = gndelev;
+                print("target set to gps");
+            } else {
             var nextGeo = nextGeoloc(me.Tgt.get_Latitude(),
                 me.Tgt.get_Longitude(),
                 me.Tgt.get_heading(),
@@ -1131,6 +1187,10 @@ var mslalt = getprop("controls/armament/pos/alt");
                 0.1);
             
             t_alt = next_alt;
+            }
+print("target ran");
+
+
             me.t_coord.set_latlon(nextGeo.lat(), nextGeo.lon(), t_alt);
             
             #print("Alt: ", t_alt, " Lat", me.Tgt.get_Latitude(), " Long : ", me.Tgt.get_Longitude());
@@ -1502,7 +1562,13 @@ var semiactive = 0;
     
     search: func(c){
         var tgt = c;
-        var target = radar.GetTarget();
+        if (getprop("controls/radar/weaponcoords") == 1) {
+            #screen.log.write("GPS active");
+            var target = radar.GetTarget();
+        } else {
+            var target = radar.GetTarget();
+        }
+
         if(me.status != 2)
         {
             var tempCoord = geo.aircraft_position();
@@ -1545,12 +1611,24 @@ var semiactive = 0;
         
         me.status = 1;
         me.Tgt = tgt;
-        
-        me.TgtLon_prop       = me.Tgt.get_Longitude; #getprop("/ai/closest/longitude");
-        me.TgtLat_prop       = me.Tgt.get_Latitude;  #getprop("/ai/closest/latitude");
-        me.TgtAlt_prop       = me.Tgt.get_altitude;  #getprop("/ai/closest/altitude");
-        me.TgtHdg_prop       = me.Tgt.get_heading;   #getprop("/ai/closest/heading");
-        #print("TUTUTTUTUTU ", me.Tgt.get_Speed());
+        # Can GPS stuff be here?
+        # if gps slaved override these with gps coords
+        if (getprop("controls/radar/weaponcoords") == 1) {
+ me.TgtLon_prop       = getprop("controls/radar/gpslock/lon");
+ me.TgtLat_prop       = getprop("controls/radar/gpslock/lat");
+ me.TgtAlt_prop       = getprop("controls/radar/gpslock/alt");
+ me.TgtHdg_prop       = 0;   #getprop("/ai/closest/heading");
+        } else {
+#setprop("controls/radar/weaponcoords", 1);
+#setprop("controls/radar/gpslock/lat", lat); 
+#setprop("controls/radar/gpslock/lon", lon); 
+#setprop("controls/radar/gpslock/alt", alt); 
+me.TgtLon_prop       = me.Tgt.get_Longitude; #getprop("/ai/closest/longitude");
+me.TgtLat_prop       = me.Tgt.get_Latitude;  #getprop("/ai/closest/latitude");
+me.TgtAlt_prop       = me.Tgt.get_altitude;  #getprop("/ai/closest/altitude");
+me.TgtHdg_prop       = me.Tgt.get_heading;   #getprop("/ai/closest/heading");
+#print("TUTUTTUTUTU ", me.Tgt.get_Speed());
+        }
         if(me.free == 0 and me.life_time > me.Life)
         {
             settimer(func(){me.update_track()}, 2);
