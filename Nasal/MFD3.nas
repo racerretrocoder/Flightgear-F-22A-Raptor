@@ -61,6 +61,7 @@ if (pg == 2) {
    setprop("controls/radar/gpslock/lat", lat); 
    setprop("controls/radar/gpslock/lon", lon); 
    setprop("controls/radar/gpslock/alt", alt); 
+    radar.RangeSelected.setValue(0);
 } elsif (pg == 4){
     print(pg);   
 } elsif (pg == 5){
