@@ -23,7 +23,7 @@ refs 4
 kids 0
 OBJECT poly
 name "aim120"
-loc 0.00361745 -0.073392 0.0653283
+loc 0.00361745 -0.0715079 0.0714516
 texture "enav/switch.png"
 crease 45.000000
 numvert 4

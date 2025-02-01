@@ -443,16 +443,16 @@ me.pipperRadius = 10;
       me.bomb_sight.setVisible(0);
   } else {
       me.bomb_sight.setVisible(1);
-                    hudmath.HudMath.reCalc();
-                    if (me.ccipInfo[0] != nil or me.ccipInfo[0] > 2000) {
-                var poscc = hudmath.HudMath.getPosFromCoord(me.ccipInfo[0]);
-                    } else {
-                      print("Posc is too high! turning off");
-                     # break;
-                    }
-#print(poscc[0]);
-print(poscc[1] - 1005);
-      me.bomb_sight.setTranslation(poscc[0],poscc[1] - 1005);
+#                 hudmath.HudMath.reCalc();
+#                 if (me.ccipInfo[0] != nil or me.ccipInfo[0] > 2000) {
+#             var poscc = hudmath.HudMath.getPosFromCoord(me.ccipInfo[0]);
+#                 } else {
+#                   print("Posc is too high! turning off");
+#                  # break;
+#                 }
+##print(poscc[0]);
+#print(poscc[1] - 1005);
+#      me.bomb_sight.setTranslation(poscc[0],poscc[1] - 1005);
   }
 				me.Glidingpath.setVisible(0);
 		me.modeRtn.setVisible(0);	# Until implemented , this should be hidden unconditionnally	

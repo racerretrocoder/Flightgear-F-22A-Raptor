@@ -13,8 +13,177 @@
 		</offsets>
 	</model>
 
-	
+	 <animation>
+  <type>material</type>
+  <object-name>1n1</object-name>
+    <object-name>1n2</object-name>
+  <object-name>2n1</object-name>
+  <object-name>2n2</object-name>
+    <object-name>Engine1</object-name>
+  <object-name>Engine2</object-name>
+    <object-name>aoa</object-name>
+      <object-name>flaps</object-name>
+          
+  <ambient>
+    <red>0.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.3</red>
+    <green>0.8</green>
+    <blue>0.3</blue>
+  </emission> 
+ </animation>
+
+	<text>
+  <name>aoa</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <!--Y is Left to right
+X is In and Out 
+Z is Up and down-->
+  <x-m>0.01</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.05</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">text-value</type>
+   <format type="string">Lnk16 TGT-COORDS Prev callsign %s</format>
+  <truncate type="bool">true</truncate>
+  <property>/instrumentation/datalink/lastcallsign</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ <text>
+  <name>aoa</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.04</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">Lat: %5.4f</format>
+  <truncate type="bool">false</truncate>
+  <property>/controls/radar/datarec/lat</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ <text>
+  <name>aoa</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.03</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">Lon: %5.4f</format>
+  <truncate type="bool">false</truncate>
+  <property>/controls/radar/datarec/lon</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+	 <text>
+  <name>aoa</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.02</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">Alt: %5.4f</format>
+  <truncate type="bool">false</truncate>
+  <property>/controls/radar/datarec/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>aoa</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.01</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">Current CoordSlot: %5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/radar/currentslot</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+<text>
+  <name>aoa</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.00</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">Lat: %5.4f</format>
+  <truncate type="bool">false</truncate>
+  <property>/controls/radar/slots/lat</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ <text>
+  <name>aoa</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>-0.01</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">Lon: %5.4f</format>
+  <truncate type="bool">false</truncate>
+  <property>/controls/radar/slots/lon</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+	 <text>
+  <name>aoa</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>-0.02</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">Alt: %5.4f</format>
+  <truncate type="bool">false</truncate>
+  <property>/controls/radar/slots/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 
 
-	
+
 </PropertyList>
