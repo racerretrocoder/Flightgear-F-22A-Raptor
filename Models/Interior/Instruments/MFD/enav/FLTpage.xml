@@ -325,7 +325,7 @@ Use increments of .01 Because the unit is meters.
   <axis-alignment>yz-plane</axis-alignment>
    <type type="string">number-value</type>
    <format type="string">AoA%5.f</format>
-  <truncate type="bool">true</truncate>
+  <truncate type="bool">false</truncate>
   <property>/fdm/jsbsim/aero/alpha-rad</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>

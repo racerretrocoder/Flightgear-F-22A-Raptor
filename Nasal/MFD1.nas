@@ -27,6 +27,8 @@ if (pg == 2) {
 } elsif (pg == 1){
     print(pg);   
 } elsif (pg == 3){
+    screen.log.write("Switched Bombs back to radar slave mode");
+    setprop("controls/radar/weaponcoords", 0);
     print(pg);   
 } elsif (pg == 4){
     print(pg);   
@@ -49,7 +51,16 @@ if (pg == 2) {
 } elsif (pg == 1){
     print(pg);   
 } elsif (pg == 3){
-    print(pg);   
+    print(pg);
+    screen.log.write("Set Coords to the Current Weapon(s)!");   
+    var slottype = getprop("controls/radar/currentslot");
+    var lat = getprop("controls/radar/slot[" ~ slottype ~ "]/lat");
+    var lon = getprop("controls/radar/slot[" ~ slottype ~ "]/lon"); 
+    var alt = getprop("controls/radar/slot[" ~ slottype ~ "]/alt"); 
+    setprop("controls/radar/weaponcoords", 1);
+    setprop("controls/radar/gpslock/lat", lat); 
+    setprop("controls/radar/gpslock/lon", lon); 
+    setprop("controls/radar/gpslock/alt", alt); 
 } elsif (pg == 4){
     print(pg);   
 } elsif (pg == 5){
@@ -92,7 +103,7 @@ if (pg == 2) {
     # DeLRease Radar Range
     var rng = getprop("instrumentation/radar/range");
 
-# 10,20,40,60,160
+# 10,20,40,60,160,300
 
 if (rng == 10) {
 print("Cant deLRease range. its at its lowest");
@@ -115,6 +126,9 @@ print("Cant deLRease range. its at its lowest");
 } elsif (rng == 160){
     radar.RangeSelected.setValue(60);
     setprop("instrumentation/radar/range", 60);
+} elsif (rng == 300){
+    radar.RangeSelected.setValue(160);
+    setprop("instrumentation/radar/range", 160);
 }
 
 } elsif (pg == 1){
@@ -196,7 +210,7 @@ if (pg == 2) {
     # InLRease Radar Range
     var rng = getprop("instrumentation/radar/range");
 
-# 10,20,40,60,160
+# 10,20,40,60,160,300
 
 if (rng == 10) {
     # InLRease it
@@ -220,8 +234,13 @@ if (rng == 10) {
 
 } elsif (rng == 160){
 
+radar.RangeSelected.setValue(300);
+    setprop("instrumentation/radar/range", 300);
+
+} elsif (rng == 300){
 print("Radar range at max. Cant inLRease it"); 
 }
+
 
 
 
@@ -320,6 +339,23 @@ if (pg == 2) {
     print(pg);   
 } elsif (pg == 3){
     print(pg);   
+    print("Attempting to save coords to a slot");
+    if (getprop("instrumentation/frontcontrols/digit1") == 0) {
+        print("Not ready!");
+        screen.log.write("Enter a number on the keypad to select a slot to save coord data too then press this button to write to that slot");
+        return;
+    }
+    print("read it");
+    var slottype = getprop("instrumentation/frontcontrols/digit1");
+    var lat = getprop("controls/radar/datarec/lat");
+    var lon = getprop("controls/radar/datarec/lon"); 
+    var alt = getprop("controls/radar/datarec/alt"); 
+    setprop("controls/radar/slot[" ~ slottype ~ "]/lat", lat); 
+    setprop("controls/radar/slot[" ~ slottype ~ "]/lon", lon); 
+    setprop("controls/radar/slot[" ~ slottype ~ "]/alt", alt); 
+    screen.log.write("Successfully saved data to slot "~ slottype);
+    fc.clearnum();
+
 } elsif (pg == 4){
     print(pg);   
 } elsif (pg == 5){
@@ -340,7 +376,15 @@ if (pg == 2) {
 } elsif (pg == 1){
     print(pg);   
 } elsif (pg == 3){
-    print(pg);   
+    print(pg);
+    # send datalink of locked threat   
+    var lat = getprop("controls/radar/slots/lat");
+    var lon = getprop("controls/radar/slots/lon");
+    var alt = getprop("controls/radar/slots/alt");
+    var lat = getprop("controls/radar/slots/lat");
+    var lon = getprop("controls/radar/slots/lon");
+    var alt = getprop("controls/radar/slots/alt");
+        fc.send(fc.coordsetup(lat,lon,alt));
 } elsif (pg == 4){
     print(pg);   
 } elsif (pg == 5){
@@ -374,6 +418,24 @@ if (pg == 2) {
     print(pg);   
 } elsif (pg == 3){
     print(pg);   
+    print("pressed");
+    if (getprop("instrumentation/frontcontrols/digit1") == 0) {
+        print("Not ready!");
+        screen.log.write("Enter a number on the keypad for your slot then press this button to read it and set it to the weapon");
+        return;
+    }
+    print("read it");
+setprop("controls/radar/currentslot", getprop("instrumentation/frontcontrols/digit1"));
+var slottype = getprop("controls/radar/currentslot");
+
+    var lat = getprop("controls/radar/slot[" ~ slottype ~ "]/lat");
+    var lon = getprop("controls/radar/slot[" ~ slottype ~ "]/lon"); 
+    var alt = getprop("controls/radar/slot[" ~ slottype ~ "]/alt"); 
+    setprop("controls/radar/slots/lat", lat); 
+    setprop("controls/radar/slots/lon", lon); 
+    setprop("controls/radar/slots/alt", alt); 
+    screen.log.write("Successfully read data from slot "~ slottype);
+    fc.clearnum();
 } elsif (pg == 4){
     print(pg);   
 } elsif (pg == 5){
@@ -396,6 +458,14 @@ if (pg == 2) {
     print(pg);   
 } elsif (pg == 3){
     print(pg);   
+    var callsign = radar.tgts_list[radar.Target_Index].Callsign.getValue();
+    var mpid = misc.smallsearch(callsign);
+    var lat = getprop("ai/models/multiplayer[" ~ mpid ~ "]/position/latitude-deg");
+    var lon = getprop("ai/models/multiplayer[" ~ mpid ~ "]/position/longitude-deg");
+    var alt = getprop("ai/models/multiplayer[" ~ mpid ~ "]/position/altitude-ft");
+    setprop("controls/radar/datarec/lat", lat);
+    setprop("controls/radar/datarec/lon", lon);
+    setprop("controls/radar/datarec/alt", alt);
 } elsif (pg == 4){
     print(pg);   
 } elsif (pg == 5){

@@ -302,7 +302,7 @@ var smallsearch = func(cs=nil) {
           # we have our number
           print(mpid);
           mpid = i;
-          track(mpid); # run the flare detection/RND on this Multiplayer property
+          #track(mpid,0); # run the flare detection/RND on this Multiplayer property
           return mpid; # Bam!
           
      }
@@ -310,3 +310,10 @@ var smallsearch = func(cs=nil) {
      }
    }
 }
+
+var searchsize = func() {
+  var list = props.globals.getNode("/ai/models").getChildren("multiplayer");
+  var total = size(list);
+  return total;
+}
+
