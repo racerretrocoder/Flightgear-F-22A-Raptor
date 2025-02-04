@@ -11,7 +11,7 @@ print("LOADING Missiles, Bombs and more!: missile.nas .");
 # Information on how to use!:
 
 # If you want to have missile flight data print out into the console set this to 1
-var debugflight = 0;
+var debugflight = 1;
 
 # if you want to print messages into the console that relate to releasing of the missile, and it hitting set this to 1
 var debugmessages = 0;
@@ -170,7 +170,9 @@ var MISSILE = {
         m.max_detect_rng    = getprop("controls/armament/missile/max-detection-rng-nm");
         m.max_seeker_dev    = getprop("controls/armament/missile/track-max-deg") / 2;
         m.force_lbs         = getprop("controls/armament/missile/thrust-lbs");
+        m.force_lbs_stage2    = getprop("controls/armament/missile/thrust-lbs-stage-2");
         m.thrust_duration   = getprop("controls/armament/missile/thrust-duration-sec");
+        m.thrust_duration_stage2 = getprop("controls/armament/missile/thrust-duration-sec-stage2");
         m.weight_launch_lbs = getprop("controls/armament/missile/weight-launch-lbs");
         m.weight_whead_lbs  = getprop("controls/armament/missile/weight-warhead-lbs");
         m.cd                = getprop("controls/armament/missile/drag-coeff");
@@ -190,6 +192,7 @@ var MISSILE = {
         m.deploy_time           = 0;  
         m.last_coord        = nil;
         m.unique_id         = -100;  # For missile alert to give each missile a number
+        m.targetcallsign    = "nothgi"; # nothing
         m.isradarmissile    = 0;   # again, for missile alert sender to let our target know if this is radar or heat missile
         m.eject_speed       = 0;
        # m.ccip_altC = 0;
@@ -217,7 +220,7 @@ var MISSILE = {
         }
         m.ai = n.getChild("missile", i, 1);
         m.ai.getNode("valid", 1).setBoolValue(1);
-        var id_model = m.missile_model;
+        var id_model = m.missile_NoSmoke; # start with no smoke
         m.model.getNode("path", 1).setValue(id_model);
         m.life_time = 0;
         
@@ -462,6 +465,8 @@ var MISSILE = {
         else 
         {
         var phrase =  me.fox ~ " at " ~ me.Tgt.get_Callsign() ~ ". Release " ~ me.NameOfMissile; #Missile shot
+        me.targetcallsign = me.Tgt.get_Callsign();
+        print("Missile away!");
             if (debugmessages == 1) {
                print(phrase);
             }
@@ -576,10 +581,11 @@ sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
     #Missile alert sender/missile smoke over damage MP
     if(getprop("payload/armament/msg")){
 
-    if(me.free == 0) {
+    if(me.free == 1) {
     if (debugsysmessages == 1) {
         print("Missile is currently free, sendinflight()"); 
         }
+        # return;
     }
         if (debugsysmessages == 1) {
 print("Unique ID: ");
@@ -603,7 +609,7 @@ print("Unique ID: ");
     }  else {
         typeID = tid;
     }
-var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
+        var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
         var altM = alt*FT2M;
         msg.Position.set_latlon(lat,lon,altM);
         if (me.isradarmissile != 0){
@@ -611,32 +617,16 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
         } else {
             msg.Flags = 0;#bit # Radar isnt' there
         }
-
         msg.Flags = bits.set(msg.Flags, 1); # engine is running
         # Add this to the line if its semi active (todo) msg.Flags = bits.set(msg.Flags, 2);
         msg.IsDistinct = !deleted; # The missile is "Not" dead
-        var target = radar.GetTarget();              # Todo. set that to a property. then leave it be
                 if (call == 1) {
-        if (target == nil) {
-            var callsign = "none";
-        if (debugsysmessages == 1) {
-        print("No target, Missile alert");
-        print("No target, Missile alert");
-        print("No target, Missile alert");
-        print("No target, Missile alert");
-        print("No target, Missile alert");
-        print("No target, Missile alert");
-    }
-
-        msg.RemoteCallsign = "";
-        } else {
-            var callsign = me.Tgt.get_Callsign(); 
-
+                    #print(me.Tgt.get_Callsign());
+            var callsign = me.targetcallsign;
         }
-    } else {
+      else {
             var callsign = ""; 
-
-        }
+           }
         msg.RemoteCallsign = callsign;
         msg.UniqueIndex = ""~typeID~unique; # tid and the current missile number
         msg.Pitch = ptch; # simple
@@ -700,12 +690,18 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
                     if (debugsysmessages == 1) {
 -            print("Missile launched from a rail");
                         }
-
+            f_lbs = 0;
             if(me.life_time > 0)
             {
-                f_lbs = me.force_lbs * 0.3;
+                f_lbs = me.force_lbs * 0.1;
+                var Dapath = me.missile_model;
+            if(me.model.getNode("path", 1).getValue() != Dapath)
+                {
+                #print(Dapath);
+                me.reload_model(Dapath);
+                }
             }
-            if(me.life_time > 0.5)
+            if(me.life_time > 0.3)
             {
                 f_lbs = me.force_lbs * 0.3;
             }
@@ -719,11 +715,22 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
             if(me.life_time > 1)
             {
                 f_lbs = me.force_lbs * 0.3;
+                var Dapath = me.missile_model;
+            if(me.model.getNode("path", 1).getValue() != Dapath)
+            {
+                #print(Dapath);
+                me.reload_model(Dapath);
+            }
             }
 
         }
-        # this do work for the moment... need to know how to reload a 3D model...
         if(me.life_time > me.thrust_duration)
+        {
+            f_lbs = me.force_lbs_stage2 * 0.3;
+            print("stage2 active");
+        }
+        # stage 2
+if(me.life_time > me.thrust_duration_stage2)
         {
             var Dapath = me.missile_NoSmoke;
             if(me.model.getNode("path", 1).getValue() != Dapath)
@@ -735,6 +742,8 @@ var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted
             f_lbs = 0;
             #me.smoke_prop.setBoolValue(0);
         }
+        
+        print("Engine thrust:", f_lbs);
         
 # Anti-Rad
 
@@ -1131,6 +1140,10 @@ var mslalt = getprop("controls/armament/pos/alt");
     print(gndelev);
             var t_alt =  gndelev;
             } else {
+                                            if (me.Tgt == nil) {
+                                me.free = 1;
+                                return;
+                            }
             var t_alt =  me.Tgt.get_altitude();
             }
 
@@ -1143,6 +1156,9 @@ var mslalt = getprop("controls/armament/pos/alt");
                         if (getprop("controls/radar/weaponcoords") == 1){
                     var next_alt = t_alt;
                         } else {
+                            if (me.Tgt == nil) {
+                                return;
+                            }
                      var next_alt = t_alt - math.sin(me.Tgt.get_Pitch() * D2R) * me.Tgt.get_Speed() * 0.5144 * 0.1;
                         }
 
@@ -1314,15 +1330,18 @@ print("target ran");
             
             if(me.update_track_time - me.StartTime < 3)
             {
-                e_gain = (me.update_track_time-me.StartTime - 1) / 2;
-                h_gain = (me.update_track_time-me.StartTime - 1) / 2;
+                e_gain = (me.update_track_time-me.StartTime - 1) / 3;
+                h_gain = (me.update_track_time-me.StartTime - 1) / 3;
+                #e_gain = 0;
+                #h_gain = 0;
+
             }
             if(me.update_track_time - me.StartTime < 1)
             {
                 e_gain = 0;
                 h_gain = 0;
             }
-            #print((me.update_track_time-me.StartTime-1)/2);
+            print((me.update_track_time-me.StartTime-1)/2);
             # compute target deviation variation then seeker move to keep
             # this deviation constant.
             me.track_signal_e = (me.curr_tgt_e - me.init_tgt_e) * e_gain;

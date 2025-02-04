@@ -5,6 +5,16 @@
 #Note: these missiles are VERY basic, and curently the only for the radar to work
 ################################################################################
 
+
+# Fox's: and how they work here
+
+# Fox 3,  Radar guided fire and forget nature
+# Fox 2, Same as fox 3
+# Fox 1, Weapon stops guiding if radar losses lock
+# Magnum, payload/armament/spike must be for this to guide. This fox can reaqqure
+
+
+
 var Loading_missile = func(name)
 {
     var typeid            = 0;
@@ -17,7 +27,9 @@ var Loading_missile = func(name)
     var trackmaxdeg       = 0;      #
     var maxg              = 0;      #
     var thrustlbs         = 0;      #
-    var thrustdurationsec =  0;     #
+    var thrustdurationsec = 0;     #
+    var thrustlbsstage2   = 0;      #
+    var thrustdurationsecstage2 =  0;     #
     var weightlaunchlbs   = 0;      #
     var dragcoeff         = 0;      #
     var dragarea          = 0;    #
@@ -37,26 +49,28 @@ var Loading_missile = func(name)
     if(name == "Aim-120")
     {
         # AIM-120 :Advanced Medium Range Missile,      
-	typeid = 52;
+	    typeid = 52;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        flareres = 0.995; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
+        flareres = 0.75; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
         maxdetectionrngnm = 38.8;                    #  
         fovdeg = 140;                                #
-        detectionfovdeg = 140;                       # TODO implent data link system so we can control these variables while missile is in flight
+        detectionfovdeg = 138;                       # TODO implent data link system so we can control these variables while missile is in flight
         trackmaxdeg = 140;                           # 
-        maxg = 40;                                   # wikipedia
-        thrustlbs = 1700;                             # 1,500 to 2,500 pounds of thrust maybe
-        thrustdurationsec = 28;                     # 
-        weightlaunchlbs = 400;
+        maxg = 30;                                   # wikipedia
+        thrustlbs = 2700;                             # 1,500 to 2,500 pounds of thrust maybe
+        thrustlbsstage2 = 280;
+        thrustdurationsec = 10;
+        thrustdurationsecstage2 = 18;                      # 
+        weightlaunchlbs = 421; # weightlaunch + fuel
         weightwarheadlbs = 44;
-        dragcoeff = 0.001;                             #
-        dragarea = 0.036;                            # sq ft
+        dragcoeff = 0.17;                              # really slow lowerd it a bit
+        dragarea = 0.0236;                            # sq ft
         maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 4.5;                              # In mach ( source is a guess )
-        life = 10000000; # 
-        sdspeed = 0.6999999; # Test Self Destruct Speed. in mach
+        maxspeed = 2.8;                              # In mach ( source is a guess )
+        life = 110; # 
+        sdspeed = 0.4999999;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";
         rail = "false";
         cruisealt = 0;
@@ -67,29 +81,31 @@ var Loading_missile = func(name)
     {
         # AIM-9X:short-range A2A,IR seeker,
 	typeid = 98;
-        flareres = 0.900; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
+        flareres = 0.800; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        maxdetectionrngnm = 12;                       # Not real Impact yet A little more than the MICA
+        maxdetectionrngnm = 52;               
         fovdeg = 180;                                 # seeker optical FOV
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 180;                            # Seeker max total angular rotation
         maxg = 60;                                    # Thurst vectoring rocket motor
-        thrustlbs = 590;                             # 
-        thrustdurationsec = 5.2;                        #
-        weightlaunchlbs = 186;
+        thrustlbs = 2880;                             # 
+        thrustdurationsec = 1;           
+        thrustlbsstage2 = 2880;
+        thrustdurationsecstage2 = 4.2;             # slowed acceleration seems needed here
+        weightlaunchlbs = 246; # launch + fuel, 186 + 60
         weightwarheadlbs = 20.8;
-        dragcoeff = 0.001;                              # guess; original 0.05
-        dragarea = 0.075;                             # sq ft
-        maxExplosionRange = 50;                       
-        maxspeed = 2.9;                                 # In Mach
+        dragcoeff = 0.08;                              # guess; original 0.05
+        dragarea = 0.013;                             # sq ft
+        maxExplosionRange = 65;                       
+        maxspeed = 2.6;                               # In Mach
         life = 80;
         fox = "Fox 2";
         rail = "true";
         cruisealt = 0;
         chute = 0;
-        sdspeed = 0;
+        sdspeed = 0.01;
         isbomb = 0;
     }
     elsif(name == "Aim-9m")
@@ -105,9 +121,11 @@ var Loading_missile = func(name)
         detectionfovdeg = 85;                        # Test missile for evading with no countermessures
         trackmaxdeg = 85;                            # Test missile for evading with no countermessures
         maxg = 50;                                    #
-        thrustlbs = 470;                             
-        thrustdurationsec = 5.5;                       
-        weightlaunchlbs = 186;
+        thrustlbs = 2880;            
+        thrustdurationsec = 1;       
+        thrustlbsstage2 = 2880;
+        thrustdurationsecstage2 = 4.2;
+        weightlaunchlbs = 246; # laun
         weightwarheadlbs = 20.8;
         dragcoeff = 0.05;                             
         dragarea = 0.075;                             
@@ -127,7 +145,7 @@ var Loading_missile = func(name)
 
     elsif(name == "GBU-39")
     {
-           # Mm yes much bomb,
+           # bomb,
         flareres = 1; # countermessueres cannont fool this. If your radar loosses lock on the target. the missile will miss 
 	    typeid = 18;
         address = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml";
@@ -147,7 +165,7 @@ var Loading_missile = func(name)
         maxExplosionRange = 50;                       
         maxspeed = 5;                                 # In Mach
         life = 80000000000000;
-        fox = "Fox 3";  
+        fox = "A/G";  
         rail = "true";
         cruisealt = 0;
         sdspeed = 0;
@@ -178,13 +196,25 @@ var Loading_missile = func(name)
      maxExplosionRange = 50;                       
      maxspeed = 5;                                 # In Mach
      life = 80000000000000;
-     fox = "Fox 3";    #If the target is out of radar loose track. Simulates targeting pod. Kinda
+     fox = "A/G";   
      rail = "true";
      cruisealt = 0;
      sdspeed = 0;
      chute = 0;
      isbomb = 1;
  }
+
+
+###################################################################
+#
+#
+# warning: Below these missiles are not made to represent there accurate counterpart
+# There here to test the missile system for proper functionality
+#
+##############################################################
+
+
+
     elsif(name == "Aim-7") #Debug missile
     {
                               flareres = 0.8;
@@ -193,52 +223,57 @@ var Loading_missile = func(name)
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM7/AIM7.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         maxdetectionrngnm = 38.8;                    #  
-        fovdeg = 360;                                # all 50
-        detectionfovdeg = 180;                       # TODO implent data link system so we can control these variables while missile is in flight. im sure its possible
-        trackmaxdeg = 360;                           #  Testing not real
-        maxg = 5;                                   # 
-        thrustlbs = 700;                             # 
-        thrustdurationsec = 120;                     # Bit too op
-        weightlaunchlbs = 291;
+        fovdeg = 180;                                #
+        detectionfovdeg = 180;                       # TODO implent data link system so we can control these variables while missile is in flight
+        trackmaxdeg = 180;                           # 
+        maxg = 9;                                   # wikipedia
+        thrustlbs = 100;                             # 1,500 to 2,500 pounds of thrust maybe
+        thrustlbsstage2 = 280;
+        thrustdurationsec = 20;
+        thrustdurationsecstage2 = 18;                      # 
+        weightlaunchlbs = 4021; # weightlaunch + fuel
         weightwarheadlbs = 44;
-        dragcoeff = 0.3;                             # guess; original 0.05
-        dragarea = 0.056;                            # sq ft
+        dragcoeff = 0.17;                              # really slow lowerd it a bit
+        dragarea = 0.0236;                            # sq ft
         maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 8.5;                              # In Mach
-        life = 1200;
-        fox = "Fox 1";
+        maxspeed = 5.8;                              # In mach ( source is a guess )
+        life = 110; # 
+        sdspeed = 0.4999999;                         # Test Self Destruct Speed. in mach
+        fox = "Fox 3";
         rail = "false";
-        cruisealt = 0;
+        cruisealt = 5000;
         chute = 0;
         isbomb = 0;
     }
     elsif(name == "XMAA") #Debug missile
     {
         
-        # uapilots Experimental Hyper Sonic Long Range Missile 
+        # fast
 
-        flareres = 0.998; # hehehe
+        flareres = 1; # hehehe
   	    typeid = 52; # Overridden at the end of missile.nas
         address = "Aircraft/F-22/Models/stores/Missiles/XMAA/XMAA-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/stores/Missiles/XMAA/XMAA.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         maxdetectionrngnm = 150.8;                   #  
         fovdeg = 360;                                #
-        detectionfovdeg = 360;                       # TODO implent data link system so we can control these variables while missile is in flight. im sure its possible
-        trackmaxdeg = 360;                           #  Testing not real
-        maxg = 50;                                   # 
-        thrustlbs = 500;                             #  Mach 5-7
-        thrustdurationsec = 902;                     # SSSU Advanced Turbo Jet Engine
-        weightlaunchlbs = 291;                       # Its a bit light
+        detectionfovdeg = 360;                       #  Loop that missile!
+        trackmaxdeg = 360;                           # 
+        maxg = 1.1;                                  # 
+        thrustlbs = 100;                             # 1,500 to 2,5
+        thrustlbsstage2 = 2800;
+        thrustdurationsec = 5;
+        thrustdurationsecstage2 = 18;                      # 
+        weightlaunchlbs = 591;                       # Its a bit light
         weightwarheadlbs = 44;                       # to compensate all this coolness it cant be too powerful
         dragcoeff = 0.3;                             # Slows down quick because of the intake
         dragarea = 0.056;                            # sq ft
         maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 12.5;                              # In Mach
-        life = 10000;
-        fox = "Magnum";                      # A/G if you want an AGM variant
+        maxspeed = 5.50001;                              # In Mach
+        life = 10001;
+        fox = "Fox 3";                      # A/G if you want an AGM variant
         rail = "false";
-        cruisealt = 3000;                 # Will fly at 3000 Until strike
+        cruisealt = 12000;     
         chute = 0;
         isbomb = 0;
     }
@@ -322,9 +357,11 @@ var Loading_missile = func(name)
     setprop("controls/armament/missile/detection-fov-deg", detectionfovdeg);
     setprop("controls/armament/missile/track-max-deg", trackmaxdeg);
     setprop("controls/armament/missile/thrust-lbs", thrustlbs);
+    setprop("controls/armament/missile/thrust-lbs-stage-2", thrustlbsstage2);
     setprop("controls/armament/missile/max-g", maxg);
     setprop("controls/armament/missile/weight-launch-lbs", weightlaunchlbs);
     setprop("controls/armament/missile/thrust-duration-sec", thrustdurationsec);
+    setprop("controls/armament/missile/thrust-duration-sec-stage2", thrustdurationsecstage2);
     setprop("controls/armament/missile/weight-warhead-lbs", weightwarheadlbs);
     setprop("controls/armament/missile/drag-coeff", dragcoeff);
     setprop("controls/armament/missile/drag-area", dragarea);
