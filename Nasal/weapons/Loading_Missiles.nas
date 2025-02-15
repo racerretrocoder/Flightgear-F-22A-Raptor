@@ -170,7 +170,7 @@ var Loading_missile = func(name)
         cruisealt = 0;
         sdspeed = 0;
         chute = 0;
-        isbomb = 1;
+        isbomb = 0;  # craters get messy one sec
     }
  elsif(name == "JDAM")
  {

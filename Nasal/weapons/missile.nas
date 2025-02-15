@@ -1035,7 +1035,7 @@ var mslalt = getprop("controls/armament/pos/alt");
 				}
                     }
                             if (debugflight == 1) {
--                    print("Missile hit the ground");
+                    print("Missile hit the ground");
     }
 
                     me.free = 1;
