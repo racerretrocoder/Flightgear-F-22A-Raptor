@@ -1321,6 +1321,7 @@ previous_Target_Index = func(){
     if(Target_Index < 0)
     {
         Target_Index = size(tgts_list) - 1;
+        screen.log.write("Radar: Switched back to "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
     }
 }
 
