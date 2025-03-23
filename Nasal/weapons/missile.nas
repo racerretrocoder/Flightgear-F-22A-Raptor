@@ -712,7 +712,7 @@ print("Unique ID: ");
             {
                 f_lbs = me.force_lbs * 0;
             }
-            if(me.life_time > 1)
+            if(me.life_time > 0.5)
             {
                 f_lbs = me.force_lbs * 0.3;
                 var Dapath = me.missile_model;

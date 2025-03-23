@@ -1856,7 +1856,7 @@ Use below instead
     <object-name>canopy in</object-name>
 <object-name>canopy out</object-name>
 		<object-name>cabin</object-name>
-   <property>fdm/jsbsim/fcs/canopy</property>
+   <property>sim/multiplay/generic/float[36]</property>
     <interpolation>
       <entry><ind> 0 </ind><dep>  0 </dep></entry>
       <entry><ind> 1 </ind><dep> 30 </dep></entry>

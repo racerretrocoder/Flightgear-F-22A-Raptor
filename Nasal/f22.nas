@@ -163,6 +163,36 @@ var weapon = getprop("/controls/armament/selected-weapon-digit");
 }
 
 
+
+
+var aimlock = func() {
+var weapon = getprop("/controls/armament/selected-weapon-digit");
+var lock = getprop("/instrumentation/radar/lock");
+
+  if (weapon == 1) {
+
+if (lock == 1){
+
+
+
+  	            	setprop("/controls/baydoors/AIM9X", 0);          # animations are inverted: todo fix the bay door animations
+                  print("9x doors open");
+
+
+    } else{
+                  timer_baydoorsclose.start();     
+  }
+
+
+  } 
+}
+
+
+
+aimlock = maketimer(0.3, aimlock);
+aimlock.start();
+
+
 var closebays = func{
 	            	setprop("/controls/baydoors/AIM120", 0);
 	            	setprop("/controls/baydoors/AIM9X", 1);  # animations are inverted: todo fix the bay door animations
@@ -177,7 +207,7 @@ var canopy_switch = func(v,a) {
 
 	var p = pos.getValue();
   var condition = getprop("/canopy/enabled");
-
+  if (getprop("gear/gear/wow") == 1){
 	if (a == 2 ) {
 		if ( p < 1 ) {
 			a = 1;
@@ -194,6 +224,10 @@ if (v) {
 		cnpy.open();
 
   	}
+  }
+
+  } else {
+    screen.log.write("Can't open canopy in flight")
   }
 }
 
