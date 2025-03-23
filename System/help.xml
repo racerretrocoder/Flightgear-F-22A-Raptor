@@ -9,15 +9,21 @@
 			</key>
 						<key>
 				<name>Joystick: Military Trigger</name>
-				<desc>Fire Guns in missile mode</desc>
+				<desc>Fire weapon</desc>
 			</key>
 			
-			
+									<key>
+				<name>Joystick: Next target</name>
+				<desc>Lock Next Target</desc>
+			</key>
 			<key>
 				<name>w</name>
 				<desc>Switch the weapon type between guns and missiles</desc>
 			</key>
-
+			<key>
+				<name>Ctrl+o</name>
+				<desc>De-Lock Radar</desc>
+			</key>
 			<key>
 				<name>e</name>
 				<desc>Fire the current weapon type</desc>

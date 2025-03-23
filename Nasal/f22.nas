@@ -172,25 +172,18 @@ var lock = getprop("/instrumentation/radar/lock");
   if (weapon == 1) {
 
 if (lock == 1){
-
-
-
-  	            	setprop("/controls/baydoors/AIM9X", 0);          # animations are inverted: todo fix the bay door animations
-                  print("9x doors open");
-
-
-    } else{
-                  timer_baydoorsclose.start();     
-  }
-
-
+  	   setprop("/controls/baydoors/AIM9X", 0);          # animations are inverted: todo fix the bay door animations
+       print("9x doors open");
+    } else {
+          timer_baydoorsclose.start();     
+    }
   } 
 }
-
-
-
 aimlock = maketimer(0.3, aimlock);
 aimlock.start();
+
+
+
 
 
 var closebays = func{

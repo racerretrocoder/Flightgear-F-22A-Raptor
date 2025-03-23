@@ -1882,53 +1882,17 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	
 			<key n="15">
 				<name>Ctrl-o</name>
-				<desc>Find aircraft for aerotow</desc>
+				<desc>Delock radar</desc>
 				<binding>
 					<command>property-assign</command>
-					<property>/controls/aerotow/find-aircraft</property>
-					<value type="bool">true</value>
+					<property>/instrumentation/radar/lock</property>
+					<value type="int">0</value>
 				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>towing.findBestAIObject()</script>
-				</binding>
-				<mod-up>
-					<binding>
-						<command>property-assign</command>
-						<property>/controls/aerotow/find-aircraft</property>
-						<value type="bool">false</value>
-					</binding>
-				</mod-up>
-			</key>
-			<key n="111">
-				<name>o</name>
-				<desc>Open hook</desc>
-				<binding>
+								<binding>
 					<command>property-assign</command>
-					<property>/sim/hitches/hook-open</property>
-					<value type="bool">true</value>
+					<property>/instrumentation/radar/lock2</property>
+					<value type="int">0</value>
 				</binding>
-				<binding>
-					<command>property-assign</command>
-					<property>/sim/hitches/aerotow/open</property>
-					<value type="bool">true</value>
-				</binding>
-				<binding>
-					<command>property-assign</command>
-					<property>/sim/hitches/winch/open</property>
-					<value type="bool">true</value>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>towing.releaseHitch("aerotow")</script>
-				</binding>
-				<mod-up>
-					<binding>
-						<command>property-assign</command>
-						<property>/sim/hitches/hook-open</property>
-						<value type="bool">false</value>
-					</binding>
-				</mod-up>
 			</key>
 
 
@@ -2127,10 +2091,11 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  <command>nasal</command>
  <script>radar.next_Target_Index();</script>
 </binding>
+
  </key> 
 	<key n="125">
      <name>}</name>
-     <desc>Engine Autostart</desc> <!--Fix me!-->
+     <desc>Engine Autostart</desc> 
 	<binding>
 		<command>nasal</command>
 		 <script>emu.autostart();</script>

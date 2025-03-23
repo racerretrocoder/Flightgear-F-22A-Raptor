@@ -196,6 +196,39 @@ setlistener("/ai/models/model-impact", impact_listener, 0, 0);
 
 
 setlistener("/controls/armament/trigger",fire_MG);
+#setlistener("/controls/armament/pickle",pickle);
+
+
+
+
+
+var switch_target = func(){
+    if(getprop("/controls/armament/target-selected") == 1) {
+        radar.next_Target_Index();
+        setprop("/controls/armament/target-selected", 0);   
+    }
+    if(getprop("/controls/armament/target-selected") == -1) {
+        radar.previous_Target_Index();
+        setprop("/controls/armament/target-selected", 0);   
+    }
+}
+
+# Target switch
+setlistener("/controls/armament/target-selected",switch_target);
+
+
+var switch_weapon = func(){
+    if(getprop("/controls/armament/weapon-selected") == 1) {
+
+        setprop("/controls/armament/weapon-selected", 0);   
+    }
+    if(getprop("/controls/armament/weapon-selected") == -1) {
+
+        setprop("/controls/armament/weapon-selected", 0);   
+    }
+}
+
+
 
 var stickreporter = func(){
     if(getprop("/controls/armament/stick-selector") == 1)screen.log.write("Selected M61A1 Vulcon.",1,0.4,0.4);
