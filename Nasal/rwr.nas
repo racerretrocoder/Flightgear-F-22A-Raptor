@@ -249,6 +249,7 @@ RWRCanvas = {
         if (me.spot >= size(me.sep_spots[me.threat])) me.spot = 0;
     },
     update: func {
+        setprop("sim/multiplay/generic/int[2]", 1);      
         var list = radar_system.getRWRList();
 	    var s = size(list);
         me.elapsed = getprop("sim/time/elapsed-sec");
