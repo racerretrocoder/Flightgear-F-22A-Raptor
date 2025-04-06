@@ -253,6 +253,22 @@
                         </binding>
                     </item>
 
+<item>
+			<label>Toggle Old Damage (For dogfighting old F-15 and F-14, P-51, etc)</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if(getprop("/gear/gear/compression-ft") > 0.01){
+						if(getprop("/payload/armament/oldmsg")){screen.log.write("Old Damage OFF",1,0,0);setprop("/payload/armament/oldmsg",0);}else{screen.log.write("Old Damage ON",1,0,0);setprop("/payload/armament/oldmsg",1);}
+					}else{
+						screen.log.write("Damage can be toggled only when on the ground! Sorry! Its just the way it is.",1,0,0);
+					}
+				</script>
+			</binding>
+		</item>
+
+
+
 				</menu>
 			</default>
 		</menubar>
@@ -1770,7 +1786,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             <MAW-bearing type="double">0</MAW-bearing>
             <MAW-active type="bool">false</MAW-active>
             <MAW-semiactive type="bool">false</MAW-semiactive>
-            <msg type="bool">true</msg>
+            <msg type="bool">false</msg>
+			<oldmsg type="bool">false</oldmsg>
             <spike type="bool">false</spike>
             <models type="string">Aircraft/F-22/Models/emesary/</models>
         </armament>
@@ -2533,6 +2550,12 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
     </m2000_load>
 
 <armament>
+
+<!--Old damage-->
+
+      <file>Aircraft/F-22/Nasal/olddamage.nas</file>
+
+
       <file>Aircraft/F-22/Nasal/weapons/missile-code.nas</file>
 </armament>  <!--Only for RWR-->
 
