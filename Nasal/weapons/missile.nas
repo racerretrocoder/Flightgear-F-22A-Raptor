@@ -456,6 +456,7 @@ var MISSILE = {
    var target = radar.GetTarget();
         if (target == nil) {
        var phrase =  me.fox ~ " at Nothing. Release " ~ me.NameOfMissile; #Missile shot
+
        me.fox = "Fox 1";  # Set only for proximity detect to fire missile with out lock and relock if target is back.
             if (debugmessages == 1) {
                print(phrase);
@@ -465,6 +466,9 @@ var MISSILE = {
         else 
         {
         var phrase =  me.fox ~ " at " ~ me.Tgt.get_Callsign() ~ ". Release " ~ me.NameOfMissile; #Missile shot
+        if (getprop("payload/armament/oldmsg") == 1){
+            setprop("sim/multiplay/chat", phrase);
+        }
         me.targetcallsign = me.Tgt.get_Callsign();
         print("Missile away!");
             if (debugmessages == 1) {
@@ -551,6 +555,9 @@ if (debugmessages == 1) {
     print("Missile gave up and decided to miss due to flare / chaff.");
 }
             var phrase = me.NameOfMissile ~ " Report : Fooled by enemy's Countermessures and missed.";
+                    if (getprop("payload/armament/oldmsg") == 1){
+            setprop("sim/multiplay/chat", phrase);
+        }
             if(MPMessaging.getValue() == 1)
             {
                 damage.damageLog.push(phrase);
@@ -1524,11 +1531,32 @@ var semiactive = 0;
                         msg.RemoteCallsign = me.Tgt.get_Callsign();
                         notifications.hitBridgedTransmitter.NotifyAll(msg);
                         damage.damageLog.push(sprintf("You hit "~me.Tgt.get_Callsign()~" with "~me.NameOfMissile~" at %.1f meters", me.direct_dist_m));
+                        var missilename = "invalid weapon";
+                                                        if (getprop("payload/armament/oldmsg") == 1){
+                                                            if (me.NameOfMissile == "Aim-9x"){
+                                                                missilename = "AIM-9";
+                                                            }
+                                                            if (me.NameOfMissile == "Aim-120"){
+                                                                missilename = "AIM-120";
+                                                            }
+            setprop("sim/multiplay/chat", sprintf(""~missilename~" exploded: %.1f meters from: "~me.Tgt.get_Callsign()~":.....", 0.3));
+        }
                     
                     }
                     else
                     {
+                        var missilename = "invalid weapon";
                         setprop("/sim/messages/atc", phrase);
+                                                        if (getprop("payload/armament/oldmsg") == 1){
+                                                            if (me.NameOfMissile == "Aim-9x"){
+                                                                missilename = "AIM-9";
+                                                            }
+                                                            if (me.NameOfMissile == "Aim-120"){
+                                                                missilename = "AIM-120";
+                                                            }
+            setprop("sim/multiplay/chat", sprintf(""~missilename~" exploded: %.1f meters from: "~me.Tgt.get_Callsign()~":.....", 0.3));
+        }
+                
                     }
                     me.animate_explosion();
                     me.Tgt = nil;
