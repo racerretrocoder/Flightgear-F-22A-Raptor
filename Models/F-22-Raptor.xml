@@ -2873,7 +2873,7 @@ rearwheelsaxis
  <overlay>
   <params>
    <name>RedLight</name>
-   <power-source>/fdm/jsbsim/fcs/light</power-source>
+   <power-source>sim/multiplay/generic/int[23]</power-source>
    <direction>
     <x>1</x>
     <y>1</y>
@@ -2906,7 +2906,7 @@ rearwheelsaxis
  <overlay>
   <params>
    <name>RedLight2</name>
-   <power-source>/fdm/jsbsim/fcs/light</power-source>
+   <power-source>sim/multiplay/generic/int[23]</power-source>
    <direction>
     <x>-1</x>
     <y>-1</y>
@@ -2943,7 +2943,7 @@ rearwheelsaxis
  <overlay>
   <params>
    <name>GreenLight2</name>
-   <power-source>/fdm/jsbsim/fcs/light</power-source>
+   <power-source>sim/multiplay/generic/int[23]</power-source>
    <direction>
     <x>1</x>
     <y>1</y>
@@ -2974,7 +2974,7 @@ rearwheelsaxis
  <overlay>
   <params>
    <name>GreenLight</name>
-   <power-source>/fdm/jsbsim/fcs/light</power-source>
+   <power-source>sim/multiplay/generic/int[23]</power-source>
    <direction>
     <x>-1</x>
     <y>-1</y>

@@ -345,6 +345,7 @@ Theres soo many
 <int n="20" type="int" alias="/controls/lighting/landing-lights"/> 
 <int n="21" type="int" alias="/sim/failure-manager/engines/engine/failure-level"/> 
 <int n="22" type="int" alias="/sim/failure-manager/engines/engine[1]/failure-level"/>
+<int n="23" type="int" alias="/fdm/jsbsim/fcs/light"/>
 <!--Missiles in bays on MP-->
 <string n="6" type="string"></string><!-- string 6 used by radar lock RWR warning -->
 <string n="7" type="string"></string><!-- string 7 used by datalink -->
