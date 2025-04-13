@@ -425,14 +425,8 @@ var code_ct = func () {
             +getprop("/consumables/fuel/tank[1]/level-gal_us")
             +getprop("/consumables/fuel/tank[2]/level-gal_us")
             +getprop("/consumables/fuel/tank[3]/level-gal_us")
-            +getprop("/consumables/fuel/tank[4]/level-gal_us")
-            +getprop("/consumables/fuel/tank[5]/level-gal_us")
-            +getprop("/consumables/fuel/tank[6]/level-gal_us")
-            +getprop("/consumables/fuel/tank[7]/level-gal_us")
-            +getprop("/consumables/fuel/tank[8]/level-gal_us")
-            +getprop("/consumables/fuel/tank[9]/level-gal_us")
-            +getprop("/consumables/fuel/tank[10]/level-gal_us")
-            +getprop("/consumables/fuel/tank[11]/level-gal_us");
+            +getprop("/consumables/fuel/tank[4]/level-gal_us");
+            
   if (cf != nil and lf != -1 and cf > (lf*1.1) and getprop("fdm/jsbsim/gear/unit[0]/WOW") != TRUE and getprop("/systems/refuel/contact") == FALSE) {
     setprop("sim/ct/rf", 1);
   }
