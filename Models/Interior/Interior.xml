@@ -615,8 +615,30 @@ _____/\\\\\\\\\_________________________________________________________________
   <command>nasal</command>
   <script>setprop("/autopilot/locks/heading", "wing-leveler");</script>
 </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/HDGHOLD</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/HDGHOLD</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
        </action>
  </animation>
+	<animation>
+		<type>translate</type>
+		<object-name>HDGHOLD</object-name>
+		<property>/controls/buttons-pressed/HDGHOLD</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -629,8 +651,30 @@ _____/\\\\\\\\\_________________________________________________________________
   <command>nasal</command>
   <script>setprop("/autopilot/locks/heading", "");</script>
 </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/HDGCANCLE</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/HDGCANCLE</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
        </action>
  </animation>
+	<animation>
+		<type>translate</type>
+		<object-name>HDGCANCLE</object-name>
+		<property>/controls/buttons-pressed/HDGCANCLE</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -643,8 +687,30 @@ _____/\\\\\\\\\_________________________________________________________________
   <command>nasal</command>
   <script>setprop("/autopilot/locks/speed", "");</script>
 </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/IASCANCLE</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/IASCANCLE</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
        </action>
  </animation>
+	<animation>
+		<type>translate</type>
+		<object-name>IASCANCLE</object-name>
+		<property>/controls/buttons-pressed/IASCANCLE</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -657,8 +723,30 @@ _____/\\\\\\\\\_________________________________________________________________
   <command>nasal</command>
   <script>setprop("/autopilot/locks/altitude", "");</script>
 </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/ALTCANCLE</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/ALTCANCLE</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
        </action>
  </animation>
+	<animation>
+		<type>translate</type>
+		<object-name>ALTCANCLE</object-name>
+		<property>/controls/buttons-pressed/ALTCANCLE</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 
  <animation>
@@ -672,8 +760,30 @@ _____/\\\\\\\\\_________________________________________________________________
   <command>nasal</command>
   <script>setprop("/autopilot/locks/altitude", "vertical-speed-hold");</script>
 </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/ALTHOLD</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/ALTHOLD</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
        </action>
  </animation>
+	<animation>
+		<type>translate</type>
+		<object-name>ALTHOLD</object-name>
+		<property>/controls/buttons-pressed/ALTHOLD</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
  <animation>
   <type>pick</type>
@@ -686,8 +796,30 @@ _____/\\\\\\\\\_________________________________________________________________
   <command>nasal</command>
   <script>setprop("/autopilot/locks/speed", "speed-with-throttle");</script>
 </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/IASHOLD</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/IASHOLD</property>
+		   <value>0</value>
+	   </binding>
+	   </mod-up>
        </action>
  </animation>
+	<animation>
+		<type>translate</type>
+		<object-name>IASHOLD</object-name>
+		<property>/controls/buttons-pressed/IASHOLD</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <!--
 
@@ -3335,11 +3467,30 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
         <command>nasal</command>
         <script>fc.aamode();</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/t2</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/t2</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+	<animation>
+		<type>translate</type>
+		<object-name>t2</object-name>
+		<property>/controls/buttons-pressed/t2</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 
 <animation>
@@ -3353,11 +3504,30 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
         <command>nasal</command>
         <script>fc.agmode();</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/t3</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/t3</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+	<animation>
+		<type>translate</type>
+		<object-name>t3</object-name>
+		<property>/controls/buttons-pressed/t3</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3370,11 +3540,30 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
         <command>nasal</command>
         <script>fc.nav();</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/t1</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/t1</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+	<animation>
+		<type>translate</type>
+		<object-name>t1</object-name>
+		<property>/controls/buttons-pressed/t1</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 <!--
 
 ICP
@@ -3408,11 +3597,31 @@ ICP
         <command>nasal</command>
         <script>fc.setnum(1);</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/i1</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i1</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>i1</object-name>
+		<property>/controls/buttons-pressed/i1</property>
+		<factor>-0.005</factor>
+		<axis>
+		<x>0.647</x>
+		<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3425,11 +3634,31 @@ ICP
         <command>nasal</command>
         <script>fc.setnum(2);</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/i2</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i2</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>i2</object-name>
+		<property>/controls/buttons-pressed/i2</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3442,11 +3671,31 @@ ICP
         <command>nasal</command>
         <script>fc.setnum(3);</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/i3</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i3</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>i3</object-name>
+		<property>/controls/buttons-pressed/i3</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3459,11 +3708,31 @@ ICP
         <command>nasal</command>
         <script>fc.setnum(4);</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/i4</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i4</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>i4</object-name>
+		<property>/controls/buttons-pressed/i4</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3476,11 +3745,31 @@ ICP
         <command>nasal</command>
         <script>fc.setnum(5);</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/i5</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i5</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>i5</object-name>
+		<property>/controls/buttons-pressed/i5</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3493,11 +3782,31 @@ ICP
         <command>nasal</command>
         <script>fc.setnum(6);</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/i6</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i6</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>i6</object-name>
+		<property>/controls/buttons-pressed/i6</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3510,11 +3819,31 @@ ICP
         <command>nasal</command>
         <script>fc.setnum(7);</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/i7</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i7</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>i7</object-name>
+		<property>/controls/buttons-pressed/i7</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3527,11 +3856,31 @@ ICP
         <command>nasal</command>
         <script>fc.setnum(8);</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/i8</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i8</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>i8</object-name>
+		<property>/controls/buttons-pressed/i8</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3544,11 +3893,31 @@ ICP
         <command>nasal</command>
         <script>fc.setnum(9);</script>
     </binding>
+	   <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i9</property>
+		  <value>1</value>
+	  </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i9</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>i9</object-name>
+		<property>/controls/buttons-pressed/i9</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3561,11 +3930,31 @@ ICP
         <command>nasal</command>
         <script>fc.setnum(0);</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/i0</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/i0</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>i0</object-name>
+		<property>/controls/buttons-pressed/i0</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <!--Function buttons-->
 
@@ -3580,11 +3969,31 @@ ICP
         <command>nasal</command>
         <script>fc.clearnum();</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/iclr</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/iclr</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>iclr</object-name>
+		<property>/controls/buttons-pressed/iclr</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3597,11 +4006,31 @@ ICP
         <command>nasal</command>
         <script>fc.addtocomm1();</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/tsend1</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/tsend1</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>tsend1</object-name>
+		<property>/controls/buttons-pressed/tsend1</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3614,11 +4043,31 @@ ICP
         <command>nasal</command>
         <script>fc.addtocomm2();</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/tsend2</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/tsend2</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>tsend2</object-name>
+		<property>/controls/buttons-pressed/tsend2</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 <animation>
   <type>pick</type>
@@ -3631,11 +4080,32 @@ ICP
         <command>nasal</command>
         <script>fc.swapc1();</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/c1swap</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/c1swap</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<!--<animation>
+		<type>translate</type>
+		<object-name>c1swap</object-name>
+		<property>/controls/buttons-pressed/c1swap</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
+	I commented this out because the lettering isn't part of and doesn't move with the model.-->
 
 
 <animation>
@@ -3649,11 +4119,33 @@ ICP
         <command>nasal</command>
         <script>fc.swapc2();</script>
     </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/c2swap</property>
+		   <value>1</value>
+	   </binding>
   <mod-up>
-
+	  <binding>
+		  <command>property-assign</command>
+		  <property>/controls/buttons-pressed/c2swap</property>
+		  <value>0</value>
+	  </binding>
 	</mod-up>
     </action>	
  </animation>
+
+	<!--<animation>
+		<type>translate</type>
+		<object-name>c2swap</object-name>
+		<property>/controls/buttons-pressed/c2swap</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
+	I commented this out because the lettering isn't part of and doesn't move with the model.-->
+	
 <animation>
   <type>pick</type>
    <object-name>dlnkupdat</object-name> 
