@@ -1283,10 +1283,11 @@ radar_mode_toggle = func(){
     if(getprop("instrumentation/radar/mode/main") == 1)
     {
         setprop("instrumentation/radar/az-field", 60);
-        setprop("instrumentation/radar/mode/main", 0);
+        setprop("instrumentation/radar/mode/main", 2);
         #wcs_mode = "tws-auto";
+        f22.acmtimer.start();
         setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
-        setprop("instrumentation/radar2/sweep-speed", 2);   
+        setprop("instrumentation/radar2/sweep-speed", 1);   
         tgts_list = [];
     }
     elsif(getprop("instrumentation/radar/mode/main") == 0)
@@ -1294,14 +1295,28 @@ radar_mode_toggle = func(){
         setprop("instrumentation/radar/az-field", 120);
         setprop("instrumentation/radar/mode/main", 1);
         setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
-        setprop("instrumentation/radar2/sweep-speed", 1);   
+        setprop("instrumentation/radar2/sweep-speed", 0.5);   
+               f22.acmtimer.stop(); 
+
+      #  wcs_mode = "pulse-srch";
+      #  AzField.setValue(120);
+      #  swp_diplay_width = 0.0844;
+    }
+elsif(getprop("instrumentation/radar/mode/main") == 2)
+    {
+        f22.acmtimer.stop();
+        setprop("instrumentation/radar/az-field", 60);
+        setprop("instrumentation/radar/mode/main", 0);
+        setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
+        setprop("instrumentation/radar2/sweep-speed", 2);
+        # ACM Check   
       #  wcs_mode = "pulse-srch";
       #  AzField.setValue(120);
       #  swp_diplay_width = 0.0844;
     }
 }
 
-next_Target_Index = func(){
+next_Target_Index = func(canprint=0){
     Target_Index += 1;
     #print(size(tgts_list));
     if(Target_Index > size(tgts_list) - 1)
@@ -1309,19 +1324,23 @@ next_Target_Index = func(){
         Target_Index = 0;
     }
     if(GetTarget()!=nil){
-        
+        if (canprint == 0){
         screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+        }
                     setprop("instrumentation/radar/lock", 1);
+
     }
 }
 
-previous_Target_Index = func(){
+previous_Target_Index = func(canprint=0){
     Target_Index -= 1;
     #print(size(tgts_list));
     if(Target_Index < 0)
     {
         Target_Index = size(tgts_list) - 1;
+                if (canprint == 0){
         screen.log.write("Radar: Switched back to "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+                }
     }
 }
 

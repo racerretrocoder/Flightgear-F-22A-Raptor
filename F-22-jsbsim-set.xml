@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 	
 <PropertyList>
-
+					<abdens type="double">0</abdens>
 	<sim>
 
 		<description>F-22A (JSBSim FDM)</description>
@@ -196,6 +196,7 @@
 				 <script>CanvasPylonsDlg.showPylonsDlg()</script>
 			</binding>
 		</item>
+
 
 <item>
 			<label>Toggle Damage</label>
@@ -1899,7 +1900,78 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 	<input>
 		 <keyboard>
-	
+	      <key n="356">
+            <name>Left</name>
+            <repeatable type="bool">false</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/radar/cursor-x</property>
+                <value type="int">-1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/radar/cursor-x</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="358">
+            <name>Right</name>
+            <repeatable type="bool">false</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/radar/cursor-x</property>
+                <value type="int">1</value>
+            </binding>
+
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/radar/cursor-x</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="357">
+            <name>Up</name>
+            <repeatable type="bool">true</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/radar/cursor-z</property>
+                <value type="int">-1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/radar/cursor-z</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="359">
+            <name>Down</name>
+            <repeatable type="bool">true</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/radar/cursor-z</property>
+                <value type="int">1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/radar/cursor-z</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
 			<key n="15">
 				<name>Ctrl-o</name>
 				<desc>Delock radar</desc>
@@ -2450,6 +2522,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	</instrumentation>
 
 	<nasal>
+ <CanvasPylonsDlg><file>Aircraft/F-22/Nasal/CanvasDlg/Canvas-pylons-Dlg.nas</file> </CanvasPylonsDlg>
         <hack>
             <file>Aircraft/F-22/Nasal/hackCanvas.nas</file><!-- must be first -->
         </hack>
@@ -2578,7 +2651,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <file>Aircraft/F-22/Nasal/enav.nas</file>
 </enav>
 
- <CanvasPylonsDlg><file>Aircraft/F-22/Nasal/CanvasDlg/Canvas-pylons-Dlg.nas</file> </CanvasPylonsDlg>
+
 
  <tacview>
             <file>Aircraft/F-22/Nasal/tacview.nas</file>

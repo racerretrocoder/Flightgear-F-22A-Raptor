@@ -1,6 +1,6 @@
 # Phoenix's Railgun Experiments
 #
-#   Idea: We have 2 planes ina circle fight. Our plane has a railgun and the bandit is well a bandit
+#   Idea: We have 2 planes ina circle fight. Our plane has a railgun and the bandit is.. well a bandit
 #   in order for the railgun shot to hit we need 2 things
 #   1: Our heading pointing within a set range of +- 5 degreese at the target, 2: Our pitch pointing within a setrange of +- 5 degreese at the target
 #   
@@ -42,7 +42,7 @@
 # atan (sin(a)/cos(a) is our way through)
 # then we convert to deg
 
-var ourhdg = getprop("orientation/heading-deg);
+var ourhdg = getprop("orientation/heading-deg");
 
 
 var test = func() {

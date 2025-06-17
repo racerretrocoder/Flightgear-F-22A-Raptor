@@ -260,7 +260,7 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/lower-mfd.xml</path>
 			<offsets>
 				<x-m>-5.59</x-m>  <!--  -  -->
-					<y-m>-0</y-m>
+					<y-m>-0.008</y-m>
 				<z-m>-0.33</z-m> <!--  +  -->
 			<pitch-deg>-45</pitch-deg>
 		</offsets>
@@ -841,6 +841,102 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 
 
 
+<!--APU start-->
+<animation>
+        <type>knob</type>
+    <object-name>apustart</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/electric/apustart</property>
+                <value>-1</value>
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/electric/apustartpos</property>
+                <value>-1</value>
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>apustart</tooltip-id>
+                <label>APU Switch</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+
+
+
+ <animation>
+  <type>pick</type>
+   <object-name>apustart</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+<command>property-cycle</command>
+     <property>/controls/electric/apustart</property>
+	   <value>0</value>
+	   <value>1</value>
+	   <value>-1</value>
+     </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+	<binding>
+	   <command>property-cycle</command>
+	   <property>controls/electric/apustartpos</property>
+	   <value>0</value>
+	   <value>1</value>
+	   <value>-1</value>
+	</binding>
+   </action>
+ </animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>apustart</object-name>
+	<property>controls/electric/apustartpos</property>
+	<factor>-20</factor>
+	<axis>
+	<object-name>apustart-axis</object-name>
+	</axis>
+
+</animation> 
+
+
+
+
  <animation>
  <!--Elec panel-->
   <type>pick</type>
@@ -871,7 +967,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 	</binding>
    </action>
  </animation>
-<!-- Needs a revamp!-->
+
 <animation>
 	<type>rotate</type>
 	<object-name>BATSWITCH</object-name>
@@ -1913,7 +2009,224 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
 
 
 
+<!--lower-->
+
+<animation>
+  <type>pick</type>
+   <object-name>LLFCR</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdll</property>
+               <value>0</value>
+               <value>2</value>
+               <wrap>true</wrap>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LLFCR-btn</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LLFCR-btn</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>LLFCR</object-name>
+		<property>systems/MFD/LLFCR-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>LLSMS</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdll</property>
+               <value>0</value>
+               <value>1</value>
+               <wrap>true</wrap>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LLSMS-btn</property>
+		   <value>1</value>
+	   </binding>
+    <mod-up>
+		<binding>
+			<command>property-assign</command>
+			<property>systems/MFD/LLSMS-btn</property>
+			<value>0</value>
+		</binding>
+	</mod-up>
+    </action>
+	
+ </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>LLSMS</object-name>
+		<property>systems/MFD/LLSMS-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>LLWEP</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdll</property>
+               <value>0</value>
+               <value>3</value>
+               <wrap>true</wrap>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LLWEP-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/LLWEP-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
+       </action>
+ </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>LLWEP</object-name>
+		<property>systems/MFD/LLWEP-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>LLFLT</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdll</property>
+               <value>0</value>
+               <value>4</value>
+               <wrap>true</wrap>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LLFLT-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/LLFLT-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
+
+       </action>
+ </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>LLFLT</object-name>
+		<property>systems/MFD/LLFLT-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>LLRWR</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+
+    <binding>
+               <command>property-cycle</command>
+               <property>systems/MFD/modemfdll</property>
+               <value>0</value>
+               <value>5</value>
+               <wrap>true</wrap>
+    </binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>systems/MFD/LLRWR-btn</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>systems/MFD/LLRWR-btn</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
+
+       </action>
+ </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>LLRWR</object-name>
+		<property>systems/MFD/LLRWR-btn</property>
+		<factor>0.004</factor>
+		<axis>
+			<x>-1</x>
+			<z>-0.175925926</z>
+		</axis>
+	</animation>
+
 <!--Main Lower Rows-->
+
+
+
+
 <animation>
   <type>pick</type>
    <object-name>CSMS</object-name> 
