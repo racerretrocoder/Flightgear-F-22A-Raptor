@@ -323,7 +323,9 @@ Theres soo many
 
  <float n="34" type="double" alias="/engines/engine/n1"/>	 
  <float n="35" type="double" alias="/fdm/jsbsim/fcs/flaredoor"/>
- <float n="36" type="double" alias="/fdm/jsbsim/fcs/canopy"/>	
+ <float n="36" type="double" alias="/fdm/jsbsim/fcs/canopy"/>
+  <float n="37" type="double" alias="/fdm/jsbsim/fcs/apuflap1"/>	
+    <float n="38" type="double" alias="/controls/apu/smokespeed"/>	
                  													<int n="2" type="int">1</int><!-- radar-standby -->
 <int n="15" type="int" alias="/f22/ejected"/>
 
@@ -347,6 +349,10 @@ Theres soo many
 <int n="21" type="int" alias="/sim/failure-manager/engines/engine/failure-level"/> 
 <int n="22" type="int" alias="/sim/failure-manager/engines/engine[1]/failure-level"/>
 <int n="23" type="int" alias="/fdm/jsbsim/fcs/light"/>
+
+
+<int n="24" type="int" alias="/controls/apu/smoke"/>
+<int n="25" type="int" alias="/controls/apu/apuflame"/>
 <!--Missiles in bays on MP-->
 <string n="6" type="string"></string><!-- string 6 used by radar lock RWR warning -->
 <string n="7" type="string"></string><!-- string 7 used by datalink -->

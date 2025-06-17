@@ -10,7 +10,7 @@
     <lighting>false</lighting>
     <condition>
       		<equals>
-     <property>controls/apu/smoke</property>
+     <property>sim/multiplay/generic/int[24]</property>
      <value>1</value>
 	 </equals>
 
@@ -28,7 +28,7 @@
       <phi-min-deg>-1.5</phi-min-deg>
       <phi-max-deg>1.5</phi-max-deg>
       <speed-mps>
-        <property>controls/apu/smokespeed</property>
+        <property>sim/multiplay/generic/float[38]</property>
         <factor>5</factor>
           <spread>15</spread>
       </speed-mps>
@@ -44,7 +44,7 @@
 
     <counter>
       <particles-per-sec>
-        <property>controls/apu/smokespeed</property>
+        <property>sim/multiplay/generic/float[38]</property>
         <factor>1</factor>
         <spread>3</spread>
       </particles-per-sec>
