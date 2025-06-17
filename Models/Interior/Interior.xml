@@ -4536,7 +4536,34 @@ Lowest priority then
        </action>
  </animation>
 
-
+<animation>
+	<type>pick</type>
+	<object-name>LDGHNDL</object-name>
+	<action>
+	    <button>0</button>
+	    <repeatable>false</repeatable>
+	    <interval-sec>0.2</interval-sec>
+	    <binding>
+			<command>property-toggle</command>
+			<property>/controls/gear/gear-down</property>
+	    </binding>
+	</action>
+</animation>
+<animation>
+	<type>rotate</type>
+	<object-name>LDGHNDL</object-name>
+	<property>/controls/gear/gear-down</property>
+	<factor>60</factor>
+	<offset-deg>-60</offset-deg>
+	<center>
+		<x-m>-5.64718</x-m>
+		<y-m>-0.285744</y-m>
+		<z-m>-0.263653</z-m>
+	</center>
+	<axis>
+		<y>1</y>
+	</axis>
+</animation>
 
 
 </PropertyList>
