@@ -332,16 +332,7 @@ var canopy_switch = func(v,a) {
 			a = -1;
 		}
 	}
-if (v) {
-	if (a < 0) {
-		cnpy.close();
-		setprop("canopy/state", 0);
-	} elsif (a > 0) {
-		setprop("canopy/state", 1);
-		cnpy.open();
-
-  	}
-  }
+cnpy.toggle();
 
   } else {
     screen.log.write("Can't open canopy in flight")
