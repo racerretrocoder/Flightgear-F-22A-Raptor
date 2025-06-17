@@ -1536,6 +1536,9 @@ var semiactive = 0;
                                                             if (me.NameOfMissile == "Aim-9x"){
                                                                 missilename = "AIM-9";
                                                             }
+                                                            if (me.NameOfMissile == "JDAM"){
+                                                                missilename = "GBU-31";
+                                                            }
                                                             if (me.NameOfMissile == "Aim-120"){
                                                                 missilename = "AIM-120";
                                                             }

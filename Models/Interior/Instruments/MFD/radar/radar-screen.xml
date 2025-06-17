@@ -9,12 +9,47 @@
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/radar/radar-screen.ac</path>
 			<offsets>
 				<x-m>0</x-m>
-					<y-m>0.0045</y-m>
+				<y-m>0.0045</y-m>
 				<z-m>0</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
 
+
+	<animation>
+		<type>translate</type>
+		<object-name>cursor</object-name>
+		<property>controls/radar/cursorz</property>
+		<condition>
+			<not><property>instrumentation/radar/radar-standby</property></not>
+		</condition>
+		<factor>1</factor>
+		<axis><z>1</z></axis>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>cursor</object-name>
+		<property>controls/radar/cursorx</property>
+		<condition>
+			<not><property>instrumentation/radar/radar-standby</property></not>
+		</condition>
+		<factor>1</factor>
+		<axis><y>1</y></axis>
+	</animation>
+
+
+
+	  <animation>
+        <type>select</type>
+        <object-name>cursor</object-name>
+        <condition>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+        </condition>
+    </animation>
 
 
 
@@ -59,6 +94,7 @@
  </animation>
 
 
+
   <animation>
         <type>select</type>
         <object-name>marker</object-name>
@@ -78,16 +114,11 @@
   <animation>
         <type>select</type>
         <object-name>marker2</object-name>
-        
         <condition>
-		
-
 			<equals>
-
        <property>instrumentation/radar/lock</property>
 				<value>1</value>
 			</equals>
-
         </condition>
     </animation>
 
@@ -106,6 +137,548 @@
    <z>0</z>
   </axis>
  </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>marker2</object-name>
+  <property>instrumentation/radar2/lockmarkerh</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+<!--Marker MP1-->
+  <animation>
+        <type>select</type>
+        <object-name>mp1mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp1mkr</object-name>
+  <property>instrumentation/radar2/marker/mark/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp1mkr</object-name>
+  <property>instrumentation/radar2/marker/mark/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+<!--marker2-->
+  <animation>
+        <type>select</type>
+        <object-name>mp2mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[2]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp2mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[2]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp2mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[2]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+<!--3-->
+ <animation>
+        <type>select</type>
+        <object-name>mp3mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[3]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp3mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[3]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp3mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[3]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+        <type>select</type>
+        <object-name>mp4mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[4]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp4mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[4]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp4mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[4]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+        <type>select</type>
+        <object-name>mp5mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[5]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp5mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[5]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp5mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[5]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+        <type>select</type>
+        <object-name>mp6mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[6]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp6mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[6]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp6mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[6]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+        <type>select</type>
+        <object-name>mp7mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[7]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp7mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[7]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp7mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[7]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+
+ <animation>
+        <type>select</type>
+        <object-name>mp8mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[8]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp8mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[8]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp8mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[8]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+        <type>select</type>
+        <object-name>mp9mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[9]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp9mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[9]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp9mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[9]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+        <type>select</type>
+        <object-name>mp10mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[10]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp10mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[10]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp10mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[10]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+        <type>select</type>
+        <object-name>mp11mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[11]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp11mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[11]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp11mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[11]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+        <type>select</type>
+        <object-name>mp12mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[12]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp12mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[12]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp12mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[12]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+  <animation>
+        <type>select</type>
+        <object-name>mp13mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[13]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp13mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[13]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp13mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[13]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
 
 	 <animation>
   <type>material</type>
@@ -116,6 +689,7 @@
   <object-name>milthrust</object-name>
     <object-name>TWS</object-name>
    <object-name>RWS2</object-name>
+   <object-name>ACM</object-name>
    <object-name>mode</object-name>
    <object-name>mode2</object-name>
 
@@ -323,6 +897,22 @@
   <alignment>left-top</alignment>
  </text>
 
+	 <text>
+  <name>ACM</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.07</y-m>
+   <z-m>0.06</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">ACM</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
   <animation>
         <type>select</type>
         <object-name>TWS</object-name>
@@ -338,7 +928,21 @@
 
         </condition>
     </animation>
+  <animation>
+        <type>select</type>
+        <object-name>ACM</object-name>
+        
+        <condition>
+		
 
+			<equals>
+
+       <property>instrumentation/radar/mode/main</property>
+				<value>2</value>
+			</equals>
+
+        </condition>
+    </animation>
 
 
 	 <text>

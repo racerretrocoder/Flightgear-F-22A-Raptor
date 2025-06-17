@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+<!--APU-->
+  <particlesystem>
+    <name>smoke</name>
+    <texture>smoke.png</texture>
+
+    <emissive>false</emissive>
+    <lighting>false</lighting>
+    <condition>
+      		<equals>
+     <property>controls/apu/smoke</property>
+     <value>1</value>
+	 </equals>
+
+    </condition>
+
+    <attach>world</attach>
+
+    <placer>
+      <type>point</type>
+    </placer>
+
+    <shooter>
+      <theta-min-deg>84</theta-min-deg>
+      <theta-max-deg>86</theta-max-deg>
+      <phi-min-deg>-1.5</phi-min-deg>
+      <phi-max-deg>1.5</phi-max-deg>
+      <speed-mps>
+        <property>controls/apu/smokespeed</property>
+        <factor>5</factor>
+          <spread>15</spread>
+      </speed-mps>
+      <rotation-speed>
+        <x-min-deg-sec>5</x-min-deg-sec>
+        <y-min-deg-sec>5</y-min-deg-sec>
+        <z-min-deg-sec>5</z-min-deg-sec>
+        <x-max-deg-sec>100</x-max-deg-sec>
+        <y-max-deg-sec>100</y-max-deg-sec>
+        <z-max-deg-sec>100</z-max-deg-sec>
+      </rotation-speed>
+    </shooter>
+
+    <counter>
+      <particles-per-sec>
+        <property>controls/apu/smokespeed</property>
+        <factor>1</factor>
+        <spread>3</spread>
+      </particles-per-sec>
+    </counter>
+
+    <align>billboard</align>
+
+    <particle>
+      <start>
+        <color>
+          <red><value>   0.980 </value></red>
+          <green><value> 0.970 </value></green>
+          <blue><value>  0.950 </value></blue>
+          <alpha><value> 0.5 </value></alpha>
+        </color>
+        <size>
+          <value>1</value>
+        </size>
+      </start>
+
+      <end>
+        <color>
+          <red><value>   0.9500 </value></red>
+          <green><value> 0.9500 </value></green>
+          <blue><value>  0.9500 </value></blue>
+          <alpha><value> 0.1 </value></alpha>
+        </color>
+        <size>
+          <value>2.5</value>
+        </size>
+      </end>
+
+      <life-sec>
+        <value>5.5</value>
+      </life-sec>
+
+      <mass-kg>0.00005</mass-kg>
+      <radius-m>0.015</radius-m>
+    </particle>
+
+    <program>
+      <fluid>   air  </fluid>
+      <gravity> true </gravity>
+      <wind>    true </wind>
+    </program>
+
+  </particlesystem>
+
+</PropertyList>

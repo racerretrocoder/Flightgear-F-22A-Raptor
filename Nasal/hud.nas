@@ -437,7 +437,7 @@ me.pipperRadius = 10;
       me.alttape.setVisible(0);
       me.speedtape.setTranslation(13.508,getprop("velocities/airspeed-kt"));
       
-        me.ccipInfo = f22.getCCIP();
+  #      me.ccipInfo = f22.getCCIP();
   if (!weaponmode) {
       me.ccipGrp.hide();
       me.bomb_sight.setVisible(0);

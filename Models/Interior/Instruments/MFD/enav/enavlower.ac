@@ -1,0 +1,118 @@
+AC3Db
+MATERIAL "glow" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 1 1 1  shi 128  trans 0
+OBJECT world
+kids 6
+OBJECT poly
+name "icon1"
+loc 0.0101994 0.0919054 0.0613565
+texture "NAV.png"
+crease 45.000000
+numvert 4
+0 -0.00486393 -0.00753125
+0 -0.00486393 0.00753125
+0 0.00486393 0.00753125
+0 0.00486393 -0.00753125
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "icon2"
+loc 0.0101994 0.0920677 0.0285297
+texture "SMS.png"
+crease 45.000000
+numvert 4
+0 -0.00486393 -0.00753125
+0 -0.00486393 0.00753125
+0 0.00486393 0.00753125
+0 0.00486393 -0.00753125
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "icon3"
+loc 0.0101994 0.0920677 -0.00287945
+texture "WEP.png"
+crease 45.000000
+numvert 4
+0 -0.00486393 -0.00753125
+0 -0.00486393 0.00753125
+0 0.00486393 0.00753125
+0 0.00486393 -0.00753125
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "icon5"
+loc 0.0101994 0.0923852 -0.0667544
+texture "RWR.png"
+crease 45.000000
+numvert 4
+0 -0.00486393 -0.00753126
+0 -0.00486393 0.00753125
+0 0.00486393 0.00753125
+0 0.00486393 -0.00753126
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "main screen"
+loc 0.00923324 -0.0704084 0.0335347
+texture "system.png"
+crease 45.000000
+numvert 4
+0 -0.0230184 -0.136136
+0 -0.0230184 0.0624302
+0 0.172634 0.0624302
+0 0.172634 -0.136136
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "icon4"
+loc 0.0101994 0.0920714 -0.0347466
+texture "FLIGHT.png"
+crease 45.000000
+numvert 4
+0 -0.00486393 -0.00753125
+0 -0.00486393 0.00753125
+0 0.00486393 0.00753125
+0 0.00486393 -0.00753125
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0

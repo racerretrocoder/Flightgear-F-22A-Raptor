@@ -1,3 +1,4 @@
+print("Loading!");
 var showPylonsDlg = func{
 	if(getprop("/payload/armament/msg")){
 		if(getprop("/gear/gear/compression-ft")<0.01){
@@ -268,7 +269,7 @@ P6Ctls.addItem(btn_P6_R27ER);
 
 # click button P6:R-27ET
 var btn_P6_R27ET = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("R-27ET")
+        .setText("none")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
@@ -689,7 +690,7 @@ P9Ctls.addItem(btn_P9_R27ER);
 
 # click button P9:R-27ET
 var btn_P9_R27ET = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("R-27ET")
+        .setText("none")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
@@ -1021,7 +1022,6 @@ btn_P7_smk_blue.listen("clicked", func {
 		print("P7: smoke-blue");
 		setprop("sim/weight[6]/selected","smoke-blue");
 		setprop("/controls/armament/station[6]/release","false");
- !
 		pylons_update();
 		});
 P7Ctls.addItem(btn_P7_smk_blue);
@@ -1039,3 +1039,4 @@ Acversion.setText("F-22A v0.9        This is still experimental. Dont add any R-
 statusbar.addItem(Acversion);
 
 }
+print("Pylons done loading");

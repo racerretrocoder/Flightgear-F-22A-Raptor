@@ -24,17 +24,141 @@ var autoflares = func{
 
 
 
-# Electric system for the engines:
+# Electric system for the engines and the APU:
 
 # Detect the status of the main power switch. then check if the engines are dead. 
 # if all's good. start the engines
 
+
+
+
+
+
+
+
+# play sound
+# first open flaps
+
+
+setprop("controls/apu/run",0);
+var apuseq1 = func() {
+  # APU Animation/sequence !
+  setprop("controls/apu/start",1);
+  setprop("controls/apu/flap",1);
+  seq2timer.start();
+}
+
+var apuseq2 = func() {
+  # APU Animation/sequence !
+  setprop("controls/apu/start",1);
+  seq2timer.stop();
+  seq3timer.start();
+}
+
+var apuseq3 = func() {
+  # APU Animation/sequence !
+  setprop("controls/apu/smokespeed",10);
+  setprop("controls/apu/smoke",1);
+  seq3timer.stop();
+  seq4timer.start();
+}
+
+var apuseq4 = func() {
+  # APU Animation/sequence !
+  setprop("controls/apu/smoke",0);
+  setprop("controls/apu/apuflame",1);
+  seq4timer.stop();
+  seq5timer.start();
+}
+
+var apuseq5 = func() {
+  # APU Animation/sequence !
+  setprop("controls/apu/smoke",1);
+  setprop("controls/apu/apuflame",0);
+  setprop("controls/apu/smoke",0);
+  seq5timer.stop();
+  seq6timer.start();
+}
+
+var apuseq6 = func() {
+  # APU Animation/sequence !
+  setprop("controls/apu/smoke",1);
+  seq6timer.stop();
+  seq7timer.start();
+}
+var apuseq7 = func() {
+  # APU Animation/sequence !
+  setprop("controls/apu/smoke",0);
+  seq7timer.stop();
+  seq8timer.start();
+}
+var apuseq8 = func() {
+  # APU Animation/sequence !
+  setprop("controls/apu/run",1);
+  setprop("controls/electric/apustart",0); # Return to run
+  setprop("controls/electric/apustartpos",0); # Return to run
+  setprop("controls/apu/start",0);
+  #apuon();
+  seq8timer.stop();
+  #seq8timer.start();
+}
+
+var apushutoffmain = func() {
+  # APU Animation/sequence !
+  setprop("controls/apu/startinprogress",0);
+  setprop("controls/apu/run",0);
+
+  setprop("controls/apu/spooldown",1);
+  offtimer.start();
+  #seq8timer.start();
+}
+
+var apushutoff = func() {
+  # APU Animation/sequence !
+  setprop("controls/apu/spooldown",2); # Stop the sound
+  setprop("controls/apu/flap",0); # Close the flaps
+  offtimer.stop();
+  #seq8timer.start();
+}
+
+
+
+seq2timer = maketimer(0.3,apuseq2);
+seq3timer = maketimer(0.4,apuseq3);
+seq4timer = maketimer(0.5,apuseq4);
+seq5timer = maketimer(0.5,apuseq5);
+seq6timer = maketimer(2,apuseq6);
+seq7timer = maketimer(0.5,apuseq7);
+seq8timer = maketimer(18,apuseq8);
+offtimer = maketimer(16,apushutoff);
+#apudoortimer = maketimer(, apuseq1);
+
+setprop("controls/apu/startinprogress",0);
 var engloop = func{
 var jfsr = getprop("controls/electric/engine/start-r");
 var jfsl = getprop("controls/electric/engine/start-l");
 var bat = getprop("controls/electric/battswitch");
+#print("In ENGINE LOOP!");
             if(getprop("controls/electric/battswitch") >= 1) {
+                # check the APU the apu
+                if(getprop("/controls/apu/startinprogress") == 0) {
 
+                if(getprop("/controls/electric/apustart") == 1) {
+                      # Start the APU
+                      print("starting APU!");
+                      f22.apuseq1();
+                      setprop("controls/apu/startinprogress",1);
+                }
+              }
+                if(getprop("/controls/apu/startinprogress") == 1) {
+
+                if(getprop("/controls/electric/apustart") == -1) {
+                      # Stop the APU
+                      print("stopping APU!");
+                      f22.apushutoffmain();
+#setprop("controls/apu/startinprogress",1);
+                }
+              }
               if(getprop("/engines/engine/n1") < 28) {
               setprop("/controls/engines/engine/starter",getprop("controls/electric/engine/start-r"));
               print("eng1 rebound disarmed");
@@ -61,8 +185,8 @@ var bat = getprop("controls/electric/battswitch");
             } 
 
             }
-
 }
+
 
 # from 707 and m2005
 
@@ -385,6 +509,57 @@ var c = getprop("/sim/failure-manager/controls/flight/rudder/serviceable");
 }
 
 
+# Cool Radar Stuff!
+# Stuff like radar cursor position to callsign!
+# Dogfight mode! (ACM Radar mode)
+
+var updatemkr = func() {
+  var list = props.globals.getNode("/instrumentation/radar2/targets").getChildren("multiplayer");
+  var total = size(list);
+  var mpid = 0;
+  for(var i = 0; i < total; i += 1) {
+      var mpid = i;
+      var callsign = getprop("/instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign");
+      #print("marker checking " ~ callsign ~ "");
+      #var inrange = getprop("/instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/display");
+      if (getprop("/instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/display") == 1){
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/display",getprop("/instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/display"));
+
+      #
+      # Range
+      # 
+
+      if (getprop("instrumentation/radar/range") == 10){
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm"));
+      }
+      if (getprop("instrumentation/radar/range") == 20){
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 2);
+      }
+      if (getprop("instrumentation/radar/range") == 40){
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 4);
+      }
+      if (getprop("instrumentation/radar/range") == 60){
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 6);
+      }
+      if (getprop("instrumentation/radar/range") == 160){
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 16);
+      }
+      if (getprop("instrumentation/radar/range") == 300){ # WOWZERS!
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 30);
+      }
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/location-x",getprop("/instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/h-offset") / 10);
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/callsign",getprop("/instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign"));
+      } else {
+      var range = 0; # mm yes lol
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/display",0);
+      return 0;
+      }
+  }
+}
+
+mkrtimer = maketimer(0.1,updatemkr);
+mkrtimer.start();
+
 var tgtlock = func{
 if (getprop("instrumentation/radar/lock") == 1){
 var target1_x = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("h-offset",1).getValue();
@@ -400,10 +575,11 @@ setprop("instrumentation/radar/lock2", 2);
 
   
     if(getprop("instrumentation/radar/mode/main") == 1)
-    {
+    {   # RWS
         setprop("instrumentation/radar/az-field", 120);
         setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
-        setprop("instrumentation/radar2/sweep-speed", 1);   
+        setprop("instrumentation/radar2/sweep-speed", 0.5);   
+        #acmtimer.stop();
       #  wcs_mode = "pulse-srch";
       #  AzField.setValue(120);
       #  swp_diplay_width = 0.0844;
@@ -411,14 +587,157 @@ setprop("instrumentation/radar/lock2", 2);
     elsif(getprop("instrumentation/radar/mode/main") == 0)
     {
         setprop("instrumentation/radar/az-field", 60);
-        setprop("instrumentation/radar/mode/main", 0);
-        #wcs_mode = "tws-auto";
+
+        # TWS
+        setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
+        setprop("instrumentation/radar2/sweep-speed", 1);   
+        tgts_list = [];
+        #acmtimer.stop();
+    }
+    elsif(getprop("instrumentation/radar/mode/main") == 2)
+    {
+        setprop("instrumentation/radar/az-field", 60);
+        # ACM
+        #acmtimer.start();
         setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
         setprop("instrumentation/radar2/sweep-speed", 2);   
         tgts_list = [];
     }
+
+    
   }
 }
+
+
+# HOFFSET -6,
+
+var checkclosestmp = func(cs=nil) {
+setprop("misc/closestmp", 100000); # reset
+  setprop("misc/callsign","abcdefghijk"); # reset
+  var list = props.globals.getNode("/ai/models").getChildren("multiplayer");
+  var total = size(list);
+  var mpid = 0;
+  var theprop = getprop("misc/closestmp");
+  for(var i = 0; i < total; i += 1) {
+      var mpid = i;
+      var callsign = getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign");
+      var inrange = getprop("ai/models/multiplayer[" ~ mpid ~ "]/radar/in-range");
+      if (inrange == 1){
+      var range = getprop("ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm");
+      } else {
+      var range = 99999; # mm yes lol
+      }
+
+      print("checking " ~ callsign ~ "");
+      if (getprop("misc/closestmp") == 100000) {
+        # Has been reset
+        #screen.log.write("Begin mpsearch");
+        #screen.log.write(i);
+       #screen.log.write(callsign);
+        setprop("misc/closestmp", range); # reset
+        setprop("misc/callsign",callsign);
+
+      } else {
+        # Range has been changed lets check
+       #screen.log.write(i);
+
+        if (getprop("misc/closestmp") > range) {
+          #screen.log.write("Found new closer target!");
+           #screen.log.write(callsign);
+          setprop("misc/closestmp", range);          
+          setprop("misc/callsign",callsign);
+        }
+      }
+
+  }
+}
+
+
+
+var radarlook = func(cs=nil) {
+  var list = props.globals.getNode("/instrumentation/radar2/targets").getChildren("multiplayer");
+  var total = size(list);
+  var mpid = 0;
+  print("hello!");
+  for(var i = 0; i < total; i += 1) {
+      var mpid = i;
+      print(mpid);
+      if (getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/h-offset") == nil) {
+        print("thats nil!");
+        return 0; # Dont Check
+      }
+      var callsign = getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign");
+      if (getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign") == nil or getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign") == "") {
+        print("callsign nil!");
+        return 0; # Dont Check
+      }
+      if (getprop("instrumentation/radar/lock") == 1){
+        print("radar already locked bruh");
+        return 1;
+      }
+
+      print("checking " ~ callsign ~ "");
+      var radarON = 1;
+      var target1_x = getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/h-offset");
+      var target1_z = getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/v-offset");
+      if (target1_x or 0 > 0 and radarON ==1)
+      {
+        var dist_O = math.sqrt(math.pow(target1_x, 2)+math.pow(target1_z, 2));
+        var oriAngle = math.asin(target1_x / dist_O);
+        if(target1_z < 0){
+          oriAngle = 3.141592654 - oriAngle;
+        }
+        var Rollrad = (getprop("orientation/roll-deg") / 180) * 3.141592654;
+        target1_x = dist_O * math.sin(oriAngle - Rollrad);
+        target1_z = dist_O * math.cos(oriAngle - Rollrad);
+        var kx = abs(target1_x/7.25);
+        var kz = abs(target1_z/6);
+        if((kx > 1) or (kz > 1)){
+          if(kx > kz){
+            target1_x = target1_x / kx;
+            target1_z = target1_z / kx;
+          }else{
+            target1_z = target1_z / kz;
+            target1_x = target1_x / kz;
+          }
+        }
+#screen.log.write("x");
+#screen.log.write(target1_x);
+#screen.log.write("z");
+#screen.log.write(target1_z); 
+        # Z +6 -6
+        # X +5 -5
+        # i
+        if (target1_x > -6 and target1_x < 6 and target1_z > -6 and target1_z < 6) {
+          # Target is in the hud
+          screen.log.write("Radar ACM: Can lock! Locking...");
+          screen.log.write(callsign);
+          #checkcloestmp("");
+          #        screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+                    setprop("instrumentation/radar/lock", 1);
+                    radar.next_Target_Index(1);
+                    radar.previous_Target_Index(1);
+                    var radarcs = radar.tgts_list[Target_Index].Callsign.getValue();
+                    for(var ind = 0; ind < total; ind += 1) {
+                    if (radarcs != getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign")) {
+                      radar.next_Target_Index();
+                      #screen.log.write("Radar: Checking... "~radar.tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+                    } else {
+                      screen.log.write("Radar: ACM Locked "~radar.tgts_list[Target_Index].Callsign.getValue(),1,1,0);
+                      break;
+                    }
+                  }
+        }
+     }
+  }
+}
+
+
+var acmcheck = func() {
+
+}
+
+
 
 
 
@@ -464,28 +783,49 @@ var timer_loop = func{
         setprop("/sim/model/radar/time-until-impact", -1);
       }
 }
-
-
 };
 
+
+# Radar Cursor
+setprop("controls/radar/cursorx",0);
+setprop("controls/radar/cursorz",0);
+var cursor = func {
+  # Check status of x and z (x and y)
+  if (getprop("controls/radar/cursor-x") == 1) {
+    # increas it
+    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") + 0.001);
+  }
+  if (getprop("controls/radar/cursor-x") == -1) {
+    # increas it
+    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") - 0.001);
+  }
+
+  if (getprop("controls/radar/cursor-z") == 1) {
+    # increas it
+    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") + 0.001);
+  }
+  if (getprop("controls/radar/cursor-z") == -1) {
+    # increas it
+    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") - 0.001);
+  }
+
+
+}
 
 
 # Jitter
 
 var jitter = func{
-	            	setprop("/controls/rand", rand());
-	            	setprop("/controls/rand2", rand());
+	setprop("/controls/rand", rand());
+	setprop("/controls/rand2", rand());
 }
-
-
 
 
 # missile hit set back
 
 var mslhit = func{
-	            	setprop("damage/sounds/missile-hit", 0);
-                timer_hit.stop();
-
+  setprop("damage/sounds/missile-hit", 0);
+  timer_hit.stop();
 }
 
 # Timers
@@ -505,7 +845,9 @@ timer_extpylons = maketimer(0.25, checkforext);
 timer_baydoorsclose = maketimer(1, closebays);
 timer_damage = maketimer(0.5, damagedetect);
 timer_jitter = maketimer(0.1, jitter);
-
+timer_cursor = maketimer(0.1, cursor);
+timer_cursor.start();
+acmtimer = maketimer(2,radarlook);
 setlistener("sim/signals/fdm-initialized", func {
     timer_jitter.start();  
       timer_flarecheck.start();          # flare checker

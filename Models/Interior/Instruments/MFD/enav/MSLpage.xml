@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+<!--
+
+Screen axises
+
+Y is Left to right
+X is In and Out 
+Z is Up and down
+
+
+Use increments of .01 Because the unit is meters.
+
+
+
+
+
+<text>
+  <name>fuel-head</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.02</y-m>
+   <z-m>-0.03</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Fuel:</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 
+ <text>
+  <name>fuel-lb</name>
+  <font>lcd.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.03</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.2f lb</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/total-fuel-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+-->
+
+ <model>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/MSLPG.ac</path>
+			<offsets>
+				<x-m>0</x-m>
+					<y-m>0</y-m>
+				<z-m>0</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+
+
+
+<animation>
+  <object-name>aim1203</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>sim/weight/selected</property>
+                        <value>Aim-120</value>
+                    </equals>
+            </condition>
+ </animation>
+<animation>
+  <object-name>aim1202</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>sim/weight[1]/selected</property>
+                        <value>Aim-120</value>
+                    </equals>
+            </condition>
+ </animation>
+ <animation>
+  <object-name>aim1204</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>sim/weight[9]/selected</property>
+                        <value>Aim-120</value>
+                    </equals>
+            </condition>
+ </animation>
+ <animation>
+  <object-name>aim1201</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>sim/weight[8]/selected</property>
+                        <value>Aim-120</value>
+                    </equals>
+            </condition>
+ </animation>
+
+ <animation>
+  <object-name>aim91</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>sim/weight[6]/selected</property>
+                        <value>Aim-9x</value>
+                    </equals>
+            </condition>
+ </animation>
+ <animation>
+  <object-name>aim92</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>sim/weight[7]/selected</property>
+                        <value>Aim-9x</value>
+                    </equals>
+            </condition>
+ </animation>
+<animation>
+  <object-name>aim1205</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>sim/weight[3]/selected</property>
+                        <value>Aim-120</value>
+                    </equals>
+            </condition>
+ </animation>
+<animation>
+  <object-name>aim1206</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>sim/weight[5]/selected</property>
+                        <value>Aim-120</value>
+                    </equals>
+            </condition>
+ </animation>
+
+
+<animation>
+  <object-name>baydoor</object-name>
+  <type>select</type>
+
+            <condition>
+                    <greater-than>
+                        <property>fdm/jsbsim/fcs/AIM120</property>
+                        <value>0</value>
+                    </greater-than>
+            </condition>
+ </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>aim1201</object-name>
+		<property>fdm/jsbsim/fcs/AIM120</property>
+		<factor>0.01  </factor>
+		<axis>
+    <y>0</y>
+			<x>0</x>
+			<z>-1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>aim1202</object-name>
+		<property>fdm/jsbsim/fcs/AIM120</property>
+		<factor>0.01  </factor>
+		<axis>
+    <y>0</y>
+			<x>0</x>
+			<z>-1</z>
+		</axis>
+	</animation>
+  	<animation>
+		<type>translate</type>
+		<object-name>aim1203</object-name>
+		<property>fdm/jsbsim/fcs/AIM120</property>
+		<factor>0.01  </factor>
+		<axis>
+    <y>0</y>
+			<x>0</x>
+			<z>-1</z>
+		</axis>
+	</animation>
+  	<animation>
+		<type>translate</type>
+		<object-name>aim1204</object-name>
+		<property>fdm/jsbsim/fcs/AIM120</property>
+		<factor>0.01  </factor>
+		<axis>
+    <y>0</y>
+			<x>0</x>
+			<z>-1</z>
+		</axis>
+	</animation>
+  	<animation>
+		<type>translate</type>
+		<object-name>aim1205</object-name>
+		<property>fdm/jsbsim/fcs/AIM120</property>
+		<factor>0.01  </factor>
+		<axis>
+    <y>0</y>
+			<x>0</x>
+			<z>-1</z>
+		</axis>
+	</animation>
+  	<animation>
+		<type>translate</type>
+		<object-name>aim1206</object-name>
+		<property>fdm/jsbsim/fcs/AIM120</property>
+		<factor>0.01  </factor>
+		<axis>
+    <y>0</y>
+			<x>0</x>
+			<z>-1</z>
+		</axis>
+	</animation>
+
+
+	 <animation>
+  <type>material</type>
+  <object-name>afterburner</object-name>
+  <object-name>hook</object-name>
+  <object-name>bay</object-name>
+  <object-name>canpy</object-name>
+  <object-name>milthrust</object-name>
+  <ambient>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.1</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.8</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </emission> 
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>1n1</object-name>
+    <object-name>1n2</object-name>
+  <object-name>2n1</object-name>
+  <object-name>2n2</object-name>
+    <object-name>Engine1</object-name>
+  <object-name>Engine2</object-name>
+    <object-name>aoa</object-name>
+      <object-name>flaps</object-name>
+             <object-name>wepon2</object-name>   
+               <object-name>wepon1</object-name>  
+  <ambient>
+    <red>0.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.3</red>
+    <green>0.8</green>
+    <blue>0.3</blue>
+  </emission> 
+ </animation>
+
+
+ <animation>
+  <type>material</type>
+
+            <object-name>autoflaps</object-name>
+  <ambient>
+    <red>0.0</red>
+    <green>0.8</green>
+    <blue>1.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.1</blue>
+  </diffuse>
+  <emission>
+    <red>0.3</red>
+    <green>0.5</green>
+    <blue>0.8</blue>
+  </emission> 
+ </animation>
+
+	 <text>
+  <name>wepon1</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.008</y-m>
+   <z-m>0.037</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Aim-9x</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>wepon2</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.008</y-m>
+   <z-m>0.037</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Aim-120</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>Engine2</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.07</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Engine 1</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>Engine1</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.043</y-m>
+   <z-m>0.07</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Engine 2</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+<animation>
+  <object-name>wepon2</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>controls/armament/selected-weapon</property>
+                        <value>Aim-120</value>
+                    </equals>
+            </condition>
+ </animation>
+<animation>
+  <object-name>wepon1</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>controls/armament/selected-weapon</property>
+                        <value>Aim-9x</value>
+                    </equals>
+            </condition>
+ </animation>
+	
+</PropertyList>

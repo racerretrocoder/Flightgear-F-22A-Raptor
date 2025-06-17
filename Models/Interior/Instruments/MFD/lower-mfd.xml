@@ -12,7 +12,7 @@
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
-
+<!--
    <model>
     <path>Aircraft/F-22/Models/Interior/Instruments/MFD/map/CHDD.xml</path>
     <offsets>
@@ -20,9 +20,19 @@
       <y-m>0 </y-m>
       <z-m>0.0</z-m>
     </offsets>
-  </model>
-  <animation>
+  </model>-->
 
+   <model>
+    <path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/enavlower.xml</path> <!--MFD Scripting-->
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0 </y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+
+
+  <animation>
   <object-name>pullup</object-name>
 
 

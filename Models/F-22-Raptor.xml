@@ -53,7 +53,8 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 		<object-name>Left_Rocket_Bay</object-name>
 		Same reason. dont know
 -->
-
+        <object-name>apuflap2</object-name>
+        <object-name>apuflap1</object-name>
         <object-name>Fuselage_2</object-name>
         <object-name>left-nosegear-door</object-name>
         <object-name>left-main-door-up</object-name>
@@ -359,6 +360,7 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
       <inherits-from>Effects/model-transparent</inherits-from>
        <object-name>canopy in</object-name>
 		   <object-name>canopy out</object-name>
+				   <object-name>apuflame</object-name>
 		
    </effect>
 <effect>
@@ -627,6 +629,125 @@ Use below instead
 
 <!-- Afterburner -->
 
+<model>
+   <name>AB_FlameR</name>
+   <path>Aircraft/F-22/Models/Effects/Afterburner/afterburnerAN.xml</path>
+    <condition>
+	<greater-than>
+	  <property>sim/multiplay/generic/float[31]</property>
+	  <value>0.01</value>
+	  </greater-than>
+
+    </condition>
+    <offsets>
+				<x-m>7.227</x-m>
+			<y-m>0.65</y-m>
+			<z-m>-0.85</z-m>
+         <pitch-deg>0</pitch-deg>
+	</offsets>
+  </model>
+
+
+
+<model>
+   <name>AB_FlameL</name>
+   <path>Aircraft/F-22/Models/Effects/Afterburner/afterburnerBN.xml</path>
+    <condition>
+	<greater-than>
+	  <property>sim/multiplay/generic/float[32]</property>
+	  <value>0.01</value>
+	  </greater-than>
+
+    </condition>
+    <offsets>
+				<x-m>7.227</x-m>
+			<y-m>-0.65</y-m>
+			<z-m>-0.85</z-m>
+         <pitch-deg>0</pitch-deg>
+	</offsets>
+  </model>
+
+<model>
+   <name>AB_FlameRN</name>
+   <path>Aircraft/F-22/Models/Effects/Afterburner/afterburnerA.xml</path>
+    <condition>
+	<greater-than>
+	  <property>sim/multiplay/generic/float[31]</property>
+	  <value>0.01</value>
+	  </greater-than>
+
+    </condition>
+    <offsets>
+				<x-m>7.227</x-m>
+			<y-m>0.65</y-m>
+			<z-m>-0.85</z-m>
+         <pitch-deg>0</pitch-deg>
+	</offsets>
+  </model>
+
+
+
+<model>
+   <name>AB_FlameLN</name>
+   <path>Aircraft/F-22/Models/Effects/Afterburner/afterburnerB.xml</path>
+    <condition>
+	<greater-than>
+	  <property>sim/multiplay/generic/float[32]</property>
+	  <value>0.01</value>
+	  </greater-than>
+
+    </condition>
+    <offsets>
+				<x-m>7.227</x-m>
+			<y-m>-0.65</y-m>
+			<z-m>-0.85</z-m>
+         <pitch-deg>0</pitch-deg>
+	</offsets>
+  </model>
+
+  <animation>
+	<type>select</type>
+	<object-name>AB_FlameLN</object-name>
+	<object-name>AB_FlameRN</object-name>
+  <condition>
+            <greater-than>
+				<property>/sim/time/sun-angle-rad</property>
+				<value>1.5</value>
+			</greater-than>
+  </condition>
+  </animation>
+
+  <animation>
+	<type>select</type>
+	<object-name>AB_FlameL</object-name>
+	<object-name>AB_FlameR</object-name>
+  <condition>
+            <less-than>
+				<property>/sim/time/sun-angle-rad</property>
+				<value>1.5</value>
+			</less-than>
+  </condition>
+  </animation>
+
+
+
+
+
+
+
+
+
+
+<animation>
+  <type>noshadow</type>
+  <object-name>Bounding_box</object-name>
+  <object-name>ReheatInner</object-name>
+  <object-name>ReheatOuter</object-name>
+  <object-name>ExternalFlame</object-name>
+  <object-name>Engine</object-name>
+</animation>	
+
+
 <!--Mid Night ish-->
   <animation>
 	<type>select</type>
@@ -782,7 +903,7 @@ Use below instead
 	<name>left-burner</name>
 		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurner2.xml</path>
 			<offsets>
-				<x-m>6.727</x-m>
+				<x-m>7.527</x-m>
 			<y-m>-0.6</y-m>
 			<z-m>-0.9</z-m>
 			
@@ -807,7 +928,7 @@ Use below instead
 	<name>right-burnerpre</name>
 		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurnerpre.xml</path>
 			<offsets>
-				<x-m>6.727</x-m>
+				<x-m>7.527</x-m>
 			<y-m>0.6</y-m>
 			<z-m>-0.9</z-m>
 			
@@ -830,7 +951,7 @@ Use below instead
 	<name>left-burnerpre</name>
 		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurnerpre2.xml</path>
 			<offsets>
-				<x-m>6.727</x-m>
+				<x-m>7.527</x-m>
 			<y-m>-0.6</y-m>
 			<z-m>-0.9</z-m>
 			
@@ -852,7 +973,7 @@ Use below instead
 	<name>right-burnernight</name>
 		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurnernight.xml</path>
 			<offsets>
-				<x-m>6.727</x-m>
+				<x-m>7.527</x-m>
 			<y-m>0.6</y-m>
 			<z-m>-0.9</z-m>
 			
@@ -875,7 +996,7 @@ Use below instead
 	<name>left-burnernight</name>
 		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurnernight2.xml</path>
 			<offsets>
-				<x-m>6.727</x-m>
+				<x-m>7.527</x-m>
 			<y-m>-0.6</y-m>
 			<z-m>-0.9</z-m>
 			
@@ -1002,7 +1123,7 @@ Use below instead
 	<name>right-burner</name>
 		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurner.xml</path>
 			<offsets>
-				<x-m>6.727</x-m>
+				<x-m>7.527</x-m>
 			<y-m>0.6</y-m>
 			<z-m>-0.9</z-m>
 			
@@ -1020,17 +1141,7 @@ Use below instead
 	<z-factor>0</z-factor>
 </animation>
 
-	<model>
-	<name>left-burner2</name>
-		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurnerB.xml</path>
-			<offsets>
-				<x-m>6.727</x-m>
-			<y-m>-0.6</y-m>
-			<z-m>-0.9</z-m>
-			   <heading-deg>90</heading-deg>
-   <pitch-deg>90</pitch-deg>
-		</offsets>
-	</model>
+
   <animation>
 	<type>scale</type>
 	<object-name>left-burner2</object-name>
@@ -1046,17 +1157,7 @@ Use below instead
 
 
 	<!--On MP!-->
-	<model>
-	<name>right-burner2</name>
-		<path>Aircraft/F-22/Models/Effects/Afterburner/AfterBurnerA.xml</path>
-			<offsets>
-				<x-m>6.727</x-m>
-			<y-m>0.6</y-m>
-			<z-m>-0.9</z-m>
-			   <heading-deg>90</heading-deg>
-   <pitch-deg>90</pitch-deg>
-		</offsets>
-	</model>
+
 	  <animation>
 	<type>scale</type>
 	<object-name>right-burner2</object-name>
@@ -1605,6 +1706,75 @@ Use below instead
 	</animation>	
 
 
+<!--APU Flaps-->
+
+
+	<animation>
+		<type>select</type>
+		<object-name>apuflap2underside</object-name>
+		
+				<object-name>apuflap1underside</object-name>
+		<condition>
+			<greater-than>
+		<property>fdm/jsbsim/fcs/apuflap1</property>
+				<value>0.0000000001</value>
+			</greater-than>
+		</condition>
+	
+	</animation>	
+	<animation>
+		<type>select</type>
+		<object-name>apuflame</object-name>
+		<condition>
+			<equals>
+		<property>controls/apu/apuflame</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	
+	</animation>	
+
+
+
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>apuflap1</object-name>
+		<property>fdm/jsbsim/fcs/apuflap1</property>
+		<interpolation>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>apuflap1-axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>apuflap2</object-name>
+		<property>fdm/jsbsim/fcs/apuflap1</property>
+		<interpolation>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>-18 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>apuflap2-axis</object-name>
+		</axis>
+	</animation>
 
 
 <!--Gun Door-->
@@ -2181,7 +2351,13 @@ FR
 
 
 <!-- Nozzle vector animations -->
-	
+		<effect>
+      <inherits-from>Effects/model-transparent</inherits-from>
+			<object-name>right-up-vector</object-name>
+			<object-name>left-up-vector</object-name>
+					<object-name>right-down-vector</object-name>
+			<object-name>left-down-vector</object-name>
+   </effect>
 
 	<animation>
 		<type>rotate</type>
@@ -2195,6 +2371,10 @@ FR
 			<object-name>left-burnerpre</object-name>
 			<object-name>right-burnernight</object-name>
 			<object-name>left-burnernight</object-name>
+			<object-name>AB_FlameL</object-name>
+			<object-name>AB_FlameR</object-name>
+			<object-name>AB_FlameLN</object-name>
+			<object-name>AB_FlameRN</object-name>
 			<property>sim/multiplay/generic/float[25]</property>
 			<factor>20</factor>
 			<center>
@@ -2698,7 +2878,22 @@ rearwheelsaxis
 		<heading-deg>0</heading-deg>
 	</offsets>
 	</model>
+
+
+
+
 		<model>
+		<path>Aircraft/F-22/Models/Effects/Smoke/engsmoketest.xml</path>
+		<offsets>
+			<x-m>-0.527</x-m>
+			<y-m>-2.6</y-m>
+			<z-m>-1.447</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+		<heading-deg>0</heading-deg>
+	</offsets>
+	</model>
+		<model>		
 
 		<path>Aircraft/F-22/Models/Effects/Smoke/SmokeR.xml</path>
 		<offsets>

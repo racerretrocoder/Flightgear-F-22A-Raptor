@@ -3,6 +3,11 @@
 <!-- F-22 avionics and lighting controls -->
 <PropertyList>
 
+
+
+<radar>
+<cursormode type="int">0</cursormode>
+</radar>
       <jitter type="float"> 0 </jitter>
 		<winch>
 			<place type="bool">false</place>
@@ -21,15 +26,29 @@
     <panel-norm></panel-norm>
 	</lighting>
 
+<apu>
+<apuflame type="int">0</apuflame>
+<smoke type="int">0</smoke>
+<spooldown type="int">0</spooldown>
+<start type="int">0</start>
+<flap type="int">0</flap>
+<run type="int">0</run>
+<smokespeed type="double">0</smokespeed>
+</apu>
+
+		<airsrc type="int">0</airsrc> 
 <electric>
+		<battswitchpos type="int">0</battswitchpos> <!--0 OFF 1 Backup 2 Main Power-->
+		<apustartpos type="int">-1</apustartpos> <!--0 OFF 1 Backup 2 Main Power-->
+		<apustart type="int">-1</apustart> <!--0 OFF 1 Backup 2 Main Power-->
 		<battswitch type="int">0</battswitch> <!--0 OFF 1 Backup 2 Main Power-->
     <EPUswitch type="int">0</EPUswitch> <!--0 OFF 1 Active-->
-    <controls type="int">0</controls> 
-     <MFD type="int">0</MFD>
-<computer type="int">0</computer>
-     <SMS type="int">0</SMS> 
-     <CMS type="int">0</CMS> 
-    <AESA type="int">0</AESA>  
+    <controls type="int">1</controls> 
+     <MFD type="int">1</MFD>
+<computer type="int">1</computer>
+     <SMS type="int">1</SMS> 
+     <CMS type="int">1</CMS> 
+    <AESA type="int">1</AESA>  
 
 <engine>
     <start-r type="int">0</start-r>  

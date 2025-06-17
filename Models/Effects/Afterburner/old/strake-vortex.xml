@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.ac</path>
+ <nopreview/>
+
+ <effect>
+  <inherits-from>Aircraft/F-22/Models/Effects/vapour/strake-vortex</inherits-from>
+  <object-name>Bounding_box2</object-name>
+ </effect>
+
+ <animation>
+  <type>scale</type>
+  <object-name>Bounding_box2</object-name>
+  <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
+  <x-min>1.0</x-min>
+  <y-min>0.4</y-min>
+  <z-min>0.4</z-min>
+  <x-factor>0.035</x-factor>
+  <y-factor>0.04</y-factor>
+  <z-factor>0.035</z-factor>
+ </animation>
+
+ <animation>
+  <type>rotate</type> 
+  <object-name>Bounding_box2</object-name>
+  <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
+  <offset-deg>-25</offset-deg>
+  <factor>-0.2</factor>
+  <center>
+   <x-m>0.</x-m>
+   <y-m>0</y-m>
+   <z-m>0.</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>
