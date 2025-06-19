@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+ <model>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/engpage.ac</path>
+			<offsets>
+				<x-m>0</x-m>
+					<y-m>0</y-m>
+				<z-m>0</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+
+	 <animation>
+  <type>material</type>
+  <object-name>1n1</object-name>
+    <object-name>1n2</object-name>
+  <object-name>2n1</object-name>
+  <object-name>2n2</object-name>
+    <object-name>Engine1</object-name>
+  <object-name>Engine2</object-name>
+    <object-name>aoa</object-name>
+      <object-name>mode</object-name>
+          
+  <ambient>
+    <red>0.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.3</red>
+    <green>0.8</green>
+    <blue>0.3</blue>
+  </emission> 
+ </animation>
+
+
+	 <text>
+  <name>mode</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.001</y-m>
+   <z-m>0.057</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">N1</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+	 <text>
+  <name>mode</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.001</y-m>
+   <z-m>0.024</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">N2</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+	 <text>
+  <name>mode</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.001</y-m>
+   <z-m>-0.015</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Oil</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+	 <text>
+  <name>mode</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.046</y-m>
+   <z-m>0.024</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>/engines/engine/n2</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>mode</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.015</y-m>
+   <z-m>0.024</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>/engines/engine[1]/n2</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+	 <text>
+  <name>mode</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.047</y-m>
+   <z-m>0.059</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>/engines/engine/n1</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>mode</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.013</y-m>
+   <z-m>0.059</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>/engines/engine[1]/n1</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ <animation>
+  <type>rotate</type>
+  <object-name>e1n1</object-name>
+  <property>/engines/engine[0]/n1</property>
+  <factor>2.56</factor> <!-- The rotation in degrees... kinda -->
+  <axis>
+  <object-name>e1n1-axis</object-name>
+  </axis>
+ </animation>
+ <animation>
+  <type>rotate</type>
+  <object-name>e2n1</object-name>
+  <property>/engines/engine[1]/n1</property>
+  <factor>2.56</factor> <!-- The rotation in degrees... kinda -->
+  <axis>
+  <object-name>e2n1-axis</object-name>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>e1n2</object-name>
+  <property>/engines/engine[0]/n2</property>
+  <factor>2.56</factor> <!-- The rotation in degrees... kinda -->
+  <axis>
+  <object-name>e1n2-axis</object-name>
+  </axis>
+ </animation>
+ <animation>
+  <type>rotate</type>
+  <object-name>e2n2</object-name>
+  <property>/engines/engine[1]/n2</property>
+  <factor>2.56</factor> <!-- The rotation in degrees... kinda -->
+  <axis>
+  <object-name>e2n2-axis</object-name>
+  </axis>
+ </animation>
+
+
+
+ <animation>
+  <type>rotate</type>
+  <object-name>e1oil</object-name>
+  <property>/engines/engine[0]/oil-pressure-psi</property>
+  <factor>2.56</factor> <!-- The rotation in degrees... kinda -->
+  <axis>
+  <object-name>e1oil-axis</object-name>
+  </axis>
+ </animation>
+ <animation>
+  <type>rotate</type>
+  <object-name>e2oil</object-name>
+  <property>/engines/engine[1]/oil-pressure-psi</property>
+  <factor>2.56</factor> <!-- The rotation in degrees... kinda -->
+  <axis>
+  <object-name>e2oil-axis</object-name>
+  </axis>
+ </animation>
+
+</PropertyList>

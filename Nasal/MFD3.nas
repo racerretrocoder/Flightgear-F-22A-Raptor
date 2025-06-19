@@ -45,8 +45,11 @@ var pg = getprop("systems/MFD/modemfdr");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdr",2);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
@@ -77,8 +80,11 @@ var pg = getprop("systems/MFD/modemfdr");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdr",1);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
@@ -98,8 +104,12 @@ var pg = getprop("systems/MFD/modemfdr");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+# 6 FUEL
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdr",6);
+}
+elsif (pg == 2) {
     print(pg);
     # DeRRease Radar Range
     var rng = getprop("instrumentation/radar/range");
@@ -203,8 +213,11 @@ var pg = getprop("systems/MFD/modemfdr");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdr",7);
+}
+elsif (pg == 2) {
 
 
     print(pg);
@@ -334,7 +347,11 @@ var pg = getprop("systems/MFD/modemfdr");
 # 4 FLT
 # 5 RWR
 
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdr",5);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   

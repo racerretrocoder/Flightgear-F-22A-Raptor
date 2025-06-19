@@ -44,7 +44,7 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 
 
 
- <path>enav.ac</path>
+ <path>enavcenter.ac</path>
  
 	<model>
      <name>SMSpage</name>
@@ -77,6 +77,15 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 	</model>
 
 	<model>
+     <name>ENGpage</name>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/ENGpage.xml</path>
+			<offsets>
+   <x-m>0.008</x-m>
+      <z-m>0.01</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+	<model>
      <name>FLTpage</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/FLTpage.xml</path>
 			<offsets>
@@ -97,18 +106,19 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 	</model>
 
 
- <!--
+ 
  <animation>
 	 <type>select</type>
-	 <object-name>Menu</object-name>
+	 <object-name>icon21</object-name>
+	 	 <object-name>rect</object-name>
 	 <condition>   
 		 <equals>
-			 <property>instrumentation/enav[0]/selected</property>
-			 <value>4</value>
+			 <property>systems/MFD/modemfdc</property>
+			 <value>0</value>
 		 </equals>
 	 </condition>
  </animation>
--->
+
 
  <animation>
 	 <type>select</type>
@@ -153,7 +163,16 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 		 </equals>
 	 </condition>
  </animation>
-
+ <animation>
+	 <type>select</type>
+	 <object-name>ENGpage</object-name>
+	 <condition>   
+		 <equals>
+			 <property>systems/MFD/modemfdc</property>
+			 <value>7</value>
+		 </equals>
+	 </condition>
+ </animation>
  <animation>
 	 <type>select</type>
 	 <object-name>FLTpage</object-name>

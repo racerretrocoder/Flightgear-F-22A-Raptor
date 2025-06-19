@@ -170,6 +170,8 @@ var MISSILE = {
         m.max_detect_rng    = getprop("controls/armament/missile/max-detection-rng-nm");
         m.max_seeker_dev    = getprop("controls/armament/missile/track-max-deg") / 2;
         m.force_lbs         = getprop("controls/armament/missile/thrust-lbs");
+        m.pitbullrngm         = getprop("controls/armament/missile/pbrange");
+        m.pitbull = 0;
         m.force_lbs_stage2    = getprop("controls/armament/missile/thrust-lbs-stage-2");
         m.thrust_duration   = getprop("controls/armament/missile/thrust-duration-sec");
         m.thrust_duration_stage2 = getprop("controls/armament/missile/thrust-duration-sec-stage2");
@@ -188,6 +190,7 @@ var MISSILE = {
         m.cruisealt         = getprop("controls/armament/missile/cruise_alt");
         m.flareres          = getprop("controls/armament/missile/flareres");
         m.isbomb            = getprop("controls/armament/missile/isbomb");
+        m.messagesent = 0;
         m.drop_time             = 0;    
         m.deploy_time           = 0;  
         m.last_coord        = nil;
@@ -620,7 +623,22 @@ print("Unique ID: ");
         var altM = alt*FT2M;
         msg.Position.set_latlon(lat,lon,altM);
         if (me.isradarmissile != 0){
+        if (me.pitbullrngm != 0) {
+                if (me.pitbull == 1){
+            #screen.log.write("ALERT!");
+            if (me.messagesent == 0){
+                screen.log.write("" ~ me.NameOfMissile ~ ": Pitbull");
+                me.messagesent = 1;
+            }
+            msg.Flags = 1;#ready
+
+                } else {
+            msg.Flags = 0;#not ready         
+                }
+        } else {
             msg.Flags = 1;#bit # Radar is there
+        }
+
         } else {
             msg.Flags = 0;#bit # Radar isnt' there
         }
@@ -643,12 +661,33 @@ print("Unique ID: ");
         notifications.geoBridgedTransmitter.NotifyAll(msg); # send
                 if (debugsysmessages == 1) {
         print("Missile alert sent successfully");
-    }
-
-    
+        }
     }
 },
 
+
+broddamage: func (cs,dist,msl) {
+    if(msl == "Aim-120"){msl="Aim-120";typeID = 52;}
+    if(msl == "Aim-7"){msl="Aim-7";typeID = 55;}
+    if(msl == "Aim-9x"){msl="Aim-9x";typeID = 98;}
+    if(msl == "GBU-39"){msl="GBU-39";typeID = 18;}  # Missile definitions   
+    if(msl == "JDAM"){msl="JDAM";typeID = 35;}  
+    if(msl == "JDAM"){msl="JDAM";typeID = 6;}  
+    if(msl == "Aim-9m"){msl="Aim-9m";typeID = 69;}  
+    if(msl == "AGM-84"){msl="AGM-84";typeID = 1;}  
+    if(msl == "AGM-154"){msl="AGM-154";typeID = 4;}       
+    if(msl == "AGM-88"){msl="AGM-88";typeID = 2;}    
+    if(msl == "AGM-65"){msl="AGM-65";typeID = 58;}
+    if(msl == "TB-01"){msl="TB-01";typeID = 35;}
+    if(msl == "eject"){msl="eject";typeID = 93;}
+    var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
+    msg.RelativeAltitude = 0;
+    msg.Bearing = 90;
+    msg.Distance = dist;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
+    msg.RemoteCallsign = cs;
+    notifications.hitBridgedTransmitter.NotifyAll(msg);
+    damage.damageLog.push(sprintf("You hit "~cs~" with "~msl~" at %.1f meters", dist));
+},
 
 
 #setprop("controls/armament/pos/lat",me.coord.lat());
@@ -821,7 +860,7 @@ if(me.life_time > me.thrust_duration_stage2)
                         setprop("payload/armament/flares", 0);
                                         me.animate_explosion();
                     settimer(func(){ me.del(); }, 1);
-                    setprop("sim/messages/atc", "missile self distructed");
+                    setprop("sim/messages/atc", "Missile self distructed. (too low speed)");
                     return;
             }
         }
@@ -907,7 +946,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
 
         if (debugflight == 1) {
 -                print("MSL Still Tracking Target : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
-    }
+                }
 
 
 
@@ -966,7 +1005,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                 # the explosion animation.
                 settimer(func{me.del();}, 4);
                         if (debugmessages == 1) {
--                print("booom he ded like a brick (missile hit target successfully!)");
+                print("booom he ded like a brick (missile hit target successfully!)");
                     }
 
                     setprop("payload/armament/flares", 0);
@@ -1236,11 +1275,10 @@ print("target ran");
                     {
                         Daground = me.nextGroundElevation; #in meters
                     }
-                    if(t_dist_m > 500)
+                    if(t_dist_m > 5000)
                     {
                         # it's 1 or 2 seconds for this kinds of missiles...
                         var t_alt_delta_m = (me.cruisealt + Daground - me.alt) * FT2M;
-                        #print("var t_alt_delta_m : "~t_alt_delta_m);
                         if(me.cruisealt + Daground > me.alt)
                         {
                             # 200 is for a very short reaction to terrain
@@ -1334,11 +1372,52 @@ print("target ran");
             me.init_tgt_e = 0; #last_tgt_e;
             me.init_tgt_h = 0; #last_tgt_h;
             #}
-            
+                       if (me.pitbullrngm != 0) {
+
+                print("can pitbull");
+                # can pitbull
+                if (1 == 1) {
+   
+
+
+                    if (t_dist_m > 30000) { # 16nm
+                        # Cruise
+                        e_gain = 0.007;
+                        h_gain = 0.007;                    #    screen.log.write("> 30000!");
+                    } elsif (t_dist_m > 20000) { # 10nm
+                                # Cruise
+                            e_gain = 0.08;
+                            h_gain = 0.08;
+                        }  elsif (t_dist_m > 10000) { # 10nm
+                            e_gain = 0.35;
+                            h_gain = 0.35;
+                            me.pitbull = 1;
+                            #missilealert();
+                        }  elsif (t_dist_m > 9000) { # 10nm
+                            e_gain = 0.7;
+                            h_gain = 0.7;
+                            #missilealert();
+                        }  elsif (t_dist_m > 7000) { # 10nm
+                            e_gain = (me.update_track_time-me.StartTime - 1) / 4;
+                            h_gain = (me.update_track_time-me.StartTime - 1) / 4;
+                            #missilealert();
+                        }
+
+                        if (me.pitbull == 1) {
+                            e_gain = 1;
+                            h_gain = 1;
+                        }
+
+                    }
+                }
             if(me.update_track_time - me.StartTime < 3)
             {
-                e_gain = (me.update_track_time-me.StartTime - 1) / 3;
-                h_gain = (me.update_track_time-me.StartTime - 1) / 3;
+                 if (me.pitbullrngm == 0) {
+                  #  screen.log.write("pitbull is appearntly off");
+                e_gain = (me.update_track_time-me.StartTime - 1) / 4;
+                h_gain = (me.update_track_time-me.StartTime - 1) / 4;
+                 }
+               
                 #e_gain = 0;
                 #h_gain = 0;
 
@@ -1348,9 +1427,12 @@ print("target ran");
                 e_gain = 0;
                 h_gain = 0;
             }
+            #screen.log.write(e_gain);
             print((me.update_track_time-me.StartTime-1)/2);
             # compute target deviation variation then seeker move to keep
             # this deviation constant.
+            # Main Guidance Coeff:
+            
             me.track_signal_e = (me.curr_tgt_e - me.init_tgt_e) * e_gain;
             me.track_signal_h = (me.curr_tgt_h - me.init_tgt_h) * h_gain;
             

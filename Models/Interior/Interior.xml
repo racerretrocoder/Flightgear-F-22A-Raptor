@@ -87,6 +87,21 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
                                     <object-name>RFLT</object-name>
                                        <object-name>CFLT</object-name>
                                           <object-name>LFLT</object-name>
+                                          <object-name>LC1</object-name>
+                                          <object-name>LC2</object-name>
+                                          <object-name>LC3</object-name>
+                                          <object-name>LC4</object-name>
+                                          <object-name>LC5</object-name>
+                                          <object-name>RC1</object-name>
+                                          <object-name>RC2</object-name>
+                                          <object-name>RC3</object-name>
+                                          <object-name>RC4</object-name>
+                                          <object-name>RC5</object-name>
+
+
+
+
+
                                     <object-name>RRWR</object-name>
                                        <object-name>CRWR</object-name>
                                           <object-name>LRWR</object-name>
@@ -283,6 +298,16 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
   </condition>
  </animation>
 
+<animation>
+ <object-name>gearlgt</object-name>
+  <type>select</type>
+  <condition>
+      <equals>
+				<property>gear/gear/position-norm</property> <!--MFD switch-->
+				<value>1</value>
+			</equals>
+  </condition>
+ </animation>
 
 
 
@@ -892,37 +917,6 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
     </animation>
 
 
-
-
-
- <animation>
-  <type>pick</type>
-   <object-name>apustart</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-<command>property-cycle</command>
-     <property>/controls/electric/apustart</property>
-	   <value>0</value>
-	   <value>1</value>
-	   <value>-1</value>
-     </binding>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/click</property>
-      </binding>
-	<binding>
-	   <command>property-cycle</command>
-	   <property>controls/electric/apustartpos</property>
-	   <value>0</value>
-	   <value>1</value>
-	   <value>-1</value>
-	</binding>
-   </action>
- </animation>
-
 <animation>
 	<type>rotate</type>
 	<object-name>apustart</object-name>
@@ -937,36 +931,57 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 
 
 
- <animation>
- <!--Elec panel-->
-  <type>pick</type>
-   <object-name>BATSWITCH</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-<command>property-cycle</command>
+
+<animation>
+        <type>knob</type>
+    <object-name>BATSWITCH</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
                 <property>/controls/electric/battswitch</property>
+                <value>0</value>
+                <value>1</value>
+                <value>2</value>             
+                <wrap>false</wrap>
+            </binding>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/electric/battswitch-pos</property>
+                <value>-1</value>
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
 
-<value>0</value> <!--Off-->
-<value>1</value> <!--Backup-->
-<value>2</value> <!--Main Power-->
-
-    </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>batt</tooltip-id>
+                <label>Battery Switch</label>
+            </binding>
+        </hovered>
+  <increase>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/click</property>
+        <property>sim/model/clicksmall</property>
       </binding>
-	<binding>
-	   <command>property-cycle</command>
-	   <property>controls/electric/battswitch-pos</property>
-	   <value>-1</value>
-	   <value>1</value>
-	   <value>0</value>
-	</binding>
-   </action>
- </animation>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
 
 <animation>
 	<type>rotate</type>
@@ -1203,14 +1218,9 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 <!--TODO: Animation for the Elec panel
 
  Battery switch done! Perfection :D
-EPU switch
-TODO: Make a saftey cover
+EPU switch (not needed)
+TODO: Make a saftey cover ()
 Pushing the switch turns it on
-
-
-
-
-
 
 
 New: Refuel in air switch. 
@@ -1223,25 +1233,45 @@ New: Refuel in air switch.
 
 
 <animation>
-  <type>pick</type>
-   <object-name>REFUELSWITCH</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-               <command>property-cycle</command>
-               <property>controls/refuel/Switch</property>
-               <value>0</value>
-               <value>1</value>
-               <wrap>true</wrap>
-    </binding>
-          <binding>
+        <type>knob</type>
+    <object-name>REFUELSWITCH</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/refuel/Switch</property>
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>airtoair</tooltip-id>
+                <label>Air to Air Refuel Switch</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
         <command>property-toggle</command>
-        <property>sim/model/click</property>
+        <property>sim/model/clicksmall</property>
       </binding>
-       </action>
- </animation>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
 
 <animation>
 		<type>rotate</type>
@@ -1258,13 +1288,10 @@ New: Refuel in air switch.
 		</axis>
 	</animation>
 
-
-
  <animation>
   <object-name>refuelswitchlight</object-name>
   <type>select</type>
   <condition>
-
 <greater-than>
 				<property>controls/refuel/Switch</property>
 				<value>0.001</value>
@@ -1436,50 +1463,120 @@ New: Refuel in air switch.
  </animation>
 
 
+<animation>
+        <type>knob</type>
+    <object-name>MSTARM</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
 
- <animation> <!--Not needed yet-->
-  <type>pick</type>
-   <object-name>MSTARM</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-<command>property-toggle</command>
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
                 <property>/controls/armament/master-arm</property>
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>mstarm</tooltip-id>
+                <label>Master Arm</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+    <binding>
+        <command>nasal</command>
+        <script>if(getprop("controls/armament/master-arm") == 1){screen.log.write("Master Arm Enabled. Weapons ACTIVE");}</script>
     </binding>
-    <mod-up>
-     <binding>
-     </binding>
-    </mod-up>
-   </action>
- </animation>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+    <binding>
+        <command>nasal</command>
+        <script>if(getprop("controls/armament/master-arm") == 0){screen.log.write("Master Arm Disabled. Weapons Safe");}</script>
+    </binding>
+        </decrease> 
+    </animation>
+
+
+
+
+<animation>
+        <type>rotate</type>
+        <object-name>MSTARM</object-name>
+        <property>controls/armament/master-arm</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+        <object-name>MSTARM-axis</object-name>
+        </axis>
+</animation>
+
+
 
 <!-- ENGSTART -->
 
- <animation>
-  <type>pick</type>
-   <object-name>jfsStartR</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-<command>property-toggle</command>
-                <property>/controls/electric/engine/start-r</property>
 
-    </binding>
+<animation>
+        <type>knob</type>
+    <object-name>jfsStartL</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/electric/engine/start-r</property>
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>startr</tooltip-id>
+                <label>Engine 1 Starter (Left)</label>
+            </binding>
+        </hovered>
+  <increase>
       <binding>
         <command>property-toggle</command>
         <property>sim/model/clickJFS</property>
       </binding>
-   </action>
- </animation>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clickJFS</property>
+      </binding>
+
+        </decrease> 
+    </animation>
+
+
+
+
 
 <animation>
         <type>rotate</type>
         <object-name>jfsStartR</object-name>
-        <property>/controls/electric/engine/start-r</property>
+        <property>/controls/electric/engine/start-l</property>
         <offset-deg>0</offset-deg>
         <factor>-40</factor>
         <axis>
@@ -1495,31 +1592,46 @@ New: Refuel in air switch.
     </animation>
 
 <animation>
-  <type>pick</type>
-   <object-name>jfsStartL</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-<command>property-toggle</command>
-                <property>/controls/electric/engine/start-l</property>
-    </binding>
-          <binding>
+        <type>knob</type>
+    <object-name>jfsStartR</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/electric/engine/start-l</property> <!--inverted silly me xd-->
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>startl</tooltip-id>
+                <label>Engine 1 Starter (Left)</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
         <command>property-toggle</command>
-        <property>sim/model/clickJFSL</property>
+        <property>sim/model/clickJFS</property>
       </binding>
-    <mod-up>
-     <binding>
-     </binding>
-    </mod-up>
-   </action>
- </animation>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clickJFS</property>
+      </binding>
+        </decrease> 
+    </animation>
 
 <animation>
         <type>rotate</type>
         <object-name>jfsStartL</object-name>
-        <property>/controls/electric/engine/start-l</property>
+        <property>/controls/electric/engine/start-r</property>
         <offset-deg>0</offset-deg>
         <factor>-40</factor>
         <axis>
@@ -1534,29 +1646,51 @@ New: Refuel in air switch.
         </center>
     </animation>
 
-<animation>
-  <type>pick</type>
-   <object-name>cutoffR</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-<command>property-toggle</command>
-                <property>/controls/engines/engine[1]/cutoff</property>
-    </binding>
-    <binding>
-<command>property-toggle</command>
-                <property>/sim/model/click</property>
-    </binding>
 
-   </action>
- </animation>
+<animation>
+        <type>knob</type>
+    <object-name>cutoffR</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/engines/engine[0]/cutoff</property> <!--inverted silly me xd-->
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>cutoff1</tooltip-id>
+                <label>Engine 1 Fuel Cutoff (Left)</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+
  
 <animation>
         <type>rotate</type>
         <object-name>cutoffR</object-name>
-        <property>controls/engines/engine[1]/cutoff</property>
+        <property>controls/engines/engine[0]/cutoff</property>
         <offset-deg>0</offset-deg>
         <factor>-40</factor>
         <axis>
@@ -1572,28 +1706,47 @@ New: Refuel in air switch.
     </animation>
 
 <animation>
-  <type>pick</type>
-   <object-name>cutoffL</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-<command>property-toggle</command>
-                <property>/controls/engines/engine/cutoff</property>
-    </binding>
-    <binding>
-<command>property-toggle</command>
-                <property>/sim/model/click</property>
-    </binding>
- 
-   </action>
- </animation>
+        <type>knob</type>
+    <object-name>cutoffL</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/engines/engine[1]/cutoff</property> <!--inverted silly me xd-->
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>cutoff1</tooltip-id>
+                <label>Engine 2 Fuel Cutoff (Right)</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+    </animation>
+
 
 <animation>
         <type>rotate</type>
         <object-name>cutoffL</object-name>
-        <property>controls/engines/engine/cutoff</property>
+        <property>controls/engines/engine[1]/cutoff</property>
         <offset-deg>0</offset-deg>
         <factor>-40</factor>
         <axis>
@@ -1607,6 +1760,113 @@ New: Refuel in air switch.
             <z-m> -0.248351 </z-m>
         </center>
     </animation>
+
+
+
+<!--Manual switches-->
+
+
+<animation>
+        <type>knob</type>
+    <object-name>lbd</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/bdl</property> <!--inverted silly me xd-->
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>cutoff1</tooltip-id>
+                <label>Left Bay Manual / Auto</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+<animation>
+        <type>rotate</type>
+        <object-name>lbd</object-name>
+        <property>controls/bdl</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+        <object-name>lbd-axis</object-name>
+        </axis>
+
+    </animation>
+
+<animation>
+        <type>knob</type>
+    <object-name>rbd</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/bdr</property> <!--inverted silly me xd-->
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>cutoff1</tooltip-id>
+                <label>Right bay Manual / Auto</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+<animation>
+        <type>rotate</type>
+        <object-name>rbd</object-name>
+        <property>controls/bdr</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+        <object-name>lbd-axis</object-name>
+        </axis>
+
+    </animation>
+
+
 
     <animation>
     <object-name>FBWLIGHT</object-name>
@@ -2149,8 +2409,8 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdll</property>
-               <value>0</value>
-               <value>4</value>
+               <value>7</value>
+               <value>7</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>
@@ -2266,12 +2526,10 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <repeatable>false</repeatable>
     <interval-sec>0.2</interval-sec>
 
+
     <binding>
-               <command>property-cycle</command>
-               <property>systems/MFD/modemfdc</property>
-               <value>0</value>
-               <value>2</value>
-               <wrap>true</wrap>
+        <command>nasal</command>
+        <script>MFD2.mode();</script>
     </binding>
 	   <binding>
 		   <command>property-assign</command>
@@ -2302,7 +2560,7 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <command>property-cycle</command>
                <property>systems/MFD/modemfdl</property>
                <value>0</value>
-               <value>2</value>
+               <value>0</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>
@@ -2333,7 +2591,7 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <command>property-cycle</command>
                <property>systems/MFD/modemfdr</property>
                <value>0</value>
-               <value>2</value>
+               <value>0</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>
@@ -2414,7 +2672,7 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
                <command>property-cycle</command>
                <property>systems/MFD/modemfdc</property>
                <value>0</value>
-               <value>3</value>
+               <value>0</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>
@@ -2497,8 +2755,8 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdc</property>
-               <value>0</value>
-               <value>5</value>
+               <value>8</value>
+               <value>8</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>
@@ -2669,8 +2927,8 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdl</property>
-               <value>0</value>
-               <value>5</value>
+               <value>6</value>
+               <value>6</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>
@@ -2800,8 +3058,8 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdr</property>
-               <value>0</value>
-               <value>4</value>
+               <value>7</value>
+               <value>7</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>
@@ -2842,8 +3100,8 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdr</property>
-               <value>0</value>
-               <value>5</value>
+               <value>6</value>
+               <value>6</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>

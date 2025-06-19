@@ -45,8 +45,11 @@ var pg = getprop("systems/MFD/modemfdl");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdl",2);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
@@ -77,8 +80,11 @@ var pg = getprop("systems/MFD/modemfdl");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdl",1);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
@@ -91,15 +97,22 @@ if (pg == 2) {
 }
 
 }
+
+
 var LL4 = func{
+
+
 var pg = getprop("systems/MFD/modemfdl");
 # 2 FCR
 # 1 SMS
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdl",6);
+}
+elsif (pg == 2) {
     print(pg);
     # DeLRease Radar Range
     var rng = getprop("instrumentation/radar/range");
@@ -203,8 +216,11 @@ var pg = getprop("systems/MFD/modemfdl");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdl",7);
+}
+elsif (pg == 2) {
 
 
     print(pg);
@@ -333,8 +349,11 @@ var pg = getprop("systems/MFD/modemfdl");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdl",5);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
@@ -371,8 +390,11 @@ var pg = getprop("systems/MFD/modemfdl");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdl",3);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
@@ -400,8 +422,11 @@ var pg = getprop("systems/MFD/modemfdl");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdl",4);
+}
+elsif (pg == 2) {
     print(pg);
     # Change grid mode.
     var grid = getprop("instrumentation/radar/grid");

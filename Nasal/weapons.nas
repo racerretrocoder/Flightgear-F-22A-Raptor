@@ -18,15 +18,21 @@ fire_MG = func() {  # b would be in the ()
     
     if(getprop("/controls/armament/stick-selector") == 1)
     {
+        if (getprop("controls/armament/master-arm") == 1) {
         isFiring = 1;
+        
         setprop("/controls/armament/gun-trigger", 1);
+        } else {
+            screen.log.write("Master arm is not armed");
+        }
+
         #settimer(stopFiring, 0.1);
     }
     if(getprop("/controls/armament/stick-selector") == 2)
     {
      #   if(b == 1)
      #   {
-            
+            if (getprop("controls/armament/master-arm") == 1) {
             # var time = getprop("/sim/time/elapsed-sec");
             if(time - dt > 1) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
             {
@@ -43,7 +49,9 @@ fire_MG = func() {  # b would be in the ()
 
 
             }
-      #  }
+        } else {
+            screen.log.write("Master arm is not armed");
+        }
     }
 }
 

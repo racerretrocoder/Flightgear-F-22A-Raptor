@@ -5,7 +5,8 @@
 
 # used to the animation of the canopy switch and the canopy move
 # toggle keystroke or 2 position switch
-
+setprop("controls/bdl",1);
+setprop("controls/bdr",1);
 var cnpy = aircraft.door.new("canopy", 10);
 var switch = getprop("canopy/enabled", 1);
 var pos = props.globals.getNode("canopy/position-norm", 1);
@@ -543,7 +544,7 @@ var updatemkr = func() {
       } else {
       var range = 0; # mm yes lol
       setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/display",0);
-      return 0;
+      #   return 0;
       }
   }
 }
@@ -655,12 +656,10 @@ var radarlook = func(cs=nil) {
       print(mpid);
       if (getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/h-offset") == nil) {
         print("thats nil!");
-        return 0; # Dont Check
       }
       var callsign = getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign");
       if (getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign") == nil or getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign") == "") {
         print("callsign nil!");
-        return 0; # Dont Check
       }
       if (getprop("instrumentation/radar/lock") == 1){
         print("radar already locked bruh");
@@ -715,7 +714,7 @@ var radarlook = func(cs=nil) {
                       #screen.log.write("Radar: Checking... "~radar.tgts_list[Target_Index].Callsign.getValue(),1,1,0);
                     } else {
                       screen.log.write("Radar: ACM Locked "~radar.tgts_list[Target_Index].Callsign.getValue(),1,1,0);
-                      break;
+                      #break;
                     }
                   }
         }
@@ -784,20 +783,20 @@ var cursor = func {
   # Check status of x and z (x and y)
   if (getprop("controls/radar/cursor-x") == 1) {
     # increas it
-    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") + 0.001);
+    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") + 0.003);
   }
   if (getprop("controls/radar/cursor-x") == -1) {
     # increas it
-    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") - 0.001);
+    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") - 0.003);
   }
 
   if (getprop("controls/radar/cursor-z") == 1) {
     # increas it
-    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") + 0.001);
+    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") - 0.003);
   }
   if (getprop("controls/radar/cursor-z") == -1) {
     # increas it
-    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") - 0.001);
+    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") + 0.003);
   }
 
 

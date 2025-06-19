@@ -1211,8 +1211,34 @@ The Force that pushes the aircraft for increased manuverability should be lowere
      </traverse>
      <output>fcs/speedbrake-pos-norm</output>
    </kinematic>
-
-
+   <kinematic name="aim120speed">
+     <input>/controls/bdr</input>
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>      0 </time>
+       </setting>
+       <setting>
+          <position>  1 </position>
+          <time>      4 </time>
+       </setting>
+     </traverse>
+     <output>fcs/bdr</output>
+   </kinematic>
+   <kinematic name="aim9speed">
+     <input>/controls/bdl</input>
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>      0 </time>
+       </setting>
+       <setting>
+          <position>  1 </position>
+          <time>      4 </time>
+       </setting>
+     </traverse>
+     <output>fcs/bdl</output>
+   </kinematic>
   </channel>
     <function name="fcs/engine-gen">
       <description>the power unit to everything</description>
@@ -1598,6 +1624,31 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
  
 
+
+<function name="fcs/aim9control">  <!-- TODO! Disable Flight control input when this function is zero! -Done! Add EPU support -Done! -->
+ <description>elecaa</description>
+        <table>
+            <independentVar lookup="row">/controls/baydoors/AIM9X</independentVar>
+            <independentVar lookup="column">fcs/bdl</independentVar> <!--Only for Flight controls EPU connect to this function-->
+            <tableData>
+                     0    1
+              0      0    0
+              1      0    1
+            </tableData>
+        </table>
+   </function>
+<function name="fcs/aim120control">  <!-- TODO! Disable Flight control input when this function is zero! -Done! Add EPU support -Done! -->
+ <description>eleca</description>
+        <table>
+            <independentVar lookup="row">/controls/baydoors/AIM120</independentVar>
+            <independentVar lookup="column">fcs/bdr</independentVar> <!--Only for Flight controls EPU connect to this function-->
+            <tableData>
+                     0    1
+              0      1    0
+              1      1    1
+            </tableData>
+        </table>
+   </function>
 <channel name="Vectors">
 
    <aerosurface_scale name="Vector Radian Engine1">
@@ -1834,7 +1885,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
    <kinematic name="Baydoors">
-     <input>/controls/baydoors/AIM9X</input>
+     <input>fcs/aim9control</input>
      <traverse>
        <setting>
           <position>  0 </position>
@@ -1849,7 +1900,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </kinematic>
 
    <kinematic name="Baydoors 2">
-     <input>/controls/baydoors/AIM120</input>
+     <input>fcs/aim120control</input>
      <traverse>
        <setting>
           <position>  0 </position>

@@ -201,7 +201,7 @@
     
 
     <trigger type="bool">false</trigger>
-    <master-arm type="bool">true</master-arm>
+    <master-arm type="bool">false</master-arm>
     <!-- ' 0=OFF, 1=GUN, 2=A/A, 3=A/G -->
     <stick-selector type="int">2</stick-selector>
     <position-norm type="int">1</position-norm>

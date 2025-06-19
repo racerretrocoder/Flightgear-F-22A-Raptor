@@ -72,7 +72,7 @@
   <type>rotate</type>
   <object-name>ADI</object-name>
   <property>orientation/roll-deg</property>
-  <factor>1</factor>
+  <factor>-1</factor>
 
   <axis>
   <object-name>adi-axis</object-name>
