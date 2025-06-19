@@ -1418,32 +1418,65 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
         </config>
       </view>
 
-		        <view n="101">
 
-            <name>Ai Model Viewer</name>
-            <type>lookat</type>
-            <enabled>true</enabled>
-			<config>
-          <default-field-of-view-deg>300</default-field-of-view-deg>
-            <heading-offset-deg>180</heading-offset-deg>
-            <pitch-offset-deg>10</pitch-offset-deg>
-		      <eye-lat-deg-path>/controls/armament/missile/pos2/a1</eye-lat-deg-path>
-      <eye-lon-deg-path>/controls/armament/missile/pos2/a2</eye-lon-deg-path>
-      <eye-alt-ft-path>/controls/armament/missile/pos2/a3</eye-alt-ft-path>
-      <eye-heading-deg-path>/controls/armament/missile/pos2/a4</eye-heading-deg-path>
+		<view n="101">
+	   <name>Thrust Vector Camera (Warning can be hot)</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">-1.2849686</x-offset-m>
+          <y-offset-m archive="y">0.28261718</y-offset-m>
+          <z-offset-m archive="y">5.223632812</z-offset-m>
+          <pitch-offset-deg>-9.492</pitch-offset-deg>
+		  <heading-offset-deg>175.302714</heading-offset-deg>
+          <default-field-of-view-deg>120</default-field-of-view-deg>
+        </config>
+      </view>
 
-      <target-lat-deg-path>/controls/armament/missile/pos2/a5</target-lat-deg-path>
-      <target-lon-deg-path>/controls/armament/missile/pos2/a6</target-lon-deg-path>
-      <target-alt-ft-path>/controls/armament/missile/pos2/a7</target-alt-ft-path>
+		<view n="102">
+	   <name>Left Wingtip Camera</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">-6.3366387</x-offset-m>
+          <y-offset-m archive="y">-0.8121093825</y-offset-m>
+          <z-offset-m archive="y">3.983398437</z-offset-m>
+          <pitch-offset-deg>1.47675</pitch-offset-deg>
+		  <heading-offset-deg>357.7453027</heading-offset-deg>
+          <default-field-of-view-deg>116</default-field-of-view-deg>
+        </config>
+      </view>
 
-      <target-heading-deg-path>/controls/armament/missile/pos2/a8</target-heading-deg-path>
-      <target-pitch-deg-path>/controls/armament/missile/pos2/a9</target-pitch-deg-path>
-      <target-roll-deg-path>/controls/armament/missile/pos2/a10</target-roll-deg-path>
-	  </config>
-        </view>
-
-
-
+		<view n="103">
+	   <name>Left Aim-9 Bay</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">-2.3653443</x-offset-m>
+          <y-offset-m archive="y">-0.997656257</y-offset-m>
+          <z-offset-m archive="y">-0.072265</z-offset-m>
+          <pitch-offset-deg>-2.2341875</pitch-offset-deg>
+		  <heading-offset-deg>2.847599</heading-offset-deg>
+          <default-field-of-view-deg>116</default-field-of-view-deg>
+        </config>
+      </view>
+		<view n="104">
+	   <name>Center bay</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">-2.3653443</x-offset-m>
+          <y-offset-m archive="y">-0.997656257</y-offset-m>
+          <z-offset-m archive="y">-0.072265</z-offset-m>
+          <pitch-offset-deg>-2.2341875</pitch-offset-deg>
+		  <heading-offset-deg>2.847599</heading-offset-deg>
+          <default-field-of-view-deg>116</default-field-of-view-deg>
+        </config>
+      </view>
 		
 		<view n="1">
 			<config>

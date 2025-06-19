@@ -44,6 +44,7 @@ var Loading_missile = func(name)
     var chute         = 1;
     var flareres      = 0;          # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
     var isbomb        = 0; # if this weapon is a bomb
+    var pbrange       = 0; # in meters
     
     
     if(name == "Aim-120")
@@ -53,11 +54,11 @@ var Loading_missile = func(name)
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        flareres = 0.87; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
+        flareres = 0.9900; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
         maxdetectionrngnm = 38.8;                    #  
-        fovdeg = 140;                                #
-        detectionfovdeg = 138;                       # TODO implent data link system so we can control these variables while missile is in flight
-        trackmaxdeg = 140;                           # 
+        fovdeg = 360;                                #
+        detectionfovdeg = 360;                       # TODO implent data link system so we can control these variables while missile is in flight
+        trackmaxdeg = 360;                           # 
         maxg = 30;                                   # wikipedia
         thrustlbs = 2700;                             # 1,500 to 2,500 pounds of thrust maybe
         thrustlbsstage2 = 280;
@@ -67,7 +68,7 @@ var Loading_missile = func(name)
         weightwarheadlbs = 44;
         dragcoeff = 0.17;                              # really slow lowerd it a bit
         dragarea = 0.0236;                            # sq ft
-        maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
+        maxExplosionRange = 20;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
         maxspeed = 2.8;                              # In mach ( source is a guess )
         life = 110; # 
         sdspeed = 0.65;                         # Test Self Destruct Speed. in mach
@@ -76,12 +77,13 @@ var Loading_missile = func(name)
         cruisealt = 0;
         chute = 0;
         isbomb = 0;
+        pbrange = 10000;
     }
     elsif(name == "Aim-9x")
     {
         # AIM-9X:short-range A2A,IR seeker,
-	typeid = 98;
-        flareres = 0.800; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
+	    typeid = 98;
+        flareres = 0.990; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
@@ -98,7 +100,7 @@ var Loading_missile = func(name)
         weightwarheadlbs = 20.8;
         dragcoeff = 0.08;                              # guess; original 0.05
         dragarea = 0.013;                             # sq ft
-        maxExplosionRange = 65;                       
+        maxExplosionRange = 15;                       
         maxspeed = 2.6;                               # In Mach
         life = 80;
         fox = "Fox 2";
@@ -112,7 +114,7 @@ var Loading_missile = func(name)
     {
         # AIM-9m :short-range A2A,IR seeker,
         flareres = 0.85; 
-	typeid = 69; # This is not a Aim-9m this is an Aim-9x with way less homing capabilites. So you can evade it with out the need for flares. just pull a manuver so that its 30deg away from the seeker and there you go   
+	    typeid = 69; # This is not a Aim-9m this is an Aim-9x with way less homing capabilites. So you can evade it with out the need for flares. just pull a manuver so that its 30deg away from the seeker and there you go   
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9M-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9M.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
@@ -375,11 +377,12 @@ var Loading_missile = func(name)
     setprop("controls/armament/missile/type-id", typeid);
     setprop("controls/armament/missile/flareres", flareres);
     setprop("controls/armament/missile/isbomb", isbomb);
+    setprop("controls/armament/missile/pbrange", pbrange);
     return 1;
 }
 
 
-
+    setprop("controls/armament/missile/pbrange", 0);
 
 
 

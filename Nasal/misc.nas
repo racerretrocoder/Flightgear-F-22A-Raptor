@@ -317,3 +317,30 @@ var searchsize = func() {
   return total;
 }
 
+
+var calcdamage = func(lat,lon,mslname="none"){
+       # screen.log.write("testing distance");
+        print("Calcing");
+        var aimplist = searchsize();
+        var impactbomb = geo.Coord.new();
+        impactbomb.set_latlon(lat,lon,0);
+        var lat2 = 0;
+        var lon2 = 0;
+        var playercoord = geo.Coord.new();
+        for(var i = 0; i < aimplist; i += 1) {
+                print(i);
+                lat2 = getprop("ai/models/multiplayer[" ~ i ~ "]/position/latitude-deg");
+                lon2 = getprop("ai/models/multiplayer[" ~ i ~ "]/position/longitude-deg");
+                if (lat2 == nil) {
+                    #screen.log.write("nil");
+                    return;
+                }
+                playercoord.set_latlon(lat2,lon2,0);
+               # screen.log.write(printf("%i",  impactbomb.distance_to(playercoord)));
+                if (impactbomb.distance_to(playercoord) < 51) {
+                    var callsign = getprop("ai/models/multiplayer[" ~ i ~ "]/callsign");
+                    var distance = impactbomb.distance_to(playercoord);
+                    missile.MISSILE.broddamage(callsign,distance,mslname);
+                }
+        }
+}

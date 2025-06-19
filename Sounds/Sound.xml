@@ -3654,18 +3654,43 @@ need a better idea for this-->
    <path>Aircraft/F-22/Sounds/sys/switchsmall.wav</path>
    <condition>
    <and>
-
-
     	    <equals>
 		    <property>sim/model/clicksmall</property>
 		    <value>1</value>
 		</equals>
-    
 <property>/sim/current-view/internal</property>
-
      </and>
    </condition>
+  </switchclick>
 
+  <switchclick>
+   <name>switch click small2</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sys/switchsmall.wav</path>
+   <condition>
+   <and>
+    	    <equals>
+		    <property>sim/model/clicksmall</property>
+		    <value>1</value>
+		</equals>
+<property>/sim/current-view/internal</property>
+     </and>
+   </condition>
+  </switchclick>
+
+  <switchclick>
+   <name>switch click small3</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/sys/switchsmall.wav</path>
+   <condition>
+   <and>
+    	    <equals>
+		    <property>sim/model/clicksmall</property>
+		    <value>1</value>
+		</equals>
+<property>/sim/current-view/internal</property>
+     </and>
+   </condition>
   </switchclick>
 
     <click>
@@ -3678,7 +3703,26 @@ need a better idea for this-->
         <factor>1.0</factor>
       </volume>
     </click>
-
+    <click>
+      <name>Clickoffsmall2</name>
+      <path>Aircraft/F-22/Sounds/sys/switchsmall.wav</path>
+      <condition>
+        <not><property>sim/model/clicksmall</property></not>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
+        <click>
+      <name>Clickoffsmall3</name>
+      <path>Aircraft/F-22/Sounds/sys/switchsmall.wav</path>
+      <condition>
+        <not><property>sim/model/clicksmall</property></not>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
 
     <click>
       <name>wheelspin</name>

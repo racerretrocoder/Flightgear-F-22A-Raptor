@@ -45,8 +45,11 @@ var pg = getprop("systems/MFD/modemfdc");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdc",2);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
@@ -77,8 +80,11 @@ var pg = getprop("systems/MFD/modemfdc");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdc",1);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
@@ -98,8 +104,11 @@ var pg = getprop("systems/MFD/modemfdc");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdc",6);
+}
+elsif (pg == 2) {
     print(pg);
     # Decrease Radar Range
     var rng = getprop("instrumentation/radar/range");
@@ -203,8 +212,11 @@ var pg = getprop("systems/MFD/modemfdc");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdc",7);
+}
+elsif (pg == 2) {
 
 
     print(pg);
@@ -335,7 +347,11 @@ var pg = getprop("systems/MFD/modemfdc");
 # 4 FLT
 # 5 RWR
 
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdc",5);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
@@ -345,7 +361,7 @@ if (pg == 2) {
     print("Attempting to save coords to a slot");
     if (getprop("instrumentation/frontcontrols/digit1") == 0) {
         print("Not ready!");
-        screen.log.write("Enter a number on the keypad to select a slot to save coord data too then press this button to write to that slot");
+        screen.log.write("Enter a number on the keypad to select a slot to save coord data to. then press this button to write to that slot");
         return;
     }
     print("read it");
@@ -372,8 +388,11 @@ var pg = getprop("systems/MFD/modemfdc");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdc",3);
+}
+elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
@@ -399,8 +418,11 @@ var pg = getprop("systems/MFD/modemfdc");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
-if (pg == 2) {
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdc",4);
+}
+elsif (pg == 2) {
     print(pg);
     # Change grid mode.
     var grid = getprop("instrumentation/radar/grid");
