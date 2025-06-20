@@ -268,7 +268,26 @@
 			</binding>
 		</item>
 
-
+  <!--                  <item>
+                      <label>Jammer: Enable</label>
+                      <name>enemies</name>
+		    <binding>
+			<command>nasal</command>
+       			<script>
+				jammer.start();
+       			</script>
+		    </binding>
+                    </item>
+                    <item>
+                      <label>Jammer: Disable</label>
+                      <name>enemies</name>
+		    <binding>
+			<command>nasal</command>
+       			<script>
+				jammer.stop();
+       			</script>
+		    </binding>
+                    </item>-->
 
 				</menu>
 			</default>
@@ -2733,7 +2752,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 <!--Front Radio Controls-->
 
-
+<!--
+<jammer>
+<file>Aircraft/F-22/Nasal/jammer.nas</file>
+</jammer>-->
 		<fc>
 			<file>Aircraft/F-22/Nasal/RAD.nas</file>
 		</fc>
