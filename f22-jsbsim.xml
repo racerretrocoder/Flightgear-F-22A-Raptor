@@ -83,12 +83,12 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <vtailarea unit="FT2">  151.20 </vtailarea>
    <vtailarm  unit="FT" >   24.80 </vtailarm>
    <location name="AERORP" unit="IN">
-     <x> 446.40 </x>
+     <x> 90.40 </x>
      <y>   0.00 </y>
      <z>   0.00 </z>
    </location>
    <location name="EYEPOINT" unit="IN">
-     <x> 148.80 </x>
+     <x> 45.80 </x>
      <y>   0.00 </y>
      <z>  38.00 </z>
    </location>
@@ -100,24 +100,17 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  </metrics>
 
   <mass_balance>
-   <ixx unit="SLUG*FT2">     58447 </ixx>
-   <iyy unit="SLUG*FT2">    155252 </iyy>
-   <izz unit="SLUG*FT2">    166847 </izz>
-   <emptywt unit="LBS" >     35000 </emptywt>
+   <ixx unit="SLUG*FT2">     25762 </ixx>
+   <iyy unit="SLUG*FT2">     91916 </iyy>
+   <izz unit="SLUG*FT2">     85344 </izz>
+   <emptywt unit="LBS" >     35156 </emptywt>
    <location name="CG" unit="IN">
-     <x> 446.40 </x>
+
+     <x> 90.52 </x>
      <y>   0.00 </y>
-     <z> -18.60 </z>
+     <z> -15.36 </z>
    </location>
-   <pointmass name="Payload">
-    <description> 2580 LBS + full (12420 LBS) fuel should bring model up to entered max weight</description>
-    <weight unit="LBS">   0 </weight>
-    <location name="POINTMASS" unit="IN">
-      <x> 446.40 </x>
-      <y>   0.00 </y>
-      <z> -18.60 </z>
-    </location>
-  </pointmass> 
+
 
    <pointmass name="pylon8">
     <description>left side bay payload</description>
@@ -238,7 +231,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  <ground_reactions>
   <contact type="BOGEY" name="NOSE">
    <location unit="IN">
-     <x>  -464 </x>
+     <x>  -280 </x>
      <y>   0.00 </y>
      <z> -110.60 </z>
    </location>
@@ -252,11 +245,27 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <retractable>1</retractable>
   </contact>
 
+   <contact type="BOGEY" name="NOSE">
+   <location unit="IN">
+     <x>  -79.56 </x>
+     <y>   0.00 </y>
+     <z> -110.44 </z>
+   </location>
+   <static_friction>  0.80 </static_friction>
+   <dynamic_friction> 0.50 </dynamic_friction>
+   <rolling_friction> 0.02 </rolling_friction>
+   <spring_coeff unit="LBS/FT">      21031.80 </spring_coeff>
+   <damping_coeff unit="LBS/FT/SEC"> 10515.90 </damping_coeff>
+   <max_steer unit="DEG"> 45.00 </max_steer>
+   <brake_group>NONE</brake_group>
+   <retractable>1</retractable>
+  </contact>
+
   <contact type="BOGEY" name="LEFT_MAIN">
    <location unit="IN">
-     <x> 464.52 </x>
-     <y> -43.20 </y>
-     <z> -110.60 </z>
+     <x> 281.89 </x>
+     <y> -50.80 </y>
+     <z> -110.44 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -270,9 +279,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <contact type="BOGEY" name="RIGHT_MAIN">
    <location unit="IN">
-     <x> 469.52 </x>
-     <y>  43.20 </y>
-     <z> -110.60 </z>
+     <x> 281.89 </x>
+     <y>  50.80 </y>
+     <z> -110.44 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -352,9 +361,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    <engine file="F119-PW-100">
     <location unit="IN">
-      <x>  36.00 </x>
-      <y> 20.00 </y>
-      <z>   0.00 </z>
+      <x> 320.20 </x>
+      <y>   20.00 </y>
+      <z>   -15.36 </z>
     </location>
     <orient unit="DEG">
       <pitch> 0.00 </pitch>
@@ -366,9 +375,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <thruster file="direct">
      <sense> 1 </sense>
      <location unit="IN">
-       <x>  36.00 </x>
-       <y> 20.00 </y>
-       <z>   0.00 </z>
+      <x> 240.20 </x>
+      <y>   20.00 </y>
+      <z>   -15.36 </z>
      </location>
      <orient unit="DEG">
        <pitch> 0.00 </pitch>
@@ -380,9 +389,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    <engine file="F119-PW-100">
       <location unit="IN">
-         <x> 684.00 </x>
-      <y>  -20.00 </y>
-      <z>   0.00 </z>
+      <x> 320.20 </x>
+      <y>   -20.00 </y>
+      <z>   -15.36 </z>
     </location>
     <orient unit="DEG">
       <pitch> 0.00 </pitch>
@@ -393,9 +402,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         <feed>2</feed>
     <thruster file="direct">
      <location unit="IN">
-       <x> 684.00 </x>
-       <y>  -20.00 </y>
-       <z>   0.00 </z>
+      <x> 240.20 </x>
+      <y>   -20.00 </y>
+      <z>   -15.36 </z>
      </location>
      <orient unit="DEG">
        <pitch> 0.00 </pitch>
@@ -408,7 +417,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    <tank type="FUEL" number="0">
      <location unit="IN">
-       <x> 426.1  </x>
+       <x> 0.1  </x>
        <y> -24.92 </y>
        <z>   0    </z>
      </location>
@@ -419,7 +428,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <tank type="FUEL" number="1">
      <location unit="IN">
-       <x> 426.1  </x>
+       <x> 0.1  </x>
        <y>  24.92 </y>
        <z>   0    </z>
      </location>
@@ -431,7 +440,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <tank type="FUEL" number="2">
  
      <location unit="IN">
-       <x> 426.1  </x>
+       <x> 0.1  </x>
        <y>  24.92 </y>
        <z>   0    </z>
      </location>
@@ -442,7 +451,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <tank type="FUEL" number="3">
      <location unit="IN">
-       <x> 426.1  </x>
+       <x> 0.1  </x>
        <y>  -24.92 </y>
        <z>   0    </z>
      </location>
@@ -578,9 +587,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         <table>
             <independentVar lookup="row">fcs/tv-animation</independentVar>
             <tableData>
-          -1    -1.3853
+          -1    1.3853
            0    0
-           1    1.3853
+           1    -1.3853
             </tableData>
           </table>
 </product>
