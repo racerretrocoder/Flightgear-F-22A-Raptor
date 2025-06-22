@@ -385,12 +385,12 @@ Theres soo many
 <string n="17" type="string" alias="/sim/weight[7]/selected"/>
 <string n="18" type="string" alias="/sim/weight[8]/selected"/>
 <string n="19" type="string" alias="/sim/weight[9]/selected"/>
-
+<!--
 <string n="20" type="string" alias="/sim/weight[11]/selected"/>
 <string n="21" type="string" alias="/sim/weight[12]/selected"/>
 <string n="22" type="string" alias="/sim/weight[13]/selected"/>
 <string n="23" type="string" alias="/sim/weight[14]/selected"/>
-<!--
+over loaded??
 20  11
 21  12
 22  13

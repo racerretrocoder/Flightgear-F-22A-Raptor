@@ -38,7 +38,6 @@
     K:             0.12
 
 
-
 Extra Notes:
 
 The vectors are controlled only when the gear is up
@@ -103,10 +102,10 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <ixx unit="SLUG*FT2">     25762 </ixx>
    <iyy unit="SLUG*FT2">     91916 </iyy>
    <izz unit="SLUG*FT2">     85344 </izz>
-   <emptywt unit="LBS" >     35156 </emptywt>
+   <emptywt unit="LBS" >     34000 </emptywt>
    <location name="CG" unit="IN">
 
-     <x> 90.52 </x>
+     <x> 110.52 </x>
      <y>   0.00 </y>
      <z> -15.36 </z>
    </location>
