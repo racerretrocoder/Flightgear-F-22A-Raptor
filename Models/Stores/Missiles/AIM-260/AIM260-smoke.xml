@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!-- R-27R                                      -->
+<!-- Sergey "Mercenary_Mercury" Salov, Dec 2012 -->
+
+<PropertyList>
+
+ <path>AIM-260.ac</path>
+
+<effect>
+ <inherits-from>Effects/model-transparent</inherits-from>
+<object-name>FlameModel</object-name>
+</effect>
+<!--Y is Left to right
+X is In and Out 
+Z is Up and down-->
+
+ <model>
+  <name>AIM-260smoke</name>
+  <path>Aircraft/F-22/Models/smoke/smoke2.xml</path>
+  <offsets>
+   <x-m>8</x-m>
+   <y-m>0.0  </y-m>
+   <z-m>0.0  </z-m>
+  </offsets>
+ </model>
+
+
+
+</PropertyList>

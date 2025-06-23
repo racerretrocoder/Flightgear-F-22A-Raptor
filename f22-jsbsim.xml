@@ -462,7 +462,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
 
-
+ <system file="Systems/cat.xml"/>
+ <system file="Systems/holdback.xml"/>
  <flight_control name="FCS: F-22">
 
 
@@ -2019,6 +2020,37 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </kinematic>
            </channel>
 
+
+
+        <property>systems/NWS/engaged</property>
+
+        <channel name="Nose Wheel Steering">
+            <switch name="systems/NWS/engaged">
+                <default value="0"/>
+                <test value="1">
+                    gear/unit[0]/wheel-speed-fps le 140
+                    systems/holdback/launchbar-engaged eq 0
+                </test>
+                <output>systems/NWS/engaged</output>
+            </switch>
+
+            <scheduled_gain name="fcs/scheduled-steer-pos-deg">
+                <input>fcs/steer-cmd-norm</input>
+                <table>
+                    <independentVar lookup="row">gear/unit[0]/wheel-speed-fps</independentVar>
+                    <independentVar lookup="column">systems/NWS/engaged</independentVar>
+                    <tableData>
+                            0   1
+                        0   0   90
+                        70  0   30
+                        140 0   0
+                    </tableData>
+                </table>
+                <output>fcs/steer-pos-deg</output>
+            </scheduled_gain>
+        </channel>
+
+
  </flight_control>
 
  <aerodynamics>
@@ -2440,6 +2472,32 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <z>0.0</z>
   </direction>
  </force>
+
+  <force name="catapult" frame="BODY">
+   <location unit="IN">
+    <x> 0 </x>
+    <y> 0 </y>
+    <z> 0 </z>
+   </location>
+   <direction>
+    <x> 1 </x>
+    <y> 0 </y>
+    <z> 0 </z>
+   </direction>
+  </force>
+  <force name="holdback" frame="BODY">
+   <location unit="IN">
+    <x> 0 </x>
+    <y> 0 </y>
+    <z> 0 </z>
+   </location>
+   <direction>
+    <x> -1 </x>
+    <y> 0 </y>
+    <z> 0 </z>
+   </direction>
+  </force>
+
 
  </external_reactions>
 

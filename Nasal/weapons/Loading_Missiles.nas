@@ -46,6 +46,9 @@ var Loading_missile = func(name)
     var isbomb        = 0; # if this weapon is a bomb
     var pbrange       = 0; # in meters
     
+
+
+
     
     if(name == "Aim-120")
     {
@@ -77,8 +80,42 @@ var Loading_missile = func(name)
         cruisealt = 0;
         chute = 0;
         isbomb = 0;
-        pbrange = 10000;
+        pbrange = 10000; # added on 
     }
+
+    elsif(name == "Aim-260")
+    {
+        # AIM-120 :Advanced Medium Range Missile,      
+	    typeid = 52;
+        address = "Aircraft/F-22/Models/Stores/Missiles/AIM-260/AIM260-smoke.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-260/AIM260.xml";
+        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
+        flareres = 0.999; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
+        maxdetectionrngnm = 3008.8;                    #  300000000000000
+        fovdeg = 360;                                #
+        detectionfovdeg = 360;                       # TODO implent data link system so we can control these variables while missile is in flight
+        trackmaxdeg = 360;                           # 
+        maxg = 60;                                   # wikipedia
+        thrustlbs = 3900;                             # 1,500 to 2,500 pounds of thrust maybe
+        thrustlbsstage2 = 680;
+        thrustdurationsec = 400;
+        thrustdurationsecstage2 = 280;                      # 
+        weightlaunchlbs = 421; # weightlaunch + fuel
+        weightwarheadlbs = 44;
+        dragcoeff = 0.005;                              # really slow lowerd it a bit
+        dragarea = 0.0236;                            # sq ft
+        maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
+        maxspeed = 6;                              # In mach ( source is a guess )
+        life = 1100; # 
+        sdspeed = 0.65;                         # Test Self Destruct Speed. in mach
+        fox = "Fox 3";
+        rail = "false";
+        cruisealt = getprop("/position/altitude-ft");
+        chute = 0;
+        isbomb = 0;
+        pbrange = 2500000;
+    }
+
     elsif(name == "Aim-9x")
     {
         # AIM-9X:short-range A2A,IR seeker,

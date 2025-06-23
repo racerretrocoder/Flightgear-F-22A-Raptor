@@ -602,7 +602,7 @@ print("Unique ID: ");
  print(unique);
     }
     if(tid == 0) { # where not given a typeID
- 
+                        if(me.NameOfMissile == "Aim-260"){me.NameOfMissile="Aim-260";typeID = 53;me.isradarmissile = 1;}
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;me.isradarmissile = 1;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;me.isradarmissile = 1;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;me.isradarmissile = 0;}
@@ -667,6 +667,7 @@ print("Unique ID: ");
 
 
 broddamage: func (cs,dist,msl) {
+    if(msl == "Aim-260"){msl="Aim-120";typeID = 53;}
     if(msl == "Aim-120"){msl="Aim-120";typeID = 52;}
     if(msl == "Aim-7"){msl="Aim-7";typeID = 55;}
     if(msl == "Aim-9x"){msl="Aim-9x";typeID = 98;}
@@ -1012,6 +1013,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                     # Delete the missile over damage
                     #sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
                     var typeID = 0;
+                        if(me.NameOfMissile == "Aim-260"){me.NameOfMissile="Aim-260";typeID = 53;}
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
@@ -1380,24 +1382,24 @@ print("target ran");
    
 
 
-                    if (t_dist_m > 30000) { # 16nm
+                    if (t_dist_m > me.pitbullrngm + 30000) { # 16nm
                         # Cruise
-                        e_gain = 0.007;
-                        h_gain = 0.007;                    #    screen.log.write("> 30000!");
-                    } elsif (t_dist_m > 20000) { # 10nm
+                        e_gain = 0.01;
+                        h_gain = 0.01;                    #    screen.log.write("> 30000!");
+                    } elsif (t_dist_m > me.pitbullrngm + 20000) { # 10nm
                                 # Cruise
-                            e_gain = 0.08;
-                            h_gain = 0.08;
-                        }  elsif (t_dist_m > 10000) { # 10nm
+                            e_gain = 0.1;
+                            h_gain = 0.1;
+                        }  elsif (t_dist_m > me.pitbullrngm + 10000) { # 10nm
                             e_gain = 0.35;
                             h_gain = 0.35;
                             me.pitbull = 1;
                             #missilealert();
-                        }  elsif (t_dist_m > 9000) { # 10nm
-                            e_gain = 0.7;
-                            h_gain = 0.7;
+                        }  elsif (t_dist_m > me.pitbullrngm + 5000) { # 10nm
+                            e_gain = 0.9;
+                            h_gain = 0.9;
                             #missilealert();
-                        }  elsif (t_dist_m > 7000) { # 10nm
+                        }  elsif (t_dist_m > me.pitbullrngm) { # 10nm
                             e_gain = (me.update_track_time-me.StartTime - 1) / 4;
                             h_gain = (me.update_track_time-me.StartTime - 1) / 4;
                             #missilealert();
@@ -1591,6 +1593,7 @@ var semiactive = 0;
                         #var typeID = 0;
     			var typeID = getprop("controls/armament/missile/typeid");
                 # missile defs
+                        if(me.NameOfMissile == "Aim-260"){me.NameOfMissile="Aim-260";typeID = 53;}
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
@@ -1624,6 +1627,9 @@ var semiactive = 0;
                                                             if (me.NameOfMissile == "Aim-120"){
                                                                 missilename = "AIM-120";
                                                             }
+                                                            if (me.NameOfMissile == "Aim-260"){
+                                                                missilename = "AIM-54";
+                                                            }
             setprop("sim/multiplay/chat", sprintf(""~missilename~" exploded: %.1f meters from: "~me.Tgt.get_Callsign()~":.....", 0.3));
         }
                     
@@ -1638,6 +1644,9 @@ var semiactive = 0;
                                                             }
                                                             if (me.NameOfMissile == "Aim-120"){
                                                                 missilename = "AIM-120";
+                                                            }
+                                                            if (me.NameOfMissile == "Aim-260"){
+                                                                missilename = "AIM-54";
                                                             }
             setprop("sim/multiplay/chat", sprintf(""~missilename~" exploded: %.1f meters from: "~me.Tgt.get_Callsign()~":.....", 0.3));
         }
