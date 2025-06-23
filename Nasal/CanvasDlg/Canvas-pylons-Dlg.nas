@@ -235,6 +235,25 @@ btn_P6_R27R.listen("clicked", func {
 		});
 P6Ctls.addItem(btn_P6_R27R);
 
+
+
+
+var btn_P6_R27RA = canvas.gui.widgets.Button.new(root, canvas.style, {})
+        .setText("Aim-260")
+        #.move(300, 300)
+        .setFixedSize(90, 25);
+
+btn_P6_R27RA.listen("clicked", func {
+        # add code here to react on click on button.
+		print("P6: Aim-120");
+		setprop("sim/weight[5]/selected","Aim-260");
+		setprop("/controls/armament/station[5]/release","false");
+
+		pylons_update();
+		});
+P6Ctls.addItem(btn_P6_R27RA);
+
+
 # click button P6:R-27T
 var btn_P6_R27T = canvas.gui.widgets.Button.new(root, canvas.style, {})
         .setText("debug XMAA")
@@ -317,6 +336,24 @@ btn_P4_R27R.listen("clicked", func {
 		pylons_update();
 		});
 P4Ctls.addItem(btn_P4_R27R);
+
+
+
+var btn_P4_R27RA = canvas.gui.widgets.Button.new(root, canvas.style, {})
+        .setText("Aim-260")
+        #.move(300, 300)
+        .setFixedSize(90, 25);
+
+btn_P4_R27RA.listen("clicked", func {
+        # add code here to react on click on button.
+		print("P4: Aim-260");
+		setprop("sim/weight[3]/selected","Aim-260");
+		setprop("/controls/armament/station[3]/release","false");
+
+		pylons_update();
+		});
+P4Ctls.addItem(btn_P4_R27RA);
+
 
 # click button P4:GBU39
 var btn_P4_R27T = canvas.gui.widgets.Button.new(root, canvas.style, {})
@@ -407,6 +444,24 @@ btn_P10_R27R.listen("clicked", func {
 		});
 P10Ctls.addItem(btn_P10_R27R);
 
+
+
+var btn_P10_R27RA = canvas.gui.widgets.Button.new(root, canvas.style, {})
+        .setText("Aim-260")
+        #.move(300, 300)
+        .setFixedSize(90, 25);
+
+btn_P10_R27RA.listen("clicked", func {
+        # add code here to react on click on button.
+		print("P10: Aim-260");
+		setprop("sim/weight[9]/selected","Aim-260");
+		setprop("/controls/armament/station[9]/release","false");
+
+		pylons_update();
+		});
+P10Ctls.addItem(btn_P10_R27RA);
+
+
 # click button P10:GBU-39
 var btn_P10_R27T = canvas.gui.widgets.Button.new(root, canvas.style, {})
         .setText("GBU-39")
@@ -489,6 +544,23 @@ btn_P2_R27R.listen("clicked", func {
 		pylons_update();
 		});
 P2Ctls.addItem(btn_P2_R27R);
+
+
+var btn_P2_R27RA = canvas.gui.widgets.Button.new(root, canvas.style, {})
+        .setText("Aim-260")
+        #.move(300, 300)
+        .setFixedSize(90, 25);
+
+btn_P2_R27RA.listen("clicked", func {
+        # add code here to react on click on button.
+		print("P2: Aim-260");
+		setprop("sim/weight/selected","Aim-260");
+		setprop("/controls/armament/station/release","false");
+
+		pylons_update();
+		});
+P2Ctls.addItem(btn_P2_R27RA);
+
 
 # click button P2:R-27T
 var btn_P2_R27T = canvas.gui.widgets.Button.new(root, canvas.style, {})
@@ -573,6 +645,28 @@ btn_P1_R27R.listen("clicked", func {
 		});
 P1Ctls.addItem(btn_P1_R27R);
 
+
+
+
+
+
+var btn_P1_R27RA = canvas.gui.widgets.Button.new(root, canvas.style, {})
+        .setText("Aim-260")
+        #.move(300, 300)
+        .setFixedSize(90, 25);
+
+btn_P1_R27RA.listen("clicked", func {
+        # add code here to react on click on button.
+		print("P1: Aim-260");
+		setprop("sim/weight[1]/selected","Aim-260");
+		setprop("/controls/armament/station[1]/release","false");
+
+		pylons_update();
+		});
+P1Ctls.addItem(btn_P1_R27RA);
+
+
+
 # click button P1:GBU-39
 var btn_P1_R27T = canvas.gui.widgets.Button.new(root, canvas.style, {})
         .setText("GBU-39")
@@ -655,6 +749,24 @@ btn_P9_R27R.listen("clicked", func {
 		pylons_update();
 		});
 P9Ctls.addItem(btn_P9_R27R);
+
+
+# click button P9:R-27R
+var btn_P9_R27RA = canvas.gui.widgets.Button.new(root, canvas.style, {})
+        .setText("Aim-260")
+        #.move(300, 300)
+        .setFixedSize(90, 25);
+
+btn_P9_R27RA.listen("clicked", func {
+        # add code here to react on click on button.
+		print("P9: Aim-260");
+		setprop("sim/weight[8]/selected","Aim-260");
+		setprop("/controls/armament/station[8]/release","false");
+
+		pylons_update();
+		});
+P9Ctls.addItem(btn_P9_R27RA);
+
 
 # click button P9:R-27T
 var btn_P9_R27T = canvas.gui.widgets.Button.new(root, canvas.style, {})

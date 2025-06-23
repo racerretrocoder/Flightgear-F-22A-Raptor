@@ -225,6 +225,29 @@
 </model>	
 
 
+<model>
+<name>left-belly1260</name>
+<path>Aircraft/F-22/Models/loads/260p6.xml</path>
+<offsets>
+    <x-m> -0.4  </x-m>
+    <y-m> -0.8 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+	
+<model>
+<name>left-bellym260</name>
+<path>Aircraft/F-22/Models/loads/260p4.xml</path>
+<offsets>
+    <x-m> -0.6  </x-m>
+    <y-m> -0.52 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>	
+
+
 
 <!--JDAM-->
 
@@ -274,6 +297,26 @@
 </model>
 
 
+<model>
+<name>left-bellyisaasdf</name>
+<path>Aircraft/F-22/Models/loads/260p10.xml</path>
+<offsets>
+    <x-m> -0.4  </x-m>
+    <y-m> -0.25 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>	
+<model>
+<name>right-belly1aasdf</name>
+<path>Aircraft/F-22/Models/loads/260p1.xml</path>
+<offsets>
+    <x-m> -0.4  </x-m>
+    <y-m> 0.25 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
 
 
 <!--GBU-->
@@ -395,6 +438,36 @@
 <pitch-deg>  </pitch-deg>
 </offsets>
 </model>
+
+
+
+
+
+
+<model>
+<name>right-bellym343</name>
+<path>Aircraft/F-22/Models/loads/260p2.xml</path>
+<offsets>
+    <x-m> -0.6  </x-m>
+    <y-m> 0.52</y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+
+<model>
+<name>risght-bellyasd3i</name>
+<path>Aircraft/F-22/Models/loads/260p9.xml</path>
+<offsets>
+    <x-m> -0.4  </x-m>
+    <y-m> 0.8 </y-m>
+    <z-m> -1.6 </z-m>
+<pitch-deg>  </pitch-deg>
+</offsets>
+</model>
+
+
 
 <model>
 <name>right-bellyie</name>

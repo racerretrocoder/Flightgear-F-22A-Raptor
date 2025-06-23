@@ -2140,12 +2140,13 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  <property>controls/armament/selected-weapon</property>
  <value>Aim-9x</value>
  <value>Aim-120</value>
-
+ <value>Aim-260</value>
 </binding>
   <binding>
  <command>property-cycle</command>
  <property>controls/armament/selected-weapon-digit</property>
  <value>1</value>
+ <value>2</value>
  <value>2</value>
 </binding>
   <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
@@ -2349,6 +2350,68 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
                 <wrap>true</wrap>
 	  </binding>
   </key>
+
+
+
+   <!-- map keys for catapult launch -->
+ <key n="67">
+   <name>C</name>
+   <desc>Catapult Launch Command.</desc>
+     <binding>
+     <command>property-assign</command>
+     <property>controls/gear/brake-parking</property>
+     <value type="double">0</value>
+   </binding> 
+   <binding>
+     <command>property-assign</command>
+     <property>fdm/jsbsim/systems/catapult/cat-launch-cmd</property>
+     <value type="double">1</value>
+   </binding>
+   <binding>
+     <command>property-assign</command>
+     <property>fdm/jsbsim/systems/holdback/holdback-cmd</property>
+     <value type="double">0</value>
+   </binding>
+
+
+   <mod-up>
+     <binding>
+       <command>property-assign</command>
+       <property>/controls/gear/catapult-launch-cmd</property>
+       <value type="bool">false</value>
+     </binding>
+   </mod-up>
+ </key>
+
+ <!-- map keys for launch-bar -->
+ <key n="76">
+   <name>L</name>
+   <desc>Launch-bar engage.</desc>
+   <binding>
+     <command>property-assign</command>
+     <property>controls/gear/brake-parking</property>
+     <value type="double">1</value>
+   </binding>
+   <binding>
+     <command>property-assign</command>
+     <property>fdm/jsbsim/systems/holdback/holdback-cmd</property>
+     <value type="double">1</value>
+   </binding>
+  <binding>
+ <command>nasal</command>
+ <script>screen.log.write("Catapult engaged. Bring throttle up, then press shift-c to launch");</script>
+</binding>
+
+   <mod-up>
+     <binding>
+       <command>property-assign</command>
+       <property>/controls/gear/launchbar</property>
+       <value type="bool">false</value>
+     </binding>
+   </mod-up>
+ </key>
+
+
 		 </keyboard>
 	 </input>
 
