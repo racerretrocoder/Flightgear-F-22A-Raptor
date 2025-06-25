@@ -463,7 +463,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
  <system file="Systems/cat.xml"/>
- <system file="Systems/holdback.xml"/>
+ <!--<system file="Systems/holdback.xml"/>-->
  <flight_control name="FCS: F-22">
 
 
@@ -2021,7 +2021,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            </channel>
 
 
-
+<!--
         <property>systems/NWS/engaged</property>
 
         <channel name="Nose Wheel Steering">
@@ -2048,7 +2048,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
                 </table>
                 <output>fcs/steer-pos-deg</output>
             </scheduled_gain>
-        </channel>
+        </channel>-->
 
 
  </flight_control>
