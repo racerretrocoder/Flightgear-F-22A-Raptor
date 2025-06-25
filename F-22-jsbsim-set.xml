@@ -416,6 +416,7 @@ over loaded??
 
 
 </generic>		
+<visibility-range-nm type="int">900</visibility-range-nm>
 	</multiplay>
 	        <help n="0" include="System/help.xml"/>
 <!--		<hud>

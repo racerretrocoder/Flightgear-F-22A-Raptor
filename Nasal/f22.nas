@@ -818,11 +818,27 @@ var mslhit = func{
   timer_hit.stop();
 }
 
-# Timers
+
+
+var updateradarcs = func {
+
+  var radarcs = 0;
+  if (radar.tgts_list[radar.Target_Index].Callsign.getValue() != nil){
+  setprop("controls/radar/lockedcallsign", radar.tgts_list[radar.Target_Index].Callsign.getValue());
+  } else{
+  setprop("controls/radar/lockedcallsign", "");
+  }
+}
+  setprop("controls/radar/lockedcallsign", "");
+
+      # Timers
 
                 # seconds , function
 timer_hit = maketimer(1.5, mslhit);
 #  timer_hit.start();
+
+radcheck = maketimer(0.5, updateradarcs);
+radcheck.start();
 
 locktgt_timer = maketimer(0.1, tgtlock);
 
