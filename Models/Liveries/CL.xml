@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+
+
+
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">249th EFS CL --Clash </name>     
+      <texture-AKfuselage>Liveries/CL/body.dds</texture-AKfuselage>
+ <texture-sides>Liveries/elevs.png</texture-sides>
+ <texture-sideL>Liveries/CL/SIDEL.DDS</texture-sideL>
+  <texture-sideR>Liveries/CL/SIDER.DDS</texture-sideR>
+ <texture-left-elev-top>Liveries/CL/leftelev.dds</texture-left-elev-top>
+ <texture-right-elev-top>Liveries/CL/rightelev.dds</texture-right-elev-top>
+      <texture-tailR>Liveries/CL/CL-TAIL-R.png</texture-tailR>
+      <texture-tailL>Liveries/CL/CL-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/CL/wing.dds</texture-wing>
+  <texture-wing-right>Liveries/CL/wingright.dds</texture-wing-right>
+ <texture-control>Liveries/wing.png</texture-control>
+  <texture-nose>Liveries/CL/attemptnose.dds</texture-nose>
+
+
+  <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
+
+
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>
