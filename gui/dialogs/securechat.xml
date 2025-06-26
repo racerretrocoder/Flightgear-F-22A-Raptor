@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<PropertyList>
+	<name>secure</name>
+	<modal>false</modal>
+	<layout>vbox</layout>
+	<draggable>true</draggable>
+	<resizable>true</resizable>
+
+	<group>
+		<layout>hbox</layout>
+		<empty><stretch>1</stretch></empty>
+
+		<text>
+			<label>KY58 Secure Voice Terminal</label>
+		</text>
+
+		<empty><stretch>1</stretch></empty>
+
+		<button>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend></legend>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</button>
+	</group>
+
+	<hrule/>
+
+	<nasal>
+		<open>
+			<![CDATA[
+				setprop("sim/gui/dialogs/flightlog/buffer", "Click Update to view Secure chat messages");
+			]]>
+		</open>
+		<close>
+			<![CDATA[
+				setprop("sim/gui/dialogs/flightlog/buffer", "");
+			]]>
+		</close>
+	</nasal>
+
+	<button>
+		<valign>top</valign>
+		<pref-width>80</pref-width>
+		<border>2</border>
+		<legend>Update</legend>
+		<binding>
+			<command>nasal</command>
+			<script><![CDATA[
+			var update = func {
+			if (KY58.getpower() == 0){
+			screen.log.write("KY58 is currently OFF. Please turn it on, And set the settings to match your copilots");
+		
+			return 0;
+			}
+				var str = "";
+				var buffer = KY58.chat.get_buffer();
+
+					foreach(entry; buffer) {
+						str = str~""~entry.time~" "~entry.message~"\n";
+					}
+
+				setprop("sim/gui/dialogs/ky58/buffer", str);
+			}
+			update();
+
+				]]></script>
+		</binding>
+	</button>
+
+	<text>
+		<halign>left</halign>
+		<label>KY58 Chat:</label>
+	</text>
+
+	<textbox>
+		<!-- Makes window content resizeable. -->
+		<halign>fill</halign>
+		<valign>fill</valign>
+		<stretch>true</stretch>
+
+			<!-- dimensions -->
+		<pref-width>300</pref-width>
+		<pref-height>100</pref-height>
+
+		<property>/sim/gui/dialogs/ky58/buffer</property>
+		<live>true</live>
+		<slider>15</slider> <!--width for slider -->
+		<wrap>false</wrap> <!-- don't wrap text; default: true -->
+		<top-line>0</top-line> <!-- line to show at top, -ve numbers show last line -->
+		<editable>false</editable> <!-- if the puLargeInput is supposed to be editable -->
+	</textbox>
+	<input>
+		<halign>fill</halign>
+		<valign>fill</valign>
+		<stretch>true</stretch>
+<pref-width>300</pref-width>
+	  	<height>25</height>
+	  	<label></label>
+	  	<property>controls/ky58/buffer</property>
+	  	<live>true</live>
+	  	<halign>left</halign>
+        <binding>
+            <command>dialog-apply</command>
+      	</binding>
+      	<color>
+      		<red>0.8</red>
+      		<green>0.8</green>
+      		<blue>0.8</blue>
+      	</color>
+	</input>
+	<button>
+		<valign>top</valign>
+		<pref-width>80</pref-width>
+		<border>2</border>
+<default>1</default>
+		<legend>Send Chat</legend>
+		<binding>
+			<command>nasal</command>
+			<script><![CDATA[
+					if (KY58.getpower() == 0){
+					screen.log.write("KY58 is currently OFF. Please turn it on, And set the settings to match your copilots");
+				
+					return 0;
+					}
+					var callsign = getprop("sim/multiplay/callsign");
+					KY58.chat.push("" ~ callsign ~ ": " ~ getprop("controls/ky58/buffer") ~ "");
+					setprop("sim/multiplay/generic/string[8]",getprop("controls/ky58/buffer"));
+					setprop("controls/ky58/buffer","");
+				]]></script>
+		</binding>
+	</button>
+</PropertyList>

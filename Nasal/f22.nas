@@ -136,6 +136,7 @@ offtimer = maketimer(16,apushutoff);
 
 setprop("controls/apu/startinprogress",0);
 var engloop = func{
+  setprop("sim/multiplay/visibility-range-nm",1000);
 var jfsr = getprop("controls/electric/engine/start-r");
 var jfsl = getprop("controls/electric/engine/start-l");
 var bat = getprop("controls/electric/battswitch");
@@ -379,18 +380,29 @@ settimer(func   {
 
 
 var checkforext = func {
+  # Check for external pylons and Mount them when armament is loaded
+  # Also check for fuel in the EXT tanks if there are no EXT tanks mounted. then remove and show a message
+  var leftdrop = getprop("controls/armament/ldt");
+  var rightdrop = getprop("controls/armament/rdt");
 	var pylon3 = getprop("sim/weight[2]/selected");
-  	var pylon5 = getprop("sim/weight[4]/selected");
-
-
-	if ( pylon3 == "Aim-120" or pylon3 == "Aim-9x" or pylon3 == "Aim-7" or pylon3 == "Aim-9m" or pylon5 == "Aim-120" or pylon5 == "Aim-9x" or pylon5 == "Aim-7" or pylon5 == "Aim-9m" ) {
+  var pylon5 = getprop("sim/weight[4]/selected");
+  var fuelleft = getprop("consumables/fuel/tank[2]/level-lbs");
+  var fuelright = getprop("consumables/fuel/tank[3]/level-lbs");
+	if ( pylon3 == "Aim-120" or pylon3 == "Aim-9x" or pylon3 == "Aim-7" or pylon3 == "Aim-9m" or pylon5 == "Aim-120" or pylon5 == "Aim-9x" or pylon5 == "Aim-7" or pylon5 == "Aim-9m" or rightdrop == 1 or leftdrop == 1) {
 		setprop("controls/armament/extpylons", 1);
 	} else {
 		setprop("controls/armament/extpylons", 0);
 
   }
 
-
+  # only allow fuel entering EXT Tanks if the left and right tanks are filled
+  if (leftdrop != 1 or rightdrop != 1) {
+    setprop("consumables/fuel/tank[2]/level-lbs",0);
+    setprop("consumables/fuel/tank[3]/level-lbs",0);
+    if (fuelright > 0 or fuelleft > 0) {
+      screen.log.write("Please add external fuel tanks in the pylons load dialog before adding external fuel");
+    }
+  }
 }
 
 
