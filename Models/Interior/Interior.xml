@@ -72,7 +72,7 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
 
 <animation>
     <type>material</type>
-
+   <object-name>ky58</object-name>
    <object-name>rect</object-name>
       <object-name>bt</object-name>
          <object-name>RFCR</object-name>
