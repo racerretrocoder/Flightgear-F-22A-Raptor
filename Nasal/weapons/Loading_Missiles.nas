@@ -282,7 +282,7 @@ var Loading_missile = func(name)
         rail = "false";
         cruisealt = 5000;
         chute = 0;
-        isbomb = 1;
+        isbomb = 0;
     }
     elsif(name == "XMAA") #Debug missile
     {

@@ -437,6 +437,239 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
         </action>
     </animation>
 
+
+
+<animation>
+        <type>knob</type>
+    <object-name>airsource</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>airsource-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/switches/airsource</property>
+                <value>0</value>
+                <value>1</value>
+                <value>2</value> 
+                <value>3</value>
+                <value>4</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>airsource</tooltip-id>
+                <label>Air Source Knob</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+<animation>
+	<type>rotate</type>
+	<object-name>airsource</object-name>
+	<property>controls/switches/airsource</property>
+	<factor>60</factor>
+	<axis>
+	<object-name>airsource-axis</object-name>
+	</axis>
+
+</animation> 
+
+
+
+
+
+<animation>
+        <type>knob</type>
+    <object-name>ky58mode</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>airsource-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/ky58/mode</property>
+                <value>0</value>
+                <value>1</value>
+                <value>2</value> 
+                <value>3</value>           
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ky58mode</tooltip-id>
+                <label>KY-58 Mode</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+<animation>
+	<type>rotate</type>
+	<object-name>ky58mode</object-name>
+	<property>controls/ky58/mode</property>
+	<factor>40</factor>
+	<axis>
+	<object-name>ky58mode-axis</object-name>
+	</axis>
+
+</animation> 
+
+
+
+
+<animation>
+        <type>knob</type>
+    <object-name>ky58type</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>airsource-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/ky58/type</property>
+                <value>0</value>
+                <value>1</value>
+                <value>2</value> 
+                <value>3</value>           
+                <value>4</value>
+                <value>5</value>
+                <value>6</value> 
+                <value>7</value>    
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ky58type</tooltip-id>
+                <label>KY-58 Type</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+<animation>
+	<type>rotate</type>
+	<object-name>ky58type</object-name>
+	<property>controls/ky58/type</property>
+	<factor>38</factor>
+	<axis>
+	<object-name>ky58type-axis</object-name>
+	</axis>
+
+</animation> 
+
+
+
+
+
+<animation>
+        <type>knob</type>
+    <object-name>ky58main</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>airsource-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/ky58/main</property>
+                <value>0</value>
+                <value>1</value>
+                <value>2</value> 
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ky58main</tooltip-id>
+                <label>KY-58 Main (Power)</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+<animation>
+	<type>rotate</type>
+	<object-name>ky58main</object-name>
+	<property>controls/ky58/main</property>
+	<factor>38</factor>
+	<axis>
+	<object-name>ky58main-axis</object-name>
+	</axis>
+
+</animation> 
+
+
+
+
+
 <!--
 
 <animation>
@@ -2036,7 +2269,7 @@ New: Refuel in air switch.
     </animation>
 
 
-<!--Tail Flood Switch (The panel LT swtch)-->
+<!--Tail Flood Switch (The panel LT swtch)
 
 <animation>
   <type>pick</type>
@@ -2055,7 +2288,44 @@ New: Refuel in air switch.
                 <property>/sim/model/clicksmall</property>
     </binding>
        </action>
- </animation>
+ </animation>-->
+
+
+
+
+      <animation>
+        <type>knob</type>
+        <object-name>PNLLT</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+        <object-name>airsource-axis</object-name>
+        </axis>
+        <action>
+          <binding>
+          <command>property-toggle</command>
+          <property>controls/lighting/logo-lights</property>
+          </binding>
+        </action>
+        <hovered>
+         <binding>
+         <command>set-tooltip</command>
+         <tooltip-id>PNLLT</tooltip-id>
+         <label>Tail Flood Lights</label>
+         </binding>
+        </hovered>
+      <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
 <animation>
         <type>rotate</type>
         <object-name>PNLLT</object-name>
@@ -2077,6 +2347,8 @@ New: Refuel in air switch.
 
 
 
+
+
 <animation>
   <type>pick</type>
    <object-name>navlights</object-name>
@@ -2084,17 +2356,59 @@ New: Refuel in air switch.
     <button>0</button>
     <repeatable>false</repeatable>
     <interval-sec>0.2</interval-sec>
-    <binding>
-               <command>property-toggle</command>
-               <property>controls/lighting/nav-lights</property>
 
-    </binding>
         <binding>
 <command>property-toggle</command>
                 <property>/sim/model/clicksmall</property>
     </binding>
        </action>
  </animation>
+
+
+
+
+
+
+      <animation>
+        <type>knob</type>
+        <object-name>navlights</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+        <object-name>airsource-axis</object-name>
+        </axis>
+        <action>
+    <binding>
+      <command>property-toggle</command>
+      <property>controls/lighting/nav-lights</property>
+    </binding>
+        </action>
+        <hovered>
+         <binding>
+         <command>set-tooltip</command>
+         <tooltip-id>navlights</tooltip-id>
+         <label>Navigation Lights</label>
+         </binding>
+        </hovered>
+      <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+
+
+
+
+
 <animation>
         <type>rotate</type>
         <object-name>navlights</object-name>
@@ -2121,6 +2435,7 @@ New: Refuel in air switch.
   </condition>
  </animation>
 
+
 <animation>
   <type>pick</type>
    <object-name>beaconlights</object-name>
@@ -2129,9 +2444,8 @@ New: Refuel in air switch.
     <repeatable>false</repeatable>
     <interval-sec>0.2</interval-sec>
     <binding>
-               <command>property-toggle</command>
-               <property>controls/lighting/beacon</property>
-
+      <command>property-toggle</command>
+      <property>controls/lighting/beacon</property>
     </binding>
         <binding>
 <command>property-toggle</command>
@@ -2139,6 +2453,44 @@ New: Refuel in air switch.
     </binding>
        </action>
  </animation>
+
+
+
+
+
+      <animation>
+        <type>knob</type>
+        <object-name>beaconlights</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+        <object-name>airsource-axis</object-name>
+        </axis>
+        <action>
+    <binding>
+      <command>property-toggle</command>
+      <property>controls/lighting/beacon</property>
+    </binding>
+        </action>
+        <hovered>
+         <binding>
+         <command>set-tooltip</command>
+         <tooltip-id>beaconlights</tooltip-id>
+         <label>Beacon Lights</label>
+         </binding>
+        </hovered>
+      <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
 
 <animation>
         <type>rotate</type>
@@ -2200,8 +2552,8 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
         <type>rotate</type>
         <object-name>throt</object-name>
         <property>controls/engines/engine/throttle</property>
-        <offset-deg>30</offset-deg>
-        <factor>-60</factor>
+        <offset-deg>40</offset-deg>
+        <factor>-70</factor>
         <axis>
             <x>0.0</x>
             <y>1.0</y>
