@@ -1,12 +1,17 @@
 # Hide the hud when not in the cockpit view
 # setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
-# Not needed anymore because of the new canvas hud
+# Not needed anymore because of the added canvas hud
 
-setprop("/f22/dead",0);
+# Init some vars
+setprop("controls/bdl",1); # Baydoor Switches
+setprop("controls/bdr",1); # Baydoor Switches
+setprop("/f22/dead",0); # Dead
+setprop("/f22/crash/doneonce",0);
+setprop("/f22/crash/alt",0);
+setprop("/f22/crash/type",0);
 # used to the animation of the canopy switch and the canopy move
 # toggle keystroke or 2 position switch
-setprop("controls/bdl",1);
-setprop("controls/bdr",1);
+
 var cnpy = aircraft.door.new("canopy", 10);
 var switch = getprop("canopy/enabled", 1);
 var pos = props.globals.getNode("canopy/position-norm", 1);
@@ -25,22 +30,99 @@ var autoflares = func{
 
 
 
-# Electric system for the engines and the APU:
-
-# Detect the status of the main power switch. then check if the engines are dead. 
-# if all's good. start the engines
 
 
+var kaboom = func(speed,type) {
+  print(type);
+  var onground = 1;
+  if (getprop("/position/altitude-ft") < 0) {
+    setprop("/velocities/airspeed-kt",0);
+    onground = 0;
+  }
+
+  if (speed > 80 and onground == 1) {
+    # SLAM!
+    setprop("/sim/multiplay/generic/bool[2]",1); # Turn on fire
+    setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
+  }
+  if (speed < 80 and onground == 1) {
+    # SLAM!
+    setprop("/sim/multiplay/generic/bool[2]",0); # Turn off fire
+    setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
+  }
+  if (onground == 0) {
+    # Water!
+    setprop("/sim/multiplay/generic/bool[2]",0); # Turn off fire
+    setprop("/sim/multiplay/generic/bool[3]",0); # Turn on smoke
+    screen.log.write("Splash");
+  }
+  
+}
+
+
+var crashdetect = func {
+    if (getprop("/position/altitude-agl-ft") < 0){
+            # Ouch!! That hurt!
+      var speed = getprop("/velocities/airspeed-kt");
+      var pitch = getprop("/orientation/pitch-deg");
+      var alpha = getprop("/orientation/alpha-deg");
+
+      # First before doing anything detect what kinda crash we are dealing with
+      # Ill add different crash looks in a bit
+
+      if (getprop("/f22/doneonce") == 0) {
+          screen.log.write("You Crashed!",1,0,0);
+        # Check if below MSL
+        if (getprop("/position/altitude-ft") < 0) {
+          setprop("/f22/crash/type",3); # Water
+          setprop("/velocities/airspeed-kt",0); # stop moving. The plane sunk Lol
+          setprop("/f22/crash/doneonce",1); # Dont check type again
+        }
+
+        # A slow fall to the ground < 130kts, probably flying slightly straight
+        if (getprop("/f22/crash/type") == 0) {
+            if (speed < 190) {
+              setprop("/f22/crash/type",1);
+              setprop("/f22/crash/doneonce",1);
+            }
+        }
+        # Highspeed crash
+        if (getprop("/f22/crash/type") == 0) {
+            if (speed > 190) {
+              setprop("/f22/crash/type",2);
+              setprop("/f22/crash/doneonce",1);
+            }
+        }
+      }
+
+      # If in the cockpit switch to ext view 
+      if (getprop("/sim/current-view/internal") == 1) {
+        view.setViewByIndex(1); # Helicopter view
+      }
+      setprop("/f22/dead",1); # Hide the model. Its gone
+      #setprop("/sim/failure-manager/controls/flight/aileron/serviceable",0); # Kill Controls
+      setprop("/sim/failure-manager/controls/flight/elevator/serviceable",0); # Kill Controls
+      setprop("/sim/failure-manager/controls/flight/rudder/serviceable",0);   # Kill Controls
+      #setprop("controls/engines/engine[0]/cutoff",1); # Engine off
+      #setprop("controls/engines/engine[1]/cutoff",1); # Engine off
+      setprop("/position/altitude-ft",getprop("/position/ground-elev-ft") - 3); # Hug the ground. But stay under it
+      var speed = getprop("/velocities/airspeed-kt");
+      var type = getprop("/f22/crash/type");
+      kaboom(speed,type); # show fire
+    }
+}
 
 
 
 
+
+#
+# APU Startup Sequencing
+#
 
 
 # play sound
 # first open flaps
-
-
 setprop("controls/apu/run",0);
 var apuseq1 = func() {
   # APU Animation/sequence !
@@ -122,7 +204,7 @@ var apushutoff = func() {
   #seq8timer.start();
 }
 
-
+# Timers
 
 seq2timer = maketimer(0.3,apuseq2);
 seq3timer = maketimer(0.4,apuseq3);
@@ -135,8 +217,16 @@ offtimer = maketimer(16,apushutoff);
 #apudoortimer = maketimer(, apuseq1);
 
 setprop("controls/apu/startinprogress",0);
+
+
+# Electric system for the engines and the APU:
+
+# Detect the status of the main power switch. then check if the engines are dead. 
+# if all's good. start the engines
+# Controls the battery switch, APU, and Engine start switches and there effectiveness (If they work or not)
+
 var engloop = func{
-  setprop("sim/multiplay/visibility-range-nm",1000);
+setprop("sim/multiplay/visibility-range-nm",1000); # Going to put this here because smh the -set dosent set it to be 1000
 var jfsr = getprop("controls/electric/engine/start-r");
 var jfsl = getprop("controls/electric/engine/start-l");
 var bat = getprop("controls/electric/battswitch");
@@ -190,10 +280,10 @@ var bat = getprop("controls/electric/battswitch");
 }
 
 
-# from 707 and m2005
+# Shaking cockpit made from 707 and the mirage 2005
 
 
-var shake = func() {# from m2005
+var shake = func() {# from mirage 2005
 var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 	var G       = getprop("/accelerations/pilot-g");
 	var alpha   = getprop("/orientation/alpha-deg");
@@ -217,13 +307,12 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 
 
 
-shake_timer = maketimer(0.0001, shake);
-shake_timer.start();
 
 
 
 
-# damage shake
+
+# damage shake. From the mirage 2005 but with a small modification
 
 # shake like bonkers when the plane is damaged
 var shake2 = func() {# from m2005
@@ -259,7 +348,6 @@ var dt = 0;
 var time = getprop("/sim/time/elapsed-sec");
 var weapon = getprop("/controls/armament/selected-weapon-digit");
 
-
 # Open the bay doors
 # Determine weapon
 
@@ -272,9 +360,6 @@ var weapon = getprop("/controls/armament/selected-weapon-digit");
                 print("bay doors open");
                 timer_baydoorsclose.start();
             }
-
-
-
 
 	} elsif (weapon == 1) {
 # aim-9X
@@ -290,11 +375,10 @@ var weapon = getprop("/controls/armament/selected-weapon-digit");
 
 
 
-
+# Auto-open Aim-9X Doors when they lock on. Then close them shortly after they delock
 var aimlock = func() {
 var weapon = getprop("/controls/armament/selected-weapon-digit");
 var lock = getprop("/instrumentation/radar/lock");
-
   if (weapon == 1) {
 
 if (lock == 1){
@@ -321,9 +405,8 @@ var closebays = func{
 
 
 
-
+# Canopy
 var canopy_switch = func(v,a) {
-
 	var p = pos.getValue();
   var condition = getprop("/canopy/enabled");
   if (getprop("gear/gear/wow") == 1){
@@ -335,7 +418,6 @@ var canopy_switch = func(v,a) {
 		}
 	}
 cnpy.toggle();
-
   } else {
     screen.log.write("Can't open canopy in flight")
   }
@@ -348,33 +430,29 @@ var cockpit_state = func {
 		setprop("canopy/position-norm", 0);
 	}
 }
-	    myRadar = radar.Radar.new();
-		myRadar.init();
+
+
+# INIT radar2.nas
+myRadar = radar.Radar.new();
+myRadar.init();
 
 
 
 var missile_sfx = func {
-                setprop("/controls/armament/missile-trigger", 0); 
+  setprop("/controls/armament/missile-trigger", 0); 
+}
 
-        }
-
-settimer(missile_sfx, 2); # runs myFunc after 2 seconds
+settimer(missile_sfx, 2); 
 
 var flares = func{
   flare();
 	var flarerand = rand();
-  #
-  # every time these numbers change. the shooter runs chaff flare probability 
-  # so if we change them really fast that will be good
-    setprop("/rotors/main/blade[3]/flap-deg", flarerand);  #flarerand
+    setprop("/rotors/main/blade[3]/flap-deg", flarerand); 
     setprop("/rotors/main/blade[3]/position-deg", flarerand);
 settimer(func   {
   setprop("/rotors/main/blade[3]/flap-deg", 0);
     setprop("/rotors/main/blade[3]/position-deg", 0);
-    #props.globals.getNode("/rotors/main/blade[3]/flap-deg").setValue(0);
-    #props.globals.getNode("/rotors/main/blade[3]/position-deg").setValue(0);
-                },0.1); # this may be the key to our speed
- 
+                },0.1);
 }
 
 
@@ -406,11 +484,11 @@ var checkforext = func {
 }
 
 
+# Extra flare stuff
 
 var cha_flare = func{
 #print("0");
   setprop("controls/CMS/flaresound", 0);
-
 }
 
 var flare = func{
@@ -426,7 +504,6 @@ var flarestop = func{
 print("f22.flarestop(): stop");
 }
 
-
 var flarecheck = func{
         setprop("payload/armament/flares", 0);
 }
@@ -436,10 +513,12 @@ var flarecheck = func{
 
 var repair = func{
 #f22.repair()
-
- setprop("f22/ejected", 0);
- setprop("/sim/failure-manager/engines/engine/serviceable",1);
- setprop("/sim/failure-manager/engines/engine[1]/serviceable",1);
+ setprop("/sim/multiplay/generic/bool[2]",0);
+ setprop("/sim/multiplay/generic/bool[3]",0);
+ setprop("f22/ejected", 0); # Restore pilot/canopy
+ setprop("f22/dead",0); # Show the model
+ setprop("/sim/failure-manager/engines/engine/serviceable",1); # Fix the engines
+ setprop("/sim/failure-manager/engines/engine[1]/serviceable",1); # Fix the engines
 
 }
 
@@ -457,10 +536,10 @@ var eject = func{
     # ACES II activation
   print("Eject Phase one starting");
     setprop("/sim/messages/atc", "Ejecting!");
-    view.setViewByIndex(1);
-    setprop("f22/ejected",1);
-    setprop("/controls/engines/engine/cut-off",1);
-    setprop("/controls/engines/engine[2]/cut-off",1);
+    view.setViewByIndex(1); # Helicopter view
+    setprop("f22/ejected",1); # hide canopy
+    setprop("/controls/engines/engine/cut-off",1); # Engines Off
+    setprop("/controls/engines/engine[2]/cut-off",1); 
     setprop("/sim/failure-manager/engines/engine/serviceable",0);
     setprop("/sim/failure-manager/engines/engine[1]/serviceable",0);
 
@@ -517,6 +596,11 @@ var c = getprop("/sim/failure-manager/controls/flight/rudder/serviceable");
 # Stuff like radar cursor position to callsign!
 # Dogfight mode! (ACM Radar mode)
 
+
+# Trying to make a radar cursor simulation. 
+# Had an idea if the cursor position matched the position of the marker. 
+# Find and lock the target we selected with the cursor. 
+# Need more ideas to get this to work
 var updatemkr = func() {
   var list = props.globals.getNode("/instrumentation/radar2/targets").getChildren("multiplayer");
   var total = size(list);
@@ -564,6 +648,9 @@ var updatemkr = func() {
 mkrtimer = maketimer(0.1,updatemkr);
 mkrtimer.start();
 
+
+# What happens when the radar Locks on, Goes into STT and spikes target (see lockhelper.nas)
+# Also controls the radar mode, Scanning settings, Azimuth, Speed, etc
 var tgtlock = func{
 if (getprop("instrumentation/radar/lock") == 1){
 var target1_x = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("h-offset",1).getValue();
@@ -657,7 +744,9 @@ setprop("misc/closestmp", 100000); # reset
 }
 
 
-
+# ACM "Dogfight mode"
+# Still experimental
+# Debug messages left on
 var radarlook = func(cs=nil) {
   var list = props.globals.getNode("/instrumentation/radar2/targets").getChildren("multiplayer");
   var total = size(list);
@@ -833,27 +922,33 @@ var mslhit = func{
 
 
 var updateradarcs = func {
-
+# Add a if lock 
+if (getprop("/instrumentation/radar/lock2") == 1){
   var radarcs = 0;
   if (radar.tgts_list[radar.Target_Index].Callsign.getValue() != nil){
   setprop("controls/radar/lockedcallsign", radar.tgts_list[radar.Target_Index].Callsign.getValue());
   } else{
   setprop("controls/radar/lockedcallsign", "");
   }
+} else {
+  # Not locked on
+  setprop("controls/radar/lockedcallsign", "");
+}
+
 }
   setprop("controls/radar/lockedcallsign", "");
 
-      # Timers
 
+#
+# BEGIN maketimer(); MAYHEM!!!
+#
                 # seconds , function
 timer_hit = maketimer(1.5, mslhit);
-#  timer_hit.start();
-
 radcheck = maketimer(0.5, updateradarcs);
 radcheck.start();
-
 locktgt_timer = maketimer(0.1, tgtlock);
-
+crash_timer = maketimer(0.1, crashdetect);
+crash_timer.start();
 Flare_timer = maketimer(1.8, cha_flare);
 timer_flarecheck = maketimer(2, flarecheck);  # To make the target need to keep putting out flares for the number to stay 1 and make missiles detect them
 settimer(missile_sfx, 2); # runs myFunc after 2 seconds
@@ -867,19 +962,20 @@ timer_cursor = maketimer(0.1, cursor);
 timer_cursor.start();
 acmtimer = maketimer(2,radarlook);
 setlistener("sim/signals/fdm-initialized", func {
-    timer_jitter.start();  
-      timer_flarecheck.start();          # flare checker
-    timer_eng.start();          # engines
-    timer_loopTimer.start();    # Pullup alarm
-    timer_extpylons.start();    # External pylon detection
-        timer_damage.start();
+shake_timer = maketimer(0.0001, shake);
+shake_timer.start();
+timer_jitter.start();  
+timer_flarecheck.start();          # flare checker
+timer_eng.start();          # engines
+timer_loopTimer.start();    # Pullup alarm
+timer_extpylons.start();    # External pylon detection
+timer_damage.start();
 });
-    timer_loopTimer.start();
-    timer_extpylons.start();
-    locktgt_timer.start();
-    # loop body
-    Flare_timer.start();
-
+timer_loopTimer.start();
+timer_extpylons.start();
+locktgt_timer.start();
+# loop body
+Flare_timer.start();
 timer_autoflare = maketimer(0.1, autoflares);
 
 
@@ -909,3 +1005,5 @@ var getCCIP = func {
           return missile.MISSILE.getCCIPdv(35, 0.30);
       }
 }
+
+# End f22.nas
