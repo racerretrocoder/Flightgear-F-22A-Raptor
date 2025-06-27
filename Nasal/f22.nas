@@ -3,6 +3,8 @@
 # Not needed anymore because of the added canvas hud
 
 # Init some vars
+setprop("/f22/crash/explodesfx",0);
+setprop("/f22/crash/splashsfx",0);
 setprop("controls/bdl",1); # Baydoor Switches
 setprop("controls/bdr",1); # Baydoor Switches
 setprop("/f22/dead",0); # Dead
@@ -28,18 +30,36 @@ var autoflares = func{
 }
 
 
+var waterstop = func {
+  setprop("/sim/multiplay/generic/bool[4]",0); 
+  timer_water.stop();
+}
 
 
+#setprop("/sim/multiplay/generic/bool[4]",1);
+#setprop("/sim/multiplay/generic/bool[4]",0);
 
-
+timer_water = maketimer(2,waterstop);
+setprop("f22/runonce",0);
 var kaboom = func(speed,type) {
-  print(type);
   var onground = 1;
+  print("hello");
   if (getprop("/position/altitude-ft") < 0) {
+    print("water!");
     setprop("/velocities/airspeed-kt",0);
+    setprop("/f22/crash/splashsfx",1);
     onground = 0;
+    var runonce = getprop("f22/runonce");
+    if (getprop("f22/runonce") == 0) {
+      setprop("/sim/multiplay/generic/bool[4]",1);
+
+      timer_water.start();
+      screen.log.write("Splash!");
+      setprop("f22/runonce",1);
+    }
   }
 
+print("hello2");
   if (speed > 80 and onground == 1) {
     # SLAM!
     setprop("/sim/multiplay/generic/bool[2]",1); # Turn on fire
@@ -54,7 +74,6 @@ var kaboom = func(speed,type) {
     # Water!
     setprop("/sim/multiplay/generic/bool[2]",0); # Turn off fire
     setprop("/sim/multiplay/generic/bool[3]",0); # Turn on smoke
-    screen.log.write("Splash");
   }
   
 }
@@ -100,15 +119,17 @@ var crashdetect = func {
         view.setViewByIndex(1); # Helicopter view
       }
       setprop("/f22/dead",1); # Hide the model. Its gone
-      #setprop("/sim/failure-manager/controls/flight/aileron/serviceable",0); # Kill Controls
+      setprop("/sim/failure-manager/controls/flight/aileron/serviceable",1); # Kill Controls
       setprop("/sim/failure-manager/controls/flight/elevator/serviceable",0); # Kill Controls
       setprop("/sim/failure-manager/controls/flight/rudder/serviceable",0);   # Kill Controls
-      #setprop("controls/engines/engine[0]/cutoff",1); # Engine off
-      #setprop("controls/engines/engine[1]/cutoff",1); # Engine off
-      setprop("/position/altitude-ft",getprop("/position/ground-elev-ft") - 3); # Hug the ground. But stay under it
+      setprop("controls/engines/engine[0]/cutoff",1); # Engine off
+      setprop("controls/engines/engine[1]/cutoff",1); # Engine off
       var speed = getprop("/velocities/airspeed-kt");
       var type = getprop("/f22/crash/type");
       kaboom(speed,type); # show fire
+      setprop("/position/altitude-ft",getprop("/position/ground-elev-ft") - 3); # Hug the ground. But stay under it
+
+
     }
 }
 
@@ -304,7 +325,8 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 	}
 }# from m2005
 
-
+shake_timer = maketimer(0.0001, shake);
+shake_timer.start();
 
 
 
@@ -478,10 +500,19 @@ var checkforext = func {
     setprop("consumables/fuel/tank[2]/level-lbs",0);
     setprop("consumables/fuel/tank[3]/level-lbs",0);
     if (fuelright > 0 or fuelleft > 0) {
-      screen.log.write("Please add external fuel tanks in the pylons load dialog before adding external fuel");
+      screen.log.write("There are no drop tanks attached");
     }
   }
 }
+
+
+
+var jettdroptanks = func {
+  screen.log.write("JETT: Drop tanks");
+  setprop("controls/armament/ldt",0);
+  setprop("controls/armament/rdt",0);
+}
+
 
 
 # Extra flare stuff
@@ -513,12 +544,17 @@ var flarecheck = func{
 
 var repair = func{
 #f22.repair()
- setprop("/sim/multiplay/generic/bool[2]",0);
- setprop("/sim/multiplay/generic/bool[3]",0);
- setprop("f22/ejected", 0); # Restore pilot/canopy
- setprop("f22/dead",0); # Show the model
- setprop("/sim/failure-manager/engines/engine/serviceable",1); # Fix the engines
- setprop("/sim/failure-manager/engines/engine[1]/serviceable",1); # Fix the engines
+  setprop("/sim/failure-manager/controls/flight/aileron/serviceable",1); 
+  setprop("/sim/failure-manager/controls/flight/elevator/serviceable",1);
+  setprop("/sim/failure-manager/controls/flight/rudder/serviceable",1);  
+  setprop("f22/runonce",0); # Reset Splash
+  setprop("/sim/multiplay/generic/bool[2]",0); # Crash Effects
+  setprop("/sim/multiplay/generic/bool[3]",0); # Crash Effects
+  setprop("/sim/multiplay/generic/bool[4]",0); # Crash Effects
+  setprop("f22/ejected", 0); # Restore pilot/canopy
+  setprop("f22/dead",0); # Show the model
+  setprop("/sim/failure-manager/engines/engine/serviceable",1); # Fix the engines
+  setprop("/sim/failure-manager/engines/engine[1]/serviceable",1); # Fix the engines
 
 }
 
@@ -539,9 +575,14 @@ var eject = func{
     view.setViewByIndex(1); # Helicopter view
     setprop("f22/ejected",1); # hide canopy
     setprop("/controls/engines/engine/cut-off",1); # Engines Off
+    setprop("controls/flight/elevator",-0.7);
+    setprop("controls/flight/rudder",-1);
+    setprop("/sim/failure-manager/controls/flight/aileron/serviceable",0); 
+    setprop("/sim/failure-manager/controls/flight/elevator/serviceable",0);
+    setprop("/sim/failure-manager/controls/flight/rudder/serviceable",0);  
     setprop("/controls/engines/engine[2]/cut-off",1); 
-    setprop("/sim/failure-manager/engines/engine/serviceable",0);
-    setprop("/sim/failure-manager/engines/engine[1]/serviceable",0);
+    #setprop("/sim/failure-manager/engines/engine/serviceable",0);
+    #setprop("/sim/failure-manager/engines/engine[1]/serviceable",0); Not needed
 
     settimer(eject2, .5);# this is to give the sim time to load the exterior view, so there is no stutter while seat fires and it gets stuck.
     damage.damageLog.push("Pilot ejected");
@@ -939,10 +980,21 @@ if (getprop("/instrumentation/radar/lock2") == 1){
   setprop("controls/radar/lockedcallsign", "");
 
 
-#
-# BEGIN maketimer(); MAYHEM!!!
-#
-                # seconds , function
+
+
+
+var crashreinit = func {
+  crash_timer.start();
+  crashreinit_timer.stop();
+}
+
+
+
+        #
+        # BEGIN maketimer(); MAYHEM!
+        #
+                # seconds , function.  you can use 0 for the seconds
+crashreinit_timer = maketimer(5,crashreinit);
 timer_hit = maketimer(1.5, mslhit);
 radcheck = maketimer(0.5, updateradarcs);
 radcheck.start();
@@ -961,9 +1013,15 @@ timer_jitter = maketimer(0.1, jitter);
 timer_cursor = maketimer(0.1, cursor);
 timer_cursor.start();
 acmtimer = maketimer(2,radarlook);
+
 setlistener("sim/signals/fdm-initialized", func {
-shake_timer = maketimer(0.0001, shake);
-shake_timer.start();
+# Spawned in/went to location
+
+crash_timer.stop(); # stop crash xd
+crashreinit_timer.start();
+repair();
+setprop("controls/gear/gear-down",1);
+screen.log.write("Ready");
 timer_jitter.start();  
 timer_flarecheck.start();          # flare checker
 timer_eng.start();          # engines
@@ -971,16 +1029,15 @@ timer_loopTimer.start();    # Pullup alarm
 timer_extpylons.start();    # External pylon detection
 timer_damage.start();
 });
+
 timer_loopTimer.start();
 timer_extpylons.start();
 locktgt_timer.start();
-# loop body
 Flare_timer.start();
 timer_autoflare = maketimer(0.1, autoflares);
 
 
 var flareswitch = 0;
-
 var startflare = func{
   if (flareswitch == 0) {
   timer_autoflare.start();
