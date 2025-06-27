@@ -351,7 +351,7 @@ Theres soo many
 <int n="2" type="int">1</int><!-- radar-standby (Enemy RWR Detection) -->
 <int n="3" type="int">0</int><!-- KY58 int -->
 <int n="15" type="int" alias="/f22/ejected"/>
-
+<int n="4" type="int" alias="/f22/dead"/>
 <int n="16" type="int" alias="/controls/state/low_level"/>
 <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
