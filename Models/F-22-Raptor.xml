@@ -127,12 +127,12 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
     </offsets>
   </model>
 
-<!--
+<!--Water jet-->
  <model>
-  <path>Aircraft/F-22/Models/Effects/DamageSmoke/explosioncrash2a.xml</path>
+  <path>Aircraft/F-22/Models/Effects/DamageSmoke/waterjet.xml</path>
   <condition>
     <equals>
-      <property>sim/multiplay/generic/bool[2]</property>
+      <property>sim/multiplay/generic/bool[4]</property>
       <value>1</value>
     </equals>
   </condition>
@@ -142,7 +142,7 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
     <z-m>0</z-m>
     <heading-deg>0</heading-deg>
     </offsets>
-  </model>-->
+  </model>
 
   
   <!-- Impact fire -->
