@@ -62,13 +62,10 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
         <object-name>Right_Keel_1</object-name>
         <object-name>left-elevator_0</object-name>
         <object-name>right-elevator_0</object-name>
-
-		        <object-name>frontcp2</object-name>
+		<object-name>frontcp2</object-name>
         <object-name>Body-side-right</object-name>
         <object-name>Body-side-left</object-name>
-
-
-		        <object-name>left-elevator_1</object-name>
+		<object-name>left-elevator_1</object-name>
         <object-name>right-elevator_1</object-name>
         <object-name>Fuselage_0</object-name>
         <object-name>Right_Wing_1</object-name>
@@ -89,33 +86,64 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 		<object-name>left-slat_0</object-name>
 		<object-name>right-slat_1</object-name>
 		<object-name>left-slat_1</object-name>
-
 		<object-name>left-flap_1</object-name>
 		<object-name>right-flap_1</object-name>
-
 		<object-name>left-aileron_1</object-name>
 		<object-name>right-aileron_1</object-name>
 		<object-name>Left_Rocket_Bay_D1</object-name>
 		<object-name>Right_Rocket_Bay_D1</object-name>
-	
-
-
     </effect>
 
 
   <!-- Impact explosion -->
-<!--  <model>
-  <path>Aircraft/SU-27SK/Models/Effects/Explosion/Explode.xml</path>
+  <model>
+  <path>Aircraft/F-22/Models/Effects/DamageSmoke/explosioncrash.xml</path>
   <condition>
-    <property>sim/multiplay/generic/int[1]</property>
+    <equals>
+      <property>sim/multiplay/generic/bool[2]</property>
+      <value>1</value>
+    </equals>
   </condition>
   <offsets>
-    <x-m>12</x-m>
+    <x-m>0</x-m>
     <y-m>0</y-m>
     <z-m>0</z-m>
     <heading-deg>0</heading-deg>
     </offsets>
-  </model> -->
+  </model>
+  <model>
+  <path>Aircraft/F-22/Models/Effects/DamageSmoke/smokecrash.xml</path>
+  <condition>
+    <equals>
+      <property>sim/multiplay/generic/bool[3]</property>
+      <value>1</value>
+    </equals>
+  </condition>
+  <offsets>
+    <x-m>0</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
+    <heading-deg>0</heading-deg>
+    </offsets>
+  </model>
+
+<!--
+ <model>
+  <path>Aircraft/F-22/Models/Effects/DamageSmoke/explosioncrash2a.xml</path>
+  <condition>
+    <equals>
+      <property>sim/multiplay/generic/bool[2]</property>
+      <value>1</value>
+    </equals>
+  </condition>
+  <offsets>
+    <x-m>0</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
+    <heading-deg>0</heading-deg>
+    </offsets>
+  </model>-->
+
   
   <!-- Impact fire -->
   <model>
@@ -3320,7 +3348,7 @@ rearwheelsaxis
   <condition>
 
 			<equals>
-				<property>/f22/dead</property> 
+				<property>sim/multiplay/generic/int[4]</property> 
 				<value>0</value>
 			</equals>
   </condition>
@@ -3354,7 +3382,7 @@ rearwheelsaxis
   <condition>
 
 			<equals>
-				<property>/f22/dead</property> 
+				<property>sim/multiplay/generic/int[4]</property> 
 				<value>0</value>
 			</equals>
   </condition>

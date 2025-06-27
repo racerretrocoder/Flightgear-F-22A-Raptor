@@ -318,6 +318,15 @@ Theres soo many
 
 <bool n="0" type="bool" alias="/damage/sounds/explode-on"/>
 <bool n="1" type="bool" alias="/damage/fire/serviceable"/>
+<bool n="2" type="bool" alias="/damage/fire/crashflame"/>
+<bool n="3" type="bool" alias="/damage/fire/crashsmoke"/>
+<bool n="4" type="bool" alias="/damage/fire/crashsmolfire"/>
+<!--            <crashsmolfire type="bool">false</crashsmolfire>
+            <crashsmoke type="bool">false</crashsmoke>
+            <crashflame type="bool">false</crashflame>
+			-->
+
+
 <bool n="7" type="int" alias="/sim/crashed"/>
 <bool n="8" type="bool" alias="/engines/engine/cutoff"/>  <!--For Idleing Smoke-->
  <float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor -->
@@ -1820,6 +1829,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             <missile-hit type="bool">false</missile-hit>
         </sounds>
         <fire>
+            <crashsmolfire type="bool">false</crashsmolfire>
+            <crashsmoke type="bool">false</crashsmoke>
+            <crashflame type="bool">false</crashflame>
             <serviceable type="bool">false</serviceable>
         </fire>
     </damage>
