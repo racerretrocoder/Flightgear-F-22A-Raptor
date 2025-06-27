@@ -2,7 +2,7 @@
 # setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
 # Not needed anymore because of the new canvas hud
 
-
+setprop("/f22/dead",0);
 # used to the animation of the canopy switch and the canopy move
 # toggle keystroke or 2 position switch
 setprop("controls/bdl",1);

@@ -33,8 +33,8 @@
 
 
 
+  <path>Aircraft/F-22/Models/F-22.ac</path>
 
-	<path>F-22.ac</path>
  <effect>
         <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
 
@@ -3178,7 +3178,7 @@ rearwheelsaxis
 
 
   <model>
-
+  <name>Hook</name>
   <path>Aircraft/F-22/Models/hook.xml</path>
     <offsets>
       <x-m>1.4</x-m>
@@ -3224,6 +3224,143 @@ rearwheelsaxis
             <z-m>0.00083</z-m>
         </center>
     </animation>
+
+	 <animation>
+  <type>select</type>
+     <object-name>apuflap2</object-name>
+        <object-name>apuflap1</object-name>
+        <object-name>Fuselage_2</object-name>
+        <object-name>left-nosegear-door</object-name>
+        <object-name>left-main-door-up</object-name>
+        <object-name>Left_Keel_1</object-name>
+        <object-name>Right_Keel_1</object-name>
+        <object-name>left-elevator_0</object-name>
+        <object-name>right-elevator_0</object-name>
+		<object-name>frontcp2</object-name>
+        <object-name>Body-side-right</object-name>
+        <object-name>Body-side-left</object-name>
+		<object-name>left-elevator_1</object-name>
+        <object-name>right-elevator_1</object-name>
+        <object-name>Fuselage_0</object-name>
+        <object-name>Right_Wing_1</object-name>
+        <object-name>Left_Wing_1</object-name>
+        <object-name>Right_Wing_0</object-name>
+        <object-name>Left_Wing_0</object-name>
+        <object-name>right-rudder</object-name>
+        <object-name>left-rudder</object-name>
+        <object-name>left-aileron_0</object-name>
+        <object-name>right-aileron_0</object-name>
+        <object-name>left-flap_0</object-name>
+        <object-name>right-flap_0</object-name>
+        <object-name>Fuselage_1</object-name>
+		<object-name>nose-top</object-name>
+		<object-name>nose-bottom-left</object-name>
+		<object-name>nose-bottom-right</object-name>
+		<object-name>right-slat_0</object-name>
+		<object-name>left-slat_0</object-name>
+		<object-name>right-slat_1</object-name>
+		<object-name>left-slat_1</object-name>
+		<object-name>RIGHTMAINDOOR</object-name>
+		<object-name>leftmidbay</object-name>
+		<object-name>rightmidbay</object-name>
+		<object-name>LEFTMAINDOOR</object-name>
+		<object-name>Left_Rocket_Bay_D2</object-name>
+		<object-name>RIGHTMAINDOOR2</object-name>
+		<object-name>LEFTMAINDOOR2</object-name>
+		<object-name>left-flap_1</object-name>
+		<object-name>right-flap_1</object-name>
+		<object-name>9xdl2</object-name>
+		<object-name>9xdl1</object-name>
+		<object-name>9xdr2</object-name>
+		<object-name>9xdr1</object-name>
+		<object-name>Left_Main_Gear_Bay</object-name>
+		<object-name>Right_Main_Gear_Bay</object-name>
+		<object-name>Right_Intake</object-name>
+		<object-name>Left_Intake</object-name>
+		<object-name>left-aileron_1</object-name>
+		<object-name>right-aileron_1</object-name>
+		<object-name>Left_Rocket_Bay_D1</object-name>
+		<object-name>Right_Rocket_Bay_D1</object-name>
+
+
+
+
+<object-name>Right_Rocket_Bay</object-name>
+<object-name>Left_Rocket_Bay</object-name>
+<object-name>Right_Rocket_Bay_D1</object-name>
+<object-name>Left_Rocket_Bay_D2</object-name>
+<object-name>Right_Rocket_Bay_D2</object-name>
+<object-name>lwheel</object-name>
+<object-name>rwheel</object-name>
+<object-name>nwheel</object-name>
+<object-name>rightfrontturbine</object-name>
+<object-name>leftfrontturbine</object-name>
+<object-name>lgear-door1</object-name>
+<object-name>lgear-door2</object-name>
+<object-name>rgear-door1</object-name>
+<object-name>rgear-door2</object-name>
+
+<object-name>sides</object-name>
+<object-name>9xdl</object-name>
+<object-name>9xdr</object-name>
+<object-name>AIM-9-L-RAIL</object-name>
+<object-name>AIM-9-R-RAIL</object-name>
+<object-name>9xtop</object-name>
+<object-name>canopy in</object-name>
+<object-name>canopy out</object-name>
+<object-name>canopy</object-name>
+<object-name>cabin</object-name>
+<object-name>pilot</object-name>
+<object-name>vectors</object-name>
+<object-name>Line01</object-name>
+<object-name>Line02</object-name>
+<object-name>Line03</object-name>
+<object-name>Line04</object-name>
+
+  <condition>
+
+			<equals>
+				<property>/f22/dead</property> 
+				<value>0</value>
+			</equals>
+  </condition>
+ </animation>
+
+
+	
+	 <animation>
+  <type>select</type>
+<object-name>Right_Nozzle_Inner_Si</object-name>
+<object-name>Left_Nozzle_Inner_Sid</object-name>
+<object-name>oiltanks</object-name>
+<object-name>Interior</object-name>
+<object-name>Right_Keel_0</object-name>
+<object-name>Left_Keel_0</object-name>
+<object-name>Hook</object-name> 
+<object-name>TAIL-L-OUT</object-name>
+<object-name>TAIL-R-OUT</object-name>
+<object-name>gear-door2</object-name>
+<object-name>gear-door1</object-name>
+<object-name>Nose_Gear_Bay</object-name>
+<object-name>rfd</object-name>
+<object-name>rfd2</object-name>
+<object-name>lfd</object-name>
+<object-name>lfd2</object-name>
+<object-name>9xdr2-axis</object-name>
+<object-name>9xdr3-axis</object-name>
+<object-name>Right_Back_Turbina</object-name>
+<object-name>Left_Back_Turbina</object-name>
+<object-name>rect</object-name> <!--Odd rectangle-->
+  <condition>
+
+			<equals>
+				<property>/f22/dead</property> 
+				<value>0</value>
+			</equals>
+  </condition>
+ </animation>
+
+   
 
 </PropertyList>
 
