@@ -321,6 +321,7 @@ Theres soo many
 <bool n="2" type="bool" alias="/damage/fire/crashflame"/>
 <bool n="3" type="bool" alias="/damage/fire/crashsmoke"/>
 <bool n="4" type="bool" alias="/damage/fire/crashsmolfire"/>
+<bool n="5" type="bool" alias="/f22/party"/> <!--PARTY!!-->
 <!--            <crashsmolfire type="bool">false</crashsmolfire>
             <crashsmoke type="bool">false</crashsmoke>
             <crashflame type="bool">false</crashflame>
@@ -1804,6 +1805,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		</sim>
 
 <f22>
+        <party type="bool">false</party>
 <ejected type="int">0</ejected>
 </f22>
 

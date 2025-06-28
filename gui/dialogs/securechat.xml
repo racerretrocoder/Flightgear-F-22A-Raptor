@@ -132,6 +132,8 @@
 					}
 					var callsign = getprop("sim/multiplay/callsign");
 					KY58.chat.push("" ~ callsign ~ ": " ~ getprop("controls/ky58/buffer") ~ "");
+					var message = getprop("controls/ky58/buffer");
+					screen.log.write("KY-58: " ~ callsign ~ ": "~ message ~ "",1,0.5,0);
 					setprop("sim/multiplay/generic/string[8]",getprop("controls/ky58/buffer"));
 					setprop("controls/ky58/buffer","");
 				]]></script>
