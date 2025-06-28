@@ -1,4 +1,4 @@
-print("Loading Right MFD...");
+print("Loading Lower MFD...");
 
 # Center MFD System
 # Made by Phoenix

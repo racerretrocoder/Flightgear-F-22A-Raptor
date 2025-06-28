@@ -91,6 +91,21 @@
   <alignment>left-top</alignment>
  </text>
 
+	 <text>
+  <name>mode</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.038</y-m>
+   <z-m>-0.053</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">NOZ</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 
 	 <text>
   <name>mode</name>
@@ -225,5 +240,28 @@
   <object-name>e2oil-axis</object-name>
   </axis>
  </animation>
+
+
+
+
+ <animation>
+  <type>rotate</type>
+  <object-name>e1noz</object-name>
+  <property>/engines/engine[0]/nozzle-pos-norm</property>
+  <factor>260</factor> <!-- The rotation in degrees... kinda -->
+  <axis>
+  <object-name>e1noz-axis</object-name>
+  </axis>
+ </animation>
+ <animation>
+  <type>rotate</type>
+  <object-name>e2noz</object-name>
+  <property>/engines/engine[1]/nozzle-pos-norm</property>
+  <factor>260</factor> <!-- The rotation in degrees... kinda -->
+  <axis>
+  <object-name>e2noz-axis</object-name>
+  </axis>
+ </animation>
+
 
 </PropertyList>

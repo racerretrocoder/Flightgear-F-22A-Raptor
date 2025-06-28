@@ -8,6 +8,7 @@ The mode of the MFD can be found in /systems/MFD/
 3: Weapon settings screen
 4: Flight control screen
 5: Radar warning reciver screen
-
+6: Engine Screen
+7: Fuel Screen
 
 

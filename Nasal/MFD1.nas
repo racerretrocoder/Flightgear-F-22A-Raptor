@@ -1,6 +1,6 @@
 print("Loading Left MFD...");
 
-# Center MFD System
+# Left MFD System
 # Made by Phoenix
 
 # Page checker

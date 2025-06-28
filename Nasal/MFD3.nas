@@ -1,6 +1,6 @@
 print("Loading Right MFD...");
 
-# Center MFD System
+# Right MFD System
 # Made by Phoenix
 
 # Page checker
@@ -388,7 +388,10 @@ var pg = getprop("systems/MFD/modemfdr");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdr",3); # Make it be WEP
+}
 if (pg == 2) {
     print(pg);
 } elsif (pg == 1){
@@ -415,7 +418,10 @@ var pg = getprop("systems/MFD/modemfdr");
 # 3 WEP
 # 4 FLT
 # 5 RWR
-
+if (pg == 0) {
+    print(pg);
+    setprop("systems/MFD/modemfdr",4);
+}
 if (pg == 2) {
     print(pg);
     # Change grid mode.

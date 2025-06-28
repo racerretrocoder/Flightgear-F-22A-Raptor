@@ -78,7 +78,27 @@
     <blue>1</blue>
   </emission> 
  </animation>
+	 <animation>
+  <type>material</type>
+  <object-name>GPS</object-name>
+  <object-name>DLT</object-name>
 
+  <ambient>
+    <red>0.0</red>
+    <green>1</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0</red>
+    <green>1</green>
+    <blue>0</blue>
+  </diffuse>
+  <emission>
+    <red>0</red>
+    <green>1</green>
+    <blue>0</blue>
+  </emission> 
+ </animation>
 
 	 <animation>
   <type>material</type>
@@ -372,6 +392,71 @@
 
 <!--bay doors-->
 
+
+	<text>
+  <name>GPS</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.08</y-m>
+   <z-m>-0.07</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">GPS ON</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+	<text>
+  <name>DLT</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.08</y-m>
+   <z-m>-0.08</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">DLT ON</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+<animation>
+        <type>select</type>
+        <object-name>GPS</object-name>
+      
+        <condition>
+		<or>
+			<equals>
+       <property>controls/armament/GPSDLT</property>
+				<value>0</value>
+			</equals>
+    			<equals>
+       <property>controls/armament/GPSDLT</property>
+				<value>1</value>
+			</equals>
+</or>
+        </condition>
+    </animation>
+
+
+<animation>
+        <type>select</type>
+        <object-name>DLT</object-name>
+      
+        <condition>
+
+    			<equals>
+       <property>controls/armament/GPSDLT</property>
+				<value>1</value>
+			</equals>
+        </condition>
+    </animation>
 
 
 	<text>

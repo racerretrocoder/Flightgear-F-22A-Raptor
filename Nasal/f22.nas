@@ -964,20 +964,18 @@ var mslhit = func{
 
 var updateradarcs = func {
 # Add a if lock 
-if (getprop("/instrumentation/radar/lock2") == 1){
-  var radarcs = 0;
-  if (radar.tgts_list[radar.Target_Index].Callsign.getValue() != nil){
+if (getprop("/instrumentation/radar/lock2") != 0){
+  print("LOCKED!");
   setprop("controls/radar/lockedcallsign", radar.tgts_list[radar.Target_Index].Callsign.getValue());
-  } else{
-  setprop("controls/radar/lockedcallsign", "");
-  }
-} else {
+  } else {
   # Not locked on
-  setprop("controls/radar/lockedcallsign", "");
+  print("aw not locked");
+  setprop("controls/radar/lockedcallsign", "None");
+  }
 }
 
-}
-  setprop("controls/radar/lockedcallsign", "");
+
+  setprop("controls/radar/lockedcallsign", "None");
 
 
 

@@ -73,7 +73,8 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
 <animation>
     <type>material</type>
    <object-name>ky58</object-name>
-   <object-name>rect</object-name>
+   <object-name>a</object-name>
+    <object-name>rect</object-name>
       <object-name>bt</object-name>
          <object-name>RFCR</object-name>
             <object-name>CFCR</object-name>
@@ -2526,6 +2527,150 @@ New: Refuel in air switch.
 
 
 
+<animation>
+        <type>knob</type>
+    <object-name>GPSDLT</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/armament/GPSDLT</property> <!--inverted silly me xd-->
+                <value>-1</value>  
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>GPSDLT</tooltip-id>
+                <label>GPS / DLT Master Switch</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+    </animation>
+<animation>
+        <type>rotate</type>
+        <object-name>GPSDLT</object-name>
+        <property>/controls/armament/GPSDLT</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+        <object-name>GPSDLT-axis</object-name>
+        </axis>
+    </animation>
+
+
+<animation>
+        <type>knob</type>
+    <object-name>CAMERAS</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/armament/cameras</property> <!--inverted silly me xd-->
+                <value>-1</value>  
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>GPSDLT</tooltip-id>
+                <label>Sensor Cameras</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+    </animation>
+<animation>
+        <type>rotate</type>
+        <object-name>CAMERAS</object-name>
+        <property>/controls/armament/cameras</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+        <object-name>CAMERAS-axis</object-name>
+        </axis>
+    </animation>
+
+<animation>
+        <type>knob</type>
+    <object-name>ABITSYNC</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/armament/AMRAAMBITSYNCLOCK</property> <!--inverted silly me xd--> 
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ABITSYNC</tooltip-id>
+                <label>Aim-120 / Aim-260 BIT Sync Lock / Normal</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+</animation>
+ 
+<animation>
+        <type>rotate</type>
+        <object-name>ABITSYNC</object-name>
+        <property>/controls/armament/AMRAAMBITSYNCLOCK</property>
+        <offset-deg>0</offset-deg>
+        <factor>-40</factor>
+        <axis>
+        <object-name>ABITSYNC-axis</object-name>
+        </axis>
+</animation>
 
 
 
@@ -2544,7 +2689,279 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
  -->
 
 
-<!--Good!-->
+
+<animation>
+        <type>knob</type>
+    <object-name>ALTFLAP</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/flight/altflap</property> <!--inverted silly me xd--> 
+                <value>-1</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ALTFLAP</tooltip-id>
+                <label>Flaps Extend \ Auto</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+</animation>
+ 
+<animation>
+        <type>rotate</type>
+        <object-name>ALTFLAP</object-name>
+        <property>/controls/flight/altflap</property>
+        <offset-deg>0</offset-deg>
+        <factor>-30</factor>
+        <axis>
+        <object-name>ALTFLAP-axis</object-name>
+        </axis>
+</animation>
+
+
+<animation>
+        <type>knob</type>
+    <object-name>TSWTSN</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/flight/TSWTSN</property> <!--inverted silly me xd--> 
+                <value>-1</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ALTFLAP</tooltip-id>
+                <label>TSW/TSN Left / Right</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+</animation>
+ 
+<animation>
+        <type>rotate</type>
+        <object-name>TSWTSN</object-name>
+        <property>/controls/flight/TSWTSN</property>
+        <offset-deg>0</offset-deg>
+        <factor>-20</factor>
+        <axis>
+        <object-name>TSWTSN-axis</object-name>
+        </axis>
+</animation>
+
+
+<animation>
+        <type>knob</type>
+    <object-name>APC</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/flight/APC</property> <!--inverted silly me xd--> 
+                <value>-1</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ALTFLAP</tooltip-id>
+                <label>APC On / Off</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+</animation>
+ 
+<animation>
+        <type>rotate</type>
+        <object-name>APC</object-name>
+        <property>/controls/flight/APC</property>
+        <offset-deg>0</offset-deg>
+        <factor>-20</factor>
+        <axis>
+        <object-name>APC-axis</object-name>
+        </axis>
+</animation>
+
+
+<animation>
+        <type>knob</type>
+    <object-name>FBW</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/FBW/Switch</property> <!--inverted silly me xd--> 
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ALTFLAP</tooltip-id>
+                <label>FBW Normal / Overide</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+</animation>
+ 
+<animation>
+        <type>rotate</type>
+        <object-name>FBW</object-name>
+        <property>/controls/FBW/Switch</property>
+        <offset-deg>0</offset-deg>
+        <factor>-20</factor>
+        <axis>
+        <object-name>FBW-axis</object-name>
+        </axis>
+</animation>
+<animation>
+        <type>rotate</type>
+        <object-name>FBWCVR</object-name>
+        <property>/controls/FBW/Switch</property>
+        <offset-deg>0</offset-deg>
+        <factor>-70</factor>
+        <axis>
+        <object-name>FBWCVR-axis</object-name>
+        </axis>
+</animation>
+
+
+
+
+<animation>
+        <type>knob</type>
+    <object-name>ARC</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/flight/ARC</property> <!--inverted silly me xd--> 
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ARC</tooltip-id>
+                <label>ARC Brake / Off</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+        </decrease> 
+</animation>
+ 
+<animation>
+        <type>rotate</type>
+        <object-name>ARC</object-name>
+        <property>/controls/flight/ARC</property>
+        <offset-deg>0</offset-deg>
+        <factor>-20</factor>
+        <axis>
+        <object-name>ARC-axis</object-name>
+        </axis>
+</animation>
+<animation>
+        <type>rotate</type>
+        <object-name>ARCCVR</object-name>
+        <property>/controls/flight/ARC</property>
+        <offset-deg>0</offset-deg>
+        <factor>-70</factor>
+        <axis>
+        <object-name>ARCCVR-axis</object-name>
+        </axis>
+</animation>
+
+
+
+
+
+
+
 
 
 
@@ -2761,8 +3178,8 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdll</property>
-               <value>7</value>
-               <value>7</value>
+               <value>4</value>
+               <value>4</value> <!--7-->
                <wrap>true</wrap>
     </binding>
 	   <binding>
