@@ -527,7 +527,7 @@ me.pipperRadius = 10;
         }
         if (radarON == 1){
               me.lockMarker.setVisible(1);
-              me.lockMarker.setTranslation(target1_x*19, -190+ -target1_z*16);}
+              me.lockMarker.setTranslation(target1_x*25, -190+ -target1_z*25);}
       }
     }
 

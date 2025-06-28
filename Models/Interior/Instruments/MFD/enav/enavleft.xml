@@ -66,16 +66,6 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 		</offsets>
 	</model>
 
-			<model>
-     <name>ENGpage</name>
-		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/radar/radar-screen.xml</path>
-			<offsets>
-   <x-m>0.008</x-m>
-      <z-m>0.01</z-m>
-			<pitch-deg>0</pitch-deg>
-		</offsets>
-	</model>
-
 
 	<model>
      <name>WEPpage</name>

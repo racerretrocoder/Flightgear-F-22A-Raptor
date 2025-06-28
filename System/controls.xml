@@ -3,7 +3,12 @@
 <!-- F-22 avionics and lighting controls -->
 <PropertyList>
 
-
+<flight>
+<TSWTSN type="int">1</TSWTSN> 
+<altflap type="int">1</altflap> <!-- -1 NORM 1 ENA-->
+<APC type="int">0</APC> 
+<ARC type="int">0</ARC> 
+</flight>
 
 <radar>
 <cursormode type="int">0</cursormode>
@@ -90,7 +95,9 @@
 </baydoors>
 	
 	  <armament>
-
+<AMRAAMBITSYNCLOCK type="int">0</AMRAAMBITSYNCLOCK>
+<cameras type="int">-1</cameras>
+<GPSDLT type="int">-1</GPSDLT>
 <pos>
 <lat type="float">0</lat>
 <lon type="float">0</lon>
