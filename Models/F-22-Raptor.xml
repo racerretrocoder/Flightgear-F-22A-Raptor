@@ -337,6 +337,23 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 
 
 
+<!--party mode-->
+
+	 <animation>
+
+     <object-name>partyhat</object-name>
+  <type>select</type>
+  <condition>
+			<equals>
+				<property>sim/multiplay/generic/bool[5]</property> 
+				<value>1</value>
+			</equals>
+  </condition>
+ </animation>
+
+
+
+
 	 <animation>
        <object-name>canopy in</object-name>
        <object-name>canopy out</object-name>

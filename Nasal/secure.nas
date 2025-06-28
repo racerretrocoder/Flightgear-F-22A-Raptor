@@ -158,7 +158,7 @@ var checkcode = func(ourcode) {
             if (getprop("/controls/KY58/contacts/" ~ callsign ~ "/message") != getprop("/controls/KY58/contacts/" ~ callsign ~ "/oldmessage")) {
                 # Message changed!
                 var newmessage = getprop("/controls/KY58/contacts/" ~ callsign ~ "/message");
-                screen.log.write("KY-58: New Secure Chat Message From "~ callsign ~ ": " ~ newmessage ~ "");
+                screen.log.write("KY-58: "~ callsign ~ ": " ~ newmessage ~ "");
                 chat.push("" ~ callsign ~ ": " ~ newmessage ~ "");
                 # Update old message 
                 setprop("/controls/KY58/contacts/" ~ callsign ~ "/oldmessage",getprop("ai/models/multiplayer[" ~ i ~ "]/sim/multiplay/generic/string[8]"));
