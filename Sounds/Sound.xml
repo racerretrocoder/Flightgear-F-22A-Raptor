@@ -4032,5 +4032,147 @@ Counter
 
 
 
+
+
+
+    <water>
+   <name>splash1</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/splash.wav</path>
+   <condition>
+
+<equals>  
+ <property>/f22/crash/splashsfx</property>
+   <value>1</value>
+  </equals>
+
+
+   </condition>
+   <position>
+    	<x>0</x>
+	<y>0.0</y>
+	<z>0</z>
+   </position>
+               <orientation>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>1</outer-gain>
+            </orientation>
+      <volume>
+    <property>/f22/crash/splashsfx</property>
+    <factor>10</factor>
+    <offset>0</offset>
+   </volume>
+               <reference-dist>900</reference-dist>
+            <max-dist>60000</max-dist>
+  </water>
+
+    <water>
+   <name>splash2</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/splash.wav</path>
+   <condition>
+
+<equals>  
+ <property>/f22/crash/splashsfx</property>
+   <value>1</value>
+  </equals>
+
+
+   </condition>
+   <position>
+    	<x>0</x>
+	<y>0.0</y>
+	<z>0</z>
+   </position>
+               <orientation>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>1</outer-gain>
+            </orientation>
+      <volume>
+    <property>/f22/crash/splashsfx</property>
+    <factor>10</factor>
+    <offset>0</offset>
+   </volume>
+               <reference-dist>900</reference-dist>
+            <max-dist>60000</max-dist>
+  </water>
+
+    <water>
+   <name>splash3</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/splash.wav</path>
+   <condition>
+
+<equals>  
+ <property>/f22/crash/splashsfx</property>
+   <value>1</value>
+  </equals>
+
+
+   </condition>
+   <position>
+    	<x>0</x>
+	<y>0.0</y>
+	<z>0</z>
+   </position>
+               <orientation>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>1</outer-gain>
+            </orientation>
+      <volume>
+    <property>/f22/crash/splashsfx</property>
+    <factor>10</factor>
+    <offset>0</offset>
+   </volume>
+               <reference-dist>900</reference-dist>
+            <max-dist>60000</max-dist>
+  </water>
+      <water>
+   <name>splash4</name>
+   <mode>once</mode>
+   <path>Aircraft/F-22/Sounds/splash.wav</path>
+   <condition>
+
+<equals>  
+ <property>/f22/crash/splashsfx</property>
+   <value>1</value>
+  </equals>
+
+
+   </condition>
+   <position>
+    	<x>0</x>
+	<y>0.0</y>
+	<z>0</z>
+   </position>
+               <orientation>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+                <inner-angle>180.0</inner-angle>
+                <outer-angle>180.0</outer-angle>
+                <outer-gain>1</outer-gain>
+            </orientation>
+      <volume>
+    <property>/f22/crash/splashsfx</property>
+    <factor>10</factor>
+    <offset>0</offset>
+   </volume>
+               <reference-dist>900</reference-dist>
+            <max-dist>60000</max-dist>
+  </water>
+
  </fx>
 </PropertyList>

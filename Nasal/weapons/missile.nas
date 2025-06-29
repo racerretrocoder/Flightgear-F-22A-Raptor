@@ -521,10 +521,11 @@ if (getprop("payload/armament/flares")) { # Flares are being realeased
 # What kind of missile are we?
 
 if (me.fox == "Fox 2") {
-    if (me.direct_dist_m < 5000) {
+    if (me.direct_dist_m < 4000) {
         enabled = 1;
     }
 } else {
+    if (getprop("/instrumentation/radar/lock") == 1){return 0;} # Dont check for chaff if the radar is locked on
         if (me.direct_dist_m < 6874) {
         enabled = 1;
     }

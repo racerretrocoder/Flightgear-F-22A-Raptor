@@ -168,7 +168,7 @@ var impact_listener = func {
                     }
                     hits_count = 1;
                     hit_callsign = target;
-                    hit_timer = maketimer(1, func {hitmessage(typeOrd);});
+                    hit_timer = maketimer(1, func {hitmessage(typeOrd,hit_callsign,hits_count);});
                     hit_timer.singleShot = 1;
                     hit_timer.start();
                 }
@@ -177,20 +177,21 @@ var impact_listener = func {
     }
 }
 
-var hitmessage = func(typeOrd) {
+var hitmessage = func(typeOrd,callsign,hits) {
     #print("inside hitmessage");
-    var phrase = "M61A1 shell" ~ " hit: " ~ hit_callsign ~ ": " ~ hits_count ~ " hits";
+    var phrase = "M61A1 shell" ~ " hit: " ~ callsign ~ ": " ~ hits ~ " hits";
     if (getprop("payload/armament/msg") == 1) {
-      #                                                                                                                 setprop("/sim/multiplay/chat", phrase);   Old damage system
+      #setprop("/sim/multiplay/chat", phrase);   Old damage system
         #armament.defeatSpamFilter(phrase);
     print("Guns hit target");
-            var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells["M61A1 shell"][0]+1));
+        var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells["M61A1 shell"][0]+1));
         msg.RelativeAltitude = 0;
         msg.Bearing = 0;
-        msg.Distance = hits_count;
-        msg.RemoteCallsign = hit_callsign;
+        msg.Distance = hits;
+        msg.RemoteCallsign = callsign;
         notifications.hitBridgedTransmitter.NotifyAll(msg);
-        damage.damageLog.push("You hit "~hit_callsign~" with "~"M61A1 shells"~", "~hits_count~" times.");
+        screen.log.write("Hit!");
+        damage.damageLog.push("You hit "~callsign~" with "~"M61A1 shells"~", "~hits~" times.");
     } else {
         setprop("/sim/messages/atc", phrase);
     }
