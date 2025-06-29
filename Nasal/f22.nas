@@ -46,6 +46,7 @@ var kaboom = func(speed,type) {
   print("hello");
   if (getprop("/position/altitude-ft") < 0) {
     print("water!");
+    setprop("/f22/crash/type",5);
     setprop("/velocities/airspeed-kt",0);
     setprop("/f22/crash/splashsfx",1);
     onground = 0;
@@ -54,7 +55,7 @@ var kaboom = func(speed,type) {
       setprop("/sim/multiplay/generic/bool[4]",1);
 
       timer_water.start();
-      screen.log.write("Splash!");
+      screen.log.write("Sunk into water! Maximum Damage",1,0,0);
       setprop("f22/runonce",1);
     }
   }
@@ -62,6 +63,7 @@ var kaboom = func(speed,type) {
 print("hello2");
   if (speed > 80 and onground == 1) {
     # SLAM!
+    setprop("/f22/crash/explodsfx",1);
     setprop("/sim/multiplay/generic/bool[2]",1); # Turn on fire
     setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
   }
@@ -88,37 +90,47 @@ var crashdetect = func {
 
       # First before doing anything detect what kinda crash we are dealing with
       # Ill add different crash looks in a bit
-
-      if (getprop("/f22/doneonce") == 0) {
-          screen.log.write("You Crashed!",1,0,0);
-        # Check if below MSL
-        if (getprop("/position/altitude-ft") < 0) {
-          setprop("/f22/crash/type",3); # Water
-          setprop("/velocities/airspeed-kt",0); # stop moving. The plane sunk Lol
-          setprop("/f22/crash/doneonce",1); # Dont check type again
-        }
-
-        # A slow fall to the ground < 130kts, probably flying slightly straight
-        if (getprop("/f22/crash/type") == 0) {
-            if (speed < 190) {
-              setprop("/f22/crash/type",1);
-              setprop("/f22/crash/doneonce",1);
-            }
-        }
-        # Highspeed crash
-        if (getprop("/f22/crash/type") == 0) {
-            if (speed > 190) {
-              setprop("/f22/crash/type",2);
-              setprop("/f22/crash/doneonce",1);
-            }
-        }
-      }
-
       # If in the cockpit switch to ext view 
       if (getprop("/sim/current-view/internal") == 1) {
         view.setViewByIndex(1); # Helicopter view
       }
-      setprop("/f22/dead",1); # Hide the model. Its gone
+        # A slow fall to the ground < 130kts, probably flying slightly straight
+        if (getprop("/f22/dead") == 0){
+
+        
+            if (speed < 130) {
+              screen.log.write("You crashed! Light Damage",1,0,0);
+              setprop("/f22/dead",1);
+              setprop("/f22/crash/type",1);
+              setprop("/f22/crash/doneonce",1);
+            }
+        # Highspeed crash
+            if (speed > 130 and speed < 160) {
+              screen.log.write("You crashed! Medium Damage",1,0,0);
+              setprop("/f22/dead",2);
+              setprop("/f22/crash/type",2);
+              setprop("/f22/crash/doneonce",1);
+            }
+            if (speed > 160 and speed < 190) {
+              screen.log.write("You crashed! Heavy Damage",1,0,0);
+              setprop("/f22/dead",3);
+              setprop("/f22/crash/type",2);
+              setprop("/f22/crash/doneonce",1);
+            }
+            if (speed > 190 and speed < 280) {
+              screen.log.write("You crashed! Extreme Damage",1,0,0);
+              setprop("/f22/dead",4);
+              setprop("/f22/crash/type",2);
+              setprop("/f22/crash/doneonce",1);
+            }   
+            if (speed > 280) {
+              screen.log.write("You crashed! Maximum Damage",1,0,0);
+              setprop("/f22/dead",5);
+              setprop("/f22/crash/type",2);
+              setprop("/f22/crash/doneonce",1);
+            } 
+        }
+       # Hide the model. Its gone
       setprop("/sim/failure-manager/controls/flight/aileron/serviceable",1); # Kill Controls
       setprop("/sim/failure-manager/controls/flight/elevator/serviceable",0); # Kill Controls
       setprop("/sim/failure-manager/controls/flight/rudder/serviceable",0);   # Kill Controls
@@ -866,8 +878,58 @@ var radarlook = func(cs=nil) {
 
 
 var acmcheck = func() {
-
+  print("wip");
 }
+
+# Cool arrow pointer
+setprop("controls/radar/lockedinhud",0);
+var arrowpointer = func() {      
+  var radarON = getprop("su-27/instrumentation/N010-radar/emitting");
+  # First check if radar on and locked. else go away
+  if (radarON != 1 or getprop("/instrumentation/radar/lock") != 1){
+    return -1;
+  }
+  var target1_x = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("h-offset",1).getValue();
+  var target1_z = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("v-offset",1).getValue();
+  var lockedcallsign = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("callsign",1).getValue();
+  if (target1_x or 0 > 0 and radarON == 1) {
+    var dist_O = math.sqrt(math.pow(target1_x, 2)+math.pow(target1_z, 2));
+    var oriAngle = math.asin(target1_x / dist_O);
+    if(target1_z < 0){
+      oriAngle = 3.141592654 - oriAngle;
+    }
+    var Rollrad = (getprop("orientation/roll-deg") / 180) * 3.141592654;
+    target1_x = dist_O * math.sin(oriAngle - Rollrad);
+    target1_z = dist_O * math.cos(oriAngle - Rollrad);
+    var kx = abs(target1_x/7.25);
+    var kz = abs(target1_z/6);
+    if((kx > 1) or (kz > 1)){
+      if(kx > kz){
+        target1_x = target1_x / kx;
+        target1_z = target1_z / kx;
+      }else{
+        target1_z = target1_z / kz;
+        target1_x = target1_x / kz;
+      }
+    }
+    if (target1_x > -6 and target1_x < 6 and target1_z > -6 and target1_z < 6) {
+        # Target in the hud
+        screen.log.write("In HUD");
+        setprop("/controls/radar/hud-pointer",0);
+        setprop("/controls/radar/hud-rotate",0);
+    } else {
+        # Target not in hud
+        setprop("/controls/radar/hud-pointer",1); # show arrow
+        screen.log.write(lockedcallsign);
+        screen.log.write(target1_x);
+        screen.log.write(target1_z);
+        setprop("/controls/radar/error-deg",target1_x);
+        setprop("/controls/radar/error-pitch-deg",target1_z);
+
+    }
+  }
+}
+
 
 
 
@@ -876,7 +938,6 @@ var acmcheck = func() {
 
 var timer_loop = func{
 # logic
-
 # Pull up alarm. 
 # From respective owners
 
@@ -924,24 +985,18 @@ setprop("controls/radar/cursorz",0);
 var cursor = func {
   # Check status of x and z (x and y)
   if (getprop("controls/radar/cursor-x") == 1) {
-    # increas it
     setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") + 0.003);
   }
   if (getprop("controls/radar/cursor-x") == -1) {
-    # increas it
     setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") - 0.003);
   }
 
   if (getprop("controls/radar/cursor-z") == 1) {
-    # increas it
     setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") - 0.003);
   }
   if (getprop("controls/radar/cursor-z") == -1) {
-    # increas it
     setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") + 0.003);
   }
-
-
 }
 
 
@@ -996,6 +1051,8 @@ crashreinit_timer = maketimer(5,crashreinit);
 timer_hit = maketimer(1.5, mslhit);
 radcheck = maketimer(0.5, updateradarcs);
 radcheck.start();
+arrow = maketimer(0.1, arrowpointer);
+arrow.start();
 locktgt_timer = maketimer(0.1, tgtlock);
 crash_timer = maketimer(0.1, crashdetect);
 crash_timer.start();

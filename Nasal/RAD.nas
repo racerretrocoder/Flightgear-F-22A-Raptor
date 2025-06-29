@@ -329,8 +329,8 @@ setprop("systems/MFD/modemfdr", 4);
 
 
 var nav = func{
-setprop("systems/MFD/modemfdc", 4);
-setprop("systems/MFD/modemfdl", 0);
+setprop("systems/MFD/modemfdc", 7);
+setprop("systems/MFD/modemfdl", 4);
 setprop("systems/MFD/modemfdr", 5);
 
 }
@@ -460,7 +460,44 @@ var dlink_loop = func {
     }
   }
 }
+
+var dlink_loopcontacts = func {
+  print("testing contacts...");
+  if (getprop("instrumentation/datalink/data") != 0) return;
+  total = misc.searchsize();
+  for(var i = 0; i < total; i += 1) {
+  var reccall = getprop("ai/models/multiplayer[" ~ i ~ "]/callsign");
+# if these guys on dl...
+    if (1 == 1) {
+      data = datalink.get_data(reccall); # get our data
+      if (data != nil and data.on_link()) {
+        var p = 0;
+        print(data);
+        print("DATA!");
+        if (p != nil) {
+          print("p is not nil");
+          sending = nil;
+          #var lat = 
+          #var lon = 
+          #var alt = 
+          #setprop("controls/radar/datarec/lat", lat);   
+          #setprop("controls/radar/datarec/lon", lon);
+          #setprop("controls/radar/datarec/alt", alt);
+          print("Datalink is being sent over to us from " ~ reccall);
+          print(p);
+          screen.log.write("Datalink sent over from " ~ reccall ~ "!",1,1,0);
+          setprop("instrumentation/datalink/lastcallsign", reccall);
+          setprop("instrumentation/datalink/data",1);          
+          clear_timer_long.start();
+          return;
+        }
+      }
+    }
+  }
+}
 setprop("instrumentation/datalink/lastcallsign", "No Data");
 var dlnk_timer = maketimer(3.5, dlink_loop);
+var dlnk_timercontact = maketimer(1, dlink_loopcontacts);
 dlnk_timer.start();
+#dlnk_timercontact.start();
 setprop("instrumentation/datalink/data",0); # Enable Recording   

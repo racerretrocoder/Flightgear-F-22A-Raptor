@@ -311,6 +311,27 @@ var smallsearch = func(cs=nil) {
    }
 }
 
+
+
+var getbearingto = func(cs=nil) {
+  # only works if in radar range. Dosent have to be in radar view
+  var list = props.globals.getNode("/ai/models").getChildren("multiplayer");
+  var total = size(list);
+  var mpid = 0;
+  for(var i = 0; i < total; i += 1) {
+      if (cs != nil) {
+      # were searching for someone...
+      if (getprop("ai/models/multiplayer[" ~ i ~ "]/callsign") == cs) {
+          # we have our number
+          print(mpid);
+          mpid = i;
+          return getprop("ai/models/multiplayer[" ~ mpid ~ "]/radar/bearing-deg");    
+        }
+      var callsign = list[i].getNode("callsign").getValue();
+     }
+   }
+}
+
 var searchsize = func() {
   var list = props.globals.getNode("/ai/models").getChildren("multiplayer");
   var total = size(list);

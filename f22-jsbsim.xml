@@ -1007,6 +1007,55 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
 
+
+<!--Misc stuff for HUD-->
+<function name="fcs/hudarrowprex">  
+        <table>
+            <independentVar lookup="row">/controls/radar/error-deg</independentVar>
+
+            <tableData> 
+              -7   -1  
+               0    0  
+               7    1 
+            </tableData>
+          </table>
+</function>
+<function name="fcs/hudarrowprey">  
+        <table>
+
+            <independentVar lookup="row">/controls/radar/error-pitch-deg</independentVar>
+            <tableData> 
+              -6    2  
+               0    0  
+               6    0 
+            </tableData>
+          </table>
+</function>
+<function name="fcs/hudarrowpreyy">  
+        <table>
+
+            <independentVar lookup="row">/controls/radar/error-pitch-deg</independentVar>
+            <tableData> 
+              -6    -1  
+               0    1  
+               6    1 
+            </tableData>
+          </table>
+</function>
+
+   <function name="fcs/hudarrowpre">  
+<product>
+<property>fcs/hudarrowpreyy</property>
+<sum>
+      <property>fcs/hudarrowprex</property>
+      <property>fcs/hudarrowprey</property>
+
+</sum>
+</product>
+
+   </function>
+
+
   <channel name="Pitch">
 
    <kinematic name="leading edge flaps">

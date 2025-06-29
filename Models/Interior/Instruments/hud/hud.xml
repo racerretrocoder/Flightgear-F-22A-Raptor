@@ -65,4 +65,37 @@
   
 
 
+
+<animation>
+	<type>rotate</type>
+	<object-name>lock</object-name>
+	<property>fdm/jsbsim/fcs/hudarrowpre</property>
+	<factor>90</factor>
+	<axis>
+	<object-name>lock-axis</object-name>
+	</axis>
+
+</animation> 
+
+ <animation>
+  <object-name>lock</object-name>
+  <type>select</type>
+  <condition>
+  <and>
+<equals>
+				<property>/controls/radar/hud-pointer</property>
+				<value>1</value>
+			</equals>
+      
+      <equals>
+				<property>/instrumentation/radar/lock</property>
+				<value>1</value>
+			</equals>
+      </and>
+
+  </condition>
+ </animation>
+
+
+
 </PropertyList>

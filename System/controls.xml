@@ -5,14 +5,20 @@
 
 <flight>
 <TSWTSN type="int">1</TSWTSN> 
-<altflap type="int">1</altflap> <!-- -1 NORM 1 ENA-->
+<altflap type="int">1</altflap> <!-- 1 NORM -1 ENA-->
 <APC type="int">0</APC> 
 <ARC type="int">0</ARC> 
 </flight>
 
 <radar>
+<lockedinhud type="int">0</lockedinhud>
+<hud-pointer type="int">0</hud-pointer>
 <cursormode type="int">0</cursormode>
+<hud-rotate type="float"> 0 </hud-rotate>
+<error-deg type="float"> 0 </error-deg>
+<error-pitch-deg type="float"> 0 </error-pitch-deg>
 </radar>
+
       <jitter type="float"> 0 </jitter>
 		<winch>
 			<place type="bool">false</place>
