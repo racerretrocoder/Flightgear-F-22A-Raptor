@@ -914,15 +914,15 @@ var arrowpointer = func() {
     }
     if (target1_x > -6 and target1_x < 6 and target1_z > -6 and target1_z < 6) {
         # Target in the hud
-        screen.log.write("In HUD");
+        #screen.log.write("In HUD");
         setprop("/controls/radar/hud-pointer",0);
         setprop("/controls/radar/hud-rotate",0);
     } else {
         # Target not in hud
         setprop("/controls/radar/hud-pointer",1); # show arrow
-        screen.log.write(lockedcallsign);
-        screen.log.write(target1_x);
-        screen.log.write(target1_z);
+        #screen.log.write(lockedcallsign);
+        #screen.log.write(target1_x);
+        #screen.log.write(target1_z);
         setprop("/controls/radar/error-deg",target1_x);
         setprop("/controls/radar/error-pitch-deg",target1_z);
 

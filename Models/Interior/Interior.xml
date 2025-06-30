@@ -3267,8 +3267,8 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdc</property>
-               <value>0</value>
-               <value>1</value>
+               <value>8</value>
+               <value>8</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>
