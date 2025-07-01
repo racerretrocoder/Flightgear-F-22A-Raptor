@@ -132,6 +132,17 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 
  <animation>
 	 <type>select</type>
+	 	 <object-name>rect</object-name>
+	 <condition>   
+		 <equals>
+			 <property>systems/MFD/modemfdr</property>
+			 <value>0</value>
+		 </equals>
+	 </condition>
+ </animation>
+
+ <animation>
+	 <type>select</type>
 	 <object-name>main screen</object-name>
 	 <condition>   
 		 <equals>

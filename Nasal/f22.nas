@@ -604,8 +604,6 @@ var eject = func{
 
 var eject2 = func{
     setprop("canopy/Jettison", 1);  # Jett the canopy
-
-#Spawning of the "Missile"  Lol
 print("made it this far, lets spawn a chair!");
  setprop("/controls/flight/speedbrake",1);
   setprop("/controls/armament/selected-weapon", "eject");
@@ -811,16 +809,16 @@ var radarlook = func(cs=nil) {
       if (getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/h-offset") == nil) {
         print("thats nil!");
       }
-      var callsign = getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign");
+      var callsign = getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign");
       if (getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign") == nil or getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign") == "") {
-        print("callsign nil!");
+        print("radar callsign nil!");
       }
       if (getprop("instrumentation/radar/lock") == 1){
-        print("radar already locked bruh");
+        print("radar is already locked");
         return 1;
       }
 
-      print("checking " ~ callsign ~ "");
+      #print("checking " ~ callsign ~ ".");
       var radarON = 1;
       var target1_x = getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/h-offset");
       var target1_z = getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/v-offset");
@@ -857,28 +855,33 @@ var radarlook = func(cs=nil) {
           screen.log.write("Radar ACM: Can lock! Locking...");
           screen.log.write(callsign);
           #checkcloestmp("");
-          #        screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
-                    setprop("instrumentation/radar/lock", 1);
-                    radar.next_Target_Index(1);
-                    radar.previous_Target_Index(1);
-                    var radarcs = radar.tgts_list[Target_Index].Callsign.getValue();
-                    for(var ind = 0; ind < total; ind += 1) {
-                    if (radarcs != getprop("instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/callsign")) {
-                      radar.next_Target_Index();
-                      #screen.log.write("Radar: Checking... "~radar.tgts_list[Target_Index].Callsign.getValue(),1,1,0);
-                    } else {
-                      screen.log.write("Radar: ACM Locked "~radar.tgts_list[Target_Index].Callsign.getValue(),1,1,0);
-                      #break;
-                    }
-                  }
+          #        screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);''
+         
+          var radarcs = radar.tgts_list[radar.Target_Index].Callsign.getValue();
+          acmcheck(radarcs,mpid,total);
+          break;
         }
      }
   }
 }
 
 
-var acmcheck = func() {
-  print("wip");
+var acmcheck = func(radarcs,mpid,total) {
+  screen.log.write("in here now");
+  screen.log.write("total:" ~ total);
+  screen.log.write("radarcs:" ~ radarcs);
+  screen.log.write("mpid:" ~ mpid);
+  for(var i = 0; i < total; i += 1) {
+    #screen.log.write("Iteration: "~i~".");
+    if (radarcs != getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign")) {
+      #screen.log.write("Dosent match!");
+      radar.next_Target_Index(1);
+    } else {
+      screen.log.write("Radar: ACM Locked "~radar.tgts_list[radar.Target_Index].Callsign.getValue());
+      setprop("instrumentation/radar/lock", 1);
+      break;
+    }
+  }
 }
 
 # Cool arrow pointer
@@ -1021,6 +1024,10 @@ var updateradarcs = func {
 # Add a if lock 
 if (getprop("/instrumentation/radar/lock2") != 0){
   print("LOCKED!");
+  var callsign = radar.tgts_list[radar.Target_Index].Callsign.getValue();
+  var mpid = misc.smallsearch(callsign);
+  var lockedalt = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/position/altitude-ft");
+  setprop("controls/radar/lockedalt",lockedalt);
   setprop("controls/radar/lockedcallsign", radar.tgts_list[radar.Target_Index].Callsign.getValue());
   } else {
   # Not locked on

@@ -1,5 +1,9 @@
-print("Loading Front Controls...");
+# Front controls numpad system
+# Along with datalink coordnites, and the PRF System
 
+
+print("Loading Front Controls...");
+setprop("controls/PRF/range",5);
 setprop("controls/radar/currentslot", 1);
 setprop("controls/radar/slots/lat", 1);
 setprop("controls/radar/slots/lon", 1);
@@ -460,23 +464,23 @@ var dlink_loop = func {
     }
   }
 }
-
+# For PRF
 var dlink_loopcontacts = func {
-  print("testing contacts...");
+  #print("testing contacts...");
   if (getprop("instrumentation/datalink/data") != 0) return;
   total = misc.searchsize();
   for(var i = 0; i < total; i += 1) {
     var mpid = i;
     var chkcallsign = getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign");
-    print("Checking if someone is locking "~chkcallsign);
+    #print("Checking if someone is locking "~chkcallsign);
     var data = datalink.get_data(chkcallsign);
     if (data != nil){
-      print("Not nil!");
+      #print("Not nil!");
       if (data.tracked() != nil){
         var result = data.tracked();
       }
     } else {
-      print("Not locked");
+      #print("Not locked");
       result = 0;
     }
     if (result == nil){result = 0;}
@@ -490,11 +494,39 @@ var dlink_loopcontacts = func {
       #ns = ans + 180;
     }
     setprop("controls/PRF/contact["~ mpid ~"]/heading",ans);
+      #
+      # Range
+      # WIP Make own HSD Range
+      if (getprop("controls/PRF/range") == 5){
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm"));
+      }
+      if (getprop("controls/PRF/range") == 10){
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 2);
+      }
+      if (getprop("controls/PRF/range") == 20){
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 4);
+      }
+      if (getprop("controls/PRF/range") == 40){
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 6);
+      }
+      if (getprop("controls/PRF/range") == 60){
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 16);
+      }
+      if (getprop("controls/PRF/range") == 160){ # WOWZERS!
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 30);
+      }
+      if (getprop("controls/PRF/range") == 360){ # WOWZERS!
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 30);
+      }
+      # Callsign
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/callsign",getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign"));
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/alt",getprop("ai/models/multiplayer[" ~ mpid ~ "]/position/altitude-ft") / 1000); # 1 for 1,000 10 for 10,000 and so on
   }
 }
 setprop("instrumentation/datalink/lastcallsign", "No Data");
+
 var dlnk_timer = maketimer(3.5, dlink_loop);
-var dlnk_timercontact = maketimer(1, dlink_loopcontacts);
+var dlnk_timercontact = maketimer(0.1, dlink_loopcontacts);
 dlnk_timer.start();
 dlnk_timercontact.start();
 setprop("instrumentation/datalink/data",0); # Enable Recording   
