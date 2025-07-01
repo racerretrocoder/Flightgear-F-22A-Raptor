@@ -470,14 +470,26 @@ var dlink_loopcontacts = func {
     var chkcallsign = getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign");
     print("Checking if someone is locking "~chkcallsign);
     var data = datalink.get_data(chkcallsign);
-    if (data.tracked() != nil){
-      var result = data.tracked();
+    if (data != nil){
+      print("Not nil!");
+      if (data.tracked() != nil){
+        var result = data.tracked();
+      }
     } else {
+      print("Not locked");
       result = 0;
     }
     if (result == nil){result = 0;}
-    print(data.tracked());
     setprop("controls/PRF/contact["~ mpid ~"]/istracked",result);
+    var ourhdg = getprop("/orientation/heading-deg");
+    var therehdg = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/bearing-deg");
+    var ans = ourhdg - therehdg;
+    if (ans < 0) {
+      # negitive
+      #screen.log.write("it be negitive");
+      #ns = ans + 180;
+    }
+    setprop("controls/PRF/contact["~ mpid ~"]/heading",ans);
   }
 }
 setprop("instrumentation/datalink/lastcallsign", "No Data");

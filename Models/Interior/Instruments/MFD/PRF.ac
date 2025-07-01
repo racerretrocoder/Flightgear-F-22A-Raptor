@@ -1,9 +1,154 @@
 AC3Db
-MATERIAL "ac3dmat0" rgb 0 0 0  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
-MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
+MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 1 1 1  shi 0  trans 0
+MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 1 1 1  shi 128  trans 0
+MATERIAL "ac3dmat3" rgb 1 0 0  amb 1 0 0  emis 1 0 0  spec 1 0 0  shi 128  trans 0
 MATERIAL "ac3dmat6" rgb 0 1 0  amb 0 0 0  emis 0 1 0  spec 0 0 0  shi 128  trans 0
 OBJECT world
-kids 7
+kids 15
+OBJECT poly
+name "blip1"
+loc 0.00140999 -0.00448605 0.00020099
+crease 45.000000
+numvert 4
+0 0.000980203 -0.00114356
+0 0.000980203 0.00114356
+0 -0.000980203 0.00114356
+0 -0.000980203 -0.00114356
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+0 1 1
+1 0 1
+2 0 0
+3 1 0
+kids 0
+OBJECT poly
+name "blip2"
+loc 0.00140999 -0.00448605 0.00020099
+crease 45.000000
+numvert 4
+0 -0.000980203 -0.00114356
+0 -0.000980203 0.00114356
+0 0.000980203 0.00114356
+0 0.000980203 -0.00114356
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "blip3"
+loc 0.00140999 -0.00448605 0.00020099
+crease 45.000000
+numvert 4
+0 0.000980203 -0.00114356
+0 0.000980203 0.00114356
+0 -0.000980203 0.00114356
+0 -0.000980203 -0.00114356
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+0 1 1
+1 0 1
+2 0 0
+3 1 0
+kids 0
+OBJECT poly
+name "blip4"
+loc 0.00140999 -0.00448605 0.00020099
+crease 45.000000
+numvert 4
+0 -0.000980203 -0.00114356
+0 -0.000980203 0.00114356
+0 0.000980203 0.00114356
+0 0.000980203 -0.00114356
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "blip5"
+loc 0.00140999 -0.00448605 0.00020099
+crease 45.000000
+numvert 4
+0 0.000980203 -0.00114356
+0 0.000980203 0.00114356
+0 -0.000980203 0.00114356
+0 -0.000980203 -0.00114356
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+0 1 1
+1 0 1
+2 0 0
+3 1 0
+kids 0
+OBJECT poly
+name "blip6"
+loc 0.00140999 -0.00448605 0.00020099
+crease 45.000000
+numvert 4
+0 0.000980203 -0.00114356
+0 0.000980203 0.00114356
+0 -0.000980203 0.00114356
+0 -0.000980203 -0.00114356
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+0 1 1
+1 0 1
+2 0 0
+3 1 0
+kids 0
+OBJECT poly
+name "blip7"
+loc 0.00140999 -0.00448605 0.00020099
+crease 45.000000
+numvert 4
+0 -0.000980203 -0.00114356
+0 -0.000980203 0.00114356
+0 0.000980203 0.00114356
+0 0.000980203 -0.00114356
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "blip8"
+loc 0.00140999 -0.00448605 0.00020099
+crease 45.000000
+numvert 4
+0 0.000980203 -0.00114356
+0 0.000980203 0.00114356
+0 -0.000980203 0.00114356
+0 -0.000980203 -0.00114356
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+0 1 1
+1 0 1
+2 0 0
+3 1 0
+kids 0
 OBJECT poly
 name "elipse"
 loc 1.67643e-005 -0.00448338 0.000272287
@@ -75,7 +220,7 @@ numvert 64
 0 -0.00160809 -0.0160588
 numsurf 1
 SURF 0x31
-mat 2
+mat 3
 refs 64
 0 1 0.5
 1 0.997592 0.549009
@@ -213,7 +358,7 @@ numvert 64
 0 0 -0.0359303
 numsurf 1
 SURF 0x31
-mat 2
+mat 3
 refs 64
 63 1 0.5
 62 0.997592 0.549009
@@ -283,6 +428,7 @@ kids 0
 OBJECT poly
 name "box"
 loc -0.00723112 0.00155127 0.000899434
+texture "blank.png"
 crease 45.000000
 numvert 8
 -0.00487185 -0.104698 -0.103033
@@ -408,7 +554,7 @@ numvert 64
 0 -0.00583473 -0.056196
 numsurf 1
 SURF 0x31
-mat 2
+mat 3
 refs 64
 0 1 0.5
 1 0.997592 0.549009
@@ -495,7 +641,7 @@ refs 4
 kids 0
 OBJECT poly
 name "rect"
-loc 0 -0.00571478 -0.00043318
+loc 0 -0.0048567 -0.00054044
 crease 45.000000
 numvert 4
 0 -0.000110293 -0.0172671
@@ -513,7 +659,7 @@ refs 4
 kids 0
 OBJECT poly
 name "dir-axis"
-loc 0.004653 -0.00574163 0.000241119
+loc 0.004653 -0.00475184 3.74061e-005
 crease 45.000000
 numvert 2
 -0.00471943 0 0

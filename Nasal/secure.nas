@@ -169,6 +169,9 @@ var checkcode = func(ourcode) {
 }
 
 
+
+
+
 # Communication loop
 var communicate = func {
     var code = getcode();

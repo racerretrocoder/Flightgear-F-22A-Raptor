@@ -427,7 +427,7 @@ var main_init_listener = setlistener("sim/signals/fdm-initialized", func {
      });
 
      cv.addPlacement({"node": "bkg", "texture":"rwr-bkg.png"});
-     cv.setColorBackground(0.01, 0.0105, 0);
+     cv.setColorBackground(0.00784, 0.00784, 0.0823);
      var root = cv.createGroup();
      rwr = RWRCanvas.new("RWRCanvas", root, [diam/2,diam/2],diam);
      removelistener(main_init_listener);
