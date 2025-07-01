@@ -44,6 +44,11 @@
 	 <animation>
   <type>material</type>
   <object-name>dir</object-name>
+     <object-name>10nm</object-name>			
+      <object-name>20nm</object-name>
+	     <object-name>40nm</object-name>
+		    <object-name>60nm</object-name>
+			   <object-name>160nm</object-name>
   <ambient>
     <red>0.0</red>
     <green>0.0</green>
@@ -61,10 +66,13 @@
   </emission> 
  </animation>
  
+
 <animation>
 	<type>rotate</type>
-	<object-name>dir</object-name>
-	<property>/orientation/heading-magnetic-deg</property>
+
+          <object-name>dir</object-name>
+
+	<property>/orientation/heading-deg</property>
 	<factor>1</factor>
 	<offset-deg>0</offset-deg>
 	<center>
@@ -74,5 +82,576 @@
 		<x>1</x>
 	</axis>
 </animation>
+
+
+
+
+
+
+
+
+	 <text>
+  <name>10nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">10</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>10nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>10</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
+
+
+	 <text>
+  <name>20nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">20</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>20nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>20</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+	 <text>
+  <name>40nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">40</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>40nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>40</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+	 <text>
+  <name>60nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">60</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>60nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>60</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
+	 <text>
+  <name>160nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">160</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+        <type>select</type>
+        <object-name>160nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>160</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
+
+
+ <animation>
+        <type>select</type>
+        <object-name>blip1</object-name>
+        <condition>
+
+			<equals>
+       <property>controls/PRF/contact/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+    </animation>
+<animation>
+	<type>rotate</type>
+
+          <object-name>blip1</object-name>
+	<property>/controls/PRF/contact/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip1</object-name>
+  <property>instrumentation/radar2/marker/mark/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+<!--marker2-->
+  <animation>
+        <type>select</type>
+        <object-name>blip2</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[2]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip2</object-name>
+  <property>instrumentation/radar2/marker/mark[2]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+<!--3-->
+ <animation>
+        <type>select</type>
+        <object-name>blip3</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[3]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip3</object-name>
+  <property>instrumentation/radar2/marker/mark[3]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+        <type>select</type>
+        <object-name>blip4</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[4]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip4</object-name>
+  <property>instrumentation/radar2/marker/mark[4]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+        <type>select</type>
+        <object-name>blip5</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[5]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ 
+  <animation>
+  <type>translate</type>
+  <object-name>blip5</object-name>
+  <property>instrumentation/radar2/marker/mark[5]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+        <type>select</type>
+        <object-name>blip6</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[6]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip6</object-name>
+  <property>instrumentation/radar2/marker/mark[6]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+        <type>select</type>
+        <object-name>blip7</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[7]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip7</object-name>
+  <property>instrumentation/radar2/marker/mark[7]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+
+ <animation>
+        <type>select</type>
+        <object-name>blip8</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[8]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip8</object-name>
+  <property>instrumentation/radar2/marker/mark[8]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+        <type>select</type>
+        <object-name>blip9</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[9]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip9</object-name>
+  <property>instrumentation/radar2/marker/mark[9]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+        <type>select</type>
+        <object-name>blip10</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[10]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip10</object-name>
+  <property>instrumentation/radar2/marker/mark[10]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+        <type>select</type>
+        <object-name>blip11</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[11]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip11</object-name>
+  <property>instrumentation/radar2/marker/mark[11]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+        <type>select</type>
+        <object-name>blip12</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[12]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip12</object-name>
+  <property>instrumentation/radar2/marker/mark[12]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+  <animation>
+        <type>select</type>
+        <object-name>blip13</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[13]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>blip13</object-name>
+  <property>instrumentation/radar2/marker/mark[13]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+
 
 </PropertyList>
