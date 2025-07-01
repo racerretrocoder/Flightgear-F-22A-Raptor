@@ -10,13 +10,6 @@
     <animation>
         <object-name>bkg</object-name>
         <type>material</type>
-        <condition>
-            <greater-than-equals>
-                <property>systems/electrical/outputs/rwr</property>
-                <value>20</value>
-            </greater-than-equals>
-
-        </condition>
         <emission>
             <red>  1</red>
             <green>1</green>

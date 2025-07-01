@@ -100,7 +100,7 @@ kids 0
 OBJECT poly
 name "icon4"
 loc 0.0101994 0.0920714 -0.0347466
-texture "FLT.png"
+texture "FLIGHT.png"
 crease 45.000000
 numvert 4
 0 -0.00486393 -0.00753125

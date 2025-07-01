@@ -1316,7 +1316,7 @@ elsif(getprop("instrumentation/radar/mode/main") == 2)
     }
 }
 
-next_Target_Index = func(canprint=0){
+next_Target_Index = func(canprint=0,canlock=1){
     Target_Index += 1;
     #print(size(tgts_list));
     if(Target_Index > size(tgts_list) - 1)
@@ -1327,8 +1327,9 @@ next_Target_Index = func(canprint=0){
         if (canprint == 0){
         screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
         }
-                    setprop("instrumentation/radar/lock", 1);
-
+        if (canlock == 1){
+        setprop("instrumentation/radar/lock", 1);
+        }
     }
 }
 
