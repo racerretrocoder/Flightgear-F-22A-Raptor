@@ -3654,8 +3654,8 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdl</property>
-               <value>0</value>
-               <value>4</value>
+               <value>7</value>
+               <value>7</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>
