@@ -610,12 +610,24 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </function>
 
 
-<function name="fcs/elevator-pos-norm-limit">  
-
+<function name="fcs/elevator-g-limit">  
     <product>
-
       <property>fcs/fbw-override</property> <!--if its Zero. Itll Cancel out the glimit, Making this function output 0-->
+    <table>
+            <independentVar lookup="row">/accelerations/pilot-gdamped</independentVar>
+            <tableData>   
+              1     1   
+              9     1   
+              11.5     0 
+            </tableData>
+          </table>
+</product>
+   </function>
 
+
+<function name="fcs/elevator-pos-norm-limit">  
+    <product>
+      <property>fcs/fbw-override</property> <!--if its Zero. Itll Cancel out the glimit, Making this function output 0-->
     <table>
             <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
             <independentVar lookup="column">/controls/engines/engine/throttle</independentVar>
@@ -633,6 +645,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           </table>
 </product>
    </function>
+
 
 <!--This makes that 0 into a 1 Providing full elevator movement when FBW override is on-->
 <function name="fcs/fbw-override2">  
@@ -662,7 +675,27 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 </product>
    </function>
 
+      <function name="fcs/Elev-pos-norm-limit-sum-g">  <!--BOTH Limiters-->
+<product>
+      <property>fcs/elevator-g-limit</property>
+      <property>fcs/Elev-pos-norm-limit-sum</property>
+</product>
+   </function>
+   <function name="fcs/Elev-pos-norm-limit-sum-main-flt">  <!--Main Elevator POS with Limit-->
+<sum>
+      <property>fcs/Elev-pos-norm-limit-sum-g</property>
+      <property>fcs/fbw-override2</property>
+</sum>
+   </function>
 
+
+
+   <function name="fcs/Elev-pos-norm-g-limit">  <!--Main Elevator POS with G Limit-->
+<product>
+      <property>fcs/elevator-g-limit</property>
+      <property>fcs/elevator-cmd-norm</property>
+</product>
+   </function>
 
   <function name="fcs/ail-pos-norm-limit-sum-main">  <!--Main Elevator POS with Limit-->
 <product>
@@ -1386,14 +1419,14 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <function name="fcs/vector-main-control">  <!-- this is here for refernece later :) Oh and the vector limiter!-->
 <quotient>
-     <product>
-      <property>fcs/elevator-cmd-norm</property> <!--Add g limit here too -->
+
+       <!--Add g limit here too -->
 
     <product>
-
+      <property>fcs/Elev-pos-norm-g-limit</property>
       <property>fcs/tv-coefficient</property>
      </product>
-       </product>
+
         <table>
             <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
             <tableData>
@@ -1402,7 +1435,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
               400    1.5
               450    2
               500    2.5
-              550    2.5
+              750    5.5
             </tableData>
           </table>
        </quotient>
@@ -2117,7 +2150,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
               -0.20 -0.640
                0.00  0.080
                0.36  1.000
-               0.60  0.448
+               0.90  0.448
             </tableData>
           </table>
       </product>
@@ -2175,9 +2208,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <tableData>
              -1.57    2.500
-             -0.26    0.031
+             -0.46    0.031
               0.00    0.024
-              0.26    0.031
+              0.46    0.031
               1.57    2.300
             </tableData>
           </table>
@@ -2404,7 +2437,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/cbarw-ft</property>
-           <property>fcs/Elev-pos-norm-limit-sum</property>
+           <property>fcs/Elev-pos-norm-limit-sum-main-flt</property>
           <property>fcs/elevator-pos-rad</property>
           <table>
             <independentVar lookup="row">velocities/mach</independentVar>
