@@ -2230,6 +2230,77 @@ New: Refuel in air switch.
     </animation>
 
 
+
+
+
+<!-- Comms -->
+
+<animation>
+        <name>comm1 vol</name>
+        <type>knob</type>
+        <object-name>comm1vol</object-name>
+        <property>instrumentation/comm[0]/volume</property>
+        <factor>310</factor>
+        <axis>
+        <object-name>comm1vol-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>instrumentation/comm[0]/volume</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+<binding>
+         <command>set-tooltip</command>
+         <tooltip-id>comm1vol</tooltip-id>
+         <label>Comm 1 Volume</label>
+         </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+    </animation>
+
+<animation>
+        <name>Comm2vol</name>
+        <type>knob</type>
+        <object-name>comm2vol</object-name>
+        <property>instrumentation/comm[1]/volume</property>
+        <factor>310</factor>
+
+        <axis>
+        <object-name>comm2vol-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>instrumentation/comm[1]/volume</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+<binding>
+         <command>set-tooltip</command>
+         <tooltip-id>comm2vol</tooltip-id>
+         <label>Comm 2 Volume</label>
+         </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+    </animation>
+
+
 <!--Landing Lights
 
 -->
