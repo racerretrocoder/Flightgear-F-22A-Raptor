@@ -383,6 +383,7 @@ Theres soo many
 
 <int n="24" type="int" alias="/controls/apu/smoke"/>
 <int n="25" type="int" alias="/controls/apu/apuflame"/>
+<int n="26" type="int" alias="/fdm/jsbsim/fcs/landlight"/>
 <!--Missiles in bays on MP-->
 <string n="6" type="string"></string><!-- string 6 used by radar lock RWR warning -->
 <string n="7" type="string"></string><!-- string 7 used by datalink -->

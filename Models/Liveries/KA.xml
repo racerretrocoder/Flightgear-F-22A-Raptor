@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+
+
+
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">N51's Custom livery </name>     
+      <texture-AKfuselage>Liveries/KA/body.dds</texture-AKfuselage>
+ <texture-sides>Liveries/elevs.png</texture-sides>
+ <texture-sideL>Liveries/CL/SIDEL.DDS</texture-sideL>
+  <texture-sideR>Liveries/CL/SIDER.DDS</texture-sideR>
+ <texture-left-elev-top>Liveries/KA/leftelev.dds</texture-left-elev-top>
+ <texture-right-elev-top>Liveries/KA/rightelev.dds</texture-right-elev-top>
+      <texture-tailR>Liveries/KA/tail-R.png</texture-tailR>
+      <texture-tailL>Liveries/KA/tail-L.png</texture-tailL>
+ <texture-wing>Liveries/KA/wing.dds</texture-wing>
+  <texture-wing-right>Liveries/KA/wingright.dds</texture-wing-right>
+ <texture-control>Liveries/wing.png</texture-control>
+  <texture-nose>Liveries/KA/attemptnose.dds</texture-nose>
+  <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>

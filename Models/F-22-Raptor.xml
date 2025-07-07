@@ -2693,9 +2693,9 @@ rearwheelsaxis
    <name>RedLight</name>
    <power-source>sim/multiplay/generic/int[23]</power-source>
    <direction>
-    <x>1</x>
+    <x>0</x>
     <y>1</y>
-    <z>0</z>
+    <z>1</z>
    </direction>
    <ambient>
     <r>1</r>
@@ -2726,9 +2726,9 @@ rearwheelsaxis
    <name>RedLight2</name>
    <power-source>sim/multiplay/generic/int[23]</power-source>
    <direction>
-    <x>-1</x>
-    <y>-1</y>
-    <z>0</z>
+    <x>0</x>
+    <y>1</y>
+    <z>1</z>
    </direction>
    <ambient>
     <r>1</r>
@@ -2763,9 +2763,9 @@ rearwheelsaxis
    <name>GreenLight2</name>
    <power-source>sim/multiplay/generic/int[23]</power-source>
    <direction>
-    <x>1</x>
-    <y>1</y>
-    <z>0</z>
+    <x>0</x>
+    <y>-1</y>
+    <z>1</z>
    </direction>
    <ambient>
     <r>0</r>
@@ -2794,9 +2794,9 @@ rearwheelsaxis
    <name>GreenLight</name>
    <power-source>sim/multiplay/generic/int[23]</power-source>
    <direction>
-    <x>-1</x>
+    <x>0</x>
     <y>-1</y>
-    <z>0</z>
+    <z>1</z>
    </direction>
    <ambient>
     <r>0</r>
@@ -2826,7 +2826,7 @@ rearwheelsaxis
    <name>beacon1</name>
    <power-source>/sim/model/lights/beacon/state</power-source>
    <direction>
-    <x>1</x>
+    <x>0</x>
     <y>1</y>
     <z>0</z>
    </direction>
@@ -2858,7 +2858,7 @@ rearwheelsaxis
    <name>beacon2</name>
    <power-source>/sim/model/lights/beacon/state</power-source>
    <direction>
-    <x>1</x>
+    <x>0</x>
     <y>1</y>
     <z>0</z>
    </direction>
@@ -2948,7 +2948,7 @@ rearwheelsaxis
 
 	</condition>
 </animation>
-
+<!--
 	<model>
    
     <path>Aircraft/F-22/Models/Lights/light-cone.xml</path>
@@ -2959,6 +2959,77 @@ rearwheelsaxis
     <pitch-deg>   -8.000 </pitch-deg>
     <heading-deg>  0 </heading-deg>
     </offsets>
+</model>-->
+
+
+
+
+
+	<model>
+ <name>landinglight</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+        <x-m>-4.4</x-m>
+	    <y-m>-0.0</y-m>
+		<z-m>-2.47099</z-m>
+    <pitch-deg>   -8.000 </pitch-deg>
+    <heading-deg>  0 </heading-deg>
+ </offsets>
+ <overlay>
+  <params>
+   <name>landinglight</name>
+   <power-source>sim/multiplay/generic/int[26]</power-source>
+   <direction>
+    <x>10</x>
+    <y>0.3</y>
+    <z>20</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>1</g>
+    <b>1</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1</g>
+    <b>1</b>
+   </specular>
+      <!-- ALS settings -->
+  </params>
+ </overlay>
+</model>
+	<model>
+ <name>landinglight</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+        <x-m>-4.4</x-m>
+	    <y-m>-0.0</y-m>
+		<z-m>-2.47099</z-m>
+    <pitch-deg>   -8.000 </pitch-deg>
+    <heading-deg>  0 </heading-deg>
+ </offsets>
+ <overlay>
+  <params>
+   <name>landinglight</name>
+   <power-source>sim/multiplay/generic/int[26]</power-source>
+   <direction>
+    <x>10</x>
+    <y>-0.3</y>
+    <z>20</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>1</g>
+    <b>1</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1</g>
+    <b>1</b>
+   </specular>
+      <!-- ALS settings -->
+  </params>
+ </overlay>
 </model>
 
  <!--
