@@ -111,6 +111,7 @@ var rcs_database = {
     "daVinci_F-35B":            0.0015,
     "F-117":                    0.003,
     "T-50":                     0.5,    #low end of sources
+    "X-02":                     0.5,   # low vis. but curvy structure
     "u-2s":                     0.01,
     "U-2S-model":               0.01,
     #Carriers

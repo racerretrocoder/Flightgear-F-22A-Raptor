@@ -84,3 +84,11 @@ var fuelTanks = func {
 }
 
 setlistener("/sim/signals/fdm-initialized", fuelTanks);
+# debug
+setprop("fuel/tankstyle",0);
+var debugtest = func() {
+while (1 == 1) {
+  var a = getprop("fuel/tankstyle");
+  setprop("fuel/tankstyle",a + 1); # Cycle through tanks
+}
+}

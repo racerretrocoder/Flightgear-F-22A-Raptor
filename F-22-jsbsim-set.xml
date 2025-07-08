@@ -274,7 +274,24 @@
 				</script>
 			</binding>
 		</item>
-
+<item>
+			<label>jammer on</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+jammer.start();
+				</script>
+			</binding>
+		</item>
+<item>
+			<label>jammer off</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+jammer.stop();
+				</script>
+			</binding>
+		</item>
   <!--                  <item>
                       <label>Jammer: Enable</label>
                       <name>enemies</name>
@@ -1806,6 +1823,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		</sim>
 
 <f22>
+<ready type="bool">false</ready> <!--For the MFD's-->
         <party type="bool">false</party>
 <ejected type="int">0</ejected>
 </f22>
@@ -2849,6 +2867,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<file>Aircraft/F-22/Nasal/secure.nas</file>
 		</KY58>
 
+		<jammer>
+			<file>Aircraft/F-22/Nasal/jammer.nas</file>
+		</jammer>
 	</nasal>
 
 </PropertyList>

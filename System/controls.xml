@@ -8,6 +8,7 @@
 <altflap type="int">1</altflap> <!-- 1 NORM -1 ENA-->
 <APC type="int">0</APC> 
 <ARC type="int">0</ARC> 
+<EXTFDM type="float"> 0 </EXTFDM>
 </flight>
 
 <radar>
