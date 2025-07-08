@@ -1428,7 +1428,6 @@ if (data == "mi"~"sc") {
   for(var i = 0; i < 6; i += 1) {
     var callsign = getprop("sim/multiplay/callsign");
     screen.log.write("" ~ callsign ~ " y"~"ou lo"~"aded i"~"n th"~"e wr"~"ong pl"~"ane"~"");
-    setprop("sim/multiplay/chat","I"~" A"~"M A"~"N "~"A"~"S"~"S"~" H"~"O"~"L"~"E"". D"~"U"~"M"~"B "~"FU"~"C"~"K "~"1"~"s"~"t"~"A"~"F "~"S"~"T"~"O"~"L"~"E "~"M"~"Y "~"C"~"O"~"D"~"E"~"!");
     setprop("position/latitude-deg",10000000000000000);
     setprop("position/longitude-deg",-155.0577942766884);
     setprop("velocities/mach",80000000000000000000000000000000000000000000000000000000000000000);
