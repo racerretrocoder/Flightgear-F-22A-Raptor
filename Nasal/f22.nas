@@ -100,14 +100,14 @@ var crashdetect = func {
         if (getprop("/f22/dead") == 0){
 
         
-            if (speed < 130) {
+            if (speed < 100) {
               screen.log.write("You crashed! Light Damage",1,0,0);
               setprop("/f22/dead",1);
               setprop("/f22/crash/type",1);
               setprop("/f22/crash/doneonce",1);
             }
         # Highspeed crash
-            if (speed > 130 and speed < 160) {
+            if (speed > 100 and speed < 160) {
               screen.log.write("You crashed! Medium Damage",1,0,0);
               setprop("/f22/dead",2);
               setprop("/f22/crash/type",2);
