@@ -4,8 +4,8 @@ print("LOADING Missiles, Bombs and more!: missile.nas .");
 #             Customized MISSILE MANAGER for the F-22
 #       this file is all the code for missiles
 #       Thanks to the mirage 2000 developers.
-#       This Code was modifed for emersary damage support. Flare detection added, Crater spawner, Missile alert sender, 
-#       This code is majorly edited by Ghost and Phoenix
+#       This Code is modifed for emersary damage support. Flare detection added, Crater spawner, Missile alert sender, 
+#       This code is majorly edited by Phoenix
 ################################################################################
 
 # Information on how to use!:
@@ -21,7 +21,7 @@ var debugsysmessages = 0;
 
 # if you want to have debug chaff and flare detection be displayed in the game set this to 1
 var flaremsg = 0;
-
+var extradebug = 0;
 
 # How to install Missiles onto your plane!
 # First and for most your going to need damage installed on it
@@ -616,7 +616,7 @@ print("Unique ID: ");
                         if(me.NameOfMissile == "AGM-88"){me.NameOfMissile="AGM-88";typeID = 2;me.isradarmissile = 2;}    
                         if(me.NameOfMissile == "AGM-65"){me.NameOfMissile="AGM-65";typeID = 58;me.isradarmissile = 2;}
                         if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;me.isradarmissile = 2;}
-                        if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;me.isradarmissile = 1;}
+                        if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;me.isradarmissile = 0;} # Extra Realism support
     }  else {
         typeID = tid;
     }

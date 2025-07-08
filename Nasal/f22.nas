@@ -1,3 +1,5 @@
+
+# Phoenix F-22A.nas
 # Hide the hud when not in the cockpit view
 # setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
 # Not needed anymore because of the added canvas hud
@@ -1048,7 +1050,15 @@ var crashreinit = func {
   crashreinit_timer.stop();
 }
 
-
+var readyset = func{ 
+  f22.testsetup();
+  f22.testsetupmain();
+  datalink.dlinit(); # Initalise the datalink. start the loops to recive data
+}
+var resetready = func{
+  setprop("f22/ready",0); # Reset the MFDs
+  rebound_timer.stop();
+}
 
         #
         # BEGIN maketimer(); MAYHEM!
@@ -1062,6 +1072,7 @@ arrow = maketimer(0.1, arrowpointer);
 arrow.start();
 locktgt_timer = maketimer(0.1, tgtlock);
 crash_timer = maketimer(0.1, crashdetect);
+rebound_timer = maketimer(3, resetready);
 crash_timer.start();
 Flare_timer = maketimer(1.8, cha_flare);
 timer_flarecheck = maketimer(2, flarecheck);  # To make the target need to keep putting out flares for the number to stay 1 and make missiles detect them
@@ -1075,10 +1086,12 @@ timer_jitter = maketimer(0.1, jitter);
 timer_cursor = maketimer(0.1, cursor);
 timer_cursor.start();
 acmtimer = maketimer(2,radarlook);
+ready_timer = maketimer(30,readyset);
+
 
 setlistener("sim/signals/fdm-initialized", func {
 # Spawned in/went to location
-
+ready_timer.start();
 crash_timer.stop(); # stop crash xd
 crashreinit_timer.start();
 repair();
@@ -1090,6 +1103,7 @@ timer_eng.start();          # engines
 timer_loopTimer.start();    # Pullup alarm
 timer_extpylons.start();    # External pylon detection
 timer_damage.start();
+
 });
 
 timer_loopTimer.start();
