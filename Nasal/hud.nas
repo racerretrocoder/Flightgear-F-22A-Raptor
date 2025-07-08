@@ -105,19 +105,15 @@ var HUD = {
         
 
 
-
-
-
-
  #Coordinares are from top left .setTranslation(left,Top)
 
 # heading
     m.headingind =
       m.text.createChild("text")
-            .setAlignment("center-top")
-            .setTranslation(130,24)#(left,Top)
-            #.setFont("Liberation Sans Narrow")
-            .setFontSize(06,0.5);
+        .setAlignment("center-top")
+        .setTranslation(130,24)#(left,Top)
+        #.setFont("Liberation Sans Narrow")
+        .setFontSize(06,0.5);
 
 
     # Airspeed

@@ -24,7 +24,7 @@ Doors.passengerexport = func {
 
 
 
-# ==============print(io.readfile(path));
+# ==============
 # Initialization
 # ==============
 
