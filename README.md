@@ -41,6 +41,6 @@ the landing gear acts funny. in general.
 alot more. that are not on my mind rn. lol
 
 # Our Development Discord Server is live!
-100% non toxic gurranty! Lol
-https://discord.gg/Q3tXXqQsdJ
+Its small, you dont have to join :)
+https://discord.gg/N774SEcc3R
 
