@@ -82,9 +82,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <vtailarea unit="FT2">  151.20 </vtailarea>
    <vtailarm  unit="FT" >   24.80 </vtailarm>
    <location name="AERORP" unit="IN">
-     <x> 90.40 </x>
+     <x> 268.52 </x>
      <y>   0.00 </y>
-     <z>   0.00 </z>
+     <z> -15.36 </z>
    </location>
    <location name="EYEPOINT" unit="IN">
      <x> 45.80 </x>
@@ -105,86 +105,12 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <emptywt unit="LBS" >     34000 </emptywt>
    <location name="CG" unit="IN">
 
-     <x> 110.52 </x>
+     <x> 268.52 </x>
      <y>   0.00 </y>
      <z> -15.36 </z>
    </location>
 
 
-   <pointmass name="pylon8">
-    <description>left side bay payload</description>
-    <weight unit="LBS"> 0 </weight>
-    <location name="POINTMASS" unit="M">
-<x> -1.0 </x>
-<y> -1.7 </y>
-<z> -1.3 </z>
-    </location>
-  </pointmass> 
-   <pointmass name="pylon6">
-    <description>center bay 1</description>
-    <weight unit="LBS">  0 </weight>
-    <location name="POINTMASS" unit="M">
-<x> -0.4  </x>
-<y> -0.95</y>
-<z> -1.6  </z>
-    </location>
-  </pointmass> 
-   <pointmass name="pylon4">
-    <description>center bay 2</description>
-    <weight unit="LBS">  0 </weight>
-    <location name="POINTMASS" unit="M">
-<x>-0.4 </x>
-<y>-0.67</y>
-<z>-1.6 </z>
-    </location>
-  </pointmass> 
-   <pointmass name="pylon10">
-    <description>center bay 3</description>
-    <weight unit="LBS">  0 </weight>
-    <location name="POINTMASS" unit="M">
-<x>-0.4 </x>
-<y>-0.39</y>
-<z>-1.6 </z>
-    </location>
-  </pointmass> 
-   <pointmass name="pylon2">
-    <description>center bay 4</description>
-    <weight unit="LBS">  0 </weight>
-    <location name="POINTMASS" unit="M">
-<x>-0.4</x>
-<y>0.67</y>
-<z>-1.6</z>
-    </location>
-  </pointmass> 
-   <pointmass name="pylon1">
-    <description>center bay 5</description>
-    <weight unit="LBS">  0 </weight>
-    <location name="POINTMASS" unit="M">
-<x> -0.4 </x>
-<y> 0.39 </y>
-<z> -1.6 </z>
-    </location>
-  </pointmass> 
-
-   <pointmass name="pylon9">
-    <description>center bay 6</description>
-    <weight unit="LBS">  0 </weight>
-    <location name="POINTMASS" unit="M">
-<x> -0.4 </x>
-<y> 0.95 </y>
-<z> -1.6 </z>
-    </location>
-  </pointmass> 
-
-   <pointmass name="pylon7">
-    <description>right side bay door</description>
-    <weight unit="LBS">  0 </weight>
-    <location name="POINTMASS" unit="M">
-<x> -1.0</x>
-<y> 1.7 </y>
-<z> -1.3</z>
-    </location>
-  </pointmass> 
 
    <pointmass name="9">
     <description>leftext</description>
@@ -228,21 +154,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  </mass_balance>
 
  <ground_reactions>
-  <contact type="BOGEY" name="NOSE">
-   <location unit="IN">
-     <x>  -280 </x>
-     <y>   0.00 </y>
-     <z> -110.60 </z>
-   </location>
-   <static_friction>  0.80 </static_friction>
-   <dynamic_friction> 0.50 </dynamic_friction>
-   <rolling_friction> 0.02 </rolling_friction>
-   <spring_coeff unit="LBS/FT">      18000.00 </spring_coeff>
-   <damping_coeff unit="LBS/FT/SEC">  9000.00 </damping_coeff>
-   <max_steer unit="DEG"> 80.00 </max_steer>
-   <brake_group>NONE</brake_group>
-   <retractable>1</retractable>
-  </contact>
+
 
    <contact type="BOGEY" name="NOSE">
    <location unit="IN">
@@ -291,7 +203,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <brake_group>RIGHT</brake_group>
    <retractable>1</retractable>
   </contact>
-<!--Todo: Fix these so there in the right spot-->
+<!--Todo: Fix these so there in the right spot
    <contact type="STRUCTURE" name="RADOME_NOSE">
     <location unit="IN">
      <x>   0    </x>
@@ -351,7 +263,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <spring_coeff unit="LBS/FT">      41750.00 </spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 4175.00  </damping_coeff>
   </contact> 
-
+-->
 
 
  </ground_reactions>
@@ -374,7 +286,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <thruster file="direct">
      <sense> 1 </sense>
      <location unit="IN">
-      <x> 240.20 </x>
+      <x> 354.20 </x>
       <y>   20.00 </y>
       <z>   -15.36 </z>
      </location>
@@ -401,7 +313,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         <feed>2</feed>
     <thruster file="direct">
      <location unit="IN">
-      <x> 240.20 </x>
+      <x> 354.20 </x>
       <y>   -20.00 </y>
       <z>   -15.36 </z>
      </location>
@@ -416,9 +328,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    <tank type="FUEL" number="0">
      <location unit="IN">
-       <x> 0.1  </x>
-       <y> -24.92 </y>
-       <z>   0    </z>
+     <x> 268.52 </x>
+     <y>   -24.00 </y>
+     <z> -15.36 </z>
      </location>
 <priority>2</priority>
      <capacity unit="LBS"> 9000.00 </capacity>
@@ -427,9 +339,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <tank type="FUEL" number="1">
      <location unit="IN">
-       <x> 0.1  </x>
-       <y>  24.92 </y>
-       <z>   0    </z>
+     <x> 268.52 </x>
+     <y>  24.00 </y>
+     <z> -15.36 </z>
      </location>
         <priority>2</priority>
      <capacity unit="LBS"> 9000.00 </capacity>
@@ -439,9 +351,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <tank type="FUEL" number="2">
  
      <location unit="IN">
-       <x> 0.1  </x>
-       <y>  24.92 </y>
-       <z>   0    </z>
+     <x> 268.52 </x>
+     <y>   24.00 </y>
+     <z> -15.36 </z>
      </location>
 <priority>1</priority>
      <capacity unit="LBS"> 8140.00 </capacity>
@@ -450,9 +362,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <tank type="FUEL" number="3">
      <location unit="IN">
-       <x> 0.1  </x>
-       <y>  -24.92 </y>
-       <z>   0    </z>
+     <x> 268.52 </x>
+     <y>   -24.00 </y>
+     <z> -15.36 </z>
      </location>
 <priority>1</priority>
      <capacity unit="LBS"> 8140.00 </capacity>
@@ -461,7 +373,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  </propulsion>
 
 
-
+ <system file="Systems/jsb-pushback.xml"/> <!--Pushback-->
  <system file="Systems/cat.xml"/>
  <!--<system file="Systems/holdback.xml"/>-->
  <flight_control name="FCS: F-22">
@@ -1723,7 +1635,17 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     </tableData>
    </table>
     </function>
- 
+  <function name="fcs/taxilight">
+      <description>light</description>
+          <table>
+    <independentVar lookup="row">/controls/lighting/taxi-light</independentVar>
+    <tableData>
+     0     0  
+     1    2
+
+    </tableData>
+   </table>
+    </function>
 
 
 <function name="fcs/aim9control">  <!-- TODO! Disable Flight control input when this function is zero! -Done! Add EPU support -Done! -->
@@ -2232,21 +2154,22 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
+          <property>/velocities/mach</property>
           <table>
             <independentVar lookup="row">/accelerations/pilot-gdamped</independentVar>
             <tableData>
               0       0
               1       0
               2       0.002
-              3       0.004
-              4       0.006
-              5       0.008
-              6       0.012
-              7       0.014
-              8       0.016
-              9       0.024
-              10      0.025
-              11      0.026
+              3       0.034
+              4       0.066
+              5       0.088
+              6       0.102
+              7       0.124
+              8       0.146
+              9       0.164
+              10      0.185
+              11      0.206
             </tableData>
           </table>
        </product>
@@ -2275,6 +2198,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
                 0.81      0.001
                 1.10      0.010
                 1.80      0.015
+                2.60      0.035
             </tableData>
           </table>
         </product>
@@ -2569,7 +2493,18 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  </aerodynamics>
 
  <external_reactions>
-
+   <force name="pushback" frame="BODY">
+  <location unit="IN">
+    <x>  177.02 </x>
+    <y> 0.0 </y>
+    <z>  -1.9683 </z>
+  </location>
+  <direction>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+  </direction>
+  </force>
          <force name="hook" frame="BODY">
             <location unit="IN">
                 <x>  300 </x>

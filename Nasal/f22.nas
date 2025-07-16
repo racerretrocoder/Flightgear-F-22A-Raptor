@@ -15,7 +15,8 @@ setprop("/f22/crash/alt",0);
 setprop("/f22/crash/type",0);
 # used to the animation of the canopy switch and the canopy move
 # toggle keystroke or 2 position switch
-
+setprop("f22/head-hdg-deg",0);
+setprop("f22/head-ptc-deg",0);
 var cnpy = aircraft.door.new("canopy", 10);
 var switch = getprop("canopy/enabled", 1);
 var pos = props.globals.getNode("canopy/position-norm", 1);
@@ -23,6 +24,12 @@ var dt = 0;
 var time = getprop("/sim/time/elapsed-sec");
 
 
+var updatehead = func {
+  if (getprop("sim/current-view/internal") == 1) {
+    setprop("f22/head-hdg-deg",getprop("sim/current-view/heading-offset-deg"));
+    setprop("f22/head-ptc-deg",getprop("sim/current-view/pitch-offset-deg"));
+  }
+}
 
 var autoflares = func{
   setprop("/ai/submodels/submodel/flare-release",1);
@@ -1087,10 +1094,11 @@ timer_cursor = maketimer(0.1, cursor);
 timer_cursor.start();
 acmtimer = maketimer(2,radarlook);
 ready_timer = maketimer(30,readyset);
-
+headupdate = maketimer(0,updatehead); # Pilot movement
 
 setlistener("sim/signals/fdm-initialized", func {
 # Spawned in/went to location
+headupdate.start();
 ready_timer.start();
 crash_timer.stop(); # stop crash xd
 crashreinit_timer.start();
@@ -1103,8 +1111,14 @@ timer_eng.start();          # engines
 timer_loopTimer.start();    # Pullup alarm
 timer_extpylons.start();    # External pylon detection
 timer_damage.start();
-
 });
+
+
+#setlistener("controls/armament/gun-trigger", func {
+#    if (getprop("ai/submodels/submodel/count") != 0) {
+#      setprop("")
+#    }
+#});
 
 timer_loopTimer.start();
 timer_extpylons.start();
@@ -1139,4 +1153,12 @@ var getCCIP = func {
       }
 }
 
+var gearlighting = func(){
+  if (getprop("controls/gear/gear-down") == 0) {
+    setprop("controls/lighting/landing-lights",0);
+    setprop("controls/lighting/taxi-light",0);
+    setprop("sim/model/clicksmall",!getprop("sim/model/clicksmall"));
+  }
+}
+setlistener("/controls/gear/gear-down",gearlighting);
 # End f22.nas

@@ -43,8 +43,8 @@
     <type>rotate</type>
     <object-name>head</object-name>
     
-    <property>controls/flight/elevator</property>
-    <factor> -15 </factor> 
+    <property>f22/head-ptc-deg</property>
+    <factor> 0.3 </factor> 
     <center>
       <x-m> 0.0 </x-m>
       <y-m> 0.000 </y-m>
@@ -61,8 +61,8 @@
     <type>rotate</type>
     <object-name>head</object-name>
   
-    <property>controls/flight/rudder</property>
-    <factor>-25</factor>
+    <property>f22/head-hdg-deg</property>
+    <factor>1</factor>
     <center>
       <x-m> 0.0 </x-m>
       <y-m> 0.000 </y-m>
@@ -80,7 +80,7 @@
      <object-name>head</object-name>
    
     <property>controls/flight/aileron</property>
-    <factor> -10.0</factor>
+    <factor> -00.0</factor>
     <center>
       <x-m> 0.074 </x-m>
       <y-m> 0.000 </y-m>
@@ -92,6 +92,27 @@
       <z> 0.000 </z>
     </axis>
   </animation> 
+
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Pilot</object-name>
+    <property>orientation/side-slip-deg</property>
+    <factor>0.1</factor>
+    <min-deg>-50</min-deg>
+    <max-deg>50</max-deg>
+    <center>
+      <x-m> 0.150 </x-m>
+      <y-m> 0.005 </y-m>
+      <z-m> 0.380 </z-m>
+    </center>
+    <axis>
+      <x> 0.000 </x>
+      <y> 0.000 </y>
+      <z> 1.000 </z>
+    </axis>
+  </animation>
+
 
 </PropertyList>
 

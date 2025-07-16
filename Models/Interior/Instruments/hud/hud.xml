@@ -51,16 +51,16 @@
   <type>material</type>
   <object-name>hudglass</object-name>
   <transparency>
-    <alpha-prop>su-27/instrumentation/HUD/brightness</alpha-prop>
+    <alpha-prop>f22/brightness</alpha-prop>
     <factor>1</factor>
     <offset>0</offset>
    </transparency>
-  <!--<emission>
-   <red>0.9</red>
-   <green>0.9</green>
-   <blue>0.9</blue>
-   <factor-prop>su-27/instrumentation/HUD/brightness</factor-prop>
-  </emission>-->
+<emission>
+   <red>1</red>
+   <green>1</green>
+   <blue>1</blue>
+   <factor-prop>f22/brightness</factor-prop>
+  </emission>
  </animation>
   
 

@@ -370,7 +370,7 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
 <animation>
         <name>Hud Sym</name>
         <type>knob</type>
-        <object-name>HUDKNOB</object-name>
+        <object-name>HUDBRT</object-name>
         <property>sim/hud/color/alpha</property>
         <property>sim/hud/color/brightness</property>
         <factor>1</factor>
@@ -383,12 +383,18 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
         <action>
             <binding>
                 <command>property-cycle</command>
-        <property>sim/hud/color/alpha</property>
-        <property>sim/hud/color/brightness</property>
+        <property>f22/brightness</property>
                 <value>0</value>
+                <value>0.1</value>
+                <value>0.2</value>
                 <value>0.3</value>
+                <value>0.4</value>
+                <value>0.5</value>
                 <value>0.6</value>
-                <value>1</value>
+                <value>0.7</value>
+                <value>0.8</value>
+                <value>0.9</value>
+                <value>1.0</value>
                 <wrap>false</wrap>
             </binding>
      <binding>
@@ -2304,24 +2310,46 @@ New: Refuel in air switch.
 <!--Landing Lights
 
 -->
-<animation>
-  <type>pick</type>
-   <object-name>LDGLIGHT</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-               <command>property-toggle</command>
-               <property>controls/lighting/landing-lights</property>
 
-    </binding>
-        <binding>
-<command>property-toggle</command>
-                <property>/sim/model/clicksmall</property>
-    </binding>
-       </action>
- </animation>
+
+
+      <animation>
+        <type>knob</type>
+        <object-name>LDGLIGHT</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+        <object-name>airsource-axis</object-name>
+        </axis>
+        <action>
+          <binding>
+          <command>property-toggle</command>
+          <property>controls/lighting/landing-lights</property>
+          </binding>
+        </action>
+        <hovered>
+         <binding>
+         <command>set-tooltip</command>
+         <tooltip-id>LDGLIGHT</tooltip-id>
+         <label>Landing Lights (Very Bright)</label>
+         </binding>
+        </hovered>
+      <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+
+
 <animation>
         <type>rotate</type>
         <object-name>LDGLIGHT</object-name>
@@ -2339,6 +2367,11 @@ New: Refuel in air switch.
 	    <z-m> -0.204265 </z-m>
         </center>
     </animation>
+
+
+
+
+
 
 
 <!--Tail Flood Switch (The panel LT swtch)
@@ -2437,7 +2470,50 @@ New: Refuel in air switch.
  </animation>
 
 
+      <animation>
+        <type>knob</type>
+        <object-name>taxi</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+        <object-name>airsource-axis</object-name>
+        </axis>
+        <action>
+    <binding>
+      <command>property-toggle</command>
+      <property>controls/lighting/taxi-light</property>
+    </binding>
+        </action>
+        <hovered>
+         <binding>
+         <command>set-tooltip</command>
+         <tooltip-id>taxi</tooltip-id>
+         <label>Taxi Lights</label>
+         </binding>
+        </hovered>
+      <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+<animation>
+        <type>rotate</type>
+        <object-name>taxi</object-name>
+        <property>controls/lighting/taxi-light</property>
+        <offset-deg>0</offset-deg>
+        <factor>40</factor>
+        <axis>
+        <object-name>taxi-axis</object-name>
+        </axis>
 
+    </animation>
 
 
 
