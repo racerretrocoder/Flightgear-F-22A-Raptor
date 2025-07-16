@@ -414,22 +414,24 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 
 	<effect>
       <inherits-from>Effects/model-transparent</inherits-from>
-
-
-				   <object-name>apuflame</object-name>
-		
+	  <object-name>apuflame</object-name>
    </effect>
+
+<effect>
+	<inherits-from>Effects/glass</inherits-from>
+    <object-name>canopy in</object-name>
+</effect>
 
 
 <effect>
-	<inherits-from>Aircraft/F-22/Models/testeffect</inherits-from>
-	  <parameters>
-    <rain-enabled>1</rain-enabled>
-	</parameters>
+  <inherits-from>Aircraft/F-22/Models/testeffect</inherits-from>
+  <parameters>
+  <rain-enabled>1</rain-enabled>
+  </parameters>
+
   <object-name>canopy out</object-name>
-    <object-name>canopy in</object-name>
   <object-name>CanopyBackInside</object-name>
- </effect>
+</effect>
 
 
  

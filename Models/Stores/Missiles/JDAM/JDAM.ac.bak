@@ -4,7 +4,7 @@ OBJECT world
 kids 1
 OBJECT poly
 name "JDAM"
-loc -0.953272 1.43585 2.88556
+loc -1.0406 1.43585 2.88556
 texture "jdamtex.png"
 crease 45.000000
 numvert 1337

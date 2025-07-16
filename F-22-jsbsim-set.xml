@@ -3,7 +3,7 @@
 <PropertyList>
 					<abdens type="double">0</abdens>
 	<sim>
-
+                <nasal-gc-threaded type="bool">true</nasal-gc-threaded> <!--Spreads the load of all the timers off one core-->
 		<description>F-22A (JSBSim FDM)</description>
 		<expected-aircraft-dir-name>F-22</expected-aircraft-dir-name>
 <variant-id type="int">1</variant-id>
@@ -2289,7 +2289,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
      <desc>Trigger flare release</desc>      
 	 <binding>
      <command>nasal</command>
- <script>f22.startflare();</script>
+ <script>CMS.updatecms();CMS.trigger();</script>
       </binding>
   <binding>
    <command>property-toggle</command>
