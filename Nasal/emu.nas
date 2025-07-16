@@ -40,6 +40,7 @@ var engstart = func {
    settimer(eng1start, 2);
    settimer(eng2start, 2);
    settimer(battery, 36);
+   setprop("f22/brightness",1);
 }
 
 var engstop = func {

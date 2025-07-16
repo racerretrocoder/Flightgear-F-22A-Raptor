@@ -9,7 +9,7 @@
     <speed>2500</speed>
     <repeat>true</repeat>
     <delay>0</delay>
-    <count>-1</count>
+    <count>480</count>
     <x-offset> 21.0 </x-offset>
     <y-offset> 1.50 </y-offset>
     <z-offset> 0.53 </z-offset>
@@ -25,10 +25,10 @@
     <name>Round</name>
     <model>Aircraft/F-22/Models/Effects/Null.ac</model>
     <trigger>controls/armament/gun-trigger</trigger>
-    <speed>2041</speed>
+    <speed>2500</speed>
     <repeat>true</repeat>
     <delay>0.0</delay>
-    <count>-1</count>
+    <count>480</count>
     <x-offset> 21.0</x-offset>
     <y-offset> 1.50 </y-offset>
     <z-offset> 0.53 </z-offset>

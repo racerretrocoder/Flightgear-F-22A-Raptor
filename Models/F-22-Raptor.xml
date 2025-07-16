@@ -189,6 +189,17 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
   </offsets>
  </model>
 
+
+ <model>
+ <name>Pushback</name>
+ <path>Aircraft/F-22/Models/Pushback/Military.xml</path> <!--Modified pushback to disable gear[0]-->
+ <offsets>
+  <x-m>-3.68081</x-m>
+  <y-m>0</y-m>
+  <z-m>-2.7683</z-m>
+ </offsets>
+</model>
+
 <animation>
   <type>material</type>
   <object-name>Fuselage_2</object-name>
@@ -904,7 +915,6 @@ Use below instead
 		</offsets>
 		<condition>
 			<not>
-
 				<property>sim/current-view/internal</property>
 			</not>
 		</condition>
@@ -2980,7 +2990,7 @@ rearwheelsaxis
    <name>landinglight</name>
    <power-source>sim/multiplay/generic/int[26]</power-source>
    <direction>
-    <x>10</x>
+    <x>20</x>
     <y>0.3</y>
     <z>20</z>
    </direction>
@@ -3013,6 +3023,78 @@ rearwheelsaxis
    <name>landinglight</name>
    <power-source>sim/multiplay/generic/int[26]</power-source>
    <direction>
+    <x>20</x>
+    <y>-0.3</y>
+    <z>20</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>1</g>
+    <b>1</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1</g>
+    <b>1</b>
+   </specular>
+      <!-- ALS settings -->
+  </params>
+ </overlay>
+</model>
+
+
+
+
+
+
+	<model>
+ <name>taxilight</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+        <x-m>-4.4</x-m>
+	    <y-m>-0.0</y-m>
+		<z-m>-2.47099</z-m>
+    <pitch-deg>   -8.000 </pitch-deg>
+    <heading-deg>  0 </heading-deg>
+ </offsets>
+ <overlay>
+  <params>
+   <name>taxilight</name>
+   <power-source>sim/multiplay/generic/int[20]</power-source>
+   <direction>
+    <x>10</x>
+    <y>0.3</y>
+    <z>20</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>1</g>
+    <b>1</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1</g>
+    <b>1</b>
+   </specular>
+      <!-- ALS settings -->
+  </params>
+ </overlay>
+</model>
+	<model>
+ <name>taxilight</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+        <x-m>-4.4</x-m>
+	    <y-m>-0.0</y-m>
+		<z-m>-2.47099</z-m>
+    <pitch-deg>   -8.000 </pitch-deg>
+    <heading-deg>  0 </heading-deg>
+ </offsets>
+ <overlay>
+  <params>
+   <name>taxilight</name>
+   <power-source>sim/multiplay/generic/int[20]</power-source>
+   <direction>
     <x>10</x>
     <y>-0.3</y>
     <z>20</z>
@@ -3031,6 +3113,7 @@ rearwheelsaxis
   </params>
  </overlay>
 </model>
+
 
  <!--
 

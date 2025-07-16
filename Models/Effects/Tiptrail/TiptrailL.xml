@@ -8,14 +8,14 @@
         <name>wingtip-condensation-trail</name>
         <texture>vapour.png</texture>
 
-        <emissive type="bool">false</emissive>
+        <emissive type="bool">true</emissive>
         <lighting type="bool">false</lighting>
 
     <condition>
       <and>
         <greater-than>
           <property>/environment/relative-humidity</property>
-          <value>30</value>
+          <value>0</value>
         </greater-than>
         <greater-than>
           <property>/environment/temperature-degc</property>

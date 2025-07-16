@@ -131,6 +131,13 @@
 		</startup>
 	
 		<model>
+		            <pushback>
+                <kp type="double">100</kp>
+                <ki type="double">25</ki>
+                <kd type="double">0</kd>
+                <position-norm type="double">0</position-norm>
+                <target-speed-fps type="double">0</target-speed-fps>
+            </pushback>
 			<path>Aircraft/F-22/Models/F-22-Raptor.xml</path>
 	<livery>
 		<name type="string">Aircraft/F-22/Models/Liveries/AK.xml</name>
@@ -249,7 +256,7 @@
             <command>dialog-show</command>
             <dialog-name>secure</dialog-name>
         </binding>
-</item>
+			</item>
 
                     <item>
                         <label>Mig-28.nas dialog</label>
@@ -261,7 +268,7 @@
                         </binding>
                     </item>
 
-<item>
+			<item>
 			<label>Toggle Old Damage (For dogfighting old F-15 and F-14, P-51, etc)</label>
 			<binding>
 				<command>nasal</command>
@@ -274,6 +281,24 @@
 				</script>
 			</binding>
 		</item>
+			<item>
+			<label>Yell for a pushback</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+					screen.log.write("" ~ getprop("sim/multiplay/callsign") ~ ": PUSHBACK! HELP ME!");
+					setprop("sim/messages/atc","Pushback: Dont worry! Im here for your taxi needs :)"); # dont worry about invalid ")"
+					</script>
+			</binding>
+        <binding>
+           <command>dialog-show</command>
+           <dialog-name>pushback</dialog-name>
+           <offset>1</offset>
+        </binding>
+		</item>
+
+
+
 <item>
 			<label>jammer on</label>
 			<binding>
@@ -392,7 +417,7 @@ Theres soo many
 <int n="12" type="int" alias="/fdm/jsbsim/fcs/AIM120"/>
 <int n="13" type="int" alias="/controls/smoke/Switch"/> 
 <int n="14" type="int" alias="/fdm/jsbsim/fcs/AIM9X"/>
-<int n="20" type="int" alias="/controls/lighting/landing-lights"/> 
+<int n="20" type="int" alias="/fdm/jsbsim/fcs/taxilight"/> 
 <int n="21" type="int" alias="/sim/failure-manager/engines/engine/failure-level"/> 
 <int n="22" type="int" alias="/sim/failure-manager/engines/engine[1]/failure-level"/>
 <int n="23" type="int" alias="/fdm/jsbsim/fcs/light"/>
@@ -401,6 +426,7 @@ Theres soo many
 <int n="24" type="int" alias="/controls/apu/smoke"/>
 <int n="25" type="int" alias="/controls/apu/apuflame"/>
 <int n="26" type="int" alias="/fdm/jsbsim/fcs/landlight"/>
+
 <!--Missiles in bays on MP-->
 <string n="6" type="string"></string><!-- string 6 used by radar lock RWR warning -->
 <string n="7" type="string"></string><!-- string 7 used by datalink -->
@@ -1823,6 +1849,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		</sim>
 
 <f22>
+            <brightness type="double">0</brightness>
 <ready type="bool">false</ready> <!--For the MFD's-->
         <party type="bool">false</party>
 <ejected type="int">0</ejected>
@@ -2867,9 +2894,12 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<file>Aircraft/F-22/Nasal/secure.nas</file>
 		</KY58>
 
+		<CMS>
+			<file>Aircraft/F-22/Nasal/cms.nas</file> <!--my custom Chaff/Flare system-->
+		</CMS>
+
 		<jammer>
-			<file>Aircraft/F-22/Nasal/jammer.nas</file>
+			<file>Aircraft/F-22/Nasal/jammer.nas</file> <!--Replace the code with working one-->
 		</jammer>
 	</nasal>
-
 </PropertyList>
