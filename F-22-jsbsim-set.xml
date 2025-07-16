@@ -400,6 +400,8 @@ Theres soo many
 <float n="36" type="double" alias="/fdm/jsbsim/fcs/canopy"/>
 <float n="37" type="double" alias="/fdm/jsbsim/fcs/apuflap1"/>	
 <float n="38" type="double" alias="/controls/apu/smokespeed"/>	
+<float n="39" type="double" alias="/f22/head-hdg-deg"/>	
+<float n="40" type="double" alias="/f22/head-ptc-deg"/>	
 <int n="2" type="int">1</int><!-- radar-standby (Enemy RWR Detection) -->
 <int n="3" type="int">0</int><!-- KY58 int -->
 <int n="15" type="int" alias="/f22/ejected"/>

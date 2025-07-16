@@ -43,7 +43,7 @@
     <type>rotate</type>
     <object-name>head</object-name>
     
-    <property>f22/head-ptc-deg</property>
+    <property>sim/multiplay/generic/float[40]</property>
     <factor> 0.3 </factor> 
     <center>
       <x-m> 0.0 </x-m>
@@ -61,7 +61,7 @@
     <type>rotate</type>
     <object-name>head</object-name>
   
-    <property>f22/head-hdg-deg</property>
+    <property>sim/multiplay/generic/float[39]</property>
     <factor>1</factor>
     <center>
       <x-m> 0.0 </x-m>
