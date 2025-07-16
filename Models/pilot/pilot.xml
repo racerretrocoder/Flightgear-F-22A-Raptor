@@ -43,7 +43,7 @@
     <type>rotate</type>
     <object-name>head</object-name>
     
-    <property>sim/multiplay/generic/float[40]</property>
+    <property>sim/multiplay/generic/float[16]</property>
     <factor> 0.3 </factor> 
     <center>
       <x-m> 0.0 </x-m>

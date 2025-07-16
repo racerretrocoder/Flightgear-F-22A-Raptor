@@ -174,7 +174,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <contact type="BOGEY" name="LEFT_MAIN">
    <location unit="IN">
-     <x> 281.89 </x>
+     <x> 301.89 </x>
      <y> -50.80 </y>
      <z> -110.44 </z>
    </location>
@@ -190,7 +190,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <contact type="BOGEY" name="RIGHT_MAIN">
    <location unit="IN">
-     <x> 281.89 </x>
+     <x> 301.89 </x>
      <y>  50.80 </y>
      <z> -110.44 </z>
    </location>
@@ -202,6 +202,30 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <max_steer unit="DEG">0</max_steer>
    <brake_group>RIGHT</brake_group>
    <retractable>1</retractable>
+  </contact>
+
+    <contact type="STRUCTURE" name="RIGHT_WING_TIP_FRONT">
+    <location unit="IN">
+     <x> 200.5  </x>
+     <y> 200   </y>
+     <z>   -90    </z>
+    </location>
+    <static_friction>  1.00 </static_friction>
+    <dynamic_friction> 1.00 </dynamic_friction>
+    <spring_coeff unit="LBS/FT">      41750.00 </spring_coeff>
+    <damping_coeff unit="LBS/FT/SEC"> 4175.00  </damping_coeff>
+  </contact>
+
+  <contact type="STRUCTURE" name="LEFT_WING_TIP_FRONT">
+    <location unit="IN">
+     <x> 200  </x>
+     <y>-200    </y>
+     <z>   -90   </z>
+    </location>
+    <static_friction>  1.00 </static_friction>
+    <dynamic_friction> 1.00 </dynamic_friction>
+    <spring_coeff unit="LBS/FT">      41750.00 </spring_coeff>
+    <damping_coeff unit="LBS/FT/SEC"> 4175.00  </damping_coeff>
   </contact>
 <!--Todo: Fix these so there in the right spot
    <contact type="STRUCTURE" name="RADOME_NOSE">

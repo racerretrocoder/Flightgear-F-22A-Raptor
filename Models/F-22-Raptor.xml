@@ -414,25 +414,26 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 
 	<effect>
       <inherits-from>Effects/model-transparent</inherits-from>
-       <object-name>canopy in</object-name>
-		   <object-name>canopy out</object-name>
+
+
 				   <object-name>apuflame</object-name>
 		
    </effect>
+
+
 <effect>
-  <inherits-from>Aircraft/F-22/Models/Effects/glass/glass</inherits-from>
-  <parameters>
-    <!--<rendering-hint>transparent</rendering-hint>
-    <transparent>true</transparent>
-    <render-bin>
-      <bin-number>111</bin-number>
-      <bin-name>DepthSortedBin</bin-name>
-    </render-bin>-->
-  </parameters>
-  <object-name>Canopy out</object-name>
+	<inherits-from>Aircraft/F-22/Models/testeffect</inherits-from>
+	  <parameters>
+    <rain-enabled>1</rain-enabled>
+	</parameters>
+  <object-name>canopy out</object-name>
+    <object-name>canopy in</object-name>
   <object-name>CanopyBackInside</object-name>
  </effect>
 
+
+ 
+<!--
  <effect>
   <inherits-from>Effects/model-combined-transparent</inherits-from>
   <parameters>
@@ -464,10 +465,10 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
       <bin-name>DepthSortedBin</bin-name>
     </render-bin>
   </parameters>
-  <object-name>Canopy out</object-name>
+
   <object-name>Canopy in</object-name>
-  <!--<object-name>cylinder.007</object-name>-->       <!-- HUD -->
- </effect>
+
+ </effect>-->
 
   <model>
 <path>Aircraft/F-22/Models/Effects/Vapour/fx2.xml</path>

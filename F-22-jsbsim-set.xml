@@ -377,10 +377,11 @@ Theres soo many
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the Sonic Boom, Vapor, and more-->
 
 
-  <float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
+
  <float n="21" type="double" alias="/fdm/jsbsim/fcs/Elev-pos-norm-limit-sum-main"/>
  <float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
  <float n="23" type="double" alias="/fdm/jsbsim/fcs/flap-pos-deg"/>	<!--Controls-->
+  <float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
  <float n="25" type="double" alias="/fdm/jsbsim/fcs/tv-animation"/>
  <float n="26" type="double" alias="/fdm/jsbsim/fcs/ail-pos-norm-limit-sum-main"/>
   <float n="27" type="double" alias="/fdm/jsbsim/fcs/speedbrake-pos-norm"/>
@@ -401,7 +402,7 @@ Theres soo many
 <float n="37" type="double" alias="/fdm/jsbsim/fcs/apuflap1"/>	
 <float n="38" type="double" alias="/controls/apu/smokespeed"/>	
 <float n="39" type="double" alias="/f22/head-hdg-deg"/>	
-<float n="40" type="double" alias="/f22/head-ptc-deg"/>	
+<float n="16" type="double" alias="/f22/head-ptc-deg"/>	
 <int n="2" type="int">1</int><!-- radar-standby (Enemy RWR Detection) -->
 <int n="3" type="int">0</int><!-- KY58 int -->
 <int n="15" type="int" alias="/f22/ejected"/>
@@ -2849,6 +2850,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		<f22>
 			<file>Aircraft/F-22/Nasal/f22.nas</file>
 			<file>Aircraft/F-22/Nasal/light.nas</file>
+			<file>Aircraft/F-22/Nasal/rain.nas</file>
 			<file>Aircraft/F-22/Nasal/doors.nas</file>
 			<file>Aircraft/F-22/Nasal/views.nas</file>
 			<file>Aircraft/F-22/Nasal/electrical.nas</file>
