@@ -19,6 +19,11 @@
   <!-- Replace 'HUD.l.canvas' with the object the canvas is placed on -->
   <object-name>hudglass</object-name>
 </effect>
+ <effect>
+  <inherits-from>Effects/glass</inherits-from>
+  <!-- Replace 'HUD.l.canvas' with the object the canvas is placed on -->
+  <object-name>glasstint</object-name>
+</effect>
 
 
 <animation>

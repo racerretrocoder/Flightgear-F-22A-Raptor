@@ -1,6 +1,9 @@
 # Front controls numpad system
 # Along with datalink coordnites, and the PRF System
 
+# ... I have no clue on why i named this file RAD.nas 
+
+# xd
 
 print("Loading Front Controls...");
 setprop("controls/PRF/range",5);
@@ -148,6 +151,8 @@ digit6 = 0;
 }
 
 
+
+# SUPER SMART!
 var num1 = digit1 * 100000;
 var num2 = digit2 * 10000;
 var num3 = digit3 * 1000;
@@ -319,7 +324,7 @@ var aamode = func{
 
 setprop("systems/MFD/modemfdc", 2);
 setprop("systems/MFD/modemfdl", 1);
-setprop("systems/MFD/modemfdr", 5);
+setprop("systems/MFD/modemfdr", 6);
 
 }
 

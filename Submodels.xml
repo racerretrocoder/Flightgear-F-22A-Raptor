@@ -93,8 +93,8 @@
     <model>Aircraft/F-22/Models/Stores/Countermeasures/flare.xml</model>
     <trigger>ai/submodels/submodel/flare-release</trigger>
     <speed>10</speed>
-    <repeat>true</repeat>
-    <delay>0.2</delay>
+    <repeat>false</repeat>
+    <delay>0</delay>
     <count>-1</count>
     <x-offset>-0</x-offset>
     <y-offset>2.8</y-offset>
@@ -111,8 +111,8 @@
     <model>Aircraft/F-22/Models/Stores/Countermeasures/flare.xml</model>
     <trigger>ai/submodels/submodel/flare-release</trigger>
     <speed>10</speed>
-    <repeat>true</repeat>
-    <delay>0.2</delay>
+    <repeat>false</repeat>
+    <delay>0.0</delay>
     <count>-1</count>
     <x-offset>-0</x-offset>
     <y-offset>-2.8</y-offset>

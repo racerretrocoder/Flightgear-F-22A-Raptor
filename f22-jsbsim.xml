@@ -399,6 +399,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
  <system file="Systems/jsb-pushback.xml"/> <!--Pushback-->
  <system file="Systems/cat.xml"/>
+  <system file="Systems/hook.xml"/>
  <!--<system file="Systems/holdback.xml"/>-->
  <flight_control name="FCS: F-22">
 
@@ -1576,7 +1577,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 </tableData>
           </table>
    </function>
-
+<!--
         <channel name="hook">
 
 
@@ -1635,7 +1636,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
                 </tableData>
             </table>
    </function>
-
+-->
 
     <function name="fcs/light">
       <description>light</description>
@@ -2531,9 +2532,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   </force>
          <force name="hook" frame="BODY">
             <location unit="IN">
-                <x>  300 </x>
-                <y>    0 </y>
-                <z>    0 </z>
+     <x> 268.52 </x>
+     <y>   0.00 </y>
+     <z> -15.36 </z>
             </location>
             <direction>
                 <x>  -0.9995 </x>
