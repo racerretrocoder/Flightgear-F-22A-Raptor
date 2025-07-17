@@ -324,7 +324,7 @@ var aamode = func{
 
 setprop("systems/MFD/modemfdc", 2);
 setprop("systems/MFD/modemfdl", 1);
-setprop("systems/MFD/modemfdr", 6);
+setprop("systems/MFD/modemfdr", 5);
 
 }
 
@@ -340,7 +340,7 @@ setprop("systems/MFD/modemfdr", 4);
 var nav = func{
 setprop("systems/MFD/modemfdc", 7);
 setprop("systems/MFD/modemfdl", 4);
-setprop("systems/MFD/modemfdr", 5);
+setprop("systems/MFD/modemfdr", 6);
 
 }
 
