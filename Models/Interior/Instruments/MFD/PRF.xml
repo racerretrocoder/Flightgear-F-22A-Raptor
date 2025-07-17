@@ -534,7 +534,615 @@
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
+ 
 
 
+
+
+ <animation>
+        <type>select</type>
+        <object-name>blip3</object-name>
+  <object-name>text3</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/contact[3]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>blip3</object-name>
+  <object-name>text3</object-name>
+	<property>/controls/PRF/contact[3]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>blip3</object-name>
+  <object-name>text3</object-name>
+  <property>/controls/PRF/contact[3]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text3</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/contact[3]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text3</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/contact[3]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+ <animation>
+        <type>select</type>
+  <object-name>blip4</object-name>
+  <object-name>text4</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/contact[4]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>blip4</object-name>
+  <object-name>text4</object-name>
+	<property>/controls/PRF/contact[4]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>blip4</object-name>
+  <object-name>text4</object-name>
+  <property>/controls/PRF/contact[4]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text4</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/contact[4]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text4</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/contact[4]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+
+ <animation>
+        <type>select</type>
+  <object-name>blip5</object-name>
+  <object-name>text5</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/contact[5]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>blip5</object-name>
+  <object-name>text5</object-name>
+	<property>/controls/PRF/contact[5]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>blip5</object-name>
+  <object-name>text5</object-name>
+  <property>/controls/PRF/contact[5]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text5</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/contact[5]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text5</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/contact[5]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ <animation>
+        <type>select</type>
+  <object-name>blip6</object-name>
+  <object-name>text6</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/contact[6]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>blip6</object-name>
+  <object-name>text6</object-name>
+	<property>/controls/PRF/contact[6]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>blip6</object-name>
+  <object-name>text6</object-name>
+  <property>/controls/PRF/contact[6]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text6</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/contact[6]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text6</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/contact[6]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+<!--MP7-->
+
+
+ <animation>
+        <type>select</type>
+  <object-name>blip7</object-name>
+  <object-name>text7</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/contact[7]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>blip7</object-name>
+  <object-name>text7</object-name>
+	<property>/controls/PRF/contact[7]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>blip7</object-name>
+  <object-name>text7</object-name>
+  <property>/controls/PRF/contact[7]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text7</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/contact[7]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text7</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/contact[7]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+<!--Next-->
+
+ <animation>
+        <type>select</type>
+  <object-name>blip8</object-name>
+  <object-name>text8</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/contact[8]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>blip8</object-name>
+  <object-name>text8</object-name>
+	<property>/controls/PRF/contact[8]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>blip8</object-name>
+  <object-name>text8</object-name>
+  <property>/controls/PRF/contact[8]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text8</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/contact[8]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text8</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/contact[8]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+<!--Next-->
+
+ <animation>
+        <type>select</type>
+  <object-name>blip9</object-name>
+  <object-name>text9</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/contact[9]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>blip9</object-name>
+  <object-name>text9</object-name>
+	<property>/controls/PRF/contact[9]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>blip9</object-name>
+  <object-name>text9</object-name>
+  <property>/controls/PRF/contact[9]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text9</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/contact[9]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text9</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/contact[9]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+<!--Next-->
+
+ <animation>
+        <type>select</type>
+  <object-name>blip10</object-name>
+  <object-name>text10</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/contact[10]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>blip10</object-name>
+  <object-name>text10</object-name>
+	<property>/controls/PRF/contact[10]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>blip10</object-name>
+  <object-name>text10</object-name>
+  <property>/controls/PRF/contact[10]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text10</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/contact[10]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text10</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/contact[10]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+<!--Thats 10! Yipee!-->
 
 </PropertyList>

@@ -21,7 +21,7 @@ sweat by maggse
 	 
 	<condition>
 		 <equals>
-			 <property>sim/multiplay/generic/int[16]</property>
+			 <property>controls/state/low_level</property>
 			 <value>1</value>
 		 </equals>
 	</condition>

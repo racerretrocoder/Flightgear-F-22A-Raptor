@@ -34,17 +34,76 @@ var resetflare = func() {
     flarereset.stop();
 }
 
+var stopchaffseq = func() {
+    chaffmainseq1.stop();
+    chaffmainseq1.stop();
+    chaffmainseq2.stop();
+    chaffmainseq3.stop();
+    chaffmainseq4.stop();
+    chaffmainseq5.stop();
+    chaffmainseq6.stop();
+    chaffmainseq7.stop();
+    chaffmainseq8.stop();
+    chaffmainseq.stop(); 
+}
+var stopchaffdelay = func() {
+    chaffmaindelay1.stop();
+    chaffmaindelay1.stop();
+    chaffmaindelay2.stop();
+    chaffmaindelay3.stop();
+    chaffmaindelay4.stop();
+    chaffmaindelay5.stop();
+    chaffmaindelay6.stop();
+    chaffmaindelay7.stop();
+    chaffmaindelay8.stop();
+    chaffmaindelay.stop();  
+}
+
+var stopflareseq = func() {
+    flaremainseq1.stop();
+    flaremainseq1.stop();
+    flaremainseq2.stop();
+    flaremainseq3.stop();
+    flaremainseq4.stop();
+    flaremainseq5.stop();
+    flaremainseq6.stop();
+    flaremainseq7.stop();
+    flaremainseq8.stop();
+    flaremainseq.stop(); 
+}
+var stopflaredelay = func() {
+    flaremaindelay1.stop();
+    flaremaindelay1.stop();
+    flaremaindelay2.stop();
+    flaremaindelay3.stop();
+    flaremaindelay4.stop();
+    flaremaindelay5.stop();
+    flaremaindelay6.stop();
+    flaremaindelay7.stop();
+    flaremaindelay8.stop();
+    flaremaindelay.stop();  
+}
+
 var runchaffseq = func() {
     f22.flare();
-    chaffmaindelay.stop();
-        chaffmainseq.start();
-    print("delay per rel: "~data3);
-    print("delay per seq: "~data9);
-    print("num of seqs: "~data7);
+    stopchaffdelay();
+    if (data3 == 1){chaffmainseq1.start();}
+    if (data3 == 2){chaffmainseq1.start();}
+    if (data3 == 3){chaffmainseq2.start();}
+    if (data3 == 4){chaffmainseq3.start();}
+    if (data3 == 5){chaffmainseq4.start();}
+    if (data3 == 6){chaffmainseq5.start();}
+    if (data3 == 7){chaffmainseq6.start();}
+    if (data3 == 8){chaffmainseq7.start();}
+    if (data3 == 9){chaffmainseq8.start();}
+    if (data3 == 10){chaffmainseq.start();}
+    print("chaff:delay per rel: "~data3);
+    print("chaff:delay per seq: "~data9);
+    print("chaff:num of seqs: "~data7);
 
     if (seqchaff > data7) {
         print("chaff seqs finish");
-    chaffmainseq.stop();
+        stopchaffseq();
         return 0;
     }
 
@@ -53,17 +112,72 @@ var runchaffseq = func() {
     if (relchaff > data5) {
         print("Chaff rel fin. delaying");
         seqchaff = seqchaff + 1;
-        chaffmainseq.stop();
-        chaffmaindelay.start();
+        stopchaffseq();
+        if (data9 == 1){chaffmaindelay1.start();}
+        if (data9 == 2){chaffmaindelay1.start();}
+        if (data9 == 3){chaffmaindelay2.start();}
+        if (data9 == 4){chaffmaindelay3.start();}
+        if (data9 == 5){chaffmaindelay4.start();}
+        if (data9 == 6){chaffmaindelay5.start();}
+        if (data9 == 7){chaffmaindelay6.start();}
+        if (data9 == 8){chaffmaindelay7.start();}
+        if (data9 == 9){chaffmaindelay8.start();}
+        if (data9 == 10){chaffmaindelay.start();}
         #chaffdelay.start();
         relchaff = 0;
     }
 }
 
+var runflareseq = func() {
+    f22.flare();
+    stopflaredelay();
+    if (data4 == 1){flaremainseq1.start();}
+    if (data4 == 2){flaremainseq1.start();}
+    if (data4 == 3){flaremainseq2.start();}
+    if (data4 == 4){flaremainseq3.start();}
+    if (data4 == 5){flaremainseq4.start();}
+    if (data4 == 6){flaremainseq5.start();}
+    if (data4 == 7){flaremainseq6.start();}
+    if (data4 == 8){flaremainseq7.start();}
+    if (data4 == 9){flaremainseq8.start();}
+    if (data4 == 10){flaremainseq.start();}
+    print("flare:delay per rel: "~data4);
+    print("flare:delay per seq: "~data10);
+    print("flare:num of seqs: "~data8);
+
+    if (seqflare > data8) {
+        print("flare seqs finish");
+        stopflareseq();
+        return 0;
+    }
+
+    print("flare seq start!");
+    flare();
+    if (relflare > data6) {
+        print("flare rel fin. delaying");
+        seqflare = seqflare + 1;
+        stopflareseq();
+        if (data10 == 1){flaremaindelay1.start();}
+        if (data10 == 2){flaremaindelay1.start();}
+        if (data10 == 3){flaremaindelay2.start();}
+        if (data10 == 4){flaremaindelay3.start();}
+        if (data10 == 5){flaremaindelay4.start();}
+        if (data10 == 6){flaremaindelay5.start();}
+        if (data10 == 7){flaremaindelay6.start();}
+        if (data10 == 8){flaremaindelay7.start();}
+        if (data10 == 9){flaremaindelay8.start();}
+        if (data10 == 10){flaremaindelay.start();}
+        #chaffdelay.start();
+        relflare = 0;
+    }
+}
+
+
 
 var chaff = func() {
     setprop("rotors/main/blade[3]/position-deg",rand());
     print("chaff rel");
+    screen.log.write("Chaff");
     relchaff = relchaff + 1;
     chaffreset.start();
 
@@ -72,6 +186,7 @@ var chaff = func() {
 var flare = func() {
     setprop("rotors/main/blade[3]/flap-deg",rand());
     setprop("/ai/submodels/submodel/flare-release",1);
+    screen.log.write("Flare");
     print("flare rel");
     relflare = relflare + 1;
     flarereset.start();
@@ -79,10 +194,10 @@ var flare = func() {
 }
 
 var finish = func() {
-    seqchaff = 0;
-    seqflare = 0;
-    relchaff = 0;
-    relflare = 0;
+    seqchaff = 1;
+    seqflare = 1;
+    relchaff = 1;
+    relflare = 1;
 }
 
 var updatecms = func() {
@@ -121,6 +236,7 @@ var check = func() {
 }
 
 var trigger = func() {
+    updatecms();
     f22.flare();
     finish(); # reset sequnses
     print("CMS triggered");
@@ -137,8 +253,27 @@ var trigger = func() {
     #chaffdelayrel = maketimer(data3,chaff); # Delay per release
     #flaredelayrel = maketimer(data4,flare); # Delay per release
     #runchaffseq(data3,data5,data7,data9);
-    chaffmainseq.start();
+    if (data3 == 1){chaffmainseq1.start();}
+    if (data3 == 2){chaffmainseq1.start();}
+    if (data3 == 3){chaffmainseq2.start();}
+    if (data3 == 4){chaffmainseq3.start();}
+    if (data3 == 5){chaffmainseq4.start();}
+    if (data3 == 6){chaffmainseq5.start();}
+    if (data3 == 7){chaffmainseq6.start();}
+    if (data3 == 8){chaffmainseq7.start();}
+    if (data3 == 9){chaffmainseq8.start();}
+    if (data3 == 10){chaffmainseq.start();}
 
+    if (data4 == 1){flaremainseq1.start();}
+    if (data4 == 2){flaremainseq1.start();}
+    if (data4 == 3){flaremainseq2.start();}
+    if (data4 == 4){flaremainseq3.start();}
+    if (data4 == 5){flaremainseq4.start();}
+    if (data4 == 6){flaremainseq5.start();}
+    if (data4 == 7){flaremainseq6.start();}
+    if (data4 == 8){flaremainseq7.start();}
+    if (data4 == 9){flaremainseq8.start();}
+    if (data4 == 10){flaremainseq.start();}
 
 }
 
@@ -147,9 +282,67 @@ var trigger = func() {
 flarereset = maketimer(0.1,resetflare);
 chaffreset = maketimer(0.1,resetchaff);
 
+    # Chaff
 
-    chaffmainseq = maketimer(0.8,runchaffseq);
-    chaffmaindelay = maketimer(3,runchaffseq);
+    chaffmainseq1 = maketimer(0.1,runchaffseq);
+    chaffmainseq2 = maketimer(0.2,runchaffseq);
+    chaffmainseq3 = maketimer(0.3,runchaffseq);
+    chaffmainseq4 = maketimer(0.4,runchaffseq);
+    chaffmainseq5 = maketimer(0.5,runchaffseq);
+    chaffmainseq6 = maketimer(0.6,runchaffseq);
+    chaffmainseq7 = maketimer(0.7,runchaffseq);
+    chaffmainseq8 = maketimer(0.8,runchaffseq);
+    chaffmainseq9 = maketimer(0.9,runchaffseq);
+    chaffmainseq = maketimer(1,runchaffseq);
+
+
+    chaffmaindelay1 = maketimer(1,runchaffseq);
+    chaffmaindelay2 = maketimer(2,runchaffseq);
+    chaffmaindelay3 = maketimer(3,runchaffseq);
+    chaffmaindelay4 = maketimer(4,runchaffseq);
+    chaffmaindelay5 = maketimer(5,runchaffseq);
+    chaffmaindelay6 = maketimer(6,runchaffseq);
+    chaffmaindelay7 = maketimer(7,runchaffseq);
+    chaffmaindelay8 = maketimer(8,runchaffseq);
+    chaffmaindelay9 = maketimer(9,runchaffseq);
+    chaffmaindelay = maketimer(10,runchaffseq);
+
+    # flare
+
+    flaremainseq1 = maketimer(0.1,runflareseq);
+    flaremainseq2 = maketimer(0.2,runflareseq);
+    flaremainseq3 = maketimer(0.3,runflareseq);
+    flaremainseq4 = maketimer(0.4,runflareseq);
+    flaremainseq5 = maketimer(0.5,runflareseq);
+    flaremainseq6 = maketimer(0.6,runflareseq);
+    flaremainseq7 = maketimer(0.7,runflareseq);
+    flaremainseq8 = maketimer(0.8,runflareseq);
+    flaremainseq9 = maketimer(0.9,runflareseq);
+    flaremainseq = maketimer(1,runflareseq);
+
+
+    flaremaindelay1 = maketimer(1,runflareseq);
+    flaremaindelay2 = maketimer(2,runflareseq);
+    flaremaindelay3 = maketimer(3,runflareseq);
+    flaremaindelay4 = maketimer(4,runflareseq);
+    flaremaindelay5 = maketimer(5,runflareseq);
+    flaremaindelay6 = maketimer(6,runflareseq);
+    flaremaindelay7 = maketimer(7,runflareseq);
+    flaremaindelay8 = maketimer(8,runflareseq);
+    flaremaindelay9 = maketimer(9,runflareseq);
+    flaremaindelay = maketimer(10,runflareseq);
+
+#chaffmaindelay.stop();
+#chaffmaindelay1.stop();
+#chaffmaindelay2.stop();
+#chaffmaindelay3.stop();
+#chaffmaindelay4.stop();
+#chaffmaindelay5.stop();
+#chaffmaindelay6.stop();
+#chaffmaindelay7.stop();
+#chaffmaindelay8.stop();
+#chaffmaindelay9.stop();
+
     chaffmainseq.stop();
     #runchaffseq();
 

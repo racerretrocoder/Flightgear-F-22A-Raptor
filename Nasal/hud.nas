@@ -143,6 +143,12 @@ var HUD = {
             .setTranslation(30,206)#(left,Top)
             #.setFont("Liberation Sans Narrow")
             .setFontSize(04,0.4);
+   m.bingoind =
+      m.text.createChild("text")
+            .setAlignment("center-top")
+            .setTranslation(130,086)#(left,Top)
+            #.setFont("Liberation Sans Narrow")
+            .setFontSize(04,0.4);
    m.callsignind =
       m.text.createChild("text")
             .setAlignment("center-top")
@@ -339,6 +345,7 @@ m.ccipGrp = m.root.createChild("group");
      }
     me.gmeter.setText(sprintf("G %1.1f", me.input.gdamped.getValue()));
     me.aoaind.setText(sprintf("A %1.2f", me.input.alpha.getValue()));
+    me.bingoind.setText("BINGO FUEL");
     me.callsignind.setText(sprintf("RADAR %s", getprop("controls/radar/lockedcallsign")));
     me.machspeed.setText(sprintf("M %1.2f", me.input.mach.getValue()));
     me.airspeed.setText(sprintf("%d", me.input.ias.getValue()));
@@ -462,7 +469,12 @@ me.pipperRadius = 10;
 			var lock= getprop("instrumentation/radar/lock");		
 		var radarON= getprop("su-27/instrumentation/N010-radar/emitting");
   		var missile= getprop("controls/armament/selected-weapon-digit");
-
+    # check bingo
+    if (getprop("f22/isbingo") == 1){
+      me.bingoind.setVisible(getprop("f22/blink"));
+    } else {
+      me.bingoind.setVisible(0);
+    }
 		if (radarON == 0)
 		{
 			#print("Radar off ");

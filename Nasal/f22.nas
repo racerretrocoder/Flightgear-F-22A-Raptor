@@ -1067,12 +1067,27 @@ var resetready = func{
   rebound_timer.stop();
 }
 
+setprop("f22/blink",0);
+var blink = func() {
+  setprop("f22/blink",!getprop("f22/blink"));
+}
+
+var checkbingo = func() {
+  if (getprop("consumables/fuel/total-fuel-lbs") < getprop("f22/bingo")){
+    setprop("f22/isbingo",1);
+  } else {
+    setprop("f22/isbingo",0);
+  }
+}
+
         #
         # BEGIN maketimer(); MAYHEM!
         #
                 # seconds , function.  you can use 0 for the seconds
 crashreinit_timer = maketimer(5,crashreinit);
 timer_hit = maketimer(1.5, mslhit);
+blinktimer = maketimer(0.3, blink);
+bingotimer = maketimer(0.3,checkbingo);
 radcheck = maketimer(0.5, updateradarcs);
 radcheck.start();
 arrow = maketimer(0.1, arrowpointer);
@@ -1111,6 +1126,8 @@ timer_eng.start();          # engines
 timer_loopTimer.start();    # Pullup alarm
 timer_extpylons.start();    # External pylon detection
 timer_damage.start();
+blinktimer.start();
+bingotimer.start();
 });
 
 
