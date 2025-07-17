@@ -2903,7 +2903,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		<CMS>
 			<file>Aircraft/F-22/Nasal/cms.nas</file> <!--my custom Chaff/Flare system-->
 		</CMS>
-
+		<DTC>
+			<file>Aircraft/F-22/Nasal/DTC.nas</file> <!--my custom Datacartridge system-->
+		</DTC>
 		<jammer>
 			<file>Aircraft/F-22/Nasal/jammer.nas</file> <!--Replace the code with working one-->
 		</jammer>

@@ -203618,7 +203618,7 @@ refs 4
 7 0.0164629 0.502146
 kids 0
 OBJECT poly
-name "rect"
+name "dtc"
 loc -5.10625 -0.199123 -0.363184
 texture "console/rconsole.png"
 crease 45.000000

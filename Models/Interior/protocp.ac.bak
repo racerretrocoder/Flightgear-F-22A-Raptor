@@ -183638,7 +183638,7 @@ refs 3
 kids 0
 OBJECT poly
 name "unusedatm"
-loc -5.04817 -0.194636 -0.273293
+loc -5.04817 -0.195963 -0.273293
 crease 45.000000
 numvert 320
 0.0027051 0.00538796 -7.62939e-006
@@ -187601,7 +187601,7 @@ refs 3
 kids 0
 OBJECT poly
 name "beaconlights"
-loc -5.04817 -0.194636 -0.254992
+loc -5.04817 -0.197585 -0.254992
 crease 45.000000
 numvert 320
 -0.0027051 0.00497729 7.62939e-006
@@ -195527,7 +195527,7 @@ refs 3
 kids 0
 OBJECT poly
 name "LDGLIGHT"
-loc -5.08212 -0.198995 -0.273293
+loc -5.08212 -0.199969 -0.273212
 crease 45.000000
 numvert 320
 -0.0027051 0.00497729 7.62939e-006
@@ -199490,7 +199490,7 @@ refs 3
 kids 0
 OBJECT poly
 name "PNLLT"
-loc -5.08239 -0.198995 -0.254992
+loc -5.08239 -0.202263 -0.255073
 crease 45.000000
 numvert 320
 0.0027051 0.00538796 -7.62939e-006
@@ -203618,7 +203618,7 @@ refs 4
 7 0.0164629 0.502146
 kids 0
 OBJECT poly
-name "rect"
+name "dtc"
 loc -5.10625 -0.199123 -0.363184
 texture "console/rconsole.png"
 crease 45.000000

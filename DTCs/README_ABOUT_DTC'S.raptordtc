@@ -1,0 +1,69 @@
+Sample DTC File
+For Windows 7, Place DTC Files in C:\Users\<Your User Folder>\AppData\Roaming\flightgear.org\Export  
+so that flightgear can read them and you can load a DTC from that folder
+This is the Example DTC File for the F-22A Raptor, Filename: README_ABOUT_DTC'S.RAPTORDTC
+DTC Syntax: Every command must have a ": " colon and a space at the end. this tells DTC.nas that the command has been recivied clearly. without a new line
+You can also have comments placed a few spaces after the command if you so desire
+For example:
+COMMAND1: <-- allways leave atleast one space infront of the colon!       Sample Comment
+COMMAND2:            Sample comment 2
+3434:           Number
+Some commands:
+#  DLINK:           Configure datalink. 
+#  CODE:       Change the datalink code (Next command has to be a number)
+#  3823:       Like this.
+#  BINGO:           Change BINGO
+#  2500:            Lbs in fuel to set bingo fuel
+#  SCREENLOG:       Initiate a screenlog message
+#  This will display on the screen!:    Display a message on the screen (must be after SCREENLOG:) And it cant have any colons in the message! only 1 at the end to signify the end of the message
+
+The F-22A is ignoring all these lines unless it finds RAPTORDTC: at the start of a line. Then it will start reading and executing
+
+
+RAPTORDTC:                 Start DTC Code
+DTCDESC:                   Give a DTC Description (To mostlikely display on the MFDs)
+Sample DTC File: <--btw That space next to the colon is important! (the description)
+SCREENLOG:                 Get ready to send a message
+Hello from the DTC Cart!:  Send a message
+DLINK:                     Enter Datalink Config
+CODE:                      Enter Code change mode
+1234:                      Datalink changes to 1234
+BINGO:                     Enter Bingo fuel mode (exit Datalink config too)
+2500:                      Change Bingo FUEL
+CMDS:                      Custom Chaff flare settings
+PRGM1:                     First program
+Test DTC Program:          Program name
+1:                         Chaff/flare prgm data (see cms.nas for data variables)
+2:                         Chaff/flare prgm data (see cms.nas for data variables)
+3:                         Chaff/flare prgm data (see cms.nas for data variables)
+4:                         Chaff/flare prgm data (see cms.nas for data variables)
+5:                         Chaff/flare prgm data (see cms.nas for data variables)
+6:                         Chaff/flare prgm data (see cms.nas for data variables)
+7:                         Chaff/flare prgm data (see cms.nas for data variables)
+8:                         Chaff/flare prgm data (see cms.nas for data variables)
+9:                         Chaff/flare prgm data (see cms.nas for data variables)
+10:                        Chaff/flare prgm data (see cms.nas for data variables)
+OTHERDATA:     (this is an unknown command) Also: Random invalid commands (or comments like these) Will not interfere with the DTC. So comment on your cart's all you want!
+PRGM2:                     Start listening for PRGM2
+Second Test DTC Program:   PRGM2 name
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+10: 
+You can have 4 CMS programs on 1 dtc!
+ PRGM3 and PRGM4
+
+SCREENLOG:
+Done loading DTC: 
+RAPTORDTC:           Allways have this at the end to stop reading the DTC further.
+
+And that it! simple really. 
+More features coming soon! i just need an idea
+
+I have included a small python script that can help you automatically create a DTC. Its even compiled into an EXE for easy accessability (Python 3.10 Windows 10 and up)
