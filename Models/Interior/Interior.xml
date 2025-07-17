@@ -74,6 +74,7 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
     <type>material</type>
    <object-name>ky58</object-name>
    <object-name>a</object-name>
+    <object-name>dtc</object-name>
     <object-name>rect</object-name>
       <object-name>bt</object-name>
          <object-name>RFCR</object-name>
@@ -443,6 +444,45 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
      </binding>
         </action>
     </animation>
+
+
+<!--DTC-->
+<animation>
+        <type>knob</type>
+    <object-name>dtc</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <axis>
+   <object-name>airsource-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+  <command>nasal</command>
+  <script>    var exportdir = getprop("/sim/fg-home")~"/Export";changedtc = gui.FileSelector.new(callback: DTC.loadcart,title: "Select a Data Cartridge (.raptordtc)",button: "Load DTC",dir: exportdir,dotfiles: 1,pattern: ["*.raptordtc"]);changedtc.open();
+</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>dtc</tooltip-id>
+                <label>Swap Data Cartridge</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
 
 
 

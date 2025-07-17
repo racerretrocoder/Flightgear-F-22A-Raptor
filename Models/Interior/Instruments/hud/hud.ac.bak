@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
-MATERIAL "ac3dmat3" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0.642105
+MATERIAL "ac3dmat3" rgb 0.263158 0.263158 0.263158  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0.642105
 MATERIAL "ac3dmat6" rgb 0 1 0  amb 0 1 0  emis 0 1 0  spec 0 1 0  shi 0  trans 0
 MATERIAL "ac3dmat12" rgb 0.266667 0.266667 0.266667  amb 0.266667 0.266667 0.266667  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "ac3dmat13" rgb 0.533333 0.533333 0.533333  amb 0.533333 0.533333 0.533333  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
@@ -766,7 +766,7 @@ refs 3
 kids 0
 OBJECT poly
 name "hudglass"
-loc 6.18384 0.219599 0.00102008
+loc 6.23342 0.222386 0.00213488
 texture "CavasTex.png"
 crease 180.000000
 numvert 81
@@ -3569,7 +3569,7 @@ refs 2
 kids 0
 OBJECT group
 name "lock"
-loc 0.0736619 0.328347 -0.00013471
+loc 0.123247 0.331134 0.000980091
 kids 3
 OBJECT poly
 name "locka"
