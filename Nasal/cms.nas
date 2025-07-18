@@ -4,7 +4,7 @@
 
 # blade 3 flap deg flare 0-1
 # blade 3 position deg chaff 0-1
-
+setprop("controls/CMS/prgmname","None");
 var programname = "No data";
 var data1 = 0;
 var data2 = 0;
@@ -175,6 +175,8 @@ var runflareseq = func() {
 
 
 var chaff = func() {
+    if (getprop("f22/chaff") < 1){return 1;}
+    setprop("f22/chaff",getprop("f22/chaff") - 1);
     setprop("rotors/main/blade[3]/position-deg",rand());
     print("chaff rel");
     screen.log.write("Chaff");
@@ -184,6 +186,8 @@ var chaff = func() {
 }
 
 var flare = func() {
+    if (getprop("f22/flare") < 1){return 1;}
+    setprop("f22/flare",getprop("f22/flare") - 1);
     setprop("rotors/main/blade[3]/flap-deg",rand());
     setprop("/ai/submodels/submodel/flare-release",1);
     screen.log.write("Flare");
@@ -209,6 +213,7 @@ var updatecms = func() {
     if (prgmselect == 5) {var letter = "e";}
     programname = getprop("/controls/CMS/prgm"~prgmselect~"name");
     print("CMS program name: "~programname);
+    setprop("controls/CMS/prgmname",programname);
     data1 = getprop("controls/CMS/" ~ letter ~ "1");     #   can Chaff on press of the button
     data2 = getprop("controls/CMS/" ~ letter ~ "2");     #   can Flare on press of the button
     data3 = getprop("controls/CMS/" ~ letter ~ "3");     #   Chaff delay per release
@@ -348,3 +353,5 @@ chaffreset = maketimer(0.1,resetchaff);
 
 print("cms.nas: Ready");
 updatecms();
+updatetimer = maketimer(1,updatecms);
+updatetimer.start();

@@ -3357,6 +3357,73 @@ need a better idea for this-->
 </chaffflare>
 
 
+
+<chaffflare>
+  <name>outcha-flare</name>
+  <mode>once</mode>
+  <path>Aircraft/F-22/Sounds/sys/Out.wav</path>
+  <condition>
+  <property>/sim/current-view/internal</property>
+
+<equals>
+     <property>f22/flare</property>
+    <value>0</value>
+   </equals>   
+	
+  </condition>
+</chaffflare>
+
+
+<chaffflare>
+  <name>outcha-flare1</name>
+  <mode>once</mode>
+  <path>Aircraft/F-22/Sounds/sys/Out.wav</path>
+  <condition>
+  <property>/sim/current-view/internal</property>
+
+<equals>
+     <property>f22/flare</property>
+    <value>0</value>
+   </equals>   
+	
+  </condition>
+</chaffflare>
+
+
+<chaffflare>
+  <name>outcha-flare3</name>
+  <mode>once</mode>
+  <path>Aircraft/F-22/Sounds/sys/Out.wav</path>
+  <condition>
+  <property>/sim/current-view/internal</property>
+
+<equals>
+     <property>f22/chaff</property>
+    <value>0</value>
+   </equals>   
+	
+  </condition>
+</chaffflare>
+
+
+<chaffflare>
+  <name>outcha-flare4</name>
+  <mode>once</mode>
+  <path>Aircraft/F-22/Sounds/sys/Out.wav</path>
+  <condition>
+  <property>/sim/current-view/internal</property>
+
+<equals>
+     <property>f22/chaff</property>
+    <value>0</value>
+   </equals>   
+	
+  </condition>
+</chaffflare>
+
+
+
+
     <comm>
       <name>mikeclick</name>
       <mode>once</mode>

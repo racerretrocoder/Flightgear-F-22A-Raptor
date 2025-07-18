@@ -688,6 +688,7 @@
   <object-name>canpy</object-name>
   <object-name>milthrust</object-name>
     <object-name>TWS</object-name>
+    <object-name>SLR</object-name>
    <object-name>RWS2</object-name>
    <object-name>ACM</object-name>
    <object-name>mode</object-name>
@@ -896,7 +897,21 @@
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
-
+	 <text>
+  <name>SLR</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.07</y-m>
+   <z-m>0.06</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">SLR</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 	 <text>
   <name>ACM</name>
   <font>condensed.txf</font>
@@ -928,6 +943,24 @@
 
         </condition>
     </animation>
+
+	 <animation>
+        <type>select</type>
+        <object-name>SLR</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/mode/main</property>
+				<value>3</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
   <animation>
         <type>select</type>
         <object-name>ACM</object-name>

@@ -83,7 +83,7 @@
   <threat-sep type="int">0</threat-sep>
   <prgmselected type="int">1</prgmselected>
   <!--stored data-->
-  <prgm1name type="string">Program 1</prgm1name>
+  <prgm1name type="string">1 Flare - Rows of Chaff</prgm1name>
   <a1 type="double"> 1 </a1> <!--amnt Chaff to release on press of the button-->
   <a2 type="double"> 1 </a2> <!--amnt Flare to release on press of the button-->
   <a3 type="double"> 4 </a3> <!--Chaff delay per release-->
@@ -94,7 +94,7 @@
   <a8 type="double"> 0 </a8> <!--Flare Seq's-->
   <a9 type="double"> 3 </a9> <!--Chaff Delay per sequence-->
 <a10 type="double"> 0 </a10> <!--Flare Delay per sequence-->
-  <prgm2name type="string">Program 2</prgm2name>
+  <prgm2name type="string">1 Chaff - Rows of Flares</prgm2name>
   <b1 type="double"> 1 </b1> <!--amnt Chaff to release on press of the button-->
   <b2 type="double"> 1 </b2> <!--amnt Flare to release on press of the button-->
   <b3 type="double"> 0 </b3> <!--Chaff delay per release-->
@@ -105,7 +105,7 @@
   <b8 type="double"> 2 </b8> <!--Flare Seq's-->
   <b9 type="double"> 0 </b9> <!--Chaff Delay per sequence-->
 <b10 type="double"> 1 </b10> <!--Flare Delay per sequence-->
-  <prgm3name type="string">Program 3</prgm3name>
+  <prgm3name type="string">Why Not Both?</prgm3name>
 <c1 type="double"> 0 </c1> <!--amnt Chaff to release on press of the button-->
   <c2 type="double"> 0 </c2> <!--amnt Flare to release on press of the button-->
   <c3 type="double"> 1 </c3> <!--Chaff delay per release-->
@@ -127,7 +127,7 @@
   <d8 type="double"> 2 </d8> <!--Flare Seq's-->
   <d9 type="double"> 0 </d9> <!--Chaff Delay per sequence-->
 <d10 type="double"> 2 </d10> <!--Flare Delay per sequence-->
-  <prgm5name type="string">Program 5</prgm5name>
+  <prgm5name type="string">(No Data!)</prgm5name>
   <e1 type="double"> 0 </e1> <!--amnt Chaff to release on press of the button-->
   <e2 type="double"> 0 </e2> <!--amnt Flare to release on press of the button-->
   <e3 type="double"> 0 </e3> <!--Chaff delay per release-->

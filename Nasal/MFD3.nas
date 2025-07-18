@@ -116,10 +116,14 @@ elsif (pg == 2) {
 
 # 10,20,40,60,160
 
-if (rng == 10) {
-print("Cant deRRease range. its at its lowest");
+if (rng == 5){
+    print("Cant decrease it anymore");
+}
+elsif (rng == 10) {
+    radar.RangeSelected.setValue(5);
+    setprop("instrumentation/radar/range", 5);
 
-} elsif (rng == 20){
+}  elsif (rng == 20){
     # InRRease it
     radar.RangeSelected.setValue(10);
     setprop("instrumentation/radar/range", 10);
@@ -226,7 +230,15 @@ elsif (pg == 2) {
 
 # 10,20,40,60,160
 
-if (rng == 10) {
+
+if (rng == 5) {
+    # InRRease it
+    radar.RangeSelected.setValue(10);
+    setprop("instrumentation/radar/range", 10);
+
+}
+
+elsif (rng == 10) {
     # InRRease it
     radar.RangeSelected.setValue(20);
     setprop("instrumentation/radar/range", 20);
