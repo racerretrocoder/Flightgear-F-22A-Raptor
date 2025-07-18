@@ -48,7 +48,7 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
  
 	<model>
      <name>SMSpage</name>
-		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/lleft-mfd.xml</path>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/ENAV/MSLpage.xml</path>
 			<offsets>
    <x-m>0.008</x-m>
       <z-m>0.01</z-m>

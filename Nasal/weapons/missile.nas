@@ -626,7 +626,7 @@ print("Unique ID: ");
         if (me.isradarmissile != 0){
         if (me.pitbullrngm != 0) {
                 if (me.pitbull == 1){
-            #screen.log.write("ALERT!");
+            screen.log.write("radar on!");
             if (me.messagesent == 0){
                 screen.log.write("" ~ me.NameOfMissile ~ ": Pitbull");
                 me.messagesent = 1;

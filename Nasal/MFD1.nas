@@ -24,7 +24,11 @@ var pg = getprop("systems/MFD/modemfdl");
 
 if (pg == 2) {
     print(pg);
-} elsif (pg == 1){
+} elsif (pg == 9){
+setprop("controls/CMS/prgmselected",5);
+
+}elsif (pg == 1){
+
     print(pg);   
 } elsif (pg == 3){
     screen.log.write("Switched Bombs back to radar slave mode");
@@ -48,6 +52,10 @@ var pg = getprop("systems/MFD/modemfdl");
 if (pg == 0) {
     print(pg);
     setprop("systems/MFD/modemfdl",2);
+}
+elsif (pg == 9){
+setprop("controls/CMS/prgmselected",4);
+
 }
 elsif (pg == 2) {
     print(pg);
@@ -84,6 +92,15 @@ if (pg == 0) {
     print(pg);
     setprop("systems/MFD/modemfdl",1);
 }
+if (pg == 1) {
+    print(pg);
+    setprop("systems/MFD/modemfdl",9);
+}
+
+elsif (pg == 9){
+setprop("controls/CMS/prgmselected",3);
+
+}
 elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
@@ -112,15 +129,22 @@ if (pg == 0) {
     print(pg);
     setprop("systems/MFD/modemfdl",6);
 }
+elsif (pg == 9){
+setprop("controls/CMS/prgmselected",2);
+
+}
 elsif (pg == 2) {
     print(pg);
     # DeLRease Radar Range
     var rng = getprop("instrumentation/radar/range");
 
 # 10,20,40,60,160,300
-
-if (rng == 10) {
-print("Cant deLRease range. its at its lowest");
+if (rng == 5){
+    print("Cant decrease it anymore");
+}
+elsif (rng == 10) {
+    radar.RangeSelected.setValue(5);
+    setprop("instrumentation/radar/range", 5);
 
 } elsif (rng == 20){
     # InLRease it
@@ -219,6 +243,9 @@ var pg = getprop("systems/MFD/modemfdl");
 if (pg == 0) {
     print(pg);
     setprop("systems/MFD/modemfdl",7);
+}
+elsif (pg == 9){
+setprop("controls/CMS/prgmselected",1);
 }
 elsif (pg == 2) {
 

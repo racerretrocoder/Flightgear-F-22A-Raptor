@@ -91,8 +91,8 @@ var Radar = {
     new: func(){
         var m = { parents : [Radar]};
         m.loop_running  = 0;
-        m.rangeTab      = [10, 20, 40, 60, 160, 300]; # radar Ranges in nm
-        m.rangeIndex    = 1; # tab starts at index 1 so here it's 20
+        m.rangeTab      = [5, 10, 20, 40, 60, 160, 300, 320]; # radar Ranges in nm
+        m.rangeIndex    = 2; # tab starts at index 1 so here it's 20
         m.RangeSelected = props.globals.getNode("instrumentation/radar/range-selected", 1);
         m.MyCoord       = geo.aircraft_position(); # this is when the radar is on our own aircraft. This part have to change if we want to put the radar on a missile/AI
         m.radarHeading  = getprop("instrumentation/radar2/direction"); # in seconds;                       # in this we fix the radar position in the nose. We will change it to make rear radar or RWR etc
@@ -1304,8 +1304,23 @@ radar_mode_toggle = func(){
     }
 elsif(getprop("instrumentation/radar/mode/main") == 2)
     {
+        # SLR
+        screen.log.write("Side looking radars on");
         f22.acmtimer.stop();
-        setprop("instrumentation/radar/az-field", 60);
+        setprop("instrumentation/radar/az-field", 280);
+        setprop("instrumentation/radar/mode/main", 3);
+        setprop("instrumentation/radar2/sweep-display-width", 0.1646);        
+        setprop("instrumentation/radar2/sweep-speed", 2);
+        # ACM Check   
+      #  wcs_mode = "pulse-srch";
+      #  AzField.setValue(120);
+      #  swp_diplay_width = 0.0844;
+    }
+elsif(getprop("instrumentation/radar/mode/main") == 3)
+    {
+        f22.acmtimer.stop();
+        screen.log.write("Side looking radars off");
+        setprop("instrumentation/radar/az-field", 120);
         setprop("instrumentation/radar/mode/main", 0);
         setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
         setprop("instrumentation/radar2/sweep-speed", 2);

@@ -5,6 +5,8 @@
 # Not needed anymore because of the added canvas hud
 
 # Init some vars
+setprop("f22/chaff",200);
+setprop("f22/flare",200);
 setprop("/f22/crash/explodesfx",0);
 setprop("/f22/crash/splashsfx",0);
 setprop("controls/bdl",1); # Baydoor Switches
@@ -268,7 +270,7 @@ setprop("controls/apu/startinprogress",0);
 # Controls the battery switch, APU, and Engine start switches and there effectiveness (If they work or not)
 
 var engloop = func{
-setprop("sim/multiplay/visibility-range-nm",1000); # Going to put this here because smh the -set dosent set it to be 1000
+setprop("sim/multiplay/visibility-range-nm",2000); # Going to put this here because smh the -set dosent set it to be 1000
 var jfsr = getprop("controls/electric/engine/start-r");
 var jfsl = getprop("controls/electric/engine/start-l");
 var bat = getprop("controls/electric/battswitch");
@@ -717,7 +719,7 @@ var target1_x = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("h-offset"
 var target1_z = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("v-offset",1).getValue();
 setprop("instrumentation/radar2/lockmarker", target1_x / 10);
 setprop("instrumentation/radar2/lockmarker", target1_x / 10);
-setprop("instrumentation/radar/az-field", 161);
+#setprop("instrumentation/radar/az-field", 161);
 # setprop("instrumentation/radar/grid", 0);
 #print(target1_x / 10);
 setprop("instrumentation/radar2/sweep-speed", 10);
@@ -725,11 +727,21 @@ setprop("instrumentation/radar/lock2", 2);
   } elsif (getprop("instrumentation/radar/lock") == 0){
 
   
+    if(getprop("instrumentation/radar/mode/main") == 3)
+    {   # SLR
+        setprop("instrumentation/radar/az-field", 280);
+        setprop("instrumentation/radar2/sweep-display-width", 0.1646);        
+        setprop("instrumentation/radar2/sweep-speed", 2);   
+        #acmtimer.stop();
+      #  wcs_mode = "pulse-srch";
+      #  AzField.setValue(120);
+      #  swp_diplay_width = 0.0844;
+    }  
     if(getprop("instrumentation/radar/mode/main") == 1)
     {   # RWS
         setprop("instrumentation/radar/az-field", 120);
         setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
-        setprop("instrumentation/radar2/sweep-speed", 0.5);   
+        setprop("instrumentation/radar2/sweep-speed", 1);   
         #acmtimer.stop();
       #  wcs_mode = "pulse-srch";
       #  AzField.setValue(120);
