@@ -74,4 +74,75 @@
   </animation>
 
 
+
+
+	<animation>
+<type>select</type>
+<object-name>JDAM1</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[20]/selected</property> <!--Sim weight station 5-->
+<value>JDAM</value>
+</equals>
+<equals>
+<property>controls/armament/station[20]/release</property> <!--controls station 5 realease-->
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+	<animation>
+<type>select</type>
+<object-name>JDAM2</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[19]/selected</property> <!--Sim weight station 5-->
+<value>JDAM</value>
+</equals>
+<equals>
+<property>controls/armament/station[19]/release</property> <!--controls station 5 realease-->
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+
+	<animation>
+<type>select</type>
+<object-name>JDAM3</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[18]/selected</property> <!--Sim weight station 5-->
+<value>JDAM</value>
+</equals>
+<equals>
+<property>controls/armament/station[18]/release</property> <!--controls station 5 realease-->
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+	<animation>
+<type>select</type>
+<object-name>JDAM4</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[17]/selected</property> <!--Sim weight station 5-->
+<value>JDAM</value>
+</equals>
+<equals>
+<property>controls/armament/station[17]/release</property> <!--controls station 5 realease-->
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
 </PropertyList>

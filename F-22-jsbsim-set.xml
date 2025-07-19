@@ -417,9 +417,9 @@ Theres soo many
 <int n="17" type="int" alias="/controls/armament/extpylons"/>  <!--Ext pylons-->
 <int n="18" type="int" alias="/controls/armament/rdt"/> 
 <int n="19" type="int" alias="/controls/armament/ldt"/>   <!--Drop tanks--> 
-<int n="12" type="int" alias="/fdm/jsbsim/fcs/AIM120"/>
+<float n="12" type="double" alias="/fdm/jsbsim/fcs/AIM120"/>
 <int n="13" type="int" alias="/controls/smoke/Switch"/> 
-<int n="14" type="int" alias="/fdm/jsbsim/fcs/AIM9X"/>
+<float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
 <int n="20" type="int" alias="/fdm/jsbsim/fcs/taxilight"/> 
 <int n="21" type="int" alias="/sim/failure-manager/engines/engine/failure-level"/> 
 <int n="22" type="int" alias="/sim/failure-manager/engines/engine[1]/failure-level"/>
@@ -431,7 +431,7 @@ Theres soo many
 <int n="26" type="int" alias="/fdm/jsbsim/fcs/landlight"/>
 
 <!--Missiles in bays on MP-->
-<string n="5" type="string"></string><!-- string 5 used by stores -->
+<string n="5" type="string">0:none:S0:0</string><!-- string 5 used by stores -->
 <string n="6" type="string"></string><!-- string 6 used by radar lock RWR warning -->
 <string n="7" type="string"></string><!-- string 7 used by datalink -->
 <string n="8" type="string">KY58:</string> <!--KY-58-->
@@ -439,42 +439,7 @@ Theres soo many
 
 
 <!--Todo: Fix this mess in a nice way xd-->
-<string n="10" type="string" alias="/sim/weight/selected"/> <!--Idk if this is ok for multiplayer. It seems good for now. ill make a nasal script thatll say INTS to lower mem usage: 1 for aim120. 2 for aim9 3 for GBU39 4 for aim260 5 for extra-->
-<string n="11" type="string" alias="/sim/weight[1]/selected"/>
-<string n="12" type="string" alias="/sim/weight[2]/selected"/>
-<string n="13" type="string" alias="/sim/weight[3]/selected"/>
-<string n="14" type="string" alias="/sim/weight[4]/selected"/>
-<string n="15" type="string" alias="/sim/weight[5]/selected"/>
-<string n="16" type="string" alias="/sim/weight[6]/selected"/>
-<string n="17" type="string" alias="/sim/weight[7]/selected"/>
-<string n="18" type="string" alias="/sim/weight[8]/selected"/>
-<string n="19" type="string" alias="/sim/weight[9]/selected"/>
-<!--
-<string n="20" type="string" alias="/sim/weight[11]/selected"/>
-<string n="21" type="string" alias="/sim/weight[12]/selected"/>
-<string n="22" type="string" alias="/sim/weight[13]/selected"/>
-<string n="23" type="string" alias="/sim/weight[14]/selected"/>
-over loaded
-20  11
-21  12
-22  13
-23  14 
--->
-<bool n="10" type="bool" alias="/controls/armament/station/release"/>
-<bool n="11" type="bool" alias="/controls/armament/station[1]/release"/>
-<bool n="12" type="bool" alias="/controls/armament/station[2]/release"/>
-<bool n="13" type="bool" alias="/controls/armament/station[3]/release"/>
-<bool n="14" type="bool" alias="/controls/armament/station[4]/release"/>
-<bool n="15" type="bool" alias="/controls/armament/station[5]/release"/>
-<bool n="16" type="bool" alias="/controls/armament/station[6]/release"/>
-<bool n="17" type="bool" alias="/controls/armament/station[7]/release"/>
-<bool n="18" type="bool" alias="/controls/armament/station[8]/release"/>
-<bool n="19" type="bool" alias="/controls/armament/station[9]/release"/>
-<bool n="20" type="bool" alias="/controls/armament/station[11]/release"/>
-<bool n="21" type="bool" alias="/controls/armament/station[12]/release"/>
-<bool n="22" type="bool" alias="/controls/armament/station[13]/release"/>
-<bool n="23" type="bool" alias="/controls/armament/station[14]/release"/>
-
+<!--Done! String[5] is now the stores string. it cycles between pylons around once per second. Deciphers the string kinda like the dtc code splitting it between :'s-->
 
 </generic>		
 <visibility-range-nm type="int">900</visibility-range-nm> <!--Dosent work here for some reason-->
@@ -1846,6 +1811,106 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
     </weight>
 
+
+	    <weight n="15">
+      <name>pylon1-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> 0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="16">
+      <name>pylon2-1</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> -0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="17">
+      <name>pylon17</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> -3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+    <weight n="18">
+      <name>pylon18</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> 3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+    <weight n="19">
+      <name>pylon17</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> -3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+    <weight n="20">
+      <name>pylon18</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> 3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
         <tacview-recording type="bool">0</tacview-recording>
 		</sim>
 
@@ -1902,7 +1967,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             <rwr_audio_extended type="bool">true</rwr_audio_extended>
             <tacview_supported type="bool">false</tacview_supported>
             <m28_auto type="bool">false</m28_auto>
-            <mlw_max type="double">100</mlw_max>
+            <mlw_max type="double">10</mlw_max>
             <auto_flare_caller type="bool">false</auto_flare_caller>
 		</d-config>
 		<!-- Yep. this should go here... -->

@@ -15,11 +15,11 @@
 <condition>
 <and>
 <equals>
-<property>sim/multiplay/generic/string[19]</property>
+<property>sim/weight[9]/selected</property>
 <value>Aim-260</value>
 </equals>
 <equals>
-<property>sim/multiplay/generic/bool[19]</property>
+<property>controls/armament/station[9]/release</property>
 <value>false</value>
 </equals>
 </and>

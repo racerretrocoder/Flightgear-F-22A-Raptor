@@ -12,22 +12,63 @@
     -->
     <![CDATA[
       var livery_update = aircraft.livery_update.new("Aircraft/F-22/Models/Liveries");
- var rplayer = cmdarg();
+
+# smallsearch to avoid multiple nodes
+var smallsearch = func(cs=nil) {
+  var list = props.globals.getNode("/ai/models").getChildren("multiplayer");
+  var total = size(list);
+  var mpid = 0;
+  for(var i = 0; i < total; i += 1) {
+      if (cs != nil) {
+      # were searching for someone...
+      if (getprop("ai/models/multiplayer[" ~ i ~ "]/callsign") == cs) {
+          mpid = i;
+          return mpid; # Bam!
+          
+     }
+      var callsign = list[i].getNode("callsign").getValue();
+     }
+   }
+}
+
+ var rplayer = cmdarg(); # 
    # Set up property aliases for animations.
-   rplayer.getNode("orientation/alpha-deg", 1).
-     alias(rplayer.getNode("sim/multiplay/generic/float[17]")); #for vapor
-   rplayer.getNode("controls/engines/engine/throttle", 1).
-     alias(rplayer.getNode("sim/multiplay/generic/float[18]")); #for AB
-   rplayer.getNode("velocities/airspeed-kt", 1).
-     alias(rplayer.getNode("sim/multiplay/generic/float[19]")); #for vapor (2)
+    rplayer.getNode("orientation/alpha-deg", 1).
+      alias(rplayer.getNode("sim/multiplay/generic/float[17]")); #for vapor
+    rplayer.getNode("controls/engines/engine/throttle", 1).
+      alias(rplayer.getNode("sim/multiplay/generic/float[18]")); #for AB
+    rplayer.getNode("velocities/airspeed-kt", 1).
+      alias(rplayer.getNode("sim/multiplay/generic/float[19]")); #for vapor (2)
 	 # Stores parser
-	var self = cmdarg();
+	 var cs1 = rplayer.getNode("sim/multiplay/callsign", 1);
+	 var callsign = cs1.getValue();
+	 var mpid = smallsearch(callsign);
+	var stringparse = func() {
+		var mpid = smallsearch(callsign);
+		var string5 = getprop("ai/models/multiplayer[" ~ mpid ~ "]/sim/multiplay/generic/string[5]");
+ 		var thesplit = split(":", string5);
+		print("size of thesplit: "~size(thesplit));
+		print("Grab pylon number");
+		var pylon = thesplit[0];
+		print("setting weight");
+		setprop("ai/models/multiplayer[" ~ mpid ~ "]/sim/weight[" ~ pylon ~ "]/selected",thesplit[1]);
+		print("setting armament");
+		setprop("ai/models/multiplayer[" ~ mpid ~ "]/controls/armament/station[" ~ pylon ~ "]/release",num(thesplit[3]));
+		#self.getNode("sim/weight[" ~ pylon ~ "]/selected",1).setValue(thesplit[1]); These is acting strange...
+		#self.getNode("controls/armament/station[" ~ pylon ~ "]/release",1).setValue(num(thesplit[3]));
+	}
+	var stringtimer = maketimer(1,stringparse);
+	stringtimer.start();
+	print("F-22A Loaded in");
+
     ]]>
 
     </load>
   
  <unload><![CDATA[
     livery_update.stop();
+	stringtimer.stop();
+	print("F-22A: Leaving! See you next time :)");
   ]]></unload>
 </nasal>
 
@@ -101,11 +142,11 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 <condition>
 <and>
 <equals>
-<property>sim/multiplay/generic/string[17]</property>
+<property>sim/weight[7]/selected</property>
 <value>Aim-9x</value>
 </equals>
 <equals>
-<property>sim/multiplay/generic/bool[17]</property>
+<property>controls/armament/station[7]/release</property>
 <value>false</value>
 </equals>
 </and>
@@ -117,11 +158,11 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 <condition>
 <and>
 <equals>
-<property>sim/multiplay/generic/string[16]</property>
+<property>sim/weight[6]/selected</property>
 <value>Aim-9x</value>
 </equals>
 <equals>
-<property>sim/multiplay/generic/bool[16]</property>
+<property>controls/armament/station[6]/release</property>
 <value>false</value>
 </equals>
 </and>
@@ -133,7 +174,7 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 		<object-name>AIM-9R</object-name>
 		<condition>
 			<less-than>
-				<property>sim/multiplay/generic/int[14]</property>
+				<property>sim/multiplay/generic/float[14]</property>
 				<value>0.1</value>
 			</less-than>
 		</condition>
@@ -143,7 +184,7 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 		<object-name>AIM-9L</object-name>
 		<condition>
 			<less-than>
-				<property>sim/multiplay/generic/int[14]</property>
+				<property>sim/multiplay/generic/float[14]</property>
 				<value>0.1</value>
 			</less-than>
 		</condition>
@@ -963,7 +1004,7 @@ Use below instead
 		
 
 
-		<property>sim/multiplay/generic/int[12]</property>
+		<property>sim/multiplay/generic/float[12]</property>
 		<interpolation>
 	
 			<entry>
@@ -989,7 +1030,7 @@ Use below instead
 		<type>rotate</type>
 		<object-name>Right_Rocket_Bay_D1</object-name>
 		<object-name>Right_Rocket_Bay_D2</object-name>
-		<property>sim/multiplay/generic/int[12]</property>
+		<property>sim/multiplay/generic/float[12]</property>
 		<interpolation>
 
 			<entry>
@@ -1016,7 +1057,7 @@ Use below instead
 		<type>rotate</type>
 		<object-name>LEFTMAINDOOR</object-name>
 		<object-name>Left_Rocket_Bay_D2</object-name>
-		<property>sim/multiplay/generic/int[12]</property>
+		<property>sim/multiplay/generic/float[12]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1039,7 +1080,7 @@ Use below instead
 		<type>rotate</type>
 
 		<object-name>leftmidbay</object-name>
-		<property>sim/multiplay/generic/int[12]</property>
+		<property>sim/multiplay/generic/float[12]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1067,7 +1108,7 @@ Use below instead
 	<animation>
 		<type>select</type>
 		<object-name>Left_Rocket_Bay_D2</object-name>
-		<property>sim/multiplay/generic/int[12]</property>
+		<property>sim/multiplay/generic/float[12]</property>
 	
 
 	</animation>
@@ -1076,7 +1117,7 @@ Use below instead
 	<animation>
 		<type>select</type>
 		<object-name>Right_Rocket_Bay_D2</object-name>
-		<property>sim/multiplay/generic/int[12]</property>
+		<property>sim/multiplay/generic/float[12]</property>
 	
 
 	</animation>
@@ -1084,7 +1125,7 @@ Use below instead
 		<type>rotate</type>
 		<object-name>RIGHTMAINDOOR</object-name>
 		<object-name>Right_Rocket_Bay_D2</object-name>
-		<property>sim/multiplay/generic/int[12]</property>
+		<property>sim/multiplay/generic/float[12]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1107,7 +1148,7 @@ Use below instead
 	<animation>
 		<type>rotate</type>
 		<object-name>RIGHTMAINDOOR2</object-name>
-		<property>sim/multiplay/generic/int[12]</property>
+		<property>sim/multiplay/generic/float[12]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1130,7 +1171,7 @@ Use below instead
 <animation>
 		<type>rotate</type>
 		<object-name>LEFTMAINDOOR2</object-name>
-		<property>sim/multiplay/generic/int[12]</property>
+		<property>sim/multiplay/generic/float[12]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1153,7 +1194,7 @@ Use below instead
  <animation>
   <type>translate</type>
   <object-name>RIGHTMAINDOOR2</object-name>
-  <property>sim/multiplay/generic/int[12]</property>
+  <property>sim/multiplay/generic/float[12]</property>
   <factor>0.15</factor>
   <offset-m>0</offset-m>
   <axis>
@@ -1165,7 +1206,7 @@ Use below instead
  <animation>
   <type>translate</type>
   <object-name>RIGHTMAINDOOR2</object-name>
-  <property>sim/multiplay/generic/int[12]</property>
+  <property>sim/multiplay/generic/float[12]</property>
   <factor>-0.08</factor>
   <offset-m>0</offset-m>
   <axis>
@@ -1181,7 +1222,7 @@ Use below instead
  <animation>
   <type>translate</type>
   <object-name>LEFTMAINDOOR2</object-name>
-  <property>sim/multiplay/generic/int[12]</property>
+  <property>sim/multiplay/generic/float[12]</property>
   <factor>0.15</factor>
   <offset-m>0</offset-m>
   <axis>
@@ -1193,7 +1234,7 @@ Use below instead
  <animation>
   <type>translate</type>
   <object-name>LEFTMAINDOOR2</object-name>
-  <property>sim/multiplay/generic/int[12]</property>
+  <property>sim/multiplay/generic/float[12]</property>
   <factor>0.08</factor>
   <offset-m>0</offset-m>
   <axis>
@@ -1211,7 +1252,7 @@ Use below instead
 		<type>rotate</type>
 
 		<object-name>9xdl2</object-name>
-		<property>sim/multiplay/generic/int[14]</property>
+		<property>sim/multiplay/generic/float[14]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1235,7 +1276,7 @@ Use below instead
 		<type>rotate</type>
 
 		<object-name>9xdl1</object-name>
-		<property>sim/multiplay/generic/int[14]</property>
+		<property>sim/multiplay/generic/float[14]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1260,7 +1301,7 @@ Use below instead
 		<type>rotate</type>
 
 		<object-name>9xdr2</object-name>
-		<property>sim/multiplay/generic/int[14]</property>
+		<property>sim/multiplay/generic/float[14]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1284,7 +1325,7 @@ Use below instead
 		<type>rotate</type>
 
 		<object-name>9xdr1</object-name>
-		<property>sim/multiplay/generic/int[14]</property>
+		<property>sim/multiplay/generic/float[14]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1317,7 +1358,7 @@ Use below instead
 		
 		<condition>
 			<greater-than>
-				<property>sim/multiplay/generic/int[14]</property>
+				<property>sim/multiplay/generic/float[14]</property>
 				<value>0.99</value>
 			</greater-than>
 		</condition>
@@ -1332,7 +1373,7 @@ Use below instead
 		
 		<condition>
 			<less-than>
-				<property>sim/multiplay/generic/int[14]</property>
+				<property>sim/multiplay/generic/float[14]</property>
 				<value>0.99</value>
 			</less-than>
 		</condition>
