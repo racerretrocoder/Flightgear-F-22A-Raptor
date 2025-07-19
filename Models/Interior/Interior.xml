@@ -908,6 +908,20 @@ _____/\\\\\\\\\_________________________________________________________________
     </animation>
 
 
+<animation>
+  <type>pick</type>
+   <object-name>throt</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>f22.throt();</script>
+</binding>
+</action>
+ </animation>
+
 
 <animation>
   <type>pick</type>
@@ -3155,7 +3169,7 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
 <animation>
         <type>rotate</type>
         <object-name>throt</object-name>
-        <property>controls/engines/engine/throttle</property>
+        <property>f22/throttle</property>
         <offset-deg>40</offset-deg>
         <factor>-70</factor>
         <axis>

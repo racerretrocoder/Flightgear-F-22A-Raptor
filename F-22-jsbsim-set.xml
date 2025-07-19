@@ -431,6 +431,7 @@ Theres soo many
 <int n="26" type="int" alias="/fdm/jsbsim/fcs/landlight"/>
 
 <!--Missiles in bays on MP-->
+<string n="5" type="string"></string><!-- string 5 used by stores -->
 <string n="6" type="string"></string><!-- string 6 used by radar lock RWR warning -->
 <string n="7" type="string"></string><!-- string 7 used by datalink -->
 <string n="8" type="string">KY58:</string> <!--KY-58-->
@@ -476,7 +477,7 @@ over loaded
 
 
 </generic>		
-<visibility-range-nm type="int">900</visibility-range-nm>
+<visibility-range-nm type="int">900</visibility-range-nm> <!--Dosent work here for some reason-->
 	</multiplay>
 	        <help n="0" include="System/help.xml"/>
 <!--		<hud>
@@ -1856,8 +1857,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <bingo type="int">2000</bingo>
 <isbingo type="int">0</isbingo>
 <blink type="int">0</blink>
-<left type="double">60</left>
- <top type="double">206</top>
+<throttle type="double">-0.1</throttle>
 </f22>
 
 
