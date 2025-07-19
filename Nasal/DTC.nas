@@ -3,6 +3,33 @@
 # This can be used to share CMDS prgms, set datalink, COMM Radios, Other settings
 setprop("f22/dtcdesc","");
 var canexec = 0;
+
+
+var readslot = func(datacart,pointer) {
+        print("DTC.nas: SLOTCOORD");
+
+        var line1 = split(":",datacart[pointer + 1]);
+        print("lat");
+        print(line1[0]);
+        var lat = num(line1[0]);   
+        var line2 = split(":",datacart[pointer + 2]);
+        print("lon");
+        print(line2[0]);
+        var lon = num(line2[0]);   
+        var line3 = split(":",datacart[pointer + 3]);
+        print("alt");
+        print(line3[0]);
+        var alt = num(line3[0]);   
+        var line4 = split(":",datacart[pointer + 4]);
+        print("slot");
+        print(line4[0]);
+        var slot = num(line4[0]);   
+        setprop("controls/radar/slot[" ~ slot ~ "]/lat",lat);
+        setprop("controls/radar/slot[" ~ slot ~ "]/lon",lon);
+        setprop("controls/radar/slot[" ~ slot ~ "]/alt",alt);
+        print("DTC.nas: Slot " ~ slot ~ " coordnites added");
+    }
+
     # Datalink
     var readdatalink = func(datacart,pointer) {
         var line1 = split(":",datacart[pointer + 1]);
@@ -334,6 +361,7 @@ var canexec = 0;
         call(func{data=io.readfile(dtcpath.getValue());},nil,var erroronload = []);
         if (size(erroronload)) {
             screen.log.write("Error loading DTC");
+            screen.log.write(erroronload[0]);
         } elsif (data != nil) {
         print("DTC.nas: READ");
         print(data);
@@ -375,6 +403,10 @@ var canexec = 0;
                 if (newvector[0] == "MFD"){
                     readmfd(datasplit,i);
                     print("Executed: MFD");
+                }
+                if (newvector[0] == "SLOTCOORD"){
+                    readslot(datasplit,i);
+                    print("Executed: SLOTCOORD");
                 }
                 }
                 

@@ -2520,9 +2520,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  <external_reactions>
    <force name="pushback" frame="BODY">
   <location unit="IN">
-    <x>  177.02 </x>
-    <y> 0.0 </y>
-    <z>  -1.9683 </z>
+     <x> 268.52 </x>
+     <y>   0.00 </y>
+     <z> -15.36 </z>
   </location>
   <direction>
     <x>1</x>
@@ -2559,14 +2559,16 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <force name="catapult" frame="BODY">
    <location unit="IN">
-    <x> 0 </x>
-    <y> 0 </y>
-    <z> 0 </z>
+
+     <x> 268.52 </x>
+     <y>   0.00 </y>
+     <z> -15.36 </z>
    </location>
    <direction>
-    <x> 1 </x>
-    <y> 0 </y>
-    <z> 0 </z>
+
+     <x> 268.52 </x>
+     <y>   0.00 </y>
+     <z> -15.36 </z>
    </direction>
   </force>
   <force name="holdback" frame="BODY">

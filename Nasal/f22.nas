@@ -1094,6 +1094,7 @@ var checkbingo = func() {
 
 var updatethrot = func() {
   setprop("f22/throttle",getprop("controls/engines/engine/throttle"));
+
 }
 
 
@@ -1105,12 +1106,14 @@ var throt = func() {
     screen.log.write("Throttle set to Idle! Starting Engines...");    
     throttletimer.start();
     emu.manualstart();
+  emu.timer_apucheck2.start(); # APU Shutoff rebound
   }
   elsif (getprop("f22/throttle") != -0.1){
     screen.log.write("Throttle Cut off! Shutting down...");
     throttletimer.stop();
     setprop("f22/throttle",-0.1);
     emu.engstop();
+  emu.timer_apucheck2.stop(); # Ok dont turn off apu xd
   }
 }
 setprop("f22/throttle",-0.1);
