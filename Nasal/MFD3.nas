@@ -387,6 +387,14 @@ setprop("/controls/missile", 3);
 
 
     
+}elsif (pg == 6){
+    print(pg);   
+    if (getprop("instrumentation/frontcontrols/digit1") == 0) {
+        print("Not ready!");
+        screen.log.write("Enter the ammount on the keypad then press this button to set bingo fuel");
+        return;
+    }
+    fc.setbingo();
 } elsif (pg == 3){
     print(pg);   
 } elsif (pg == 4){
@@ -454,6 +462,16 @@ elsif (pg == 2) {
     setprop("controls/radar/slot[" ~ slottype ~ "]/lon", lon); 
     setprop("controls/radar/slot[" ~ slottype ~ "]/alt", alt); 
     screen.log.write("Successfully saved data to slot "~ slottype);
+setprop("controls/radar/currentslot", getprop("instrumentation/frontcontrols/digit1"));
+var slottype = getprop("controls/radar/currentslot");
+
+    var lat = getprop("controls/radar/slot[" ~ slottype ~ "]/lat");
+    var lon = getprop("controls/radar/slot[" ~ slottype ~ "]/lon"); 
+    var alt = getprop("controls/radar/slot[" ~ slottype ~ "]/alt"); 
+    setprop("controls/radar/slots/lat", lat); 
+    setprop("controls/radar/slots/lon", lon); 
+    setprop("controls/radar/slots/alt", alt); 
+    screen.log.write("Switched to slot "~ slottype);
     fc.clearnum();
 
 } elsif (pg == 4){

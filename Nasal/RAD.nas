@@ -288,6 +288,93 @@ digit6 = nil;
 
 
 
+
+
+var setbingo = func{
+
+
+#digit1 = 1;
+#digit2 = 2;
+#digit3 = 3;
+#digit4 = 6;
+#digit5 = 5;
+#digit6 = 4;
+
+# nil Detection
+if (digit1 == nil) {
+digit1 = 0;
+} elsif (digit2 == nil) {
+digit2 = 0;
+setprop("f22/bingo",digit1);
+} elsif (digit3 == nil) {
+digit3 = 0;
+var num1 = digit1 * 10;
+var num2 = digit2;
+var ans = num1+num2;
+setprop("f22/bingo",ans);
+} elsif (digit4 == nil) {
+digit4 = 0;
+var num1 = digit1 * 100;
+var num2 = digit2 * 10;
+var num3 = digit3 * 1;
+var ans = num1+num2+num3;
+setprop("f22/bingo",ans);
+} elsif (digit5 == nil) {
+digit5 = 0;
+var num1 = digit1 * 1000;
+var num2 = digit2 * 100;
+var num3 = digit3 * 10;
+var num4 = digit4 * 1;
+var ans = num1+num2+num3+num4;
+setprop("f22/bingo",ans);
+} elsif (digit6 == nil) {
+digit6 = 0;
+var num1 = digit1 * 10000;
+var num2 = digit2 * 1000;
+var num3 = digit3 * 100;
+var num4 = digit4 * 10;
+var num5 = digit5 * 1;
+var ans = num1+num2+num3+num4+num5;
+setprop("f22/bingo",ans);
+}
+else {
+  # all numbers not nil
+
+# SUPER SMART!
+var num1 = digit1 * 100000;
+var num2 = digit2 * 10000;
+var num3 = digit3 * 1000;
+var num4 = digit4 * 100;
+var num5 = digit5 * 10;
+var num6 = digit6 * 1;
+
+var numfinal = num1 + num2 + num3 + num4 + num5 + num6;
+print(numfinal);
+
+setprop("f22/bingo", numfinal); # who would ever need a bingo that high? lol
+}
+
+
+setprop("instrumentation/frontcontrols/digit1", 0);
+setprop("instrumentation/frontcontrols/digit2", 0);
+setprop("instrumentation/frontcontrols/digit3", 0);
+setprop("instrumentation/frontcontrols/digit4", 0);
+setprop("instrumentation/frontcontrols/digit5", 0);
+setprop("instrumentation/frontcontrols/digit6", 0);
+
+# Reset the system
+
+digit1 = nil;
+digit2 = nil;
+digit3 = nil;
+digit4 = nil;
+digit5 = nil;
+digit6 = nil;
+
+}
+
+
+
 # Swap functions
 
 

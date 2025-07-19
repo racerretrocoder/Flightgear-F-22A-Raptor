@@ -4,17 +4,17 @@
 <PropertyList>
 
 
-		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/NONEMDF.ac</path>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/FUELMFD.ac</path>
 
 	<!---->
 <text>
-  <name>fuel-head</name>
+  <name>fuel-heada</name>
   <font>condensed.txf</font>
   <character-size type="double">0.005</character-size>
   <offsets>
   <x-m>0.01</x-m>
    <y-m>-0.04</y-m>
-   <z-m>-0.03</z-m>
+   <z-m>-0.06</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
@@ -23,13 +23,13 @@
   <alignment>left-top</alignment>
  </text>
  <text>
-  <name>fuel-head</name>
+  <name>fuel-heada</name>
   <font>condensed.txf</font>
   <character-size type="double">0.005</character-size>
   <offsets>
   <x-m>0.01</x-m>
    <y-m>-0.03</y-m>
-   <z-m>-0.04</z-m>
+   <z-m>-0.07</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
@@ -38,13 +38,13 @@
   <alignment>left-top</alignment>
  </text>
  <text>
-  <name>fuel-lb</name>
+  <name>fuel-lba</name>
   <font>condensed.txf</font>
   <character-size type="double">0.005</character-size>
   <offsets>
  <x-m>0.01</x-m>
    <y-m>0</y-m>
-   <z-m>-0.03</z-m>
+   <z-m>-0.06</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
    <type type="string">number-value</type>
@@ -56,13 +56,13 @@
  </text>	
 
   <text>
-  <name>fuel-lb</name>
+  <name>fuel-lba</name>
   <font>condensed.txf</font>
   <character-size type="double">0.005</character-size>
   <offsets>
  <x-m>0.01</x-m>
    <y-m>0</y-m>
-   <z-m>-0.04</z-m>
+   <z-m>-0.07</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
    <type type="string">number-value</type>
@@ -148,10 +148,10 @@
  <text>
   <name>fuel-headext</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.005</character-size>
+  <character-size type="double">0.004</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>-0.05</y-m>
+   <y-m>-0.065</y-m>
    <z-m>0.01</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
@@ -164,10 +164,10 @@
   <text>
   <name>fuel-lbext</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.005</character-size>
+  <character-size type="double">0.004</character-size>
   <offsets>
  <x-m>0.01</x-m>
-   <y-m>-0.05</y-m>
+   <y-m>-0.055</y-m>
    <z-m>0.00</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
@@ -182,10 +182,10 @@
  <text>
   <name>fuel-headext</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.005</character-size>
+  <character-size type="double">0.004</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>0.02</y-m>
+   <y-m>0.03</y-m>
    <z-m>0.01</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
@@ -198,10 +198,10 @@
   <text>
   <name>fuel-lbext</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.005</character-size>
+  <character-size type="double">0.004</character-size>
   <offsets>
  <x-m>0.01</x-m>
-   <y-m>0.02</y-m>
+   <y-m>0.03</y-m>
    <z-m>0.00</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
@@ -251,6 +251,34 @@
     <blue>0.0</blue>
   </emission> 
  </animation>
+
+
+
+
+
+ 	 <animation>
+  <type>material</type>
+  <object-name>fuel-lba</object-name>
+  <object-name>fuel-heada</object-name>
+  <ambient>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.1</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.8</red>
+    <green>0.8</green>
+    <blue>0.0</blue>
+  </emission> 
+ </animation>
+
+
+
  	 <animation>
   <type>material</type>
   <object-name>bingo</object-name>
@@ -272,6 +300,418 @@
   </emission> 
  </animation>
 
+
+<!--Bars-->
+ <animation>
+    <type>select</type>
+    <object-name>fwdfull</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[0]/level-norm</property>
+       <value>0.8</value>
+      </greater-than>
+</and>
+    </condition>
+  </animation>
+
+ <animation>
+    <type>select</type>
+    <object-name>fwd1</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[0]/level-norm</property>
+       <value>0.65</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[0]/level-norm</property>
+       <value>0.8</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+ <animation>
+    <type>select</type>
+    <object-name>fwd2</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[0]/level-norm</property>
+       <value>0.51</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[0]/level-norm</property>
+       <value>0.65</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+
+ <animation>
+    <type>select</type>
+    <object-name>fwd3</object-name> <!--Low yellow-->
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[0]/level-norm</property>
+       <value>0.35</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[0]/level-norm</property>
+       <value>0.51</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+   <animation>
+    <type>select</type>
+    <object-name>fwd4</object-name> <!--Low red-->
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[0]/level-norm</property>
+       <value>0.01</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[0]/level-norm</property>
+       <value>0.35</value>
+      </less-than>
+      <equals>
+       <property>f22/blink</property>
+       <value>1</value>
+      </equals>
+</and>
+    </condition>
+  </animation>
+
+
+  <!--AFT Tank-->
+
+
+ <animation>
+    <type>select</type>
+    <object-name>aftfull</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[1]/level-norm</property>
+       <value>0.8</value>
+      </greater-than>
+</and>
+    </condition>
+  </animation>
+
+ <animation>
+    <type>select</type>
+    <object-name>aft1</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[1]/level-norm</property>
+       <value>0.65</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[1]/level-norm</property>
+       <value>0.8</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+ <animation>
+    <type>select</type>
+    <object-name>aft2</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[1]/level-norm</property>
+       <value>0.51</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[1]/level-norm</property>
+       <value>0.65</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+
+ <animation>
+    <type>select</type>
+    <object-name>aft3</object-name> <!--Low yellow-->
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[1]/level-norm</property>
+       <value>0.35</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[1]/level-norm</property>
+       <value>0.51</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+   <animation>
+    <type>select</type>
+    <object-name>aft4</object-name> <!--Low red-->
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[1]/level-norm</property>
+       <value>0.01</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[1]/level-norm</property>
+       <value>0.35</value>
+      </less-than>
+      <equals>
+       <property>f22/blink</property>
+       <value>1</value>
+      </equals>
+</and>
+    </condition>
+  </animation>
+
+<!--left ext-->
+
+ <animation>
+    <type>select</type>
+    <object-name>lfull</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[2]/level-norm</property>
+       <value>0.8</value>
+      </greater-than>
+</and>
+    </condition>
+  </animation>
+
+ <animation>
+    <type>select</type>
+    <object-name>l1</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[2]/level-norm</property>
+       <value>0.65</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[2]/level-norm</property>
+       <value>0.8</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+ <animation>
+    <type>select</type>
+    <object-name>l2</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[2]/level-norm</property>
+       <value>0.51</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[2]/level-norm</property>
+       <value>0.65</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+
+ <animation>
+    <type>select</type>
+    <object-name>l3</object-name> <!--Low yellow-->
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[2]/level-norm</property>
+       <value>0.35</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[2]/level-norm</property>
+       <value>0.51</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+   <animation>
+    <type>select</type>
+    <object-name>l4</object-name> <!--Low red-->
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[2]/level-norm</property>
+       <value>0.01</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[2]/level-norm</property>
+       <value>0.35</value>
+      </less-than>
+      <equals>
+       <property>f22/blink</property>
+       <value>1</value>
+      </equals>
+</and>
+    </condition>
+  </animation>
+
+<!--right ext-->
+
+
+ <animation>
+    <type>select</type>
+    <object-name>rfull</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[3]/level-norm</property>
+       <value>0.8</value>
+      </greater-than>
+</and>
+    </condition>
+  </animation>
+
+ <animation>
+    <type>select</type>
+    <object-name>r1</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[3]/level-norm</property>
+       <value>0.65</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[3]/level-norm</property>
+       <value>0.8</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+ <animation>
+    <type>select</type>
+    <object-name>r2</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[3]/level-norm</property>
+       <value>0.51</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[3]/level-norm</property>
+       <value>0.65</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+
+ <animation>
+    <type>select</type>
+    <object-name>r3</object-name> <!--Low yellow-->
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[3]/level-norm</property>
+       <value>0.35</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[3]/level-norm</property>
+       <value>0.51</value>
+      </less-than>
+</and>
+    </condition>
+  </animation>
+
+   <animation>
+    <type>select</type>
+    <object-name>r4</object-name> <!--Low red-->
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[3]/level-norm</property>
+       <value>0.01</value>
+      </greater-than>
+      <less-than>
+       <property>consumables/fuel/tank[3]/level-norm</property>
+       <value>0.35</value>
+      </less-than>
+      <equals>
+       <property>f22/blink</property>
+       <value>1</value>
+      </equals>
+</and>
+    </condition>
+  </animation>
+
+
+
+ <animation>
+    <type>select</type>
+    <object-name>extlcross</object-name>
+    <condition>
+    <not>
+
+      <greater-than>
+       <property>consumables/fuel/tank[2]/level-lbs</property>
+       <value>0</value>
+      </greater-than>
+</not>
+    </condition>
+  </animation>
+ <animation>
+    <type>select</type>
+    <object-name>extrcross</object-name>
+    <condition>
+    <not>
+
+      <greater-than>
+       <property>consumables/fuel/tank[3]/level-lbs</property>
+       <value>0</value>
+      </greater-than>
+</not>
+    </condition>
+  </animation>
+
+
+
+ <animation>
+    <type>select</type>
+    <object-name>fwdcross</object-name>
+    <condition>
+    <not>
+
+      <greater-than>
+       <property>consumables/fuel/tank[0]/level-lbs</property>
+       <value>0</value>
+      </greater-than>
+</not>
+    </condition>
+  </animation>
+ <animation>
+    <type>select</type>
+    <object-name>aftcross</object-name>
+    <condition>
+    <not>
+
+      <greater-than>
+       <property>consumables/fuel/tank[1]/level-lbs</property>
+       <value>0</value>
+      </greater-than>
+</not>
+    </condition>
+  </animation>
 
 
  <animation>
@@ -310,5 +750,19 @@
     </condition>
   </animation>
 
-
+	 <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.065</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">SET BINGO</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 </PropertyList>

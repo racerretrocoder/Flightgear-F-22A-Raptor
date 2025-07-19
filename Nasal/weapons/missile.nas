@@ -626,7 +626,6 @@ print("Unique ID: ");
         if (me.isradarmissile != 0){
         if (me.pitbullrngm != 0) {
                 if (me.pitbull == 1){
-            screen.log.write("radar on!");
             if (me.messagesent == 0){
                 screen.log.write("" ~ me.NameOfMissile ~ ": Pitbull");
                 me.messagesent = 1;
@@ -1394,7 +1393,7 @@ print("target ran");
                         }  elsif (t_dist_m > me.pitbullrngm + 10000) { # 10nm
                             e_gain = 0.35;
                             h_gain = 0.35;
-                            me.pitbull = 1;
+
                             #missilealert();
                         }  elsif (t_dist_m > me.pitbullrngm + 5000) { # 10nm
                             e_gain = 0.9;
@@ -1403,6 +1402,10 @@ print("target ran");
                         }  elsif (t_dist_m > me.pitbullrngm) { # 10nm
                             e_gain = (me.update_track_time-me.StartTime - 1) / 4;
                             h_gain = (me.update_track_time-me.StartTime - 1) / 4;
+                            #missilealert();
+                        }
+                        elsif (t_dist_m < me.pitbullrngm) { 
+                            me.pitbull = 1;
                             #missilealert();
                         }
 

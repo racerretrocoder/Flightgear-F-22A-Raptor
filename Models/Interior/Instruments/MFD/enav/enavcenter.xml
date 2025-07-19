@@ -158,6 +158,7 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
  <animation>
 	 <type>select</type>
 	 <object-name>main screen</object-name>
+	 <object-name>dtc2</object-name>
 	 <condition>   
 		 <equals>
 			 <property>systems/MFD/modemfdc</property>
@@ -245,6 +246,41 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 			 <property>systems/MFD/modemfdc</property>
 			 <value>5</value>
 		 </equals>
+	 </condition>
+ </animation>
+
+	<text>
+  <name>dtc</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <!--Y is Left to right
+X is In and Out 
+Z is Up and down-->
+  <x-m>0.017</x-m>
+   <y-m>-0.071</y-m>
+   <z-m>-0.065</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">text-value</type>
+   <format type="string">DTC - %s</format>
+  <truncate type="bool">true</truncate>
+  <property>/f22/dtcdesc</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <animation>
+	 <type>select</type>
+	 <object-name>dtc</object-name>
+	 <object-name>dtc2</object-name>
+	 <condition> 
+	 <not>  
+		 <equals>
+			 <property>f22/dtcdesc</property>
+			 <value></value>
+		 </equals>
+	</not>
 	 </condition>
  </animation>
 </PropertyList>

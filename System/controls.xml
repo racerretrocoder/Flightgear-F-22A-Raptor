@@ -106,7 +106,7 @@
   <b9 type="double"> 0 </b9> <!--Chaff Delay per sequence-->
 <b10 type="double"> 1 </b10> <!--Flare Delay per sequence-->
   <prgm3name type="string">Why Not Both?</prgm3name>
-<c1 type="double"> 0 </c1> <!--amnt Chaff to release on press of the button-->
+  <c1 type="double"> 0 </c1> <!--amnt Chaff to release on press of the button-->
   <c2 type="double"> 0 </c2> <!--amnt Flare to release on press of the button-->
   <c3 type="double"> 1 </c3> <!--Chaff delay per release-->
   <c4 type="double"> 1 </c4> <!--Flare delay per release-->
@@ -115,7 +115,7 @@
   <c7 type="double"> 2 </c7> <!--Chaff Seq's-->
   <c8 type="double"> 2 </c8> <!--Flare Seq's-->
   <c9 type="double"> 1 </c9> <!--Chaff Delay per sequence-->
-<c10 type="double"> 1 </c10> <!--Flare Delay per sequence-->
+<c10 type="double">  1 </c10> <!--Flare Delay per sequence-->
   <prgm4name type="string">Program 4</prgm4name>
   <d1 type="double"> 0 </d1> <!--amnt Chaff to release on press of the button-->
   <d2 type="double"> 1 </d2> <!--amnt Flare to release on press of the button-->
