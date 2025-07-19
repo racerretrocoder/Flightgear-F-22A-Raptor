@@ -85,35 +85,36 @@ var Loading_missile = func(name)
 
     elsif(name == "Aim-260")
     {
-        # AIM-120 :Advanced Medium Range Missile,      
+        # AIM-260 JATM!
+        # JATM is not in damage.nas :( so itll just be an Aim-54
 	    typeid = 52;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-260/AIM260-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-260/AIM260.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        flareres = 1.0; # 0.999    Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
+        flareres = 0.98; # 0.999    Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
         maxdetectionrngnm = 3008.8;                    #  300000000000000
-        fovdeg = 360;                                #
-        detectionfovdeg = 360;                       # TODO implent data link system so we can control these variables while missile is in flight
-        trackmaxdeg = 360;                           # 
-        maxg = 60;                                   # wikipedia
-        thrustlbs = 3900;                             # 1,500 to 2,500 pounds of thrust maybe
-        thrustlbsstage2 = 680;
-        thrustdurationsec = 400;
-        thrustdurationsecstage2 = 280;                      # 
+        fovdeg = 360;                                
+        detectionfovdeg = 360;                       
+        trackmaxdeg = 360;                           
+        maxg = 60;                                   
+        thrustlbs = 1900;                            
+        thrustlbsstage2 = 580;
+        thrustdurationsec = 18;
+        thrustdurationsecstage2 = 120;                      # 
         weightlaunchlbs = 421; # weightlaunch + fuel
         weightwarheadlbs = 44;
-        dragcoeff = 0.003;                              # really slow lowerd it a bit
+        dragcoeff = 0.001;                              # really slow lowerd it a bit
         dragarea = 0.0236;                            # sq ft
         maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 6;                              # In mach ( source is a guess )
-        life = 1100; # 
+        maxspeed = 5.7;                              # In mach ( source is a guess )
+        life = 100000000000; # 
         sdspeed = 0.65;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";
         rail = "false";
-        cruisealt = getprop("/position/altitude-ft");
+        cruisealt = 75000;
         chute = 0;
         isbomb = 0;
-        pbrange = 2500000;
+        pbrange = 0;
     }
 
     elsif(name == "Aim-9x")
