@@ -7,71 +7,9 @@
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/FUELMFD.ac</path>
 
 	<!---->
-<text>
-  <name>fuel-heada</name>
-  <font>condensed.txf</font>
-  <character-size type="double">0.005</character-size>
-  <offsets>
-  <x-m>0.01</x-m>
-   <y-m>-0.04</y-m>
-   <z-m>-0.06</z-m>
-  </offsets>
-  <axis-alignment>yz-plane</axis-alignment>
-  <type type="string">literal</type>
-  <text type="string">Total Fuel</text>
-  <draw-text type="bool">true</draw-text>
-  <alignment>left-top</alignment>
- </text>
- <text>
-  <name>fuel-heada</name>
-  <font>condensed.txf</font>
-  <character-size type="double">0.005</character-size>
-  <offsets>
-  <x-m>0.01</x-m>
-   <y-m>-0.03</y-m>
-   <z-m>-0.07</z-m>
-  </offsets>
-  <axis-alignment>yz-plane</axis-alignment>
-  <type type="string">literal</type>
-  <text type="string">Bingo</text>
-  <draw-text type="bool">true</draw-text>
-  <alignment>left-top</alignment>
- </text>
- <text>
-  <name>fuel-lba</name>
-  <font>condensed.txf</font>
-  <character-size type="double">0.005</character-size>
-  <offsets>
- <x-m>0.01</x-m>
-   <y-m>0</y-m>
-   <z-m>-0.06</z-m>
-  </offsets>
-  <axis-alignment>yz-plane</axis-alignment>
-   <type type="string">number-value</type>
-   <format type="string">%5.2f lbs</format>
-  <truncate type="bool">true</truncate>
-  <property>consumables/fuel/total-fuel-lbs</property>
-  <draw-text type="bool">true</draw-text>
-  <alignment>left-top</alignment>
- </text>	
 
-  <text>
-  <name>fuel-lba</name>
-  <font>condensed.txf</font>
-  <character-size type="double">0.005</character-size>
-  <offsets>
- <x-m>0.01</x-m>
-   <y-m>0</y-m>
-   <z-m>-0.07</z-m>
-  </offsets>
-  <axis-alignment>yz-plane</axis-alignment>
-   <type type="string">number-value</type>
-   <format type="string">%5.0f lbs</format>
-  <truncate type="bool">true</truncate>
-  <property>f22/bingo</property>
-  <draw-text type="bool">true</draw-text>
-  <alignment>left-top</alignment>
- </text>	
+
+
 
  <text>
   <name>fuel-head</name>
@@ -750,19 +688,43 @@
     </condition>
   </animation>
 
-	 <text>
-  <name>fuel-head</name>
+
+   <text>
+  <name>fuel-lba</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.0055</character-size>
+  <character-size type="double">0.005</character-size>
   <offsets>
   <x-m>0.01</x-m>
    <y-m>-0.075</y-m>
    <z-m>0.065</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
-  <type type="string">literal</type>
-  <text type="string">SET BINGO</text>
+   <type type="string">number-value</type>
+   <format type="string">BINGO  - %5.0f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>f22/bingo</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
- </text>
+ </text>	
+ <text>
+  <name>fuel-lba</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.03</y-m>
+   <z-m>0.065</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">Total Fuel 
+%5.2f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/total-fuel-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+
 </PropertyList>
+
