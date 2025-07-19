@@ -25,7 +25,37 @@ var canexec = 0;
         print("DTC.nas: Bingo Fuel changed to: "~code);
         setprop("f22/bingo",code);
     }
-    # BINGO
+    # MFD
+    var readmfd = func(datacart,pointer) {
+        print("DTC.nas: READMFD");
+        # MFD: 
+        # L: 
+        # C: 
+        # R: 
+        # LL: 
+
+        var line1 = split(":",datacart[pointer + 1]);
+        print("LMFD");
+        print(line1[0]);
+        var lmfd = num(line1[0]);   
+        var line2 = split(":",datacart[pointer + 2]);
+        print("CMFD");
+        print(line2[0]);
+        var cmfd = num(line2[0]);   
+        var line3 = split(":",datacart[pointer + 3]);
+        print("RMFD");
+        print(line3[0]);
+        var rmfd = num(line3[0]);   
+        var line4 = split(":",datacart[pointer + 4]);
+        print("LLMFD");
+        print(line4[0]);
+        var llmfd = num(line4[0]);   
+        setprop("systems/MFD/modemfdc",cmfd);
+        setprop("systems/MFD/modemfdl",lmfd);
+        setprop("systems/MFD/modemfdr",rmfd);
+        setprop("systems/MFD/modemfdll",llmfd);
+        print("DTC.nas: MFD's setup from DTC");
+    }
     var readsecurevoice = func(datacart,pointer) {
         var line1 = split(":",datacart[pointer + 1]);
         print(line1[0]);
@@ -310,10 +340,13 @@ var canexec = 0;
         var datasplit = split("\n", data);
         print("DATA ENTRIES IN DTC: "~size(datasplit));
         var entries = size(datasplit);
+        var canexec = 0;
         for(var i = 0; i < entries; i += 1) {
                 var newvector = split(":", datasplit[i]); 
                 # Syntax parser
-                if (newvector[0] == "RAPTORDTC"){canexec == 1;}
+                if (newvector[0] == "RAPTORDTC"){
+                    canexec = 1;
+                }
                 if (canexec == 1){
                 if (newvector[0] == "DLINK"){
                     readdatalink(datasplit,i);
@@ -338,6 +371,10 @@ var canexec = 0;
                 if (newvector[0] == "KY58"){
                     readsecurevoice(datasplit,i);
                     print("Executed: KY58");
+                }
+                if (newvector[0] == "MFD"){
+                    readmfd(datasplit,i);
+                    print("Executed: MFD");
                 }
                 }
                 

@@ -18,6 +18,9 @@ var eng2fueloff = func { setprop("/controls/engines/engine[1]/cutoff", 1); }
 var eng1starter = func { setprop("/controls/engines/engine[0]/starter", 1); }
 var eng2starter = func { setprop("/controls/engines/engine[1]/starter", 1); }
 
+var eng1startersw = func { setprop("/controls/electric/engine/start-r", 1); }
+var eng2startersw = func { setprop("/controls/electric/engine/start-l", 1); }
+
 var eng1start = func {
    eng1fueloff();
    eng1starter();
@@ -30,9 +33,30 @@ var eng2start = func {
    settimer(eng2fuelon, 2);
 };
 
+
+
+var eng1startsw = func {
+   eng1fueloff();
+   eng1startersw();
+   settimer(eng1fuelon, 2);
+}
+
+var eng2startsw = func {
+   eng2fueloff();
+   eng2startersw();
+   settimer(eng2fuelon, 2);
+};
+
+
 var battery = func {
       setprop("/controls/electric/batteryswitch", 2);
 };
+
+
+var manualstart = func {
+   settimer(eng1startsw, 0);
+   settimer(eng2startsw, 0);
+}
 
 
 var engstart = func {
@@ -46,8 +70,9 @@ var engstart = func {
 var engstop = func {
    eng1fueloff();
    eng2fueloff();
-}      setprop("/controls/electric/batteryswitch", 0);
-
+}      
+setprop("/controls/electric/batteryswitch", 0);
+setprop("/controls/electric/batteryswitch-pos", -1);
 
 var apu = func() {
    f22.apuseq1(); # start the apu

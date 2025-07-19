@@ -1075,7 +1075,7 @@ var readyset = func{
   datalink.dlinit(); # Initalise the datalink. start the loops to recive data
 }
 var resetready = func{
-  setprop("f22/ready",0); # Reset the MFDs
+  setprop("f22/ready",0); # 4835934785 Reset the MFDs
   rebound_timer.stop();
 }
 
@@ -1092,10 +1092,80 @@ var checkbingo = func() {
   }
 }
 
+var updatethrot = func() {
+  setprop("f22/throttle",getprop("controls/engines/engine/throttle"));
+}
+
+
+var throt = func() {
+  # throttle cut off!
+  # put code here
+  if (getprop("f22/throttle") < 0){
+    setprop("f22/throttle",0);
+    screen.log.write("Throttle set to Idle! Starting Engines...");    
+    throttletimer.start();
+    emu.manualstart();
+  }
+  elsif (getprop("f22/throttle") != -0.1){
+    screen.log.write("Throttle Cut off! Shutting down...");
+    throttletimer.stop();
+    setprop("f22/throttle",-0.1);
+    emu.engstop();
+  }
+}
+setprop("f22/throttle",-0.1);
+setprop("f22/currstation",0); # pointer
+# Stores to string converter
+var stringstore = func() {
+# var weight0 = getprop("sim/weight[0]/selected");
+# var weight1 = getprop("sim/weight[1]/selected");
+# var weight2 = getprop("sim/weight[2]/selected");
+# var weight3 = getprop("sim/weight[3]/selected");
+# var weight4 = getprop("sim/weight[4]/selected");
+# var weight5 = getprop("sim/weight[5]/selected");
+# var weight6 = getprop("sim/weight[6]/selected");
+# var weight7 = getprop("sim/weight[7]/selected");
+# var weight8 = getprop("sim/weight[8]/selected");
+# var weight9 = getprop("sim/weight[9]/selected");        lol
+# var weight10 = getprop("sim/weight[10]/selected");
+# var weight11 = getprop("sim/weight[11]/selected");
+# var weight12 = getprop("sim/weight[12]/selected");
+# var weight13 = getprop("sim/weight[13]/selected");
+# var weight14 = getprop("sim/weight[14]/selected");
+# var station0 = getprop("controls/armament/station[0]/release");
+# var station1 = getprop("controls/armament/station[1]/release");
+# var station2 = getprop("controls/armament/station[2]/release");
+# var station3 = getprop("controls/armament/station[3]/release");
+# var station4 = getprop("controls/armament/station[4]/release");
+# var station5 = getprop("controls/armament/station[5]/release");
+# var station6 = getprop("controls/armament/station[6]/release");
+# var station7 = getprop("controls/armament/station[7]/release");
+# var station8 = getprop("controls/armament/station[8]/release");
+# var station9 = getprop("controls/armament/station[9]/release");
+# var station10 = getprop("controls/armament/station[10]/release");
+# var station11 = getprop("controls/armament/station[11]/release");
+# var station12 = getprop("controls/armament/station[12]/release");
+# var station13 = getprop("controls/armament/station[13]/release");
+# var station14 = getprop("controls/armament/station[14]/release");
+  var pointer = getprop("f22/currstation");
+  var pointedweight = getprop("sim/weight[" ~ pointer ~ "]/selected");
+  var pointedstation = getprop("controls/armament/station[" ~ pointer ~ "]/release");
+  var thestring = "W"~ pointer ~":" ~ pointedweight ~ ":S"~ pointer ~":" ~ pointedstation;
+  setprop("sim/multiplay/generic/string[5]",thestring);
+  setprop("f22/currstation",getprop("f22/currstation") + 1);
+  if (getprop("f22/currstation") == 15){
+    setprop("f22/currstation",0); # Loop back to it
+  }
+
+}
+
+
+
         #
         # BEGIN maketimer(); MAYHEM!
         #
                 # seconds , function.  you can use 0 for the seconds
+throttletimer = maketimer(0,updatethrot);
 crashreinit_timer = maketimer(5,crashreinit);
 timer_hit = maketimer(1.5, mslhit);
 blinktimer = maketimer(0.3, blink);

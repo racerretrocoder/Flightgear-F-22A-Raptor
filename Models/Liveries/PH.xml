@@ -12,8 +12,8 @@
       <name type="string">249th EFS PH --Phoenix </name>     
       <texture-AKfuselage>Liveries/maps/body.dds</texture-AKfuselage>
  <texture-sides>Liveries/elevs.png</texture-sides>
- <texture-sideL>Liveries/PH/SIDEL.DDS</texture-sideL>
-  <texture-sideR>Liveries/PH/SIDER.DDS</texture-sideR>
+ <texture-sideL>Liveries/PH/SIDEL.png</texture-sideL>
+  <texture-sideR>Liveries/PH/SIDER.png</texture-sideR>
  <texture-left-elev-top>Liveries/PH/leftelev.dds</texture-left-elev-top>
  <texture-right-elev-top>Liveries/PH/rightelev.dds</texture-right-elev-top>
       <texture-tailR>Liveries/PH/PH-TAIL-R.png</texture-tailR>

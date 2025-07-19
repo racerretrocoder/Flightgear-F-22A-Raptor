@@ -12,8 +12,6 @@
     -->
     <![CDATA[
       var livery_update = aircraft.livery_update.new("Aircraft/F-22/Models/Liveries");
-
-	  #this is suppose to go here?
  var rplayer = cmdarg();
    # Set up property aliases for animations.
    rplayer.getNode("orientation/alpha-deg", 1).
@@ -22,6 +20,8 @@
      alias(rplayer.getNode("sim/multiplay/generic/float[18]")); #for AB
    rplayer.getNode("velocities/airspeed-kt", 1).
      alias(rplayer.getNode("sim/multiplay/generic/float[19]")); #for vapor (2)
+	 # Stores parser
+	var self = cmdarg();
     ]]>
 
     </load>
@@ -93,6 +93,61 @@ Dont make these objects metal looking! it crashes flightgear apon loading them i
 		<object-name>Left_Rocket_Bay_D1</object-name>
 		<object-name>Right_Rocket_Bay_D1</object-name>
     </effect>
+
+
+<animation>
+<type>select</type>
+<object-name>AIM-9L</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/multiplay/generic/string[17]</property>
+<value>Aim-9x</value>
+</equals>
+<equals>
+<property>sim/multiplay/generic/bool[17]</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+<animation>
+<type>select</type>
+<object-name>AIM-9R</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/multiplay/generic/string[16]</property>
+<value>Aim-9x</value>
+</equals>
+<equals>
+<property>sim/multiplay/generic/bool[16]</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+<animation>
+		<type>select</type>
+		<object-name>AIM-9R</object-name>
+		<condition>
+			<less-than>
+				<property>sim/multiplay/generic/int[14]</property>
+				<value>0.1</value>
+			</less-than>
+		</condition>
+	</animation>
+<animation>
+		<type>select</type>
+		<object-name>AIM-9L</object-name>
+		<condition>
+			<less-than>
+				<property>sim/multiplay/generic/int[14]</property>
+				<value>0.1</value>
+			</less-than>
+		</condition>
+	</animation>
 
 
   <!-- Impact explosion -->
