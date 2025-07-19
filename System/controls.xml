@@ -338,8 +338,25 @@
         <station n="14">  
       <release type="bool">false</release>
     </station>
+        <station n="15">  
+      <release type="bool">false</release>
+    </station>
+        <station n="16">  
+      <release type="bool">false</release>
+    </station>
 
-
+        <station n="17">  
+      <release type="bool">false</release>
+    </station>
+        <station n="18">  
+      <release type="bool">false</release>
+    </station>
+        <station n="19">  
+      <release type="bool">false</release>
+    </station>
+        <station n="20">  
+      <release type="bool">false</release>
+    </station>
   </armament>
 
 </PropertyList>

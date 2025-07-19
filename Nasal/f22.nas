@@ -1153,10 +1153,10 @@ var stringstore = func() {
   var pointer = getprop("f22/currstation");
   var pointedweight = getprop("sim/weight[" ~ pointer ~ "]/selected");
   var pointedstation = getprop("controls/armament/station[" ~ pointer ~ "]/release");
-  var thestring = "W"~ pointer ~":" ~ pointedweight ~ ":S"~ pointer ~":" ~ pointedstation;
+  var thestring = ""~ pointer ~":" ~ pointedweight ~ ":"~ pointer ~":" ~ pointedstation;
   setprop("sim/multiplay/generic/string[5]",thestring);
   setprop("f22/currstation",getprop("f22/currstation") + 1);
-  if (getprop("f22/currstation") == 15){
+  if (getprop("f22/currstation") == 17){
     setprop("f22/currstation",0); # Loop back to it
   }
 
@@ -1164,10 +1164,13 @@ var stringstore = func() {
 
 
 
+
         #
         # BEGIN maketimer(); MAYHEM!
         #
                 # seconds , function.  you can use 0 for the seconds
+loadtimer = maketimer(1.5,stringstore);
+loadtimer.start();
 throttletimer = maketimer(0,updatethrot);
 crashreinit_timer = maketimer(5,crashreinit);
 timer_hit = maketimer(1.5, mslhit);

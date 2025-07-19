@@ -830,7 +830,10 @@ btn_P3_empty.listen("clicked", func {
         # add code here to react on click on button.
 		print("P3: None");
 		setprop("sim/weight[2]/selected","None");
-
+		setprop("sim/weight[19]/selected","None");
+		setprop("sim/weight[20]/selected","None");
+		setprop("sim/weight[18]/selected","None");
+		setprop("sim/weight[17]/selected","None");
 		pylons_update();
 		});
 P3Ctls.addItem(btn_P3_empty);
@@ -869,15 +872,15 @@ P3Ctls.addItem(btn_P3_R27T);
 
 # click button P3:R-27ER
 var btn_P3_R27ER = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("Ext-JDAM")
+        .setText("Ext-JDAM1")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P3_R27ER.listen("clicked", func {
         # add code here to react on click on button.
 		print("P3: Ext JDAM");
-		setprop("sim/weight[2]/selected","JDAM");
-		setprop("/controls/armament/station[2]/release","false");
+		setprop("sim/weight[19]/selected","JDAM");
+		setprop("/controls/armament/station[19]/release","false");
 
 		pylons_update();
 		});
@@ -885,15 +888,15 @@ P3Ctls.addItem(btn_P3_R27ER);
 
 # click button P3:R-27ET
 var btn_P3_R27ET = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("Ext-JDAM")
+        .setText("Ext-JDAM2")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P3_R27ET.listen("clicked", func {
         # add code here to react on click on button.
 		print("P3: JDAM EXT"); # asdfasdf
-		setprop("sim/weight[12]/selected","JDAM");
-		setprop("/controls/armament/station[12]/release","false");
+		setprop("sim/weight[20]/selected","JDAM");
+		setprop("/controls/armament/station[20]/release","false");
 
 		pylons_update();
 		});
@@ -989,15 +992,15 @@ P5Ctls.addItem(btn_P5_R27T);
 
 # click button P5:R-27ER
 var btn_P5_R27ER = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("Ext-JDAM")
+        .setText("Ext-JDAMb")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P5_R27ER.listen("clicked", func {
         # add code here to react on click on button.
 		print("P5: Ext-JDAM");
-		setprop("sim/weight[4]/selected","JDAM");
-		setprop("/controls/armament/station[4]/release","false");
+		setprop("sim/weight[17]/selected","JDAM");
+		setprop("/controls/armament/station[17]/release","false");
 
 		pylons_update();
 		});
@@ -1005,15 +1008,15 @@ P5Ctls.addItem(btn_P5_R27ER);
 
 # click button P5:R-27ET
 var btn_P5_R27ET = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("Ext-JDAM")
+        .setText("Ext-JDAMa")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P5_R27ET.listen("clicked", func {
         # add code here to react on click on button.
 		print("P5: Ext-JDAM");
-		setprop("sim/weight[11]/selected","JDAM");
-		setprop("/controls/armament/station[11]/release","false");
+		setprop("sim/weight[18]/selected","JDAM");
+		setprop("/controls/armament/station[18]/release","false");
 
 		pylons_update();
 		});
