@@ -256,7 +256,7 @@ seq4timer = maketimer(0.5,apuseq4);
 seq5timer = maketimer(0.5,apuseq5);
 seq6timer = maketimer(2,apuseq6);
 seq7timer = maketimer(0.5,apuseq7);
-seq8timer = maketimer(18,apuseq8);
+seq8timer = maketimer(10,apuseq8);
 offtimer = maketimer(16,apushutoff);
 #apudoortimer = maketimer(, apuseq1);
 
