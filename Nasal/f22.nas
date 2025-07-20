@@ -1102,6 +1102,9 @@ var throt = func() {
   # throttle cut off!
   # put code here
   if (getprop("f22/throttle") < 0){
+    if (getprop("controls/apu/run") == 0){
+      return 0;
+    }
     setprop("f22/throttle",0);
     screen.log.write("Throttle set to Idle! Starting Engines...");    
     throttletimer.start();

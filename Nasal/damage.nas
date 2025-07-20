@@ -392,7 +392,7 @@ var DamageRecipient =
                       if (rwr_to_screen) screen.log.write(out, 1,0.5,0);# temporary till someone models a RWR in RIO seat
                       print(out);
                       damageLog.push(sprintf("Missile Launch Warning from %03d degrees from %s.", bearing, notification.Callsign));
-                      mig28.missileLaunch(notification.Callsign);
+                      if (m28_auto) mig28.missileLaunch();
                     }
                   }
                 }
@@ -423,7 +423,7 @@ var DamageRecipient =
                       if (rwr_to_screen) screen.log.write(sprintf("Missile Approach Warning (semi-active)."), 1,0.5,0);# temporary till someone models a RWR in RIO seat
                   }
                   approached[notification.Callsign~notification.UniqueIdentity] = elapsed;
-                  mig28.engagedBy(notification.Callsign, 1);
+                  if (m28_auto) mig28.engagedBy(notification.Callsign, 1);
                 }
                 return emesary.Transmitter.ReceiptStatus_OK;
             }
@@ -467,7 +467,7 @@ var DamageRecipient =
                         
                         if (notification.SecondaryKind < 0 and hitable_by_cannon) {
                             # cannon hit
-                            mig28.engagedBy(notification.Callsign, 0);
+                            if (m28_auto) mig28.engagedBy(notification.Callsign, 0);
                             var probability = id2shell[-1*notification.SecondaryKind-1][1];
                             var typ = id2shell[-1*notification.SecondaryKind-1][2];
                             var hit_count = notification.Distance;
@@ -483,7 +483,7 @@ var DamageRecipient =
                             }
                         } elsif (notification.SecondaryKind > 20 or notification.SecondaryKind < -40) {
                             # its a warhead
-                            mig28.engagedBy(notification.Callsign, 1);
+                            if (m28_auto) mig28.engagedBy(notification.Callsign, 1);
                             var dist     = notification.Distance;
                             var wh = id2warhead[DamageRecipient.emesaryID2typeID(notification.SecondaryKind)];
                             var type = wh[4];#test code
