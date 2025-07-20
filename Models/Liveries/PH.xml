@@ -10,7 +10,7 @@
   <model>
     <livery>
       <name type="string">249th EFS PH --Phoenix </name>     
-      <texture-AKfuselage>Liveries/maps/body.dds</texture-AKfuselage>
+      <texture-AKfuselage>Liveries/maps/newbody.png</texture-AKfuselage>
  <texture-sides>Liveries/elevs.png</texture-sides>
  <texture-sideL>Liveries/PH/SIDEL.png</texture-sideL>
   <texture-sideR>Liveries/PH/SIDER.png</texture-sideR>
