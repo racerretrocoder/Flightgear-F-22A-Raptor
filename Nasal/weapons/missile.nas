@@ -1402,12 +1402,10 @@ print("target ran");
                         }  elsif (t_dist_m > me.pitbullrngm) { # 10nm
                             e_gain = (me.update_track_time-me.StartTime - 1) / 4;
                             h_gain = (me.update_track_time-me.StartTime - 1) / 4;
-                            #missilealert();
-                        }
-                        elsif (t_dist_m < me.pitbullrngm) { 
                             me.pitbull = 1;
                             #missilealert();
                         }
+
 
                         if (me.pitbull == 1) {
                             e_gain = 1;
