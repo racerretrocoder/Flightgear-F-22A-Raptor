@@ -42,7 +42,6 @@
     <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
     <impact>true</impact>
     <impact-report>ai/models/model-impact</impact-report>
-    <submodel-path>Aircraft/F-22/Models/Effects/Submodels.xml</submodel-path>
   </submodel>
   
 
