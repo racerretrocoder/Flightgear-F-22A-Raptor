@@ -65,6 +65,7 @@ var engstart = func {
    settimer(eng2start, 2);
    settimer(battery, 36);
    setprop("f22/brightness",1);
+   f22.throttletimer.start();
 }
 
 var engstop = func {
@@ -98,6 +99,8 @@ var autostart = func {
 	  }
    if ( startstatus == 1 ) {
       gui.popupTip("Shutting Down...");
+      f22.throttletimer.stop();
+      setprop("f22/throttle",-0.1);
 		f22.cnpy.open();
       setprop("/sim/autostart/started", 0);
 	  eng1fueloff();
