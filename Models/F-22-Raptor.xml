@@ -335,7 +335,8 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
 <animation>
   <type>material</type>
-
+  <object-name>left-main-door-up</object-name>
+  <object-name>Right_Main_Gear_D</object-name>
         <object-name>Fuselage_1</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-bottom</texture-prop>
@@ -348,8 +349,8 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
         <object-name>left-aileron_0</object-name>
         <object-name>Right_Prewing</object-name>
         <object-name>Left_Prewing</object-name>
-        <object-name>Right_Eleron01</object-name>
-        <object-name>Left_Eleron01</object-name>
+        <object-name>right-flap_0</object-name>
+        <object-name>left-flap_0</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-extracontrols</texture-prop>
   <texture>/flaps.png</texture> <!--Models/flaps.png-->
@@ -484,7 +485,11 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   <type>material</type>
   <object-name>Left_Wing_0</object-name>
   <object-name>Right_Wing_0</object-name>
+  <object-name>left-aileron_1</object-name>
+  <object-name>right-aileron_1</object-name>
 
+        <object-name>right-flap_1</object-name>
+        <object-name>left-flap_1</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-underwing</texture-prop>
   <texture>Liveries/maps/leftwingbottom.dds</texture>
