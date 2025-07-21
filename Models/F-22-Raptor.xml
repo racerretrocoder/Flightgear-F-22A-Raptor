@@ -88,6 +88,12 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 		<object-name>Left_Rocket_Bay</object-name> Textured but i like it dark now
 
 -->
+
+
+
+        <object-name>Left_Main_Gear_Do.001</object-name>
+        <object-name>right-main-door-down</object-name>
+        <object-name>Right_Main_Gear_D</object-name>
         <object-name>TAIL-L-OUT</object-name>
         <object-name>TAIL-R-OUT</object-name>
         <object-name>RIGHTMAINDOOR</object-name>
@@ -337,6 +343,9 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   <type>material</type>
   <object-name>left-main-door-up</object-name>
   <object-name>Right_Main_Gear_D</object-name>
+  <object-name>right-main-door-down</object-name>
+  <object-name>Left_Main_Gear_Do.001</object-name>
+
         <object-name>Fuselage_1</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-bottom</texture-prop>
