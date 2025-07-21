@@ -31,6 +31,8 @@ ACE COMBAT 5!!!!!-->
 <texture-underwing>Liveries/PH/leftwingbottom.dds</texture-underwing>
 <texture-undercpt>Liveries/PH/undercpt.dds</texture-undercpt>
 
+<texture-underelev>Liveries/PH/underelev.png</texture-underelev>
+<texture-baysandother>Liveries/PH/bays.png</texture-baysandother>
     </livery>
   </model>
 </sim>

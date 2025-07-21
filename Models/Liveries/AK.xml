@@ -6,19 +6,29 @@
   <model>
     <livery>
       <name type="string">249th EFS AK (The beta Squadron)</name>     
-      <texture-AKfuselage>Liveries/maps/body.dds</texture-AKfuselage>
+<texture-AKfuselage>Liveries/maps/newbody.png</texture-AKfuselage>
+<texture-abovecpt>Liveries/maps/abovecpt.dds</texture-abovecpt>
+<texture-body2>Liveries/maps/body2.png</texture-body2>
+<texture-extracontrols>flaps.png</texture-extracontrols>
  <texture-sides>Liveries/elevs.png</texture-sides>
+ <texture-sideL>Liveries/maps/SIDER.png</texture-sideL>
+  <texture-sideR>Liveries/maps/SIDER.png</texture-sideR>
  <texture-left-elev-top>Liveries/AK/leftelev.dds</texture-left-elev-top>
  <texture-right-elev-top>Liveries/AK/rightelev.dds</texture-right-elev-top>
-      <texture-tailR>Liveries/AK/AK-TAIL-R.png</texture-tailR>
-      <texture-tailL>Liveries/AK/AK-TAIL-L.png</texture-tailL>
+  <texture-tailR>Liveries/AK/AK-TAIL-R.png</texture-tailR>
+  <texture-tailL>Liveries/AK/AK-TAIL-L.png</texture-tailL>
  <texture-wing>Liveries/AK/wing.dds</texture-wing>
   <texture-wing-right>Liveries/AK/wingright.dds</texture-wing-right>
  <texture-control>Liveries/wing.png</texture-control>
   <texture-nose>Liveries/AK/attemptnose.dds</texture-nose>
+  <texture-exttail>Liveries/INNER-TAIL.png</texture-exttail>
+<texture-bottom>Liveries/AK/bottom.dds</texture-bottom>
+<texture-underwing>Liveries/maps/leftwingbottom.dds</texture-underwing>
+<texture-undercpt>Liveries/maps/undercpt.dds</texture-undercpt>
 
+<texture-underelev>underelev.png</texture-underelev>
+<texture-baysandother>Liveries/bays.png</texture-baysandother>
 
-  <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
 
 
     </livery>

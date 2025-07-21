@@ -10,20 +10,33 @@
   <model>
     <livery>
       <name type="string">249th EFS CL --Clash </name>     
-      <texture-AKfuselage>Liveries/CL/newbody.png</texture-AKfuselage>
-      <texture-body2>Liveries/CL/body2.png</texture-body2>
-      <texture-abovecpt>Liveries/CL/abovecpt.dds</texture-abovecpt>
+<texture-AKfuselage>Liveries/CL/newbody.png</texture-AKfuselage>
+<texture-abovecpt>Liveries/CL/abovecpt.dds</texture-abovecpt>
+<texture-body2>Liveries/CL/body2.png</texture-body2>
+<texture-extracontrols>Liveries/CL/flaps.png</texture-extracontrols>
  <texture-sides>Liveries/elevs.png</texture-sides>
- <texture-sideL>Liveries/PH/SIDEL.png</texture-sideL>
-  <texture-sideR>Liveries/PH/SIDER.png</texture-sideR>
+ <texture-sideL>Liveries/CL/SIDEL.png</texture-sideL>
+  <texture-sideR>Liveries/CL/SIDER.png</texture-sideR>
  <texture-left-elev-top>Liveries/CL/leftelev.dds</texture-left-elev-top>
  <texture-right-elev-top>Liveries/CL/rightelev.dds</texture-right-elev-top>
-      <texture-tailR>Liveries/CL/CL-TAIL-R.png</texture-tailR>
-      <texture-tailL>Liveries/CL/CL-TAIL-L.png</texture-tailL>
+  <texture-tailR>Liveries/CL/CL-TAIL-R.png</texture-tailR>
+  <texture-tailL>Liveries/CL/CL-TAIL-L.png</texture-tailL>
  <texture-wing>Liveries/CL/wing.dds</texture-wing>
   <texture-wing-right>Liveries/CL/wingright.dds</texture-wing-right>
  <texture-control>Liveries/wing.png</texture-control>
   <texture-nose>Liveries/CL/attemptnose.dds</texture-nose>
+  <texture-exttail>Liveries/CL/INNER-TAIL.png</texture-exttail>
+<texture-bottom>Liveries/CL/bottom.dds</texture-bottom>
+<texture-underwing>Liveries/CL/leftwingbottom.dds</texture-underwing>
+<texture-undercpt>Liveries/CL/undercpt.dds</texture-undercpt>
+
+
+<!--Hello clash! Here are the bay doors and under elev! enjoy-->
+<texture-underelev>Liveries/PH/underelev.png</texture-underelev>
+<texture-baysandother>Liveries/PH/bays.png</texture-baysandother>
+<!--Copy bays.png in the liveries folder and underelev.png in the models folder (the root)-->
+
+
 
 
   <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
