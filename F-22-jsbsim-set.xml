@@ -141,6 +141,7 @@
 			<path>Aircraft/F-22/Models/F-22-Raptor.xml</path>
 	<livery>
 		<name type="string">Aircraft/F-22/Models/Liveries/AK.xml</name>
+		<file type="string">AK</file>
 	</livery>
 <radar>
 					<time-until-impact type="int">0</time-until-impact>
