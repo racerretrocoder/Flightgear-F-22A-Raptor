@@ -4,28 +4,32 @@
 
 
 
-
+<!--BLACK RAPTOR!
+ACE COMBAT 5!!!!!-->
 
 <sim>
   <model>
     <livery>
       <name type="string">249th EFS PH --Phoenix </name>     
-      <texture-AKfuselage>Liveries/maps/newbody.png</texture-AKfuselage>
+<texture-AKfuselage>Liveries/PH/newbody.png</texture-AKfuselage>
+<texture-abovecpt>Liveries/PH/abovecpt.dds</texture-abovecpt>
+<texture-body2>Liveries/PH/body2.png</texture-body2>
+<texture-extracontrols>Liveries/PH/flaps.png</texture-extracontrols>
  <texture-sides>Liveries/elevs.png</texture-sides>
  <texture-sideL>Liveries/PH/SIDEL.png</texture-sideL>
   <texture-sideR>Liveries/PH/SIDER.png</texture-sideR>
  <texture-left-elev-top>Liveries/PH/leftelev.dds</texture-left-elev-top>
  <texture-right-elev-top>Liveries/PH/rightelev.dds</texture-right-elev-top>
-      <texture-tailR>Liveries/PH/PH-TAIL-R.png</texture-tailR>
-      <texture-tailL>Liveries/PH/PH-TAIL-L.png</texture-tailL>
+  <texture-tailR>Liveries/PH/PH-TAIL-R.png</texture-tailR>
+  <texture-tailL>Liveries/PH/PH-TAIL-L.png</texture-tailL>
  <texture-wing>Liveries/PH/wing.dds</texture-wing>
   <texture-wing-right>Liveries/PH/wingright.dds</texture-wing-right>
  <texture-control>Liveries/wing.png</texture-control>
   <texture-nose>Liveries/PH/attemptnose.dds</texture-nose>
-
-
-  <texture-inner-tail>Liveries/INNER-TAIL.png</texture-inner-tail>
-
+  <texture-exttail>Liveries/PH/INNER-TAIL.png</texture-exttail>
+<texture-bottom>Liveries/PH/bottom.dds</texture-bottom>
+<texture-underwing>Liveries/PH/leftwingbottom.dds</texture-underwing>
+<texture-undercpt>Liveries/PH/undercpt.dds</texture-undercpt>
 
     </livery>
   </model>
