@@ -301,11 +301,71 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
 <animation>
   <type>material</type>
+  <object-name>apuflap2</object-name>
+  <object-name>apuflap1</object-name>
   <object-name>Fuselage_2</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-AKfuselage</texture-prop>
-  <texture>Liveries/AK-BODY.png</texture>
+  <texture>Liveries/maps/newbody.png</texture>
 </animation>
+
+<animation>
+  <type>material</type>
+  <object-name>Fuselage_2s</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-body2</texture-prop>
+  <texture>Liveries/maps/body2.png</texture>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>frontcp2</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-abovecpt</texture-prop>
+  <texture>Liveries/maps/abovecpt.dds</texture>
+</animation>
+<animation>
+  <type>material</type>
+        <object-name>TAIL-L-OUT</object-name>
+        <object-name>TAIL-R-OUT</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-exttail</texture-prop>
+  <texture>Liveries/INNER-TAIL.png</texture>
+</animation>
+
+
+<animation>
+  <type>material</type>
+
+        <object-name>Fuselage_1</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-bottom</texture-prop>
+  <texture>Liveries/maps/bottom.dds</texture>
+</animation>
+
+<animation>
+  <type>material</type>
+        <object-name>right-aileron_0</object-name>
+        <object-name>left-aileron_0</object-name>
+        <object-name>Right_Prewing</object-name>
+        <object-name>Left_Prewing</object-name>
+        <object-name>Right_Eleron01</object-name>
+        <object-name>Left_Eleron01</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-extracontrols</texture-prop>
+  <texture>/flaps.png</texture> <!--Models/flaps.png-->
+</animation>
+
+
+
+
+<animation>
+  <type>material</type>
+  <object-name>Fuselage_2s</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-body2</texture-prop>
+  <texture>Liveries/maps/body2.png</texture>
+</animation>
+
 
 
 <animation>
@@ -420,13 +480,29 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   <texture-prop>texture-wing-right</texture-prop>
   <texture>Liveries/wing.png</texture>
 </animation>
+<animation>
+  <type>material</type>
+  <object-name>Left_Wing_0</object-name>
+  <object-name>Right_Wing_0</object-name>
 
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-underwing</texture-prop>
+  <texture>Liveries/maps/leftwingbottom.dds</texture>
+</animation>	
 
 
 <animation>
   <type>material</type>
-  <object-name>Body-side-left</object-name>
+  <object-name>Fuselage_0</object-name>
 
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-undercpt</texture-prop>
+  <texture>Liveries/maps/undercpt.dds</texture>
+</animation>	
+<animation>
+  <type>material</type>
+  <object-name>Body-side-left</object-name>
+  <object-name>Body-side-right</object-name>
 
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-sideL</texture-prop>

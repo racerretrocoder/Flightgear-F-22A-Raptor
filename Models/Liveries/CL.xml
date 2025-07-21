@@ -10,7 +10,9 @@
   <model>
     <livery>
       <name type="string">249th EFS CL --Clash </name>     
-      <texture-AKfuselage>Liveries/maps/newbody.png</texture-AKfuselage>
+      <texture-AKfuselage>Liveries/CL/newbody.png</texture-AKfuselage>
+      <texture-body2>Liveries/CL/body2.png</texture-body2>
+      <texture-abovecpt>Liveries/CL/abovecpt.dds</texture-abovecpt>
  <texture-sides>Liveries/elevs.png</texture-sides>
  <texture-sideL>Liveries/PH/SIDEL.png</texture-sideL>
   <texture-sideR>Liveries/PH/SIDER.png</texture-sideR>
