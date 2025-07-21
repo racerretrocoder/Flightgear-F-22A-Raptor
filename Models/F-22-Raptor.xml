@@ -356,6 +356,28 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   <texture>/flaps.png</texture> <!--Models/flaps.png-->
 </animation>
 
+<animation>
+  <type>material</type>
+        <object-name>right-elevator_1</object-name>
+        <object-name>left-elevator_1</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-underelev</texture-prop>
+  <texture>/underelev.png</texture>
+</animation>
+
+<animation>
+  <type>material</type>
+        <object-name>LEFTMAINDOOR</object-name>
+        <object-name>RIGHTMAINDOOR</object-name>
+        <object-name>9xdl1</object-name>
+        <object-name>9xdl2</object-name>
+        <object-name>9xdr1</object-name>
+        <object-name>9xdr2</object-name>
+
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture-baysandother</texture-prop>
+  <texture>/Liveries/bays.png</texture> <!--Models/flaps.png-->
+</animation>
 
 
 

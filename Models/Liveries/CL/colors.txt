@@ -1,0 +1,3 @@
+blue:  386a9f
+green: 1e4a4a
+60% fill
