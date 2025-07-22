@@ -32,8 +32,8 @@
 
 
 <!--Hello clash! Here are the bay doors and under elev! enjoy-->
-<texture-underelev>Liveries/PH/underelev.png</texture-underelev>
-<texture-baysandother>Liveries/PH/bays.png</texture-baysandother>
+<texture-underelev>Liveries/CL/underelev.png</texture-underelev>
+<texture-baysandother>Liveries/CL/bays.png</texture-baysandother>
 <!--Copy bays.png in the liveries folder and underelev.png in the models folder (the root)-->
 
 

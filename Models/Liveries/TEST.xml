@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">TEST LIVERY WHITE</name>     
+<texture-AKfuselage>Liveries/TEST/newbody.png</texture-AKfuselage>
+<texture-abovecpt>Liveries/TEST/abovecpt.dds</texture-abovecpt>
+<texture-body2>Liveries/TEST/body2.png</texture-body2>
+<texture-extracontrols>Liveries/TEST/flaps.png</texture-extracontrols>
+ <texture-sides>Liveries/elevs.png</texture-sides>
+ <texture-sideL>Liveries/TEST/SIDER.png</texture-sideL>
+  <texture-sideR>Liveries/TEST/SIDER.png</texture-sideR>
+ <texture-left-elev-top>Liveries/TEST/leftelev.dds</texture-left-elev-top>
+ <texture-right-elev-top>Liveries/TEST/rightelev.dds</texture-right-elev-top>
+  <texture-tailR>Liveries/TEST/AK-TAIL-R.png</texture-tailR>
+  <texture-tailL>Liveries/TEST/AK-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/TEST/wing.dds</texture-wing>
+  <texture-wing-right>Liveries/TEST/wingright.dds</texture-wing-right>
+ <texture-control>Liveries/wing.png</texture-control>
+  <texture-nose>Liveries/TEST/attemptnose.dds</texture-nose>
+  <texture-exttail>Liveries/TEST/INNER-TAIL.png</texture-exttail>
+<texture-bottom>Liveries/TEST/bottom.dds</texture-bottom>
+<texture-underwing>Liveries/TEST/leftwingbottom.dds</texture-underwing>
+<texture-undercpt>Liveries/TEST/undercpt.dds</texture-undercpt>
+
+<texture-underelev>underelev.png</texture-underelev>
+<texture-baysandother>Liveries/bays.png</texture-baysandother>
+
+
+
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>
