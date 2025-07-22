@@ -910,7 +910,8 @@ _____/\\\\\\\\\_________________________________________________________________
 
 <animation>
   <type>pick</type>
-   <object-name>throt</object-name>
+        <object-name>rthrot</object-name>
+        <object-name>lthrot</object-name>
    <action>
     <button>0</button>
     <repeatable>false</repeatable>
@@ -3163,7 +3164,18 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
 
 
 
-
+<animation>
+        <type>rotate</type>
+        <object-name>rthrot</object-name>
+        <object-name>lthrot</object-name>
+        <object-name>throtbutton</object-name>
+        <property>f22/throttle</property>
+        <offset-deg>-27</offset-deg>
+        <factor>70</factor>
+        <axis>
+        <object-name>mainthrot-axis</object-name>
+        </axis>
+    </animation>
 
 
 <animation>
