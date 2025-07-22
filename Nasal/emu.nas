@@ -142,3 +142,5 @@ timer_apucheck = maketimer(0.5,apucheck);
 timer_apucheck2 = maketimer(0.5,apucheck2);
 
 
+setprop("controls/electric/battswitch",0);
+setprop("controls/electric/battswitch-pos",-1);
