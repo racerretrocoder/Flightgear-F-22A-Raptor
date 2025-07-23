@@ -143,6 +143,12 @@ var HUD = {
             .setTranslation(30,206)#(left,Top)
             #.setFont("Liberation Sans Narrow")
             .setFontSize(04,0.4);
+   m.pullup =
+      m.text.createChild("text")
+            .setAlignment("center-top")
+            .setTranslation(130,106)#(left,Top)
+            #.setFont("Liberation Sans Narrow")
+            .setFontSize(04,0.4);
    m.bingoind =
       m.text.createChild("text")
             .setAlignment("center-top")
@@ -341,11 +347,12 @@ m.ccipGrp = m.root.createChild("group");
     }
 
      else{
-        me.attitudeInd.setCenter(110,900+me.input.pitch.getValue()*-(1772/90));
+        me.attitudeInd.setCenter(110,900+me.input.pitch.getValue()*-(1815/90));
      }
     me.gmeter.setText(sprintf("G %1.1f", me.input.gdamped.getValue()));
     me.aoaind.setText(sprintf("A %1.2f", me.input.alpha.getValue()));
     me.bingoind.setText("BINGO FUEL");
+    me.pullup.setText("PULL UP");
     me.callsignind.setText(sprintf("RADAR %s", getprop("controls/radar/lockedcallsign")));
     me.machspeed.setText(sprintf("M %1.2f", me.input.mach.getValue()));
     me.airspeed.setText(sprintf("%d", me.input.ias.getValue()));
@@ -475,6 +482,19 @@ me.pipperRadius = 10;
     } else {
       me.bingoind.setVisible(0);
     }
+
+    if (getprop("sim/model/radar/time-until-impact") < 8 and getprop("sim/model/radar/time-until-impact") != -1){
+      me.pullup.setVisible(getprop("f22/blink"));
+    } else {
+      me.pullup.setVisible(0);
+    }
+
+    if (getprop("orientation/alpha-deg") > 30 ){
+      me.aoaind.setVisible(getprop("f22/blink"));
+    } else {
+      me.aoaind.setVisible(1);
+    }
+
 		if (radarON == 0)
 		{
 			#print("Radar off ");
