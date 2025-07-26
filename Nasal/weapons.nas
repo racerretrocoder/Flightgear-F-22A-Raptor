@@ -70,14 +70,15 @@ var stopFiring = func() {
 gun_timer = maketimer(0.01, stopFiring);
 gun_timer.start();
 
-reload_Cannon = func() {
-    setprop("/ai/submodels/submodel/count",    510);
-    setprop("/ai/submodels/submodel[1]/count", 12000);
+reload = func() {
+    setprop("/ai/submodels/submodel/count",    480);
+    setprop("/ai/submodels/submodel[1]/count", 480);
     setprop("/ai/submodels/submodel[2]/count", 12000);
     setprop("/ai/submodels/submodel[3]/count", 12000);
     setprop("/ai/submodels/submodel[4]/count", 12000);
     setprop("/ai/submodels/submodel[5]/count", 12000);
     setprop("/ai/submodels/submodel[6]/count", 12000);
+    screen.log.write("reloaded weapons! repaired damage");
 }
 
 
