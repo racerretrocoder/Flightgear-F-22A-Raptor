@@ -3,7 +3,7 @@
 # Hide the hud when not in the cockpit view
 # setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
 # Not needed anymore because of the added canvas hud
-
+ var NM2FT = 6076;
 # Init some vars
 setprop("f22/chaff",200);
 setprop("f22/flare",200);
@@ -1119,6 +1119,31 @@ var throt = func() {
   emu.timer_apucheck2.stop(); # Ok dont turn off apu xd
   }
 }
+
+
+var sightradarupdate = func {
+      if (radar.tgts_list[0] == nil) {
+        return;
+      }
+      var rdrcs = radar.tgts_list[radar.Target_Index].Callsign.getValue();
+if (rdrcs  != nil) {
+#print(rdrcs);
+  var mpid = misc.smallsearch(rdrcs);
+  var distance = getprop("ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm");
+  var distanceft = distance * NM2FT;
+  #print(distance);
+  #print(distanceft);
+  if (distanceft > 8000) {
+    print("target is over over 8000, not in range");
+  } else {
+    setprop("controls/armament/gunsight/range", distanceft);
+  }
+} else {
+    print(nil);
+  }
+
+}
+
 setprop("f22/throttle",-0.1);
 setprop("f22/currstation",0); # pointer
 # Stores to string converter
@@ -1163,8 +1188,74 @@ var stringstore = func() {
     setprop("f22/currstation",0); # Loop back to it
   }
 
+
+
+
 }
 
+
+var gunsightupdate = func() {
+
+    if (getprop("instrumentation/radar/lock2") == 0){
+      setprop("controls/armament/gunsight/range",2400);
+    }
+    if (getprop("controls/armament/gunsight/sightmode") == 0) { # OFF
+      setprop("controls/armament/gunsight/computer-on", 0);
+      setprop("controls/armament/gunsight/power-on", 0);
+      setprop("controls/armament/gunsight/mask-off", 1); 
+      setprop("controls/armament/gunsight/azimuth2",0);
+      setprop("controls/armament/gunsight/elevation2",0);
+    }
+
+    if (getprop("controls/armament/gunsight/sightmode") == 1) { # MSL
+      setprop("controls/armament/gunsight/computer-on", 0);
+      setprop("controls/armament/gunsight/power-on", 1);
+      setprop("controls/armament/gunsight/rocketLadder", 0);
+      setprop("controls/armament/gunsight/mask-off", 1);
+      setprop("controls/armament/gunsight/reticleSelectorPos", 0);
+      setprop("controls/armament/gunsight/azimuth2",0);
+      setprop("controls/armament/gunsight/elevation2",0);
+    }
+    if (getprop("controls/armament/gunsight/sightmode") == 2) { # AA1
+      setprop("controls/armament/gunsight/computer-on", 1);
+      setprop("controls/armament/gunsight/power-on", 1);
+      setprop("controls/armament/gunsight/rocketLadder", 0);
+      setprop("controls/armament/gunsight/mask-off", 1);
+      setprop("controls/armament/gunsight/reticleSelectorPos", 1);
+      setprop("controls/armament/gunsight/azimuth2",getprop("controls/armament/gunsight/azimuth"));
+      setprop("controls/armament/gunsight/elevation2",getprop("controls/armament/gunsight/elevation"));
+    }
+    if (getprop("controls/armament/gunsight/sightmode") == 3) { # AA2
+      setprop("controls/armament/gunsight/computer-on", 1);
+      setprop("controls/armament/gunsight/power-on", 1);
+      setprop("controls/armament/gunsight/rocketLadder", 0);
+      setprop("controls/armament/gunsight/mask-off", 1);
+      setprop("controls/armament/gunsight/reticleSelectorPos", 2);
+      setprop("controls/armament/gunsight/azimuth2",getprop("controls/armament/gunsight/azimuth"));
+      setprop("controls/armament/gunsight/elevation2",getprop("controls/armament/gunsight/elevation"));
+    }
+    if (getprop("controls/armament/gunsight/sightmode") == 4) { # AG
+      setprop("controls/armament/gunsight/computer-on", 0);
+      setprop("controls/armament/gunsight/power-on", 1);
+      setprop("controls/armament/gunsight/17ro;
+      if (flash == 1) {
+
+      }cketLadder", 1);
+      setprop("controls/armament/gunsight/mask-off", 1);
+      setprop("controls/armament/gunsight/reticleSelectorPos", 0);
+    }
+
+
+  # Check gunsights too
+  if (getprop("controls/armament/stick-selector") == 1 and getprop("controls/armament/master-arm") == 1) {
+    # guns on
+    print("guns on");
+    setprop("controls/armament/gunsight/sightmode",2);
+    sightradarupdate();
+  } else {
+        setprop("controls/armament/gunsight/sightmode",0);
+  }
+}
 
 
 
@@ -1172,6 +1263,8 @@ var stringstore = func() {
         # BEGIN maketimer(); MAYHEM!
         #
                 # seconds , function.  you can use 0 for the seconds
+                guntimer = maketimer(0.1,gunsightupdate);
+                guntimer.start();
 loadtimer = maketimer(1.5,stringstore);
 loadtimer.start();
 throttletimer = maketimer(0,updatethrot);

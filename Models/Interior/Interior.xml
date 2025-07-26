@@ -66,6 +66,18 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
   </model>
   
 
+<!--Silly gunsight!-->
+
+<model>
+	<path>Aircraft/F-22/Models/Interior/Instruments/gs/K14-pipper.xml</path>
+	<offsets>
+      <x-m> -5.623 </x-m>
+      <y-m>0.00 </y-m>
+      <z-m>0.305 </z-m>
+	</offsets>
+</model>
+
+
 
 <!--INSTRUMENT LIGHTS-->
 

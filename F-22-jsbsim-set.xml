@@ -402,8 +402,8 @@ Theres soo many
 <int n="13" type="int" alias="/controls/smoke/Switch"/> 
 <float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
 <int n="20" type="int" alias="/fdm/jsbsim/fcs/taxilight"/> 
-<int n="21" type="int" alias="/sim/failure-manager/engines/engine/failure-level"/> 
-<int n="22" type="int" alias="/sim/failure-manager/engines/engine[1]/failure-level"/>
+<int n="5" type="int" alias="/sim/failure-manager/engines/engine/failure-level"/> 
+<int n="6" type="int" alias="/sim/failure-manager/engines/engine[1]/failure-level"/>
 <int n="23" type="int" alias="/fdm/jsbsim/fcs/light"/>
 
 
@@ -2957,6 +2957,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		<jammer>
 			<file>Aircraft/F-22/Nasal/jammer.nas</file> <!--Replace the code with working one-->
 		</jammer>
-
+    	<K14>
+	  <file>Aircraft/Instruments-3d/computing-gun-sights/Nasal/lead-computer.nas</file>
+	  <file>Aircraft/Instruments-3d/computing-gun-sights/K14/Nasal/K14-reticle.nas</file>
+	</K14>
 	</nasal>
 </PropertyList>
