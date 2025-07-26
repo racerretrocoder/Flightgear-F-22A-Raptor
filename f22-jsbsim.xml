@@ -1702,16 +1702,16 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <aerosurface_scale name="Vector Radian Engine1">
       <input>fcs/vector-rad</input>
       <range>
-        <min> 1.6 </min>
-        <max>  -1.6 </max>
+        <min> 1.0 </min>
+        <max>  -1.0 </max>
       </range>
       <output>propulsion/engine/pitch-angle-rad</output>
    </aerosurface_scale>
    <aerosurface_scale name="Vector Radian Engine2">
       <input>fcs/vector-rad</input>
       <range>
-        <min> 1.6 </min>
-        <max>  -1.6 </max>
+        <min> 1.0 </min>
+        <max>  -1.0 </max>
       </range>
       <output>propulsion/engine[1]/pitch-angle-rad</output>
    </aerosurface_scale>
@@ -1719,8 +1719,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <aerosurface_scale name="Thrust Vector Control">
       <input>fcs/vector-main-control</input>
       <range>
-        <min> -1.6 </min>
-        <max>  1.6 </max>
+        <min> -1.0 </min>
+        <max>  1.0 </max>
       </range>
       <output>fcs/tvlscaled</output>
    </aerosurface_scale>
