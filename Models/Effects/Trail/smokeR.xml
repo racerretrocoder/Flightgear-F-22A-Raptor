@@ -12,7 +12,7 @@
 
     <condition>
         <equals>
-          <property>/sim/multiplay/generic/int[22]</property>
+          <property>/sim/multiplay/generic/int[5]</property>
           <value>1</value>
         </equals>
     </condition>

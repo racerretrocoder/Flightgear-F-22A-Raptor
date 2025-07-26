@@ -15,18 +15,19 @@ fire_MG = func() {  # b would be in the ()
 
     var time = getprop("/sim/time/elapsed-sec");
     if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
-    
+    if (getprop("controls/armament/trigger") == 0){return;} #hmmm
     if(getprop("/controls/armament/stick-selector") == 1)
     {
         if (getprop("controls/armament/master-arm") == 1) {
         isFiring = 1;
         
         setprop("/controls/armament/gun-trigger", 1);
+        settimer(autostopFiring, 0.47); # Fast burst
         } else {
             screen.log.write("Master arm is not armed");
         }
 
-        #settimer(stopFiring, 0.1);
+        #
     }
     if(getprop("/controls/armament/stick-selector") == 2)
     {
@@ -55,7 +56,11 @@ fire_MG = func() {  # b would be in the ()
     }
 }
 
-
+var autostopFiring = func() {
+    setprop("/controls/armament/missile-trigger", 0);
+    setprop("/controls/armament/gun-trigger", 0);
+    isFiring = 0;
+}
 
 
 var stopFiring = func() {
@@ -73,11 +78,14 @@ gun_timer.start();
 reload = func() {
     setprop("/ai/submodels/submodel/count",    480);
     setprop("/ai/submodels/submodel[1]/count", 480);
-    setprop("/ai/submodels/submodel[2]/count", 12000);
-    setprop("/ai/submodels/submodel[3]/count", 12000);
-    setprop("/ai/submodels/submodel[4]/count", 12000);
-    setprop("/ai/submodels/submodel[5]/count", 12000);
-    setprop("/ai/submodels/submodel[6]/count", 12000);
+    setprop("/ai/submodels/submodel[2]/count", 480);
+    setprop("/ai/submodels/submodel[3]/count", 480);
+    setprop("/ai/submodels/submodel[4]/count", 480);
+    setprop("/ai/submodels/submodel[5]/count", 480);
+    setprop("/ai/submodels/submodel[6]/count", 480);
+    setprop("/ai/submodels/submodel[7]/count", 480);
+    setprop("/f22/flare",200);
+    setprop("/f22/chaff",200);
     screen.log.write("reloaded weapons! repaired damage");
 }
 

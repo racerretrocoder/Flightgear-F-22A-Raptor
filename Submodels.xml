@@ -46,6 +46,134 @@
   
 
 
+
+ <submodel>
+    <name>Tracer</name> 
+    <model>Aircraft/F-22/Models/Effects/Tracer.xml</model>
+    <trigger>controls/armament/gun-trigger</trigger>
+    <speed>2500</speed>
+    <repeat>true</repeat>
+    <delay>0</delay>
+    <count>480</count>
+    <x-offset> 21.0 </x-offset>
+    <y-offset> 1.50 </y-offset>
+    <z-offset> 0.53 </z-offset>
+    <pitch-offset> 0.5 </pitch-offset>
+    <life>10.0</life>
+    <wind>false</wind>
+    <weight>0.1069</weight>
+    <cd>0.193</cd>
+    <eda>0.00136354</eda> 
+   </submodel>
+
+   <submodel>
+    <name>Round</name>
+    <model>Aircraft/F-22/Models/Effects/Null.ac</model>
+    <trigger>controls/armament/gun-trigger</trigger>
+    <speed>2500</speed>
+    <repeat>true</repeat>
+    <delay>0.0</delay>
+    <count>480</count>
+    <x-offset> 21.0</x-offset>
+    <y-offset> 1.50 </y-offset>
+    <z-offset> 0.53 </z-offset>
+    <pitch-offset> 0.5 </pitch-offset>
+    <life>10.0</life>
+    <wind>false</wind>
+    <weight>0.1069</weight>
+    <cd>0.193</cd>
+    <eda>0.00136354</eda> 
+    <collision>true</collision>
+    <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
+    <impact>true</impact>
+    <impact-report>ai/models/model-impact</impact-report>
+  </submodel>
+
+ <submodel>
+    <name>Tracer</name> 
+    <model>Aircraft/F-22/Models/Effects/Tracer.xml</model>
+    <trigger>controls/armament/gun-trigger</trigger>
+    <speed>2500</speed>
+    <repeat>true</repeat>
+    <delay>0</delay>
+    <count>480</count>
+    <x-offset> 21.0 </x-offset>
+    <y-offset> 1.50 </y-offset>
+    <z-offset> 0.53 </z-offset>
+    <pitch-offset> 0.5 </pitch-offset>
+    <life>10.0</life>
+    <wind>false</wind>
+    <weight>0.1069</weight>
+    <cd>0.193</cd>
+    <eda>0.00136354</eda> 
+   </submodel>
+
+   <submodel>
+    <name>Round</name>
+    <model>Aircraft/F-22/Models/Effects/Null.ac</model>
+    <trigger>controls/armament/gun-trigger</trigger>
+    <speed>2500</speed>
+    <repeat>true</repeat>
+    <delay>0.0</delay>
+    <count>480</count>
+    <x-offset> 21.0</x-offset>
+    <y-offset> 1.50 </y-offset>
+    <z-offset> 0.53 </z-offset>
+    <pitch-offset> 0.5 </pitch-offset>
+    <life>10.0</life>
+    <wind>false</wind>
+    <weight>0.1069</weight>
+    <cd>0.193</cd>
+    <eda>0.00136354</eda> 
+    <collision>true</collision>
+    <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
+    <impact>true</impact>
+    <impact-report>ai/models/model-impact</impact-report>
+  </submodel>
+ <submodel>
+    <name>Tracer</name> 
+    <model>Aircraft/F-22/Models/Effects/Tracer.xml</model>
+    <trigger>controls/armament/gun-trigger</trigger>
+    <speed>2500</speed>
+    <repeat>true</repeat>
+    <delay>0</delay>
+    <count>480</count>
+    <x-offset> 21.0 </x-offset>
+    <y-offset> 1.50 </y-offset>
+    <z-offset> 0.53 </z-offset>
+    <pitch-offset> 0.5 </pitch-offset>
+    <life>10.0</life>
+    <wind>false</wind>
+    <weight>0.1069</weight>
+    <cd>0.193</cd>
+    <eda>0.00136354</eda> 
+   </submodel>
+
+   <submodel>
+    <name>Round</name>
+    <model>Aircraft/F-22/Models/Effects/Null.ac</model>
+    <trigger>controls/armament/gun-trigger</trigger>
+    <speed>2500</speed>
+    <repeat>true</repeat>
+    <delay>0.0</delay>
+    <count>480</count>
+    <x-offset> 21.0</x-offset>
+    <y-offset> 1.50 </y-offset>
+    <z-offset> 0.53 </z-offset>
+    <pitch-offset> 0.5 </pitch-offset>
+    <life>10.0</life>
+    <wind>false</wind>
+    <weight>0.1069</weight>
+    <cd>0.193</cd>
+    <eda>0.00136354</eda> 
+    <collision>true</collision>
+    <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
+    <impact>true</impact>
+    <impact-report>ai/models/model-impact</impact-report>
+  </submodel>
+
+
+
   <submodel> 
     <name>smoke</name>
     <model>Aircraft/F-22/Models/Effects/Smoke.xml</model>

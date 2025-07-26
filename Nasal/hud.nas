@@ -161,6 +161,12 @@ var HUD = {
             .setTranslation(210,206)#(left,Top)
             #.setFont("Liberation Sans Narrow")
             .setFontSize(04,0.4);
+   m.gunammo =
+      m.text.createChild("text")
+            .setAlignment("center-top")
+            .setTranslation(210,190)#(left,Top)
+            #.setFont("Liberation Sans Narrow")
+            .setFontSize(04,0.4);
 #    # Altitude
     m.altitude =
       m.text.createChild("text")
@@ -353,6 +359,7 @@ m.ccipGrp = m.root.createChild("group");
     me.aoaind.setText(sprintf("A %1.2f", me.input.alpha.getValue()));
     me.bingoind.setText("BINGO FUEL");
     me.pullup.setText("PULL UP");
+    me.gunammo.setText(sprintf("GUNS %1.0f", getprop("ai/submodels/submodel/count")));
     me.callsignind.setText(sprintf("RADAR %s", getprop("controls/radar/lockedcallsign")));
     me.machspeed.setText(sprintf("M %1.2f", me.input.mach.getValue()));
     me.airspeed.setText(sprintf("%d", me.input.ias.getValue()));
