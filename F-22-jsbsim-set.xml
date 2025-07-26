@@ -101,27 +101,6 @@
                 <splash type="bool">true</splash>
                 <path>gui/splashes/splash6.png</path>
             </preview>
-    <preview>
-                <type>exterior</type>
-                <splash type="bool">true</splash>
-                <path>gui/splashes/splash7.png</path>
-            </preview>
-    <preview>
-                <type>exterior</type>
-                <splash type="bool">true</splash>
-                <path>gui/splashes/splash8.png</path>
-            </preview>
-    <preview>
-                <type>exterior</type>
-                <splash type="bool">true</splash>
-                <path>gui/splashes/splash9.png</path>
-            </preview>
-
-			    <preview>
-                <type>exterior</type>
-                <splash type="bool">true</splash>
-                <path>gui/splashes/splash10.png</path>
-            </preview>
   </previews>
 
 		<fuel-fraction>1</fuel-fraction>
@@ -227,6 +206,7 @@
 				<script>
 					if(getprop("/gear/gear/compression-ft") > 0.01){
 						f22.repair();
+						guns.reload();
 					}else{
 						screen.log.write("You can only repair the aircraft while on the ground! The ground crew cant fly!.",1,0,0);
 					}
