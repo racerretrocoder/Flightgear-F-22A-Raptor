@@ -1222,6 +1222,7 @@ var gunsightupdate = func() {
       setprop("controls/armament/gunsight/rocketLadder", 0);
       setprop("controls/armament/gunsight/mask-off", 1);
       setprop("controls/armament/gunsight/reticleSelectorPos", 1);
+      setprop("controls/armament/gunsight/fixedrectical", 1);
       setprop("controls/armament/gunsight/azimuth2",getprop("controls/armament/gunsight/azimuth"));
       setprop("controls/armament/gunsight/elevation2",getprop("controls/armament/gunsight/elevation"));
     }
@@ -1237,10 +1238,6 @@ var gunsightupdate = func() {
     if (getprop("controls/armament/gunsight/sightmode") == 4) { # AG
       setprop("controls/armament/gunsight/computer-on", 0);
       setprop("controls/armament/gunsight/power-on", 1);
-      setprop("controls/armament/gunsight/17ro;
-      if (flash == 1) {
-
-      }cketLadder", 1);
       setprop("controls/armament/gunsight/mask-off", 1);
       setprop("controls/armament/gunsight/reticleSelectorPos", 0);
     }
