@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
 
- <path>K-14A-pipper.ac</path>
+ <path>Aircraft/F-22/Models/Interior/Instruments/gs/K-14A-pipper.ac</path>
 
   <animation>
     <type>range</type>
