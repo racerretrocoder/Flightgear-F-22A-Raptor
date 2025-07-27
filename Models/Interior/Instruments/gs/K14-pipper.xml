@@ -89,7 +89,53 @@
   </condition>
  </animation>
  
-
+ <animation>
+  <type>select</type>
+  <object-name>diamondTop</object-name>
+  <condition>
+	  <property>/controls/armament/gunsight/diamondTopVisibility</property>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>diamondBottom</object-name>
+  <condition>
+	  <property>/controls/armament/gunsight/diamondBottomVisibility</property>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>diamondUL</object-name>
+  <condition>
+	  <property>/controls/armament/gunsight/diamondULVisibility</property>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>diamondUR</object-name>
+  <condition>
+	  <property>/controls/armament/gunsight/diamondURVisibility</property>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>diamondLL</object-name>
+  <condition>
+	  <property>/controls/armament/gunsight/diamondLLVisibility</property>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>diamondLR</object-name>
+  <condition>
+	<property>/controls/armament/gunsight/diamondLRVisibility</property>
+  </condition>
+ </animation>
  
  <animation>
   <type>select</type>

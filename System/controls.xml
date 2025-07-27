@@ -375,14 +375,14 @@
         <muzzleVelocity type="float">3150.0</muzzleVelocity>  <!-- feet per second 0.50 BMG -->
 		<!-- convergence distance in feet -->
         <gunHarminizationRangeFeet type="float">900.0</gunHarminizationRangeFeet>
-		<timeStep type="float">0.0</timeStep>  <!-- cycle rate of gun sight computer in seconds -->
+		<timeStep type="float">0.1</timeStep>  <!-- cycle rate of gun sight computer in seconds -->
 		<!-- sight computer damping factor must be between 0.3 and 1.0 -->
 		<dampingFactor type="float">1.0</dampingFactor>	
 		<gunsight-computer-initialized type="int">0</gunsight-computer-initialized>
 		<maxAzimuth type="int">170</maxAzimuth>  <!-- maximum sight deflection in mils -->
 		<maxElevation type="int">170</maxElevation>
         <SIG type="float">0.4</SIG>
-        <timeStep type="float">0.0</timeStep>
+        <timeStep type="float">0.2</timeStep>
 		
 		<!-- K14 parameters -->
 		
