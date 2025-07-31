@@ -1845,7 +1845,7 @@ Use below instead
 		<object-name>Right_Back_Turbina</object-name>
 	
 <factor>6</factor>		
-<property>engines/engine/n2</property>
+<property>engines/engine[1]/n2</property>
      <center>
    <x-m>0</x-m>
    <y-m>0.65</y-m>
@@ -1866,7 +1866,7 @@ Use below instead
 		<object-name>Left_Back_Turbina</object-name>
 	
 <factor>6</factor>		
-<property>engines/engine[1]/n2</property>
+<property>engines/engine/n2</property>
      <center>
    <x-m>0</x-m>
    <y-m>-0.65</y-m>
@@ -1886,8 +1886,8 @@ Use below instead
 		<type>spin</type>
 		<object-name>rightfrontturbine</object-name>
 	
-<factor>3</factor>		
-<property>engines/engine/n1</property>
+<factor>9</factor>		
+<property>engines/engine[1]/n1</property>
 
  <axis>
 		<object-name>rightfan-axis</object-name>
@@ -1899,7 +1899,7 @@ Use below instead
 		<type>spin</type>
 		<object-name>leftfrontturbine</object-name>
 	
-<factor>3</factor>		
+<factor>9</factor>		
 <property>engines/engine/n1</property>
 
  <axis>
@@ -2158,8 +2158,7 @@ FR
 
 	<animation>
 		<type>rotate</type>
-			<object-name>right-up-vector</object-name>
-			<object-name>left-up-vector</object-name>
+
 			<object-name>right-burner</object-name>
 			<object-name>left-burner</object-name>
 			<object-name>right-burner2</object-name>
@@ -2173,41 +2172,63 @@ FR
 			<object-name>AB_FlameLN</object-name>
 			<object-name>AB_FlameRN</object-name>
 			<property>sim/multiplay/generic/float[25]</property>
-			<factor>20</factor>
-			<center>
-				<x-m>6.42824</x-m>
-				<y-m>0</y-m>
-				<z-m>-0.414674</z-m>
-			</center>
+			<factor>-20</factor>
 			<axis>
-				<x>0</x>
-				<y>1</y>
-				<z>0</z>
+		<object-name>burner-axis</object-name>
 			</axis>
 	</animation>
+
+
+
+
+
+
+
+	<animation>
+		<type>rotate</type>
+			<object-name>right-up-vector</object-name>
+			<object-name>left-up-vector</object-name>
+			<property>sim/multiplay/generic/float[15]</property>
+			<factor>-20</factor>
+
+			<axis>
+		<object-name>topv-axis</object-name>
+			</axis>
+	</animation>
+
+
+
 
 	<animation>
 		<type>rotate</type>
 			<object-name>right-down-vector</object-name>
 			<object-name>left-down-vector</object-name>
-			<property>sim/multiplay/generic/float[25]</property>
-			<factor>20</factor>
-			<center>
-				<x-m>6.42824</x-m>
-				<y-m>0</y-m>
-				<z-m>-1.06084</z-m>
-			</center>
+			<property>sim/multiplay/generic/float[11]</property>
+			<factor>-20</factor>
 			<axis>
-				<x>0</x>
-				<y>1</y>
-				<z>0</z>
+		<object-name>lwrv-axis</object-name>
 			</axis>
 	</animation>
+
+
+
+<!--Afterburner movement ae-->
+	<animation>
+        <type>translate</type>
+			<object-name>left-down-vector</object-name>
+        <property>sim/multiplay/generic/float[31]</property>
+        <factor>-0.0547</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+
 
 	<animation>
         <type>translate</type>
 			<object-name>right-down-vector</object-name>
-			<object-name>left-down-vector</object-name>
         <property>sim/multiplay/generic/float[32]</property>
         <factor>-0.0547</factor>
         <axis>
@@ -2219,8 +2240,18 @@ FR
 	<animation>
         <type>translate</type>
 			<object-name>right-up-vector</object-name>
-			<object-name>left-up-vector</object-name>
         <property>sim/multiplay/generic/float[32]</property>
+        <factor>0.0547</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+	<animation>
+        <type>translate</type>
+			<object-name>left-up-vector</object-name>
+        <property>sim/multiplay/generic/float[31]</property>
         <factor>0.0547</factor>
         <axis>
             <x>0</x>
@@ -2345,8 +2376,8 @@ FR
 		</axis>
 	</animation>
 
-<!-- Main gear animations -->
-rearwheelsaxis
+<!-- Main gear animations
+
 
 	<animation>
 		<type>spin</type>
@@ -2363,7 +2394,7 @@ rearwheelsaxis
 
           <center>
             <x-m>-3.66829</x-m>
-            <y-m> 0</y-m>   <!--I still dont know how to get these numbers in AC3d. Snail got these for nose gear turning fyi-->
+            <y-m> 0</y-m>   
             <z-m>0.00083</z-m>
         </center>
 
@@ -2388,7 +2419,7 @@ rearwheelsaxis
 		<object-name>rearwheelsaxis</object-name>
 		</axis>
 	</animation>
-
+-->
 
 
 
