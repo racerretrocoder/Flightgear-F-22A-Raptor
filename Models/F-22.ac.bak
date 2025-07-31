@@ -23,7 +23,35 @@ MATERIAL "Gear_Furniture_Mat" rgb 0.792157 0.729412 0.301961  amb 1 1 1  emis 0 
 MATERIAL "light" rgb 0.2 0.2 0.2  amb 0.2 0.2 0.2  emis 1 1 1  spec 0 0 0  shi 128  trans 0
 MATERIAL "mat16" rgb 0.584314 0.584314 0.584314  amb 0.584314 0.584314 0.584314  emis 0 0 0  spec 0.2 0.2 0.2  shi -3838.97  trans 0
 OBJECT world
-kids 138
+kids 139
+OBJECT poly
+name "burner-axis"
+loc 6.24133 -0.890438 1.89577
+crease 45.000000
+numvert 2
+0 0 1.31306
+0 0 -1.31306
+numsurf 1
+SURF 0x32
+mat 1
+refs 2
+0 0 0
+1 0 1
+kids 0
+OBJECT poly
+name "lwrv-axis"
+loc 6.24133 -1.14523 1.91239
+crease 45.000000
+numvert 2
+0 0 -1.31306
+0 0 1.31306
+numsurf 1
+SURF 0x32
+mat 1
+refs 2
+1 0 0
+0 0 1
+kids 0
 OBJECT poly
 name "apuflap1"
 loc 1.58887 -0.493676 1.38342
@@ -30872,34 +30900,6 @@ refs 3
 7 0 0
 6 0 0
 5 0 0
-kids 0
-OBJECT poly
-name "rearwheelsaxis"
-loc 2.40014 -2.23472 1.32905
-crease 45.000000
-numvert 2
-0 0 1.5589
-0 0 -1.5589
-numsurf 1
-SURF 0x32
-mat 1
-refs 2
-0 0 0
-1 1 0
-kids 0
-OBJECT poly
-name "frontwheelsaxis"
-loc -3.66869 -2.35313 1.32905
-crease 45.000000
-numvert 2
-0 0 -1.5589
-0 0 1.5589
-numsurf 1
-SURF 0x32
-mat 1
-refs 2
-1 0 0
-0 1 0
 kids 0
 OBJECT poly
 name "fueldoor-L-axis"
@@ -897056,4 +897056,18 @@ refs 4
 31 0.408629 0.426554
 34 0.318334 0.426943
 8 0.333992 0.308587
+kids 0
+OBJECT poly
+name "topv-axis"
+loc 6.23769 -0.599825 1.91614
+crease 45.000000
+numvert 2
+0 0 1.31306
+0 0 -1.31306
+numsurf 1
+SURF 0x32
+mat 1
+refs 2
+0 0 0
+1 0 1
 kids 0

@@ -1136,7 +1136,8 @@ if (rdrcs  != nil) {
   if (distanceft > 8000) {
     print("target is over over 8000, not in range");
   } else {
-    setprop("controls/armament/gunsight/range", distanceft);
+    print("ae");
+    #setprop("controls/armament/gunsight/range", distanceft);
   }
 } else {
     print(nil);

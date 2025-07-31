@@ -1379,6 +1379,31 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </function>
 
 
+<function name="fcs/vector-top">
+        <table>
+            <independentVar lookup="row">fcs/Elev-pos-norm-g-limit</independentVar>
+    <independentVar lookup="column">fcs/gear-control</independentVar>
+            <tableData>
+                    0      1
+              -1    0      -1
+              0     0       0
+              1     0       0
+            </tableData>
+          </table>
+</function>
+<function name="fcs/vector-lower">
+        <table>
+    <independentVar lookup="row">fcs/Elev-pos-norm-g-limit</independentVar>
+    <independentVar lookup="column">fcs/gear-control</independentVar>
+            <tableData>
+                    0     1
+              -1    0     0
+              0     0     0
+              1     0     1
+            </tableData>
+          </table>
+</function>
+
 
    <function name="fcs/tv-coefficient">
      <difference>
@@ -1740,6 +1765,61 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        </traverse>
       <output>fcs/tv-animation</output>
    </kinematic>
+
+
+   <summer name="ani top vector">
+      <input>fcs/vector-top</input>
+      <input>fcs/tv-animation</input>
+      <clipto>
+        <min> -1 </min>
+        <max>  1 </max>
+      </clipto>
+   </summer>
+   <summer name="ani lower vector">
+      <input>fcs/vector-lower</input>
+      <input>fcs/tv-animation</input>
+      <clipto>
+        <min> -1 </min>
+        <max>  1 </max>
+      </clipto>
+   </summer>
+
+<!--top vectors-->
+
+
+    <kinematic name="Animation and Movement in FDM">
+      <input>fcs/ani-top-vector</input>
+      <traverse>
+        <setting>
+          <position>-1</position>
+          <time>1</time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>1</time>
+        </setting>
+       </traverse>
+      <output>fcs/tv-animation-top</output>
+   </kinematic>
+
+<!--lower vectors-->
+
+
+    <kinematic name="Animation and Movement in FDM">
+      <input>fcs/ani-lower-vector</input>
+      <traverse>
+        <setting>
+          <position>-1</position>
+          <time>1</time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>1</time>
+        </setting>
+       </traverse>
+      <output>fcs/tv-animation-lower</output>
+   </kinematic>
+
 
     <kinematic name="roll">
       <input>fcs/left-aileron-pos-rad</input>
