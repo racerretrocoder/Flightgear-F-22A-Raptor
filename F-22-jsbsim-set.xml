@@ -1896,7 +1896,19 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
     </weight>
 
         <tacview-recording type="bool">0</tacview-recording>
+
+
+          <aircraft-data>
+            <!-- Properties that get saved to persist locally between FG sessions -->
+            <path>messages/enabled</path>
+        </aircraft-data>
+
 		</sim>
+
+<messages>
+	<!--The simple tips/warnings-->
+	<enabled userarchive="y" type="bool">true</enabled>
+</messages>
 
 <f22>
             <brightness type="double">0</brightness>
@@ -2964,5 +2976,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	  <file>Aircraft/F-22/Nasal/lead-computer.nas</file>
 	  <file>Aircraft/Instruments-3d/computing-gun-sights/K14/Nasal/K14-reticle.nas</file>
 	</K14>
+		<tips>
+			<file>Aircraft/F-22/Nasal/messages.nas</file>
+		</tips>
 	</nasal>
 </PropertyList>
