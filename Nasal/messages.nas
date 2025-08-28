@@ -25,12 +25,12 @@ var mainloop = func() {
     }
     # check wheel speed
     if (getprop("velocities/airspeed-kt") > wheelmaxspeed and getprop("gear/gear/wow") == 1) {
-        screen.log.write("Maximum speed for wheels exceeded! ("~wheelmaxspeed~")",1,0,0);
+        screen.log.write("Maximum wheel ground speed exceeded! ("~wheelmaxspeed~")",1,0,0);
         return 0;
     } 
     # check gear speed
     if (getprop("velocities/airspeed-kt") > geardownmaxspeed and getprop("controls/gear/gear-down") == 1) {
-        screen.log.write("The landing gear could break! Raise the gear! (press g)",1,0,0);
+        screen.log.write("Airspeed Exceeds maximum gear deployment speed! (press g to raise the landing gear)",1,0,0);
         return 0;
     }
 }
@@ -38,5 +38,5 @@ var mainloop = func() {
 
 print("messages.nas: Ready");
 
-looptimer = maketimer(2,mainloop);
+looptimer = maketimer(1.5,mainloop);
 looptimer.start();

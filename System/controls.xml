@@ -165,6 +165,7 @@
 <cameras type="int">-1</cameras>
 <GPSDLT type="int">-1</GPSDLT>
 <pos>
+<!--Properties for missile alert-->
 <lat type="float">0</lat>
 <lon type="float">0</lon>
 <alt type="float">0</alt>
@@ -174,6 +175,7 @@
 </pos>
 
 
+<pickle type="double"> 0 </pickle>
 <status type="int">0</status>
 
 
