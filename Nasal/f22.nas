@@ -1360,4 +1360,14 @@ var gearlighting = func(){
   }
 }
 setlistener("/controls/gear/gear-down",gearlighting);
+
+
+var flight_debug = func(){
+  screen.property_display.add("/controls/flight/elevator");
+  screen.property_display.add("/controls/flight/aileron");
+  screen.property_display.add("/controls/flight/rudder");
+  screen.property_display.add("/controls/engines/engine/throttle");
+  screen.property_display.add("/controls/engines/engine[1]/throttle");
+}
+
 # End f22.nas

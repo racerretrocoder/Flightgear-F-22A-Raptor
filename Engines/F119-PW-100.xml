@@ -18,10 +18,10 @@
   <tsfc>            0.6 </tsfc>
   <atsfc>           1.4 </atsfc>
   <bleed>           0.03</bleed>
-  <n1spinup>        2.7 </n1spinup>
-  <n2spinup>        2.7 </n2spinup>
-  <n1startrate>     4.0 </n1startrate>
-  <n2startrate>     4.0 </n2startrate>
+  <n1spinup>        3.7 </n1spinup>
+  <n2spinup>        3.7 </n2spinup>
+  <n1startrate>     6.0 </n1startrate>
+  <n2startrate>     6.0 </n2startrate>
   <idlen1>         30.0 </idlen1>
   <idlen2>         60.0 </idlen2>
   <maxn1>         100.0 </maxn1>
