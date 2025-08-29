@@ -18,7 +18,7 @@ var mainloop = func() {
         looptimer.stop();
         return 0;
     }
-    print("MAINLOOP");
+    #print("MAINLOOP");
     if (getprop("velocities/airspeed-kt") > vne) {
         screen.log.write("Airspeed Exceeds Vne! ("~vne~")",1,0,0);
         return 0;

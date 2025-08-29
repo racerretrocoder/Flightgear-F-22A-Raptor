@@ -2223,31 +2223,13 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 
 
-			<!--
-			<key n="101">
-				<name>e</name>
-				<desc>Gun</desc> 
-				<binding>
-					<command>property-assign</command>
-					<property>controls/armament/trigger</property>
-					<value>true</value>
-				</binding>
-				<mod-up>
-					<binding>
-						<command>property-assign</command>
-						<property>controls/armament/trigger</property>
-						<value>false</value>
-					</binding> 
-				</mod-up>
-			</key>
-			 -->
 <key n="101">
   <name>e</name>
   <desc>Fire selected WCS weapon</desc>
-  <binding>
-    <command>nasal</command>
-    <script>guns.fire_MG(1);</script>
-  </binding>
+	<binding>
+		<command>nasal</command>
+		<script>setprop("controls/armament/trigger",1);#guns.fire_MG();</script>
+	</binding>
     <binding>
    <command>property-toggle</command>
    <property>controls/missile</property>
@@ -2256,7 +2238,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <mod-up>
     <binding>
       <command>nasal</command>
-      <script>guns.stopFiring();</script>
+      <script>setprop("controls/armament/trigger",0);guns.stopFiring();</script>
     </binding>
     <binding>
       <command>nasal</command>

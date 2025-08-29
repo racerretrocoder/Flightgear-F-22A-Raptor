@@ -240,8 +240,8 @@ var hitmessage = func(typeOrd,callsign,hits) {
 
 # setup impact listener
 setlistener("/ai/models/model-impact", impact_listener, 0, 0);
-
-
+setprop("/controls/armament/target-selected",0);
+setprop("/controls/armament/weapon-selected",0);
 var pickle = func() {
     if (getprop("controls/armament/pickle") == 1) {
         print("pickle on");

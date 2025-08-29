@@ -348,8 +348,6 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 	}
 }# from m2005
 
-shake_timer = maketimer(0.0001, shake);
-shake_timer.start();
 
 
 
@@ -382,9 +380,6 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 
 
 
-
-shake_timer2 = maketimer(0.00001, shake2);
-shake_timer2.start();
 
 var fire = func(v,a) {
 # This controls the Bay doors automaticly
@@ -823,7 +818,7 @@ var radarlook = func(cs=nil) {
   var list = props.globals.getNode("/instrumentation/radar2/targets").getChildren("multiplayer");
   var total = size(list);
   var mpid = 0;
-  print("hello!");
+  print("ACM Dogfight mode Debug!");
   for(var i = 0; i < total; i += 1) {
       var mpid = i;
       print(mpid);
@@ -888,7 +883,7 @@ var radarlook = func(cs=nil) {
 
 
 var acmcheck = func(radarcs,mpid,total) {
-  screen.log.write("in here now");
+  screen.log.write("acm dbug: in here now");
   screen.log.write("total:" ~ total);
   screen.log.write("radarcs:" ~ radarcs);
   screen.log.write("mpid:" ~ mpid);
@@ -1044,7 +1039,7 @@ var mslhit = func{
 var updateradarcs = func {
 # Add a if lock 
 if (getprop("/instrumentation/radar/lock2") != 0){
-  print("LOCKED!");
+  print("f22.nas: Radar LOCKED!");
   var callsign = radar.tgts_list[radar.Target_Index].Callsign.getValue();
   var mpid = misc.smallsearch(callsign);
   var lockedalt = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/position/altitude-ft");
@@ -1052,7 +1047,7 @@ if (getprop("/instrumentation/radar/lock2") != 0){
   setprop("controls/radar/lockedcallsign", radar.tgts_list[radar.Target_Index].Callsign.getValue());
   } else {
   # Not locked on
-  print("aw not locked");
+  #print("aw not locked");
   setprop("controls/radar/lockedcallsign", "None");
   }
 }
@@ -1134,9 +1129,10 @@ if (rdrcs  != nil) {
   #print(distance);
   #print(distanceft);
   if (distanceft > 8000) {
-    print("target is over over 8000, not in range");
+    print("target is over 8000, not in range");
   } else {
-    print("ae");
+    var test = 1;
+    #print("ae");
     #setprop("controls/armament/gunsight/range", distanceft);
   }
 } else {
@@ -1158,7 +1154,7 @@ var stringstore = func() {
 # var weight6 = getprop("sim/weight[6]/selected");
 # var weight7 = getprop("sim/weight[7]/selected");
 # var weight8 = getprop("sim/weight[8]/selected");
-# var weight9 = getprop("sim/weight[9]/selected");        lol
+# var weight9 = getprop("sim/weight[9]/selected");        lets just make it into a loop...
 # var weight10 = getprop("sim/weight[10]/selected");
 # var weight11 = getprop("sim/weight[11]/selected");
 # var weight12 = getprop("sim/weight[12]/selected");
@@ -1257,12 +1253,12 @@ var gunsightupdate = func() {
 
 
 
-        #
-        # BEGIN maketimer(); MAYHEM!
-        #
-                # seconds , function.  you can use 0 for the seconds
-                guntimer = maketimer(0.1,gunsightupdate);
-                guntimer.start();
+#
+# BEGIN maketimer(); MAYHEM!
+#
+# seconds , function.  you can use 0 for the seconds
+guntimer = maketimer(0.1,gunsightupdate);
+guntimer.start();
 loadtimer = maketimer(1.5,stringstore);
 loadtimer.start();
 throttletimer = maketimer(0,updatethrot);
@@ -1280,7 +1276,7 @@ rebound_timer = maketimer(3, resetready);
 crash_timer.start();
 Flare_timer = maketimer(1.8, cha_flare);
 timer_flarecheck = maketimer(2, flarecheck);  # To make the target need to keep putting out flares for the number to stay 1 and make missiles detect them
-settimer(missile_sfx, 2); # runs myFunc after 2 seconds
+settimer(missile_sfx, 2); 
 timer_eng = maketimer(0.25, engloop);
 timer_loopTimer = maketimer(0.25, timer_loop);
 timer_extpylons = maketimer(0.25, checkforext);
@@ -1293,9 +1289,18 @@ acmtimer = maketimer(2,radarlook);
 ready_timer = maketimer(30,readyset);
 headupdate = maketimer(0,updatehead); # Pilot movement
 
+
+# Shake
+shake_timer = maketimer(0.0001, shake);
+shake_timer2 = maketimer(0.0001, shake2);
+
+
+
 setlistener("sim/signals/fdm-initialized", func {
 # Spawned in/went to location
 headupdate.start();
+shake_timer.start();
+shake_timer2.start();
 ready_timer.start();
 crash_timer.stop(); # stop crash xd
 crashreinit_timer.start();

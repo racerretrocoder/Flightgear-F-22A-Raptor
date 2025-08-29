@@ -3,8 +3,10 @@ HUD
 PRF
 RWR
 Programable Countermessures
-Fast Scramble
-Powerful, APG-77 Radar with Side Looking radars
+Fast engine start time (<30 seconds)
+Powerful, APG-77 Radar with SLR Enhancements
 Thrust Vectoring Engine Nozzles
-Lots of Stealth
-Internel weapons, 2 aim-9x and center bay
+Stealth
+KY-58 secure MP-Chat
+Internel weapons, 2 side bays, and a centerbay
+Externel weapons, 2 pylons can be mounted on each wing

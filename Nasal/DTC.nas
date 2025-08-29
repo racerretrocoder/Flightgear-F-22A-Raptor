@@ -1,13 +1,13 @@
 # Data Cartridge for the F-22A Raptor
-# All code by Scarface 1 -- Phoenix
+# All code written by Phoenix
 # This can be used to share CMDS prgms, set datalink, COMM Radios, Other settings
 setprop("f22/dtcdesc","");
 var canexec = 0;
 
 
 var readslot = func(datacart,pointer) {
+    # Read GPS Coordnites
         print("DTC.nas: SLOTCOORD");
-
         var line1 = split(":",datacart[pointer + 1]);
         print("lat");
         print(line1[0]);
@@ -416,7 +416,7 @@ var readslot = func(datacart,pointer) {
         }
         }
     }
-changedtc = gui.FileSelector.new(callback: loadcart,title: "Select a Data Cartridge (.raptordtc)",button: "Load DTC",dir: exportdir,dotfiles: 1,pattern: ["*.raptordtc"]);
+#changedtc = gui.FileSelector.new(callback: loadcart,title: "Select a Data Cartridge (.raptordtc)",button: "Load DTC",dir: exportdir,dotfiles: 1,pattern: ["*.raptordtc"]);
 
 selectnewdtc = func(){
 changedtc.open();
