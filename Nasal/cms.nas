@@ -1,6 +1,6 @@
 # cms.nas
 # Authors: Phoenix
-# F-22A custom counter messures controller
+# F-22A custom counter messures controller (Which is programable)
 
 # blade 3 flap deg flare 0-1
 # blade 3 position deg chaff 0-1
@@ -212,7 +212,7 @@ var updatecms = func() {
     if (prgmselect == 4) {var letter = "d";}
     if (prgmselect == 5) {var letter = "e";}
     programname = getprop("/controls/CMS/prgm"~prgmselect~"name");
-    print("CMS program name: "~programname);
+    #print("CMS program name: "~programname);
     setprop("controls/CMS/prgmname",programname);
     data1 = getprop("controls/CMS/" ~ letter ~ "1");     #   can Chaff on press of the button
     data2 = getprop("controls/CMS/" ~ letter ~ "2");     #   can Flare on press of the button
