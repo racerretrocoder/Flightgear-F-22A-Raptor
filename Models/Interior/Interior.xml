@@ -922,7 +922,7 @@ _____/\\\\\\\\\_________________________________________________________________
 
 <animation>
   <type>pick</type>
-        <object-name>rthrot</object-name>
+
         <object-name>lthrot</object-name>
    <action>
     <button>0</button>
@@ -930,11 +930,24 @@ _____/\\\\\\\\\_________________________________________________________________
     <interval-sec>0.2</interval-sec>
    <binding>
   <command>nasal</command>
-  <script>f22.throt();</script>
+  <script>f22.throtl();</script>
 </binding>
 </action>
  </animation>
+<animation>
+  <type>pick</type>
 
+        <object-name>rthrot</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>f22.throtr();</script>
+</binding>
+</action>
+ </animation>
 
 <animation>
   <type>pick</type>
@@ -3174,14 +3187,24 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
 
 
 
+<animation>
+        <type>rotate</type>
 
+        <object-name>lthrot</object-name>
+        <property>f22/throttlel</property>
+        <offset-deg>-27</offset-deg>
+        <factor>70</factor>
+        <axis>
+        <object-name>mainthrot-axis</object-name>
+        </axis>
+    </animation>
 
 <animation>
         <type>rotate</type>
+        <object-name>rthrot2</object-name>
         <object-name>rthrot</object-name>
-        <object-name>lthrot</object-name>
         <object-name>throtbutton</object-name>
-        <property>f22/throttle</property>
+        <property>f22/throttler</property>
         <offset-deg>-27</offset-deg>
         <factor>70</factor>
         <axis>
