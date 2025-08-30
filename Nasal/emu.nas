@@ -53,10 +53,14 @@ var battery = func {
 };
 
 
-var manualstart = func {
+var manualstartl = func {
    settimer(eng1startsw, 0);
+}
+
+var manualstartr = func {
    settimer(eng2startsw, 0);
 }
+
 
 
 var engstart = func {
@@ -65,13 +69,24 @@ var engstart = func {
    settimer(eng2start, 2);
    settimer(battery, 36);
    setprop("f22/brightness",1);
-   f22.throttletimer.start();
+   f22.throttlertimer.start();
+   f22.throttleltimer.start();
 }
 
 var engstop = func {
    eng1fueloff();
    eng2fueloff();
 }      
+
+
+var engstopl = func {
+   eng1fueloff();
+}   
+var engstopr = func {
+   eng2fueloff();
+}   
+
+
 setprop("/controls/electric/batteryswitch", 0);
 setprop("/controls/electric/batteryswitch-pos", -1);
 

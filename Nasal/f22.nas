@@ -1086,34 +1086,63 @@ var checkbingo = func() {
     setprop("f22/isbingo",0);
   }
 }
-
-var updatethrot = func() {
-  setprop("f22/throttle",getprop("controls/engines/engine/throttle"));
-
+  setprop("f22/throttler",-0.1);
+  setprop("f22/throttlel",-0.1);
+var updatethrotr = func() {
+  setprop("f22/throttler",getprop("controls/engines/engine[1]/throttle"));
+}
+var updatethrotl = func() {
+  setprop("f22/throttlel",getprop("controls/engines/engine/throttle"));
 }
 
-
-var throt = func() {
-  # throttle cut off!
+var throtr = func() {
+  # throttler cut off!
   # put code here
-  if (getprop("f22/throttle") < 0){
+  if (getprop("f22/throttler") < 0){
     if (getprop("controls/apu/run") == 0){
       return 0;
     }
-    setprop("f22/throttle",0);
-    screen.log.write("Throttle set to Idle! Starting Engines...");    
-    throttletimer.start();
-    emu.manualstart();
+    setprop("f22/throttler",0);
+
+    screen.log.write("Right Throttle set to Idle! Starting Right Engine...");    
+    throttlertimer.start();
+    emu.manualstartr();
   emu.timer_apucheck2.start(); # APU Shutoff rebound
   }
-  elsif (getprop("f22/throttle") != -0.1){
-    screen.log.write("Throttle Cut off! Shutting down...");
-    throttletimer.stop();
-    setprop("f22/throttle",-0.1);
-    emu.engstop();
+  elsif (getprop("f22/throttler") != -0.1){
+    screen.log.write("Right Throttle Cut Off! Shutting down Right Engine...");
+    throttlertimer.stop();
+
+    setprop("f22/throttler",-0.1);
+    emu.engstopr();
   emu.timer_apucheck2.stop(); # Ok dont turn off apu xd
   }
 }
+
+var throtl = func() {
+  # throttlel cut off!
+  # put code here
+  if (getprop("f22/throttlel") < 0){
+    if (getprop("controls/apu/run") == 0){
+      return 0;
+    }
+    setprop("f22/throttlel",0);
+
+    screen.log.write("Left Throttle set to Idle! Starting Left Engine...");    
+    throttleltimer.start();
+    emu.manualstartl();
+  emu.timer_apucheck2.start(); # APU Shutoff rebound
+  }
+  elsif (getprop("f22/throttlel") != -0.1){
+    screen.log.write("Left Throttle Cut Off! Shutting down Left Engine...");
+    throttleltimer.stop();
+
+    setprop("f22/throttlel",-0.1);
+    emu.engstopl();
+  emu.timer_apucheck2.stop(); # Ok dont turn off apu xd
+  }
+}
+
 
 
 var sightradarupdate = func {
@@ -1261,7 +1290,8 @@ guntimer = maketimer(0.1,gunsightupdate);
 guntimer.start();
 loadtimer = maketimer(1.5,stringstore);
 loadtimer.start();
-throttletimer = maketimer(0,updatethrot);
+throttlertimer = maketimer(0,updatethrotr);
+throttleltimer = maketimer(0,updatethrotl);
 crashreinit_timer = maketimer(5,crashreinit);
 timer_hit = maketimer(1.5, mslhit);
 blinktimer = maketimer(0.3, blink);
