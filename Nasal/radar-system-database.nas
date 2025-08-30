@@ -50,8 +50,11 @@ var Database = {
 	"FA-18":                  {hasAirRadar:1, rwrCode:"18", baseThreat:defaultFighterThreat},
 	"FA-18D":                 {hasAirRadar:1, rwrCode:"18", baseThreat:defaultFighterThreat},
 	"F-22A Raptor":           {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
+	"F-22-Raptor":           {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
 	"F-22A":                  {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
 	"X-02":                   {hasAirRadar:1, rwrCode:"X2", baseThreat:defaultFighterThreat}, # Wyvern UAV
+	"X-02S":                   {hasAirRadar:1, rwrCode:"X2", baseThreat:defaultFighterThreat}, # Wyvern UAV
+	"ADF-11F":                   {hasAirRadar:1, rwrCode:"ADF", baseThreat:defaultFighterThreat}, # Wyvern UAV
 	"F-35A":                  {hasAirRadar:1, rwrCode:"35", baseThreat:defaultFighterThreat},
 	"F-35B":                  {hasAirRadar:1, rwrCode:"35", baseThreat:defaultFighterThreat},
     "JA37-Viggen":            {hasAirRadar:1, rwrCode:"37", baseThreat:defaultFighterThreat},
