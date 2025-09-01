@@ -149,7 +149,7 @@ var Radar = {
         me.maj_sweep();
         
         var loop_Update = func(){
-            var radarWorking = #getprop("/systems/electrical/outputs/radar");
+            var radarWorking = #getprop("/systems/electrical/outputs/radar"); idea, put standby trigger here
             27;
             radarWorking = (radarWorking == nil) ? 0 : radarWorking;
             if(radarWorking > 21)
@@ -664,6 +664,19 @@ var Radar = {
         {
             return;
         }
+        # RCS Stuff
+        if (getprop("/instrumentation/radar2/hasrcs") != nil) {
+            if (getprop("/instrumentation/radar2/hasrcs") == 1) {
+                # Small debug
+                append(me.Check_List, customrcs.getrcs(SelectedObject));
+                if(me.Check_List[3] == 0)
+                {
+                    return;
+                }
+            }
+        }
+
+        # Disabled for debug
   #      append(me.Check_List, me.NotBeyondHorizon(SelectedObject));
   #      if(me.Check_List[3] == 0)
   #      {
@@ -1275,7 +1288,7 @@ radar_mode_sel = func(mode){
         swp_diplay_width = 0.0422;
     }
 }
-
+# SEE f22.nas FOR THIS
 radar_mode_toggle = func(){
     # FIXME: Modes props should provide their own data instead of being hardcoded.
     # Toggles between the available modes.

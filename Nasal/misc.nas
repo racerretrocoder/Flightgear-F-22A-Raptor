@@ -1,4 +1,4 @@
-# Ai "Searcher"
+# Ai "Searcher", and other random stuff!
 # Created by Phoenix, Skid, and Uapilot
 #
 # This script is used to search for another pilots properties (Mainly the rotor prop)
@@ -300,7 +300,7 @@ var smallsearch = func(cs=nil) {
       # were searching for someone...
       if (getprop("ai/models/multiplayer[" ~ i ~ "]/callsign") == cs) {
           # we have our number
-          print(mpid);
+          #print(mpid);
           mpid = i;
           #track(mpid,0); # run the flare detection/RND on this Multiplayer property
           return mpid; # Bam!
@@ -364,4 +364,16 @@ var calcdamage = func(lat,lon,mslname="none"){
                     missile.MISSILE.broddamage(callsign,distance,mslname);
                 }
         }
+}
+
+# Uapilot finddel() string stuff
+var finddel = func(thestring, sub) {
+	if (substr(thestring, -size(sub)) == sub) { # Negation of the size() output. That seems to be the fastest way. And it works constantly!
+        var answer = substr(thestring, 0, size(thestring) - size(sub));
+		#print(answer);
+        return answer; # Deleted the sub!
+    } else {
+        #print("didnt work :( "~sub~"");
+	    return thestring; # what can it be
+    }
 }
