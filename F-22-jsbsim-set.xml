@@ -756,7 +756,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 					<ecm-type-num>01</ecm-type-num>
 				</aircraft>
 				<aircraft n="24">
-					<name>B-2</name>
+					<name>b2-spirit</name>
 					<rcs-sq-meter>0.0015</rcs-sq-meter>
 					<rcs-4th-root>0.19</rcs-4th-root>
 					<radar-type>APQ-181</radar-type>
@@ -936,8 +936,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 					<ecm-type-num>18</ecm-type-num>
 				</aircraft>
 				<aircraft n="42">
-					<name>F-22A</name>
-					<rcs-sq-meter>0.0010</rcs-sq-meter>
+					<name>F-22A-Raptor</name>
+					<rcs-sq-meter>0.0001</rcs-sq-meter>
 					<rcs-4th-root>0.17</rcs-4th-root>
 					<radar-type>APG-77</radar-type>
 					<max-radar-rng-km>410</max-radar-rng-km>
@@ -2623,7 +2623,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 
   <radar2>
-  <hasrcs type="double">1</hasrcs>
+  <hasrcs type="double">0</hasrcs> <!--will be functional soon-->
   <direction type="double">0</direction>
 	<lockmarker type="double">0</lockmarker>
    <sweep-width-m type="double">0.0844</sweep-width-m>
