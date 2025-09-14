@@ -44,7 +44,7 @@ var getrcs = func(testing) {
     if (modelprop == nil) {
         #print("modelprop is nil!");
         modelprop = nil;
-        return 0; # Dont let the radar track an invalid model
+        return 1;
     } else {
         # model property is not nothing. turn the full path into a single string. turns "Aircraft/f16/models/F-16.xml" into just "F-16" (hopefully)
         var thestring = io.basename(modelprop);
@@ -56,6 +56,7 @@ var getrcs = func(testing) {
         var rcs = searchdb(thestring);
         if (rcs == nil) {
             # No rcs
+            print("nrcs");
             return 1;
         } else {
             # RCS Given
@@ -65,7 +66,7 @@ var getrcs = func(testing) {
             return 1;
         }
     }
-#    return 0;
+    return 1;
 }
 
 database();
