@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">249th EFS RR --OmegaRR</name>     
+<texture-AKfuselage>Liveries/RR/newbody.png</texture-AKfuselage>
+<texture-abovecpt>Liveries/RR/abovecpt.dds</texture-abovecpt>
+<texture-body2>Liveries/RR/body2.png</texture-body2>
+<texture-extracontrols>Liveries/RR/flaps.png</texture-extracontrols>
+ <texture-sides>Liveries/RR/elevs.png</texture-sides>
+ <texture-sideL>Liveries/RR/SIDER.png</texture-sideL>
+  <texture-sideR>Liveries/RR/SIDER.png</texture-sideR>
+ <texture-left-elev-top>Liveries/RR/leftelev.dds</texture-left-elev-top>
+ <texture-right-elev-top>Liveries/RR/rightelev.dds</texture-right-elev-top>
+  <texture-tailR>Liveries/RR/RR-TAIL-R.png</texture-tailR>
+  <texture-tailL>Liveries/RR/RR-TAIL-L.png</texture-tailL>
+ <texture-wing>Liveries/RR/wing.dds</texture-wing>
+  <texture-wing-right>Liveries/RR/wingright.dds</texture-wing-right>
+ <texture-control>Liveries/RR/wing.png</texture-control>
+  <texture-nose>Liveries/RR/attemptnose.dds</texture-nose>
+  <texture-exttail>Liveries/RR/INNER-TAIL.png</texture-exttail>
+<texture-bottom>Liveries/RR/bottom.dds</texture-bottom>
+<texture-underwing>Liveries/RR/leftwingbottom.dds</texture-underwing>
+<texture-undercpt>Liveries/RR/undercpt.dds</texture-undercpt>
+
+<texture-underelev>Liveries/RR/underelev.png</texture-underelev>
+<texture-baysandother>Liveries/RR/bays.png</texture-baysandother>
+
+
+
+    </livery>
+  </model>
+</sim>
+
+</PropertyList>
