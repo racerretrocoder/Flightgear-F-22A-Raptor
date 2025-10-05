@@ -518,9 +518,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
 
-<function name="fcs/vector-rad">  
+<function name="fcs/vector-rad">   <!-- 77 DEG -->
     <product>
-      <property>fcs/fbw-override</property> <!--if its Zero. Itll Cancel out the glimit, Making this function output 0-->
+      <property>fcs/fbw-override</property>
         <table>
             <independentVar lookup="row">fcs/tv-animation</independentVar>
             <tableData>
@@ -2208,7 +2208,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
               -0.20 -0.640
                0.00  0.080
                0.36  1.000
-               0.90  0.448
+               0.90  0.648
             </tableData>
           </table>
       </product>
@@ -2269,7 +2269,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
              -0.46    0.031
               0.00    0.024
               0.46    0.031
-              1.57    2.300
+              1.57    1.570
             </tableData>
           </table>
        </product>
@@ -2286,16 +2286,16 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <tableData>
               0       0
               1       0
-              2       0.002
-              3       0.004
-              4       0.006
-              5       0.028
-              6       0.102
-              7       0.124
-              8       0.146
-              9       0.164
-              10      0.185
-              11      0.206
+              2       0.001
+              3       0.003
+              4       0.005
+              5       0.027
+              6       0.101
+              7       0.123
+              8       0.145
+              9       0.163
+              10      0.184
+              11      0.204
             </tableData>
           </table>
        </product>
@@ -2325,7 +2325,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
                 1.10      0.010
                 1.80      0.015
                 2.60      0.035
-            </tableData>
+            </tableData> <!--Top speed mach 2.73 @ 46k-->
           </table>
         </product>
     </function>
@@ -2431,7 +2431,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <function name="aero/moment/rolltest">
        <description>EXT FDM TEST</description>
        <product>
-           <property>/controls/flight/EXTFDM</property>
+           <property>/controls/flight/EXTFDM</property> <!--For the External FDM Debugger : ASAD-->
            <value>100000000</value>
        </product>
     </function>
@@ -2534,7 +2534,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <table>
             <independentVar lookup="row">velocities/mach</independentVar>
             <tableData>
-              0.0     -0.800
+              0.0     -1.300
               2.0     -0.200
             </tableData>
           </table>
@@ -2599,7 +2599,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>
-           <value>-0.1</value>
+           <value>-0.21</value>
        </product>
     </function>
 
