@@ -9,7 +9,7 @@ print("messages.nas: INIT");
 var wheelmaxspeed = 250;
 var geardownmaxspeed = 300;
 var vne = 990;
-var enabled = getprop("messages/enabled") or 1;
+var enabled = 0
 
 
 var mainloop = func() {
@@ -39,4 +39,4 @@ var mainloop = func() {
 print("messages.nas: Ready");
 
 looptimer = maketimer(1.5,mainloop);
-looptimer.start();
+#looptimer.start();

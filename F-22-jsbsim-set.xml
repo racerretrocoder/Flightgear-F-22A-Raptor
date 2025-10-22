@@ -118,6 +118,7 @@
                 <target-speed-fps type="double">0</target-speed-fps>
             </pushback>
 			<path>Aircraft/F-22/Models/F-22-Raptor.xml</path>
+			<fallback-model-index type="int">516</fallback-model-index>
 	<livery>
 		<name type="string">Aircraft/F-22/Models/Liveries/AK.xml</name>
 		<file type="string">AK</file>
