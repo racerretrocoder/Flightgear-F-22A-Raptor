@@ -121,19 +121,19 @@ var Loading_missile = func(name)
     {
         # AIM-9X:short-range A2A,IR seeker,
 	    typeid = 98;
-        flareres = 0.990; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
+        flareres = 0.999; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
-        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         maxdetectionrngnm = 52;               
         fovdeg = 180;                                 # seeker optical FOV
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 180;                            # Seeker max total angular rotation
         maxg = 60;                                    # Thurst vectoring rocket motor
-        thrustlbs = 500;                             # 
-        thrustdurationsec = 2;           
-        thrustlbsstage2 = 500;
-        thrustdurationsecstage2 = 6.2;             # slowed acceleration seems needed here
+        thrustlbs = 300;                             # 
+        thrustdurationsec = 7;           
+        thrustlbsstage2 = 200;
+        thrustdurationsecstage2 = 1.2;             # slowed acceleration seems needed here
         weightlaunchlbs = 246; # launch + fuel, 186 + 60
         weightwarheadlbs = 20.8;
         dragcoeff = 0.08;                              # guess; original 0.05
