@@ -730,6 +730,7 @@ var Radar = {
             if(Target_Index > size(tgts_list) - 1)
             {
                 Target_Index = 0;
+                screen.log.write("displayTarget: Set index to 0");
             }
             var MyTarget = tgts_list[Target_Index];
             closeRange   = me.targetRange(MyTarget);
@@ -1385,6 +1386,7 @@ GetTarget = func(){
     if(Target_Index > size(tgts_list) - 1)
     {
         Target_Index = 0;
+        screen.log.write("Set to 0");
     }
     return tgts_list[Target_Index];
 }

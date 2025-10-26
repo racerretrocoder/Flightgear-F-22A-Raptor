@@ -2208,7 +2208,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
               -0.20 -0.640
                0.00  0.080
                0.36  1.000
-               0.90  0.648
+               1.22  0.848
             </tableData>
           </table>
       </product>
@@ -2268,8 +2268,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
              -1.57    2.500
              -0.46    0.031
               0.00    0.024
-              0.46    0.031
-              1.57    1.570
+              0.76    0.031
+              1.67    1.570
             </tableData>
           </table>
        </product>
@@ -2413,7 +2413,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>aero/beta-rad</property>
-           <value>-0.1</value>
+           <value>-0.001</value>
        </product>
     </function>
 
@@ -2431,7 +2431,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <function name="aero/moment/rolltest">
        <description>EXT FDM TEST</description>
        <product>
-           <property>/controls/flight/EXTFDM</property> <!--For the External FDM Debugger : ASAD-->
+           <property>/controls/flight/EXTFDM</property> <!--For the External FDM Debugger-->
            <value>100000000</value>
        </product>
     </function>
@@ -2443,7 +2443,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>metrics/bw-ft</property>
            <property>aero/bi2vel</property>
            <property>velocities/r-aero-rad_sec</property>
-           <value>0.15</value>
+           <value>0.0001</value>
        </product>
     </function>
 
@@ -2465,7 +2465,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>metrics/Sw-sqft</property>
            <property>metrics/bw-ft</property>
            <property>fcs/rudder-pos-rad</property>
-           <value>0.01</value>
+           <value>0.0001</value>
        </product>
     </function>
 
