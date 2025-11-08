@@ -2,11 +2,11 @@
 
 <PropertyList>
 
- <path>Aircraft/F-22/Models/Effects/vapour/mach-cone.ac</path>
+ <path>Aircraft/F-22/Models/Effects/Vapour/mach-cone.ac</path>
  <nopreview/>
 
  <effect>
-  <inherits-from>Aircraft/F-22/Models/Effects/vapour/mach-cone</inherits-from>
+  <inherits-from>Aircraft/F-22/Models/Effects/Vapour/mach-cone</inherits-from>
   <object-name>Bounding_box</object-name>
   <parameters>
 
