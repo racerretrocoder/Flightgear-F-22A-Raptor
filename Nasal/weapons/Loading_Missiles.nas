@@ -150,33 +150,33 @@ var Loading_missile = func(name)
     }
     elsif(name == "Aim-9m")
     {
-        # AIM-9m :short-range A2A,IR seeker,
-        flareres = 0.85; 
-	    typeid = 69; # This is not a Aim-9m this is an Aim-9x with way less homing capabilites. So you can evade it with out the need for flares. just pull a manuver so that its 30deg away from the seeker and there you go   
-        address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9M-smoke.xml";
-        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9M.xml";
+        # AIM-9X:short-range A2A,IR seeker,
+	    typeid = 98;
+        flareres = 0.90; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
+        address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        maxdetectionrngnm = 12;                       # Not real Impact yet A little more than the MICA
-        fovdeg = 85;                                 # Test missile for evading with no countermessures
-        detectionfovdeg = 85;                        # Test missile for evading with no countermessures
-        trackmaxdeg = 85;                            # Test missile for evading with no countermessures
-        maxg = 50;                                    #
-        thrustlbs = 2880;            
-        thrustdurationsec = 1;       
-        thrustlbsstage2 = 2880;
-        thrustdurationsecstage2 = 4.2;
-        weightlaunchlbs = 246; # laun
+        maxdetectionrngnm = 52;               
+        fovdeg = 140;                                 # seeker optical FOV
+        detectionfovdeg = 140;                        # Search pattern diameter (rosette scan)
+        trackmaxdeg = 140;                            # Seeker max total angular rotation
+        maxg = 40;                                    # Thurst vectoring rocket motor
+        thrustlbs = 290;                             # 
+        thrustdurationsec = 7;           
+        thrustlbsstage2 = 400;
+        thrustdurationsecstage2 = 6.2;             # slowed acceleration seems needed here
+        weightlaunchlbs = 246; # launch + fuel, 186 + 60
         weightwarheadlbs = 20.8;
-        dragcoeff = 0.05;                             
-        dragarea = 0.075;                             
-        maxExplosionRange = 50;                      
-        maxspeed = 2.6;                               
-        life = 10000; # will self destruct when the missile is slower than  sdspeed and is "armed" (3 seconds pasted sense it shot)
+        dragcoeff = 0.08;                              # guess; original 0.05
+        dragarea = 0.013;                             # sq ft
+        maxExplosionRange = 15;                       
+        maxspeed = 3;                               # In Mach
+        life = 90;
         fox = "Fox 2";
         rail = "true";
         cruisealt = 0;
         chute = 0;
-        sdspeed = 0.0;
+        sdspeed = 0.01;
         isbomb = 0;
     }
 
@@ -271,7 +271,7 @@ var Loading_missile = func(name)
         thrustlbsstage2 = 280;
         thrustdurationsec = 20;
         thrustdurationsecstage2 = 18;                      # 
-        weightlaunchlbs = 4021; # weightlaunch + fuel
+        weightlaunchlbs = 200; # weightlaunch + fuel
         weightwarheadlbs = 44;
         dragcoeff = 0.17;                              # really slow lowerd it a bit
         dragarea = 0.0236;                            # sq ft
