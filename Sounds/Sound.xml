@@ -1259,7 +1259,7 @@
 <and>
             <greater-than>
                 <property>fdm/jsbsim/aero/alpha-deg</property>
-                <value>30</value>
+                <value>60</value>
             </greater-than>
         <equals>
 		    <property>/sim/current-view/internal</property>
@@ -1290,7 +1290,7 @@
 <and>
             <greater-than>
                 <property>fdm/jsbsim/aero/alpha-deg</property>
-                <value>30</value>
+                <value>60</value>
             </greater-than>
         <equals>
 		    <property>/sim/current-view/internal</property>
