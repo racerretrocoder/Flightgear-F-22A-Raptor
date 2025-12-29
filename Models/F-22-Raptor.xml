@@ -2227,7 +2227,7 @@ FR
 	<animation>
 		<type>rotate</type>
 			<object-name>right-flap</object-name>
-				<property>sim/multiplay/generic/float[40]</property>
+				<property>sim/multiplay/generic/float[38]</property>
 					<factor>-30</factor>
 						<axis>
 							<x1-m>5.26073</x1-m>
@@ -3046,6 +3046,7 @@ FR
 
   <animation>
   <type>material</type>
+  <object-name>Right_Back_Turbina_0</object-name>
   <object-name>Right_Back_Turbina_1</object-name>
 <emission>
    <red>1</red>
