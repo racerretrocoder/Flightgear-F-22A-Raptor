@@ -345,7 +345,7 @@ Theres soo many
 <bool n="2" type="bool" alias="/damage/fire/crashflame"/>
 <bool n="3" type="bool" alias="/damage/fire/crashsmoke"/>
 <bool n="4" type="bool" alias="/damage/fire/crashsmolfire"/>
-<bool n="5" type="bool" alias="/f22/party"/> <!--PARTY!!-->
+
 <!--            <crashsmolfire type="bool">false</crashsmolfire>
             <crashsmoke type="bool">false</crashsmoke>
             <crashflame type="bool">false</crashflame>
@@ -365,7 +365,7 @@ Theres soo many
 
  <float n="21" type="double" alias="/fdm/jsbsim/fcs/Elev-pos-norm-limit-sum-main"/>
  <float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
- <float n="23" type="double" alias="/fdm/jsbsim/fcs/flap-pos-deg"/>	<!--Controls-->
+ <float n="23" type="double" alias="/fdm/jsbsim/fcs/left-flaperon-pos-norm"/>
   <float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
  <float n="25" type="double" alias="/fdm/jsbsim/fcs/tv-animation"/>
  <float n="26" type="double" alias="/fdm/jsbsim/fcs/ail-pos-norm-limit-sum-main"/>
@@ -387,7 +387,7 @@ Theres soo many
 <float n="37" type="double" alias="/fdm/jsbsim/fcs/apuflap1"/>	
 <float n="38" type="double" alias="/controls/apu/smokespeed"/>	
 <float n="39" type="double" alias="/f22/head-hdg-deg"/>	
-
+ <float n="40" type="double" alias="/fdm/jsbsim/fcs/right-flaperon-pos-norm"/>
 <int n="2" type="int">1</int><!-- radar-standby (Enemy RWR Detection) -->
 <int n="3" type="int">0</int><!-- KY58 int -->
 <int n="15" type="int" alias="/f22/ejected"/>
@@ -427,7 +427,7 @@ Theres soo many
 <!--Done! String[5] is now the stores string. it cycles between pylons around once per second. Deciphers the string kinda like the dtc code splitting it between :'s-->
 
 </generic>		
-<visibility-range-nm type="int">900</visibility-range-nm> <!--Dosent work here for some reason-->
+<visibility-range-nm type="int">2000</visibility-range-nm> <!--Dosent work here for some reason-->
 	</multiplay>
 	        <help n="0" include="System/help.xml"/>
 <!--		<hud>
@@ -1920,6 +1920,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <isbingo type="int">0</isbingo>
 <blink type="int">0</blink>
 <throttle type="double">-0.1</throttle>
+<mslbright type="double">10</mslbright>
+
 </f22>
 
 
@@ -2265,7 +2267,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  <value>2</value>
  <value>4</value>
 </binding>
-  <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
+  <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);var weaponname = getprop("controls/armament/selected-weapon");missile.Loading_missile(weaponname);</script></binding>
    <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 0)</script></binding>
       <binding><command>nasal</command><script>setprop("/controls/missile", 3)</script></binding>
  </key> 
@@ -2289,8 +2291,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
   <value>4</value>
 </binding>
-  <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
-   <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 1)</script></binding>
+  <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);var weaponname = getprop("controls/armament/selected-weapon");missile.Loading_missile(weaponname);</script></binding>
+   <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 0)</script></binding>
       <binding><command>nasal</command><script>setprop("/controls/missile", 3)</script></binding>
  </key> 
 

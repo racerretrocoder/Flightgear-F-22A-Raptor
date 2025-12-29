@@ -89,8 +89,12 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
 -->
 
-
-
+		<object-name>rfd</object-name>
+		<object-name>lfd</object-name>
+		<object-name>rfd2</object-name>
+		<object-name>lfd2</object-name>
+        <object-name>9xdl</object-name>
+        <object-name>9xdr</object-name>
         <object-name>Left_Main_Gear_Do.001</object-name>
         <object-name>right-main-door-down</object-name>
         <object-name>Right_Main_Gear_D</object-name>
@@ -106,7 +110,8 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
         <object-name>9xdl1</object-name>
         <object-name>Fuselage_2s</object-name>
         <object-name>Fuselage_2</object-name>
-        <object-name>left-nosegear-door</object-name>
+		<object-name>left-nosegear-door</object-name>
+		<object-name>right-nosegear-door</object-name>
         <object-name>left-main-door-up</object-name>
         <object-name>Left_Keel_1</object-name>
         <object-name>Right_Keel_1</object-name>
@@ -382,7 +387,16 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
         <object-name>9xdl2</object-name>
         <object-name>9xdr1</object-name>
         <object-name>9xdr2</object-name>
+        <object-name>9xdl</object-name>
+        <object-name>9xdr</object-name>
+		<object-name>rfd</object-name>
+		<object-name>lfd</object-name>
+		<object-name>rfd2</object-name>
+		<object-name>lfd2</object-name>
+		<object-name>left-nosegear-door</object-name>
+		<object-name>right-nosegear-door</object-name>
 
+		
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-baysandother</texture-prop>
   <texture>/Liveries/bays.png</texture> <!--Models/flaps.png-->
@@ -657,33 +671,57 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
     </condition>
   </animation>
-
+<!--
  <model>
   <name>left-strake-vortex</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.xml</path>
+  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex-mini.xml</path>
   <offsets>
-   <x-m>-2.9</x-m>
-   <y-m>-1.3</y-m>
+   <x-m>0.4</x-m>
+   <y-m>-1.53</y-m>
    <z-m>-0.8</z-m>
 
-   <heading-deg>-10</heading-deg>
+   <heading-deg>-15</heading-deg>
   </offsets>
  </model>
 
  <model>
   <name>right-strake-vortex</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.xml</path>
+  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex-mini.xml</path>
   <offsets>
-   <x-m>-2.9</x-m>
-   <y-m>1.3</y-m>
+   <x-m>0.4</x-m>
+   <y-m>1.53</y-m>
    <z-m>-0.8</z-m>
-
-   <heading-deg>10</heading-deg>
+   <heading-deg>15</heading-deg>
   </offsets>
  </model>
-  <model>
+
+ <model>
   <name>left-strake-vortex2</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.xml</path>
+  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex-mini.xml</path>
+  <offsets>
+   <x-m>1.4</x-m>
+   <y-m>-2.9</y-m>
+   <z-m>-0.8</z-m>
+
+   <heading-deg>-20</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>right-strake-vortex2</name>
+  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex-mini.xml</path>
+  <offsets>
+   <x-m>1.4</x-m>
+   <y-m>2.9</y-m>
+   <z-m>-0.8</z-m>
+   <heading-deg>20</heading-deg>
+  </offsets>
+ </model>
+
+-->
+  <model>
+  <name>left-strake-vortex3</name>
+  <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex.xml</path>
   <offsets>
    <x-m>-2.7</x-m>
    <y-m>-1.53</y-m>
@@ -693,9 +731,10 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   </offsets>
  </model>
 
+
  <model>
-  <name>right-strake-vortex2</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.xml</path>
+  <name>right-strake-vortex3</name>
+  <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex.xml</path>
   <offsets>
    <x-m>-2.7</x-m>
    <y-m>1.53</y-m>
@@ -705,12 +744,44 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   </offsets>
  </model>
 
+
+
+ <model>
+  <name>right-strake-vortex3</name>
+  <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex.xml</path>
+  <offsets>
+   <x-m>-2.7</x-m>
+   <y-m>1.3</y-m>
+   <z-m>-0.8</z-m>
+
+   <heading-deg>10</heading-deg>
+  </offsets>
+ </model>
+
+
+
+  <model>
+  <name>left-strake-vortex3</name>
+  <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex.xml</path>
+  <offsets>
+   <x-m>-2.7</x-m>
+   <y-m>-1.3</y-m>
+   <z-m>-0.8</z-m>
+
+   <heading-deg>-10</heading-deg>
+  </offsets>
+ </model>
+
+
+
  <animation>
     <type>select</type>
     <object-name>right-strake-vortex</object-name>
     <object-name>left-strake-vortex</object-name>
     <object-name>right-strake-vortex2</object-name>
     <object-name>left-strake-vortex2</object-name>
+    <object-name>right-strake-vortex3</object-name>
+    <object-name>left-strake-vortex3</object-name>
     <condition>
        <and>
     
@@ -929,6 +1000,10 @@ Use below instead
 	<type>select</type>
 	<object-name>AB_FlameLN</object-name>
 	<object-name>AB_FlameRN</object-name>
+	<object-name>ablight1</object-name>
+	<object-name>ablight2</object-name>
+	<object-name>ablight3</object-name>
+	<object-name>ablight4</object-name>
   <condition>
             <greater-than>
 				<property>/sim/time/sun-angle-rad</property>
@@ -2114,13 +2189,46 @@ FR
 		</axis>
 	</animation>
 
+
+	<!--Speedbrakerons-->
+		<animation>
+		<type>rotate</type>
+			<object-name>right-aileron</object-name>
+				<property>sim/multiplay/generic/float[27]</property>
+					<factor>-20</factor>
+						<axis>
+							<x1-m>4.8723</x1-m>
+							<y1-m>4.5645</y1-m>
+						<z1-m>-0.667611</z1-m>
+					<x2-m>4.48416</x2-m>
+				<y2-m>5.88276</y2-m>
+			<z2-m>-0.667611</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+			<object-name>left-aileron</object-name>
+				<property>sim/multiplay/generic/float[27]</property>
+					<factor>20</factor>
+						<axis>
+							<x1-m>4.88483</x1-m>
+							<y1-m>-4.56758</y1-m>
+						<z1-m>-0.66688</z1-m>
+					<x2-m>4.47688</x2-m>
+				<y2-m>-5.91991</y2-m>
+			<z2-m>-0.66688</z2-m>
+		</axis>
+	</animation>
+
+
 <!-- Flap animations -->
 
 	<animation>
 		<type>rotate</type>
 			<object-name>right-flap</object-name>
-				<property>sim/multiplay/generic/float[23]</property>
-					<factor>1</factor>
+				<property>sim/multiplay/generic/float[40]</property>
+					<factor>-30</factor>
 						<axis>
 							<x1-m>5.26073</x1-m>
 								<y1-m>1.8939</y1-m>
@@ -2135,7 +2243,7 @@ FR
 	<type>rotate</type>
 		<object-name>left-flap</object-name>
 			<property>sim/multiplay/generic/float[23]</property>
-				<factor>1</factor>
+				<factor>30</factor>
 					<axis>
 						<x1-m>4.511</x1-m>
 							<y1-m>-4.55745</y1-m>
@@ -2145,6 +2253,38 @@ FR
 			<z2-m>-0.667692</z2-m>
 		</axis>
 	</animation>
+
+
+	<animation>
+		<type>rotate</type>
+			<object-name>right-flap</object-name>
+				<property>sim/multiplay/generic/float[27]</property>
+					<factor>20</factor>
+						<axis>
+							<x1-m>5.26073</x1-m>
+								<y1-m>1.8939</y1-m>
+							<z1-m>-0.67044</z1-m>
+						<x2-m>4.50092</x2-m>
+				<y2-m>4.55542</y2-m>
+			<z2-m>-0.638588</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+	<type>rotate</type>
+		<object-name>left-flap</object-name>
+			<property>sim/multiplay/generic/float[27]</property>
+				<factor>20</factor>
+					<axis>
+						<x1-m>4.511</x1-m>
+							<y1-m>-4.55745</y1-m>
+						<z1-m>-0.649812</z1-m>
+					<x2-m>5.08305</x2-m>
+				<y2-m>-1.89392</y2-m>
+			<z2-m>-0.667692</z2-m>
+		</axis>
+	</animation>
+
 
 
 <!-- Nozzle vector animations -->
@@ -2883,6 +3023,167 @@ FR
 		</offsets>
 	</model>
 	-->
+
+
+
+<!--ab stuff-->
+
+
+  <animation>
+  <type>material</type>
+    <object-name>Right_Nozzle_Inner_Si</object-name>
+	  <object-name>Left_Nozzle_Inner_Sid</object-name>
+<emission>
+   <red>1</red>
+   <green>0.5</green>
+   <blue>0</blue>
+   <offset>0.1</offset>
+   <factor-prop>sim/multiplay/generic/float[31]</factor-prop>
+  </emission>
+ </animation>
+  
+
+
+  <animation>
+  <type>material</type>
+  <object-name>Right_Back_Turbina_1</object-name>
+<emission>
+   <red>1</red>
+   <green>0.4</green>
+   <blue>0</blue>
+   <offset>0.01</offset>
+   <factor-prop>sim/multiplay/generic/float[31]</factor-prop>
+  </emission>
+ </animation>
+  
+
+
+<!--Afterburner lights-->
+
+	<model>
+ <name>ablight1</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>4.2</x-m>
+			<y-m>0</y-m>
+			<z-m>-1</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>afterburner1</name>
+   <power-source>sim/multiplay/generic/float[31]</power-source> 
+   <direction>
+    <x>-1</x>
+    <y>0</y>
+    <z>1</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>1</g>
+    <b>1</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>1.0</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
+
+	<model>
+ <name>ablight2</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>4.2</x-m>
+			<y-m>0</y-m>
+			<z-m>-1</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>afterburner1</name>
+   <power-source>sim/multiplay/generic/float[32]</power-source> 
+   <direction>
+    <x>-1</x>
+    <y>0</y>
+    <z>1</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>1</g>
+    <b>1</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>1.0</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
+
+	<model>
+ <name>ablight3</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>4.2</x-m>
+			<y-m>0</y-m>
+			<z-m>-1</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>afterburner1</name>
+   <power-source>sim/multiplay/generic/float[31]</power-source> 
+   <direction>
+    <x>-1</x>
+    <y>0</y>
+    <z>-1</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>1</g>
+    <b>1</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>1.0</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
+
+	<model>
+ <name>ablight4</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>4.2</x-m>
+			<y-m>0</y-m>
+			<z-m>-1</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>afterburner1</name>
+   <power-source>sim/multiplay/generic/float[32]</power-source> 
+   <direction>
+    <x>-1</x>
+    <y>0</y>
+    <z>-1</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>1</g>
+    <b>1</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>1.0</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
+
 	
 <!-- Lights -->
 	<model>
@@ -3187,7 +3488,7 @@ FR
    <direction>
     <x>20</x>
     <y>0.3</y>
-    <z>20</z>
+    <z>40</z>
    </direction>
    <ambient>
     <r>1</r>
@@ -3220,7 +3521,7 @@ FR
    <direction>
     <x>20</x>
     <y>-0.3</y>
-    <z>20</z>
+    <z>40</z>
    </direction>
    <ambient>
     <r>1</r>
@@ -3257,9 +3558,9 @@ FR
    <name>taxilight</name>
    <power-source>sim/multiplay/generic/int[20]</power-source>
    <direction>
-    <x>10</x>
-    <y>0.3</y>
-    <z>20</z>
+    <x>5</x>
+    <y>0</y>
+    <z>8</z>
    </direction>
    <ambient>
     <r>1</r>
@@ -3282,7 +3583,7 @@ FR
         <x-m>-4.4</x-m>
 	    <y-m>-0.0</y-m>
 		<z-m>-2.47099</z-m>
-    <pitch-deg>   -8.000 </pitch-deg>
+    <pitch-deg>   0</pitch-deg>
     <heading-deg>  0 </heading-deg>
  </offsets>
  <overlay>
@@ -3290,9 +3591,9 @@ FR
    <name>taxilight</name>
    <power-source>sim/multiplay/generic/int[20]</power-source>
    <direction>
-    <x>10</x>
-    <y>-0.3</y>
-    <z>20</z>
+    <x>5</x>
+    <y>0</y>
+    <z>8</z>
    </direction>
    <ambient>
     <r>1</r>

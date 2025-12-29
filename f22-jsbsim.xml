@@ -583,6 +583,18 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 </product>
    </function>
 
+<function name="fcs/aileron-no-fbw">  
+    <table>
+            <independentVar lookup="row">fcs/aileron-cmd-norm</independentVar>
+            <independentVar lookup="column">fcs/fbw-override</independentVar>
+            <tableData>
+                    0    1
+              -1   -1    0  
+               0    0    0 
+               1    1    0
+            </tableData>
+    </table>
+</function>
 
 <!--This makes that 0 into a 1 Providing full elevator movement when FBW override is on-->
 <function name="fcs/fbw-override2">  
@@ -611,6 +623,17 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <property>fcs/elevator-pos-norm</property>
 </product>
    </function>
+
+   <function name="fcs/aileron-cmd-norm-limit">  <!--Main Elevator POS with Limit-->
+   <sum>
+<product>
+      <property>fcs/aileron-cmd-norm-power</property>
+      <property>fcs/elevator-pos-norm-limit</property>
+</product>
+      <property>fcs/aileron-no-fbw</property>
+  </sum>
+   </function>
+
 
       <function name="fcs/Elev-pos-norm-limit-sum-g">  <!--BOTH Limiters-->
 <product>
@@ -1101,8 +1124,24 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <channel name="Roll">
 
+    <kinematic name="Roll Delay">
+      <input>fcs/aileron-cmd-norm-limit</input>
+      <traverse>
+        <setting>
+          <position>-1</position>
+          <time>0.5</time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>0.5</time>
+        </setting>
+       </traverse>
+      <output>fcs/aileron-cmd-norm-limit-sm</output>
+   </kinematic>
+
+
    <summer name="Roll Trim Sum">
-      <input>fcs/aileron-cmd-norm-power</input>
+      <input>fcs/aileron-cmd-norm-limit-sm</input>
       <input>fcs/roll-trim-cmd-norm</input>
       <clipto>
         <min> -1 </min>
@@ -1701,7 +1740,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <independentVar lookup="row">/controls/lighting/landing-lights</independentVar>
     <tableData>
      0     0  
-     1    50
+     1    200
 
     </tableData>
    </table>
@@ -1712,7 +1751,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <independentVar lookup="row">/controls/lighting/taxi-light</independentVar>
     <tableData>
      0     0  
-     1    2
+     1    30
 
     </tableData>
    </table>
@@ -1743,6 +1782,39 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             </tableData>
         </table>
    </function>
+
+
+
+
+<!--flaperons-->
+<function name="fcs/left-flaperon-pos-norm">
+      <description>Left flaperon position</description>
+      <table>
+        <independentVar lookup="row">fcs/left-aileron-pos-norm</independentVar>
+        <independentVar lookup="column">fcs/flap-pos-norm</independentVar>
+        <tableData>
+				 0   1  <!--Should be pointing down-->
+    -1  -1   0
+     0   0   1
+     1   1   1
+        </tableData>
+      </table>
+    </function>
+<function name="fcs/right-flaperon-pos-norm">
+      <description>Right flaperon position</description>
+      <table>
+        <independentVar lookup="row">fcs/right-aileron-pos-norm</independentVar>
+        <independentVar lookup="column">fcs/flap-pos-norm</independentVar>
+        <tableData>
+				 0   1  <!--Should be pointing down-->
+    -1  -1  -1
+     0   0  -1
+     1   1   0
+        </tableData>
+      </table>
+    </function>
+
+
 <channel name="Vectors">
 
    <aerosurface_scale name="Vector Radian Engine1">

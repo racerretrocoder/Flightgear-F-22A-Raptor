@@ -10,7 +10,146 @@ var dt = 0;
 var isFiring = 0;
 var splashdt = 0;
 var MPMessaging = props.globals.getNode("/payload/armament/msg", 1);
+
+
+
+# Multishot stuff
+
+setprop("controls/armament/multishot/callsign1","");
+setprop("controls/armament/multishot/callsign2","");
+setprop("controls/armament/multishot/callsign3","");
+setprop("controls/armament/multishot/callsign4","");
+setprop("controls/armament/multishot/callsign5","");
+setprop("controls/armament/multishot/callsign6","");
+setprop("controls/armament/multishot/callsign7","");
+setprop("controls/armament/multishot/callsign8","");
+setprop("controls/armament/multishot/numcallsign",1);
+setprop("controls/armament/multishot/message","Multishot Disabled");
+setprop("controls/armament/multishot/lockattempts",0);
+setprop("controls/armament/multishotstate",0);
+setprop("controls/armament/missile/multishot",0);
+
+
+# Radar functions
+
+var attemptmultilock = func(csind) {
+  var lockattempts = getprop("controls/armament/multishot/lockattempts");
+  var total = 100; # 100 attempts for each is ok
+  var mpid = 0;
+  for(var i = 0; i < total; i += 1) {
+      print("In multilock | I | looking for");
+      print(i);
+      print(getprop("controls/armament/multishot/callsign" ~ csind ~ ""));
+      # Cycle the radar
+      radar.next_Target_Index(1,1); # Dont print w/ lock.
+      var cs = getprop("instrumentation/radar/cs");
+      if (getprop("controls/armament/multishot/callsign" ~ csind ~ "") == cs) {
+          print("multilock loop: Radar locked successfully! Firing weapon...");
+          # Radar locked on callsign[csind]
+          # ready to shoot
+          var missile = getprop("controls/missile");
+          setprop("controls/missile", !missile);
+          m2000_load.SelectNextPylon();
+          f22.fire(0,0); # Open the bay doors of the currently selected weapon
+          var pylon = getprop("/controls/armament/missile/current-pylon");
+          m2000_load.dropLoad(pylon);
+          screen.log.write("Multishot Weapon Fired!");
+          print("Should fire Missile");
+          setprop("/controls/armament/missile-trigger", 1);
+          return 1; # Success
+        }
+    }
+    screen.log.write("failed to lock onto:");
+    screen.log.write(getprop("controls/armament/multishot/callsign" ~ csind ~ ""));
+    return 0;
+
+}
+
+
+var multishotradar = func() {
+    setprop("instrumentation/radar/cs","");
+    # refresh the radar and add it to the list
+    radar.next_Target_Index(1,0); # dont print w/ no lock.
+    var radarcallsign = getprop("instrumentation/radar/cs");
+    var numcallsign = getprop("controls/armament/multishot/numcallsign");
+    setprop("controls/armament/multishot/callsign" ~ numcallsign ~ "",radarcallsign);
+}
+
+var multishot = func() {
+    setprop("instrumentation/radar/cs","");
+    # Fire the weapons at the Designated Targets
+    var multishotstate = getprop("controls/armament/multishotstate");
+    if (multishotstate == 0) {
+        return 0;
+    }
+    # Refresh the weapons
+    var weaponname = getprop("controls/armament/selected-weapon");
+    missile.Loading_missile(weaponname);
+    var amnt = getprop("controls/armament/missile/multishot");
+    var numcallsign = getprop("controls/armament/multishot/numcallsign");
+    if (amnt != 0) {
+        print("Ready for a multishot!");
+        for(var i = 1; i < numcallsign+1; i += 1) {
+            print("IN MULTISHOT LOOP i:"~i~"");
+            var lockresult = attemptmultilock(i); 
+        }
+        
+    } else {
+        screen.log.write("The currently selected weapon cant be used with Multishot")
+    }
+}
+
+var multishotreset = func() {
+    screen.log.write("Multishot Reset and disabled");
+    setprop("controls/armament/multishot/callsign1","");
+    setprop("controls/armament/multishot/callsign2","");
+    setprop("controls/armament/multishot/callsign3","");
+    setprop("controls/armament/multishot/callsign4","");
+    setprop("controls/armament/multishot/callsign5","");
+    setprop("controls/armament/multishot/callsign6","");
+    setprop("controls/armament/multishot/callsign7","");
+    setprop("controls/armament/multishot/callsign8","");
+    setprop("controls/armament/multishot/numcallsign",1);
+    setprop("controls/armament/multishotstate",0);
+    setprop("controls/armament/multishot/message","Multishot Disabled");
+}
+var multishotprev = func() {
+    var numcallsign = getprop("controls/armament/multishot/numcallsign");
+    if (numcallsign != 1) {
+        setprop("controls/armament/multishot/numcallsign",numcallsign - 1);
+    } else {
+        screen.log.write("At first target!");
+    }
+}
+var multishotnext = func() {
+    var numcallsign = getprop("controls/armament/multishot/numcallsign");
+    if (numcallsign != 8) {
+        setprop("controls/armament/multishot/numcallsign",numcallsign + 1);
+    } else {
+        screen.log.write("At last target!");
+    }
+}
+
+var multishottoggle = func() {
+    # Refresh the weapons
+    var weaponname = getprop("controls/armament/selected-weapon");
+    missile.Loading_missile(weaponname);
+    var numcallsign = getprop("controls/armament/multishotstate");
+    if (numcallsign == 0) {
+        setprop("controls/armament/multishotstate",1);
+        screen.log.write("Multishot Enabled");
+        setprop("controls/armament/multishot/message","Multishot Enabled");
+    } else {
+        setprop("controls/armament/multishotstate",0);
+        screen.log.write("Multishot Disabled");
+        setprop("controls/armament/multishot/message","Multishot Disabled");
+    }
+}
+
+
+# Controls
 # Trigger
+
 fire_MG = func() {  # b would be in the ()
 
     var time = getprop("/sim/time/elapsed-sec");
@@ -18,6 +157,7 @@ fire_MG = func() {  # b would be in the ()
     if (getprop("controls/armament/trigger") == 0){return;} #hmmm
     if(getprop("/controls/armament/stick-selector") == 1)
     {
+        # guns
         if (getprop("controls/armament/master-arm") == 1) {
         isFiring = 1;
         
@@ -27,30 +167,31 @@ fire_MG = func() {  # b would be in the ()
         } else {
             screen.log.write("Master arm is not armed");
         }
-
-        #
     }
     if(getprop("/controls/armament/stick-selector") == 2)
     {
-     #   if(b == 1)
-     #   {
+        # missiles
             if (getprop("controls/armament/master-arm") == 1) {
+            # multishot check
+            if (getprop("controls/armament/multishotstate") == 1){
+                print("Multiple Target Shot!");
+                multishot();
+            } else {
+                # Normal Control
             # var time = getprop("/sim/time/elapsed-sec");
-            if(time - dt > 1) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
-            {
+                if(time - dt > 0.5) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
+                {
                     var missile = getprop("controls/missile");
-    setprop("controls/missile", !missile);
-                dt = time;
-                m2000_load. SelectNextPylon();
-               f22.fire(0,0); # Open the bay doors of the currently selected weapon
-                var pylon = getprop("/controls/armament/missile/current-pylon");
-                m2000_load.dropLoad(pylon);
-                screen.log.write("Trigger!");
-                print("Should fire Missile");
-                setprop("/controls/armament/missile-trigger", 1);
-
-
-
+                    setprop("controls/missile", !missile);
+                    dt = time;
+                    m2000_load. SelectNextPylon();
+                    f22.fire(0,0); # Open the bay doors of the currently selected weapon
+                    var pylon = getprop("/controls/armament/missile/current-pylon");
+                    m2000_load.dropLoad(pylon);
+                    screen.log.write("Trigger!");
+                    print("Should fire Missile");
+                    setprop("/controls/armament/missile-trigger", 1);
+                }
             }
         } else {
             screen.log.write("Master arm is not armed");
@@ -59,25 +200,30 @@ fire_MG = func() {  # b would be in the ()
 }
 # Pickle
 fire_MG_pic = func() {  # b would be in the ()
-
     var time = getprop("/sim/time/elapsed-sec");
     if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
     if (getprop("controls/armament/pickle") == 0){return;} #hmmm
         if (getprop("controls/armament/master-arm") == 1) {
-        # var time = getprop("/sim/time/elapsed-sec");
-        if(time - dt > 1) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
+            # Multishot check
+        if (getprop("controls/armament/multishotstate") == 1){
+            print("Multiple Target Shot!");
+            multishot();
+        } else {
+        # var time = getprop("/sim/time/elapsed-sec"); 
+        if(time - dt > 0.5) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
             {
-            var missile = getprop("controls/missile");
-            setprop("controls/missile", !missile);
-            dt = time;
-            m2000_load.SelectNextPylon();
-            screen.log.write("Pickle!");
-            f22.fire(0,0); # Open the bay doors of the currently selected weapon
-            var pylon = getprop("/controls/armament/missile/current-pylon");
-            m2000_load.dropLoad(pylon);
-            print("Should fire Missile");
-            setprop("/controls/armament/missile-trigger", 1);
+                var missile = getprop("controls/missile");
+                setprop("controls/missile", !missile);
+                dt = time;
+                m2000_load.SelectNextPylon();
+                screen.log.write("Pickle!");
+                f22.fire(0,0); # Open the bay doors of the currently selected weapon
+                var pylon = getprop("/controls/armament/missile/current-pylon");
+                m2000_load.dropLoad(pylon);
+                print("Should fire Missile");
+                setprop("/controls/armament/missile-trigger", 1);
             }
+        }
     } else {
         screen.log.write("Master arm is not armed");
     }
@@ -282,6 +428,8 @@ var switch_weapon = func(){
             setprop("/controls/armament/selected-weapon-digit",2);
             screen.log.write("Joystick: A/A Selected: "~getprop("/controls/armament/selected-weapon")~"");
             setprop("/controls/armament/weapon-selected", 0);   
+                var weaponname = getprop("controls/armament/selected-weapon");
+                 missile.Loading_missile(weaponname);
             return 0;
             
         }
@@ -290,6 +438,8 @@ var switch_weapon = func(){
             setprop("/controls/armament/selected-weapon-digit",2);
             screen.log.write("Joystick: A/A Selected: "~getprop("/controls/armament/selected-weapon")~"");
             setprop("/controls/armament/weapon-selected", 0);   
+                            var weaponname = getprop("controls/armament/selected-weapon");
+                 missile.Loading_missile(weaponname);
             return 0;
             
         }
@@ -298,6 +448,8 @@ var switch_weapon = func(){
             setprop("/controls/armament/selected-weapon-digit",2);
             screen.log.write("Joystick: A/A Selected: "~getprop("/controls/armament/selected-weapon")~"");
             setprop("/controls/armament/weapon-selected", 0);   
+                            var weaponname = getprop("controls/armament/selected-weapon");
+                 missile.Loading_missile(weaponname);
             return 0;
         }
         if (getprop("/controls/armament/selected-weapon") == "Aim-9x"){
@@ -305,13 +457,17 @@ var switch_weapon = func(){
             setprop("/controls/armament/selected-weapon-digit",2);
             screen.log.write("Joystick: A/A Selected: "~getprop("/controls/armament/selected-weapon")~"");
             setprop("/controls/armament/weapon-selected", 0);   
+                            var weaponname = getprop("controls/armament/selected-weapon");
+                 missile.Loading_missile(weaponname);
             return 0;
         }
         if (getprop("/controls/armament/selected-weapon") == "Aim-120"){
             setprop("/controls/armament/selected-weapon","Aim-260");
             setprop("/controls/armament/selected-weapon-digit",4);
             screen.log.write("Joystick: A/A Selected: "~getprop("/controls/armament/selected-weapon")~"");
-            setprop("/controls/armament/weapon-selected", 0);   
+            setprop("/controls/armament/weapon-selected", 0);
+                            var weaponname = getprop("controls/armament/selected-weapon");
+                 missile.Loading_missile(weaponname);  
             return 0;
         }
         if (getprop("/controls/armament/selected-weapon") == "Aim-260"){
@@ -319,6 +475,8 @@ var switch_weapon = func(){
             setprop("/controls/armament/selected-weapon-digit",1);
             screen.log.write("Joystick: A/A Selected: "~getprop("/controls/armament/selected-weapon")~"");
             setprop("/controls/armament/weapon-selected", 0);   
+                            var weaponname = getprop("controls/armament/selected-weapon");
+                 missile.Loading_missile(weaponname);
             return 0;
         }
 
@@ -331,6 +489,8 @@ var switch_weapon = func(){
             setprop("/controls/armament/selected-weapon-digit",3);
             screen.log.write("Joystick: A/G Selected: "~getprop("/controls/armament/selected-weapon")~"");
             setprop("/controls/armament/weapon-selected", 0);   
+                            var weaponname = getprop("controls/armament/selected-weapon");
+                 missile.Loading_missile(weaponname);
             return 0;
         }
         if (getprop("/controls/armament/selected-weapon") == "GBU-39"){
@@ -338,6 +498,8 @@ var switch_weapon = func(){
             setprop("/controls/armament/selected-weapon-digit",4);
             screen.log.write("Joystick: A/G Selected: "~getprop("/controls/armament/selected-weapon")~"");
             setprop("/controls/armament/weapon-selected", 0);   
+                            var weaponname = getprop("controls/armament/selected-weapon");
+                 missile.Loading_missile(weaponname);
             return 0;
         }
         if (getprop("/controls/armament/selected-weapon") == "JDAM"){
@@ -345,6 +507,8 @@ var switch_weapon = func(){
             setprop("/controls/armament/selected-weapon-digit",1);
             screen.log.write("Joystick: A/G Selected: "~getprop("/controls/armament/selected-weapon")~"");
             setprop("/controls/armament/weapon-selected", 0);   
+                            var weaponname = getprop("controls/armament/selected-weapon");
+                 missile.Loading_missile(weaponname);
             return 0;
         }
         setprop("/controls/armament/weapon-selected", 0);   

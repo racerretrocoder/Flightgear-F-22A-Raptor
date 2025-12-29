@@ -45,7 +45,7 @@ var Loading_missile = func(name)
     var flareres      = 0;          # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
     var isbomb        = 0; # if this weapon is a bomb
     var pbrange       = 0; # in meters
-    
+    var multishot = 0;
 
 
 
@@ -81,6 +81,7 @@ var Loading_missile = func(name)
         chute = 0;
         isbomb = 0;
         pbrange = 10000; # added on 
+        multishot = 6;
     }
 
     elsif(name == "Aim-260")
@@ -115,6 +116,7 @@ var Loading_missile = func(name)
         chute = 0;
         isbomb = 0;
         pbrange = 0;
+        multishot = 6;
     }
 
     elsif(name == "Aim-9x")
@@ -147,6 +149,7 @@ var Loading_missile = func(name)
         chute = 0;
         sdspeed = 0.01;
         isbomb = 0;
+        multishot = 0;
     }
     elsif(name == "Aim-9m")
     {
@@ -178,6 +181,7 @@ var Loading_missile = func(name)
         chute = 0;
         sdspeed = 0.01;
         isbomb = 0;
+        multishot = 0;
     }
 
 
@@ -200,8 +204,8 @@ var Loading_missile = func(name)
         thrustdurationsec = 100;                        #
         weightlaunchlbs = 186;
         weightwarheadlbs = 20.8;
-        dragcoeff = 0;                              # guess; original 0.05
-        dragarea = 0.075;                             # sq ft
+        dragcoeff = 0.01;                              # guess; original 0.05
+        dragarea = 0.000075;                             # sq ft
         maxExplosionRange = 50;                       
         maxspeed = 5;                                 # In Mach
         life = 80000000000000;
@@ -211,6 +215,7 @@ var Loading_missile = func(name)
         sdspeed = 0;
         chute = 0;
         isbomb = 1;  # craters get messy one sec
+        multishot = 8;
     }
  elsif(name == "JDAM")
  {
@@ -231,8 +236,8 @@ var Loading_missile = func(name)
      thrustdurationsec = 100;                        #
      weightlaunchlbs = 186;
      weightwarheadlbs = 1000;
-     dragcoeff = 0.05;                              # guess; original 0.05
-     dragarea = 0;                             # sq ft
+     dragcoeff = 0.01;                              # guess; original 0.05
+     dragarea = 0.000075;                             # sq ft
      maxExplosionRange = 50;                       
      maxspeed = 5;                                 # In Mach
      life = 80000000000000;
@@ -242,6 +247,7 @@ var Loading_missile = func(name)
      sdspeed = 0;
      chute = 0;
      isbomb = 1;
+     multishot = 6;
  }
 
 
@@ -284,76 +290,8 @@ var Loading_missile = func(name)
         cruisealt = 5000;
         chute = 0;
         isbomb = 0;
+        multishot = 0;
     }
-    elsif(name == "XMAA") #Debug missile
-    {
-        
-        # fast
-
-        flareres = 1; # hehehe
-  	    typeid = 52; # Overridden at the end of missile.nas
-        address = "Aircraft/F-22/Models/stores/Missiles/XMAA/XMAA-smoke.xml";
-        NoSmoke = "Aircraft/F-22/Models/stores/Missiles/XMAA/XMAA.xml";
-        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        maxdetectionrngnm = 150.8;                   #  
-        fovdeg = 360;                                #
-        detectionfovdeg = 360;                       #  Loop that missile!
-        trackmaxdeg = 360;                           # 
-        maxg = 1.1;                                  # 
-        thrustlbs = 100;                             # 1,500 to 2,5
-        thrustlbsstage2 = 2800;
-        thrustdurationsec = 5;
-        thrustdurationsecstage2 = 18;                      # 
-        weightlaunchlbs = 591;                       # Its a bit light
-        weightwarheadlbs = 44;                       # to compensate all this coolness it cant be too powerful
-        dragcoeff = 0.3;                             # Slows down quick because of the intake
-        dragarea = 0.056;                            # sq ft
-        maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 5.50001;                              # In Mach
-        life = 10001;
-        fox = "Fox 3";                      # A/G if you want an AGM variant
-        rail = "false";
-        cruisealt = 12000;     
-        chute = 0;
-        isbomb = 0;
-    }
-
-  elsif(name == "TB-01")
-    {
-        # This is a dangerous experimental Nasal Deployed bomb
-        # see TB01.nas for what happens when this bomb hits the ground!
-        # Debug Weapon
-
-        flareres = 1;
-	    typeid = 18;
-        address = "Aircraft/F-22/Models/Stores/Missiles/TB01/TB01.xml"; 
-        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/TB01/TB01.xml"; # for now
-        Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";
-        maxdetectionrngnm = 30;                       # 
-        
-        # This is a free drop bomb.
-
-        fovdeg = 0;                                 # seeker optical FOV
-        detectionfovdeg = 0;                        # Search pattern diameter (rosette scan)
-        trackmaxdeg = 0;                            # Seeker max total angular rotation
-        maxg = 2;                                    # 
-        thrustlbs = 0.00;                             # 
-        thrustdurationsec = 100;                        #
-        weightlaunchlbs = 186;
-        weightwarheadlbs = 1000;
-        dragcoeff = 0.05;                              # guess; original 0.05
-        dragarea = 0.075;                             # sq ft
-        maxExplosionRange = 50;                       
-        maxspeed = 5;                                 # In Mach
-        life = 80000000000000;
-        fox = "Fox 3";    
-        rail = "false";
-        cruisealt = 0;
-        sdspeed = 0; # Weapon self distructs if its slower than mach  0
-        chute = 0;
-        isbomb = 1;
-    }
-
     elsif(name == "eject")   # Used for the ejction seat. Not a missile so we call fox 1 and leave it
     {
            # ejection seat   Aircraft/F-22/Models/pilot/eject.xml
@@ -382,6 +320,7 @@ var Loading_missile = func(name)
         sdspeed = 0;
         chute = 1;
         isbomb = 0;
+        multishot = 0;
     }
     else
     {
@@ -416,6 +355,7 @@ var Loading_missile = func(name)
     setprop("controls/armament/missile/flareres", flareres);
     setprop("controls/armament/missile/isbomb", isbomb);
     setprop("controls/armament/missile/pbrange", pbrange);
+    setprop("controls/armament/missile/multishot", multishot);
     return 1;
 }
 

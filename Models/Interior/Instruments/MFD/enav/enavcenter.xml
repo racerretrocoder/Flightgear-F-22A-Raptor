@@ -73,6 +73,17 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>	
+
+		<model>
+     <name>MULTISHOTpage</name>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/MULTISHOTpage.xml</path>
+			<offsets>
+   <x-m>0.008</x-m>
+      <z-m>0.01</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+
 			<model>
      <name>FCRpage</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/radar/radar-screen.xml</path>
@@ -154,7 +165,16 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 		 </equals>
 	 </condition>
  </animation>
-
+  <animation>
+	 <type>select</type>
+	 <object-name>MULTISHOTpage</object-name>
+	 <condition>   
+		 <equals>
+			 <property>systems/MFD/modemfdc</property>
+			 <value>80</value>
+		 </equals>
+	 </condition>
+ </animation>
  <animation>
 	 <type>select</type>
 	 <object-name>main screen</object-name>

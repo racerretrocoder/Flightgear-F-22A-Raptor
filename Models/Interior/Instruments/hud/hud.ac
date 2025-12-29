@@ -2,7 +2,7 @@ AC3Db
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "ac3dmat3" rgb 0.263158 0.263158 0.263158  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0.642105
 MATERIAL "ac3dmat6" rgb 0 1 0  amb 0 1 0  emis 0 1 0  spec 0 1 0  shi 0  trans 0
-MATERIAL "ac3dmat12" rgb 0.266667 0.266667 0.266667  amb 0.266667 0.266667 0.266667  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
+MATERIAL "ac3dmat12" rgb 0.2 0.2 0.2  amb 0.0631579 0.0631579 0.0631579  emis 0 0 0  spec 0.384211 0.384211 0.384211  shi 128  trans 0
 MATERIAL "ac3dmat13" rgb 0.533333 0.533333 0.533333  amb 0.533333 0.533333 0.533333  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "ac3dmat14" rgb 0.8 0.8 0.8  amb 0.8 0.8 0.8  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
 MATERIAL "Material.HUD.Base" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0.64 0.64 0.64  shi 128  trans 0
@@ -13,6 +13,7 @@ name "Volumenkörpe_wire_088"
 loc -0.242529 -0.0278169 0
 data 21
 Volumenkörpe_wire_08
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Interior/grey-blue-flood.png"
 crease 30.000000
 numvert 135
 0.327787 0.174281 -0.104208
@@ -3706,6 +3707,7 @@ kids 0
 OBJECT poly
 name "poly"
 loc 0.0372132 0.25427 -0.126491
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Interior/grey-blue-flood.png"
 crease 45.000000
 numvert 3
 -0.00688174 -0.0169893 -0.00384568
@@ -3722,6 +3724,7 @@ kids 0
 OBJECT poly
 name "poly"
 loc 0.0499474 0.292777 -0.122714
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Interior/grey-blue-flood.png"
 crease 45.000000
 numvert 4
 0.0027976 -0.000236869 0.00699855
@@ -3740,6 +3743,7 @@ kids 0
 OBJECT poly
 name "poly"
 loc 0.0570695 0.319855 -0.110152
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Interior/grey-blue-flood.png"
 crease 45.000000
 numvert 5
 0.00076079 -0.014739 -0.0114706
@@ -3760,6 +3764,7 @@ kids 0
 OBJECT poly
 name "poly"
 loc 0.0439339 0.288136 0.123895
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Interior/grey-blue-flood.png"
 crease 45.000000
 numvert 5
 0.00967984 0.0043312 -0.00770606
@@ -3780,6 +3785,7 @@ kids 0
 OBJECT poly
 name "poly"
 loc 0.0305033 0.254204 0.127262
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Interior/grey-blue-flood.png"
 crease 45.000000
 numvert 5
 0.00832192 0.0024116 -0.00510966
