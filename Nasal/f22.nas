@@ -410,6 +410,24 @@ var weapon = getprop("/controls/armament/selected-weapon-digit");
                 print("9x doors open");
                 timer_baydoorsclose.start();     
             }
+  } elsif (weapon == 3) {
+# gbu
+            if(time - dt > 1)
+            {
+                dt = time;
+	            	setprop("/controls/baydoors/AIM120", 1);
+                print("bay doors open");
+                timer_baydoorsclose.start();
+            }
+  } elsif (weapon == 4) {
+# jdam
+            if(time - dt > 1)
+            {
+                dt = time;
+	            	setprop("/controls/baydoors/AIM120", 1);
+                print("bay doors open");
+                timer_baydoorsclose.start();
+            }
   }
 }
 
@@ -1043,7 +1061,9 @@ if (getprop("/instrumentation/radar/lock2") != 0){
   var callsign = radar.tgts_list[radar.Target_Index].Callsign.getValue();
   var mpid = misc.smallsearch(callsign);
   var lockedalt = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/position/altitude-ft");
+  var lockedrng = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm");
   setprop("controls/radar/lockedalt",lockedalt);
+  setprop("controls/radar/lockedrange",lockedrange);
   setprop("controls/radar/lockedcallsign", radar.tgts_list[radar.Target_Index].Callsign.getValue());
   } else {
   # Not locked on

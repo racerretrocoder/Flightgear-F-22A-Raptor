@@ -26,7 +26,9 @@ if (pg == 2) {
     print(pg);
 } elsif (pg == 9){
 setprop("controls/CMS/prgmselected",5);
-
+}
+elsif (pg == 8){
+    guns.multishottoggle();
 } elsif (pg == 1){
     print(pg);   
 } elsif (pg == 3){
@@ -54,14 +56,20 @@ if (pg == 0) {
 }
 elsif (pg == 9){
 setprop("controls/CMS/prgmselected",4);
-
 }
+elsif (pg == 1){
+setprop("systems/MFD/modemfdr",8);
+}
+elsif (pg == 8){
+    guns.multishotreset();
+}
+
 elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
 } elsif (pg == 3){
-   print(pg);
+    print(pg);
    screen.log.write("Set Coords to the Current Weapon(s)!");   
    var slottype = getprop("controls/radar/currentslot");
    var lat = getprop("controls/radar/slot[" ~ slottype ~ "]/lat");
@@ -98,6 +106,9 @@ if (pg == 1) {
 elsif (pg == 9){
     setprop("controls/CMS/prgmselected",3);
 }
+elsif (pg == 8){
+    guns.multishotprev();
+}
 elsif (pg == 2) {
     print(pg);
 } elsif (pg == 3){
@@ -123,31 +134,8 @@ if (pg == 0) {
 }elsif (pg == 9){
 setprop("controls/CMS/prgmselected",2);
 }
-elsif (pg == 8) {
-    # PRF Decrease
-    print(pg);
-    # DeLRease Radar Range
-    var rng = getprop("controls/PRF/range");
-# 10,20,40,60,160,300
-if (rng == 5){
-    print("Cant decrease it anymore");
-}
-elsif (rng == 10) {
-    setprop("controls/PRF/range", 5);
-} elsif (rng == 20){
-    # InLRease it
-    setprop("controls/PRF/range", 10);
-} elsif (rng == 40){
-    # InLRease it
-    setprop("controls/PRF/range", 20);
-} elsif (rng == 60){
-    # InLRease it
-    setprop("controls/PRF/range", 40);
-} elsif (rng == 160){
-    setprop("controls/PRF/range", 60);
-} elsif (rng == 300){
-    setprop("controls/PRF/range", 160);
-}
+elsif (pg == 8){
+    guns.multishotnext();
 }
 elsif (pg == 2) {
     print(pg);
@@ -264,32 +252,10 @@ if (pg == 0) {
 elsif (pg == 9){
 setprop("controls/CMS/prgmselected",1);
 }
-elsif (pg == 8) {
-    # PRF Decrease
-    print(pg);
-    # DeLRease Radar Range
-    var rng = getprop("controls/PRF/range");
-# 10,20,40,60,160,300
-if (rng == 5){
-    setprop("controls/PRF/range", 10);
+elsif (pg == 8){
+    guns.multishotradar();
 }
-elsif (rng == 10) {
-    setprop("controls/PRF/range", 20);
-} elsif (rng == 20){
-    # InLRease it
-    setprop("controls/PRF/range", 40);
-} elsif (rng == 40){
-    # InLRease it
-    setprop("controls/PRF/range", 60);
-} elsif (rng == 60){
-    # InLRease it
-    setprop("controls/PRF/range", 160);
-} elsif (rng == 160){
-    setprop("controls/PRF/range", 300);
-} elsif (rng == 300){
-    setprop("controls/PRF/range", 300);
-}
-}
+
 
 elsif (pg == 2) {
 

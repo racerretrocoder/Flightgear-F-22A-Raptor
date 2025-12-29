@@ -33,7 +33,7 @@ var HUD = {
       m.canvas.createGroup()
               .setScale(1, 1/math.cos(25 * math.pi/180))
               .setTranslation(0, 0)
-              .set("font", "lucida.txf")
+              .set("font", "LiberationFonts/LiberationMono-Regular.ttf")
               .setDouble("character-size", 18)
               .setDouble("character-aspect-ration", 0.9)
               .set("stroke", "rgba(0,255,0,0.9)");

@@ -1,0 +1,585 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/multishot.ac</path>
+
+	<!---->
+
+
+<!--Numbers to edit-->
+
+	 <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.065</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">radar</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+	 <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.028</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Next</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ 	 <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>-0.009</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">PREV</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>-0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">reset</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 	 <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>-0.083</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Toggle</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+<!--
+
+<text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.04</y-m>
+   <z-m>-0.03</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Total Fuel</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.03</y-m>
+   <z-m>-0.04</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Bingo</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ <text>
+  <name>fuel-lb</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.03</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.2f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/total-fuel-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+  <text>
+  <name>fuel-lb</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.04</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>f22/bingo</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+
+-->
+
+
+
+ <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.04</y-m>
+   <z-m>-0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/numcallsign</property>
+    <format type="string">Editing Target %s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+  <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.04</y-m>
+   <z-m>-0.036</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/numcallsign</property>
+    <format type="string">Will drop %s weapons</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.04</y-m>
+   <z-m>-0.026</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/message</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.04</y-m>
+   <z-m>0.06</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">literal</type>
+    <text type="string">--- Multishot Targets ---</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.05</y-m>
+   <z-m>0.05</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/missile/multishot</property>
+    <format type="string">maximum of %s targets per shot</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.04</y-m>
+   <z-m>0.04</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/callsign1</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <text>
+  <name>fuel-lb</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>-0.04</y-m>
+   <z-m>0.03</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/callsign3</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+ <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.01</y-m>
+   <z-m>0.04</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/callsign2</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <text>
+  <name>fuel-lb</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>0.01</y-m>
+   <z-m>0.03</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/callsign4</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+
+
+
+ <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.04</y-m>
+   <z-m>0.02</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/callsign5</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <text>
+  <name>fuel-lb</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>-0.04</y-m>
+   <z-m>0.01</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/callsign7</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+ <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.01</y-m>
+   <z-m>0.02</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/callsign6</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <text>
+  <name>fuel-lb</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>0.01</y-m>
+   <z-m>0.01</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/armament/multishot/callsign8</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+
+
+
+<!--EXT TANKS
+
+
+ <text>
+  <name>fuel-headext</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.05</y-m>
+   <z-m>0.01</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">PROGRAM</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <text>
+  <name>fuel-lb</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>-0.05</y-m>
+   <z-m>0.00</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">Program%5.0f </format>
+  <truncate type="bool">true</truncate>
+  <property>controls/CMS/prgmselected</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+  <text>
+  <name>fuel-lb</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>-0.05</y-m>
+   <z-m>-0.01</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">string</type>
+   <format type="string">Name        %s</format>
+  <truncate type="bool">true</truncate>
+  <property>controls/CMS/prgmname</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+ <text>
+  <name>fuel-headext</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.02</y-m>
+   <z-m>0.01</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Right EXT tank</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+  <text>
+  <name>fuel-lbext</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+ <x-m>0.01</x-m>
+   <y-m>0.02</y-m>
+   <z-m>0.00</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/tank[3]/level-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+ <text>
+  <name>bingo</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.015</y-m>
+   <z-m>-0.013</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">BINGO FUEL</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>-->
+
+ 	 <animation>
+  <type>material</type>
+  <object-name>fuel-lb</object-name>
+  <object-name>fuel-head</object-name>
+  <object-name>fuel-lbext</object-name>
+  <object-name>fuel-headext</object-name>
+  <ambient>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.0</red>
+    <green>0.8</green>
+    <blue>0.0</blue>
+  </emission> 
+ </animation>
+ 	 <animation>
+  <type>material</type>
+  <object-name>bingo</object-name>
+
+  <ambient>
+    <red>0.1</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.1</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.8</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </emission> 
+ </animation>
+
+
+
+ <animation>
+    <type>select</type>
+    <object-name>fuel-lbext</object-name>
+  <object-name>fuel-headext</object-name>
+    <condition>
+  <and>
+      <greater-than>
+       <property>consumables/fuel/tank[2]/level-lbs</property>
+       <value>0</value>
+      </greater-than>
+      <greater-than>
+       <property>consumables/fuel/tank[3]/level-lbs</property>
+       <value>0</value>
+      </greater-than>
+</and>
+    </condition>
+  </animation>
+
+ <animation>
+    <type>select</type>
+    <object-name>bingo</object-name>
+
+    <condition>
+  <and>
+      <equals>
+       <property>f22/isbingo</property>
+       <value>1</value>
+      </equals>
+      <equals>
+       <property>f22/blink</property>
+       <value>1</value>
+      </equals>
+</and>
+    </condition>
+  </animation>
+
+
+</PropertyList>

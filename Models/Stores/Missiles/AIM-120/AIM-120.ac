@@ -17,7 +17,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.11312e-005
@@ -674,7 +674,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11982e-005
@@ -1331,7 +1331,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.1228e-005
@@ -1988,7 +1988,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -2645,7 +2645,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -3302,7 +3302,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -3963,7 +3963,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -4620,7 +4620,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -5277,7 +5277,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -5934,7 +5934,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11237e-005
@@ -6591,7 +6591,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.12057e-005
@@ -7248,7 +7248,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.1228e-005
@@ -7909,7 +7909,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.11312e-005
@@ -8566,7 +8566,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11982e-005
@@ -9223,7 +9223,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.1228e-005
@@ -9880,7 +9880,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -10537,7 +10537,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -11194,7 +11194,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -11855,7 +11855,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -12512,7 +12512,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -13169,7 +13169,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -13826,7 +13826,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11237e-005
@@ -14483,7 +14483,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.12057e-005
@@ -15140,7 +15140,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.1228e-005
@@ -15801,7 +15801,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.11312e-005
@@ -16458,7 +16458,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11982e-005
@@ -17115,7 +17115,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.1228e-005
@@ -17772,7 +17772,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -18429,7 +18429,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -19086,7 +19086,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -19747,7 +19747,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -20404,7 +20404,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -21061,7 +21061,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -21718,7 +21718,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11237e-005
@@ -22375,7 +22375,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.12057e-005
@@ -23032,7 +23032,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.1228e-005
@@ -23693,7 +23693,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.11312e-005
@@ -24350,7 +24350,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11982e-005
@@ -25007,7 +25007,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.1228e-005
@@ -25664,7 +25664,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -26321,7 +26321,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -26978,7 +26978,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -27639,7 +27639,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -28296,7 +28296,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -28953,7 +28953,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -29610,7 +29610,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11237e-005
@@ -30267,7 +30267,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.12057e-005
@@ -30924,7 +30924,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.1228e-005
@@ -31585,7 +31585,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.11312e-005
@@ -32242,7 +32242,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11982e-005
@@ -32899,7 +32899,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.1228e-005
@@ -33556,7 +33556,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -34213,7 +34213,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -34870,7 +34870,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -35531,7 +35531,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -36188,7 +36188,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -36845,7 +36845,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -37502,7 +37502,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11237e-005
@@ -38159,7 +38159,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.12057e-005
@@ -38816,7 +38816,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.1228e-005
@@ -39477,7 +39477,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -40134,7 +40134,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -40791,7 +40791,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -41448,7 +41448,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11237e-005
@@ -42105,7 +42105,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.12057e-005
@@ -42762,7 +42762,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.1228e-005
@@ -43423,7 +43423,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.11312e-005
@@ -44080,7 +44080,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11982e-005
@@ -44737,7 +44737,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.1228e-005
@@ -45394,7 +45394,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -46051,7 +46051,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -46708,7 +46708,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -47369,7 +47369,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -48026,7 +48026,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -48683,7 +48683,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -49340,7 +49340,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11237e-005
@@ -49997,7 +49997,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.12057e-005
@@ -50654,7 +50654,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.1228e-005
@@ -51315,7 +51315,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.11312e-005
@@ -51972,7 +51972,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11982e-005
@@ -52629,7 +52629,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.1228e-005
@@ -53286,7 +53286,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -53943,7 +53943,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -54600,7 +54600,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -55261,7 +55261,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -55918,7 +55918,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -56575,7 +56575,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -57232,7 +57232,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11237e-005
@@ -57889,7 +57889,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.12057e-005
@@ -58546,7 +58546,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.1228e-005
@@ -59207,7 +59207,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.11312e-005
@@ -59864,7 +59864,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11982e-005
@@ -60521,7 +60521,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.1228e-005
@@ -61178,7 +61178,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -61835,7 +61835,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -62492,7 +62492,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -63153,7 +63153,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -63810,7 +63810,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -64467,7 +64467,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -65124,7 +65124,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11237e-005
@@ -65781,7 +65781,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.12057e-005
@@ -66438,7 +66438,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.1228e-005
@@ -67099,7 +67099,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.11312e-005
@@ -67756,7 +67756,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11982e-005
@@ -68413,7 +68413,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.1228e-005
@@ -69070,7 +69070,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -69727,7 +69727,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -70384,7 +70384,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -71045,7 +71045,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -71702,7 +71702,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -72359,7 +72359,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -73016,7 +73016,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11237e-005
@@ -73673,7 +73673,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.12057e-005
@@ -74330,7 +74330,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.1228e-005
@@ -74991,7 +74991,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -0.0492837 1.11312e-005
@@ -75648,7 +75648,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.11982e-005
@@ -76305,7 +76305,7 @@ name "FlameModel"
 loc 0 -0.000203885 -0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 0.0492837 -1.1228e-005
@@ -76962,7 +76962,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816248
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0 0.066875
@@ -77619,7 +77619,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816226
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -78276,7 +78276,7 @@ name "FlameModel"
 loc 0 0.000203893 0.000816204
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -7.45058e-009 -0.066875
@@ -78937,7 +78937,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 -7.45058e-009
@@ -79594,7 +79594,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -80251,7 +80251,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -80908,7 +80908,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11265e-005 0.0492837
@@ -81565,7 +81565,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11978e-005 -0.0492837
@@ -82222,7 +82222,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.12196e-005 -0.0492837
@@ -82883,7 +82883,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11274e-005 -0.0492837
@@ -83540,7 +83540,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11982e-005 0.0492837
@@ -84197,7 +84197,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.12206e-005 0.0492837
@@ -84854,7 +84854,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -85511,7 +85511,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -86168,7 +86168,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -86829,7 +86829,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 -7.45058e-009
@@ -87486,7 +87486,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -88143,7 +88143,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -88800,7 +88800,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11265e-005 0.0492837
@@ -89457,7 +89457,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11978e-005 -0.0492837
@@ -90114,7 +90114,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.12196e-005 -0.0492837
@@ -90775,7 +90775,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11274e-005 -0.0492837
@@ -91432,7 +91432,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11982e-005 0.0492837
@@ -92089,7 +92089,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.12206e-005 0.0492837
@@ -92746,7 +92746,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -93403,7 +93403,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -94060,7 +94060,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -94721,7 +94721,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 -7.45058e-009
@@ -95378,7 +95378,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -96035,7 +96035,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -96692,7 +96692,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11265e-005 0.0492837
@@ -97349,7 +97349,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11978e-005 -0.0492837
@@ -98006,7 +98006,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.12196e-005 -0.0492837
@@ -98667,7 +98667,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11274e-005 -0.0492837
@@ -99324,7 +99324,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11982e-005 0.0492837
@@ -99981,7 +99981,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.12206e-005 0.0492837
@@ -100638,7 +100638,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -101295,7 +101295,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -101952,7 +101952,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -102613,7 +102613,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 -7.45058e-009
@@ -103270,7 +103270,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -103927,7 +103927,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -104584,7 +104584,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11265e-005 0.0492837
@@ -105241,7 +105241,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11978e-005 -0.0492837
@@ -105898,7 +105898,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.12196e-005 -0.0492837
@@ -106559,7 +106559,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11274e-005 -0.0492837
@@ -107216,7 +107216,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11982e-005 0.0492837
@@ -107873,7 +107873,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.12206e-005 0.0492837
@@ -108530,7 +108530,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -109187,7 +109187,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -109844,7 +109844,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -110505,7 +110505,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 -7.45058e-009
@@ -111162,7 +111162,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -111819,7 +111819,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -112476,7 +112476,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11265e-005 0.0492837
@@ -113133,7 +113133,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11978e-005 -0.0492837
@@ -113790,7 +113790,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.12196e-005 -0.0492837
@@ -114451,7 +114451,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11274e-005 -0.0492837
@@ -115108,7 +115108,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11982e-005 0.0492837
@@ -115765,7 +115765,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.12206e-005 0.0492837
@@ -116422,7 +116422,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -117079,7 +117079,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -117736,7 +117736,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -118397,7 +118397,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11274e-005 -0.0492837
@@ -119054,7 +119054,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11982e-005 0.0492837
@@ -119711,7 +119711,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.12206e-005 0.0492837
@@ -120368,7 +120368,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -121025,7 +121025,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -121682,7 +121682,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -122343,7 +122343,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 -7.45058e-009
@@ -123000,7 +123000,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -123657,7 +123657,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -124314,7 +124314,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11265e-005 0.0492837
@@ -124971,7 +124971,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11978e-005 -0.0492837
@@ -125628,7 +125628,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.12196e-005 -0.0492837
@@ -126289,7 +126289,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11274e-005 -0.0492837
@@ -126946,7 +126946,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11982e-005 0.0492837
@@ -127603,7 +127603,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.12206e-005 0.0492837
@@ -128260,7 +128260,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -128917,7 +128917,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -129574,7 +129574,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -130235,7 +130235,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 -7.45058e-009
@@ -130892,7 +130892,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -131549,7 +131549,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -132206,7 +132206,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11265e-005 0.0492837
@@ -132863,7 +132863,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11978e-005 -0.0492837
@@ -133520,7 +133520,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.12196e-005 -0.0492837
@@ -134181,7 +134181,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11274e-005 -0.0492837
@@ -134838,7 +134838,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11982e-005 0.0492837
@@ -135495,7 +135495,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.12206e-005 0.0492837
@@ -136152,7 +136152,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -136809,7 +136809,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -137466,7 +137466,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -138127,7 +138127,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 -7.45058e-009
@@ -138784,7 +138784,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -139441,7 +139441,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -140098,7 +140098,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11265e-005 0.0492837
@@ -140755,7 +140755,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11978e-005 -0.0492837
@@ -141412,7 +141412,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.12196e-005 -0.0492837
@@ -142073,7 +142073,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11274e-005 -0.0492837
@@ -142730,7 +142730,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11982e-005 0.0492837
@@ -143387,7 +143387,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.12206e-005 0.0492837
@@ -144044,7 +144044,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -144701,7 +144701,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -145358,7 +145358,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -146019,7 +146019,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 -7.45058e-009
@@ -146676,7 +146676,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -147333,7 +147333,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -147990,7 +147990,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11265e-005 0.0492837
@@ -148647,7 +148647,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11978e-005 -0.0492837
@@ -149304,7 +149304,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.12196e-005 -0.0492837
@@ -149965,7 +149965,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11274e-005 -0.0492837
@@ -150622,7 +150622,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11982e-005 0.0492837
@@ -151279,7 +151279,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.12206e-005 0.0492837
@@ -151936,7 +151936,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -152593,7 +152593,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -153250,7 +153250,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 0
@@ -153911,7 +153911,7 @@ name "FlameModel"
 loc 0 0.000816248 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 0.066875 -7.45058e-009
@@ -154568,7 +154568,7 @@ name "FlameModel"
 loc 0 0.000816226 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -155225,7 +155225,7 @@ name "FlameModel"
 loc 0 0.000816204 -0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 -9.53674e-007 -0.066875 0
@@ -155882,7 +155882,7 @@ name "FlameModel"
 loc 0 -0.000816249 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 1.11265e-005 0.0492837
@@ -156539,7 +156539,7 @@ name "FlameModel"
 loc 0 -0.000816226 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.11978e-005 -0.0492837
@@ -157196,7 +157196,7 @@ name "FlameModel"
 loc 0 -0.000816204 0.000203885
 data 10
 FlameModel
-texture "C:/Program Files/FlightGear 2020.3/data/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Effects/Afterburner/transparent.png"
 crease 80.000000
 numvert 64
 1.04888 -1.12196e-005 -0.0492837

@@ -24,9 +24,11 @@ var pg = getprop("systems/MFD/modemfdc");
 
 if (pg == 2) {
     print(pg);
-}elsif (pg == 9){
+} elsif (pg == 9){
 setprop("controls/CMS/prgmselected",5);
-
+} 
+elsif (pg == 80){
+    guns.multishottoggle();
 } elsif (pg == 1){
     print(pg);   
 } elsif (pg == 3){
@@ -54,13 +56,21 @@ if (pg == 0) {
 }
 elsif (pg == 9){
 setprop("controls/CMS/prgmselected",4);
-
 }
+elsif (pg == 1){
+setprop("systems/MFD/modemfdc",80);
+}
+
 elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
-} elsif (pg == 3){
+}
+elsif (pg == 80){
+    guns.multishotreset();
+}
+
+ elsif (pg == 3){
     print(pg);   
    screen.log.write("Set Coords to the Current Weapon(s)!");   
    var slottype = getprop("controls/radar/currentslot");
@@ -100,7 +110,9 @@ if (pg == 1) {
 elsif (pg == 9){
 setprop("controls/CMS/prgmselected",3);
 }
-
+elsif (pg == 80){
+    guns.multishotprev();
+}
 elsif (pg == 2) {
     print(pg);
 } elsif (pg == 3){
@@ -126,6 +138,12 @@ if (pg == 0) {
 elsif (pg == 9){
 setprop("controls/CMS/prgmselected",2);
 }
+elsif (pg == 80){
+    guns.multishotnext();
+}
+
+
+
 elsif (pg == 8) {
     # PRF Decrease
     print(pg);
@@ -266,6 +284,9 @@ if (pg == 0) {
 
 elsif (pg == 9){
 setprop("controls/CMS/prgmselected",1);
+}
+elsif (pg == 80){
+    guns.multishotradar();
 }
 elsif (pg == 8) {
     # PRF Decrease

@@ -15,11 +15,11 @@
 <condition>
 <and>
 <equals>
-<property>sim/weight[1]/selected</property>
+<property>sim/weight[0]/selected</property>
 <value>GBU-39</value>
 </equals>
 <equals>
-<property>controls/armament/station[1]/release</property>
+<property>controls/armament/station[0]/release</property>
 <value>false</value>
 </equals>
 </and>

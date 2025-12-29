@@ -349,12 +349,12 @@ Use increments of .01 Because the unit is meters.
   <character-size type="double">0.0056</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>-0.07</y-m>
-   <z-m>0.07</z-m>
+   <y-m>-0.05</y-m>
+   <z-m>-0.039</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
-  <text type="string">Engine 1</text>
+  <text type="string">Chaff</text>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
@@ -365,12 +365,12 @@ Use increments of .01 Because the unit is meters.
   <character-size type="double">0.0056</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>0.043</y-m>
-   <z-m>0.07</z-m>
+   <y-m>0.02</y-m>
+   <z-m>-0.039</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
-  <text type="string">Engine 2</text>
+  <text type="string">Flares</text>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>

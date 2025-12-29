@@ -57,6 +57,7 @@
 	 <animation>
   <type>material</type>
   <object-name>aim120</object-name>
+  <object-name>aim260</object-name>
   <object-name>aim9x</object-name>
   <object-name>gbu39</object-name>
     <object-name>jdam</object-name>
@@ -224,25 +225,93 @@
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
-<animation>
+
+
+	 <text>
+  <name>aim260</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.008</y-m>
+   <z-m>-0.015</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">AIM-260</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+    <animation>
         <type>select</type>
         <object-name>aim9x</object-name>
-        
+        <object-name>Aim9x</object-name>
         <condition>
-		
-
 			<equals>
-
        <property>controls/armament/selected-weapon</property>
 				<value>Aim-9x</value>
 			</equals>
-
         </condition>
     </animation>
-
-
-
+    <animation>
+        <type>select</type>
+        <object-name>JDAM</object-name>
+        <condition>
+			<equals>
+       <property>controls/armament/selected-weapon</property>
+				<value>JDAM</value>
+			</equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <object-name>GBU</object-name>
+        <condition>
+			<equals>
+       <property>controls/armament/selected-weapon</property>
+				<value>GBU-39</value>
+			</equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <object-name>Aim120</object-name>
+        <condition>
+			<equals>
+       <property>controls/armament/selected-weapon</property>
+				<value>Aim-120</value>
+			</equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <object-name>aim260</object-name>
+        <object-name>Aim260</object-name>
+        <condition>
+			<equals>
+       <property>controls/armament/selected-weapon</property>
+				<value>Aim-260</value>
+			</equals>
+        </condition>
+    </animation>
     
+ 	 <text>
+  <name>AG</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>-0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">MULTISHOT</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
 
 	 <text>
   <name>gbu39</name>

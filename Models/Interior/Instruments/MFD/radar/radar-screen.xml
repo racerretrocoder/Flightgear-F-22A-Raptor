@@ -693,7 +693,7 @@
    <object-name>ACM</object-name>
    <object-name>mode</object-name>
    <object-name>mode2</object-name>
-
+<object-name>lockedrng</object-name>
 	<object-name>lockedalt</object-name>
 	<object-name>lockedcs</object-name>
    <object-name>10nm</object-name>			
@@ -848,7 +848,7 @@
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
-  <text type="string">STAND BY</text>
+  <text type="string">Stand by</text>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
@@ -1224,6 +1224,7 @@
         <type>select</type>
 		        <object-name>lockedalt</object-name>
         <object-name>lockedcs</object-name>
+		<object-name>lockedrng</object-name>
         <condition>
 		<not>
 			<equals>
@@ -1267,6 +1268,24 @@
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
+	 <text>
+  <name>lockedrng</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.035</y-m>
+   <z-m>-0.050</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">RNG: %5.0f NM</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/radar/lockedrange</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
 
 <!--
 	<animation>
