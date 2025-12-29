@@ -15,6 +15,8 @@ setprop("/f22/dead",0); # Dead
 setprop("/f22/crash/doneonce",0);
 setprop("/f22/crash/alt",0);
 setprop("/f22/crash/type",0);
+setprop("/controls/armament/rrdt",0);
+setprop("/controls/armament/lldt",0);
 # used to the animation of the canopy switch and the canopy move
 # toggle keystroke or 2 position switch
 setprop("f22/head-hdg-deg",0);
@@ -515,20 +517,119 @@ settimer(func   {
 
 
 
+var rightaim120 = func() {
+  setprop("sim/weight[4]/selected","Aim-120");
+  setprop("/controls/armament/station[4]/release","false");
+  setprop("sim/weight[17]/selected","Aim-120");
+  setprop("/controls/armament/station[17]/release","false");
+  screen.log.write("Added 2 External Aim-120's");
+}
+
+var rightaim9x = func() {
+  setprop("sim/weight[4]/selected","Aim-9x");
+  setprop("/controls/armament/station[4]/release","false");
+  setprop("sim/weight[17]/selected","Aim-9x");
+  setprop("/controls/armament/station[17]/release","false");
+  screen.log.write("Added 2 External Aim-9X's");
+}
+
+var leftaim120 = func() {
+  setprop("sim/weight[2]/selected","Aim-120");
+  setprop("/controls/armament/station[2]/release","false");
+  setprop("sim/weight[20]/selected","Aim-120");
+  setprop("/controls/armament/station[20]/release","false");
+  screen.log.write("Added 2 External Aim-120's");
+}
+
+var leftaim9x = func() {
+  setprop("sim/weight[2]/selected","Aim-9x");
+  setprop("/controls/armament/station[2]/release","false");
+  setprop("sim/weight[20]/selected","Aim-9x");
+  setprop("/controls/armament/station[20]/release","false");
+  screen.log.write("Added 2 External Aim-9X's");
+}
+
+var removeright = func() {
+  setprop("sim/weight[4]/selected","None");
+  setprop("/controls/armament/station[4]/release","false");
+  setprop("sim/weight[17]/selected","None");
+  setprop("/controls/armament/station[17]/release","false");
+  screen.log.write("Removed right external weapons");
+}
+
+var removeleft = func() {
+  setprop("sim/weight[2]/selected","None");
+  setprop("/controls/armament/station[2]/release","false");
+  setprop("sim/weight[20]/selected","None");
+  setprop("/controls/armament/station[20]/release","false");
+  screen.log.write("Removed left external weapons");
+}
+
+
+
+
+
+var addrighttank = func() {
+  var rightdrop = getprop("controls/armament/rdt");
+  var farrightdrop = getprop("controls/armament/rrdt");
+  if (rightdrop == 0 and farrightdrop == 0) {
+    screen.log.write("Right drop tank added. Click again to add second right tank");
+    setprop("controls/armament/rdt",1);
+  } elsif (rightdrop == 1 and farrightdrop == 0) {
+    screen.log.write("All right droptanks added");
+    setprop("controls/armament/rrdt",1);
+  } elsif (rightdrop ==1 and farrightdrop == 1) {
+    screen.log.write("Cant add anymore right drop tanks! To remove them: Click remove tank");
+  }
+}
+
+var addlefttank = func() {
+  var rightdrop = getprop("controls/armament/ldt");
+  var farrightdrop = getprop("controls/armament/lldt");
+  if (rightdrop == 0 and farrightdrop == 0) {
+    screen.log.write("Left drop tank added. Click again to add second left tank");
+    setprop("controls/armament/ldt",1);
+  } elsif (rightdrop == 1 and farrightdrop == 0) {
+    screen.log.write("All left droptanks added");
+    setprop("controls/armament/lldt",1);
+  } elsif (rightdrop ==1 and farrightdrop == 1) {
+    screen.log.write("Cant add anymore left drop tanks! To remove them: Click remove tank");
+  }
+}
+
+var removerighttank = func() {
+  setprop("consumables/fuel/tank[3]/level-lbs",0);
+  setprop("consumables/fuel/tank[5]/level-lbs",0);
+  setprop("controls/armament/rdt",0);
+  setprop("controls/armament/rrdt",0);
+  screen.log.write("All right drop tanks removed");
+}
+
+var removelefttank = func() {
+  setprop("consumables/fuel/tank[2]/level-lbs",0);
+  setprop("consumables/fuel/tank[4]/level-lbs",0);
+  setprop("controls/armament/ldt",0);
+  setprop("controls/armament/lldt",0);
+  screen.log.write("All left drop tanks removed");
+}
+
 var checkforext = func {
   # Check for external pylons and Mount them when armament is loaded
-  # Also check for fuel in the EXT tanks if there are no EXT tanks mounted. then remove and show a message
+  # Also check for fuel in the EXT tanks if there are no EXT tanks mounted. then remove the extra fuel and show a message
   var leftdrop = getprop("controls/armament/ldt");
+  var farleftdrop = getprop("controls/armament/lldt");
   var rightdrop = getprop("controls/armament/rdt");
+  var farrightdrop = getprop("controls/armament/rrdt");
 	var pylon3 = getprop("sim/weight[2]/selected");
   var pylon5 = getprop("sim/weight[4]/selected");
   var fuelleft = getprop("consumables/fuel/tank[2]/level-lbs");
   var fuelright = getprop("consumables/fuel/tank[3]/level-lbs");
-	if ( pylon3 == "Aim-120" or pylon3 == "Aim-9x" or pylon3 == "Aim-7" or pylon3 == "Aim-9m" or pylon5 == "Aim-120" or pylon5 == "Aim-9x" or pylon5 == "Aim-7" or pylon5 == "Aim-9m" or rightdrop == 1 or leftdrop == 1) {
+  var fuelfarleft = getprop("consumables/fuel/tank[4]/level-lbs");
+  var fuelfarright = getprop("consumables/fuel/tank[5]/level-lbs");
+	if ( pylon3 == "Aim-120" or pylon3 == "Aim-9x" or pylon3 == "Aim-7" or pylon3 == "Aim-9m" or pylon5 == "Aim-120" or pylon5 == "Aim-9x" or pylon5 == "Aim-7" or pylon5 == "Aim-9m" or rightdrop == 1 or leftdrop == 1 or farrightdrop == 1 or farleftdrop == 1) {
 		setprop("controls/armament/extpylons", 1);
 	} else {
 		setprop("controls/armament/extpylons", 0);
-
   }
 
   # only allow fuel entering EXT Tanks if the left and right tanks are filled
@@ -536,7 +637,14 @@ var checkforext = func {
     setprop("consumables/fuel/tank[2]/level-lbs",0);
     setprop("consumables/fuel/tank[3]/level-lbs",0);
     if (fuelright > 0 or fuelleft > 0) {
-      screen.log.write("There are no drop tanks attached");
+      screen.log.write("There are no drop tanks attached for these tanks. See Pylons loads to attach them");
+    }
+  } 
+  if (farrightdrop != 1 or farleftdrop != 1) {
+    setprop("consumables/fuel/tank[4]/level-lbs",0);
+    setprop("consumables/fuel/tank[5]/level-lbs",0);
+    if (fuelfarright > 0 or fuelfarleft > 0) {
+      screen.log.write("There are no drop tanks attached for these tanks. See Pylons loads to attach them");
     }
   }
 }
@@ -547,6 +655,8 @@ var jettdroptanks = func {
   screen.log.write("JETT: Drop tanks");
   setprop("controls/armament/ldt",0);
   setprop("controls/armament/rdt",0);
+  setprop("controls/armament/lldt",0);
+  setprop("controls/armament/rrdt",0);
 }
 
 
@@ -1230,8 +1340,8 @@ var stringstore = func() {
   var thestring = ""~ pointer ~":" ~ pointedweight ~ ":"~ pointer ~":" ~ pointedstation;
   setprop("sim/multiplay/generic/string[5]",thestring);
   setprop("f22/currstation",getprop("f22/currstation") + 1);
-  if (getprop("f22/currstation") == 17){
-    setprop("f22/currstation",0); # Loop back to it
+  if (getprop("f22/currstation") == 20){
+    setprop("f22/currstation",0); # Loop back to the first station
   }
 
 

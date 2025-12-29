@@ -26,6 +26,8 @@ if (pg == 2) {
     print(pg);
 } elsif (pg == 9){
 setprop("controls/CMS/prgmselected",5);
+} elsif (pg == 1){
+    jammer.toggle();
 }
 elsif (pg == 8){
     guns.multishottoggle();
@@ -378,6 +380,7 @@ if (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
+    jammer.cycledeploymode();
 } elsif (pg == 3){
     print(pg);   
 } elsif (pg == 4){
@@ -402,6 +405,7 @@ elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
+    jammer.toggleautodeploy();
 } elsif (pg == 3){
     print(pg);   
     print("Attempting to save coords to a slot");

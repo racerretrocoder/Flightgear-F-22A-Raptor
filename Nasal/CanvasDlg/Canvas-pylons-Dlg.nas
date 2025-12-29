@@ -822,7 +822,7 @@ P9Ctls.addItem(btn_P9_R27ET);
 
 # click button P3:None
 var btn_P3_empty = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("None")
+        .setText("None-1")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
@@ -834,21 +834,21 @@ btn_P3_empty.listen("clicked", func {
 		setprop("sim/weight[20]/selected","None");
 		setprop("sim/weight[18]/selected","None");
 		setprop("sim/weight[17]/selected","None");
+		f22.removeleft();
 		pylons_update();
 		});
 P3Ctls.addItem(btn_P3_empty);
 
 # click button P3:R-27R
 var btn_P3_R27R = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("Ext-Aim-120")
+        .setText("Ext-Aim-120-1")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P3_R27R.listen("clicked", func {
         # add code here to react on click on button.
 		print("P3: Ext-Aim-120");
-		setprop("sim/weight[2]/selected","Aim-120");
-		setprop("/controls/armament/station[2]/release","false");
+		f22.leftaim120();
 
 		pylons_update();
 		});
@@ -856,15 +856,14 @@ P3Ctls.addItem(btn_P3_R27R);
 
 # click button P3:R-27T
 var btn_P3_R27T = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("Ext-Aim-9X")
+        .setText("Ext-Aim-9X-1")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P3_R27T.listen("clicked", func {
         # add code here to react on click on button.
 		print("P3: Aim-9x external");
-		setprop("sim/weight[2]/selected","Aim-9x");
-		setprop("/controls/armament/station[2]/release","false");
+		f22.leftaim9x();
 
 		pylons_update();
 		});
@@ -917,7 +916,7 @@ var btn_P3_ADDTANK = canvas.gui.widgets.Button.new(root, canvas.style, {})
 btn_P3_ADDTANK.listen("clicked", func {
         # add code here to react on click on button.
 		print("Left DT added");
-		setprop("controls/armament/ldt",1);
+		f22.addlefttank();
 
 		pylons_update();
 		});
@@ -932,7 +931,7 @@ var btn_P3_REMTANK = canvas.gui.widgets.Button.new(root, canvas.style, {})
 btn_P3_REMTANK.listen("clicked", func {
         # add code here to react on click on button.
 		print("Left DT removed");
-		setprop("controls/armament/ldt",0);
+		f22.removelefttank();
 
 		pylons_update();
 		});
@@ -945,7 +944,7 @@ P3Ctls.addItem(btn_P3_REMTANK);
 
 # click button P5:None
 var btn_P5_empty = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("None")
+        .setText("None-2")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
@@ -953,38 +952,35 @@ btn_P5_empty.listen("clicked", func {
         # add code here to react on click on button.
 		print("P5: None");
 		setprop("sim/weight[4]/selected","None");
-
+		f22.removeright();
 		pylons_update();
 		});
 P5Ctls.addItem(btn_P5_empty);
 
 # click button P5:R-27R
 var btn_P5_R27R = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("Ext-Aim-120")
+        .setText("Ext-Aim-120-2")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P5_R27R.listen("clicked", func {
         # add code here to react on click on button.
-		print("P5: Aim-120");
-		setprop("sim/weight[4]/selected","Aim-120");
-		setprop("/controls/armament/station[4]/release","false");
-
+		print("P5: Ext-Aim-120");
+		f22.rightaim120();
 		pylons_update();
 		});
 P5Ctls.addItem(btn_P5_R27R);
 
 # click button P5:R-27T
 var btn_P5_R27T = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("Ext-Aim-9X")
+        .setText("Ext-Aim-9X-2")
         #.move(300, 300)
         .setFixedSize(90, 25);
 
 btn_P5_R27T.listen("clicked", func {
         # add code here to react on click on button.
 		print("P5: Ext Aim-9x");
-		setprop("sim/weight[4]/selected","Aim-9x");
-		setprop("/controls/armament/station[4]/release","false");
+		f22.rightaim9x();
 
 		pylons_update();
 		});
@@ -1034,8 +1030,8 @@ var btn_P5_DT = canvas.gui.widgets.Button.new(root, canvas.style, {})
 btn_P5_DT.listen("clicked", func {
         # add code here to react on click on button.
 		print("P5: drop tank added");
-		setprop("/controls/armament/rdt",1);
-
+		#setprop("/controls/armament/rdt",1);
+		f22.addrighttank();
 		pylons_update();
 		});
 P5Ctls.addItem(btn_P5_DT);
@@ -1050,8 +1046,8 @@ var btn_P5_RDT = canvas.gui.widgets.Button.new(root, canvas.style, {})
 btn_P5_RDT.listen("clicked", func {
         # add code here to react on click on button.
 		print("P5: drop tank purged");
-		setprop("/controls/armament/rdt",0);
-
+		#setprop("/controls/armament/rdt",0);
+		f22.removerighttank();
 		pylons_update();
 		});
 P5Ctls.addItem(btn_P5_RDT);
@@ -1096,7 +1092,7 @@ P7Ctls.addItem(btn_P7_R_73);
 
 # click button P7:smoke-red
 var btn_P7_smk_red = canvas.gui.widgets.Button.new(root, canvas.style, {})
-        .setText("Aim-9m")
+        .setText("Aim-9M")
         #.move(300, 300)
         .setFixedSize(90, 25);
 

@@ -413,6 +413,8 @@ Theres soo many
 <int n="24" type="int" alias="/controls/apu/smoke"/>
 <int n="25" type="int" alias="/controls/apu/apuflame"/>
 <int n="26" type="int" alias="/fdm/jsbsim/fcs/landlight"/>
+<int n="27" type="int" alias="/controls/armament/rrdt"/>
+<int n="28" type="int" alias="/controls/armament/lldt"/>
 
 <!--Missiles in bays on MP-->
 <string n="5" type="string">0:none:S0:0</string><!-- string 5 used by stores -->
@@ -1553,8 +1555,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-    <x-m type="double"> -0.4  </x-m>
-    <y-m type="double"> 0.39 </y-m>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> 0.3 </y-m>
     <z-m type="double"> -1.6 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
@@ -1570,8 +1572,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-    <x-m type="double"> -0.4  </x-m>
-    <y-m type="double"> 0.67 </y-m>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> 0.4 </y-m>
     <z-m type="double"> -1.6 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
@@ -1605,8 +1607,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-    <x-m type="double"> -0.4  </x-m>
-    <y-m type="double"> -0.67 </y-m>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.4 </y-m>
     <z-m type="double"> -1.6 </z-m>
       </offsets>
     </weight>
@@ -1627,8 +1629,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-    <x-m type="double"> -0.4  </x-m>
-    <y-m type="double"> -0.95 </y-m>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.65 </y-m>
     <z-m type="double"> -1.6 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
@@ -1646,7 +1648,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-<x-m type="double"> -1.0  </x-m>
+<x-m type="double"> -3.8  </x-m>
 <y-m type="double"> 1.7 </y-m>
 <z-m type="double"> -1.3 </z-m>
       </offsets>
@@ -1667,7 +1669,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-<x-m type="double"> -1.0  </x-m>
+<x-m type="double"> -3.8  </x-m>
 <y-m type="double"> -1.7 </y-m>
 <z-m type="double"> -1.3 </z-m>
       </offsets>
@@ -1685,9 +1687,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-          <x-m type="double"> -0.4</x-m>
-          <y-m type="double"> -1.235 </y-m>
-          <z-m type="double"> -1.324 </z-m>
+          <x-m type="double"> -3.8</x-m>
+          <y-m type="double"> -0.65 </y-m>
+          <z-m type="double"> -1.6 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
       <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
@@ -1702,8 +1704,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-    <x-m type="double"> -0.4  </x-m>
-    <y-m type="double"> -0.39 </y-m>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.2 </y-m>
     <z-m type="double"> -1.6 </z-m>
       </offsets>
       <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
@@ -1737,7 +1739,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-    <x-m type="double"> -0.4  </x-m>
+    <x-m type="double"> -3.8  </x-m>
     <y-m type="double"> -0.67 </y-m>
     <z-m type="double"> -1.6 </z-m>
       </offsets>
@@ -1749,7 +1751,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-    <x-m type="double"> -0.4  </x-m>
+    <x-m type="double"> -3.8  </x-m>
     <y-m type="double"> -0.39 </y-m>
     <z-m type="double"> -1.6 </z-m>
       </offsets>
@@ -1766,7 +1768,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-    <x-m type="double"> -0.4  </x-m>
+    <x-m type="double"> -3.8 </x-m>
     <y-m type="double"> 0.39 </y-m>
     <z-m type="double"> -1.6 </z-m>
       </offsets>
@@ -1783,7 +1785,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       <weight-lb type="double"> 0 </weight-lb>
       <selected>none</selected>
       <offsets>
-    <x-m type="double"> -0.4  </x-m>
+    <x-m type="double"> -3.8  </x-m>
     <y-m type="double"> 0.67 </y-m>
     <z-m type="double"> -1.6 </z-m>
       </offsets>
@@ -2022,15 +2024,27 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			</tank>
 			<tank n="2">
 
-        <name>Left-tank</name> 
+        <name>Left-EXT-tank</name> 
         <selected type="bool">false</selected>
       </tank>
       <tank n="3">
 
-        <name>Right-Tank</name> 
+        <name>Right-EXT-Tank</name> 
         <selected type="bool">false</selected>
       </tank>
 			
+			<tank n="4">
+        <name>Far-Left-EXT-tank</name> 
+        <selected type="bool">false</selected>
+      </tank>
+      <tank n="5">
+
+        <name>Far-Right-EXT-Tank</name> 
+        <selected type="bool">false</selected>
+      </tank>
+			
+
+
 			</fuel>
 	</consumables>
 	
@@ -2938,7 +2952,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <MFD3>
 <file>Aircraft/F-22/Nasal/MFD3.nas</file>
 </MFD3>
-
+<smallscreens>
+<file>Aircraft/F-22/Nasal/smallscreens.nas</file>
+</smallscreens>
 <!--Front Radio Controls-->
 
 <!--
@@ -2969,5 +2985,6 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		<tips>
 			<file>Aircraft/F-22/Nasal/messages.nas</file>
 		</tips>
+
 	</nasal>
 </PropertyList>

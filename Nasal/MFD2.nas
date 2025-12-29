@@ -31,6 +31,7 @@ elsif (pg == 80){
     guns.multishottoggle();
 } elsif (pg == 1){
     print(pg);   
+    jammer.toggle();
 } elsif (pg == 3){
     screen.log.write("Switched Bombs back to radar slave mode");
     setprop("controls/radar/weaponcoords", 0);
@@ -434,6 +435,7 @@ if (pg == 2) {
     print(pg);
 } elsif (pg == 1){
     print(pg);   
+    jammer.cycledeploymode();
 } elsif (pg == 3){
 
 
@@ -459,6 +461,7 @@ if (pg == 0) {
 elsif (pg == 2) {
     print(pg);
 } elsif (pg == 1){
+    jammer.toggleautodeploy();
     print(pg);   
 } elsif (pg == 3){
     print(pg);   

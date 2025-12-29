@@ -59,6 +59,8 @@
   <object-name>aim120</object-name>
   <object-name>aim260</object-name>
   <object-name>aim9x</object-name>
+  <object-name>ecm</object-name>
+  <object-name>ecmdeploy</object-name>
   <object-name>gbu39</object-name>
     <object-name>jdam</object-name>
    <object-name>none</object-name>
@@ -195,18 +197,69 @@
 <animation>
         <type>select</type>
         <object-name>aim120</object-name>
-        
         <condition>
-		
-
 			<equals>
-
        <property>controls/armament/selected-weapon</property>
 				<value>Aim-120</value>
 			</equals>
+      </condition>
+</animation>
 
-        </condition>
-    </animation>
+<animation>
+        <type>select</type>
+        <object-name>ecm</object-name>
+        <condition>
+			<equals>
+       <property>controls/jammer/status</property>
+				<value>1</value>
+			</equals>
+      </condition>
+</animation>
+
+<animation>
+        <type>select</type>
+        <object-name>ecmdeploy</object-name>
+        <condition>
+			<equals>
+       <property>controls/jammer/autodeploy</property>
+				<value>1</value>
+			</equals>
+      </condition>
+</animation>
+
+	 <text>
+  <name>ecm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.008</y-m>
+   <z-m>-0.035</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">ECM Enabled</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>ecmdeploy</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.056</y-m>
+   <z-m>-0.060</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">controls/jammer/autodeploymode</property>
+    <format type="string">ECM Autodeploy enabled on mode %s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
 
 
 
@@ -312,6 +365,52 @@
   <alignment>left-top</alignment>
  </text>
 
+ 	 <text>
+  <name>AG</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>-0.077</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">ECM Jammer</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>AG</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+   <x-m>0.01</x-m>
+   <y-m>0.02</y-m>
+   <z-m>-0.077</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">ECM Autodeploy Mode</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ 	 <text>
+  <name>AG</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+   <x-m>0.01</x-m>
+   <y-m>0.05</y-m>
+   <z-m>-0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Autodeploy</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 
 	 <text>
   <name>gbu39</name>
@@ -485,7 +584,7 @@
   <character-size type="double">0.0056</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>-0.08</y-m>
+   <y-m>-0.02</y-m>
    <z-m>-0.07</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
@@ -500,7 +599,7 @@
   <character-size type="double">0.0056</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>-0.08</y-m>
+   <y-m>-0.02</y-m>
    <z-m>-0.08</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>

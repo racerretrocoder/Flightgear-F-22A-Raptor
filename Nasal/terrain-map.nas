@@ -49,10 +49,7 @@ var terrain_map = {
 			var pos_lon = getprop("/position/longitude-deg");
 			var pos_lat = getprop("/position/latitude-deg");
 			var heading = getprop("orientation/heading-magnetic-deg");
-
-			#setprop("/controls/mfd/terrain-map/range", getprop("/instrumentation/ndfull/range"));
-
-			var range = getprop("/instrumentation/efis/nd/display-range");
+			var range = getprop("/controls/PRF/range");
 			var displaymode = getprop("instrumentation/efis[0]/nd/display-mode");
 
 
