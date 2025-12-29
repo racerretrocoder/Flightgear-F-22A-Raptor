@@ -24,6 +24,15 @@ w switches the master weapon mode. eaither guns or missiles.
 When in missile mode. use n/m to chose what weapon you shoot
 
 e shoots the currently selected weapon, itll shoot the gun when your Guns are selected. 
+# More Photos
+![image](/pic2.png)
+![image](/pic3.png)
+![image](/pic4.png)
+![image](/pic5.png)
+![image](/pic6.png)
+![image](/pic7.png)
+![image](/pic8.png)
+![image](/pic10.png)
 
 # Radar stuff:
 
