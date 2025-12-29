@@ -8,6 +8,9 @@
         <path>/Aircraft/F-22/Sounds/AB.wav</path>
         <mode>looped</mode>
         <condition>
+             <not>
+          <property>/sim/current-view/internal</property>
+     </not>
 <greater-than>  
  <property>sim/multiplay/generic/float[34]</property>
    <value>90</value>
