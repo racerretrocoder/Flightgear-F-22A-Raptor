@@ -1063,7 +1063,7 @@ if (getprop("/instrumentation/radar/lock2") != 0){
   var lockedalt = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/position/altitude-ft");
   var lockedrng = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm");
   setprop("controls/radar/lockedalt",lockedalt);
-  setprop("controls/radar/lockedrange",lockedrange);
+  setprop("controls/radar/lockedrange",lockedrng);
   setprop("controls/radar/lockedcallsign", radar.tgts_list[radar.Target_Index].Callsign.getValue());
   } else {
   # Not locked on
