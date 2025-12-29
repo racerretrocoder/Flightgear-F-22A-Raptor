@@ -30,7 +30,7 @@ Z is Up and down-->
  <name>missile1</name>
  <path>Aircraft/Generic/spotlight.xml</path>
  <offsets>
-			<x-m>14.2</x-m>
+			<x-m>2.2</x-m>
 			<y-m>0</y-m>
 			<z-m>0</z-m>
  </offsets>
@@ -61,7 +61,7 @@ Z is Up and down-->
  <name>missile2</name>
  <path>Aircraft/Generic/spotlight.xml</path>
  <offsets>
-			<x-m>14.2</x-m>
+			<x-m>2.2</x-m>
 			<y-m>0</y-m>
 			<z-m>0</z-m>
  </offsets>

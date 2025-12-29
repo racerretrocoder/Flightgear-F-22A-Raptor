@@ -11,13 +11,11 @@ print("LOADING Missiles, Bombs and more!: missile.nas .");
 # Information on how to use!:
 
 # If you want to have missile flight data print out into the console set this to 1
-var debugflight = 1;
-
-# if you want to print messages into the console that relate to releasing of the missile, and it hitting set this to 1
-var debugmessages = 0;
-
-# If you want status on missile alert, and chaff flare detection status set this to 1
-var debugsysmessages = 0;
+var debugflight = 0;
+# if you want to print messages into the console that relate to missile flight, set this to 1
+var debugmessages = 1;
+# If you want status on missile alert, and status on releasing, and it hitting set this to 1
+var debugsysmessages = 1;
 
 # if you want to have debug chaff and flare detection be displayed in the game set this to 1
 var flaremsg = 0;
@@ -97,12 +95,10 @@ var extradebug = 0;
 #         <current-pylon type="int"> 0 </current-pylon>
 #       </missile>
 
-
 var AcModel        = props.globals.getNode("sim/model/F-22", 1);
 var OurHdg         = props.globals.getNode("orientation/heading-deg");
 var OurRoll        = props.globals.getNode("orientation/roll-deg");
 var OurPitch       = props.globals.getNode("orientation/pitch-deg");
-
 var fox2_unique_id = -100;
 var MPMessaging    = props.globals.getNode("/payload/armament/msg", 1);
 MPMessaging.setBoolValue(0); # this thing here set the Damage to off on spawn!
@@ -330,6 +326,40 @@ var MISSILE = {
     return [rho, snd_speed];
 	},
 
+    getTypeID: func(mslname) {
+        var typeID = 0;
+        if(mslname == "Aim-260"){typeID = 53;}
+        if(mslname == "Aim-120"){typeID = 52;}
+        if(mslname == "Aim-7"){typeID = 55;}
+        if(mslname == "Aim-9x"){typeID = 98;}
+        if(mslname == "GBU-39"){typeID = 18;}  # Missile definitions   
+        if(mslname == "JDAM"){typeID = 35;}  
+        if(mslname == "Aim-9m"){typeID = 69;}  
+        if(mslname == "AGM-154"){typeID = 4;}
+        if(mslname == "AGM-84"){typeID = 1;}         
+        if(mslname == "AGM-88"){typeID = 2;}    
+        if(mslname == "AGM-65"){typeID = 58;}
+        if(mslname == "eject"){typeID = 93;} # Ejected Pilot Model
+        return typeID;
+    },
+
+    getMslRadType: func(mslname) {
+        var radar = 0;
+        if(mslname == "Aim-260"){radar = 1;}
+        if(mslname == "Aim-120"){radar = 1;}
+        if(mslname == "Aim-7"){radar = 1;}
+        if(mslname == "Aim-9x"){radar = 0;}
+        if(mslname == "GBU-39"){radar = 2;}  # Missile definitions   
+        if(mslname == "JDAM"){radar = 2;}  
+        if(mslname == "Aim-9m"){radar = 0;}  
+        if(mslname == "AGM-154"){radar = 2;}
+        if(mslname == "AGM-84"){radar = 2;}         
+        if(mslname == "AGM-88"){radar = 2;}    
+        if(mslname == "AGM-65"){radar = 2;}
+        if(mslname == "eject"){radar = 0;} # Ejected Pilot Model
+        return radar;
+    },
+
     # This function is the way to reload the 3D model : 1)fired missile with smoke, 2)fired missile without smoke, 3)Exploding missile
     reload_model: func(path){
         # Delete the current model
@@ -507,19 +537,14 @@ var enabled = 0;
 
 if (me.Tgt != nil) {
 var bandit = me.Tgt.get_Callsign();
-
-
-
 # There is a target
 # Lets search for him
 misc.search(bandit);
 # Then the flare prop should be updated.
 # Lets read it
 
-
 if (getprop("payload/armament/flares")) { # Flares are being realeased
 # What kind of missile are we?
-
 if (me.fox == "Fox 2") {
     if (me.direct_dist_m < 4000) {
         enabled = 1;
@@ -530,8 +555,6 @@ if (me.fox == "Fox 2") {
         enabled = 1;
     }
 }
-
-
 var num2 = rand() < (1-me.flareres);
 if (debugsysmessages == 1) {
 print("Flare resistance number:");
@@ -540,8 +563,6 @@ print(num2);
 if (flaremsg == 1) {
 screen.log.write("DEBUG: Flares Detected");
 }
-
-
 
 if (enabled == 1) {
 if (flaremsg == 1) {
@@ -603,20 +624,8 @@ print("Unique ID: ");
  print(unique);
     }
     if(tid == 0) { # where not given a typeID
-                        if(me.NameOfMissile == "Aim-260"){me.NameOfMissile="Aim-260";typeID = 53;me.isradarmissile = 1;}
-                        if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;me.isradarmissile = 1;}
-                        if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;me.isradarmissile = 1;}
-                        if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;me.isradarmissile = 0;}
-                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;me.isradarmissile = 2;}  # Missile definitions   
-                        if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;me.isradarmissile = 2;}  
-                        if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;me.isradarmissile = 0;}  
-                        if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;me.isradarmissile = 1;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
-                        if(me.NameOfMissile == "AGM-154"){me.NameOfMissile="AGM-154";typeID = 4;me.isradarmissile = 2;}
-                        if(me.NameOfMissile == "AGM-84"){me.NameOfMissile="AGM-84";typeID = 1;me.isradarmissile = 2;}         
-                        if(me.NameOfMissile == "AGM-88"){me.NameOfMissile="AGM-88";typeID = 2;me.isradarmissile = 2;}    
-                        if(me.NameOfMissile == "AGM-65"){me.NameOfMissile="AGM-65";typeID = 58;me.isradarmissile = 2;}
-                        if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;me.isradarmissile = 2;}
-                        if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;me.isradarmissile = 0;} # Extra Realism support
+        typeID = me.getTypeID(me.NameOfMissile);
+        me.isradarmissile = me.getMslRadType(me.NameOfMissile);
     }  else {
         typeID = tid;
     }
@@ -659,14 +668,15 @@ print("Unique ID: ");
         msg.u_fps = speed; # simple
         #msg.isValid();
         notifications.geoBridgedTransmitter.NotifyAll(msg); # send
-                if (debugsysmessages == 1) {
-        print("Missile alert sent successfully");
+        if (debugsysmessages == 1) {
+            print("Missile alert sent successfully");
         }
     }
 },
 
 
 broddamage: func (cs,dist,msl) {
+    # Seperate brodcast damage
     if(msl == "Aim-260"){msl="Aim-120";typeID = 53;}
     if(msl == "Aim-120"){msl="Aim-120";typeID = 52;}
     if(msl == "Aim-7"){msl="Aim-7";typeID = 55;}
@@ -729,15 +739,14 @@ broddamage: func (cs,dist,msl) {
         me.last_coord = geo.Coord.new().set_latlon(me.coord.lat(), me.coord.lon(), me.coord.alt());
         
         # calculate speed vector before steering corrections.
-        
         # Cut rocket thrust after boost duration.
-        # Also cut rocket when misile is "dropped", and ignitie it 1 second after
+        # Also cut rocket when misile is "dropped", and ignitie it after the custom delay
         var f_lbs = me.force_lbs;
         if(getprop("controls/armament/missile/rail") == 1){
-                    if (debugsysmessages == 1) {
+            if (debugsysmessages == 1) {
 -            print("Missile launched from a rail");
-                        }
-            f_lbs = 0;
+            }
+            f_lbs = me.force_lbs * 0.3;
             if(me.life_time > 0)
             {
                 f_lbs = me.force_lbs * 0.1;
@@ -745,7 +754,7 @@ broddamage: func (cs,dist,msl) {
             if(me.model.getNode("path", 1).getValue() != Dapath)
                 {
                 #print(Dapath);
-                me.reload_model(Dapath);
+                    me.reload_model(Dapath);
                 }
             }
             if(me.life_time > 0.3)
@@ -754,30 +763,41 @@ broddamage: func (cs,dist,msl) {
             }
         }
          else{
+            if (debugmessages == 1) {
+-            print("Missile ejected from a hardpoint!");
+            }
+            var Dapath = me.missile_NoSmoke; # Engine delay start
+            if(me.model.getNode("path", 1).getValue() != Dapath)
+            {
+            #print(Dapath);
+                me.reload_model(Dapath);
+            }
             f_lbs = 0;
             if(me.life_time > 0)
             {
                 f_lbs = me.force_lbs * 0;
             }
-            if(me.life_time > 0.5)
+            if(me.life_time > getprop("controls/armament/missile/ignitedelay"))
             {
+                if (debugsysmessages == 1) {
+-                print("Ignititon delay over. Starting Rocket...");
+                }
                 f_lbs = me.force_lbs * 0.3;
                 var Dapath = me.missile_model;
-            if(me.model.getNode("path", 1).getValue() != Dapath)
-            {
-                #print(Dapath);
-                me.reload_model(Dapath);
+                if(me.model.getNode("path", 1).getValue() != Dapath) {
+                    me.reload_model(Dapath);
+                }
             }
-            }
-
         }
         if(me.life_time > me.thrust_duration)
         {
             f_lbs = me.force_lbs_stage2 * 0.3;
-            print("stage2 active");
+            if (debugflight == 1) {
+                print("Engine stage2 active");
+            }
         }
         # stage 2
-if(me.life_time > me.thrust_duration_stage2)
+        if (me.life_time > me.thrust_duration_stage2)
         {
             var Dapath = me.missile_NoSmoke;
             if(me.model.getNode("path", 1).getValue() != Dapath)
@@ -787,13 +807,16 @@ if(me.life_time > me.thrust_duration_stage2)
             }
             #print( me.model.getNode("path", 1).getValue());
             f_lbs = 0;
+                if (debugsysmessages == 1) {
+                print("Ran out of fuel in both stages!");
+                }
             #me.smoke_prop.setBoolValue(0);
         }
+            if (debugflight == 1) {
+            print("Engine thrust:", f_lbs);
+            }
         
-        print("Engine thrust:", f_lbs);
-        
-# Anti-Rad
-
+                # Anti-Rad
                     if(me.fox == "Magnum") {
                         print("Anti-Rad: Checking");
                         if ( getprop("payload/armament/spike") == 0 ) {
@@ -940,20 +963,16 @@ if(me.life_time > me.thrust_duration_stage2)
                 #check for flares!
 
 
-   var OurAlt       = props.globals.getNode("position/altitude-ft");
-var OurLat       = props.globals.getNode("position/latitude-deg");
-var OurLon       = props.globals.getNode("position/longitude-deg");
+                var OurAlt       = props.globals.getNode("position/altitude-ft");
+                var OurLat       = props.globals.getNode("position/latitude-deg");
+                var OurLon       = props.globals.getNode("position/longitude-deg");
+                    if (debugflight == 1) {
+-                    print("MSL Still Tracking Target : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
+                    }
 
-
-        if (debugflight == 1) {
--                print("MSL Still Tracking Target : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
+                    me.checkflares();
+                    }
                 }
-
-
-
-                me.checkflares();
-            }
-        }
                 if (debugflight == 1) {
 -        print("Missile Main Status: ", me.status, " Is the missile delocked? ", me.free, " Is the missile fired? : ", init_launch);
         print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, " dt :", dt);
@@ -1013,6 +1032,7 @@ var OurLon       = props.globals.getNode("position/longitude-deg");
                     # Delete the missile over damage
                     #sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
                     var typeID = 0;
+                    typeID = me.getTypeID(me.NameOfMissile);
                         if(me.NameOfMissile == "Aim-260"){me.NameOfMissile="Aim-260";typeID = 53;}
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}

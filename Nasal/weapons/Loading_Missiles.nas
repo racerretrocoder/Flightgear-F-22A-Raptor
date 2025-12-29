@@ -38,7 +38,7 @@ var Loading_missile = func(name)
     var life              = 0;
     var sdspeed           = 0;
     var fox               = "nothing";  # call Fox 1 if you want to drop like a tank. If you dont youll get a nasal error.  Fox 1 missiles are possible too. If there is a target when launched. But if the radar losses it. it wont hit 
-    var rail              = "true";     # If the missile is launched on a rail or not if false the missile is "dropped"
+    var rail              = 1;     # If the missile is launched on a rail or not if false the missile is "dropped"
     var cruisealt         = 0;
     var guidance	  = 0;
     var chute         = 1;
@@ -46,6 +46,7 @@ var Loading_missile = func(name)
     var isbomb        = 0; # if this weapon is a bomb
     var pbrange       = 0; # in meters
     var multishot = 0;
+    var ignitedelay = 0.5; # If the weapon is NOT dropped from a rail, Delay starting the engine by however many seconds (Default 0.5)
 
 
 
@@ -76,12 +77,13 @@ var Loading_missile = func(name)
         life = 110; # 
         sdspeed = 0.65;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";
-        rail = "false";
+        rail = 0;
         cruisealt = 0;
         chute = 0;
         isbomb = 0;
         pbrange = 10000; # added on 
         multishot = 6;
+        ignitedelay = 0.5;
     }
 
     elsif(name == "Aim-260")
@@ -111,12 +113,13 @@ var Loading_missile = func(name)
         life = 100000000000; # 
         sdspeed = 0.65;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";
-        rail = "false";
+        rail = 0;
         cruisealt = 75000;
         chute = 0;
         isbomb = 0;
         pbrange = 0;
         multishot = 6;
+        ignitedelay = 2; 
     }
 
     elsif(name == "Aim-9x")
@@ -144,12 +147,13 @@ var Loading_missile = func(name)
         maxspeed = 3;                               # In Mach
         life = 90;
         fox = "Fox 2";
-        rail = "true";
+        rail = 1;
         cruisealt = 0;
         chute = 0;
         sdspeed = 0.01;
         isbomb = 0;
         multishot = 0;
+        ignitedelay = 0;
     }
     elsif(name == "Aim-9m")
     {
@@ -176,12 +180,13 @@ var Loading_missile = func(name)
         maxspeed = 3;                               # In Mach
         life = 90;
         fox = "Fox 2";
-        rail = "true";
+        rail = 1;
         cruisealt = 0;
         chute = 0;
         sdspeed = 0.01;
         isbomb = 0;
         multishot = 0;
+        ignitedelay = 0;
     }
 
 
@@ -210,12 +215,13 @@ var Loading_missile = func(name)
         maxspeed = 5;                                 # In Mach
         life = 80000000000000;
         fox = "A/G";  
-        rail = "true";
+        rail = 0;
         cruisealt = 0;
         sdspeed = 0;
         chute = 0;
         isbomb = 1;  # craters get messy one sec
         multishot = 8;
+        ignitedelay = 0;
     }
  elsif(name == "JDAM")
  {
@@ -242,12 +248,13 @@ var Loading_missile = func(name)
      maxspeed = 5;                                 # In Mach
      life = 80000000000000;
      fox = "A/G";   
-     rail = "true";
+     rail = 0;
      cruisealt = 0;
      sdspeed = 0;
      chute = 0;
      isbomb = 1;
      multishot = 6;
+     ignitedelay = 0;
  }
 
 
@@ -315,12 +322,13 @@ var Loading_missile = func(name)
         maxspeed = 5;                                 # In Mach
         life = 50;
         fox = "Fox 1"; # call fox 1 then leave it. unguided
-        rail = "true";
+        rail = 1;
         cruisealt = 0;
         sdspeed = 0;
         chute = 1;
         isbomb = 0;
         multishot = 0;
+        ignitedelay = 0;
     }
     else
     {
@@ -356,6 +364,7 @@ var Loading_missile = func(name)
     setprop("controls/armament/missile/isbomb", isbomb);
     setprop("controls/armament/missile/pbrange", pbrange);
     setprop("controls/armament/missile/multishot", multishot);
+    setprop("controls/armament/missile/ignitedelay", ignitedelay);
     return 1;
 }
 

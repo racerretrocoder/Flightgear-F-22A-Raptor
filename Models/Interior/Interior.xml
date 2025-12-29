@@ -923,6 +923,47 @@ _____/\\\\\\\\\_________________________________________________________________
 <animation>
   <type>pick</type>
 
+        <object-name>smallscreen2bt1</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>smallscreens.changemoderight();</script>
+</binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/ssrbt1</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/ssrbt1</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
+</action>
+ </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>smallscreen2bt1</object-name>
+		<property>/controls/buttons-pressed/ssrbt1</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
+
+
+
+
+<animation>
+  <type>pick</type>
+
         <object-name>lthrot</object-name>
    <action>
     <button>0</button>

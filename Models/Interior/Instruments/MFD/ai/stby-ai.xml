@@ -33,4 +33,41 @@
    </transform>
  </animation>
 
+<animation>
+		<type>select</type>
+		<object-name>StbyAIface</object-name>
+		<object-name>Plane.028</object-name>
+		<condition>
+			<equals>
+				<property>/controls/small-screens/rightscreen/mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+</animation>	
+
+<animation>
+		<type>select</type>
+		<object-name>hsi</object-name>
+		<object-name>pointer</object-name>
+    <object-name>hsibg</object-name>
+		<condition>
+			<equals>
+				<property>/controls/small-screens/rightscreen/mode</property>
+				<value>2</value>
+			</equals>
+		</condition>
+</animation>	
+
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>hsi</object-name>
+		<property>orientation/heading-magnetic-deg</property>
+
+		<axis>   
+		<object-name>spinaxis</object-name> <!--This works SOOO GOOD!!-->
+		</axis>
+	</animation>
+
 </PropertyList>

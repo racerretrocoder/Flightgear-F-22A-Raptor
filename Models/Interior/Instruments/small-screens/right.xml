@@ -70,7 +70,7 @@
   <offsets>
       <x-m>-4.7768</x-m>
    <y-m>0.247</y-m>
-   <z-m>0.783</z-m>
+   <z-m>0.883</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
@@ -84,7 +84,7 @@
 			<offsets>
 				<x-m>-4.7768</x-m>
 					<y-m>0.247</y-m>
-				<z-m>0.783</z-m>
+				<z-m>0.983</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>

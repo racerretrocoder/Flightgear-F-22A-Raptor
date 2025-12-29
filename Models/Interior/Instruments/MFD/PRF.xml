@@ -5,7 +5,14 @@
 
 
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/PRF.ac</path>
-
+   <model>
+    <path>Aircraft/F-22/Models/Interior/Instruments/MFD/map/CHDD.xml</path>
+    <offsets>
+      <x-m>0.005</x-m>
+      <y-m>0 </y-m>
+      <z-m>-0.003</z-m>
+    </offsets>
+  </model>
 	<!---->
 
 	 <text>
@@ -23,7 +30,22 @@
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
-
+ <text>
+  <name>dir</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.005</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.006</y-m>
+   <z-m>0.065</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">number-value</type>
+    <property type="string">orientation/heading-magnetic-deg</property>
+    <format type="string">%5.0f</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 
 
 	 <animation>

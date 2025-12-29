@@ -58,7 +58,7 @@
     <blue>0.3</blue>
   </emission> 
  </animation>
-
+<!--
  <text>
   <name>Lat-label</name>
   <font>lcd.txf</font>
@@ -195,6 +195,6 @@
  <property>/instrumentation/gps/wp/wp[1]/TTW</property>
   <draw-text type="bool">true</draw-text>
   <alignment>right-top</alignment>
- </text>
+ </text>-->
 
 </PropertyList>

@@ -306,7 +306,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <yaw>   0.00 </yaw>
     </orient>
     <feed>0</feed>
-        <feed>3</feed>
+    <feed>3</feed>
+    <feed>5</feed>
     <thruster file="direct">
      <sense> 1 </sense>
      <location unit="IN">
@@ -334,7 +335,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <yaw>   0.00 </yaw>
     </orient>
     <feed>1</feed>
-        <feed>2</feed>
+    <feed>2</feed>
+    <feed>4</feed>
     <thruster file="direct">
      <location unit="IN">
       <x> 354.20 </x>
@@ -394,8 +396,31 @@ The Force that pushes the aircraft for increased manuverability should be lowere
      <capacity unit="LBS"> 8140.00 </capacity>
      <contents unit="LBS"> 0 </contents>
   </tank>
- </propulsion>
 
+  <tank type="FUEL" number="4">
+     <location unit="IN">
+     <x> 268.52 </x>
+     <y>   24.00 </y>
+     <z> -15.36 </z>
+     </location>
+<priority>1</priority>
+     <capacity unit="LBS"> 8140.00 </capacity>
+     <contents unit="LBS"> 0 </contents>
+  </tank>
+
+<tank type="FUEL" number="5">
+     <location unit="IN">
+     <x> 268.52 </x>
+     <y>   -24.00 </y>
+     <z> -15.36 </z>
+     </location>
+<priority>1</priority>
+     <capacity unit="LBS"> 8140.00 </capacity>
+     <contents unit="LBS"> 0 </contents>
+  </tank>
+
+
+ </propulsion>
 
  <system file="Systems/jsb-pushback.xml"/> <!--Pushback-->
  <system file="Systems/cat.xml"/>
@@ -2362,12 +2387,12 @@ The Force that pushes the aircraft for increased manuverability should be lowere
               3       0.003
               4       0.005
               5       0.027
-              6       0.101
-              7       0.123
-              8       0.145
-              9       0.163
-              10      0.184
-              11      0.204
+              6       0.031
+              7       0.043
+              8       0.045
+              9       0.046
+              10      0.044
+              11      0.064
             </tableData>
           </table>
        </product>

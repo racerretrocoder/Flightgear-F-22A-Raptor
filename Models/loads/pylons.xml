@@ -45,33 +45,215 @@
     </offsets>
   </model>	
 
+
+
+
+<model>
+    <name>farleft-Droptank</name>
+    <path>Aircraft/F-22/Models/loads/Tank.xml</path>
+    <offsets>
+      <x-m> 2.85  </x-m>
+      <y-m> -4.5 </y-m>
+      <z-m> -1.5 </z-m>
+      <pitch-deg> 0.0 </pitch-deg>
+    </offsets>
+  </model>	
+
+<model>
+    <name>farright-Droptank</name>
+    <path>Aircraft/F-22/Models/loads/Tank.xml</path>
+    <offsets>
+      <x-m> 2.85  </x-m>
+      <y-m> 4.5 </y-m>
+      <z-m> -1.5 </z-m>
+      <pitch-deg> 0.0 </pitch-deg>
+    </offsets>
+  </model>	
+
+
+
   <animation>
     <type>select</type>
     <object-name>left-Droptank</object-name>      
     <condition>
-
         <equals>
           <property>sim/multiplay/generic/int[19]</property>
           <value>1</value>
         </equals>
-
     </condition>
-	 
   </animation>
 
   <animation>
     <type>select</type>
     <object-name>right-Droptank</object-name>      
     <condition>
-
         <equals>
           <property>sim/multiplay/generic/int[18]</property>
           <value>1</value>
         </equals>
-
     </condition>
-	 
   </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>farleft-Droptank</object-name>      
+    <condition>
+        <equals>
+          <property>sim/multiplay/generic/int[28]</property>
+          <value>1</value>
+        </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>farright-Droptank</object-name>      
+    <condition>
+        <equals>
+          <property>sim/multiplay/generic/int[27]</property>
+          <value>1</value>
+        </equals>
+    </condition>
+  </animation>
+
+
+<!--Weapons-->
+	<animation>
+<type>select</type>
+<object-name>1201</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[4]/selected</property>
+<value>Aim-120</value>
+</equals>
+<equals>
+<property>controls/armament/station[4]/release</property> 
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+	<animation>
+<type>select</type>
+<object-name>1202</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[17]/selected</property>
+<value>Aim-120</value>
+</equals>
+<equals>
+<property>controls/armament/station[17]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+	<animation>
+<type>select</type>
+<object-name>1203</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[2]/selected</property>
+<value>Aim-120</value>
+</equals>
+<equals>
+<property>controls/armament/station[2]/release</property> 
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+	<animation>
+<type>select</type>
+<object-name>1204</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[20]/selected</property>
+<value>Aim-120</value>
+</equals>
+<equals>
+<property>controls/armament/station[20]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+<!--9x-->
+	<animation>
+<type>select</type>
+<object-name>9x1</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[4]/selected</property>
+<value>Aim-9x</value>
+</equals>
+<equals>
+<property>controls/armament/station[4]/release</property> 
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+	<animation>
+<type>select</type>
+<object-name>9x2</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[17]/selected</property>
+<value>Aim-9x</value>
+</equals>
+<equals>
+<property>controls/armament/station[17]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+	<animation>
+<type>select</type>
+<object-name>9x3</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[2]/selected</property>
+<value>Aim-9x</value>
+</equals>
+<equals>
+<property>controls/armament/station[2]/release</property> 
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
+
+	<animation>
+<type>select</type>
+<object-name>9x4</object-name>      
+<condition>
+<and>
+<equals>
+<property>sim/weight[20]/selected</property>
+<value>Aim-9x</value>
+</equals>
+<equals>
+<property>controls/armament/station[20]/release</property>
+<value>false</value>
+</equals>
+</and>
+</condition>
+</animation>
 
 
 
