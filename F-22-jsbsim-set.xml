@@ -267,7 +267,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					screen.log.write("" ~ getprop("sim/multiplay/callsign") ~ ": PUSHBACK! HELP ME!");
+					screen.log.write("" ~ getprop("sim/multiplay/callsign") ~ ": Pushback! Please Help Me!");
 					setprop("sim/messages/atc","Pushback: Dont worry! Im here for your taxi needs :)"); # dont worry about invalid ")"
 					</script>
 			</binding>
@@ -335,7 +335,7 @@ jammer.stop();
 <!--
 
 Multiplayer Variables   note: Turn weapon stations into 1 string. or even better, bring nasal into the mix
-Theres soo many
+Theres alot! I am lucky that flightgear will let us pass this many through MP
 
 -->
 
@@ -2871,14 +2871,8 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
     </m2000_load>
 
 <armament>
-
-<!--Old damage-->
-
-      <file>Aircraft/F-22/Nasal/olddamage.nas</file>
-
-
       <file>Aircraft/F-22/Nasal/weapons/missile-code.nas</file>
-</armament>  <!--Only for RWR-->
+</armament>  <!--OPRF Missile-code present Only for the RWR to work-->
 
 
     <guns>
@@ -2969,9 +2963,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	  <file>Aircraft/F-22/Nasal/lead-computer.nas</file>
 	  <file>Aircraft/Instruments-3d/computing-gun-sights/K14/Nasal/K14-reticle.nas</file>
 	</K14>
-		<tips>
+		
+	<!--<tips>   disabled for now. its a bit buggy
 			<file>Aircraft/F-22/Nasal/messages.nas</file>
-		</tips>
+		</tips>-->
 
 	</nasal>
 </PropertyList>

@@ -295,7 +295,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  <propulsion>
 
    <engine file="F119-PW-100">
-    <location unit="IN">
+   <!-- <location unit="IN">
       <x> 320.20 </x>
       <y>   20.00 </y>
       <z>   -15.36 </z>
@@ -304,7 +304,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <pitch> 0.00 </pitch>
       <roll>  0.00 </roll>
       <yaw>   0.00 </yaw>
-    </orient>
+    </orient>-->
     <feed>0</feed>
     <feed>3</feed>
     <feed>5</feed>
@@ -324,7 +324,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   </engine>
 
    <engine file="F119-PW-100">
-      <location unit="IN">
+<!--<location unit="IN">
       <x> 320.20 </x>
       <y>   -20.00 </y>
       <z>   -15.36 </z>
@@ -333,7 +333,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <pitch> 0.00 </pitch>
       <roll>  0.00 </roll>
       <yaw>   0.00 </yaw>
-    </orient>
+    </orient>--> 
     <feed>1</feed>
     <feed>2</feed>
     <feed>4</feed>

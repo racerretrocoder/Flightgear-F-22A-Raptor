@@ -1612,7 +1612,7 @@ New: Refuel in air switch.
 		</axis>
 	</animation>
 
-
+<!--
  <animation>
   <type>pick</type>
    <object-name>AAR</object-name>
@@ -1662,12 +1662,7 @@ New: Refuel in air switch.
             <z>0.38</z>
         </axis>
     </animation>
-
-
-
-
-
- 
+-->
 
 
 <animation>
