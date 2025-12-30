@@ -466,23 +466,7 @@
   <alignment>left-top</alignment>
  </text>
 
-  <text>
-  <name>fuel-lbext</name>
-  <font>condensed.txf</font>
-  <character-size type="double">0.005</character-size>
-  <offsets>
- <x-m>0.01</x-m>
-   <y-m>0.02</y-m>
-   <z-m>0.00</z-m>
-  </offsets>
-  <axis-alignment>yz-plane</axis-alignment>
-   <type type="string">number-value</type>
-   <format type="string">%5.0f lbs</format>
-  <truncate type="bool">true</truncate>
-  <property>consumables/fuel/tank[3]/level-lbs</property>
-  <draw-text type="bool">true</draw-text>
-  <alignment>left-top</alignment>
- </text>	
+
 
  <text>
   <name>bingo</name>
@@ -504,8 +488,6 @@
   <type>material</type>
   <object-name>fuel-lb</object-name>
   <object-name>fuel-head</object-name>
-  <object-name>fuel-lbext</object-name>
-  <object-name>fuel-headext</object-name>
   <ambient>
     <red>0.0</red>
     <green>0.0</green>
@@ -522,64 +504,11 @@
     <blue>0.0</blue>
   </emission> 
  </animation>
- 	 <animation>
-  <type>material</type>
-  <object-name>bingo</object-name>
-
-  <ambient>
-    <red>0.1</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
-  </ambient>
-  <diffuse>
-    <red>0.1</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
-  </diffuse>
-  <emission>
-    <red>0.8</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
-  </emission> 
- </animation>
 
 
 
- <animation>
-    <type>select</type>
-    <object-name>fuel-lbext</object-name>
-  <object-name>fuel-headext</object-name>
-    <condition>
-  <and>
-      <greater-than>
-       <property>consumables/fuel/tank[2]/level-lbs</property>
-       <value>0</value>
-      </greater-than>
-      <greater-than>
-       <property>consumables/fuel/tank[3]/level-lbs</property>
-       <value>0</value>
-      </greater-than>
-</and>
-    </condition>
-  </animation>
 
- <animation>
-    <type>select</type>
-    <object-name>bingo</object-name>
-
-    <condition>
-  <and>
-      <equals>
-       <property>f22/isbingo</property>
-       <value>1</value>
-      </equals>
-      <equals>
-       <property>f22/blink</property>
-       <value>1</value>
-      </equals>
-</and>
-    </condition>
-  </animation>
+ 
 
 
 </PropertyList>
