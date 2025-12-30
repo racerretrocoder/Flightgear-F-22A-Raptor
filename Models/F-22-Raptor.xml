@@ -272,7 +272,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
     </offsets>
   </model>
   
-  <!-- Impact fire smoke -->
+  <!-- Impact fire smoke 
   <model>
   <path>Aircraft/F-22/Models/Effects/Explosion/ImpactFireSmoke.xml</path>
   <condition>
@@ -287,7 +287,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
     <z-m>0</z-m>
     <heading-deg>0</heading-deg>
     </offsets>
-  </model>
+  </model>-->
 
 <model>
   <name>aerobatic_smoke</name>
@@ -630,10 +630,6 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
  
 
-
-  <model>
-<path>Aircraft/F-22/Models/Effects/Vapour/fx2.xml</path>
-</model>
 
 <model>
   <name>machCone</name>
