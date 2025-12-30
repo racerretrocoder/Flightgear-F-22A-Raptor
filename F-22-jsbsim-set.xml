@@ -135,10 +135,9 @@
   		</submodels>
 				
 		<systems>
-<electrical>
-<path>Aircraft/F-22/system/Electrical.xml</path>
-</electrical>
-
+			<electrical>
+			<path>Aircraft/F-22/System/Electrical.xml</path>
+			</electrical>
 			<autopilot>
 			   <path>Aircraft/F-22/System/Autopilot.xml</path>
 			</autopilot>
@@ -472,7 +471,7 @@ Theres soo many
 		  </hud> -->
 		
 		<instrumentation>
-				<path>Aircraft/F-22/Systems/Instrumentation.xml</path>
+				<path>Aircraft/F-22/System/Instrumentation.xml</path>
 
 		
 				<fuel-gauges>
