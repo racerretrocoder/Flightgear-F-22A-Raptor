@@ -1141,13 +1141,13 @@ Use below instead
 	
 
 	
-<!-- Weapon bay doors -->
-
+<!-- Weapon bay doors
+Old
  <animation>
   <type>rotate</type>
   <object-name>9xtop</object-name>
   <property>/baydoors/position-norm</property>
-  <factor>55</factor> <!-- The rotation in degrees... kinda -->
+  <factor>55</factor> 
   <center>
    <x-m>-2.7165</x-m>
    <y-m>0.0</y-m>
@@ -1158,7 +1158,7 @@ Use below instead
    <y>1</y>
    <z>0</z>
   </axis>
- </animation>
+ </animation> -->
 <!-- this is old
 	<animation>
 		<type>rotate</type>
@@ -1235,19 +1235,21 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>BAYLEFT-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>BAYLEFT-axis</object-name> 
 		</axis>
 	</animation>
+
+	<!--
 	<animation>
 		<type>rotate</type>
 
 		<object-name>leftmidbay</object-name>
 		<property>sim/multiplay/generic/float[12]</property>
 		<interpolation>
-		<!--	<entry>
+		<entry>
 				<ind>0.0</ind>
 				<dep>0</dep>
-			</entry> -->
+			</entry> 
 			<entry>
 				<ind>0.0</ind>
 				<dep>0</dep>
@@ -1258,41 +1260,34 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>mbaydoor-axis-L</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>mbaydoor-axis-L</object-name> 
 		</axis>
 	</animation>
+-->
 
 
+<!--these are old-->
 
-
-
-
+<!--
 	<animation>
 		<type>select</type>
 		<object-name>Left_Rocket_Bay_D2</object-name>
 		<property>sim/multiplay/generic/float[12]</property>
-	
-
-	</animation>
-
-
-	<animation>
+	</animation>-->
+	<!--<animation>
 		<type>select</type>
 		<object-name>Right_Rocket_Bay_D2</object-name>
 		<property>sim/multiplay/generic/float[12]</property>
-	
-
-	</animation>
+	</animation>-->
 	<animation>
 		<type>rotate</type>
 		<object-name>RIGHTMAINDOOR</object-name>
-		<object-name>Right_Rocket_Bay_D2</object-name>
 		<property>sim/multiplay/generic/float[12]</property>
 		<interpolation>
-		<!--	<entry>
+		<!--<entry>
 				<ind>0.0</ind>
 				<dep>0</dep>
-			</entry> -->
+			</entry>-->
 			<entry>
 				<ind>0.0</ind>
 				<dep>0</dep>
@@ -1303,7 +1298,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>BAYRIGHT-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>BAYRIGHT-axis</object-name> 
 		</axis>
 	</animation>
 
@@ -1326,7 +1321,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>baydoor2R</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>baydoor2R</object-name> 
 		</axis>
 	</animation>
 
@@ -1349,7 +1344,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>baydoor2L</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>baydoor2L</object-name> 
 		</axis>
 	</animation>
 
@@ -1430,7 +1425,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>9xdl2-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>9xdl2-axis</object-name> 
 		</axis>
 	</animation>
 
@@ -1479,7 +1474,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>9xdr3-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>9xdr3-axis</object-name> 
 		</axis>
 	</animation>
 
@@ -1696,7 +1691,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>gundoor-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>gundoor-axis</object-name> 
 		</axis>
 	</animation>
 
@@ -1767,7 +1762,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>lfd-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>lfd-axis</object-name> 
 		</axis>
 	</animation>
 	<animation>
@@ -1789,7 +1784,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>lfd2-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>lfd2-axis</object-name> 
 		</axis>
 	</animation>
 <!--Right-->
@@ -1812,7 +1807,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>rfd-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>rfd-axis</object-name> 
 		</axis>
 	</animation>
 	<animation>
@@ -1834,7 +1829,7 @@ Use below instead
 			</entry>
 		</interpolation>
 		<axis>   
-		<object-name>rfd2-axis</object-name> <!--This works SOOO GOOD!!-->
+		<object-name>rfd2-axis</object-name> 
 		</axis>
 	</animation>
 <!--
@@ -3749,7 +3744,7 @@ FR
 	 </animation>
 
   
-   <!-- 9xdoors -->
+   <!-- 9xdoors
 <animation>
 		<type>rotate</type>
 		<object-name>9xtop</object-name>
@@ -3770,7 +3765,7 @@ FR
 		 <z>0</z>
 	 </axis>
 	</animation>  
-
+ -->
 
   <model>
   <name>Hook</name>
@@ -3883,10 +3878,8 @@ FR
 		<object-name>left-slat_0</object-name>
 		<object-name>left-slat_1</object-name>
 		<object-name>RIGHTMAINDOOR</object-name>
-		<object-name>leftmidbay</object-name>
 		<object-name>rightmidbay</object-name>
 		<object-name>LEFTMAINDOOR</object-name>
-		<object-name>Left_Rocket_Bay_D2</object-name>
 		<object-name>RIGHTMAINDOOR2</object-name>
 		<object-name>LEFTMAINDOOR2</object-name>
 		<object-name>left-flap_1</object-name>
@@ -3946,8 +3939,8 @@ FR
 <object-name>Right_Rocket_Bay</object-name>
 <object-name>Left_Rocket_Bay</object-name>
 <object-name>Right_Rocket_Bay_D1</object-name>
-<object-name>Left_Rocket_Bay_D2</object-name>
-<object-name>Right_Rocket_Bay_D2</object-name>
+<!--<object-name>Left_Rocket_Bay_D2</object-name>-->
+<!--<object-name>Right_Rocket_Bay_D2</object-name>-->
 <object-name>lwheel</object-name>
 <object-name>rwheel</object-name>
 <object-name>nwheel</object-name>
@@ -3960,7 +3953,6 @@ FR
 <object-name>9xdr</object-name>
 <object-name>AIM-9-L-RAIL</object-name>
 <object-name>AIM-9-R-RAIL</object-name>
-<object-name>9xtop</object-name>
 <object-name>canopy in</object-name>
 <object-name>canopy out</object-name>
 <object-name>canopy</object-name>
