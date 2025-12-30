@@ -416,46 +416,9 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
                  <value>1</value>
                   <value>0</value>
      </binding>
-
-
         </action>
     </animation>
 
-
-
-
-
-
-<animation>
-        <name>Hud brightness</name>
-        <type>knob</type>
-        <object-name>HUDKNOB2</object-name>
-        <property>sim/hud/color/brightness</property>
-        <factor>1</factor>
-        <center>
-            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
-        </center>
-        <axis>
-            <x>0</x><y>0</y><z>0</z>
-        </axis>
-        <action>
-            <binding>
-                <command>property-cycle</command>
-        <property>sim/hud/color/brightness</property>
-                <value>0</value>
-                <value>0.3</value>
-                <value>0.6</value>
-                <value>1</value>
-                <wrap>false</wrap>
-            </binding>
-                 <binding>
-     <command>property-cycle</command>
-                <property>/sim/model/wheel</property>
-                 <value>1</value>
-                  <value>0</value>
-     </binding>
-        </action>
-    </animation>
 
 
 <!--DTC-->
@@ -1360,7 +1323,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 </animation> 
 
 
-
+<!--
  <animation>
   <type>pick</type>
    <object-name>elecswitch1</object-name>
@@ -1549,7 +1512,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
     <interval-sec>0.2</interval-sec>
     <binding>
 <command>property-toggle</command>
-                <property>/controls/electric/AESA</property> <!--Radar power-->
+                <property>/controls/electric/AESA</property> 
     </binding>
       <binding>
         <command>property-toggle</command>
@@ -1574,7 +1537,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 			<y-m> 0.31645</y-m>
 			<z-m>-0.35402</z-m>
 		</center>
-	</animation>
+	</animation>-->
 
 <!--TODO: Animation for the Elec panel
 
@@ -1649,18 +1612,6 @@ New: Refuel in air switch.
 		</axis>
 	</animation>
 
- <animation>
-  <object-name>refuelswitchlight</object-name>
-  <type>select</type>
-  <condition>
-<greater-than>
-				<property>controls/refuel/Switch</property>
-				<value>0.001</value>
-			</greater-than>
-  </condition>
- </animation>
-
-
 
  <animation>
   <type>pick</type>
@@ -1713,115 +1664,10 @@ New: Refuel in air switch.
     </animation>
 
 
-<animation>
-  <type>pick</type>
-   <object-name>AARMPO</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-               <command>property-cycle</command>
-               <property>controls/AAR/Switch</property>
-               <value>0</value>
-               <value>1</value>
-               <wrap>true</wrap>
-    </binding>
-          <binding>
-        <command>property-toggle</command>
-        <property>sim/model/click</property>
-      </binding>
-       </action>
- </animation>
-
-<animation>
-        <type>rotate</type>
-        <object-name>AARMPO</object-name>
-        <property>controls/AAR/Switch</property>
-        <offset-deg>0</offset-deg>
-        <factor>-40</factor>
-        <axis>
-            <x>0.0</x>
-            <y>1.0</y>
-            <z>0.0</z>
-        </axis>
-        <center>
-            <x-m>-5.31242</x-m>
-            <y-m> -0.34872</y-m>
-            <z-m>-0.355119</z-m>
-        </center>
-    </animation>
-<animation>
-        <type>translate</type>
-        <object-name>AARMPO</object-name>
-        <property>controls/AAR/Switch</property>
-        <factor>-0.0047</factor>
-        <axis>
-            <x>2.2</x>
-            <y>-0.1</y>
-            <z>0.38</z>
-        </axis>
-    </animation>
 
 
 
-  <animation>
-  <type>material</type>
-  <object-name>hud</object-name>
-  <transparency>
-    <alpha-prop>su-27/instrumentation/HUD/brightness</alpha-prop>
-    <factor>1</factor>
-    <offset>0</offset>
-   </transparency>
-  <!--<emission>
-   <red>0.9</red>
-   <green>0.9</green>
-   <blue>0.9</blue>
-   <factor-prop>su-27/instrumentation/HUD/brightness</factor-prop>
-  </emission>-->
- </animation>
-  
-
- <animation>
-  <object-name>aarlight</object-name>
-  <type>select</type>
-  <condition>
-
-<greater-than>
-				<property>su-27/instrumentation/HUD/brightness</property>
-				<value>0.001</value>
-			</greater-than>
-  </condition>
- </animation>
-<animation>
-  <object-name>aarmpolight</object-name>
-  <type>select</type>
-  <condition>
-
-<greater-than>
-				<property>controls/AAR/Switch</property>
-				<value>0.5</value>
-			</greater-than>
-  </condition>
- </animation>
-
- <animation>
-  <type>pick</type>
-   <object-name>1r1</object-name>
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-<command>property-toggle</command>
-                <property>/controls/armament/master-arm</property>
-    </binding>
-    <mod-up>
-     <binding>
-     </binding>
-    </mod-up>
-   </action>
- </animation>
+ 
 
 
 <animation>
@@ -2228,69 +2074,6 @@ New: Refuel in air switch.
     </animation>
 
 
-
-    <animation>
-    <object-name>FBWLIGHT</object-name>
-  <type>select</type>
-  <condition>
-            <greater-than>
-				<property>controls/FBW/Switch</property>
-				<value>0.5</value>
-			</greater-than>
-  </condition>
- </animation>
-
-<animation>
-  <type>pick</type>
-   <object-name>FBWOVERRIDE</object-name> <!--Switch this switch to disable Slow speed vector limiter and the 9.0 G limiter (with this switch on it can pull 20 gs xddd)-->
-   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <interval-sec>0.2</interval-sec>
-    <binding>
-               <command>property-cycle</command>
-               <property>controls/FBW/Switch</property>
-               <value>0</value>
-               <value>1</value> <!--Integer Because this is used with FDM-->
-               <wrap>true</wrap>
-    </binding>
-        <binding>
-<command>property-toggle</command>
-                <property>/sim/model/click</property>
-    </binding>
-       </action>
- </animation>
-
-<animation>
-        <type>rotate</type>
-        <object-name>FBWOVERRIDE</object-name>
-        <property>controls/FBW/Switch</property>
-        <offset-deg>0</offset-deg>
-        <factor>-40</factor>
-        <axis>
-            <x>0.0</x>
-            <y>1.0</y>
-            <z>0.0</z>
-        </axis>
-        <center>
-            <x-m>-5.29079</x-m>
-            <y-m> -0.346655</y-m>
-            <z-m>-0.355119</z-m>
-        </center>
-    </animation>
-<animation>
-        <type>translate</type>
-        <object-name>FBWOVERRIDE</object-name>
-        <property>controls/FBW/Switch</property>
-        <factor>-0.0047</factor>
-        <axis>
-            <x>2.2</x>
-            <y>-0.1</y>
-            <z>0.38</z>
-        </axis>
-    </animation>
-
-
 <!--Lighting panel. Switchs stay off Straight up. Push them PORT (Left when facing the hud) to turn on--> <!--Is this still the right direction?-->
 
 
@@ -2325,39 +2108,6 @@ New: Refuel in air switch.
      </binding>
         </action>
     </animation>
-
-<animation>
-        <name>panel knob</name>
-        <type>knob</type>
-        <object-name>panelknob</object-name>
-        <property>controls/lighting/consoles</property>
-        <factor>1</factor>
-        <center>
-            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
-        </center>
-        <axis>
-            <x>0</x><y>0</y><z>0</z>
-        </axis>
-        <action>
-            <binding>
-                 <command>property-adjust</command>
-                <property>controls/lighting/panel-norm</property>
-                <factor>0.1</factor>
-                <min>0</min>
-                <max>1</max>                
-                <wrap>false</wrap>
-            </binding>
-                 <binding>
-     <command>property-cycle</command>
-                <property>/sim/model/wheel</property>
-                 <value>1</value>
-                  <value>0</value>
-     </binding>
-        </action>
-    </animation>
-
-
-
 
 
 <!-- Comms -->
@@ -2696,15 +2446,6 @@ New: Refuel in air switch.
         </center>
     </animation>
 
- <animation>
-  <object-name>navlightlight</object-name>
-  <type>select</type>
-  <condition>
-	<property>controls/lighting/nav-lights</property>
-  </condition>
- </animation>
-
-
 <animation>
   <type>pick</type>
    <object-name>beaconlights</object-name>
@@ -2778,17 +2519,6 @@ New: Refuel in air switch.
             <z-m> -0.200124 </z-m>
         </center>
     </animation>
-
-
- <animation>
-  <object-name>beaconlightlight</object-name>
-  <type>select</type>
-  <condition>
-	<property>controls/lighting/beacon</property>
-  </condition>
- </animation>
-
-
 
 
 
@@ -3254,23 +2984,6 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
     </animation>
 
 
-<animation>
-        <type>rotate</type>
-        <object-name>throt</object-name>
-        <property>f22/throttle</property>
-        <offset-deg>40</offset-deg>
-        <factor>-70</factor>
-        <axis>
-            <x>0.0</x>
-            <y>1.0</y>
-            <z>0.0</z>
-        </axis>
-        <center>
-            <x-m>-5.34754</x-m>
-	    <y-m> -0.284115</y-m>
-	    <z-m>-0.25021</z-m>
-        </center>
-    </animation>
 
 <animation>
         <type>rotate</type>
@@ -5821,14 +5534,8 @@ Eject handle
 
 
 
-<!--Todo Make an arm lever
+<!--Todo Make an eject arm lever
 
-Though i dont think thats really needed rn
-MFD buttons first
-
-
-Lowest priority then
--->
 
 <animation>
   <type>pick</type>
@@ -5843,15 +5550,14 @@ Lowest priority then
 	   <value>1</value>
 	   <value>0</value>
 </binding>
-
    <binding>
   <command>nasal</command>
-  <script>setprop("/sim/messages/atc", "Arm state:"~ getprop("controls/seat/ejection-safety-lever"));</script> <!--Lets us know the state of the lever TODO: make an animation instead-->
+  <script>setprop("/sim/messages/atc", "Arm state:"~ getprop("controls/seat/ejection-safety-lever"));</script> 
 
 </binding>
        </action>
  </animation>
-
+-->
 <animation>
 	<type>pick</type>
 	<object-name>LDGHNDL</object-name>

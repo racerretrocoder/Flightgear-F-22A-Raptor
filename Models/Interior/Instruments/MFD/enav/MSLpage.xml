@@ -236,29 +236,6 @@ Use increments of .01 Because the unit is meters.
 	</animation>
 
 
-	 <animation>
-  <type>material</type>
-  <object-name>afterburner</object-name>
-  <object-name>hook</object-name>
-  <object-name>bay</object-name>
-  <object-name>canpy</object-name>
-  <object-name>milthrust</object-name>
-  <ambient>
-    <red>0.0</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
-  </ambient>
-  <diffuse>
-    <red>0.1</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
-  </diffuse>
-  <emission>
-    <red>0.8</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
-  </emission> 
- </animation>
 
  <animation>
   <type>material</type>
@@ -289,27 +266,6 @@ Use increments of .01 Because the unit is meters.
   </emission> 
  </animation>
 
-
- <animation>
-  <type>material</type>
-
-            <object-name>autoflaps</object-name>
-  <ambient>
-    <red>0.0</red>
-    <green>0.8</green>
-    <blue>1.0</blue>
-  </ambient>
-  <diffuse>
-    <red>0.0</red>
-    <green>0.0</green>
-    <blue>0.1</blue>
-  </diffuse>
-  <emission>
-    <red>0.3</red>
-    <green>0.5</green>
-    <blue>0.8</blue>
-  </emission> 
- </animation>
 
 	 <text>
   <name>wepon1</name>
