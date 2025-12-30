@@ -1,6 +1,6 @@
 
 var RWR = {
-	# inherits from Radar
+	# inherits from Radar. Divered From EAGLE01's (sammyskycrafts) A-10A
 	# will check radar/transponder and ground occlusion.
 	# will sort according to threat level
 	new: func () {

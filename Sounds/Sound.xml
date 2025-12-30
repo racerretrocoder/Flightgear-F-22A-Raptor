@@ -582,44 +582,6 @@
    </pitch>
   </engine>
   
-  <engine>
-   <name>APU Exhaust</name>
-   <mode>looped</mode>
-   <path>Aircraft/F-22/Sounds/Samples/wing-vents.wav</path>
-   <condition>
-    <property>/engines/engine/running</property>
-     	<not>
-          <property>/sim/current-view/internal</property>
-	  <property>/engines/engine/out-of-fuel</property>
-     	</not>
-   </condition>
-   <position>
-    	<x>2.0</x>
-	<y>0.0</y>
-	<z>0.0</z>
-   </position>
-   <orientation>
-	<x>90.0</x>
-    	<y>0.0</y>
-    	<z>0.0</z>
-    	<inner-angle>80.0</inner-angle>
-    	<outer-angle>110.0</outer-angle>
-    	<outer-gain>0.6</outer-gain>
-   </orientation>
-   <volume>
-    	<property>engines/engine[2]/n2</property>
-    	<factor>0.03</factor>
-	<min>0.0</min>
-	<max>1.0</max>
-   </volume>
-   <pitch>
-    	<property>engines/engine[2]/n2</property>
-	<factor>0.2</factor>
-	<min>0.0</min>
-	<max>1.0</max>
-   </pitch>
-  </engine>
-
 
 <engine>
    <name>Engine Exhaust0</name>
@@ -660,43 +622,6 @@
 	<max>0.7</max>
    </pitch>
   </engine>
-
-
-  
-  <engine>
-   <name>Engine Thrust LowFreq</name>
-   <mode>looped</mode>
-   <path>Aircraft/F-22/Sounds/Samples/engine-lowfreq.wav</path>
-   <condition>
-    	<property>/engines/engine/running</property>
-     	<not>
-        	<property>/sim/current-view/internal</property>
-		<property>/engines/engine/out-of-fuel</property>
-     	</not>
-   </condition>
-   <position>
-    	<x>10.0</x>
-	<y>0.0</y>
-	<z>0.0</z>
-   </position>
-   <orientation>
-	<x>90.0</x>
-    	<y>0.0</y>
-    	<z>0.0</z>
-    	<inner-angle>0.0</inner-angle>
-    	<outer-angle>160.0</outer-angle>
-    	<outer-gain>0.5</outer-gain>
-   </orientation>
-   <volume>
-    	<property>engines/engine/thrust-lbs</property>
-    	<factor>0.0001</factor>
-    	<offset>0.25</offset>
-	<min>0.0</min>
-	<max>1.0</max>
-   </volume>
-  </engine>
-
-
 
 <!--Mil Thrust Wind Jet
 
@@ -881,123 +806,9 @@
    </pitch>
 
     </engine>
-	
-	<engine>
-      <name>engine1</name>
-      <path>Aircraft/F-22/Sounds/jet-blastL.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <property>engines/engine[1]/running</property>
-		<not>
-        	<property>/sim/current-view/internal</property>
-		<property>engines/engine/out-of-fuel</property>
-     	</not>
-      </condition>
-       <position>
-    <x>18.6</x>
-	<y>0.4</y>
-	<z>2.37</z>
-   </position>
-   <orientation>
-	<x>1.0</x>
-    <y>0.0</y>
-    <z>0</z>
-    <inner-angle>35.0</inner-angle>
-    <outer-angle>90</outer-angle>
-    <outer-gain>0.45</outer-gain>
-   </orientation>
- 
-   <volume>
-    <property>fdm/jsbsim/fcs/N2SOUND</property>
-    <factor>0.024</factor>
-    <offset>-0.45</offset>
-   </volume>
-    <pitch>
-        <property>engines/engine/n2</property>
-	<factor>0.005</factor>
-	<min>-1</min>
-	<max>0</max>
-   </pitch>
 
-    </engine>
-  
-  <!-- Afterburner -->
-   <engine>
-      <name>engineA</name>
-      <path>Aircraft/F-22/Sounds/jet-blastB.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <property>engines/engine[0]/running</property>
-		<not>
-        	<property>/sim/current-view/internal</property>
-		<property>engines/engine/out-of-fuel</property>
-     	</not>
-      </condition>
-      
-   <orientation>
-	<x>1.0</x>
-    <y>0.0</y>
-    <z>0</z>
-    <inner-angle>35.0</inner-angle>
-    <outer-angle>90</outer-angle>
-    <outer-gain>0.45</outer-gain>
-   </orientation>
- 
-   <volume>
-    <property>fdm/jsbsim/fcs/N2SOUND</property>
-    <factor>0.014</factor>
-    <offset>-0.45</offset>
-   </volume>
-    <pitch>
-        <property>engines/engine/n2</property>
-	<factor>0.005</factor>
-	<min>-1</min>
-	<max>0</max>
-</pitch>
-</engine>
-   <!--<engine>
-      <name>engineB</name>
-      <path>Aircraft/F-22/Sounds/jet-blastB.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <property>engines/engine[0]/running</property>
-		<not>
-        	<property>/sim/current-view/internal</property>
-		<property>engines/engine/out-of-fuel</property>
-     	</not>
-      </condition>
-      
-   <orientation>
-	<x>1.0</x>
-    <y>0.0</y>
-    <z>0</z>
-    <inner-angle>35.0</inner-angle>
-    <outer-angle>90</outer-angle>
-    <outer-gain>0.45</outer-gain>
-   </orientation>
-     <pitch>
-        <property>engines/engine/n2</property>
-	<factor>0.005</factor>
-	<min>-1</min>
-	<max>0</max>
-</pitch>
-   <volume>
-    <property>fdm/jsbsim/fcs/N2SOUND</property>
-    <factor>0.014</factor>
-    <offset>-0.45</offset>
-   </volume>
+   
 
-   <pitch>
-        <property>engines/engine/n2</property>
-	<factor>0.005</factor>
-	<min>0</min>
-	<max>0.7</max>
-   </pitch>
-</engine>
--->
-
-  
-  
   <!-- Cockpit Environment -->
   
   <cockpit>
@@ -1014,24 +825,6 @@
    </volume>
   </cockpit>
   
-  <thrust>
-   <name>Internal Engine Thrust LowFreq</name>
-   <mode>looped</mode>
-   <path>Aircraft/F-22/Sounds/Samples/engine-lowfreq.wav</path>
-   <condition>
-    	<property>/sim/current-view/internal</property>
-	 <not>
-	  <property>/engines/engine/out-of-fuel</property>
-	 </not>
-   </condition>
-   <volume>
-    	<property>engines/engine/thrust-lbs</property>
-    	<factor>0.00005</factor>
-    	<offset>0.4</offset>
-	<min>0.0</min>
-	<max>1.0</max>
-   </volume>
-  </thrust>
   
   <engine>
    <name>Intake Fans Internal</name>
@@ -1487,9 +1280,9 @@
 
 	
    
-<!-- Extras... -->
+<!-- Extras... Canopy disabled for now
 
-		<canopy> <!-- Sound from A-6E-->
+		<canopy>  Sound from A-6E
 			<name>closed canopy</name>
 			<path>Aircraft/F-22/Sounds/canopylock.wav</path>
 			<condition>
@@ -1504,7 +1297,7 @@
 			</volume>
 		</canopy>
 
-		<canopy> <!-- Sound from A-6E-->
+		<canopy> Sound from A-6E
 			<name>closed canopy2</name>
 			<path>Aircraft/F-22/Sounds/canopylock.wav</path>
 			<condition>
@@ -1561,7 +1354,7 @@
 				<max>1.0</max>
 			</volume>
 		</canopy>
-
+-->
 <!-- Crashed -->
 
 <crash>
@@ -3078,21 +2871,6 @@
   </condition>
 </low-fuel4>
 
-<low-fuel5>
-  <name>low-fuel5</name>
-  <mode>once</mode>
-  <path>Aircraft/F-22/Sounds/bingofuel.wav</path>
-  <condition>
-    <less-than>
-     <property>/consumables/fuel/total-fuel-gals</property>
-    <value>1.0</value>
-    </less-than>
-	
-  </condition>
-</low-fuel5>
-
-
-
 
 
   <locked>
@@ -3423,9 +3201,9 @@ need a better idea for this-->
 
 
 
-
+<!--Doubled over mic click-->
     <comm>
-      <name>mikeclick</name>
+      <name>micclick</name>
       <mode>once</mode>
       <path>Aircraft/F-22/Sounds/mike.wav</path>
       <condition>
@@ -3433,24 +3211,7 @@ need a better idea for this-->
         <equals>
           <property>/controls/radios/comm-ptt</property>
               <value>0</value>
-          </equals> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
-          <property>/sim/current-view/internal</property>
-        </and>
-      </condition>
-
-       <reference-dist>100</reference-dist>
-      <max-dist>1000</max-dist>
-   </comm>
-    <comm>
-      <name>mikeclick2</name>
-      <mode>once</mode>
-      <path>Aircraft/F-22/Sounds/mike.wav</path>
-      <condition>
-        <and>
-        <equals>
-          <property>/controls/radios/comm-ptt</property>
-              <value>0</value>
-          </equals> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          </equals> 
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
@@ -3459,103 +3220,36 @@ need a better idea for this-->
       <max-dist>1000</max-dist>
    </comm>
 
-  <jfsclick>
-   <name>Jfsclick</name>
-   <mode>once</mode>
-   <path>Aircraft/F-22/Sounds/sys/JFS-Switch-on.wav</path>
-   <condition>
-   <and>
+    <comm>
+      <name>micclick2</name>
+      <mode>once</mode>
+      <path>Aircraft/F-22/Sounds/mike.wav</path>
+      <condition>
+        <and>
+        <equals>
+          <property>/controls/radios/comm-ptt</property>
+              <value>0</value>
+          </equals>
+          <property>/sim/current-view/internal</property>
+        </and>
+      </condition>
 
+       <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+   </comm> 
 
-    	    <equals>
-		    <property>/sim/model/clickJFS</property>
-		    <value>true</value>
-		</equals>
-    
-<property>/sim/current-view/internal</property>
-
-     </and>
-   </condition>
-
-  </jfsclick>
-
-
-  <jfsclick>
-   <name>JfsclickL</name>
-   <mode>once</mode>
-   <path>Aircraft/F-22/Sounds/sys/JFS-Switch-on.wav</path>
-   <condition>
-   <and>
-
-
-    	    <equals>
-		    <property>/sim/model/clickJFSL</property>
-		    <value>true</value>
-		</equals>
-    
-<property>/sim/current-view/internal</property>
-
-     </and>
-   </condition>
-
-  </jfsclick>
-
-  <jfsclick>
-   <name>Jfsclickspringback</name>
-   <mode>once</mode>
-   <path>Aircraft/F-22/Sounds/sys/JFS-Switch-Off.wav</path>
-   <condition>
-   <and>
-
-
-    	    <equals>
-		    <property>/fdm/jsbsim/fcs/starter</property>
-		    <value>1</value>
-		</equals>
-    
-<property>/sim/current-view/internal</property>
-
-     </and>
-   </condition>
-
-  </jfsclick>
-
-  <jfsclick>
-   <name>JfsclickspringbackL</name>
-   <mode>once</mode>
-   <path>Aircraft/F-22/Sounds/sys/JFS-Switch-Off.wav</path>
-   <condition>
-   <and>
-
-
-    	    <equals>
-		    <property>/fdm/jsbsim/fcs/starter2</property>
-		    <value>1</value>
-		</equals>
-    
-<property>/sim/current-view/internal</property>
-
-     </and>
-   </condition>
-
-  </jfsclick>
-
-
+<!--
   <switchclick>
    <name>switch click</name>
    <mode>once</mode>
    <path>Aircraft/F-22/Sounds/sys/SwitchBig.wav</path>
    <condition>
    <and>
-
-
-    	    <equals>
+    <equals>
 		    <property>sim/model/click</property>
 		    <value>1</value>
 		</equals>
-    
-<property>/sim/current-view/internal</property>
-
+    <property>/sim/current-view/internal</property>
      </and>
    </condition>
   </switchclick>
@@ -3664,6 +3358,9 @@ need a better idea for this-->
       </volume>
     </click>
 
+TODO: Find big switch click
+
+-->
   <switchclick>
    <name>switch click small</name>
    <mode>once</mode>
@@ -3685,9 +3382,9 @@ need a better idea for this-->
    <path>Aircraft/F-22/Sounds/sys/switchsmall.wav</path>
    <condition>
    <and>
-    	    <equals>
-		    <property>sim/model/clicksmall</property>
-		    <value>1</value>
+    <equals>
+		  <property>sim/model/clicksmall</property>
+		  <value>1</value>
 		</equals>
 <property>/sim/current-view/internal</property>
      </and>
@@ -3760,7 +3457,7 @@ need a better idea for this-->
         <factor>1.0</factor>
       </volume>
     </click>
-
+<!--
     <click>
       <name>wheelspin</name>
       <path>Aircraft/F-22/Sounds/sys/Wheelknob.wav</path>
@@ -3781,16 +3478,18 @@ need a better idea for this-->
         <factor>1.0</factor>
       </volume>
     </click>
+-->
 
-<!--RWR Sound Effects
+
+<!--RWR Sound Effects 
+
+Most of them are custom made. but some come from other sources
 
 New Threat
 Missile launch
 Counter
 
 -->
-
-
 
 
         <rwr>
@@ -3832,7 +3531,7 @@ Counter
         </rwr>
 
 
-
+<!--
         <rwr>
             <name>rwr-new3</name>
             <path>Aircraft/F-22/Sounds/AV/rwr-rep-contact.wav</path>
@@ -3848,10 +3547,8 @@ Counter
                   <value>0.9</value>
                 </greater-than>
             </condition>
-
-
         </rwr>
-
+-->
         <rwr>
             <name>launch</name>
             <mode>single</mode>
@@ -3898,7 +3595,7 @@ Counter
             </volume>
 
         </rwr>-->
-
+<!--
              <rwr>
             <name>eject</name>
             <mode>single</mode>
@@ -3908,11 +3605,6 @@ Counter
 
                         <property>f22/ejected</property>
                         <value>1</value>
-<!--
-                                <greater-than>
-                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
-                  <value>0.9</value>
-                </greater-than>-->
             </condition>
             <volume>
 
@@ -3928,17 +3620,12 @@ Counter
 
                         <property>f22/ejected</property>
                         <value>1</value>
-<!--
-                                <greater-than>
-                  <property>fdm/jsbsim/fcs/engine-gen-main/</property>
-                  <value>0.9</value>
-                </greater-than>-->
             </condition>
             <volume>
 
             </volume>
 
-        </rwr>
+        </rwr>-->
 
         <rwr>
             <name>launch2</name>

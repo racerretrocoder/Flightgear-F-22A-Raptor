@@ -566,22 +566,6 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
 
 
-<!--party mode-->
-
-	 <animation>
-
-     <object-name>partyhat</object-name>
-  <type>select</type>
-  <condition>
-			<equals>
-				<property>sim/multiplay/generic/bool[5]</property> 
-				<value>1</value>
-			</equals>
-  </condition>
- </animation>
-
-
-
 
 	 <animation>
        <object-name>canopy in</object-name>
@@ -1239,7 +1223,6 @@ Use below instead
 	<animation>
 		<type>rotate</type>
 		<object-name>LEFTMAINDOOR</object-name>
-		<object-name>Left_Rocket_Bay_D2</object-name>
 		<property>sim/multiplay/generic/float[12]</property>
 		<interpolation>
 		<!--	<entry>
