@@ -1974,30 +1974,21 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 		
 	  <armament>
-	              <flares type="int">0</flares>
-            <enable-craters type="bool">true</enable-craters>
-            <MLW-bearing type="double">0</MLW-bearing>
-            <MLW-count type="int">0</MLW-count>
-            <MLW-launcher type="string"></MLW-launcher>
-            <MAW-bearing type="double">0</MAW-bearing>
-            <MAW-active type="bool">false</MAW-active>
-            <MAW-semiactive type="bool">false</MAW-semiactive>
-            <msg type="bool">false</msg>
-			<oldmsg type="bool">false</oldmsg>
-            <spike type="bool">false</spike>
-            <models type="string">Aircraft/F-22/Models/emesary/</models>
-        </armament>
-    </payload>
-
-
-
-	
-
+	    <flares type="int">0</flares>
+        <enable-craters type="bool">true</enable-craters>
+        <MLW-bearing type="double">0</MLW-bearing>
+        <MLW-count type="int">0</MLW-count>
+        <MLW-launcher type="string"></MLW-launcher>
+        <MAW-bearing type="double">0</MAW-bearing>
+        <MAW-active type="bool">false</MAW-active>
+        <MAW-semiactive type="bool">false</MAW-semiactive>
+        <msg type="bool">false</msg>
+		<oldmsg type="bool">false</oldmsg>
+        <spike type="bool">false</spike>
+        <models type="string">Aircraft/F-22/Models/emesary/</models>
+    </armament>
+</payload>
 	<systems>
-		<autopilot>
-			<path>Aircraft/F-22/System/autopilot5.xml</path>
-		</autopilot>
-		
 <MFD include ="System/MFD.xml">
 <pullup type="int">0</pullup>
 </MFD>
@@ -2011,15 +2002,14 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	<consumables>
 		<fuel>
 			<tank n="0">
-
 				<name>FWD fuselage</name>
 				<kill-when-empty type="bool">false</kill-when-empty>
-				        <selected type="bool">true</selected>
+				<selected type="bool">true</selected>
 			</tank>
 			<tank n="1">
 				<name>AFT fuselage</name>
 				<kill-when-empty type="bool">false</kill-when-empty>
-				        <selected type="bool">true</selected>
+				<selected type="bool">true</selected>
 			</tank>
 			<tank n="2">
 
@@ -2067,19 +2057,17 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   
 
 <controls include ="System/controls.xml">
+	<lighting>
+		<instruments-norm type="double">0</instruments-norm>
+		<panel-norm type="double">0</panel-norm>
+		<strobe type="bool">false</strobe>
+		<nav-lights type="bool">false</nav-lights>
+	</lighting>
 
-	
-		<lighting>
-			<instruments-norm type="double">0</instruments-norm>
-			<panel-norm type="double">0</panel-norm>
-			<strobe type="bool">false</strobe>
-			<nav-lights type="bool">false</nav-lights>
-		</lighting>
-
-		<gear>
-			<!-- Start with the Parking Brake on -->
-			<brake-parking type="double">1.0</brake-parking>
-		</gear>
+	<gear>
+		<!-- Start with the Parking Brake on -->
+		<brake-parking type="double">1.0</brake-parking>
+	</gear>
 	</controls>
 
 	<engines>

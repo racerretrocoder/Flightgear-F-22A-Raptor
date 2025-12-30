@@ -3406,27 +3406,6 @@ TODO: Find big switch click
    </condition>
   </switchclick>
 
-
-
-  <switchclick>
-   <name>switch clicasdfasdfk</name>
-   <mode>once</mode>
-   <path>Aircraft/F-22/Sounds/sys/SwitchBig.wav</path>
-   <condition>
-   <and>
-
-
-    	    <equals>
-		    <property>sim/model/click</property>
-		    <value>1</value>
-		</equals>
-    
-<property>/sim/current-view/internal</property>
-
-     </and>
-   </condition>
-  </switchclick>
-
     <click>
       <name>Clickoffsmall</name>
       <path>Aircraft/F-22/Sounds/sys/switchsmall.wav</path>
