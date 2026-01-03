@@ -318,6 +318,13 @@ jammer.stop();
        			</script>
 		    </binding>
                     </item>-->
+	<item>
+			<label>Toggle cockpit shaking</label>
+			<binding>
+				<command>nasal</command>
+				 <script>if (getprop("f22/shaking") == 0){screen.log.write("Shaking enabled");setprop("f22/shaking",1);}else{screen.log.write("Shaking disabled");setprop("f22/shaking",0);}</script>
+			</binding>
+		</item>
 
 				</menu>
 			</default>
@@ -1921,7 +1928,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <blink type="int">0</blink>
 <throttle type="double">-0.1</throttle>
 <mslbright type="double">10</mslbright>
-
+<shaking userarchive="y" type="int">1</shaking>
 </f22>
 
 
