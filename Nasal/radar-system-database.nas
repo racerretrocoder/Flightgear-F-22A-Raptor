@@ -52,9 +52,9 @@ var Database = {
 	"F-22A Raptor":           {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
 	"F-22-Raptor":           {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
 	"F-22A":                  {hasAirRadar:1, rwrCode:"22", baseThreat:defaultFighterThreat},
-	"X-02":                   {hasAirRadar:1, rwrCode:"X2", baseThreat:defaultFighterThreat}, # Wyvern UAV
-	"X-02S":                   {hasAirRadar:1, rwrCode:"X2", baseThreat:defaultFighterThreat}, # Wyvern UAV
-	"ADF-11F":                   {hasAirRadar:1, rwrCode:"ADF", baseThreat:defaultFighterThreat}, # Wyvern UAV
+	"X-02":                   {hasAirRadar:1, rwrCode:"X2", baseThreat:defaultFighterThreat}, # Wyvern Fictional UAV
+	"X-02S":                   {hasAirRadar:1, rwrCode:"X2", baseThreat:defaultFighterThreat}, # Wyvern Fictional UAV
+	"ADF-11F":                   {hasAirRadar:1, rwrCode:"ADF", baseThreat:defaultFighterThreat}, # Raven Fictional UAV
 	"F-35A":                  {hasAirRadar:1, rwrCode:"35", baseThreat:defaultFighterThreat},
 	"F-35B":                  {hasAirRadar:1, rwrCode:"35", baseThreat:defaultFighterThreat},
     "JA37-Viggen":            {hasAirRadar:1, rwrCode:"37", baseThreat:defaultFighterThreat},
@@ -70,6 +70,7 @@ var Database = {
     "MiG-23ML":               {hasAirRadar:1, rwrCode:"23", baseThreat:defaultFighterThreat},
     "MiG-23MLD":              {hasAirRadar:1, rwrCode:"23", baseThreat:defaultFighterThreat},
     "seahawk-3d":              {hasAirRadar:1, rwrCode:"11", baseThreat:defaultFighterThreat},
+	"YFQ-42A":           {hasAirRadar:1, rwrCode:"UAV", killZone: 80, baseThreat:defaultFighterThreat}, # CCA UAV
 # Big aircraft
 	# TODO: Verify which of these big birds really has A/A radars
     "B-1B":                   {hasAirRadar:1, rwrCode:"B1"},
