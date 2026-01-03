@@ -10,7 +10,7 @@
       <path>Aircraft/F-22/Sounds/apu.wav</path>
       <condition>
         <and>
-          <property>/controls/apu/start</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/controls/apu/start</property>
                <not>          
                <property>/sim/current-view/internal</property>
                 </not>
@@ -26,7 +26,7 @@
       <path>Aircraft/F-22/Sounds/apustartin.wav</path>
       <condition>
         <and>
-          <property>/controls/apu/start</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/controls/apu/start</property>
  
                <property>/sim/current-view/internal</property>
 
@@ -43,7 +43,7 @@
       <path>Aircraft/F-22/Sounds/apustartin.wav</path>
       <condition>
         <and>
-          <property>/controls/apu/start</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/controls/apu/start</property>
  
                <property>/sim/current-view/internal</property>
 
@@ -60,7 +60,7 @@
       <path>Aircraft/F-22/Sounds/apu.wav</path>
       <condition>
         <and>
-          <property>/controls/apu/start</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/controls/apu/start</property>
                <not>          
                <property>/sim/current-view/internal</property>
                 </not>
@@ -76,7 +76,7 @@
       <path>Aircraft/F-22/Sounds/apu2.wav</path>
       <condition>
         <and>
-          <property>/controls/apu/start</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/controls/apu/start</property>
                <not>          
                <property>/sim/current-view/internal</property>
                 </not>
@@ -94,7 +94,7 @@
       <condition>
         <and>
         <equals>
-          <property>/controls/apu/spooldown</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/controls/apu/spooldown</property>
     <value>1</value>
           </equals>
         </and>
@@ -110,7 +110,7 @@
       <condition>
         <and>
         <equals>
-          <property>/controls/apu/spooldown</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/controls/apu/spooldown</property>
     <value>1</value>
           </equals>
         </and>
@@ -126,7 +126,7 @@
       <path>Aircraft/F-22/Sounds/apurun.wav</path>
       <condition>
         <and>
-          <property>/controls/apu/run</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/controls/apu/run</property>
                <not>          
                <property>/sim/current-view/internal</property>
                 </not>
@@ -142,7 +142,7 @@
       <path>Aircraft/F-22/Sounds/apurun.wav</path>
       <condition>
         <and>
-          <property>/controls/apu/run</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/controls/apu/run</property>
                <not>          
                <property>/sim/current-view/internal</property>
                 </not>
@@ -152,8 +152,7 @@
        <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
    </engine>
-
-
+<!--
  <engine>
       <name>engine-start-inside</name>
       <mode>once</mode>
@@ -175,7 +174,7 @@
       <path>Aircraft/F-22/Sounds/turbine_start_in.wav</path>
       <condition>
         <and>
-          <property>/controls/engines/engine[0]/starter</property> <!-- I dont make them on seperate engines because itll sound funny if they both play at 2 different times... Need to think of solution-->
+          <property>/controls/engines/engine[0]/starter</property>
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
@@ -183,8 +182,7 @@
        <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
    </engine>
- 
-
+-->
   <engine>
    <name>Exhaust Internal2</name>
    <mode>looped</mode>

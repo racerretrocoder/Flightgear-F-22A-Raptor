@@ -343,7 +343,9 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 
 	if ((((G > 9 or alpha > 28) and rSpeed > 40) or (mach > 0.99 and mach < 1.01) or (wow and rSpeed > 100) or gun) or getprop("damage/sounds/missile-hit")) {
     timer_hit.start();
+    if (getprop("f22/shaking") == 1) {
 		setprop("controls/cabin/shaking", math.sin(48 * myTime) / 222.222);
+    }
 	}
 	else {
 		setprop("controls/cabin/shaking", 0);
@@ -373,7 +375,9 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 	# I want to find a way to improve vibration amplitude with sf, but to tired actually to make it.
 
 	if (getprop("damage/sounds/nearby-explode-on")) {
-		setprop("controls/cabin/shaking2", math.sin(48 * myTime) / 10.999);
+    if (getprop("f22/shaking") == 1) {
+		  setprop("controls/cabin/shaking2", math.sin(48 * myTime) / 10.999);
+    }
 	}
 	else {
 		setprop("controls/cabin/shaking2", 0);
