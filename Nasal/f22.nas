@@ -1198,15 +1198,6 @@ var crashreinit = func {
   crashreinit_timer.stop();
 }
 
-var readyset = func{ 
-  f22.testsetup();
-  f22.testsetupmain();
-  datalink.dlinit(); # Initalise the datalink. start the loops to recive data
-}
-var resetready = func{
-  setprop("f22/ready",0); # 4835934785 Reset the MFDs
-  rebound_timer.stop();
-}
 
 setprop("f22/blink",0);
 var blink = func() {
@@ -1436,7 +1427,6 @@ arrow = maketimer(0.1, arrowpointer);
 arrow.start();
 locktgt_timer = maketimer(0.1, tgtlock);
 crash_timer = maketimer(0.1, crashdetect);
-rebound_timer = maketimer(3, resetready);
 crash_timer.start();
 Flare_timer = maketimer(1.8, cha_flare);
 timer_flarecheck = maketimer(2, flarecheck);  # To make the target need to keep putting out flares for the number to stay 1 and make missiles detect them
@@ -1450,7 +1440,6 @@ timer_jitter = maketimer(0.1, jitter);
 timer_cursor = maketimer(0.1, cursor);
 timer_cursor.start();
 acmtimer = maketimer(2,radarlook);
-ready_timer = maketimer(30,readyset);
 headupdate = maketimer(0,updatehead); # Pilot movement
 
 
@@ -1465,7 +1454,6 @@ setlistener("sim/signals/fdm-initialized", func {
 headupdate.start();
 shake_timer.start();
 shake_timer2.start();
-ready_timer.start();
 crash_timer.stop(); # stop crash xd
 crashreinit_timer.start();
 repair();
