@@ -9,9 +9,10 @@
 <variant-id type="int">1</variant-id>
         <long-description>
             The Lockheed Martin F-22A "Raptor" is a fifth-generation tactical fighter manufactured by Lockheed Martin and Boeing. It combines supersonic cruise, low-observability, and sensor fusion. The definitive production Block 30/35 model features the AN/APG-77v1 AESA radar and F119-PW-100 engines. The F-22A, the only production F-22 variant, became operational in 2005 and is operated exclusively by the United States Air Force.
+			This aircraft wouldnt exist without the following amazing people: Weapons and Radar improved from 5H1N0B1, Yanes Bechir, and Developer0607. Canvas HUD and Canvas Payload dialog improved from Yanes Bechir. Multiplayer Damage Code from OPRF Members, FDM improved from others. 3D from Pigs, Silver-Snail (cockpit) Phoenix (MFDS) Echoed, Phoenix (Weapons). Main Model Improved from the FGUK Team. Cactus, Phoenix (Missile storing and flare doors), Phoenix 3d model detail. Sounds from Phoenix and others. Textures, Liveries, Phoenix and other pilots alike! Effects, Phoenix.
         </long-description>
 		
-		<author>Phoenix, Silver-Snail, Developer0607, Weapons and Radar improved from 5H1N0B1, Yanes Bechir. Canvas HUD and Canvas Payload dialog improved from Yanes Bechir. Multiplayer Damage Code from OPRF Members, FDM improved from others. 3D from Pigs, Silver-Snail (cockpit) Phoenix (MFDS) Echoed, Phoenix (Weapons). Main Model Improved from the FGUK Team. Cactus, Phoenix (Missile storing and flare doors) Sounds from Phoenix and others</author> <!--The 3 Legendary Coders!-->
+		<author>Phoenix, Silver-Snail (Snail), Pigs, Clash (KJ7NLL), Developer0607 (Ghost), And others</author>
 		
 		<status>Alpha v0.89a</status> 
 		
