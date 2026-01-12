@@ -359,6 +359,7 @@ jammer.stop();
 		</title>
 
 		<background>
+			<alpha   type="float">0.8</alpha>
 			<red   type="float">0</red>
 			<green type="float">0</green>
 			<blue  type="float">0</blue>

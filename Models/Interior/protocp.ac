@@ -19371,7 +19371,7 @@ name "seat-cushion"
 loc -0.856511 0.171547 0.0031528
 data 8
 Mesh.021
-texture "chair/seat-cushion2.png"
+texture "chair/seat-cushion-2.png"
 crease 80.000000
 numvert 207
 -4.21231 -0.580976 -0.165431

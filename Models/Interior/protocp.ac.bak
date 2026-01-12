@@ -4629,11 +4629,11 @@ refs 3
 kids 0
 OBJECT group
 name "ejection_seat"
-loc 0.000439151 -0.0619239 -2.51308e-005
+loc 0.0474176 -0.0619239 -2.51308e-005
 kids 9
 OBJECT group
 name "controls"
-loc -0.000439151 3.07187e-005 2.51308e-005
+loc -0.000439152 3.07187e-005 2.51308e-005
 kids 5
 OBJECT poly
 name "EJECT"
@@ -12440,14 +12440,13 @@ refs 4
 kids 0
 OBJECT group
 name "cushions"
-loc -0.000439151 3.07187e-005 2.51308e-005
+loc -0.000439152 3.07187e-005 2.51308e-005
 kids 2
 OBJECT poly
 name "back-cushion"
 loc -0.856511 0.171547 0.0031528
 data 8
 Mesh.022
-texture "chair/seat-cushion.png"
 crease 70.000000
 numvert 796
 -3.97815 -0.183295 -0.047207
@@ -19371,7 +19370,7 @@ name "seat-cushion"
 loc -0.856511 0.171547 0.0031528
 data 8
 Mesh.021
-texture "chair/seat-cushion2.png"
+texture "chair/seat-cushion-2.png"
 crease 80.000000
 numvert 207
 -4.21231 -0.580976 -0.165431
