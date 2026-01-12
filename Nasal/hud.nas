@@ -341,10 +341,10 @@ m.ccipGrp = m.root.createChild("group");
 #	print ("SEE hud");
 		}
 
-   
-    me.attitudeInd.setScale(1,0.558);
+    me.attitudeInd.setVisible(0);
+    me.attitudeInd.setScale(1,1);
     var rot = -me.input.roll.getValue() * math.pi / 180.0;
-    var pitch_factor=11.18;
+    var pitch_factor=22.18;
     var ptch = 392+ me.input.pitch.getValue() * pitch_factor;
     me.attitudeInd.setTranslation(0,ptch);
     me.attitudeInd.setRotation(rot);

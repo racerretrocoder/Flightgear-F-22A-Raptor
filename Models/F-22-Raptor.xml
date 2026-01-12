@@ -88,7 +88,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 		<object-name>Left_Rocket_Bay</object-name> Textured but i like it dark now
 
 -->
-
+		<object-name>canopyframe</object-name>
 		<object-name>rfd</object-name>
 		<object-name>lfd</object-name>
 		<object-name>rfd2</object-name>
@@ -572,6 +572,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
        <object-name>canopy out</object-name>
        <object-name>canopy</object-name>
        <object-name>cabin</object-name>
+	   <object-name>canopyframe</object-name>
      <object-name>pilot</object-name>
   <type>select</type>
   <condition>
@@ -850,6 +851,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   <object-name>Fuselage</object-name>
 		<object-name>Fuselage_2</object-name>
 		<object-name>cabin</object-name>
+		<object-name>canopyframe</object-name>
 		<object-name>Left_Keel_1</object-name>
 		<object-name>Right_Keel_0</object-name>
 		<object-name>left-rudder</object-name>
@@ -911,7 +913,7 @@ Use below instead
 
     </condition>
     <offsets>
-				<x-m>7.227</x-m>
+				<x-m>6.927</x-m>
 			<y-m>0.65</y-m>
 			<z-m>-0.85</z-m>
          <pitch-deg>0</pitch-deg>
@@ -931,7 +933,7 @@ Use below instead
 
     </condition>
     <offsets>
-				<x-m>7.227</x-m>
+				<x-m>6.927</x-m>
 			<y-m>-0.65</y-m>
 			<z-m>-0.85</z-m>
          <pitch-deg>0</pitch-deg>
@@ -949,7 +951,7 @@ Use below instead
 
     </condition>
     <offsets>
-				<x-m>7.227</x-m>
+				<x-m>6.927</x-m>
 			<y-m>0.65</y-m>
 			<z-m>-0.85</z-m>
          <pitch-deg>0</pitch-deg>
@@ -969,7 +971,7 @@ Use below instead
 
     </condition>
     <offsets>
-				<x-m>7.227</x-m>
+				<x-m>6.927</x-m>
 			<y-m>-0.65</y-m>
 			<z-m>-0.85</z-m>
          <pitch-deg>0</pitch-deg>
@@ -1091,6 +1093,7 @@ Use below instead
     <type>translate</type>
     <object-name>Interior</object-name>
     <object-name>cabin</object-name>
+	<object-name>canopyframe</object-name>
     <object-name>canopy in</object-name>
 <object-name>canopy out</object-name>
     <property>controls/cabin/shaking</property>
@@ -1108,6 +1111,7 @@ Use below instead
     <type>translate</type>
     <object-name>Interior</object-name>
     <object-name>cabin</object-name>
+	<object-name>canopyframe</object-name>
     <object-name>canopy in</object-name>
 <object-name>canopy out</object-name>
     <property>controls/cabin/shaking2</property>
@@ -1858,6 +1862,7 @@ Old
     <object-name>canopy in</object-name>
 <object-name>canopy out</object-name>
 		<object-name>cabin</object-name>
+		<object-name>canopyframe</object-name>
    <property>sim/multiplay/generic/float[36]</property>
     <interpolation>
       <entry><ind> 0 </ind><dep>  0 </dep></entry>
@@ -2247,14 +2252,14 @@ FR
 
 
 
-<!-- Nozzle vector animations -->
+<!-- Nozzle vector animations
 		<effect>
       <inherits-from>Effects/model-transparent</inherits-from>
 			<object-name>right-up-vector</object-name>
 			<object-name>left-up-vector</object-name>
 					<object-name>right-down-vector</object-name>
 			<object-name>left-down-vector</object-name>
-   </effect>
+   </effect> -->
 
 	<animation>
 		<type>rotate</type>
@@ -3957,6 +3962,7 @@ FR
 <object-name>canopy out</object-name>
 <object-name>canopy</object-name>
 <object-name>cabin</object-name>
+<object-name>canopyframe</object-name>
 <object-name>pilot</object-name>
 <object-name>vectors</object-name>
 <object-name>Line01</object-name>

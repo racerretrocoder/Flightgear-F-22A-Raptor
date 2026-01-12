@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ 
+ <path>chair.ac</path>
+
+
+<!-- PICK ANIMATIONS -->
+
+ <animation>
+    <type>pick</type>
+    <visible>true</visible>
+    <object-name>ejection-safety-lever</object-name>
+    <action>
+     <button>0</button>
+     <binding>
+        <command>property-toggle</command>
+        <property>controls/seat/ejection-safety-lever</property>
+     </binding>
+    </action>
+   </animation>
+
+ <animation>
+    <type>pick</type>
+    <visible>true</visible>
+    <object-name>eject-handle</object-name>
+    <action>
+     <button>0</button>
+     <repeatable>false</repeatable>
+     <binding>
+      <command>nasal</command>
+      <script>
+                f16.eject();
+      </script>
+     </binding>
+    </action>
+   </animation>
+
+
+<!-- SWITCH ANIMATIONS -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ejection-safety-lever</object-name>
+  <property>controls/seat/ejection-safety-lever</property>
+  <factor>120</factor>
+  <offset-deg>-120</offset-deg>
+  <center>
+   <x-m>-4.523</x-m>
+   <y-m>-0.24</y-m>
+   <z-m>0.215</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <effect>
+      <inherits-from>Aircraft/f16/Models/Effects/fuselage/model-combined-fuselage</inherits-from>
+      <parameters>
+          <metallic type="float">0.0</metallic>
+          <ambient-factor type="float">0.0</ambient-factor>
+          <rain-enabled type="int">0</rain-enabled>
+          <snow-enabled type="int">0</snow-enabled>
+          <reflection-enabled type="int">0</reflection-enabled>
+          <specular-material-ignore type="int">0</specular-material-ignore>
+      </parameters>
+      <!-- non metal -->
+      <object-name>chair</object-name>
+      <object-name>controls</object-name>
+      <object-name>oxygen-pull-ring</object-name>
+      <object-name>cushions</object-name>
+      <object-name>back-cushion</object-name>
+      <object-name>seat-cushion</object-name>
+      <object-name>back-structure</object-name>
+      <object-name>bucket-structure</object-name>
+      <object-name>main-chute-container</object-name>
+      <object-name>main-chute-extractor</object-name>
+      <object-name>survival-kit-containe</object-name>
+      <object-name>details</object-name>
+      <object-name>bottle-fixature</object-name>
+      <object-name>cables</object-name>
+      <object-name>cables.001</object-name>
+      <object-name>cables.002</object-name>
+      <object-name>head-rest</object-name>
+      <object-name>pitot-tubes</object-name>
+    </effect>
+    
+    <effect>
+      <inherits-from>Aircraft/f16/Models/Effects/fuselage/model-combined-fuselage</inherits-from>
+      <parameters>
+          <metallic type="float">1.0</metallic>
+          <ambient-factor type="float">0.0</ambient-factor>
+          <rain-enabled type="int">0</rain-enabled>
+          <snow-enabled type="int">0</snow-enabled>
+          <reflection-enabled type="int">0</reflection-enabled>
+          <specular-material-ignore type="int">0</specular-material-ignore>
+      </parameters>
+      <!-- metal -->
+      <object-name>eject-handle</object-name>
+      <object-name>ejection-safety-lever</object-name>
+      <object-name>inertia-reel-handle</object-name>
+      <object-name>restreint-handle</object-name>
+      <object-name>rails</object-name>
+      <object-name>bottle</object-name>
+      <object-name>manometer</object-name>
+      <object-name>rocket-catapult</object-name>
+      <object-name>screws</object-name>
+    </effect>
+    
+    <animation>
+      <type>material</type>
+      <object-name>seat-cushion</object-name>
+      <condition>
+            <greater-than>
+              <property>sim/variant-id</property>
+              <value>3</value>
+            </greater-than>
+      </condition>
+      <texture>seat-cushion-b2.png</texture>
+    </animation>
+    
+    <animation>
+      <type>material</type>
+      <object-name>back-cushion</object-name>
+      <condition>
+            <greater-than>
+              <property>sim/variant-id</property>
+              <value>3</value>
+            </greater-than>
+      </condition>
+      <texture>seat-cushion-b.png</texture>
+    </animation>
+
+
+</PropertyList>
+
