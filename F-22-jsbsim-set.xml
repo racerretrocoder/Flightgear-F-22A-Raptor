@@ -441,6 +441,11 @@ jammer.stop();
 			<blue  type="float">1</blue>
 		</button_bg_color>
 		
+		<button>
+			<red   type="float">0</red>
+			<green type="float">0.6</green>
+			<blue  type="float">1</blue>
+		</button>
 		<slider>
 			<red   type="float">0</red>
 			<green type="float">0.6</green>
