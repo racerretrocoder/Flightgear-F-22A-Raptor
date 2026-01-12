@@ -70,4 +70,4 @@ SLR - Side Looking Radar - Raptor has advanced SLR'S at the side of the nose to 
 the landing gear acts funny. mainly in the wind
 
 # Discord Server
-https://discord.gg/G5D5BAEd
+https://discord.gg/B9WWFcwY2V
