@@ -1,7 +1,8 @@
 
 # Phoenix F-22A.nas
 # Hide the hud when not in the cockpit view
-# setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
+setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
+
 # Not needed anymore because of the added canvas hud
  var NM2FT = 6076;
 # Init some vars
@@ -1411,6 +1412,14 @@ var gunsightupdate = func() {
 # BEGIN maketimer(); MAYHEM!
 #
 # seconds , function.  you can use 0 for the seconds
+var hudupdate = func() {
+  setprop("sim/hud/color/alpha",getprop("f22/brightness"));
+  setprop("sim/hud/color/brightness",getprop("f22/brightness"));
+}
+
+
+updatehudtimer = maketimer(0.1,hudupdate);
+updatehudtimer.start();
 guntimer = maketimer(0.1,gunsightupdate);
 guntimer.start();
 loadtimer = maketimer(1.5,stringstore);
@@ -1451,6 +1460,7 @@ shake_timer2 = maketimer(0.0001, shake2);
 
 setlistener("sim/signals/fdm-initialized", func {
 # Spawned in/went to location
+
 headupdate.start();
 shake_timer.start();
 shake_timer2.start();
