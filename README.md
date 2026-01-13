@@ -6,7 +6,7 @@ You can join our Discord server: https://discord.gg/B9WWFcwY2V
 
 ## Installation:
 
-To download this aircraft, press [here](https://github.com/racerretrocoder/Flightgear-F-22A-Raptor/archive/refs/heads/master.zip) or on the green button and then press 'Download ZIP'.
+To download this aircraft, press [here](https://github.com/racerretrocoder/Flightgear-F-22A-Raptor/archive/refs/heads/master.zip) or the green button and then press 'Download ZIP'.
 
 Once you downloaded the file, move it to a folder where you want to save all of your custom aircraft, if you haven't got one already.
 Then, launch FlightGear, go to the Add-ons tab and add the aircraft folder to the `Additional aircraft folders`.
@@ -14,7 +14,7 @@ Then, launch FlightGear, go to the Add-ons tab and add the aircraft folder to th
 ### Example:
 
 Say you stored your airplane in `home/Documents/(CustomAircraftFolder)/F-22`.
-Add the `CustomAircraftFolder` to `Additional aircraft folders` in FlightGear.
+Now add the `CustomAircraftFolder` to `Additional aircraft folders` in FlightGear.
 
 Bam! You just achieved air superiority.
 
