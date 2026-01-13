@@ -6,6 +6,16 @@ setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibil
 # Not needed anymore because of the added canvas hud
  var NM2FT = 6076;
 # Init some vars
+setprop("f22/ground/slr-cover",0);
+setprop("f22/ground/apu-cover",0);
+setprop("f22/ground/intake-l",0);
+setprop("f22/ground/intake-r",0);
+setprop("f22/ground/pilot",1);
+setprop("f22/ground/chocks",0);
+setprop("f22/ground/small-ladder",0);
+setprop("f22/ground/cones",0);
+
+
 setprop("f22/chaff",200);
 setprop("f22/flare",200);
 setprop("/f22/crash/explodesfx",0);
@@ -173,9 +183,14 @@ var crashdetect = func {
 setprop("controls/apu/run",0);
 var apuseq1 = func() {
   # APU Animation/sequence !
-  setprop("controls/apu/start",1);
-  setprop("controls/apu/flap",1);
-  seq2timer.start();
+  # make sure the cover is not on
+  if (getprop("f22/ground/apu-cover") == 1) {
+    screen.log.write("WARNING! Cant start APU with APU cover attached!",1,0,0);
+  } else {
+    setprop("controls/apu/start",1);
+    setprop("controls/apu/flap",1);
+    seq2timer.start();
+  }
 }
 
 var apuseq2 = func() {

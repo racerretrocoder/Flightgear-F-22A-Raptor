@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<name>ground</name>
+	<layout>vbox</layout>
+	<draggable>true</draggable>
+	<resizable>false</resizable>
+
+
+	<text>
+		<label>F-22A Raptor Ground Crew</label>
+	</text>
+
+	<hrule/>
+	<!--
+	<text>
+		<label>Lights</label>
+	</text>
+
+	<checkbox>
+		<label>Landing Lights On/Off</label>
+		<property>sim/multiplay/generic/int[13]</property>
+		<binding>
+			<command>property-toggle</command>
+			<property>sim/multiplay/generic/int[13]</property>
+		</binding>
+		<binding>
+			<command>property-toggle</command>
+			<property>/controls/switches/switch</property>
+		</binding>
+		<live>true</live>
+		<halign>left</halign>
+	</checkbox>
+	
+	<checkbox>
+		<label>Taxi Light On/Off</label>
+		<property>sim/multiplay/generic/int[14]</property>
+		<binding>
+			<command>property-toggle</command>
+			<property>sim/multiplay/generic/int[14]</property>
+		</binding>
+		<binding>
+			<command>property-toggle</command>
+			<property>/controls/switches/switch</property>
+		</binding>
+		<live>true</live>
+		<halign>left</halign>
+	</checkbox>
+
+	<checkbox>
+		<label>Navigation Lights On/Off</label>
+		<property>sim/multiplay/generic/int[17]</property>
+		<binding>
+			<command>property-toggle</command>
+			<property>sim/multiplay/generic/int[17]</property>
+		</binding>
+		<binding>
+			<command>property-toggle</command>
+			<property>/controls/switches/switch</property>
+		</binding>
+		<live>true</live>
+		<halign>left</halign>
+	</checkbox>
+
+	<checkbox>
+		<label>Dorsal Formation Lights On/Off</label>
+		<property>sim/multiplay/generic/int[15]</property>
+		<binding>
+			<command>property-toggle</command>
+			<property>sim/multiplay/generic/int[15]</property>
+		</binding>
+		<binding>
+			<command>property-toggle</command>
+			<property>/controls/switches/switch</property>
+		</binding>
+		<live>true</live>
+		<halign>left</halign>
+	</checkbox>
+
+	<checkbox>
+		<label>Beacon Lights On/Off</label>
+		<property>sim/multiplay/generic/int[16]</property>
+		<binding>
+			<command>property-toggle</command>
+			<property>sim/multiplay/generic/int[16]</property>
+		</binding>
+		<binding>
+			<command>property-toggle</command>
+			<property>/controls/switches/switch</property>
+		</binding>
+		<live>true</live>
+		<halign>left</halign>
+	</checkbox>
+
+	<hrule/>-->
+
+	<text>
+		<label>Airport Operations</label>
+	</text>
+
+	<group>
+		<layout>vbox</layout>
+
+		<checkbox>
+			<halign>left</halign>
+			<label>Show pilot (in external views)</label>
+			<property>f22/ground/pilot</property>
+			<binding>
+				<command>property-toggle</command>
+				<property>f22/ground/pilot</property>
+			</binding>
+		</checkbox>
+
+
+		<checkbox>
+			<halign>left</halign>
+			<label>Chocks</label>
+			<property>f22/ground/chocks</property>
+			<binding>
+				<command>property-toggle</command>
+				<property>f22/ground/chocks</property>
+			</binding>
+		</checkbox>
+
+		<checkbox>
+			<halign>left</halign>
+			<label>Engine Safety Cones</label>
+			<property>f22/ground/cones</property>
+			<binding>
+				<command>property-toggle</command>
+				<property>f22/ground/cones</property>
+			</binding>
+		</checkbox>
+				<checkbox>
+			<halign>left</halign>
+			<label>Small Ladder</label>
+			<property>f22/ground/small-ladder</property>
+			<binding>
+				<command>property-toggle</command>
+				<property>f22/ground/small-ladder</property>
+			</binding>
+		</checkbox> 
+
+		<checkbox>
+			<halign>left</halign>
+			<label>Mobile Staircase (INOP,WIP)</label>
+			<property>f22/ground/large-ladder</property>
+			<binding>
+				<command>property-toggle</command>
+				<property>f22/ground/large-ladder</property>
+			</binding>
+		</checkbox>		
+	<hrule/>
+	<text>
+		<label>Portable Magnetic Aircraft Covers</label>
+	</text>
+		<hrule/>
+		<checkbox>
+			<halign>left</halign>
+			<label>Left Intake PMAC</label>
+			<property>f22/ground/intake-l</property>
+			<binding>
+				<command>property-toggle</command>
+				<property>f22/ground/intake-l</property>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<halign>left</halign>
+			<label>Right Intake PMAC</label>
+			<property>f22/ground/intake-r</property>
+			<binding>
+				<command>property-toggle</command>
+				<property>f22/ground/intake-r</property>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<halign>left</halign>
+			<label>Side Looking Radar Sensor PMAC</label>
+			<property>f22/ground/slr-cover</property>
+			<binding>
+				<command>property-toggle</command>
+				<property>f22/ground/slr-cover</property>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<halign>left</halign>
+			<label>Auxilary Power Unit PMAC</label>
+			<property>f22/ground/apu-cover</property>
+			<binding>
+				<command>property-toggle</command>
+				<property>f22/ground/apu-cover</property>
+			</binding>
+		</checkbox>
+
+	</group>
+
+	<hrule/>
+<!--
+	<text>
+		<label>Others</label>
+	</text>
+
+	<checkbox>
+		<label>Pilot Human Body On/Off</label>
+		<property>sim/multiplay/generic/int[18]</property>
+		<binding>
+			<command>property-toggle</command>
+			<property>sim/multiplay/generic/int[18]</property>
+		</binding>
+		<live>true</live>
+		<halign>left</halign>
+	</checkbox>
+	<checkbox>
+		<label>Hide Yoke</label>
+		<property>/sim/model/show-yoke</property>
+		<binding>
+			<command>property-toggle</command>
+			<property>/sim/model/show-yoke</property>
+		</binding>
+		<live>true</live>
+		<halign>left</halign>
+	</checkbox>
+	<checkbox>
+		<label>Infinite Parachutes</label>
+		<property>/controls/switches/infinit-para</property>
+		<binding>
+			<command>property-toggle</command>
+			<property>/controls/switches/infinit-para</property>
+		</binding>
+		<live>true</live>
+		<halign>left</halign>
+	</checkbox>
+	<checkbox>
+		<label>Show Extra Tank</label>
+		<property>sim/multiplay/generic/int[19]</property>
+		<binding>
+			<command>property-toggle</command>
+			<property>sim/multiplay/generic/int[19]</property>
+		</binding>
+		<live>true</live>
+		<halign>left</halign>
+	</checkbox>-->
+
+
+	<hrule/>
+
+	<group>
+		<layout>hbox</layout>
+		<empty><stretch>true</stretch></empty>
+
+		<button>
+			<legend>Close</legend>
+			<default>true</default>
+			<key>Esc</key>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+
+		<empty><stretch>true</stretch></empty>
+	</group> 
+
+</PropertyList>
+

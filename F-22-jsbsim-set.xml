@@ -177,6 +177,15 @@
 						 <script>aircraft.livery.dialog.toggle()</script>
 					</binding>
 				</item>
+   <item>
+                        <label>Ground Crew Operations</label>
+                        <enabled type="bool">true</enabled>
+                        <name>gco</name>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>ground</dialog-name>
+                        </binding>
+                    </item>
 	<item>
 			<label>Pylons loads</label>
 			<binding>

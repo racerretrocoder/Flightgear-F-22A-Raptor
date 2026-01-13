@@ -4013,7 +4013,207 @@ FR
   </condition>
  </animation>
 
-   
+
+
+
+
+
+<animation>
+  <type>pick</type>
+
+		<object-name>rsensorcover</object-name>
+  		<action>
+  		  <button>0</button>
+  		  <repeatable>false</repeatable>
+  		  <interval-sec>0.2</interval-sec>
+  		 <binding>
+  		<command>nasal</command>
+  		<script>setprop("f22/ground/slr-cover",0);</script>
+</binding>
+</action>
+ </animation>
+<animation>
+  <type>pick</type>
+
+		<object-name>lsensorcover</object-name>
+  		<action>
+  		  <button>0</button>
+  		  <repeatable>false</repeatable>
+  		  <interval-sec>0.2</interval-sec>
+  		 <binding>
+  		<command>nasal</command>
+  		<script>setprop("f22/ground/slr-cover",0);</script>
+</binding>
+</action>
+ </animation>
+   <animation>
+  <type>pick</type>
+        <object-name>rintcover</object-name>
+  		<action>
+  		  <button>0</button>
+  		  <repeatable>false</repeatable>
+  		  <interval-sec>0.2</interval-sec>
+  		 <binding>
+  		<command>nasal</command>
+  		<script>setprop("f22/ground/intake-r",0);</script>
+</binding>
+</action>
+ </animation>
+   <animation>
+  <type>pick</type>
+        <object-name>lintcover</object-name>
+  		<action>
+  		  <button>0</button>
+  		  <repeatable>false</repeatable>
+  		  <interval-sec>0.2</interval-sec>
+  		 <binding>
+  		<command>nasal</command>
+  		<script>setprop("f22/ground/intake-l",0);</script>
+</binding>
+</action>
+ </animation>
+
+   <animation>
+  <type>pick</type>
+        <object-name>pilot</object-name>
+  		<action>
+  		  <button>0</button>
+  		  <repeatable>false</repeatable>
+  		  <interval-sec>0.2</interval-sec>
+  		 <binding>
+  		<command>nasal</command>
+  		<script>setprop("f22/ground/pilot",0);</script>
+</binding>
+</action>
+ </animation>
+
+   <animation>
+  <type>pick</type>
+        <object-name>smladder</object-name>
+  		<action>
+  		  <button>0</button>
+  		  <repeatable>false</repeatable>
+  		  <interval-sec>0.2</interval-sec>
+  		 <binding>
+  		<command>nasal</command>
+  		<script>setprop("f22/ground/small-ladder",0);</script>
+</binding>
+</action>
+ </animation>
+
+   <animation>
+  <type>pick</type>
+        <object-name>apucover</object-name>
+  		<action>
+  		  <button>0</button>
+  		  <repeatable>false</repeatable>
+  		  <interval-sec>0.2</interval-sec>
+  		 <binding>
+  		<command>nasal</command>
+  		<script>setprop("f22/ground/apu-cover",0);</script>
+</binding>
+</action>
+ </animation>
+
+   <animation>
+  <type>pick</type>
+        <object-name>cones</object-name>
+  		<action>
+  		  <button>0</button>
+  		  <repeatable>false</repeatable>
+  		  <interval-sec>0.2</interval-sec>
+  		 <binding>
+  		<command>nasal</command>
+  		<script>setprop("f22/ground/cones",0);</script>
+</binding>
+</action>
+ </animation>
+
+<animation>
+<type>select</type>
+<object-name>rintcover</object-name>      
+<condition>
+<equals>
+<property>f22/ground/intake-r</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+<animation>
+<type>select</type>
+<object-name>lintcover</object-name>      
+<condition>
+<equals>
+<property>f22/ground/intake-l</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+<animation>
+<type>select</type>
+<object-name>rsensorcover</object-name>
+        <object-name>lsensorcover</object-name>      
+<condition>
+<equals>
+<property>f22/ground/slr-cover</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+<animation>
+<type>select</type>
+<object-name>pilot</object-name>
+<condition>
+<equals>
+<property>f22/ground/pilot</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+<animation>
+<type>select</type>
+<object-name>smladder</object-name>
+<condition>
+<equals>
+<property>f22/ground/small-ladder</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+<animation>
+<type>select</type>
+<object-name>chocks</object-name>
+<condition>
+<equals>
+<property>f22/ground/chocks</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+<animation>
+<type>select</type>
+<object-name>apucover</object-name>
+<condition>
+<equals>
+<property>f22/ground/apu-cover</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+<animation>
+<type>select</type>
+<object-name>cones</object-name>
+<condition>
+<equals>
+<property>f22/ground/cones</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
 
 </PropertyList>
 
