@@ -186,6 +186,8 @@ var apuseq1 = func() {
   # make sure the cover is not on
   if (getprop("f22/ground/apu-cover") == 1) {
     screen.log.write("WARNING! Cant start APU with APU cover attached!",1,0,0);
+  } elsif (getprop("systems/electrical/serviceable") == 0) {
+    screen.log.write("APU Failure! No serviceable electrical power source to spool up APU!",1,0,0);
   } else {
     setprop("controls/apu/start",1);
     setprop("controls/apu/flap",1);
@@ -1240,11 +1242,11 @@ var throtr = func() {
   # throttler cut off!
   # put code here
   if (getprop("f22/throttler") < 0){
-    if (getprop("controls/apu/run") == 0){
+    if (getprop("controls/apu/run") == 0 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0){ # if apu off and second engine off. dont start
+      screen.log.write("The APU or 1 engine must be running in order to start.",1,0,0);
       return 0;
     }
     setprop("f22/throttler",0);
-
     screen.log.write("Right Throttle set to Idle! Starting Right Engine...");    
     throttlertimer.start();
     emu.manualstartr();
@@ -1253,7 +1255,6 @@ var throtr = func() {
   elsif (getprop("f22/throttler") != -0.1){
     screen.log.write("Right Throttle Cut Off! Shutting down Right Engine...");
     throttlertimer.stop();
-
     setprop("f22/throttler",-0.1);
     emu.engstopr();
   emu.timer_apucheck2.stop(); # Ok dont turn off apu xd
@@ -1264,11 +1265,11 @@ var throtl = func() {
   # throttlel cut off!
   # put code here
   if (getprop("f22/throttlel") < 0){
-    if (getprop("controls/apu/run") == 0){
+    if (getprop("controls/apu/run") == 0 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0){ # if apu off and second engine off. dont start
+      screen.log.write("The APU or 1 engine must be running in order to start.",1,0,0);
       return 0;
     }
     setprop("f22/throttlel",0);
-
     screen.log.write("Left Throttle set to Idle! Starting Left Engine...");    
     throttleltimer.start();
     emu.manualstartl();
@@ -1277,7 +1278,6 @@ var throtl = func() {
   elsif (getprop("f22/throttlel") != -0.1){
     screen.log.write("Left Throttle Cut Off! Shutting down Left Engine...");
     throttleltimer.stop();
-
     setprop("f22/throttlel",-0.1);
     emu.engstopl();
   emu.timer_apucheck2.stop(); # Ok dont turn off apu xd
@@ -1333,7 +1333,7 @@ var stringstore = func() {
 # var station0 = getprop("controls/armament/station[0]/release");
 # var station1 = getprop("controls/armament/station[1]/release");
 # var station2 = getprop("controls/armament/station[2]/release");
-# var station3 = getprop("controls/armament/station[3]/release");
+# var station3 = getprop("controls/armament/station[3]/release");  This is chaos... lmfao
 # var station4 = getprop("controls/armament/station[4]/release");
 # var station5 = getprop("controls/armament/station[5]/release");
 # var station6 = getprop("controls/armament/station[6]/release");
@@ -1422,6 +1422,15 @@ var gunsightupdate = func() {
 }
 
 
+var consoleslight = func() {
+  var elec = getprop("fdm/jsbsim/fcs/engine-gen-main");
+  if (elec == 0) {
+    setprop("controls/lighting/instruments-norm",0); # no power? no light
+  }
+}
+
+
+
 
 #
 # BEGIN maketimer(); MAYHEM!
@@ -1465,7 +1474,7 @@ timer_cursor = maketimer(0.1, cursor);
 timer_cursor.start();
 acmtimer = maketimer(2,radarlook);
 headupdate = maketimer(0,updatehead); # Pilot movement
-
+consoletimer = maketimer(0,consoleslight);
 
 # Shake
 shake_timer = maketimer(0.0001, shake);
@@ -1492,6 +1501,7 @@ timer_extpylons.start();    # External pylon detection
 timer_damage.start();
 blinktimer.start();
 bingotimer.start();
+consoletimer.start();
 });
 
 

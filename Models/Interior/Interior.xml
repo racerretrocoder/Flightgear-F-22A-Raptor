@@ -110,6 +110,7 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
 <animation>
     <type>material</type>
    <object-name>ky58</object-name>
+   <object-name>clash doesnt like this box lol</object-name>
    <object-name>a</object-name>
     <object-name>dtc</object-name>
     <object-name>rect</object-name>
@@ -3009,18 +3010,11 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
         <type>rotate</type>
         <object-name>Stick</object-name>
         <property>controls/flight/aileron</property>
-        <offset-deg>12</offset-deg>
-        <factor>-20</factor>
+        <offset-deg>-15</offset-deg>
+        <factor>8</factor>
         <axis>
-            <x>1.0</x>
-            <y>0.0</y>
-            <z>0.0</z>
+<object-name>stickaileron</object-name>
         </axis>
-        <center>
-            <x-m>-5.28505</x-m>
-	    <y-m> 0.300321</y-m>
-	    <z-m>-0.260612</z-m>
-        </center>
     </animation>
 
 
@@ -3030,17 +3024,11 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
         <object-name>Stick</object-name>
         <property>controls/flight/elevator</property>
         <offset-deg>0</offset-deg>
-        <factor>-20</factor>
+        <factor>8</factor>
         <axis>
-            <x>0.0</x>
-            <y>1.0</y>
-            <z>0.0</z>
+<object-name>stickelevator</object-name>
         </axis>
-        <center>
-            <x-m>-5.28505</x-m>
-	    <y-m> 0.300321</y-m>
-	    <z-m>-0.260612</z-m>
-        </center>
+        
     </animation>
 
 

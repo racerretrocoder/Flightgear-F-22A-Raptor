@@ -704,8 +704,8 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   <name>left-strake-vortex3</name>
   <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex.xml</path>
   <offsets>
-   <x-m>-2.7</x-m>
-   <y-m>-1.53</y-m>
+   <x-m>0.2</x-m>
+   <y-m>-2.53</y-m>
    <z-m>-0.8</z-m>
 
    <heading-deg>-10</heading-deg>
@@ -717,8 +717,8 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   <name>right-strake-vortex3</name>
   <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex.xml</path>
   <offsets>
-   <x-m>-2.7</x-m>
-   <y-m>1.53</y-m>
+   <x-m>0.2</x-m>
+   <y-m>2.53</y-m>
    <z-m>-0.8</z-m>
 
    <heading-deg>10</heading-deg>
@@ -731,8 +731,8 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   <name>right-strake-vortex3</name>
   <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex.xml</path>
   <offsets>
-   <x-m>-2.7</x-m>
-   <y-m>1.3</y-m>
+   <x-m>0.2</x-m>
+   <y-m>2.3</y-m>
    <z-m>-0.8</z-m>
 
    <heading-deg>10</heading-deg>
@@ -745,8 +745,8 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   <name>left-strake-vortex3</name>
   <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex.xml</path>
   <offsets>
-   <x-m>-2.7</x-m>
-   <y-m>-1.3</y-m>
+   <x-m>0.2</x-m>
+   <y-m>-2.3</y-m>
    <z-m>-0.8</z-m>
 
    <heading-deg>-10</heading-deg>
@@ -4166,11 +4166,14 @@ FR
 <object-name>pilot</object-name>
 <condition>
 <equals>
-<property>f22/ground/pilot</property>
+<property>/f22/ground/pilot</property>
 <value>1</value>
 </equals>
 </condition>
 </animation>
+
+
+
 <animation>
 <type>select</type>
 <object-name>smladder</object-name>
