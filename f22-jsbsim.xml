@@ -493,14 +493,13 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <product>
 <property>fcs/AAR</property>
         <table>
-            <independentVar lookup="column">fcs/elec-3</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-spin-output</independentVar>
             <independentVar lookup="row">fcs/elevator-cmd-norm</independentVar>
             <tableData>   
-      0    1  
--1    0   -1  
- 0    0    0
- 1    0    1
-  
+                  0    1  
+            -1    0   -1  
+             0    0    0
+             1    0    1
             </tableData>
           </table>
 </product>
@@ -511,14 +510,13 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <product>
 <property>fcs/AAR</property>
         <table>
-            <independentVar lookup="column">fcs/elec-3</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-spin-output</independentVar>
             <independentVar lookup="row">fcs/aileron-cmd-norm</independentVar>
             <tableData>   
-      0    1  
--1    0   -1  
- 0    0    0
- 1    0    1
-  
+                  0    1  
+            -1    0   -1  
+             0    0    0
+             1    0    1
             </tableData>
           </table>
 </product>
@@ -528,14 +526,13 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <product>
 <property>fcs/AAR</property>
         <table>
-            <independentVar lookup="column">fcs/elec-3</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-spin-output</independentVar>
             <independentVar lookup="row">fcs/rudder-cmd-norm</independentVar>
             <tableData>   
       0    1  
 -1    0   -1  
  0    0    0
  1    0    1
-  
             </tableData>
           </table>
 </product>
@@ -579,6 +576,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <function name="fcs/vector-rad">   <!-- 77 DEG -->
     <product>
       <property>fcs/fbw-override</property>
+      <property>fcs/engine-gen-spin-output</property>
         <table>
             <independentVar lookup="row">fcs/tv-animation</independentVar>
             <tableData>
@@ -717,8 +715,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <function name="fcs/ail-pos-norm-limit-sum-main">  <!--Main Elevator POS with Limit-->
 <product>
-      <property>fcs/Elev-pos-norm-limit-sum</property>
-      <property>fcs/aileron-cmd-norm-power</property>
+      <value>1</value>
+      <property>fcs/aileron-cmd-norm-limit-sm</property>
 </product>
    </function>
 
@@ -863,6 +861,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </function>
 
 
+<!--Small electrical stuff-->
+
 <function name="fcs/engine-gen-pre">  
     <product>
       <property>/systems/electrical/serviceable</property>
@@ -899,10 +899,41 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
 
+<function name="fcs/enginen2comb">  
+        <table>
+            <independentVar lookup="row">/engines/engine/n2</independentVar>
+            <independentVar lookup="column">/engines/engine[1]/n2</independentVar>
+            <tableData>
+                     0    100  
+              0      0    100  
+              100    100  100
+            </tableData>
+      </table>
+   </function>
+
+
+
+<!-- Jet Generators -->
+
+
+<function name="fcs/engine-gen-spin-output">  
+    <table>
+      <independentVar lookup="row">fcs/enginen2comb</independentVar>
+      <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+      <tableData>
+                0     1 <!--if plane has other gen or apu power-->
+        0       0     1
+        59      0     1 <!--Kill the planes power if nothing is providing power and engine drops below 60-->
+        60      1     1
+        100     1     1
+      </tableData>
+    </table>
+</function>
+
+
+
 <function name="fcs/engine-gen-inflight">  
-
 <!--When off the ground this function is allways true-->
-
     <product>
       <property>/systems/electrical/serviceable</property>
         <table>
@@ -1113,6 +1144,27 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
   <channel name="Pitch">
+  
+    <kinematic name="Elevator Delay">
+      <input>fcs/elevator-cmd-norm-power</input>
+      <traverse>
+        <setting>
+          <position>-1</position>
+          <time>0.13</time>
+        </setting>
+        <setting>
+          <position>0</position>
+          <time>0.13</time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>0.13</time>
+        </setting>
+       </traverse>
+      <output>fcs/elevator-cmd-norm-delay-sm</output>
+   </kinematic>
+
+
 
    <kinematic name="leading edge flaps">
      <input>fcs/leading-edge-flap-gear</input> <!--Auto flaps when gear down, Manuel control when up-->
@@ -1131,7 +1183,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </kinematic>
 
    <summer name="Pitch Trim Sum">
-      <input>fcs/elevator-cmd-norm-power</input>
+      <input>fcs/elevator-cmd-norm-delay-sm</input> <!--RAW ELEVATOR CONTROL INPUT!! | Note the g limiter all that stuff is applied directly into <axis>-->
       <input>fcs/pitch-trim-main</input>
       <clipto>
         <min> -1 </min>
@@ -1149,7 +1201,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </aerosurface_scale>
 
  <kinematic name="elevator anim">
-     <input>fcs/elevator-pos-rad</input> <!--Auto flaps when gear down, Manuel control when up-->
+     <input>fcs/elevator-pos-rad</input>
      <traverse>
        <setting>
           <position>  -1 </position>
@@ -1503,6 +1555,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
 <function name="fcs/vector-top">
+    <product>
+      <property>fcs/engine-gen-spin-output</property>
         <table>
             <independentVar lookup="row">fcs/Elev-pos-norm-g-limit</independentVar>
     <independentVar lookup="column">fcs/gear-control</independentVar>
@@ -1513,9 +1567,16 @@ The Force that pushes the aircraft for increased manuverability should be lowere
               1     0       0
             </tableData>
           </table>
+      </product>
 </function>
+
+
 <function name="fcs/vector-lower">
+            <product>
+                  <property>fcs/engine-gen-spin-output</property>
         <table>
+
+
     <independentVar lookup="row">fcs/Elev-pos-norm-g-limit</independentVar>
     <independentVar lookup="column">fcs/gear-control</independentVar>
             <tableData>
@@ -1525,6 +1586,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
               1     0     1
             </tableData>
           </table>
+      </product>
 </function>
 
 
