@@ -333,11 +333,19 @@
     <factor>0.8</factor>
     <offset>0</offset>
    </volume>
-  <!--  <pitch>
-                <property>engines/engine[1]/n1</property>
-                <offset>0.86349949816</offset>
-                <factor>0.00455001673</factor>
-            </pitch> -->
+   <!-- sounds really cool
+           <pitch>
+    	<property>sim/multiplay/generic/float[31]</property>
+	<factor>0.005</factor>
+	<min>0.0</min>
+	<max>0.0</max>
+   </pitch>-->
+              <pitch>
+    	<property>sim/multiplay/generic/float[31]</property>
+	<factor>0</factor>
+	<min>0.0</min>
+	<max>0.0</max>
+   </pitch>
   </engine>
   <!--
     <engine>
@@ -455,6 +463,12 @@
     <factor>1</factor>
     <offset>0</offset>
    </volume>
+              <pitch>
+    	<property>sim/multiplay/generic/float[31]</property>
+	<factor>0.005</factor>
+	<min>0.1</min>
+	<max>0.1</max>
+   </pitch>
   <!--  <pitch>
                 <property>engines/engine[0]/n1</property>
                 <offset>0.86349949816</offset>
