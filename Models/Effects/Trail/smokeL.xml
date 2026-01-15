@@ -9,12 +9,18 @@
     <emissive type="bool">false</emissive>
     <lighting type="bool">false</lighting>
     <pass>true</pass>
-
+<!--Engine 1 smoke ints: 0, 1-->
     <condition>
+    <or>
         <equals>
-          <property>/sim/multiplay/generic/int[6]</property>
-          <value>1</value>
+          <property>/sim/multiplay/generic/int[5]</property>
+          <value>2</value>
         </equals>
+        <equals>
+          <property>/sim/multiplay/generic/int[5]</property>
+          <value>0</value>
+        </equals>
+    </or>
     </condition>
 
     <attach>world</attach>

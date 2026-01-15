@@ -178,8 +178,29 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
       <blue>  1 </blue>
     </emission>
   </animation> 
+fdm/jsbsim/fcs/engine-gen-spin-output
 
 
+<animation>
+    <type>material</type>
+   <object-name>leftenginefire</object-name>
+    <emission>
+      <factor-prop>fdm/jsbsim/fcs/engine-fire-left</factor-prop>
+      <red>   1 </red>
+      <green> 0 </green>
+      <blue>  0 </blue>
+    </emission>
+  </animation> 
+<animation>
+    <type>material</type>
+   <object-name>rightenginefire</object-name>
+    <emission>
+      <factor-prop>fdm/jsbsim/fcs/engine-fire-right</factor-prop>
+      <red>   1 </red>
+      <green> 0 </green>
+      <blue>  0 </blue>
+    </emission>
+  </animation> 
 <!--
 <animation>
     <type>material</type>
@@ -920,6 +941,107 @@ _____/\\\\\\\\\_________________________________________________________________
         </action>
     </animation>
 
+<!--engine fire-->
+<animation>
+  <type>pick</type>
+   <object-name>rightenginefire</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>nasal</command>
+      <script>engfire.righteng.start();</script>
+    </binding>
+        		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/ref</property>
+			   <value>1</value>
+		   </binding>
+    <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>engfire.righteng.stop();</script>
+    </binding>
+        		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/ref</property>
+			   <value>0</value>
+		   </binding>
+	</mod-up>
+    </action>
+            <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rfe</tooltip-id>
+                <label>Right Engine Fire Extinguisher</label>
+            </binding>
+        </hovered>
+</animation>
+
+<animation>
+  <type>pick</type>
+   <object-name>leftenginefire</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>nasal</command>
+      <script>engfire.lefteng.start();</script>
+    </binding>
+    		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/lef</property>
+			   <value>1</value>
+		   </binding>
+    <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>engfire.lefteng.stop();</script>
+    </binding>
+    		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/lef</property>
+			   <value>0</value>
+		   </binding>
+	</mod-up>
+    </action>
+                <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>lfe</tooltip-id>
+                <label>Left Engine Fire Extinguisher</label>
+            </binding>
+        </hovered>
+</animation>
+
+
+
+
+	<animation>
+		<type>translate</type>
+		<object-name>leftengineflight</object-name>
+		<property>/controls/buttons-pressed/lef</property>
+		<factor>-0.0015</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>rightengineflight</object-name>
+		<property>/controls/buttons-pressed/ref</property>
+		<factor>-0.0015</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
+
+
 
 <animation>
   <type>pick</type>
@@ -1384,7 +1506,6 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
                 <command>property-cycle</command>
                 <property>/controls/electric/battswitch</property>
                 <value>0</value>
-                <value>1</value>
                 <value>2</value>             
                 <wrap>false</wrap>
             </binding>
@@ -1392,7 +1513,6 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
                 <command>property-cycle</command>
                 <property>/controls/electric/battswitch-pos</property>
                 <value>-1</value>
-                <value>0</value>
                 <value>1</value>             
                 <wrap>false</wrap>
             </binding>
@@ -1857,7 +1977,7 @@ New: Refuel in air switch.
         <action>
             <binding>
                 <command>property-cycle</command>
-                <property>/controls/electric/engine/start-r</property>
+                <property>/f22/gen1</property>
                 <value>0</value>
                 <value>1</value>             
                 <wrap>false</wrap>
@@ -1867,7 +1987,7 @@ New: Refuel in air switch.
             <binding>
                 <command>set-tooltip</command>
                 <tooltip-id>startr</tooltip-id>
-                <label>Engine 1 Starter (Left)</label>
+                <label>Engine 1 Generator (Left)</label>
             </binding>
         </hovered>
   <increase>
@@ -1892,7 +2012,7 @@ New: Refuel in air switch.
 <animation>
         <type>rotate</type>
         <object-name>jfsStartR</object-name>
-        <property>/controls/electric/engine/start-l</property>
+        <property>/f22/gen2</property>
         <offset-deg>0</offset-deg>
         <factor>-40</factor>
         <axis>
@@ -1917,7 +2037,7 @@ New: Refuel in air switch.
         <action>
             <binding>
                 <command>property-cycle</command>
-                <property>/controls/electric/engine/start-l</property> <!--inverted silly me xd-->
+                <property>/f22/gen2</property> <!--inverted silly me xd-->
                 <value>0</value>
                 <value>1</value>             
                 <wrap>false</wrap>
@@ -1927,7 +2047,7 @@ New: Refuel in air switch.
             <binding>
                 <command>set-tooltip</command>
                 <tooltip-id>startl</tooltip-id>
-                <label>Engine 1 Starter (Left)</label>
+                <label>Engine 2 Generator (Right)</label>
             </binding>
         </hovered>
   <increase>
@@ -1947,7 +2067,7 @@ New: Refuel in air switch.
 <animation>
         <type>rotate</type>
         <object-name>jfsStartL</object-name>
-        <property>/controls/electric/engine/start-r</property>
+        <property>/f22/gen1</property>
         <offset-deg>0</offset-deg>
         <factor>-40</factor>
         <axis>

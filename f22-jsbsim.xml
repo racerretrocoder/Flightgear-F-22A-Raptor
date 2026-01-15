@@ -428,9 +428,10 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  <!--<system file="Systems/holdback.xml"/>-->
  <flight_control name="FCS: F-22">
 
-
-
-
+<property>/f22/gen1</property>
+<property>/f22/gen2</property>
+<property>/sim/failure-manager/engines/engine[0]/serviceable</property>
+<property>/sim/failure-manager/engines/engine[1]/serviceable</property>
 
 <!--
 <function name="fcs/auto-pitchtrim">  
@@ -1443,28 +1444,94 @@ The Force that pushes the aircraft for increased manuverability should be lowere
      <output>fcs/bdl</output>
    </kinematic>
   </channel>
-    <function name="fcs/engine-gen">
-      <description>the power unit to everything</description>
+
+
+      <function name="/f22/engint">
+      <description>Flameouts</description>
           <table>
+    <independentVar lookup="column">/sim/failure-manager/engines/engine[0]/serviceable</independentVar>
+    <independentVar lookup="row">/sim/failure-manager/engines/engine[1]/serviceable</independentVar>
+    <tableData>
+                   0    1     
+              0    0    1     
+              1    2    3   
+
+    </tableData>
+   </table>
+    </function>
+
+      <function name="fcs/engine-fire-left">
+      <description>Flameouts</description>
+          <table>
+    <independentVar lookup="row">/sim/failure-manager/engines/engine[0]/serviceable</independentVar>
+    
+    <independentVar lookup="column">fcs/engine-gen-spin-output</independentVar>
+    <tableData>
+                   0    1
+              0    0    1
+              1    0    0
+
+    </tableData>
+   </table>
+    </function>
+
+      <function name="fcs/engine-fire-right">
+      <description>Flameouts</description>
+          <table>
+          
+    <independentVar lookup="column">fcs/engine-gen-spin-output</independentVar>
+    <independentVar lookup="row">/sim/failure-manager/engines/engine[1]/serviceable</independentVar>
+    <tableData>
+                   0    1
+              0    0    1
+              1    0    0
+
+    </tableData>
+   </table>
+    </function>
+
+
+    <function name="fcs/engine-gen">
+      <description>Engine 1 Generator</description>
+          <table>
+    <independentVar lookup="column">/f22/gen1</independentVar>
     <independentVar lookup="row">/engines/engine/running</independentVar>
     <tableData>
-              0    0
-              1    0.5
+                   0    1     
+              0    0    0     
+              1    0    0.5   
 
     </tableData>
    </table>
     </function>
 
     <function name="fcs/engine-gen2">
-      <description>the power unit to everything</description>
+      <description>Engine 2 Generator</description>
           <table>
+    <independentVar lookup="column">/f22/gen2</independentVar>
     <independentVar lookup="row">/engines/engine[1]/running</independentVar>
     <tableData>
-              0    0
-              1    0.5
+                   0    1
+              0    0    0
+              1    0    0.5
     </tableData>
    </table>
     </function>
+
+    <function name="fcs/oil-warn">
+      <description>Oil Pressure Warning</description>
+          <table>
+    <independentVar lookup="column">/engines/engine[0]/oil-pressure-psi</independentVar>
+    <independentVar lookup="row">/engines/engine[1]/oil-pressure-psi</independentVar>
+    <tableData>
+                    0     29    30
+              0     0     0     0
+              29    0     0     0
+              30    0     0     1
+    </tableData>
+   </table>
+    </function>
+
 
 <!--Backup power for FLC-->
     <function name="fcs/EPU">
@@ -2270,8 +2337,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <function name="fcs/abani1">
       <description>engine0ab</description>
           <table>
-    <independentVar lookup="row">/engines/engine[0]/augmentation</independentVar>
-      <independentVar lookup="column">/engines/engine[0]/n1</independentVar>
+    <independentVar lookup="row">/engines/engine[1]/augmentation</independentVar>
+      <independentVar lookup="column">/engines/engine[1]/n1</independentVar>
     <tableData>
            0     99.9    100
      0     0      0       1  
@@ -2285,7 +2352,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <description>engine1ab</description>
           <table>
     <independentVar lookup="row">/engines/engine[0]/augmentation</independentVar>
-      <independentVar lookup="column">/engines/engine[1]/n1</independentVar>
+      <independentVar lookup="column">/engines/engine[0]/n1</independentVar>
     <tableData>
            0     99.9    100
      0     0      0       1  
@@ -2341,7 +2408,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
      <output>fcs/ab1</output>
    </kinematic>
 
-      <kinematic name="ab1">
+      <kinematic name="ab2">
      <input>fcs/abani2</input>
      <traverse>
        <setting>

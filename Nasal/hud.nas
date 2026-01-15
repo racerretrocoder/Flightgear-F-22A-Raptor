@@ -359,7 +359,7 @@ m.ccipGrp = m.root.createChild("group");
     me.aoaind.setText(sprintf("A %1.2f", me.input.alpha.getValue()));
     me.bingoind.setText("BINGO FUEL");
     me.pullup.setText("PULL UP");
-    me.gunammo.setText(sprintf("GUNS %1.0f", getprop("ai/submodels/submodel/count")));
+    me.gunammo.setText(sprintf("GUNS %1.0f", getprop("ai/submodels/submodel[1]/count")));
     me.callsignind.setText(sprintf("RADAR %s", getprop("controls/radar/lockedcallsign")));
     me.machspeed.setText(sprintf("M %1.2f", me.input.mach.getValue()));
     me.airspeed.setText(sprintf("%d", me.input.ias.getValue()));

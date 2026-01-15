@@ -143,11 +143,146 @@
   <alignment>left-top</alignment>
  </text>
 
+<!--really small info text-->
+<text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0028</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.042</y-m> <!--0.005 be the center-->
+   <z-m>0.042</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/sl1</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+<text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0028</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.042</y-m> <!--0.005 be the center-->
+   <z-m>0.037</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/sl2</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+<text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0028</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.042</y-m> <!--0.005 be the center-->
+   <z-m>0.032</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/sl3</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ <!--Right top side-->
+ <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0028</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>0.033</y-m> <!--0.005 be the center-->
+   <z-m>0.042</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/sr1</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+<text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0028</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>0.033</y-m> <!--0.005 be the center-->
+   <z-m>0.037</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/sr2</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+<text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0028</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>0.032</y-m> <!--0.005 be the center-->
+   <z-m>0.032</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/sr3</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+<!--Lower left -->
+<text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0028</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.042</y-m> <!--0.005 be the center-->
+   <z-m>0.010</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/sll1</property>
+    <format type="string">AUTO G%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+<text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0028</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.042</y-m> <!--0.005 be the center-->
+   <z-m>0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/sll1</property>
+    <format type="string">G: 1.0%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
 <!--red warnings-->
 <text>
   <name>red warn</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.0035</character-size>
+  <character-size type="double">0.0028</character-size>
   <offsets>
   <x-m>0</x-m>
    <y-m>-0.005</y-m> <!--0.005 be the center-->
@@ -166,7 +301,7 @@
 <text>
   <name>red warn</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.0035</character-size>
+  <character-size type="double">0.0028</character-size>
   <offsets>
   <x-m>0</x-m>
    <y-m>-0.005</y-m> <!--0.005 be the center-->
@@ -183,7 +318,7 @@
  <text>
   <name>red warn</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.0035</character-size>
+  <character-size type="double">0.0028</character-size>
   <offsets>
   <x-m>0</x-m>
    <y-m>-0.005</y-m> <!--0.005 be the center-->
@@ -198,9 +333,26 @@
  </text>
 
  <text>
+  <name>red warn</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0028</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.005</y-m> <!--0.005 be the center-->
+   <z-m>0.027</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/r4</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ <text>
   <name>yell warn</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.0035</character-size>
+  <character-size type="double">0.0028</character-size>
   <offsets>
   <x-m>0</x-m>
    <y-m>-0.005</y-m> <!--0.005 be the center-->
@@ -217,7 +369,7 @@
  <text>
   <name>yell warn</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.0035</character-size>
+  <character-size type="double">0.0028</character-size>
   <offsets>
   <x-m>0</x-m>
    <y-m>-0.005</y-m> <!--0.005 be the center-->
@@ -234,7 +386,7 @@
  <text>
   <name>yell warn</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.0035</character-size>
+  <character-size type="double">0.0028</character-size>
   <offsets>
   <x-m>0</x-m>
    <y-m>-0.005</y-m> <!--0.005 be the center-->
@@ -250,7 +402,7 @@
  <text>
   <name>yell warn</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.0035</character-size>
+  <character-size type="double">0.0028</character-size>
   <offsets>
   <x-m>0</x-m>
    <y-m>-0.005</y-m> <!--0.005 be the center-->
@@ -263,6 +415,7 @@
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
+
   <text>
   <name>mastcaut</name>
   <font>condensed.txf</font>
