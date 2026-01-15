@@ -3057,7 +3057,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <file>Aircraft/F-22/Nasal/enav.nas</file>
 </enav>
 
-
+ <leftscr>
+            <file>Aircraft/F-22/Nasal/leftscreen.nas</file>
+        </leftscr>
 
  <tacview>
             <file>Aircraft/F-22/Nasal/tacview.nas</file>

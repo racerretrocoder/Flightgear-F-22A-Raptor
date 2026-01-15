@@ -1680,7 +1680,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  <description>elec</description>
         <table>
             <independentVar lookup="row">/controls/electric/controls</independentVar>
-            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-spin-output</independentVar>
             <tableData>
                    0    1
               0    0    0
@@ -1694,7 +1694,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  <description>elec</description>
         <table>
             <independentVar lookup="row">/controls/electric/MFD</independentVar>
-            <independentVar lookup="column">fcs/engine-gen-main</independentVar>
+            <independentVar lookup="column">fcs/engine-gen-spin-output</independentVar>
             <tableData>
                    0    1
               0    0    0
