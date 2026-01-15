@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+
+<!-- comms panel -->
+
+<PropertyList>
+
+
+   <model>
+		<path>bg.ac</path>
+
+	</model>
+
+
+ 	 <animation>
+  <type>material</type>
+  <object-name>fuel-head</object-name>
+  <ambient>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.0</red>
+    <green>0.8</green>
+    <blue>0.0</blue>
+  </emission> 
+ </animation>
+
+ 	 <animation>
+  <type>material</type>
+  <object-name>red warn</object-name>
+  <ambient>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.1</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>1.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </emission> 
+ </animation>
+
+ 	 <animation>
+  <type>material</type>
+    <object-name>mastcaut</object-name>
+  <object-name>yell warn</object-name>
+  <ambient>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.1</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </emission> 
+ </animation>
+
+
+   <animation>
+    <type>select</type>
+    <object-name>mastcaut</object-name> <!--Low red-->
+    <condition>
+     <and>
+      <equals>
+       <property>f22/blink</property>
+       <value>1</value>
+      </equals>
+      <equals>
+       <property>f22/caution</property>
+       <value>1</value>
+      </equals>
+      </and>
+    </condition>
+  </animation>
+
+
+
+ <!--  lower button action -->
+ 
+<text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.005</y-m> <!--0.005 be the center-->
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/buttons/textcenter</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+<text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.036</y-m> <!--0.005 be the center-->
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/buttons/textleft</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>0.027</y-m> <!--0.005 be the center-->
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/buttons/textright</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+<!--red warnings-->
+<text>
+  <name>red warn</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.005</y-m> <!--0.005 be the center-->
+   <z-m>0.042</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/r1</property>
+    <format type="string">%s</format>
+    
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+<text>
+  <name>red warn</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.005</y-m> <!--0.005 be the center-->
+   <z-m>0.037</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/r2</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ <text>
+  <name>red warn</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.005</y-m> <!--0.005 be the center-->
+   <z-m>0.032</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/r3</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ <text>
+  <name>yell warn</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.005</y-m> <!--0.005 be the center-->
+   <z-m>0.022</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/m1</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ <text>
+  <name>yell warn</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.005</y-m> <!--0.005 be the center-->
+   <z-m>0.017</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/m2</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ <text>
+  <name>yell warn</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.005</y-m> <!--0.005 be the center-->
+   <z-m>0.012</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/m3</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+ <text>
+  <name>yell warn</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.005</y-m> <!--0.005 be the center-->
+   <z-m>0.007</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/m4</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+  <text>
+  <name>mastcaut</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0</x-m>
+   <y-m>-0.015</y-m> <!--0.005 be the center-->
+   <z-m>0.002</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/leftsmall/ae</property>
+    <format type="string">MASTER CAUTION</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+</PropertyList>

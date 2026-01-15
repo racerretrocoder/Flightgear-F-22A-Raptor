@@ -14,6 +14,40 @@ setprop("f22/ground/pilot",1);
 setprop("f22/ground/chocks",0);
 setprop("f22/ground/small-ladder",0);
 setprop("f22/ground/cones",0);
+setprop("f22/leftsmall/buttons/textcenter","CLEAR");
+setprop("f22/leftsmall/buttons/textleft","ACK");
+setprop("f22/leftsmall/buttons/textright","");
+setprop("f22/leftsmall/page",0); # 0 warn page, 1 standard, 2 target info
+
+# Left screen initalization.
+
+setprop("f22/leftsmall/sl1","TEST");
+setprop("f22/leftsmall/sl2","TEST");
+setprop("f22/leftsmall/sl3","TEST");
+setprop("f22/leftsmall/sr1","TEST");
+setprop("f22/leftsmall/sr2","TEST");
+setprop("f22/leftsmall/sr3","TEST");
+setprop("f22/leftsmall/m1","");
+setprop("f22/leftsmall/m2","");
+setprop("f22/leftsmall/m3","");
+setprop("f22/leftsmall/m4","");
+setprop("f22/leftsmall/m5","");
+setprop("f22/leftsmall/m6","");
+setprop("f22/leftsmall/r1","");
+setprop("f22/leftsmall/r2","");
+setprop("f22/leftsmall/r3","");
+setprop("f22/leftsmall/old/m1","");
+setprop("f22/leftsmall/old/m2","");
+setprop("f22/leftsmall/old/m3","");
+setprop("f22/leftsmall/old/m4","");
+setprop("f22/leftsmall/old/m5","");
+setprop("f22/leftsmall/old/m6","");
+setprop("f22/leftsmall/old/r1","");
+setprop("f22/leftsmall/old/r2","");
+setprop("f22/leftsmall/old/r3","");
+leftscr.start();
+
+
 
 
 setprop("f22/chaff",200);
@@ -1423,7 +1457,7 @@ var gunsightupdate = func() {
 
 
 var consoleslight = func() {
-  var elec = getprop("fdm/jsbsim/fcs/engine-gen-main");
+  var elec = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
   if (elec == 0) {
     setprop("controls/lighting/instruments-norm",0); # no power? no light
   }

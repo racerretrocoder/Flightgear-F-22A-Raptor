@@ -253,10 +253,22 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
 	
 	<!-- left -->
 
-	
+	<!--left is actually right...-->
 	<model>
      <name>leftsmall</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/left.xml</path>
+			<offsets>
+				<x-m>-0.965</x-m>
+					<y-m>-0.03</y-m>
+				<z-m>-0.77</z-m>
+			<pitch-deg>-0</pitch-deg>
+		</offsets>
+	</model>
+
+<!--left-->
+	<model>
+     <name>rightsmall</name>
+		<path>Aircraft/F-22/Models/Interior/Instruments/small-screens/right.xml</path>
 			<offsets>
 				<x-m>-0.965</x-m>
 					<y-m>-0.03</y-m>
@@ -948,6 +960,82 @@ _____/\\\\\\\\\_________________________________________________________________
 	</animation>
 
 
+
+
+<animation>
+  <type>pick</type>
+
+        <object-name>smallscreenbt1</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>leftscr.ackwarn();</script>
+</binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/sslbt1</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/sslbt1</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
+</action>
+ </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>smallscreenbt1</object-name>
+		<property>/controls/buttons-pressed/sslbt1</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
+<animation>
+  <type>pick</type>
+
+        <object-name>smallscreenbt2</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>leftscr.clear();</script>
+</binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/sslbt2</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+		   <binding>
+			   <command>property-assign</command>
+			   <property>/controls/buttons-pressed/sslbt2</property>
+			   <value>0</value>
+		   </binding>
+	   </mod-up>
+</action>
+ </animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>smallscreenbt2</object-name>
+		<property>/controls/buttons-pressed/sslbt2</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
 
 
 <animation>
