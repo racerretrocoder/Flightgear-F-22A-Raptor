@@ -14,37 +14,7 @@ setprop("f22/ground/pilot",1);
 setprop("f22/ground/chocks",0);
 setprop("f22/ground/small-ladder",0);
 setprop("f22/ground/cones",0);
-setprop("f22/leftsmall/buttons/textcenter","CLEAR");
-setprop("f22/leftsmall/buttons/textleft","ACK");
-setprop("f22/leftsmall/buttons/textright","");
-setprop("f22/leftsmall/page",0); # 0 warn page, 1 standard, 2 target info
 
-# Left screen initalization.
-
-setprop("f22/leftsmall/sl1","TEST");
-setprop("f22/leftsmall/sl2","TEST");
-setprop("f22/leftsmall/sl3","TEST");
-setprop("f22/leftsmall/sr1","TEST");
-setprop("f22/leftsmall/sr2","TEST");
-setprop("f22/leftsmall/sr3","TEST");
-setprop("f22/leftsmall/m1","");
-setprop("f22/leftsmall/m2","");
-setprop("f22/leftsmall/m3","");
-setprop("f22/leftsmall/m4","");
-setprop("f22/leftsmall/m5","");
-setprop("f22/leftsmall/m6","");
-setprop("f22/leftsmall/r1","");
-setprop("f22/leftsmall/r2","");
-setprop("f22/leftsmall/r3","");
-setprop("f22/leftsmall/old/m1","");
-setprop("f22/leftsmall/old/m2","");
-setprop("f22/leftsmall/old/m3","");
-setprop("f22/leftsmall/old/m4","");
-setprop("f22/leftsmall/old/m5","");
-setprop("f22/leftsmall/old/m6","");
-setprop("f22/leftsmall/old/r1","");
-setprop("f22/leftsmall/old/r2","");
-setprop("f22/leftsmall/old/r3","");
 leftscr.start();
 
 
@@ -757,6 +727,7 @@ var repair = func{
   setprop("f22/dead",0); # Show the model
   setprop("/sim/failure-manager/engines/engine/serviceable",1); # Fix the engines
   setprop("/sim/failure-manager/engines/engine[1]/serviceable",1); # Fix the engines
+  guns.reload();
 
 }
 
@@ -1463,7 +1434,21 @@ var consoleslight = func() {
   }
 }
 
-
+var engint = func() {
+  if (getprop("sim/failure-manager/engines/engine/serviceable") == 0 or getprop("sim/failure-manager/engines/engine[1]/serviceable") == 0) {
+    if (getprop("sim/failure-manager/engines/engine/serviceable") == 0 and getprop("sim/failure-manager/engines/engine[1]/serviceable") == 0) {
+      setprop("f22/engint",3);
+    } elsif (getprop("sim/failure-manager/engines/engine/serviceable") == 0 and getprop("sim/failure-manager/engines/engine[1]/serviceable") == 1) {
+      # left dead
+      setprop("f22/engint",1);
+    } elsif (getprop("sim/failure-manager/engines/engine/serviceable") == 1 and getprop("sim/failure-manager/engines/engine[1]/serviceable") == 0) {
+      # right dead
+      setprop("f22/engint",12);
+    }
+  } else {
+    setprop("f22/engint",0); # engines work
+  }
+}
 
 
 #
@@ -1478,6 +1463,10 @@ var hudupdate = func() {
 
 updatehudtimer = maketimer(0.1,hudupdate);
 updatehudtimer.start();
+engsmoke = maketimer(0.1,engint);
+engsmoke.start();
+
+
 guntimer = maketimer(0.1,gunsightupdate);
 guntimer.start();
 loadtimer = maketimer(1.5,stringstore);

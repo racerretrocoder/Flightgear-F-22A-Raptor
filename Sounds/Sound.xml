@@ -1588,7 +1588,7 @@
 
 
 <!-- Exterior gun sounds-->
-
+<!--
 <guns>
       <name>gunstop2</name>
       <mode>once</mode>
@@ -1729,7 +1729,7 @@
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
     </guns>
-
+-->
 
     <guns>
       <name>gunshoot3</name>

@@ -531,9 +531,11 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 			-->
 
 
-<bool n="7" type="int" alias="/sim/crashed"/>
+
 <bool n="8" type="bool" alias="/engines/engine/cutoff"/>  <!--For Idleing Smoke-->
  <float n="11" type="double" alias="/fdm/jsbsim/fcs/tv-animation-lower"/>
+ <float n="12" type="double" alias="/fdm/jsbsim/fcs/AIM120"/>
+ <float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
  <float n="15" type="double" alias="/fdm/jsbsim/fcs/tv-animation-top"/>
 <float n="16" type="double" alias="/f22/head-ptc-deg"/>	
  <float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor -->
@@ -568,24 +570,21 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 <float n="39" type="double" alias="/f22/head-hdg-deg"/>	
 <int n="2" type="int">1</int><!-- radar-standby (Enemy RWR Detection) -->
 <int n="3" type="int">0</int><!-- KY58 int -->
-<int n="15" type="int" alias="/f22/ejected"/>
 <int n="4" type="int" alias="/f22/dead"/>
-<int n="16" type="int" alias="/controls/lighting/logo-lights"/>
+<int n="5" type="int" alias="/f22/engint"/>
 <int n="10" type="int" alias="/controls/lighting/nav-lights"/>
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 
-
-
-
-
+<int n="13" type="int" alias="/controls/smoke/Switch"/> 
+<int n="15" type="int" alias="/f22/ejected"/>
+<int n="16" type="int" alias="/controls/lighting/logo-lights"/>
 <int n="17" type="int" alias="/controls/armament/extpylons"/>  <!--Ext pylons-->
 <int n="18" type="int" alias="/controls/armament/rdt"/> 
 <int n="19" type="int" alias="/controls/armament/ldt"/>   <!--Drop tanks--> 
-<float n="12" type="double" alias="/fdm/jsbsim/fcs/AIM120"/>
-<int n="13" type="int" alias="/controls/smoke/Switch"/> 
-<float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
 <int n="20" type="int" alias="/fdm/jsbsim/fcs/taxilight"/> 
-<int n="5" type="int" alias="/sim/failure-manager/engines/engine/failure-level"/> 
-<int n="6" type="int" alias="/sim/failure-manager/engines/engine[1]/failure-level"/>
+
+<!--<int n="6" type="int" alias="/sim/failure-manager/engines/engine[1]/failure-level"/>-->
+
+
 <int n="23" type="int" alias="/fdm/jsbsim/fcs/light"/>
 
 
@@ -3056,6 +3055,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <enav>
 <file>Aircraft/F-22/Nasal/enav.nas</file>
 </enav>
+
+ <engfire>
+            <file>Aircraft/F-22/Nasal/engfire.nas</file>
+        </engfire>
 
  <leftscr>
             <file>Aircraft/F-22/Nasal/leftscreen.nas</file>

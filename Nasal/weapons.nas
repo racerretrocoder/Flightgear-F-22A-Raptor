@@ -146,6 +146,14 @@ var multishottoggle = func() {
     }
 }
 
+var checkburst = func() {
+    if (getprop("ai/submodels/submodel[0]/count") == 0) {
+        autostopFiring();
+        setprop("ai/submodels/submodel[0]/count",50);
+        reset.stop();
+    }
+}
+reset = maketimer(0,checkburst);
 
 # Controls
 # Trigger
@@ -158,14 +166,14 @@ fire_MG = func() {  # b would be in the ()
     if(getprop("/controls/armament/stick-selector") == 1)
     {
         # guns
-        if (getprop("controls/armament/master-arm") == 1) {
+        if (getprop("controls/armament/master-arm") == 1 and getprop("ai/submodels/submodel[1]/count") != 0) {
         isFiring = 1;
         
         setprop("/controls/armament/gun-trigger", 1);
-        screen.log.write("Trigger!");
-        settimer(autostopFiring, 0.47); # Fast burst
+        #settimer(autostopFiring, 0.47); # Fast burst
+        reset.start();
         } else {
-            screen.log.write("Master arm is not armed");
+            screen.log.write("Master arm is not armed or the gun is out of ammo");
         }
     }
     if(getprop("/controls/armament/stick-selector") == 2)
@@ -188,7 +196,6 @@ fire_MG = func() {  # b would be in the ()
                     f22.fire(0,0); # Open the bay doors of the currently selected weapon
                     var pylon = getprop("/controls/armament/missile/current-pylon");
                     m2000_load.dropLoad(pylon);
-                    screen.log.write("Trigger!");
                     print("Should fire Missile");
                     setprop("/controls/armament/missile-trigger", 1);
                 }
@@ -251,7 +258,7 @@ gun_timer = maketimer(0.01, stopFiring);
 gun_timer.start();
 
 reload = func() {
-    setprop("/ai/submodels/submodel/count",    480);
+    setprop("/ai/submodels/submodel/count",    50);
     setprop("/ai/submodels/submodel[1]/count", 480);
     setprop("/ai/submodels/submodel[2]/count", 480);
     setprop("/ai/submodels/submodel[3]/count", 480);
@@ -374,7 +381,6 @@ var hitmessage = func(typeOrd,callsign,hits) {
         msg.Distance = hits;
         msg.RemoteCallsign = callsign;
         notifications.hitBridgedTransmitter.NotifyAll(msg);
-        screen.log.write("Guns Hit!");
         damage.damageLog.push("You hit "~callsign~" with "~"M61A1 shells"~", "~hits~" times.");
     } else {
         setprop("/sim/messages/atc", phrase);

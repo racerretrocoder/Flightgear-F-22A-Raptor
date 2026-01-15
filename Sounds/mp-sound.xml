@@ -132,6 +132,105 @@
         <reference-dist>600.0</reference-dist>
         <max-dist>6000.0</max-dist>
     </engine>
+    <guns>
+      <name>gunshoot6</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunext.wav</path>
+      <condition> 
+        <not>
+        	    <equals>
+		    <property>sim/multiplay/generic/float[33]</property>
+		    <value>0</value>
+		</equals>
+    </not>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>600</reference-dist>
+      <max-dist>6000</max-dist>
+    </guns>
+
+
+    <guns>
+      <name>gunshoot5</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunext.wav</path>
+      <condition> 
+      <and>
+        <not>
+        	    <equals>
+		    <property>sim/multiplay/generic/float[33]</property>
+		    <value>0</value>
+		</equals>
+    </not>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+      </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>600</reference-dist>
+      <max-dist>6000</max-dist>
+    </guns>
+
+    <guns>
+      <name>gunshoot4</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunext.wav</path>
+      <condition> 
+      <and>
+        <not>
+        	    <equals>
+		    <property>sim/multiplay/generic/float[33]</property>
+		    <value>0</value>
+		</equals>
+    </not>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+      </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>600</reference-dist>
+      <max-dist>6000</max-dist>
+    </guns>
+
+    <guns>
+      <name>gunshoot3</name>
+      <mode>looped</mode>
+      <path>Aircraft/F-22/Sounds/gunext.wav</path>
+      <condition> 
+      <and>
+        <not>
+        	    <equals>
+		    <property>sim/multiplay/generic/float[33]</property>
+		    <value>0</value>
+		</equals>
+    </not>
+	    <equals>
+		    <property>/sim/current-view/internal</property>
+		    <value>false</value>
+		</equals>
+      </and>
+      </condition>
+      <volume> 
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>600</reference-dist>
+      <max-dist>6000</max-dist>
+    </guns>
+
 
 
 </fx>

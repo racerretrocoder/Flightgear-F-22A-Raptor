@@ -2321,7 +2321,7 @@ FR
 	<animation>
         <type>translate</type>
 			<object-name>left-down-vector</object-name>
-        <property>sim/multiplay/generic/float[31]</property>
+        <property>sim/multiplay/generic/float[32]</property>
         <factor>-0.0547</factor>
         <axis>
             <x>0</x>
@@ -2334,7 +2334,7 @@ FR
 	<animation>
         <type>translate</type>
 			<object-name>right-down-vector</object-name>
-        <property>sim/multiplay/generic/float[32]</property>
+        <property>sim/multiplay/generic/float[31]</property>
         <factor>-0.0547</factor>
         <axis>
             <x>0</x>
@@ -2345,7 +2345,7 @@ FR
 	<animation>
         <type>translate</type>
 			<object-name>right-up-vector</object-name>
-        <property>sim/multiplay/generic/float[32]</property>
+        <property>sim/multiplay/generic/float[31]</property>
         <factor>0.0547</factor>
         <axis>
             <x>0</x>
@@ -2356,7 +2356,7 @@ FR
 	<animation>
         <type>translate</type>
 			<object-name>left-up-vector</object-name>
-        <property>sim/multiplay/generic/float[31]</property>
+        <property>sim/multiplay/generic/float[32]</property>
         <factor>0.0547</factor>
         <axis>
             <x>0</x>
@@ -2785,6 +2785,22 @@ FR
 			</less-than>
 		</condition>
 	</animation>-->
+
+			<model>
+		<path>Aircraft/F-22/Models/smoke/gunsmoke.xml</path>
+		<offsets>
+    		<x-m>-0.50 </x-m>
+    		<y-m> 1.56 </y-m>
+    		<z-m> 0.13 </z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+		<heading-deg>0</heading-deg>
+	</offsets>
+	</model>
+
+
+
+
 
 			<model>
 		<path>Aircraft/F-22/Models/Effects/Smoke/SmokeRidle.xml</path>

@@ -9,7 +9,7 @@
     <speed>2500</speed>
     <repeat>true</repeat>
     <delay>0</delay>
-    <count>480</count>
+    <count>50</count>
     <x-offset> 21.0 </x-offset>
     <y-offset> 1.50 </y-offset>
     <z-offset> 0.53 </z-offset>
@@ -28,7 +28,7 @@
     <speed>2500</speed>
     <repeat>true</repeat>
     <delay>0.0</delay>
-    <count>480</count>
+    <count>50</count>
     <x-offset> 21.0</x-offset>
     <y-offset> 1.50 </y-offset>
     <z-offset> 0.53 </z-offset>
@@ -45,7 +45,7 @@
   </submodel>
   
 
-
+<!--
 
  <submodel>
     <name>Tracer</name> 
@@ -211,7 +211,7 @@
     <wind>true</wind>
     <buoyancy>33</buoyancy>
     <life>2</life>
-  </submodel>
+  </submodel>-->
   
   <!-- Countermeasures -->
   <!-- Flares -->
