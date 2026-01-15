@@ -29,6 +29,12 @@
             <max>1.0</max>
 
         </volume>
+           <pitch>
+    	<property>sim/multiplay/generic/float[31]</property>
+	<factor>0.005</factor>
+	<min>0.0</min>
+	<max>0.0</max>
+   </pitch>
         <position>
             <x>0</x>
             <y>0</y>
@@ -66,6 +72,12 @@
             <y>0</y>
             <z>0</z>
         </position>
+           <pitch>
+    	<property>sim/multiplay/generic/float[31]</property>
+	<factor>0.005</factor>
+	<min>0.0</min>
+	<max>0.0</max>
+   </pitch>
         <reference-dist>600.0</reference-dist>
         <max-dist>6000.0</max-dist>
     </engine>
