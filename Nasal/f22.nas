@@ -83,7 +83,7 @@ var kaboom = func(speed,type) {
       setprop("/sim/multiplay/generic/bool[4]",1);
 
       timer_water.start();
-      screen.log.write("Sunk into water! Maximum Damage",1,0,0);
+      screen.log.write("Aircraft dived into water!!",1,0,0);
       setprop("f22/runonce",1);
     }
   }
@@ -110,7 +110,7 @@ print("hello2");
 
 
 var crashdetect = func {
-    if (getprop("/position/altitude-agl-ft") < 0){
+    if (getprop("/position/altitude-agl-ft") < 0 or getprop("/f22/dead") != 0){
             # Ouch!! That hurt!
       var speed = getprop("/velocities/airspeed-kt");
       var pitch = getprop("/orientation/pitch-deg");
