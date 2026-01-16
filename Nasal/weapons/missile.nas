@@ -2097,6 +2097,3 @@ var MPReport = func(){
 
 
 
-if (getprop("controls/ae/ae") == 1) {
-    print("clash, dont look in gui/splash7 lmao");
-}

@@ -20,11 +20,11 @@
         <pitch-input>
             <property>/orientation/pitch-deg</property>
         </pitch-input>
-        <compression-factor>7.8</compression-factor>
-        <display-span>15.0</display-span>
+        <compression-factor>5.8</compression-factor>
+        <display-span>17.0</display-span>
         <divisions>5.0</divisions>
         <screen-hole>15</screen-hole>
-        <zero-bar-overlength>10</zero-bar-overlength>
+        <zero-bar-overlength>2</zero-bar-overlength>
         <enable-dive-bar-angle>true</enable-dive-bar-angle>
         <enable-dynamic-origin>false</enable-dynamic-origin>
         <enable-fuselage-ref-line>false</enable-fuselage-ref-line>
@@ -53,9 +53,9 @@
             <max>100000</max>
             <min>-1</min>
         </input>
-        <major-divisions>500000</major-divisions>
-        <minor-divisions>0.5</minor-divisions>
-        <display-span>10.0</display-span>
+        <major-divisions>1000</major-divisions>
+        <minor-divisions>500</minor-divisions>
+        <display-span>3000.0</display-span>
         <option>right</option>
         <option>vertical</option>
         <tick-bottom>false</tick-bottom>
@@ -83,9 +83,9 @@
             <max>1500</max>
             <min>0</min>
         </input>
-        <major-divisions>500000</major-divisions>
-        <minor-divisions>1</minor-divisions>
-        <display-span>20</display-span>
+        <major-divisions>50</major-divisions>
+        <minor-divisions>25</minor-divisions>
+        <display-span>100</display-span>
         <option>left</option>
         <option>vertical</option>
         <tick-bottom>false</tick-bottom>
@@ -104,8 +104,8 @@
 
     <tape>
         <name>Gyrocompass</name>
-        <x>-64.5</x>
-        <y>48</y>
+        <x>-67.5</x>
+        <y>39</y>
         <width>130</width>
         <height>10</height>
         <input>
