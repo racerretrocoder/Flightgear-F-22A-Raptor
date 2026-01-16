@@ -117,13 +117,13 @@ var HUD = {
 
 
     # Airspeed
-    m.airspeed =
-      m.text.createChild("text")
-            .setAlignment("center-top")
-            .setTranslation(30,100)#(left,Top)
-            #.setFont("Liberation Sans Narrow")
-            .setFontSize(06,0.5);
-            
+   #m.airspeed =
+   #  m.text.createChild("text")
+   #        .setAlignment("center-top")
+   #        .setTranslation(30,100)#(left,Top)
+   #        #.setFont("Liberation Sans Narrow")
+   #        .setFontSize(06,0.5);
+   #        
     #AP Airspeed Setting
     m.machspeed =
       m.text.createChild("text")
@@ -168,12 +168,12 @@ var HUD = {
             #.setFont("Liberation Sans Narrow")
             .setFontSize(04,0.4);
 #    # Altitude
-    m.altitude =
-      m.text.createChild("text")
-            .setAlignment("center-top")
-            .setTranslation(233,100) #(left,Top)
-            .setFontSize(06,0.5);
-            
+    #m.altitude =
+    #  m.text.createChild("text")
+    #        .setAlignment("center-top")
+    #        .setTranslation(233,100) #(left,Top)
+    #        .setFontSize(06,0.5);
+    #        
     #AP Altitude Setting
     m.APaltitude =
       m.text.createChild("text")
@@ -362,9 +362,9 @@ m.ccipGrp = m.root.createChild("group");
     me.gunammo.setText(sprintf("GUNS %1.0f", getprop("ai/submodels/submodel[1]/count")));
     me.callsignind.setText(sprintf("RADAR %s", getprop("controls/radar/lockedcallsign")));
     me.machspeed.setText(sprintf("M %1.2f", me.input.mach.getValue()));
-    me.airspeed.setText(sprintf("%d", me.input.ias.getValue()));
+    #me.airspeed.setText(sprintf("%d", me.input.ias.getValue()));
     me.headingind.setText(sprintf("%d", me.input.hdg.getValue()));
-    me.altitude.setText(sprintf("%d", me.input.altitude.getValue()));
+    #me.altitude.setText(sprintf("%d", me.input.altitude.getValue()));
     var VVx = me.input.beta.getValue() * 10; # adjust for view
     var VVy = me.input.alpha.getValue() * 10; # adjust for view
     me.VV.setTranslation (VVx,VVy);

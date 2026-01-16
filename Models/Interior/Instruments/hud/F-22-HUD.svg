@@ -87,8 +87,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8726213"
-     inkscape:cx="67.186023"
-     inkscape:cy="56.7426"
+     inkscape:cx="76.23699"
+     inkscape:cy="50.476546"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -222,14 +222,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.6667px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-dasharray:none"
-       x="99.972488"
+       x="99.364937"
        y="848.6958"
        id="Rdr-Indicator"
        inkscape:label="#text3185"
        inkscape:transform-center-x="-38.888889"
        inkscape:transform-center-y="20.138889"><tspan
          sodipodi:role="line"
-         x="99.972488"
+         x="99.364937"
          y="848.6958"
          style="font-size:10.6667px;line-height:1.25;font-family:sans-serif;stroke-width:0.5;stroke-dasharray:none"
          id="tspan1">NO RAD</tspan></text>
@@ -9518,22 +9518,8 @@
        id="rect2"
        width="43.744804"
        height="13.221731"
-       x="99.850677"
+       x="99.243134"
        y="820.14996" />
-    <rect
-       style="fill:none;fill-opacity:0;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.886165;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2-9"
-       width="32.395294"
-       height="13.359985"
-       x="2.9201632"
-       y="902.35779" />
-    <rect
-       style="fill:none;fill-opacity:0;fill-rule:evenodd;stroke:#00ff00;stroke-width:1.02442;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2-9-8"
-       width="43.744804"
-       height="13.221731"
-       x="201.03716"
-       y="902.92407" />
     <path
        style="fill:none;fill-opacity:0;fill-rule:evenodd;stroke:#00ff00;stroke-width:1.2;stroke-dasharray:none;stroke-opacity:1"
        id="bomb_sight"
