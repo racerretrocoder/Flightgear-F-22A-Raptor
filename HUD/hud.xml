@@ -10,8 +10,8 @@
    <ladder>
         <name>Pitch Ladder</name>
         <type>pitch</type>
-        <x>-34</x>
-        <y>5</y>
+        <x>-32</x>
+        <y>-20</y>
         <width>60</width>
         <height>0</height>
         <roll-input>
@@ -21,7 +21,7 @@
             <property>/orientation/pitch-deg</property>
         </pitch-input>
         <compression-factor>5.8</compression-factor>
-        <display-span>17.0</display-span>
+        <display-span>25.0</display-span>
         <divisions>5.0</divisions>
         <screen-hole>15</screen-hole>
         <zero-bar-overlength>2</zero-bar-overlength>

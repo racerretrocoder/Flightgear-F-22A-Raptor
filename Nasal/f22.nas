@@ -4,6 +4,9 @@
 setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
 
 # Not needed anymore because of the added canvas hud
+setprop("f22/aga",0);
+setprop("f22/age",0);
+
  var NM2FT = 6076;
 # Init some vars
 setprop("f22/ground/slr-cover",0);
@@ -14,7 +17,7 @@ setprop("f22/ground/pilot",1);
 setprop("f22/ground/chocks",0);
 setprop("f22/ground/small-ladder",0);
 setprop("f22/ground/cones",0);
-
+setprop("f22/ags",0);
 leftscr.start();
 
 
@@ -1023,8 +1026,8 @@ var radarlook = func(cs=nil) {
         # i
         if (target1_x > -6 and target1_x < 6 and target1_z > -6 and target1_z < 6) {
           # Target is in the hud
-          screen.log.write("Radar ACM: Can lock! Locking...");
-          screen.log.write(callsign);
+          #screen.log.write("Radar ACM: Can lock! Locking...");
+          #screen.log.write(callsign);
           #checkcloestmp("");
           #        screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);''
          
@@ -1038,10 +1041,10 @@ var radarlook = func(cs=nil) {
 
 
 var acmcheck = func(radarcs,mpid,total) {
-  screen.log.write("acm dbug: in here now");
-  screen.log.write("total:" ~ total);
-  screen.log.write("radarcs:" ~ radarcs);
-  screen.log.write("mpid:" ~ mpid);
+  #screen.log.write("acm dbug: in here now");
+  #screen.log.write("total:" ~ total);
+  #screen.log.write("radarcs:" ~ radarcs);
+  #screen.log.write("mpid:" ~ mpid);
   for(var i = 0; i < total; i += 1) {
     #screen.log.write("Iteration: "~i~".");
     if (radarcs != getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign")) {
@@ -1292,28 +1295,26 @@ var throtl = func() {
 
 
 var sightradarupdate = func {
-      if (radar.tgts_list[0] == nil) {
+      if (radar.tgts_list == nil) {
         return;
       }
       var rdrcs = radar.tgts_list[radar.Target_Index].Callsign.getValue();
-if (rdrcs  != nil) {
+      if (rdrcs != nil) {
 #print(rdrcs);
   var mpid = misc.smallsearch(rdrcs);
   var distance = getprop("ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm");
   var distanceft = distance * NM2FT;
   #print(distance);
   #print(distanceft);
-  if (distanceft > 8000) {
-    print("target is over 8000, not in range");
+  if (distanceft > 2400) {
+    var test = 0;
   } else {
     var test = 1;
-    #print("ae");
-    #setprop("controls/armament/gunsight/range", distanceft);
+    if (distanceft > 700) {
+      setprop("controls/armament/gunsight/range", distanceft);
+    }
   }
-} else {
-    print(nil);
-  }
-
+}
 }
 
 setprop("f22/throttle",-0.1);
@@ -1379,33 +1380,24 @@ var gunsightupdate = func() {
       setprop("controls/armament/gunsight/elevation2",0);
     }
 
-    if (getprop("controls/armament/gunsight/sightmode") == 1) { # MSL
-      setprop("controls/armament/gunsight/computer-on", 0);
-      setprop("controls/armament/gunsight/power-on", 1);
-      setprop("controls/armament/gunsight/rocketLadder", 0);
-      setprop("controls/armament/gunsight/mask-off", 1);
-      setprop("controls/armament/gunsight/reticleSelectorPos", 0);
-      setprop("controls/armament/gunsight/azimuth2",0);
-      setprop("controls/armament/gunsight/elevation2",0);
-    }
-    if (getprop("controls/armament/gunsight/sightmode") == 2) { # AA1
-      setprop("controls/armament/gunsight/computer-on", 1);
-      setprop("controls/armament/gunsight/power-on", 1);
-      setprop("controls/armament/gunsight/rocketLadder", 0);
-      setprop("controls/armament/gunsight/mask-off", 1);
-      setprop("controls/armament/gunsight/reticleSelectorPos", 1);
-      setprop("controls/armament/gunsight/fixedrectical", 1);
-      setprop("controls/armament/gunsight/azimuth2",getprop("controls/armament/gunsight/azimuth"));
-      setprop("controls/armament/gunsight/elevation2",getprop("controls/armament/gunsight/elevation"));
-    }
-    if (getprop("controls/armament/gunsight/sightmode") == 3) { # AA2
+    if (getprop("controls/armament/gunsight/sightmode") == 2) { # A/A
       setprop("controls/armament/gunsight/computer-on", 1);
       setprop("controls/armament/gunsight/power-on", 1);
       setprop("controls/armament/gunsight/rocketLadder", 0);
       setprop("controls/armament/gunsight/mask-off", 1);
       setprop("controls/armament/gunsight/reticleSelectorPos", 2);
+      setprop("controls/armament/gunsight/fixedrectical", 1);
       setprop("controls/armament/gunsight/azimuth2",getprop("controls/armament/gunsight/azimuth"));
       setprop("controls/armament/gunsight/elevation2",getprop("controls/armament/gunsight/elevation"));
+    }
+    if (getprop("controls/armament/gunsight/sightmode") == 3) { # A/G
+      setprop("controls/armament/gunsight/computer-on", 1);
+      setprop("controls/armament/gunsight/power-on", 1);
+      setprop("controls/armament/gunsight/rocketLadder", 0);
+      setprop("controls/armament/gunsight/mask-off", 1);
+      setprop("controls/armament/gunsight/reticleSelectorPos", 2);
+      setprop("controls/armament/gunsight/azimuth2",getprop("controls/armament/gunsight/azimuth") + getprop("f22/aga"));
+      setprop("controls/armament/gunsight/elevation2",getprop("controls/armament/gunsight/elevation") + getprop("f22/age"));
     }
     if (getprop("controls/armament/gunsight/sightmode") == 4) { # AG
       setprop("controls/armament/gunsight/computer-on", 0);
@@ -1418,8 +1410,12 @@ var gunsightupdate = func() {
   # Check gunsights too
   if (getprop("controls/armament/stick-selector") == 1 and getprop("controls/armament/master-arm") == 1) {
     # guns on
-    print("guns on");
-    setprop("controls/armament/gunsight/sightmode",2);
+    if (getprop("f22/ags") == 1){
+      setprop("controls/armament/gunsight/sightmode",3);
+    } else {
+      setprop("controls/armament/gunsight/sightmode",2);
+    }
+
     sightradarupdate();
   } else {
         setprop("controls/armament/gunsight/sightmode",0);
@@ -1507,7 +1503,7 @@ shake_timer2 = maketimer(0.0001, shake2);
 
 setlistener("sim/signals/fdm-initialized", func {
 # Spawned in/went to location
-
+K14.initSightComputer();
 headupdate.start();
 shake_timer.start();
 shake_timer2.start();
