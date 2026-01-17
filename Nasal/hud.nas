@@ -2,7 +2,12 @@
 					# F22 hud
           # Origanle from SU-27SK Yanes Bechir
 #==============================================================================
- 
+setprop("f22/vva",7.5);
+setprop("f22/vvb",8.5);
+setprop("f22/vvad",0);
+setprop("f22/vvbd",20); # vv offset
+setprop("f22/hudx",26);
+setprop("f22/hudz",19);
 var pow2 = func(x) { return x * x; };
 var vec_length = func(x, y) { return math.sqrt(pow2(x) + pow2(y)); };
 var round0 = func(x) { return math.abs(x) > 0.01 ? x : 0; };
@@ -365,8 +370,8 @@ m.ccipGrp = m.root.createChild("group");
     #me.airspeed.setText(sprintf("%d", me.input.ias.getValue()));
     me.headingind.setText(sprintf("%d", me.input.hdg.getValue()));
     #me.altitude.setText(sprintf("%d", me.input.altitude.getValue()));
-    var VVx = me.input.beta.getValue() * 10; # adjust for view
-    var VVy = me.input.alpha.getValue() * 10; # adjust for view
+    var VVx = (me.input.beta.getValue() * getprop("f22/vvb")) + getprop("f22/vvad"); # adjust for view
+    var VVy = (me.input.alpha.getValue() * getprop("f22/vva")) + getprop("f22/vvbd"); # adjust for view
     me.VV.setTranslation (VVx,VVy);
 
 
@@ -523,9 +528,9 @@ me.pipperRadius = 10;
 		if (missile == 2){
       if (lock == 1){
         me.NavDirector.setVisible(0);
-        me.Glidingpath.setVisible(1);
+        me.Glidingpath.setVisible(0);
       }else {
-        me.NavDirector.setVisible(1);
+        me.NavDirector.setVisible(0);
         me.Glidingpath.setVisible(0);
         }	
         }else {
@@ -562,7 +567,7 @@ me.pipperRadius = 10;
         }
         if (radarON == 1){
               me.lockMarker.setVisible(1);
-              me.lockMarker.setTranslation(target1_x*25, -190+ -target1_z*25);}
+              me.lockMarker.setTranslation(target1_x*getprop("f22/hudx"), -190+ -target1_z*getprop("f22/hudz"));}
       }
     }
 

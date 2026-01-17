@@ -368,11 +368,11 @@
         <sightmode type="int">0</sightmode>		
         <computer-on type="int">0</computer-on>			 	
         <!-- offset of guns below sight line in feet -->		
-		<z-offsetFeet type="float">3.125</z-offsetFeet>
+		<z-offsetFeet type="float">0.53</z-offsetFeet>
 		<!-- average lateral offset of guns in feet relative to sight line -->
-        <y-offsetFeet type="float">0.0</y-offsetFeet>
+        <y-offsetFeet type="float">1.50</y-offsetFeet>
 		<!-- elevation of guns relative to alpha in degrees -->
-        <gunElevationDegrees type="float">1.0</gunElevationDegrees>
+        <gunElevationDegrees type="float">2.0</gunElevationDegrees>
         <ballisticCoefficienct type="float">0.00136354</ballisticCoefficienct> <!-- 0.50 BMG -->
         <muzzleVelocity type="float">3150.0</muzzleVelocity>  <!-- feet per second 0.50 BMG -->
 		<!-- convergence distance in feet -->
@@ -382,7 +382,7 @@
 		<dampingFactor type="float">1.0</dampingFactor>	
 		<gunsight-computer-initialized type="int">0</gunsight-computer-initialized>
 		<maxAzimuth type="int">170</maxAzimuth>  <!-- maximum sight deflection in mils -->
-		<maxElevation type="int">170</maxElevation>
+		<maxElevation type="int">570</maxElevation>
         <SIG type="float">0.4</SIG>
         <timeStep type="float">0.2</timeStep>
 		

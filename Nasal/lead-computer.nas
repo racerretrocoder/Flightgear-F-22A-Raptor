@@ -312,10 +312,10 @@ var gunSightMain = func()
 	  # print("LA (azimuth) = ", LA);
 	  # print("LE (elevation)= ", LE);
 	  # wait a while and do this again
-	  settimer(gunSightMain, timeStep);
    } 
 }
 
+gunsightmaintimer = maketimer(0.1,gunSightMain);
 # listener for the the sight computer/gyro to be powered up or down.
 # Will start gunSightMain process when the gun sight computer/gyro is powered on.        
 var listenGunSightGyroPower = func(i) 
@@ -325,7 +325,7 @@ var listenGunSightGyroPower = func(i)
 	    initSightComputer();
 		setprop(propertyTreeRoot, "gunsightComputerInitialized", 1);
 	    # print("gunsite-computer.nas power switched");
-        gunSightMain();
+        gunsightmaintimer.start();
 	}
 	else
 	{
