@@ -2406,7 +2406,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 </binding>
   <binding>
  <command>nasal</command>
- <script>setprop("f22/ae","ae");</script> <!--stop the time from showing-->
+ <script>setprop("controls/radar/cursormode",1);</script> <!--stop the time from showing-->
 </binding>
  </key> 
 
