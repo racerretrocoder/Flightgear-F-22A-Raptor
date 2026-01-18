@@ -128,17 +128,17 @@ var Loading_missile = func(name)
 	    typeid = 98;
         flareres = 0.9; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
-        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9.xml";
+        NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         maxdetectionrngnm = 52;               
         fovdeg = 180;                                 # seeker optical FOV
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 180;                            # Seeker max total angular rotation
         maxg = 50;                                    # Thurst vectoring rocket motor
-        thrustlbs = 2880;                              # 
+        thrustlbs = 400;                              # 
         thrustdurationsec = 1;           
         thrustlbsstage2 = 400;
-        thrustdurationsecstage2 = 8;             # slowed acceleration seems needed here
+        thrustdurationsecstage2 = 12;             # slowed acceleration seems needed here
         weightlaunchlbs = 246; # launch + fuel, 186 + 60
         weightwarheadlbs = 20.8;
         dragcoeff = 0.1;                              # guess; original 0.05
@@ -200,53 +200,55 @@ var Loading_missile = func(name)
         address = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml";
         NoSmoke = "Aircraft/F-22/Models/loads/GBU-39-FLIGHT.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";
-        maxdetectionrngnm = 12;                       # Not real Impact yet A little more than the MICA
+        maxdetectionrngnm = 60;                       # Not real Impact yet A little more than the MICA
         fovdeg = 360;                                 # seeker optical FOV
         detectionfovdeg = 360;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 360;                            # Seeker max total angular rotation
         maxg = 4;                                    # 
-        thrustlbs = 0.00;                             # 
-        thrustdurationsec = 100;                        #
+        thrustlbs = 0;                             # 
+        thrustdurationsec = 5;           
+        thrustlbsstage2 = 0;
+        thrustdurationsecstage2 = 5;    
         weightlaunchlbs = 186;
-        weightwarheadlbs = 20.8;
+        weightwarheadlbs = 206;
         dragcoeff = 0.01;                              # guess; original 0.05
-        dragarea = 0.000075;                             # sq ft
+        dragarea = 0.00075;                             # sq ft
         maxExplosionRange = 200;                       
         maxspeed = 5;                                 # In Mach
-        life = 80000000000000;
+        life = 100000000000000;
         fox = "A/G";  
         rail = 0;
         cruisealt = 0;
         sdspeed = 0;
         chute = 0;
-        isbomb = 1;  # craters get messy one sec
-        multishot = 8;
-        ignitedelay = 0;
+        isbomb = 1;  
+        multishot = 8; # up to 8 SDB's can be deployed at once
+        ignitedelay = 2.1;
     }
  elsif(name == "JDAM")
  {
-        # Mm yes much bomb,
-                              flareres = 1;
-	    typeid = 18;
+     flareres = 1;
+	 typeid = 18;
      address = "Aircraft/F-22/Models/Stores/Missiles/JDAM/JDAM.xml"; 
      NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/JDAM/JDAM.xml"; # for now
      Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";
-     maxdetectionrngnm = 30;                       # 
-
+     maxdetectionrngnm = 15;                       # 
      #GPS system
      fovdeg = 360;                                 # seeker optical FOV
      detectionfovdeg = 360;                        # Search pattern diameter (rosette scan)
      trackmaxdeg = 360;                            # Seeker max total angular rotation
      maxg = 2;                                    # 
-     thrustlbs = 0.00;                             # 
-     thrustdurationsec = 100;                        #
-     weightlaunchlbs = 186;
-     weightwarheadlbs = 1000;
-     dragcoeff = 0.01;                              # guess; original 0.05
-     dragarea = 0.000075;                             # sq ft
+     thrustlbs = 0;                             # 
+     thrustdurationsec = 5;           
+     thrustlbsstage2 = 0;
+     thrustdurationsecstage2 = 5;             
+     weightlaunchlbs = 2039;
+     weightwarheadlbs = 945;
+     dragcoeff = 0.125;                              # guess; original 0.05
+     dragarea = 0.075;                             # sq ft
      maxExplosionRange = 200;                       
      maxspeed = 5;                                 # In Mach
-     life = 80000000000000;
+     life = 10000;
      fox = "A/G";   
      rail = 0;
      cruisealt = 0;
@@ -254,7 +256,7 @@ var Loading_missile = func(name)
      chute = 0;
      isbomb = 1;
      multishot = 6;
-     ignitedelay = 0;
+     ignitedelay = 2.1;
  }
 
 
@@ -375,3 +377,4 @@ var Loading_missile = func(name)
 
 
 
+print("Loading_Missiles.nas Ready!");
