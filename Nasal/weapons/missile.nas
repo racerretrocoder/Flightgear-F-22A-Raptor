@@ -52,6 +52,7 @@ var MISSILE = {
         # m.free :
         # 0 = status fired with lock
         # 1 = status fired but having lost lock.
+        # All of these variables are per missile
         m.free              = 0;
         #m.prop              = AcModel.getNode("systems/armament/missile/").getChild("msl", 0 , 1);
         #m.PylonIndex        = m.prop.getNode("pylon-index", 1).setValue(p);
@@ -125,7 +126,11 @@ var MISSILE = {
         m.eject_speed       = 0;
         m.old_flare         = 0;  # used for counter messures
         m.old_chaff         = 0;  # used for counter messures
-        m.cmsvariation      = 30; # The heading window (+ and -) inwhich the missile thinks he target is heading toward it
+        m.cmsalt            = 0;
+        m.cmslat            = 0;
+        m.cmslon            = 0;
+        m.cmsvariation      = 25; # The heading window (+ and -) inwhich the missile thinks he target is heading toward it
+        m.cmsfool           = 0;
        # m.ccip_altC = 0;
        # m.ccip_dens = 0;
        # m.ccip
@@ -470,10 +475,14 @@ if (me.Tgt != nil) {
     var tgtflare = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/rotors/main/blade[3]/flap-deg");
     var tgtchaff = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/rotors/main/blade[3]/position-deg");
 
+    var tgtalt = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/position/altitude-ft");
+    var tgtlon = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/posititon/longitude-deg");
+    var tgtlat = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/position/latitude-deg");
+
     if (tgtflare != me.old_flare or tgtchaff != me.old_chaff) { # Flares are being realeased and / or have changed!
         # What kind of missile are we? i forgot
         if (me.fox == "Fox 2") {
-            if (me.direct_dist_m < 6000) { # Missile will only be fooled at 3 miles distance
+            if (me.direct_dist_m < 6000) { # Missile will only be able to be fooled at 3 miles distance
                 if (tgtflare != me.old_flare) {
                     enabled = 1;
                 }
@@ -486,6 +495,7 @@ if (me.Tgt != nil) {
             } 
         } else {
             if (me.direct_dist_m < 6874) {
+                # cant determine counter messure type
                 enabled = 1;
             }
         }
@@ -508,7 +518,7 @@ if (me.Tgt != nil) {
             if (debugsysmessages == 1) {
                 print("--- Missile detected to be in front of target! ---");
             }
-            var isinfront = 0.3;
+            var isinfront = 0.3; # add to resistance
         }
         # determine if missile intercept on 6 or 12 of target
         var newnumber = me.flareres + isinfront;
@@ -519,35 +529,45 @@ if (me.Tgt != nil) {
             print(num2);
         }
         if (flaremsg == 1) {
-        screen.log.write("DEBUG: CMS Detected");
+            screen.log.write("DEBUG: CMS Detected");
         }
-        if (enabled == 1) {
+        if (enabled == 1) { # the correct counter messure was deployed
             if (flaremsg == 1) {
-            screen.log.write("DEBUG: missile in range of counter messures");
+                screen.log.write("DEBUG: missile in range of counter messures");
             }
             # Where in range. see whats up
             if (num2 == 1) {
                 if (debugsysmessages == 1) {
-                print("Missile saw the flare!");
+                    print("Missile saw the flare!");
                 }
-                me.reset_steering();
-                me.free = 1;
+
+                me.cmslat = tgtlat;
+                me.cmslon = tgtlon;
+                me.cmsalt = tgtalt;
+                # me.reset_steering();
+                # me.free = 1;
+                me.cmsfool = 1;
                 if (debugmessages == 1) {
                     print("Missile gave up and decided to miss due to flare / chaff.");
                 }
                 var phrase = me.NameOfMissile ~ " Report : Fooled by enemy's Countermessures and missed.";
-                if (getprop("payload/armament/oldmsg") == 1){
+                if (getprop("payload/armament/oldmsg") == 1) {
                     setprop("sim/multiplay/chat", phrase);
                 }
-                if(MPMessaging.getValue() == 1)
-                {
+                if(MPMessaging.getValue() == 1) {
                     damage.damageLog.push(phrase);
                     setprop("/sim/messages/atc", "Missile missed due to chaff and flares");
                 }
-                else
-                {
+                else {
                     setprop("/sim/messages/atc", phrase);
                 }
+            }
+            # reset variables
+            if (tgtchaff != me.old_chaff) {
+                me.old_chaff = tgtchaff;
+            }
+            if (tgtflare != me.old_flare) {
+                me.old_flare = tgtflare;
             }
         }
     } else {
@@ -736,7 +756,7 @@ broddamage: func (cs,dist,msl) {
             if(me.life_time > getprop("controls/armament/missile/ignitedelay"))
             {
                 if (debugsysmessages == 1) {
--                print("Ignititon delay over. Starting Rocket...");
+                    print("Ignititon delay over. Starting Rocket...");
                 }
                 f_lbs = me.force_lbs * 0.3;
                 var Dapath = me.missile_model;
@@ -973,14 +993,14 @@ broddamage: func (cs,dist,msl) {
         if(me.status == 2)
         {
             var v = me.poximity_detection();
-            if(! v)
+            if(! v and me.cmsfool == 0) # exploded
             {
                 # we exploded, but need a few more secs to spawn
                 # the explosion animation.
                 settimer(func{me.del();}, 4);
                         if (debugmessages == 1) {
-                print("booom he ded like a brick (missile hit target successfully!)");
-                    }
+                            print("booom he ded like a brick xd (missile hit target successfully!)");
+                        }
 
                     setprop("payload/armament/flares", 0);
                     # Delete the missile over damage
@@ -1009,7 +1029,7 @@ broddamage: func (cs,dist,msl) {
 		       	if(getprop("payload/armament/msg")) {
                         #sendCrater: func (lat,lon,alt,size,hdg,static) 
 var msllat = getprop("controls/armament/pos/lat");
-var msllon = getprop("controls/armament/pos/lon");    # This props are Accurate and update every time the function update() is called (this function btw :D)
+var msllon = getprop("controls/armament/pos/lon");    # This props are Accurate and update every time the function update() is called (this function)
 var mslalt = getprop("controls/armament/pos/alt");
                         me.sendCrater(msllat, msllon, mslalt, 1, 0, static);
 				}
@@ -1730,21 +1750,24 @@ var semiactive = 0;
         me.Tgt = tgt;
         # Can GPS stuff be here?
         # if gps slaved override these with gps coords
+
         if (getprop("controls/radar/weaponcoords") == 1) {
  me.TgtLon_prop       = getprop("controls/radar/gpslock/lon");
  me.TgtLat_prop       = getprop("controls/radar/gpslock/lat");
  me.TgtAlt_prop       = getprop("controls/radar/gpslock/alt");
  me.TgtHdg_prop       = 0;   #getprop("/ai/closest/heading");
         } else {
-#setprop("controls/radar/weaponcoords", 1);
-#setprop("controls/radar/gpslock/lat", lat); 
-#setprop("controls/radar/gpslock/lon", lon); 
-#setprop("controls/radar/gpslock/alt", alt); 
-me.TgtLon_prop       = me.Tgt.get_Longitude; #getprop("/ai/closest/longitude");
-me.TgtLat_prop       = me.Tgt.get_Latitude;  #getprop("/ai/closest/latitude");
-me.TgtAlt_prop       = me.Tgt.get_altitude;  #getprop("/ai/closest/altitude");
-me.TgtHdg_prop       = me.Tgt.get_heading;   #getprop("/ai/closest/heading");
-#print("TUTUTTUTUTU ", me.Tgt.get_Speed());
+            if (me.cmsfool == 0) {
+                me.TgtLon_prop       = me.Tgt.get_Longitude; #getprop("/ai/closest/longitude");
+                me.TgtLat_prop       = me.Tgt.get_Latitude;  #getprop("/ai/closest/latitude");
+                me.TgtAlt_prop       = me.Tgt.get_altitude;  #getprop("/ai/closest/altitude");
+                me.TgtHdg_prop       = me.Tgt.get_heading;   #getprop("/ai/closest/heading");
+            } else {
+                me.TgtLon_prop       = me.cmslon; #getprop("/ai/closest/longitude");
+                me.TgtLat_prop       = me.cmslat;  #getprop("/ai/closest/latitude"); Lock on the flare
+                me.TgtAlt_prop       = me.cmslon;  #getprop("/ai/closest/altitude");
+                me.TgtHdg_prop       = 0;   #getprop("/ai/closest/heading");
+            }
         }
         if(me.free == 0 and me.life_time > me.Life)
         {
