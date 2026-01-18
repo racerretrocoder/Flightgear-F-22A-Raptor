@@ -15,10 +15,10 @@ var debugflight = 0;
 # if you want to print messages into the console that relate to missile flight, set this to 1
 var debugmessages = 0;
 # If you want status on missile alert, and status on releasing, and it hitting set this to 1
-var debugsysmessages = 1;
+var debugsysmessages = 0;
 
 # if you want to have debug chaff and flare detection be displayed in the game set this to 1
-var flaremsg = 1;
+var flaremsg = 0;
 var extradebug = 0;
 
 # How to install Missiles onto your plane!
