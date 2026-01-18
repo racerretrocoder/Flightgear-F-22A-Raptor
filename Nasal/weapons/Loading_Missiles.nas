@@ -73,7 +73,7 @@ var Loading_missile = func(name)
         dragcoeff = 0.14;                              # really slow lowerd it a bit
         dragarea = 0.0236;                            # sq ft
         maxExplosionRange = 100;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 3.8;                              # In mach ( source is a guess )
+        maxspeed = 4.8;                              # In mach ( source is a guess )
         life = 110; # 
         sdspeed = 0.65;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";
@@ -88,7 +88,7 @@ var Loading_missile = func(name)
 
     elsif(name == "Aim-260")
     {
-        # AIM-260 JATM!
+        # AIM-260D JATM!
         # JATM is not in damage.nas :( so itll just be an Aim-54
 	    typeid = 52;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-260/AIM260-smoke.xml";
@@ -109,7 +109,7 @@ var Loading_missile = func(name)
         dragcoeff = 0.001;                              # really slow lowerd it a bit
         dragarea = 0.0236;                            # sq ft
         maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 5.7;                              # In mach ( source is a guess )
+        maxspeed = 8.7;                              # In mach ( source is a guess )
         life = 100000000000; # 
         sdspeed = 0.65;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";

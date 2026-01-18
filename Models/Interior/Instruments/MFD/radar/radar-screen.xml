@@ -151,6 +151,54 @@
  </animation>
 
 <!--Marker MP1-->
+
+  <animation>
+        <type>select</type>
+		
+        <object-name>mp1mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+
+
+ <animation>
+  <type>translate</type>
+  
+  <object-name>mp1mkr</object-name>
+  <property>instrumentation/radar2/marker/mark/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>translate</type>
+  
+  <object-name>mp1mkr</object-name>
+  <property>instrumentation/radar2/marker/mark/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+<!--
   <animation>
         <type>select</type>
         <object-name>mp1mkr</object-name>
@@ -169,7 +217,7 @@
     </animation>
  <animation>
   <type>translate</type>
-  <object-name>mp2mkr</object-name>
+  <object-name>mp1mkr</object-name>
   <property>instrumentation/radar2/marker/mark/location-x</property>
   <factor>0.007</factor>
   <offset-m>0</offset-m>
@@ -190,47 +238,7 @@
    <y>0</y>
    <z>1</z>
   </axis>
- </animation>
-  <animation>
-        <type>select</type>
-        <object-name>mp1mkr</object-name>
-        <condition>
-		<and>
-			<equals>
-       <property>instrumentation/radar2/marker/mark/display</property>
-				<value>1</value>
-			</equals>
-			<equals>
-       <property>controls/radar/cursormode</property>
-				<value>1</value>
-			</equals>
-			</and>
-        </condition>
-    </animation>
- <animation>
-  <type>translate</type>
-  <object-name>mp1mkr</object-name>
-  <property>instrumentation/radar2/marker/mark/location-x</property>
-  <factor>0.007</factor>
-  <offset-m>0</offset-m>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
- </animation>
-  <animation>
-  <type>translate</type>
-  <object-name>mp1mkr</object-name>
-  <property>instrumentation/radar2/marker/mark/range</property>
-  <factor>0.0128</factor>
-  <offset-m>0</offset-m>
-  <axis>
-   <x>0</x>
-   <y>0</y>
-   <z>1</z>
-  </axis>
- </animation>
+ </animation>-->
 
 
 <!--marker2-->
@@ -1457,6 +1465,26 @@
 			</equals>
 		</condition>
 	</animation>
+
+
+<animation>
+		<type>select</type>
+		<object-name>az-field-280</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/radar/az-field</property>
+				<value>280</value>
+		
+			</equals>
+					<equals>
+
+       <property>instrumentation/radar/grid</property>
+				<value>false</value>
+			</equals>
+		</condition>
+	</animation>
+
+
 	<animation>
 		<type>select</type>
 		<object-name>az-field-60</object-name>
