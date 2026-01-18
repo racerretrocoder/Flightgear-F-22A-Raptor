@@ -1,14 +1,18 @@
-
-# Phoenix F-22A.nas
+# f22.nas | Everything Raptor needs at the call of a function
+# Phoenix
 # Hide the hud when not in the cockpit view
 setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
-
-# Not needed anymore because of the added canvas hud
+# Init some vars
 setprop("f22/aga",0);
 setprop("f22/age",0);
-
- var NM2FT = 6076;
-# Init some vars
+setprop("f22/obogs/mixture",0);
+setprop("f22/obogs/mode",0);
+setprop("f22/obogs/main",0);
+var NM2FT = 6076;
+setprop("f22/ejection/lon",0);
+setprop("f22/ejection/lat",0);
+setprop("f22/ejection/alt",1000);
+# ground opps
 setprop("f22/ground/slr-cover",0);
 setprop("f22/ground/apu-cover",0);
 setprop("f22/ground/intake-l",0);
@@ -18,27 +22,25 @@ setprop("f22/ground/chocks",0);
 setprop("f22/ground/small-ladder",0);
 setprop("f22/ground/cones",0);
 setprop("f22/ags",0);
-leftscr.start();
+leftscr.start(); # start up the leftscreen
 
+setprop("f22/chaff",200); # counter messure ammounts
+setprop("f22/flare",200); # counter messure ammounts
 
-
-
-setprop("f22/chaff",200);
-setprop("f22/flare",200);
 setprop("/f22/crash/explodesfx",0);
 setprop("/f22/crash/splashsfx",0);
 setprop("controls/bdl",1); # Baydoor Switches
 setprop("controls/bdr",1); # Baydoor Switches
-setprop("/f22/dead",0); # Dead
+setprop("/f22/dead",0); # Crash
 setprop("/f22/crash/doneonce",0);
 setprop("/f22/crash/alt",0);
 setprop("/f22/crash/type",0);
-setprop("/controls/armament/rrdt",0);
-setprop("/controls/armament/lldt",0);
+setprop("/controls/armament/rrdt",0); # Far Drop tanks
+setprop("/controls/armament/lldt",0); # Far Drop tanks
 # used to the animation of the canopy switch and the canopy move
 # toggle keystroke or 2 position switch
-setprop("f22/head-hdg-deg",0);
-setprop("f22/head-ptc-deg",0);
+setprop("f22/head-hdg-deg",0); # Head moving gimmick
+setprop("f22/head-ptc-deg",0); # Head moving gimmick
 var cnpy = aircraft.door.new("canopy", 10);
 var switch = getprop("canopy/enabled", 1);
 var pos = props.globals.getNode("canopy/position-norm", 1);
@@ -93,7 +95,6 @@ timer_water = maketimer(2,waterstop);
 setprop("f22/runonce",0);
 var kaboom = func(speed,type) {
   var onground = 1;
-  print("hello");
   if (getprop("/position/altitude-ft") < 0) {
     print("water!");
     setprop("/f22/crash/type",5);
@@ -110,7 +111,6 @@ var kaboom = func(speed,type) {
     }
   }
 
-print("hello2");
   if (speed > 80 and onground == 1) {
     # SLAM!
     setprop("/f22/crash/explodsfx",1);
@@ -154,7 +154,7 @@ var crashdetect = func {
               setprop("/f22/crash/type",1);
               setprop("/f22/crash/doneonce",1);
             }
-        # Highspeed crash
+            # Highspeed crash
             if (speed > 100 and speed < 160) {
               screen.log.write("You crashed! Medium Damage",1,0,0);
               setprop("/f22/dead",2);
@@ -203,12 +203,11 @@ var crashdetect = func {
 # APU Startup Sequencing
 #
 
-
 # play sound
 # first open flaps
 setprop("controls/apu/run",0);
 var apuseq1 = func() {
-  # APU Animation/sequence !
+  # APU Animation/sequence!
   # make sure the cover is not on
   if (getprop("f22/ground/apu-cover") == 1) {
     screen.log.write("WARNING! Cant start APU with APU cover attached!",1,0,0);
@@ -222,14 +221,14 @@ var apuseq1 = func() {
 }
 
 var apuseq2 = func() {
-  # APU Animation/sequence !
+  # APU Animation/sequence!
   setprop("controls/apu/start",1);
   seq2timer.stop();
   seq3timer.start();
 }
 
 var apuseq3 = func() {
-  # APU Animation/sequence !
+  # APU Animation/sequence!
   setprop("controls/apu/smokespeed",10);
   setprop("controls/apu/smoke",1);
   seq3timer.stop();
@@ -237,7 +236,7 @@ var apuseq3 = func() {
 }
 
 var apuseq4 = func() {
-  # APU Animation/sequence !
+  # APU Animation/sequence!
   setprop("controls/apu/smoke",0);
   setprop("controls/apu/apuflame",1);
   seq4timer.stop();
@@ -245,7 +244,7 @@ var apuseq4 = func() {
 }
 
 var apuseq5 = func() {
-  # APU Animation/sequence !
+  # APU Animation/sequence!
   setprop("controls/apu/smoke",1);
   setprop("controls/apu/apuflame",0);
   setprop("controls/apu/smoke",0);
@@ -254,19 +253,19 @@ var apuseq5 = func() {
 }
 
 var apuseq6 = func() {
-  # APU Animation/sequence !
+  # APU Animation/sequence!
   setprop("controls/apu/smoke",1);
   seq6timer.stop();
   seq7timer.start();
 }
 var apuseq7 = func() {
-  # APU Animation/sequence !
+  # APU Animation/sequence!
   setprop("controls/apu/smoke",0);
   seq7timer.stop();
   seq8timer.start();
 }
 var apuseq8 = func() {
-  # APU Animation/sequence !
+  # APU Animation/sequence!
   setprop("controls/apu/run",1);
   setprop("controls/electric/apustart",0); # Return to run
   setprop("controls/electric/apustartpos",0); # Return to run
@@ -277,7 +276,7 @@ var apuseq8 = func() {
 }
 
 var apushutoffmain = func() {
-  # APU Animation/sequence !
+  # APU Animation/sequence!
   setprop("controls/apu/startinprogress",0);
   setprop("controls/apu/run",0);
 
@@ -287,14 +286,14 @@ var apushutoffmain = func() {
 }
 
 var apushutoff = func() {
-  # APU Animation/sequence !
+  # APU Animation/sequence!
   setprop("controls/apu/spooldown",2); # Stop the sound
   setprop("controls/apu/flap",0); # Close the flaps
   offtimer.stop();
   #seq8timer.start();
 }
 
-# Timers
+# APU Timers
 
 seq2timer = maketimer(0.3,apuseq2);
 seq3timer = maketimer(0.4,apuseq3);
@@ -395,11 +394,6 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 		setprop("controls/cabin/shaking", 0);
 	}
 }# from m2005
-
-
-
-
-
 
 
 
@@ -506,7 +500,9 @@ aimlock.start();
 
 var closebays = func{
 	            	setprop("/controls/baydoors/AIM120", 0);
-	            	setprop("/controls/baydoors/AIM9X", 1);  # animations are inverted: todo fix the bay door animations
+                if (getprop("instrumentation/radar/lock") == 0) {
+                  setprop("/controls/baydoors/AIM9X", 1);  # animations are inverted: todo fix the bay door animations
+                }
                 print("bay doors closed");
                 timer_baydoorsclose.stop();
 }
@@ -540,7 +536,7 @@ var cockpit_state = func {
 }
 
 
-# INIT radar2.nas
+# INIT radar2.nas | APG-77
 myRadar = radar.Radar.new();
 myRadar.init();
 
@@ -738,6 +734,7 @@ var flarecheck = func{
 
 var repair = func{
 #f22.repair()
+  view.setViewByIndex(0);
   setprop("/sim/failure-manager/controls/flight/aileron/serviceable",1); 
   setprop("/sim/failure-manager/controls/flight/elevator/serviceable",1);
   setprop("/sim/failure-manager/controls/flight/rudder/serviceable",1);  
@@ -757,7 +754,7 @@ var repair = func{
 
 #eject
 
-
+#    
 
 var eject = func{
 #    if (getprop("f22/ejected")==1 or !getprop("controls/seat/ejection-safety-lever")) {
@@ -765,38 +762,32 @@ var eject = func{
 #        return;
 #    }
     # ACES II activation
-  print("Eject Phase one starting");
-    setprop("/sim/messages/atc", "Ejecting!");
-    view.setViewByIndex(1); # Helicopter view
+    print("Eject Phase one starting");
+    screen.log.write("canopy jettisoned");
+    setprop("f22/ejection/lat",getprop("position/latitude-deg"));
+    setprop("f22/ejection/lon",getprop("position/longitude-deg"));
+    setprop("f22/ejection/alt",getprop("position/altitude-ft"));
+    setprop("/controls/armament/selected-weapon", "eject");
+    setprop("/sim/weight[9]/selected", "eject");
+    setprop("/controls/armament/station[9]/release", 0);
+    m2000_load.SelectNextPylon();
+    var pylon = getprop("/controls/armament/missile/current-pylon");
+    m2000_load.dropLoad(pylon);
+    print("Should eject!");
+    setprop("/sim/weight[9]/selected", "none");
     setprop("f22/ejected",1); # hide canopy
     setprop("/controls/engines/engine/cut-off",1); # Engines Off
-    setprop("controls/flight/elevator",-0.7);
-    setprop("controls/flight/rudder",-1);
-    setprop("/sim/failure-manager/controls/flight/aileron/serviceable",0); 
-    setprop("/sim/failure-manager/controls/flight/elevator/serviceable",0);
-    setprop("/sim/failure-manager/controls/flight/rudder/serviceable",0);  
     setprop("/controls/engines/engine[2]/cut-off",1); 
-    #setprop("/sim/failure-manager/engines/engine/serviceable",0);
-    #setprop("/sim/failure-manager/engines/engine[1]/serviceable",0); Not needed
-
-    settimer(eject2, .5);# this is to give the sim time to load the exterior view, so there is no stutter while seat fires and it gets stuck.
-    damage.damageLog.push("Pilot ejected");
-
+    settimer(eject2, 0.4);# this is to give the sim time to load the exterior view, so there is no stutter while seat fires and it gets stuck.
+    damage.damageLog.push("Pilot ejected!");
     print("Phase 1 done!")
 }
 
 var eject2 = func{
-    setprop("canopy/Jettison", 1);  # Jett the canopy
-print("made it this far, lets spawn a chair!");
- setprop("/controls/flight/speedbrake",1);
-  setprop("/controls/armament/selected-weapon", "eject");
-  setprop("/sim/weight[9]/selected", "eject");
-  setprop("/controls/armament/station[9]/release", 0);
-                m2000_load. SelectNextPylon();
-                var pylon = getprop("/controls/armament/missile/current-pylon");
-                m2000_load.dropLoad(pylon);
-                print("Should eject!");
-  setprop("/sim/weight[9]/selected", "none");
+  setprop("f22/ejected",2);
+  setprop("/controls/flight/speedbrake",1);
+  setprop("/sim/messages/atc", "Ejecting!");
+  view.setViewByIndex(105); # Ejection view
    # viewMissile.view_firing_missile(es);
     #setprop("sim/view[0]/enabled",0); #disabled since it might get saved so user gets no pilotview in next aircraft he flies in.
 #    settimer(func {crash.eject();},3.5);  turn off the jet if its still alive

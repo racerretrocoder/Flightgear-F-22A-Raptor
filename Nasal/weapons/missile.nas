@@ -113,6 +113,7 @@ var MISSILE = {
         m.cruisealt         = getprop("controls/armament/missile/cruise_alt");
         m.flareres          = getprop("controls/armament/missile/flareres");
         m.isbomb            = getprop("controls/armament/missile/isbomb");
+        m.eject             = getprop("controls/armament/missile/chute");
         m.messagesent = 0;
         m.drop_time             = 0;    
         m.deploy_time           = 0;  
@@ -386,7 +387,12 @@ var MISSILE = {
         me.altN.setDoubleValue(aalt);
         me.hdgN.setDoubleValue(ac_hdg);
         me.pitchN.setDoubleValue(ac_pitch);
-        me.rollN.setDoubleValue(ac_roll);
+        if (me.eject != 1) {
+            me.rollN.setDoubleValue(ac_roll);
+        } else {
+            me.rollN.setDoubleValue(0);
+        }
+        
         
         me.coord.set_latlon(alat, alon, me.ac.alt());
         
@@ -491,7 +497,9 @@ if (me.Tgt != nil) {
                 }
             } 
         } else {
-            if (me.direct_dist_m < 6874) {
+            if (me.eject == 1) {
+                return 0;
+            } elsif (me.direct_dist_m < 6874) {
                 # cant determine counter messure type
                 enabled = 1;
             }
@@ -968,6 +976,12 @@ broddamage: func (cs,dist,msl) {
         setprop("controls/armament/pos/lon",me.coord.lon());
         setprop("controls/armament/pos/alt",alt_ft);
         setprop("controls/armament/pos/hdg",hdg_deg);
+        if (me.eject == 1) {
+            # ejection!!
+            setprop("f22/ejection/lat",me.coord.lat());
+            setprop("f22/ejection/lon",me.coord.lon());
+            setprop("f22/ejection/alt",alt_ft);
+        }
         var msllat = getprop("controls/armament/pos/lat");
         var msllon = getprop("controls/armament/pos/lon");    # This props are Accurate and update every time the function update() is called (this function btw :D)
         var mslalt = getprop("controls/armament/pos/alt");
@@ -1473,6 +1487,9 @@ print("target ran");
 
     
     poximity_detection: func() {
+        if (me.eject == 1) {
+            return 1;
+        }
 var semiactive = 0;
         var target = radar.GetTarget();
 # If there is no target. Print. "there is no target"; to allow for shooting missiles at no targets. For ejecting etc.
@@ -1498,7 +1515,7 @@ var semiactive = 0;
 
 
 
-                  if ( me.fox != "Fox 4") { # ejecting only Fox 4 dosent exist
+                  if ( me.fox != "Fox 4" or me.fox != "ejecting" and me.eject != 1) { # ejecting only Fox 4 dosent exist
         if (debugsysmessages == 1) {
 -                    print("poximity_detection(): Fox isnt 1 so Tgt exists: Checking if we hit");    
     }
