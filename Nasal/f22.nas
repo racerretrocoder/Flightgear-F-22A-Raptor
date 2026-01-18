@@ -802,16 +802,21 @@ var c = getprop("/sim/failure-manager/controls/flight/rudder/serviceable");
 # Cool Radar Stuff!
 # Stuff like radar cursor position to callsign
 # Dogfight mode! (ACM Radar mode)
+
+# Spam the radar untill we locked
 var lockuntill = func(callsign) {
   print("Locking untill ",callsign);
-  var currentradarcallsign = radar.tgts_list[radar.Target_Index].Callsign.getValue();
-  if (currentradarcallsign != callsign) {
-    radar.next_Target_Index(1);
+  if (callsign == nil or callsign == "") {
+    return 0;
   } else {
-    # there the same!
-    screen.log.write("Radar: Locked "~radar.tgts_list[radar.Target_Index].Callsign.getValue(),1,1,0);
+    var currentradarcallsign = radar.tgts_list[radar.Target_Index].Callsign.getValue();
+    if (currentradarcallsign != callsign) {
+      radar.next_Target_Index(1);
+    } else {
+      # there the same!
+      screen.log.write("Radar: Cursor Selected "~radar.tgts_list[radar.Target_Index].Callsign.getValue(),1,1,0);
+    }
   }
-
 }
 
 
@@ -942,60 +947,42 @@ mkrtimer.start();
 # What happens when the radar Locks on, Goes into STT and spikes target (see lockhelper.nas)
 # Also controls the radar mode, Scanning settings, Azimuth, Speed, etc
 var tgtlock = func{
-if (getprop("instrumentation/radar/lock") == 1){
-var target1_x = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("h-offset",1).getValue();
-var target1_z = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("v-offset",1).getValue();
-setprop("instrumentation/radar2/lockmarker", target1_x / 10);
-setprop("instrumentation/radar2/lockmarker", target1_x / 10);
-#setprop("instrumentation/radar/az-field", 161);
-# setprop("instrumentation/radar/grid", 0);
-#print(target1_x / 10);
-setprop("instrumentation/radar2/sweep-speed", 10);
-setprop("instrumentation/radar/lock2", 2);
+  if (getprop("instrumentation/radar/lock") == 1){
+    var target1_x = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("h-offset",1).getValue();
+    var target1_z = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("v-offset",1).getValue();
+    setprop("instrumentation/radar2/lockmarker", target1_x / 10);
+    setprop("instrumentation/radar2/lockmarker", target1_x / 10);
+    #setprop("instrumentation/radar/az-field", 161);
+    # setprop("instrumentation/radar/grid", 0);
+    #print(target1_x / 10);
+    setprop("instrumentation/radar2/sweep-speed", 10);
+    setprop("instrumentation/radar/lock2", 2);
   } elsif (getprop("instrumentation/radar/lock") == 0){
-
-  
     if(getprop("instrumentation/radar/mode/main") == 3)
     {   # SLR
         setprop("instrumentation/radar/az-field", 280);
         setprop("instrumentation/radar2/sweep-display-width", 0.1646);        
         setprop("instrumentation/radar2/sweep-speed", 2);   
-        #acmtimer.stop();
-      #  wcs_mode = "pulse-srch";
-      #  AzField.setValue(120);
-      #  swp_diplay_width = 0.0844;
     }  
     if(getprop("instrumentation/radar/mode/main") == 1)
     {   # RWS
         setprop("instrumentation/radar/az-field", 120);
         setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
         setprop("instrumentation/radar2/sweep-speed", 1);   
-        #acmtimer.stop();
-      #  wcs_mode = "pulse-srch";
-      #  AzField.setValue(120);
-      #  swp_diplay_width = 0.0844;
     }
     elsif(getprop("instrumentation/radar/mode/main") == 0)
     {
-        setprop("instrumentation/radar/az-field", 60);
-
         # TWS
+        setprop("instrumentation/radar/az-field", 60);
         setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
         setprop("instrumentation/radar2/sweep-speed", 1);   
-        tgts_list = [];
-        #acmtimer.stop();
     }
     elsif(getprop("instrumentation/radar/mode/main") == 2)
     {
         setprop("instrumentation/radar/az-field", 60);
-        # ACM
-        #acmtimer.start();
         setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
         setprop("instrumentation/radar2/sweep-speed", 2);   
-        tgts_list = [];
     }
-
-    
   }
 }
 
@@ -1657,4 +1644,7 @@ var flight_debug = func(){
   screen.property_display.add("/controls/engines/engine[1]/throttle");
 }
 
+setprop("controls/radar/cursormode",1);
+
+print("f22.nas Ready!");
 # End f22.nas
