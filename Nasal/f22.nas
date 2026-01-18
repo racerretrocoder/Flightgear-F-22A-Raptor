@@ -75,7 +75,10 @@ var oppfunc = func(heading) {
     } else {
       opposite = heading + 180
     }
-    print(opposite);
+    if (opposite < 0) {
+      opposite = opposite + 360;
+    }
+    print("oppfunc: ",opposite);
     return opposite;
   } else {
     print("oppfunc(heading) - heading cant be nil!");

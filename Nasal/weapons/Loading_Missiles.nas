@@ -33,18 +33,18 @@ var Loading_missile = func(name)
     var weightlaunchlbs   = 0;      #
     var dragcoeff         = 0;      #
     var dragarea          = 0;    #
-    var maxExplosionRange =  0;   # The distance when the missile blows up sorta speak
+    var maxExplosionRange = 0;   # The distance when the missile blows up sorta speak
     var maxspeed          = 0;
     var life              = 0;
     var sdspeed           = 0;
     var fox               = "nothing";  # call Fox 1 if you want to drop like a tank. If you dont youll get a nasal error.  Fox 1 missiles are possible too. If there is a target when launched. But if the radar losses it. it wont hit 
     var rail              = 1;     # If the missile is launched on a rail or not if false the missile is "dropped"
     var cruisealt         = 0;
-    var guidance	  = 0;
-    var chute         = 1;
-    var flareres      = 0;          # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
-    var isbomb        = 0; # if this weapon is a bomb
-    var pbrange       = 0; # in meters
+    var guidance	      = 0;
+    var chute             = 1;
+    var flareres          = 0;          # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
+    var isbomb            = 0; # if this weapon is a bomb
+    var pbrange           = 0; # in meters
     var multishot = 0;
     var ignitedelay = 0.5; # If the weapon is NOT dropped from a rail, Delay starting the engine by however many seconds (Default 0.5)
 
@@ -53,12 +53,12 @@ var Loading_missile = func(name)
     
     if(name == "Aim-120")
     {
-        # AIM-120 :Advanced Medium Range Missile,      
+        # AIM-120 :AMRAAM,      
 	    typeid = 52;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        flareres = 0.9900; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
+        flareres = 0.99; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
         maxdetectionrngnm = 38.8;                    #  
         fovdeg = 360;                                #
         detectionfovdeg = 360;                       # TODO implent data link system so we can control these variables while missile is in flight
@@ -134,18 +134,18 @@ var Loading_missile = func(name)
         fovdeg = 180;                                 # seeker optical FOV
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 180;                            # Seeker max total angular rotation
-        maxg = 60;                                    # Thurst vectoring rocket motor
-        thrustlbs = 300;                              # 
-        thrustdurationsec = 2;           
-        thrustlbsstage2 = 100;
-        thrustdurationsecstage2 = 7.2;             # slowed acceleration seems needed here
+        maxg = 50;                                    # Thurst vectoring rocket motor
+        thrustlbs = 2880;                              # 
+        thrustdurationsec = 1;           
+        thrustlbsstage2 = 400;
+        thrustdurationsecstage2 = 8;             # slowed acceleration seems needed here
         weightlaunchlbs = 246; # launch + fuel, 186 + 60
         weightwarheadlbs = 20.8;
-        dragcoeff = 0.08;                              # guess; original 0.05
-        dragarea = 0.013;                             # sq ft
+        dragcoeff = 0.1;                              # guess; original 0.05
+        dragarea = 0.01;                             # sq ft
         maxExplosionRange = 100;                       
         maxspeed = 2.5;                               # In Mach
-        life = 90;
+        life = 60;
         fox = "Fox 2";
         rail = 1;
         cruisealt = 0;
