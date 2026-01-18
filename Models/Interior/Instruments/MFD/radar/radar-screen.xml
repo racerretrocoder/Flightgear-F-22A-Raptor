@@ -1520,7 +1520,7 @@
 		<alt1-name>MP1alt1</alt1-name>
 		<alt2-name>MP1alt2</alt2-name>
 		<symb-carrier-name>MP1symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[0]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[0]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[0]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[0]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[0]/true-heading-deg</true-heading-deg>
@@ -1700,7 +1700,7 @@
 		<alt1-name>MP2alt1</alt1-name>
 		<alt2-name>MP2alt2</alt2-name>
 		<symb-carrier-name>MP2symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[1]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[1]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[1]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[1]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[1]/true-heading-deg</true-heading-deg>
@@ -1880,7 +1880,7 @@
 		<alt1-name>MP3alt1</alt1-name>
 		<alt2-name>MP3alt2</alt2-name>
 		<symb-carrier-name>MP3symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[2]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[2]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[2]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[2]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[2]/true-heading-deg</true-heading-deg>
@@ -2061,7 +2061,7 @@
 		<alt1-name>MP4alt1</alt1-name>
 		<alt2-name>MP4alt2</alt2-name>
 		<symb-carrier-name>MP4symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[3]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[3]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[3]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[3]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[3]/true-heading-deg</true-heading-deg>
@@ -2243,7 +2243,7 @@
 		<alt1-name>MP5alt1</alt1-name>
 		<alt2-name>MP5alt2</alt2-name>
 		<symb-carrier-name>MP5symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[4]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[4]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[4]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[4]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[4]/true-heading-deg</true-heading-deg>
@@ -2425,7 +2425,7 @@
 		<alt1-name>MP6alt1</alt1-name>
 		<alt2-name>MP6alt2</alt2-name>
 		<symb-carrier-name>MP6symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[5]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[5]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[5]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[5]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[5]/true-heading-deg</true-heading-deg>
@@ -2606,7 +2606,7 @@
 		<alt1-name>MP7alt1</alt1-name>
 		<alt2-name>MP7alt2</alt2-name>
 		<symb-carrier-name>MP7symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[6]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[6]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[6]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[6]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[6]/true-heading-deg</true-heading-deg>
@@ -2787,7 +2787,7 @@
 		<alt1-name>MP8alt1</alt1-name>
 		<alt2-name>MP8alt2</alt2-name>
 		<symb-carrier-name>MP8symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[7]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[7]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[7]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[7]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[7]/true-heading-deg</true-heading-deg>
@@ -2969,7 +2969,7 @@
 		<alt1-name>MP9alt1</alt1-name>
 		<alt2-name>MP9alt2</alt2-name>
 		<symb-carrier-name>MP9symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[8]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[8]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[8]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[8]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[8]/true-heading-deg</true-heading-deg>
@@ -3150,7 +3150,7 @@
 		<alt1-name>MP10alt1</alt1-name>
 		<alt2-name>MP10alt2</alt2-name>
 		<symb-carrier-name>MP10symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[9]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[9]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[9]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[9]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[9]/true-heading-deg</true-heading-deg>
@@ -3332,7 +3332,7 @@
 		<alt1-name>MP11alt1</alt1-name>
 		<alt2-name>MP11alt2</alt2-name>
 		<symb-carrier-name>MP11symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[10]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[10]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[10]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[10]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[10]/true-heading-deg</true-heading-deg>
@@ -3514,7 +3514,7 @@
 		<alt1-name>MP12alt1</alt1-name>
 		<alt2-name>MP12alt2</alt2-name>
 		<symb-carrier-name>MP12symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[11]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[11]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[11]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[11]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[11]/true-heading-deg</true-heading-deg>
@@ -3695,7 +3695,7 @@
 		<alt1-name>MP13alt1</alt1-name>
 		<alt2-name>MP13alt2</alt2-name>
 		<symb-carrier-name>MP13symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[12]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[12]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[12]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[12]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[12]/true-heading-deg</true-heading-deg>
@@ -3874,7 +3874,7 @@
 		<alt1-name>MP14alt1</alt1-name>
 		<alt2-name>MP14alt2</alt2-name>
 		<symb-carrier-name>MP14symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[13]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[13]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[13]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[13]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[13]/true-heading-deg</true-heading-deg>
@@ -4054,7 +4054,7 @@
 		<alt1-name>MP15alt1</alt1-name>
 		<alt2-name>MP15alt2</alt2-name>
 		<symb-carrier-name>MP15symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[14]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[14]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[14]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[14]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[14]/true-heading-deg</true-heading-deg>
@@ -4234,7 +4234,7 @@
 		<alt1-name>MP16alt1</alt1-name>
 		<alt2-name>MP16alt2</alt2-name>
 		<symb-carrier-name>MP16symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[15]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[15]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[15]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[15]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[15]/true-heading-deg</true-heading-deg>
@@ -4414,7 +4414,7 @@
 		<alt1-name>MP17alt1</alt1-name>
 		<alt2-name>MP17alt2</alt2-name>
 		<symb-carrier-name>MP17symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[16]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[16]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[16]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[16]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[16]/true-heading-deg</true-heading-deg>
@@ -4594,7 +4594,7 @@
 		<alt1-name>MP18alt1</alt1-name>
 		<alt2-name>MP18alt2</alt2-name>
 		<symb-carrier-name>MP18symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[17]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[17]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[17]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[17]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[17]/true-heading-deg</true-heading-deg>
@@ -4774,7 +4774,7 @@
 		<alt1-name>MP19alt1</alt1-name>
 		<alt2-name>MP19alt2</alt2-name>
 		<symb-carrier-name>MP19symb-carrier</symb-carrier-name>
-		<display>instrumentation/radar2/targets/multiplayer[18]/display</display>
+		<display>instrumentation/radar2/targets/multiplayer[18]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[18]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/multiplayer[18]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/multiplayer[18]/true-heading-deg</true-heading-deg>
@@ -4956,7 +4956,7 @@
 		<alt0-name>TK1alt0</alt0-name>
 		<alt1-name>TK1alt1</alt1-name>
 		<alt2-name>TK1alt2</alt2-name>
-		<display>instrumentation/radar2/targets/tanker[0]/display</display>
+		<display>instrumentation/radar2/targets/tanker[0]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/tanker[0]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/tanker[0]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/tanker[0]/true-heading-deg</true-heading-deg>
@@ -5112,7 +5112,7 @@
 		<alt0-name>TK2alt0</alt0-name>
 		<alt1-name>TK2alt1</alt1-name>
 		<alt2-name>TK2alt2</alt2-name>
-		<display>instrumentation/radar2/targets/tanker[1]/display</display>
+		<display>instrumentation/radar2/targets/tanker[1]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/tanker[1]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/tanker[1]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/tanker[1]/true-heading-deg</true-heading-deg>
@@ -5268,7 +5268,7 @@
 		<alt0-name>TK3alt0</alt0-name>
 		<alt1-name>TK3alt1</alt1-name>
 		<alt2-name>TK3alt2</alt2-name>
-		<display>instrumentation/radar2/targets/tanker[2]/display</display>
+		<display>instrumentation/radar2/targets/tanker[2]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/tanker[2]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/tanker[2]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/tanker[2]/true-heading-deg</true-heading-deg>
@@ -5425,7 +5425,7 @@
 		<alt0-name>TK4alt0</alt0-name>
 		<alt1-name>TK4alt1</alt1-name>
 		<alt2-name>TK4alt2</alt2-name>
-		<display>instrumentation/radar2/targets/tanker[3]/display</display>
+		<display>instrumentation/radar2/targets/tanker[3]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/tanker[3]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/tanker[3]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/tanker[3]/true-heading-deg</true-heading-deg>
@@ -5578,7 +5578,7 @@
 		<alt0-name>TK5alt0</alt0-name>
 		<alt1-name>TK5alt1</alt1-name>
 		<alt2-name>TK5alt2</alt2-name>
-		<display>instrumentation/radar2/targets/tanker[4]/display</display>
+		<display>instrumentation/radar2/targets/tanker[4]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/tanker[4]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/tanker[4]/tid-draw-range-nm</draw-range-nm>
 		<true-heading-deg>instrumentation/radar2/targets/tanker[4]/true-heading-deg</true-heading-deg>
