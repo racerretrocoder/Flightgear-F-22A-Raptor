@@ -126,7 +126,7 @@ var Loading_missile = func(name)
     {
         # AIM-9X:short-range A2A,IR seeker,
 	    typeid = 98;
-        flareres = 0.991; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
+        flareres = 0.9; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-9/AIM-9.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";

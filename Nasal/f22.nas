@@ -811,10 +811,11 @@ var lockuntill = func(callsign) {
   } else {
     var currentradarcallsign = radar.tgts_list[radar.Target_Index].Callsign.getValue();
     if (currentradarcallsign != callsign) {
-      radar.next_Target_Index(1);
+      radar.next_Target_Index(1,0);
     } else {
       # there the same!
       screen.log.write("Radar: Cursor Selected "~radar.tgts_list[radar.Target_Index].Callsign.getValue(),1,1,0);
+      setprop("instrumentation/radar/lock",1);
     }
   }
 }
