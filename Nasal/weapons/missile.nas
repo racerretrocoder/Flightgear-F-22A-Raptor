@@ -4,11 +4,9 @@ print("LOADING Missiles, Bombs and more!: missile.nas .");
 #             Customized MISSILE MANAGER for the F-22
 #       this file is all the code for missiles
 #       Thanks to the mirage 2000 developers.
-#       This Code is modifed for emersary damage support. Flare detection added, Crater spawner, Missile alert sender, 
+#       This code is modifed for emersary damage support. Flare detection added, Crater spawner, Missile alert sender, 
 #       This code is majorly edited by Phoenix
 ################################################################################
-
-# Information on how to use!:
 
 # If you want to have missile flight data print out into the console set this to 1
 var debugflight = 0;
@@ -16,7 +14,6 @@ var debugflight = 0;
 var debugmessages = 0;
 # If you want status on missile alert, and status on releasing, and it hitting set this to 1
 var debugsysmessages = 0;
-
 # if you want to have debug chaff and flare detection be displayed in the game set this to 1
 var flaremsg = 0;
 var extradebug = 0;
