@@ -18,7 +18,7 @@ var debugmessages = 0;
 var debugsysmessages = 1;
 
 # if you want to have debug chaff and flare detection be displayed in the game set this to 1
-var flaremsg = 0;
+var flaremsg = 1;
 var extradebug = 0;
 
 # How to install Missiles onto your plane!
@@ -129,7 +129,7 @@ var MISSILE = {
         m.cmsalt            = 0;
         m.cmslat            = 0;
         m.cmslon            = 0;
-        m.cmsvariation      = 25; # The heading window (+ and -) inwhich the missile thinks he target is heading toward it
+        m.cmsvariation      = 45; # The heading window (+ and -) inwhich the missile thinks he target is heading toward it
         m.cmsfool           = 0;
        # m.ccip_altC = 0;
        # m.ccip_dens = 0;
@@ -518,7 +518,10 @@ if (me.Tgt != nil) {
             if (debugsysmessages == 1) {
                 print("--- Missile detected to be in front of target! ---");
             }
-            var isinfront = 0.3; # add to resistance
+            if (flaremsg == 1) {
+            screen.log.write("DEBUG: MISSILE IN FRONT OF TARGET! INCREASE HIT CHANCE");
+            }
+            var isinfront = 0.5; # add to resistance
         }
         # determine if missile intercept on 6 or 12 of target
         var newnumber = me.flareres + isinfront;
@@ -544,8 +547,8 @@ if (me.Tgt != nil) {
                 me.cmslat = tgtlat;
                 me.cmslon = tgtlon;
                 me.cmsalt = tgtalt;
-                # me.reset_steering();
-                # me.free = 1;
+                me.reset_steering();
+                me.free = 1;
                 me.cmsfool = 1;
                 if (debugmessages == 1) {
                     print("Missile gave up and decided to miss due to flare / chaff.");
