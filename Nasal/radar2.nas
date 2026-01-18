@@ -1387,7 +1387,6 @@ GetTarget = func(){
     if(Target_Index > size(tgts_list) - 1)
     {
         Target_Index = 0;
-        screen.log.write("Set to 0");
     }
     return tgts_list[Target_Index];
 }

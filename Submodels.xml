@@ -25,7 +25,7 @@
     <impact-report>sim/ai/aircraft/impact/bullet</impact-report>
     <submodel-path>Aircraft/F-22/Models/Effects/submodels.xml</submodel-path>
    </submodel>
-<!--
+
    <submodel>
     <name>Round</name>
     <model>Aircraft/F-22/Models/Effects/Null.ac</model>
@@ -43,12 +43,8 @@
     <weight>0.231485</weight>
     <cd>0.295</cd>
     <eda>0.00136354</eda> 
-    <collision>true</collision>
-    <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
-    <impact>true</impact>
-    <impact-report>ai/models/model-impact</impact-report>
   </submodel>
-  -->
+ 
 
 <!--
 

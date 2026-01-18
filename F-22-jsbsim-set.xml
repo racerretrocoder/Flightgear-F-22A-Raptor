@@ -2397,6 +2397,18 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             				<script>f22.reset_view(0)</script>
         			</binding>
     			</key>
+<key n="116">
+  <name>t</name>
+  <desc>cursor clock</desc>
+  <binding>
+ <command>nasal</command>
+ <script>f22.cursorclick();</script>
+</binding>
+  <binding>
+ <command>nasal</command>
+ <script>setprop("f22/ae","ae");</script> <!--stop the time from showing-->
+</binding>
+ </key> 
 
 
 

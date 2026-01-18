@@ -788,34 +788,107 @@ print("made it this far, lets spawn a chair!");
 
 
 var damagedetect = func{
-
 var a = getprop("/sim/failure-manager/controls/flight/aileron/serviceable");
 var b = getprop("/sim/failure-manager/controls/flight/elevator/serviceable");
 var c = getprop("/sim/failure-manager/controls/flight/rudder/serviceable");
-	if ( a == 0 ) {
-            setprop("sim/multiplay/generic/bool[1]",1);
-		if ( b == 0 ) {
-              setprop("sim/multiplay/generic/bool[1]",1);
-			if ( c == 0 ) {
-        setprop("sim/multiplay/generic/bool[1]",1);
-        }
-    }
-  }else{
-            setprop("sim/multiplay/generic/bool[1]",0);
+	if ( a == 0 and b == 0 and c == 0) {
+    setprop("sim/multiplay/generic/bool[1]",1);
+  } else{
+    setprop("sim/multiplay/generic/bool[1]",0);
+  }
+}
+
+
+# Cool Radar Stuff!
+# Stuff like radar cursor position to callsign
+# Dogfight mode! (ACM Radar mode)
+var lockuntill = func(callsign) {
+  print("Locking untill ",callsign);
+  var currentradarcallsign = radar.tgts_list[radar.Target_Index].Callsign.getValue();
+  if (currentradarcallsign != callsign) {
+    radar.next_Target_Index(1);
+  } else {
+    # there the same!
+    screen.log.write("Radar: Locked "~radar.tgts_list[radar.Target_Index].Callsign.getValue(),1,1,0);
   }
 
 }
 
 
-# Cool Radar Stuff!
-# Stuff like radar cursor position to callsign!
-# Dogfight mode! (ACM Radar mode)
-
-
 # Trying to make a radar cursor simulation. 
 # Had an idea if the cursor position matched the position of the marker. 
+# The FDM will be used to scale the cursor position to match marker position
 # Find and lock the target we selected with the cursor. 
 # Need more ideas to get this to work
+setprop("controls/radar/cursorvariaton",0.23);
+var cursorclick = func() {
+  var lockablecallsigns = "";
+  var xpos = getprop("controls/radar/cursorx");
+  var zpos = getprop("controls/radar/cursorz");
+  var radx = getprop("fdm/jsbsim/fcs/radx");
+  var radz = getprop("fdm/jsbsim/fcs/radz");
+  # scan loop
+  var list = props.globals.getNode("/instrumentation/radar2/marker").getChildren("mark");
+  var total = size(list);
+  var mpid = 0;
+  for(var i = 0; i < total; i += 1) {
+      # were searching for someone...
+      var callsign = getprop("instrumentation/radar2/marker/mark[" ~ i ~ "]/callsign");
+      var display = getprop("instrumentation/radar2/marker/mark[" ~ i ~ "]/display");
+      var xmark = getprop("instrumentation/radar2/marker/mark[" ~ i ~ "]/location-x");
+      var zmark = getprop("instrumentation/radar2/marker/mark[" ~ i ~ "]/range");
+      if (xmark != nil and zmark != nil and callsign != nil and display != nil) {
+      if (display == 1) {
+        print("rad cursor checking: ",callsign);
+        print("radx: ",radx);
+        print("radz: ",radz);
+        var xmarkround = math.round(xmark,0.01);
+        var zmarkround = math.round(zmark,0.01);
+        print("xmarkround: ",xmarkround);
+        print("zmarkround: ",zmarkround);
+        var variation = getprop("controls/radar/cursorvariaton");
+        # check the x
+        var radxpls = radx + variation;
+        var radxmin = radx - variation;
+        var radzpls = radz + variation;
+        var radzmin = radz - variation;
+        var xcheck = 0;
+        var zcheck = 0;
+        if (radxpls > xmarkround and radxmin < xmarkround) {
+          print("RadX Checks out for: ",callsign);
+          var xcheck = 1;
+        }
+        if (radzpls > zmarkround and radzmin < zmarkround) {
+          print("RadZ Checks out for: ",callsign);
+          var zcheck = 1;
+        }
+        if (xcheck == 1 and zcheck == 1) {
+          if (lockablecallsigns == "") {
+            lockablecallsigns = callsign;
+          } else {
+            lockablecallsigns = "" ~ lockablecallsigns ~ "|" ~ callsign ~ "";
+          }
+
+        }
+      
+      }
+    }
+}
+setprop("controls/radar/cursormode",1);
+print("cursorclick complete");
+print("lockablecallsigns: ",lockablecallsigns);
+var callsignsize = utf8.size(lockablecallsigns);
+if (callsignsize > 7 and lockablecallsigns != "") {
+  # Not a callsign
+  screen.log.write("Cant have more than 1 target under cursor!");
+  screen.log.write(lockablecallsigns);
+} else {
+  lockuntill(lockablecallsigns);
+}
+
+}
+
+
 var updatemkr = func() {
   var list = props.globals.getNode("/instrumentation/radar2/targets").getChildren("multiplayer");
   var total = size(list);
@@ -831,7 +904,9 @@ var updatemkr = func() {
       #
       # Range
       # 
-
+      if (getprop("instrumentation/radar/range") == 5){
+      setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") * 2);
+      }
       if (getprop("instrumentation/radar/range") == 10){
       setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm"));
       }
@@ -1159,20 +1234,21 @@ var timer_loop = func{
 # Radar Cursor
 setprop("controls/radar/cursorx",0);
 setprop("controls/radar/cursorz",0);
+setprop("controls/radar/cursormode",0);
 var cursor = func {
   # Check status of x and z (x and y)
   if (getprop("controls/radar/cursor-x") == 1) {
-    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") + 0.003);
+    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") + 0.0007);
   }
   if (getprop("controls/radar/cursor-x") == -1) {
-    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") - 0.003);
+    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") - 0.0007);
   }
 
   if (getprop("controls/radar/cursor-z") == 1) {
-    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") - 0.003);
+    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") - 0.0007);
   }
   if (getprop("controls/radar/cursor-z") == -1) {
-    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") + 0.003);
+    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") + 0.0007);
   }
 }
 
@@ -1489,7 +1565,7 @@ timer_extpylons = maketimer(0.25, checkforext);
 timer_baydoorsclose = maketimer(1, closebays);
 timer_damage = maketimer(0.5, damagedetect);
 timer_jitter = maketimer(0.1, jitter);
-timer_cursor = maketimer(0.1, cursor);
+timer_cursor = maketimer(0, cursor);
 timer_cursor.start();
 acmtimer = maketimer(2,radarlook);
 headupdate = maketimer(0,updatehead); # Pilot movement

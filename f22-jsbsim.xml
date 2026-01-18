@@ -1052,6 +1052,32 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    </function>
 
+<property>/controls/radar/cursorx</property>
+<property>/controls/radar/cursorz</property>
+
+   <function name="fcs/radx">  
+        <table>
+            <independentVar lookup="row">/controls/radar/cursorx</independentVar>
+            <tableData>     
+               -0.069    -10
+                0.000      0
+                0.069     10
+            </tableData>
+          </table>
+   </function>
+
+   <function name="fcs/radz">  
+        <table>
+            <independentVar lookup="row">/controls/radar/cursorz</independentVar>
+            <tableData>     
+               -0.066      0
+                0.066     10
+            </tableData>
+          </table>
+   </function>
+
+
+
    <function name="fcs/pitch-trim-fbw">  
 <product>
       <property>fcs/fbw-override</property>
@@ -1079,7 +1105,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             </tableData>
           </table>
 </product>
-
    </function>
 
 

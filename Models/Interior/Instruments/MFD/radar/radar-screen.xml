@@ -169,6 +169,46 @@
     </animation>
  <animation>
   <type>translate</type>
+  <object-name>mp2mkr</object-name>
+  <property>instrumentation/radar2/marker/mark/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>translate</type>
+  <object-name>mp1mkr</object-name>
+  <property>instrumentation/radar2/marker/mark/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+  <animation>
+        <type>select</type>
+        <object-name>mp1mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
   <object-name>mp1mkr</object-name>
   <property>instrumentation/radar2/marker/mark/location-x</property>
   <factor>0.007</factor>
@@ -191,6 +231,8 @@
    <z>1</z>
   </axis>
  </animation>
+
+
 <!--marker2-->
   <animation>
         <type>select</type>
@@ -667,6 +709,7 @@
    <z>0</z>
   </axis>
  </animation>
+ 
   <animation>
   <type>translate</type>
   <object-name>mp13mkr</object-name>
@@ -679,6 +722,49 @@
    <z>1</z>
   </axis>
  </animation>
+
+  <animation>
+        <type>select</type>
+        <object-name>mp14mkr</object-name>
+        <condition>
+		<and>
+			<equals>
+       <property>instrumentation/radar2/marker/mark[1]/display</property>
+				<value>1</value>
+			</equals>
+			<equals>
+       <property>controls/radar/cursormode</property>
+				<value>1</value>
+			</equals>
+			</and>
+        </condition>
+    </animation>
+ <animation>
+  <type>translate</type>
+  <object-name>mp14mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[1]/location-x</property>
+  <factor>0.007</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>translate</type>
+  <object-name>mp14mkr</object-name>
+  <property>instrumentation/radar2/marker/mark[1]/range</property>
+  <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
 
 	 <animation>
   <type>material</type>
@@ -697,6 +783,7 @@
 	<object-name>lockedalt</object-name>
 	<object-name>lockedcs</object-name>
    <object-name>10nm</object-name>			
+   <object-name>5nm</object-name>		
       <object-name>20nm</object-name>
 	     <object-name>40nm</object-name>
 		    <object-name>60nm</object-name>
@@ -1020,6 +1107,21 @@
     </animation>
 
 <!--Range Numbers-->
+	 <text>
+  <name>5nm</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">5 nm</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 
 	 <text>
   <name>10nm</name>
@@ -1052,6 +1154,23 @@
 
         </condition>
     </animation>
+  <animation>
+        <type>select</type>
+        <object-name>5nm</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/range</property>
+				<value>5</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
 
 
 
@@ -1427,14 +1546,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP1/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -1451,7 +1570,7 @@
 		<object-name alias="../../MP1/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -1461,7 +1580,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP1 Heading -->
 	<type>select</type>
@@ -1481,14 +1600,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP1/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!--MP1 Altitude < 10000 ft-->
 		<type>select</type>
@@ -1607,14 +1726,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP2/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -1631,7 +1750,7 @@
 		<object-name alias="../../MP2/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -1641,7 +1760,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP2 Heading -->
 		<type>select</type>
@@ -1661,14 +1780,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP2/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP2 Altitude < 10000 ft-->
 		<type>select</type>
@@ -1787,14 +1906,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP3/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -1811,7 +1930,7 @@
 		<object-name alias="../../MP3/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -1821,7 +1940,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP3 Heading -->
 		<type>select</type>
@@ -1841,14 +1960,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP3/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP3 Altitude < 10000 ft-->
 		<type>select</type>
@@ -1968,14 +2087,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP4/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -1992,7 +2111,7 @@
 		<object-name alias="../../MP4/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -2002,7 +2121,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP4 Heading -->
 		<type>select</type>
@@ -2022,14 +2141,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP4/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP4 Altitude < 10000 ft-->
 		<type>select</type>
@@ -2150,14 +2269,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP5/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -2174,7 +2293,7 @@
 		<object-name alias="../../MP5/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -2184,7 +2303,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP5 Heading -->
 		<type>select</type>
@@ -2204,14 +2323,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP5/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP5 Altitude < 10000 ft-->
 		<type>select</type>
@@ -2332,14 +2451,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP6/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -2356,7 +2475,7 @@
 		<object-name alias="../../MP6/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -2366,7 +2485,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP6 Heading -->
 		<type>select</type>
@@ -2386,14 +2505,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP6/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP6 Altitude < 10000 ft-->
 		<type>select</type>
@@ -2513,14 +2632,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP7/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -2537,7 +2656,7 @@
 		<object-name alias="../../MP7/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -2547,7 +2666,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP7 Heading -->
 		<type>select</type>
@@ -2567,14 +2686,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP7/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP7 Altitude < 10000 ft-->
 		<type>select</type>
@@ -2694,14 +2813,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP8/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -2718,7 +2837,7 @@
 		<object-name alias="../../MP8/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -2728,7 +2847,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP8 Heading -->
 		<type>select</type>
@@ -2748,14 +2867,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP8/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP8 Altitude < 10000 ft-->
 		<type>select</type>
@@ -2876,14 +2995,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP9/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -2900,7 +3019,7 @@
 		<object-name alias="../../MP9/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -2910,7 +3029,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP9 Heading -->
 		<type>select</type>
@@ -2930,14 +3049,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP9/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP9 Altitude < 10000 ft-->
 		<type>select</type>
@@ -3057,14 +3176,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP10/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -3081,7 +3200,7 @@
 		<object-name alias="../../MP10/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -3091,7 +3210,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP10 Heading -->
 		<type>select</type>
@@ -3111,14 +3230,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP10/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP10 Altitude < 10000 ft-->
 		<type>select</type>
@@ -3239,14 +3358,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP11/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -3263,7 +3382,7 @@
 		<object-name alias="../../MP11/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -3273,7 +3392,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP11 Heading -->
 		<type>select</type>
@@ -3293,14 +3412,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP11/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP11 Altitude < 10000 ft-->
 		<type>select</type>
@@ -3421,14 +3540,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP12/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -3445,7 +3564,7 @@
 		<object-name alias="../../MP12/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -3455,7 +3574,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP12 Heading -->
 		<type>select</type>
@@ -3475,14 +3594,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP12/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP12 Altitude < 10000 ft-->
 		<type>select</type>
@@ -3602,14 +3721,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP13/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -3626,7 +3745,7 @@
 		<object-name alias="../../MP13/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -3636,7 +3755,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP13 Heading -->
 		<type>select</type>
@@ -3656,14 +3775,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP13/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP13 Altitude < 10000 ft-->
 		<type>select</type>
@@ -3781,14 +3900,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP14/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -3805,7 +3924,7 @@
 		<object-name alias="../../MP14/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -3815,7 +3934,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP14 Heading -->
 		<type>select</type>
@@ -3835,14 +3954,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP14/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP14 Altitude < 10000 ft-->
 		<type>select</type>
@@ -3961,14 +4080,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP15/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -3985,7 +4104,7 @@
 		<object-name alias="../../MP15/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -3995,7 +4114,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP15 Heading -->
 		<type>select</type>
@@ -4015,14 +4134,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP15/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP15 Altitude < 10000 ft-->
 		<type>select</type>
@@ -4141,14 +4260,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP16/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -4165,7 +4284,7 @@
 		<object-name alias="../../MP16/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -4175,7 +4294,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP16 Heading -->
 		<type>select</type>
@@ -4195,14 +4314,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP16/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP16 Altitude < 10000 ft-->
 		<type>select</type>
@@ -4321,14 +4440,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP17/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -4345,7 +4464,7 @@
 		<object-name alias="../../MP17/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -4355,7 +4474,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP17 Heading -->
 		<type>select</type>
@@ -4375,14 +4494,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP17/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP17 Altitude < 10000 ft-->
 		<type>select</type>
@@ -4501,14 +4620,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP18/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -4525,7 +4644,7 @@
 		<object-name alias="../../MP18/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -4535,7 +4654,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP18 Heading -->
 		<type>select</type>
@@ -4555,14 +4674,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP18/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP18 Altitude < 10000 ft-->
 		<type>select</type>
@@ -4681,14 +4800,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../MP19/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -4705,7 +4824,7 @@
 		<object-name alias="../../MP19/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -4715,7 +4834,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- MP19 Heading -->
 		<type>select</type>
@@ -4735,14 +4854,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../MP19/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--MP19 Altitude < 10000 ft-->
 		<type>select</type>
@@ -4862,14 +4981,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../TK1/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -4886,7 +5005,7 @@
 		<object-name alias="../../TK1/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -4896,7 +5015,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- TK1 Heading -->
 		<type>rotate</type>
@@ -4906,14 +5025,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../TK1/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--TK1 Altitude < 10000 ft-->
 		<type>select</type>
@@ -5018,14 +5137,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../TK2/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -5042,7 +5161,7 @@
 		<object-name alias="../../TK2/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -5052,7 +5171,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- TK2 Heading -->
 		<type>rotate</type>
@@ -5062,14 +5181,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../TK2/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--TK2 Altitude < 10000 ft-->
 		<type>select</type>
@@ -5174,14 +5293,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../TK3/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -5198,7 +5317,7 @@
 		<object-name alias="../../TK3/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -5208,7 +5327,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- TK3 Heading -->
 		<type>rotate</type>
@@ -5218,14 +5337,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../TK3/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--TK3 Altitude < 10000 ft-->
 		<type>select</type>
@@ -5331,14 +5450,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../TK4/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -5355,7 +5474,7 @@
 		<object-name alias="../../TK4/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -5365,7 +5484,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- TK4 Heading -->
 		<type>rotate</type>
@@ -5375,14 +5494,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../TK4/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--TK4 Altitude < 10000 ft-->
 		<type>select</type>
@@ -5484,14 +5603,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
 		<object-name alias="../../TK5/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>translate</type>
@@ -5508,7 +5627,7 @@
 		<object-name alias="../../TK5/group-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> 
 		<type>rotate</type>
@@ -5518,7 +5637,7 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation> <!-- TK5 Heading -->
 		<type>rotate</type>
@@ -5528,14 +5647,14 @@
 			<not><property>instrumentation/radar/radar-standby</property></not>
 		</condition>
 		<axis><x>-1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name alias="../../TK5/hdg-name"/>
 		<property>orientation/heading-deg</property>
 		<axis><x>1</x></axis>
-		<center><z-m>-0.0400</z-m></center>
+		<center><z-m>-0.0700</z-m></center>
 	</animation>
 	<animation><!--TK5 Altitude < 10000 ft-->
 		<type>select</type>
