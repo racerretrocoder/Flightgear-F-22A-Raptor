@@ -13,7 +13,7 @@ print("LOADING Missiles, Bombs and more!: missile.nas .");
 # If you want to have missile flight data print out into the console set this to 1
 var debugflight = 0;
 # if you want to print messages into the console that relate to missile flight, set this to 1
-var debugmessages = 1;
+var debugmessages = 0;
 # If you want status on missile alert, and status on releasing, and it hitting set this to 1
 var debugsysmessages = 1;
 
@@ -26,74 +26,6 @@ var extradebug = 0;
 # Secondly Follow the install instructions to setup the missile pylons and weapon controller,   (ext_pylons.nas, weapons.nas)
 # extpylons is used to see what and how many missiles we have left
 # weapons.nas is just used to make the user be able to shoot the missiles
-# Next in /controls/armament/ add these properties
-#       <missile>
-#   <eject>
-#         <current-pylon type="int"> 0 </current-pylon>
-#   </eject>
-#         <flareres type="double"> 0.80 </flareres>
-#         <name>None_press_m</name>
-#         <type-id type="int">57</type-id>
-#         <address>Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml</address>
-#         <addressNoSmoke>Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml</addressNoSmoke>
-#         <addressExplosion>Aircraft/SU-27SK/Models/Effects/MissileExplosion/explosion.xml</addressExplosion>
-#         <count type="int">0</count>
-#         <nearest-target type="int"> -1 </nearest-target>
-#         <sound-on-off type="bool">false</sound-on-off>
-#         <sound-volume type="double"> 0.12 </sound-volume>
-#         <target-range-nm type="double"> 0 </target-range-nm>
-#         <max-detection-rng-nm type="int"> 45 </max-detection-rng-nm>
-#         <!-- ' not real impact yet-->
-#         <fov-deg type="int"> 25 </fov-deg>
-#         <!-- ' seeker optical FOV -->
-#         <detection-fov-deg type="int"> 60 </detection-fov-deg>
-#         <!-- ' search pattern diameter (rosette scan) -->
-#         <track-max-deg type="int"> 110 </track-max-deg>
-#         <!-- ' seeker max total angular rotation -->
-#         <max-g type="int"> 100 </max-g>
-#         <!-- ' in turn -->
-#         <thrust-lbs type="double"> 300 </thrust-lbs>
-#         <!-- ' guess -->
-#         <thrust-duration-sec type="int"> 30 </thrust-duration-sec>
-#         <!-- ' Mk.36 Mod.7,8 -->
-#         <weight-launch-lbs> 216 </weight-launch-lbs>
-#         <weight-warhead-lbs> 30 </weight-warhead-lbs>
-#         <drag-coeff type="double"> 0.05 </drag-coeff>
-#         <!-- ' guess - original 0.05-->
-#         <drag-area type="double"> 0.043 </drag-area>
-#         <!-- ' sq ft -->
-#         <maxExplosionRange type="int"> 200 </maxExplosionRange>
-#         <!--
-#           note :
-#             due to the code, more the speed is important, more we need to have this
-#             figure high
-#         -->
-#         <maxspeed type="double"> 4 </maxspeed>
-#         <!-- ' in Mach -->
-#         <life> 60 </life>
-#         <sdspeed> 60 </sdspeed>
-#         <!--
-#           note :
-#             "Fox1" for guided by the aircraft radar (semi active) AIM7,
-#             "Fox2" for infrared AIM9,
-#             "Fox3" for intern missile Radar AIM120, AIM54 
-#             "A/G" air to ground
-#         -->
-#         <fox>Fox 2</fox>
-#         <isbomb>0</isbomb>
-#         <chute>0</chute>
-#         <!--
-#           note :
-#             if the missile fall before thrust start or if there is some kind of "rail"
-#         -->
-#         <rail type="bool">true</rail>
-#         <!--
-#           note :
-#             for cruise missile, in feet.0 is off.below 10000 feet is terrain following
-#         -->
-#         <cruise_alt type="int"> 0 </cruise_alt>
-#         <current-pylon type="int"> 0 </current-pylon>
-#       </missile>
 
 var AcModel        = props.globals.getNode("sim/model/F-22", 1);
 var OurHdg         = props.globals.getNode("orientation/heading-deg");
@@ -102,11 +34,9 @@ var OurPitch       = props.globals.getNode("orientation/pitch-deg");
 var fox2_unique_id = -100;
 var MPMessaging    = props.globals.getNode("/payload/armament/msg", 1);
 MPMessaging.setBoolValue(0); # this thing here set the Damage to off on spawn!
-
 var g_fps        = 9.80665 * M2FT;
 var slugs_to_lbs = 32.1740485564;
 var const_e = 2.71828183;
-
 var MISSILE = {
     new: func(p=0, x=0, y=0, z=0, type="nothing"){
         
@@ -156,7 +86,6 @@ var MISSILE = {
         m.vApproch       = 1;
         m.tpsApproch     = 0;
         m.nextGroundElevation = 0; # next Ground Elevation in 2 dt
-        
         # missile specs:
         m.missile_model     = getprop("controls/armament/missile/address");
         m.missile_NoSmoke   = getprop("controls/armament/missile/addressNoSmoke");
@@ -194,6 +123,9 @@ var MISSILE = {
         m.targetcallsign    = "nothgi"; # nothing
         m.isradarmissile    = 0;   # again, for missile alert sender to let our target know if this is radar or heat missile
         m.eject_speed       = 0;
+        m.old_flare         = 0;  # used for counter messures
+        m.old_chaff         = 0;  # used for counter messures
+        m.cmsvariation      = 30; # The heading window (+ and -) inwhich the missile thinks he target is heading toward it
        # m.ccip_altC = 0;
        # m.ccip_dens = 0;
        # m.ccip
@@ -503,106 +435,130 @@ var MISSILE = {
             setprop("sim/multiplay/chat", phrase);
         }
         me.targetcallsign = me.Tgt.get_Callsign();
-        print("Missile away!");
+        
             if (debugmessages == 1) {
                print(phrase);
+               print("Missile away!");
             }
         }
 
         
       if(MPMessaging.getValue() == 1)
       {
-
             damage.damageLog.push(phrase);
-
-
-
-
       }
         else
         {
            screen.log.write(phrase);
         }
-
         me.update();
-
     },
 
 
-checkflares: func(){
+checkflares: func() {
 var enabled = 0;
-# Updated Version 2
+var flare = "rotors/main/blade[3]/flap-deg";
+var chaff = "rotors/main/blade[3]/position-deg";
+# Updated Version 3
 # First lets avoid having a nil in our variable.
-
-
 if (me.Tgt != nil) {
-var bandit = me.Tgt.get_Callsign();
-# There is a target
-# Lets search for him
-misc.search(bandit);
-# Then the flare prop should be updated.
-# Lets read it
+    var bandit = me.Tgt.get_Callsign();
+    # There is a target
+    # Lets search for him
+    misc.search(bandit); # TODO - deprecate this
+    var targetmpid = misc.smallsearch(bandit); # replace with this
+    var tgtflare = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/rotors/main/blade[3]/flap-deg");
+    var tgtchaff = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/rotors/main/blade[3]/position-deg");
 
-if (getprop("payload/armament/flares")) { # Flares are being realeased
-# What kind of missile are we?
-if (me.fox == "Fox 2") {
-    if (me.direct_dist_m < 4000) {
-        enabled = 1;
-    }
-} else {
-    if (getprop("/instrumentation/radar/lock") == 1){return 0;} # Dont check for chaff if the radar is locked on
-        if (me.direct_dist_m < 6874) {
-        enabled = 1;
-    }
-}
-var num2 = rand() < (1-me.flareres);
-if (debugsysmessages == 1) {
-print("Flare resistance number:");
-print(num2);
-}
-if (flaremsg == 1) {
-screen.log.write("DEBUG: Flares Detected");
-}
-
-if (enabled == 1) {
-if (flaremsg == 1) {
-screen.log.write("DEBUG: missile in range of flares");
-}
-
-# Where in range. see whats up
-if (num2 == 1) {
-    if (debugsysmessages == 1) {
-    print("Missile saw the flare!");
-    }
-    me.reset_steering();
-    me.free = 1;
-if (debugmessages == 1) {
-    print("Missile gave up and decided to miss due to flare / chaff.");
-}
-            var phrase = me.NameOfMissile ~ " Report : Fooled by enemy's Countermessures and missed.";
-                    if (getprop("payload/armament/oldmsg") == 1){
-            setprop("sim/multiplay/chat", phrase);
-        }
-            if(MPMessaging.getValue() == 1)
-            {
-                damage.damageLog.push(phrase);
-                setprop("/sim/messages/atc", "Missile missed due to chaff and flares");
+    if (tgtflare != me.old_flare or tgtchaff != me.old_chaff) { # Flares are being realeased and / or have changed!
+        # What kind of missile are we? i forgot
+        if (me.fox == "Fox 2") {
+            if (me.direct_dist_m < 6000) { # Missile will only be fooled at 3 miles distance
+                if (tgtflare != me.old_flare) {
+                    enabled = 1;
+                }
             }
-            else
-            {
-                setprop("/sim/messages/atc", phrase);
+        } elsif (me.fox == "Fox 3") {
+            if (me.direct_dist_m < 18520) { # 10 miles
+                if (tgtchaff != me.old_chaff) {
+                    enabled = 1;
+                }
+            } 
+        } else {
+            if (me.direct_dist_m < 6874) {
+                enabled = 1;
             }
         }
-    }
-} else {
-    if (debugsysmessages == 1) {
+        # Determine target orientation
+        # If we are directly at the target, reduce there counter messure effectiveness (simply increase resistance)
+        var isinfront = 0;
+        var mslheading = me.hdg;
+        var targetheading = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/orientation/true-heading-deg");
+        var oppmissile = f22.oppfunc(mslheading);
+        var headingvariation = me.cmsvariation;
+        var hdgplus = oppmissile + headingvariation;
+        var hdgmins = oppmissile - headingvariation;
+        if (debugsysmessages == 1) {
+            print("checkflares(): targetheading: ",targetheading);
+            print("checkflares(): missilehdg: ",mslheading);
+            print("checkflares(): oppmissile: ",oppmissile);
+        }
+        # simple infront logic
+        if (targetheading > hdgmins and targetheading < hdgplus) {
+            if (debugsysmessages == 1) {
+                print("--- Missile detected to be in front of target! ---");
+            }
+            var isinfront = 0.3;
+        }
+        # determine if missile intercept on 6 or 12 of target
+        var newnumber = me.flareres + isinfront;
+        var num2 = rand() < (1-newnumber);
 
-        print("Flare detect: There are no deployed flares");
-    }
+        if (debugsysmessages == 1) {
+            print("cms resistance number:");
+            print(num2);
+        }
+        if (flaremsg == 1) {
+        screen.log.write("DEBUG: CMS Detected");
+        }
+        if (enabled == 1) {
+            if (flaremsg == 1) {
+            screen.log.write("DEBUG: missile in range of counter messures");
+            }
+            # Where in range. see whats up
+            if (num2 == 1) {
+                if (debugsysmessages == 1) {
+                print("Missile saw the flare!");
+                }
+                me.reset_steering();
+                me.free = 1;
+                if (debugmessages == 1) {
+                    print("Missile gave up and decided to miss due to flare / chaff.");
+                }
+                var phrase = me.NameOfMissile ~ " Report : Fooled by enemy's Countermessures and missed.";
+                if (getprop("payload/armament/oldmsg") == 1){
+                    setprop("sim/multiplay/chat", phrase);
+                }
+                if(MPMessaging.getValue() == 1)
+                {
+                    damage.damageLog.push(phrase);
+                    setprop("/sim/messages/atc", "Missile missed due to chaff and flares");
+                }
+                else
+                {
+                    setprop("/sim/messages/atc", phrase);
+                }
+            }
+        }
+    } else {
+        if (debugsysmessages == 1) {
+
+            print("Flare detect: There are no deployed flares");
+        }
     }
 } else {
-    if (debugsysmessages == 1) {
-    print("Flare detect: there is no target. Not searching for flares");
+        if (debugsysmessages == 1) {
+            print("Flare detect: there is no target. Not searching for flares");
         }
     }
 },
@@ -874,18 +830,17 @@ broddamage: func (cs,dist,msl) {
         
         # arm the sds
         
-               if(me.life_time > 3) {
+        if(me.life_time > 3) {
             if(speed_m < getprop("controls/armament/missile/sdspeed")){
-        if (debugflight == 1) {
--                print("missile is slower then the SDSPEED (in mach)");
-    }
-
-                    me.free = 1;
-                        setprop("payload/armament/flares", 0);
-                                        me.animate_explosion();
-                    settimer(func(){ me.del(); }, 1);
-                    setprop("sim/messages/atc", "Missile self distructed. (too low speed)");
-                    return;
+                if (debugflight == 1) {
+                    print("missile is slower then the SDSPEED (in mach)");
+                }
+                me.free = 1;
+                setprop("payload/armament/flares", 0);
+                me.animate_explosion();
+                settimer(func(){ me.del(); }, 1);
+                setprop("sim/messages/atc", "Missile self distructed. (too low speed)");
+                return;
             }
         }
 
@@ -934,7 +889,7 @@ broddamage: func (cs,dist,msl) {
                 me.update_track();
             }
         if (debugflight == 1) {
--            print("Life time:");
+            print("Life time:");
             print(me.life_time);
     }
 
@@ -963,18 +918,17 @@ broddamage: func (cs,dist,msl) {
                 #check for flares!
 
 
-                var OurAlt       = props.globals.getNode("position/altitude-ft");
-                var OurLat       = props.globals.getNode("position/latitude-deg");
-                var OurLon       = props.globals.getNode("position/longitude-deg");
+                var OurAlt = props.globals.getNode("position/altitude-ft");
+                var OurLat = props.globals.getNode("position/latitude-deg");
+                var OurLon = props.globals.getNode("position/longitude-deg");
                     if (debugflight == 1) {
--                    print("MSL Still Tracking Target : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
+                        print("MSL Still Tracking Target : Elevation ", me.track_signal_e, "Heading ", me.track_signal_h, " Gload : ", myG);
                     }
-
                     me.checkflares();
                     }
                 }
                 if (debugflight == 1) {
--        print("Missile Main Status: ", me.status, " Is the missile delocked? ", me.free, " Is the missile fired? : ", init_launch);
+        print("Missile Main Status: ", me.status, " Is the missile delocked? ", me.free, " Is the missile fired? : ", init_launch);
         print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, " dt :", dt);
     }
 

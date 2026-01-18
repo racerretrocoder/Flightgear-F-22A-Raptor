@@ -91,7 +91,7 @@ var Loading_missile = func(name)
         # AIM-260D JATM!
         # JATM is not in damage.nas :( so itll just be an Aim-54
 	    typeid = 52;
-        address = "Aircraft/F-22/Models/Stores/Missiles/AIM-260/AIM260-smoke.xml";
+        address = "Aircraft/F-22/Models/Stores/Missiles/AIM-260/AIM260.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-260/AIM260.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         flareres = 0.98; # 0.999    Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
@@ -108,13 +108,13 @@ var Loading_missile = func(name)
         weightwarheadlbs = 44;
         dragcoeff = 0.001;                              # really slow lowerd it a bit
         dragarea = 0.0236;                            # sq ft
-        maxExplosionRange = 50;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
+        maxExplosionRange = 100;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
         maxspeed = 8.7;                              # In mach ( source is a guess )
         life = 100000000000; # 
         sdspeed = 0.65;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";
         rail = 0;
-        cruisealt = 75000;
+        cruisealt = 0;
         chute = 0;
         isbomb = 0;
         pbrange = 0;

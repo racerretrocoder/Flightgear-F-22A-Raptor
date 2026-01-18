@@ -60,12 +60,28 @@ var autoflares = func{
   settimer(func{setprop("/ai/submodels/submodel/flare-release",0);},0.1)
 }
 
-
 var waterstop = func {
   setprop("/sim/multiplay/generic/bool[4]",0); 
   timer_water.stop();
 }
 
+var oppfunc = func(heading) {
+  if (heading != nil) {
+    var opposite = 0;
+    if (heading == 0) {
+      opposite == 180;
+    } elsif (heading > 0) {
+      opposite = heading - 180;
+    } else {
+      opposite = heading + 180
+    }
+    print(opposite);
+    return opposite;
+  } else {
+    print("oppfunc(heading) - heading cant be nil!");
+    return 0;
+  }
+}
 
 #setprop("/sim/multiplay/generic/bool[4]",1);
 #setprop("/sim/multiplay/generic/bool[4]",0);
@@ -1226,17 +1242,17 @@ setprop("controls/radar/cursormode",0);
 var cursor = func {
   # Check status of x and z (x and y)
   if (getprop("controls/radar/cursor-x") == 1) {
-    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") + 0.0007);
+    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") + 0.0008);
   }
   if (getprop("controls/radar/cursor-x") == -1) {
-    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") - 0.0007);
+    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") - 0.0008);
   }
 
   if (getprop("controls/radar/cursor-z") == 1) {
-    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") - 0.0007);
+    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") - 0.0008);
   }
   if (getprop("controls/radar/cursor-z") == -1) {
-    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") + 0.0007);
+    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") + 0.0008);
   }
 }
 
@@ -1503,7 +1519,7 @@ var engint = func() {
       setprop("f22/engint",1);
     } elsif (getprop("sim/failure-manager/engines/engine/serviceable") == 1 and getprop("sim/failure-manager/engines/engine[1]/serviceable") == 0) {
       # right dead
-      setprop("f22/engint",12);
+      setprop("f22/engint",2);
     }
   } else {
     setprop("f22/engint",0); # engines work
