@@ -567,20 +567,35 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
 
 
+<animation>
+    <object-name>canopy in</object-name>
+    <object-name>canopy out</object-name>
+    <object-name>canopy</object-name>
+    <object-name>cabin</object-name>
+	<object-name>canopyframe</object-name>
+  <type>select</type>
+  <condition>
+	<equals>
+		<property>sim/multiplay/generic/int[15]</property> 
+		<value>0</value>
+	</equals>
+  </condition>
+ </animation>
+
 	 <animation>
-       <object-name>canopy in</object-name>
-       <object-name>canopy out</object-name>
-       <object-name>canopy</object-name>
-       <object-name>cabin</object-name>
-	   <object-name>canopyframe</object-name>
      <object-name>pilot</object-name>
   <type>select</type>
   <condition>
-
+			<or>
 			<equals>
 				<property>sim/multiplay/generic/int[15]</property> 
 				<value>0</value>
 			</equals>
+			<equals>
+				<property>sim/multiplay/generic/int[15]</property> 
+				<value>1</value>
+			</equals>
+			</or>
   </condition>
  </animation>
 

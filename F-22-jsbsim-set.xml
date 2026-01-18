@@ -1682,6 +1682,27 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
           <default-field-of-view-deg>116</default-field-of-view-deg>
         </config>
       </view>
+	    <view n="105">
+            <!-- Custom Made Ejection View -->
+            <name>Ejection View</name>
+            <type>lookat</type>
+            <enabled>true</enabled>
+           <!-- <heading-offset-deg>180</heading-offset-deg>
+            <pitch-offset-deg>10</pitch-offset-deg>-->
+		<config>
+        	<target-lon-deg-path type="string">f22/ejection/lon</target-lon-deg-path>
+        	<target-lat-deg-path type="string">f22/ejection/lat</target-lat-deg-path>
+          	<target-alt-ft-path type="string">f22/ejection/alt</target-alt-ft-path>
+					 <from-model type="bool">false</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">0.00</x-offset-m>
+          <y-offset-m archive="y">0.35</y-offset-m>
+          <z-offset-m archive="y">-5.5</z-offset-m>
+          <pitch-offset-deg>0</pitch-offset-deg>
+		  <heading-offset-deg>180</heading-offset-deg>
+          <default-field-of-view-deg>95</default-field-of-view-deg>
+        </config>
+        </view>
 		
 		<view n="1">
 			<config>
