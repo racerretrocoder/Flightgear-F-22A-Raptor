@@ -481,13 +481,14 @@ if (me.Tgt != nil) {
     var tgtalt = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/position/altitude-ft");
     var tgtlon = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/posititon/longitude-deg");
     var tgtlat = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/position/latitude-deg");
-
+    var isfox2 = 0;
     if (tgtflare != me.old_flare or tgtchaff != me.old_chaff) { # Flares are being realeased and / or have changed!
         # What kind of missile are we? i forgot
         if (me.fox == "Fox 2") {
             if (me.direct_dist_m < 6000) { # Missile will only be able to be fooled at 3 miles distance
                 if (tgtflare != me.old_flare) {
                     enabled = 1;
+                    var isfox2 = 1;
                 }
             }
         } elsif (me.fox == "Fox 3") {

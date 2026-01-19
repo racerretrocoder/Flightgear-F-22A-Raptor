@@ -101,7 +101,7 @@ var runchaffseq = func() {
     print("chaff:delay per seq: "~data9);
     print("chaff:num of seqs: "~data7);
 
-    if (seqchaff > data7) {
+    if (seqchaff > data7 or getprop("f22/chaff") < 1) {
         print("chaff seqs finish");
         stopchaffseq();
         return 0;
@@ -145,7 +145,7 @@ var runflareseq = func() {
     print("flare:delay per seq: "~data10);
     print("flare:num of seqs: "~data8);
 
-    if (seqflare > data8) {
+    if (seqflare > data8 or getprop("f22/flare") < 1) {
         print("flare seqs finish");
         stopflareseq();
         return 0;
