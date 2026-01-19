@@ -513,6 +513,10 @@ if (me.Tgt != nil) {
         var headingvariation = me.cmsvariation;
         var hdgplus = oppmissile + headingvariation;
         var hdgmins = oppmissile - headingvariation;
+        var tgtn2 = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/engines/n2");
+        if (tgtn2 == nil) {
+            tgtn2 = 95;
+        }
         if (debugsysmessages == 1) {
             print("checkflares(): targetheading: ",targetheading);
             print("checkflares(): missilehdg: ",mslheading);
@@ -526,8 +530,19 @@ if (me.Tgt != nil) {
             if (flaremsg == 1) {
             screen.log.write("DEBUG: MISSILE IN FRONT OF TARGET! INCREASE HIT CHANCE");
             }
-            var isinfront = 0.5; # add to resistance
+            var isinfront = isinfront + 0.5; # decrease flare fool chance
         }
+        if (isfox2 == 1) {
+            # check engine
+            if (tgtn2 > 99) {
+                # decrease flare fool chance!
+                var isinfont = isinfront + 0.4;
+                if (flaremsg == 1) {
+                    screen.log.write("DEBUG: TARGETS ENGINE IS VERY HIGH AND HOT!!");
+                }
+            }
+        }
+
         # determine if missile intercept on 6 or 12 of target
         var newnumber = me.flareres + isinfront;
         var num2 = rand() < (1-newnumber);
