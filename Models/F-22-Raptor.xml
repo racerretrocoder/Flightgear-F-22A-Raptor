@@ -3479,7 +3479,7 @@ FR
         <x-m>-4.4</x-m>
 	    <y-m>-0.0</y-m>
 		<z-m>-2.47099</z-m>
-    <pitch-deg>   -8.000 </pitch-deg>
+    <pitch-deg>   -0.000 </pitch-deg>
     <heading-deg>  0 </heading-deg>
  </offsets>
  <overlay>
@@ -3487,9 +3487,9 @@ FR
    <name>landinglight</name>
    <power-source>sim/multiplay/generic/int[26]</power-source>
    <direction>
-    <x>20</x>
-    <y>0.3</y>
-    <z>40</z>
+    <x>1</x>
+    <y>0</y>
+    <z>1</z>
    </direction>
    <ambient>
     <r>1</r>
@@ -3520,9 +3520,9 @@ FR
    <name>landinglight</name>
    <power-source>sim/multiplay/generic/int[26]</power-source>
    <direction>
-    <x>20</x>
-    <y>-0.3</y>
-    <z>40</z>
+    <x>0</x>
+    <y>0</y>
+    <z>0</z>
    </direction>
    <ambient>
     <r>1</r>
