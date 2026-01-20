@@ -1771,7 +1771,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>lfd</object-name>
-		<property>sim/multiplay/generic/float[35]</property>
+		<property>/fdm/jsbsim/fcs/flaredoor</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1793,7 +1793,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>lfd2</object-name>
-		<property>sim/multiplay/generic/float[35]</property>
+		<property>/fdm/jsbsim/fcs/flaredoor</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1816,7 +1816,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>rfd</object-name>
-		<property>sim/multiplay/generic/float[35]</property>
+		<property>/fdm/jsbsim/fcs/flaredoor</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1838,7 +1838,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>rfd2</object-name>
-		<property>sim/multiplay/generic/float[35]</property>
+		<property>/fdm/jsbsim/fcs/flaredoor</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -3445,16 +3445,38 @@ FR
 </model>
 
 
-
+<!--Green Formation Light Bars-->
 <animation>
       <type>select</type>
       <object-name>navlight</object-name>
       <condition>
-
-		<property>sim/multiplay/generic/int[10]</property>
-
+	  	<not>
+			<equals>
+			<property>sim/multiplay/generic/float[35]</property>
+			<value>0</value>
+			</equals>
+		</not>
 	</condition>
 </animation>
+
+<animation>
+  <type>material</type>
+  <object-name>navlight</object-name>
+  <transparency>
+    <alpha-prop>sim/multiplay/generic/float[35]</alpha-prop>
+    <factor>1</factor>
+    <offset>0</offset>
+   </transparency>
+<emission>
+   <red>0</red>
+   <green>1</green>
+   <blue>0</blue>
+   <factor-prop>sim/multiplay/generic/float[35]</factor-prop>
+  </emission>
+ </animation>
+  
+
+
 <!--
 	<model>
    
