@@ -1795,6 +1795,63 @@ New: Refuel in air switch.
 
 <animation>
         <type>knob</type>
+    <object-name>hooksw</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/hooksw</property>
+                <value>0</value>
+                <value>1</value>             
+                
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>airtoair</tooltip-id>
+                <label>Arresting hook (This is not for Carriers IRL)</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+
+<animation>
+		<type>rotate</type>
+		<object-name>hooksw</object-name>
+		<property>controls/hooksw</property>
+		<factor>-50</factor>
+        <axis>
+<object-name>hooksw-axis</object-name>
+        </axis>
+	</animation>
+
+
+
+
+
+
+<animation>
+        <type>knob</type>
     <object-name>pbrake</object-name>
         <value>0.0</value> <!-- or property as usual for rotate animation -->
 
@@ -2514,7 +2571,7 @@ New: Refuel in air switch.
         <name>Consoles knob</name>
         <type>knob</type>
         <object-name>consoleknob</object-name>
-        <property>controls/lighting/instruments-norm</property>
+        <property>controls/lighting/consoleknob</property>
         <factor>1</factor>
         <center>
             <x-m>0.0</x-m>
@@ -2527,7 +2584,7 @@ New: Refuel in air switch.
         <action>
             <binding>
                  <command>property-adjust</command>
-                <property>controls/lighting/instruments-norm</property>
+                <property>controls/lighting/consoleknob</property>
                 <factor>0.1</factor>
                 <min>0</min>
                 <max>1</max>                
@@ -2545,7 +2602,7 @@ New: Refuel in air switch.
 <animation>
         <type>rotate</type>
         <object-name>consoleknob</object-name>
-        <property>controls/lighting/instruments-norm</property>
+        <property>controls/lighting/consoleknob</property>
         <offset-deg>30</offset-deg>
         <factor>270</factor>
         <axis>

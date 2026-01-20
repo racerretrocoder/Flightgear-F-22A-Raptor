@@ -11,8 +11,13 @@ setprop("f22/obogs/mode",0);
 setprop("f22/obogs/main",0);
 setprop("controls/refuel/tanks",0);
 # Floats
+
+setprop("controls/lighting/consoleknob",0.1); #instruments-norm
+setprop("controls/lighting/consoleknob",0); #instruments-norm
 setprop("controls/lighting/mfd",0.1);
 setprop("controls/lighting/mfd",0);
+setprop("controls/lighting/actualform",0.1);
+setprop("controls/lighting/actualform",0);
 setprop("controls/lighting/instpnl",0.1);
 setprop("controls/lighting/instpnl",0);
 setprop("controls/lighting/flood-norm",0.1);
@@ -21,6 +26,7 @@ setprop("controls/lighting/formation-norm",0.1);
 setprop("controls/lighting/formation-norm",0);
 setprop("controls/lighting/extknob",0);
 setprop("controls/lighting/ldg",0);
+setprop("controls/hooksw",1);
 var NM2FT = 6076;
 setprop("controls/switches/airsource",0);
 setprop("f22/ejection/lon",0);
@@ -221,51 +227,77 @@ setprop("controls/lighting/extlight",0);
 # External Lighting
 var knobcheck = func() {
   var knob = getprop("controls/lighting/extlight");
-  if (knob == 0) {
+  if (knob == 0 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
     # off
     setprop("controls/lighting/beacon",0);
     setprop("controls/lighting/nav-lights",0);
-  } elsif (knob == 1) {
+  } elsif (knob == 1 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
     # anti collison (beacon)
     setprop("controls/lighting/beacon",1);
     setprop("controls/lighting/nav-lights",0);
     navblinktimer.stop();
-  } elsif (knob == 2) {
+  } elsif (knob == 2 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
     # nav and anti coll
     setprop("controls/lighting/beacon",1);
     setprop("controls/lighting/nav-lights",1);
     navblinktimer.stop();
-  } elsif (knob == 3) {
+  } elsif (knob == 3 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
     # nav blink
     setprop("controls/lighting/beacon",0);
     navblinktimer.start();
-  } elsif (knob == 4) {
+  } elsif (knob == 4 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
     # nav
     navblinktimer.stop();
     setprop("controls/lighting/beacon",0);
     setprop("controls/lighting/nav-lights",1);
   }
   var ldg = getprop("controls/lighting/ldg");
-  if (ldg == 0) {
+  if (ldg == 0 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
     # no gear light
     setprop("controls/lighting/taxi-light",0);
     setprop("controls/lighting/landing-lights",0);
   }
-  if (ldg == -1) {
-    setprop("controls/lighting/taxi-light",0);
+  if (ldg == -1 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
+    setprop("controls/lighting/taxi-light",1);
     setprop("controls/lighting/landing-lights",1);
   }
-  if (ldg == 1) {
+  if (ldg == 1 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
     setprop("controls/lighting/taxi-light",1);
     setprop("controls/lighting/landing-lights",0);
   }
   if (getprop("f22/throttler") > 0.3 and getprop("controls/gear/brake-parking") == 1) {
     setprop("controls/gear/brake-parking",0);
   }
+  if (getprop("controls/hooksw") == 1 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
+    setprop("fdm/jsbsim/systems/hook/tailhook-cmd-norm",0);
+  }
+  if (getprop("controls/hooksw") == 0 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
+    setprop("fdm/jsbsim/systems/hook/tailhook-cmd-norm",1);
+  }
+  if (getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0) {
+    # your cooked at night bro :skull:
+    setprop("controls/lighting/taxi-light",0);
+    setprop("controls/lighting/landing-lights",0);
+    navblinktimer.stop();
+    setprop("controls/lighting/beacon",0);
+    setprop("controls/lighting/nav-lights",0);
+    setprop("controls/lighting/actualform",0.0);
+  }
 }
 
 
-
+var fastknobcheck = func() {
+  var power = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
+  var consoleknob = getprop("controls/lighting/consoleknob");
+  var form = getprop("controls/lighting/formation-norm");
+  if (power == 1) {
+    setprop("controls/lighting/instruments-norm",consoleknob);
+    setprop("controls/lighting/actualform",form);
+  } else {
+    setprop("controls/lighting/instruments-norm",0);
+    setprop("controls/lighting/actualform",0);
+  }
+}
 
 #
 # APU Startup Sequencing
@@ -1606,6 +1638,10 @@ engsmoke.start();
 
 extlightknobtimer = maketimer(0.2,knobcheck);
 extlightknobtimer.start();
+fastextlightknobtimer = maketimer(0,fastknobcheck);
+fastextlightknobtimer.start();
+
+
 guntimer = maketimer(0.1,gunsightupdate);
 guntimer.start();
 loadtimer = maketimer(1.5,stringstore);
@@ -1718,6 +1754,7 @@ var gearlighting = func(){
   if (getprop("controls/gear/gear-down") == 0) {
     setprop("controls/lighting/landing-lights",0);
     setprop("controls/lighting/taxi-light",0);
+    setprop("controls/lighting/ldg",0);
     setprop("sim/model/clicksmall",!getprop("sim/model/clicksmall"));
   }
 }
