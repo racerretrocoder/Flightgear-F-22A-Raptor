@@ -17,17 +17,24 @@
   </greater-than>
   
 <less-than>
-         <property>sim/multiplay/generic/float[30]</property>
-           <value>1</value>
+    <property>sim/multiplay/generic/float[30]</property>
+    <value>1</value>
 </less-than>
+<less-than>
+    <property>orientation/pitch-deg</property>
+    <value>30</value>
+</less-than>
+<greater-than>
+    <property>orientation/pitch-deg</property>
+    <value>-30</value>
+</greater-than>
         </condition>
         <volume>
             <property>sim/multiplay/generic/float[31]</property>
             <offset>1</offset>
             <factor>0</factor>
             <min>0.0</min>
-            <max>1.0</max>
-
+            <max>0.5</max>
         </volume>
            <pitch>
     	<property>sim/multiplay/generic/float[31]</property>
@@ -58,6 +65,14 @@
          <property>sim/multiplay/generic/float[30]</property>
            <value>1</value>
 </less-than>
+<less-than>
+    <property>orientation/pitch-deg</property>
+    <value>30</value>
+</less-than>
+<greater-than>
+    <property>orientation/pitch-deg</property>
+    <value>-30</value>
+</greater-than>
         </condition>
         <volume>
             <property>sim/multiplay/generic/float[31]</property>
@@ -133,7 +148,6 @@
    <volume>
     <property>sim/multiplay/generic/float[31]</property>
     <factor>1</factor>
-    <offset></offset>
    </volume>
     <pitch>
         <property>sim/multiplay/generic/float[31]</property>
@@ -144,6 +158,7 @@
         <reference-dist>600.0</reference-dist>
         <max-dist>6000.0</max-dist>
     </engine>
+    
     <guns>
       <name>gunshoot6</name>
       <mode>looped</mode>
