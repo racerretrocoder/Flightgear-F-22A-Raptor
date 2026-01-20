@@ -48,12 +48,12 @@
   <character-size type="double">0.0055</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>-0.001</y-m>
+   <y-m>-0.005</y-m>
    <z-m>0.057</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
-  <text type="string">N1</text>
+  <text type="string">RPM</text>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
@@ -63,12 +63,12 @@
   <character-size type="double">0.0055</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>-0.001</y-m>
+   <y-m>-0.005</y-m>
    <z-m>0.024</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
-  <text type="string">N2</text>
+  <text type="string">EGT</text>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
@@ -120,7 +120,7 @@
    <type type="string">number-value</type>
    <format type="string">%5.f</format>
   <truncate type="bool">true</truncate>
-  <property>/engines/engine/n2</property>
+  <property>/engines/engine/egt-degf</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
@@ -138,7 +138,7 @@
    <type type="string">number-value</type>
    <format type="string">%5.f</format>
   <truncate type="bool">true</truncate>
-  <property>/engines/engine[1]/n2</property>
+  <property>/engines/engine[1]/egt-degf</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
@@ -204,7 +204,7 @@
  <animation>
   <type>rotate</type>
   <object-name>e1n2</object-name>
-  <property>/engines/engine[0]/n2</property>
+  <property>/fdm/jsbsim/fcs/engine0-egt</property>
   <factor>2.56</factor> <!-- The rotation in degrees... kinda -->
   <axis>
   <object-name>e1n2-axis</object-name>
@@ -213,7 +213,7 @@
  <animation>
   <type>rotate</type>
   <object-name>e2n2</object-name>
-  <property>/engines/engine[1]/n2</property>
+  <property>/fdm/jsbsim/fcs/engine1-egt</property>
   <factor>2.56</factor> <!-- The rotation in degrees... kinda -->
   <axis>
   <object-name>e2n2-axis</object-name>
