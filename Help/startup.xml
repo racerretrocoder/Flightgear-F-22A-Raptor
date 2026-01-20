@@ -55,6 +55,7 @@
             <scale>3.4667</scale>
         </marker>
         <error>
+        <wait>3</wait>
             <message>If you cant find The battery switch. Its to the right of the joystick and its labled as POWER. Set the switch to ON to continue.</message>
             <condition>
                 <not>

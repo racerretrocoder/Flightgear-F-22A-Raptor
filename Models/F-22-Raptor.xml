@@ -77,6 +77,11 @@ var smallsearch = func(cs=nil) {
 
   <path>Aircraft/F-22/Models/F-22.ac</path>
 
+
+      <model>
+          <path>Aircraft/Generic/marker.xml</path>
+      </model>
+
  <effect>
         <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
 
