@@ -366,22 +366,78 @@ fdm/jsbsim/fcs/engine-gen-spin-output
   <condition>
 
 <greater-than>
-				<property>fdm/jsbsim/fcs/elec-2</property> <!--MFD switch-->
+				<property>fdm/jsbsim/fcs/elec-2</property> 
 				<value>0.8</value>
 			</greater-than>
   </condition>
  </animation>
 
 <animation>
- <object-name>gearlgt</object-name>
+ <object-name>ngearbri</object-name>
   <type>select</type>
   <condition>
       <equals>
-				<property>gear/gear/position-norm</property> <!--MFD switch-->
+				<property>gear/gear/position-norm</property> 
 				<value>1</value>
 			</equals>
   </condition>
  </animation>
+<animation>
+ <object-name>ngeardim</object-name>
+  <type>select</type>
+  <condition>
+      <equals>
+				<property>gear/gear/position-norm</property> 
+				<value>0</value>
+			</equals>
+  </condition>
+ </animation>
+
+
+<animation>
+ <object-name>lgearbri</object-name>
+  <type>select</type>
+  <condition>
+      <equals>
+				<property>gear/gear[1]/position-norm</property> 
+				<value>1</value>
+			</equals>
+  </condition>
+ </animation>
+<animation>
+ <object-name>lgeardim</object-name>
+  <type>select</type>
+  <condition>
+      <equals>
+				<property>gear/gear[1]/position-norm</property> 
+				<value>0</value>
+			</equals>
+  </condition>
+ </animation>
+
+
+<animation>
+ <object-name>rgearbri</object-name>
+  <type>select</type>
+  <condition>
+      <equals>
+				<property>gear/gear[2]/position-norm</property> 
+				<value>1</value>
+			</equals>
+  </condition>
+ </animation>
+<animation>
+ <object-name>rgeardim</object-name>
+  <type>select</type>
+  <condition>
+      <equals>
+				<property>gear/gear[2]/position-norm</property> 
+				<value>0</value>
+			</equals>
+  </condition>
+ </animation>
+
+
 
 
 
@@ -6309,5 +6365,130 @@ Eject handle
 	</axis>
 </animation>
 
+
+<!--Lighting-->
+
+	<model>
+ <name>floodl</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>-5.7</x-m>
+			<y-m>-0.2</y-m>
+			<z-m>0.14</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>floodlight1</name>
+   <power-source>controls/lighting/actualflood</power-source>
+   <direction>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+   </direction>
+   <ambient>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+   </ambient>
+   <specular>
+    <r>0.1</r>
+    <g>0.1</g>
+    <b>0.1</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
+	<model>
+ <name>floodR</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>-5.7</x-m>
+			<y-m>0.2</y-m>
+			<z-m>0.14</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>floodlight2</name>
+   <power-source>controls/lighting/actualflood</power-source>
+   <direction>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+   </direction>
+   <ambient>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+   </ambient>
+   <specular>
+    <r>0.1</r>
+    <g>0.1</g>
+    <b>0.1</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
+
+
+	<model>
+ <name>floodl1</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>-5.7</x-m>
+			<y-m>-0.2</y-m>
+			<z-m>0.14</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>floodlight11</name>
+   <power-source>controls/lighting/actualflood</power-source>
+   <direction>
+    <x>-1</x>
+    <y>0</y>
+    <z>1</z>
+   </direction>
+   <ambient>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+   </ambient>
+   <specular>
+    <r>0.0</r>
+    <g>0.0</g>
+    <b>0.0</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
+	<model>
+ <name>floodR1</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>-5.7</x-m>
+			<y-m>0.2</y-m>
+			<z-m>0.14</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>floodlight21</name>
+   <power-source>controls/lighting/actualflood</power-source>
+   <direction>
+    <x>-1</x>
+    <y>0</y>
+    <z>1</z>
+   </direction>
+   <ambient>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+   </ambient>
+   <specular>
+    <r>0.0</r>
+    <g>0.0</g>
+    <b>0.0</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
 
 </PropertyList>

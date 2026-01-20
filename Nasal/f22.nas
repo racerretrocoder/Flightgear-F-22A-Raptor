@@ -216,15 +216,20 @@ var crashdetect = func {
     }
 }
 
+
+# External and Internal Lighting
+
 var navblink = func() {
   var nav = getprop("controls/lighting/nav-lights");
   setprop("controls/lighting/nav-lights",!nav);
   print("*blink*");
 }
  
+
+
 navblinktimer = maketimer(0.5,navblink);
 setprop("controls/lighting/extlight",0);
-# External Lighting
+
 var knobcheck = func() {
   var knob = getprop("controls/lighting/extlight");
   if (knob == 0 and getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 1) {
@@ -290,12 +295,15 @@ var fastknobcheck = func() {
   var power = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
   var consoleknob = getprop("controls/lighting/consoleknob");
   var form = getprop("controls/lighting/formation-norm");
+  var flood = getprop("controls/lighting/flood-norm");
   if (power == 1) {
     setprop("controls/lighting/instruments-norm",consoleknob);
     setprop("controls/lighting/actualform",form);
+    setprop("controls/lighting/actualflood",flood);
   } else {
     setprop("controls/lighting/instruments-norm",0);
     setprop("controls/lighting/actualform",0);
+    setprop("controls/lighting/actualflood",0);
   }
 }
 

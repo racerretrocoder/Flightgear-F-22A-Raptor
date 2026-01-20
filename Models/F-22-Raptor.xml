@@ -47,12 +47,12 @@ var smallsearch = func(cs=nil) {
 		var mpid = smallsearch(callsign);
 		var string5 = getprop("ai/models/multiplayer[" ~ mpid ~ "]/sim/multiplay/generic/string[5]");
  		var thesplit = split(":", string5);
-		print("size of thesplit: "~size(thesplit));
-		print("Grab pylon number");
+		#size of thesplit: "~size(thesplit));
+		#Grab pylon number");
 		var pylon = thesplit[0];
-		print("setting weight");
+		#setting weight");
 		setprop("ai/models/multiplayer[" ~ mpid ~ "]/sim/weight[" ~ pylon ~ "]/selected",thesplit[1]);
-		print("setting armament");
+		#setting armament");
 		setprop("ai/models/multiplayer[" ~ mpid ~ "]/controls/armament/station[" ~ pylon ~ "]/release",num(thesplit[3]));
 		#self.getNode("sim/weight[" ~ pylon ~ "]/selected",1).setValue(thesplit[1]); These is acting strange...
 		#self.getNode("controls/armament/station[" ~ pylon ~ "]/release",1).setValue(num(thesplit[3]));
