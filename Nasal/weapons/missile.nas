@@ -699,7 +699,13 @@ broddamage: func (cs,dist,msl) {
     notifications.hitBridgedTransmitter.NotifyAll(msg);
     damage.damageLog.push(sprintf("You hit "~cs~" with "~msl~" at %.1f meters", dist));
 },
-
+      #var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(53));
+      #msg.RelativeAltitude = 0;
+      #msg.Bearing = 90;
+      #msg.Distance = 0.1;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
+      #msg.RemoteCallsign = "Morphex";
+      #notifications.hitBridgedTransmitter.NotifyAll(msg);
+      #damage.damageLog.push(sprintf("You hit "~cs~" with "~msl~" at %.1f meters", dist));
 
 #setprop("controls/armament/pos/lat",me.coord.lat());
 #setprop("controls/armament/pos/lon",me.coord.lon());

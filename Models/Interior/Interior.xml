@@ -114,6 +114,7 @@ TODO: make the cockpit black like the real thing  DONE! -Fully Revamped
    <object-name>a</object-name>
     <object-name>dtc</object-name>
     <object-name>rect</object-name>
+    <object-name>rect99</object-name>
       <object-name>bt</object-name>
          <object-name>RFCR</object-name>
             <object-name>CFCR</object-name>
@@ -1486,7 +1487,8 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 	<type>rotate</type>
 	<object-name>apustart</object-name>
 	<property>controls/electric/apustartpos</property>
-	<factor>-20</factor>
+	<factor>20</factor>
+  <offset-deg>20</offset-deg>
 	<axis>
 	<object-name>apustart-axis</object-name>
 	</axis>
@@ -1795,9 +1797,10 @@ New: Refuel in air switch.
 
 
 
+
 <animation>
         <type>knob</type>
-    <object-name>REFUELSWITCH</object-name>
+    <object-name>aar</object-name>
         <value>0.0</value> <!-- or property as usual for rotate animation -->
 
         <axis>
@@ -1817,7 +1820,7 @@ New: Refuel in air switch.
             <binding>
                 <command>set-tooltip</command>
                 <tooltip-id>airtoair</tooltip-id>
-                <label>Air to Air Refuel Switch</label>
+                <label>Air to Air Refueling</label>
             </binding>
         </hovered>
   <increase>
@@ -1838,17 +1841,64 @@ New: Refuel in air switch.
 
 <animation>
 		<type>rotate</type>
-		<object-name>REFUELSWITCH</object-name>
+		<object-name>aar</object-name>
 		<property>controls/refuel/Switch</property>
-		<factor>-20</factor>
-		<center>
-			<x-m> -5.33731 </x-m>
-			<y-m> -0.358293 </y-m>
-			<z-m> -0.219702 </z-m>
-		</center>
-		<axis>
-			<y>1</y>
-		</axis>
+		<factor>40</factor>
+        <axis>
+<object-name>aar-axis</object-name>
+        </axis>
+	</animation>
+
+
+<animation>
+        <type>knob</type>
+    <object-name>tanks</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/refuel/tanks</property>
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>airtoair</tooltip-id>
+                <label>AAR Tank Selector</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+
+<animation>
+		<type>rotate</type>
+		<object-name>tanks</object-name>
+		<property>controls/refuel/tanks</property>
+		<factor>40</factor>
+        <axis>
+<object-name>tanks-axis</object-name>
+        </axis>
 	</animation>
 
 <!--
@@ -2019,17 +2069,10 @@ New: Refuel in air switch.
         <object-name>jfsStartR</object-name>
         <property>/f22/gen2</property>
         <offset-deg>0</offset-deg>
-        <factor>-40</factor>
+        <factor>40</factor>
         <axis>
-            <x>0.0</x>
-            <y>1.0</y>
-            <z>0.0</z>
+<object-name>gen-axis</object-name>
         </axis>
-        <center>
-            <x-m>-5.46851</x-m>
-            <y-m> -0.29151 </y-m>
-            <z-m>-0.251911</z-m>
-        </center>
     </animation>
 
 <animation>
@@ -2074,17 +2117,10 @@ New: Refuel in air switch.
         <object-name>jfsStartL</object-name>
         <property>/f22/gen1</property>
         <offset-deg>0</offset-deg>
-        <factor>-40</factor>
+        <factor>40</factor>
         <axis>
-            <x>0.0</x>
-            <y>1.0</y>
-            <z>0.0</z>
+<object-name>gen-axis</object-name>
         </axis>
-        <center>
-            <x-m> -5.46839 </x-m>
-            <y-m> -0.306569 </y-m>
-            <z-m> -0.246915 </z-m>
-        </center>
     </animation>
 
 
@@ -2342,6 +2378,251 @@ New: Refuel in air switch.
      </binding>
         </action>
     </animation>
+
+<animation>
+        <type>rotate</type>
+        <object-name>consoleknob</object-name>
+        <property>controls/lighting/instruments-norm</property>
+        <offset-deg>30</offset-deg>
+        <factor>270</factor>
+        <axis>
+        <object-name>consoleknob-axis</object-name>
+        </axis>
+
+    </animation>
+
+
+<animation>
+        <name>Flood knob</name>
+        <type>knob</type>
+        <object-name>flood</object-name>
+        <property>controls/lighting/flood-norm</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m>
+			<y-m>0.027</y-m>
+			<z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>controls/lighting/flood-norm</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+    </animation>
+
+<animation>
+        <type>rotate</type>
+        <object-name>flood</object-name>
+        <property>controls/lighting/flood-norm</property>
+        <offset-deg>30</offset-deg>
+        <factor>270</factor>
+        <axis>
+        <object-name>flood-axis</object-name>
+        </axis>
+    </animation>
+
+<animation>
+        <name>instpnl knob</name>
+        <type>knob</type>
+        <object-name>instpnl</object-name>
+        <property>controls/lighting/instpnl</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m>
+			<y-m>0.027</y-m>
+			<z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>controls/lighting/instpnl</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+    </animation>
+
+<animation>
+        <type>rotate</type>
+        <object-name>instpnl</object-name>
+        <property>controls/lighting/instpnl</property>
+        <offset-deg>30</offset-deg>
+        <factor>270</factor>
+        <axis>
+        <object-name>instpnl-axis</object-name>
+        </axis>
+    </animation>
+
+
+<animation>
+        <name>mfd knob</name>
+        <type>knob</type>
+        <object-name>mfdlt</object-name>
+        <property>controls/lighting/mfd</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m>
+			<y-m>0.027</y-m>
+			<z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>controls/lighting/mfd</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+    </animation>
+
+<animation>
+        <type>rotate</type>
+        <object-name>mfdlt</object-name>
+        <property>controls/lighting/mfd</property>
+        <offset-deg>30</offset-deg>
+        <factor>270</factor>
+        <axis>
+        <object-name>mfdlt-axis</object-name>
+        </axis>
+    </animation>
+
+
+
+
+
+<!--exterior panel-->
+
+<animation>
+        <name>form knob</name>
+        <type>knob</type>
+        <object-name>form</object-name>
+        <property>controls/lighting/formation-norm</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m>
+			<y-m>0.027</y-m>
+			<z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>controls/lighting/formation-norm</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+    </animation>
+
+<animation>
+        <type>rotate</type>
+        <object-name>form</object-name>
+        <property>controls/lighting/formation-norm</property>
+        <offset-deg>30</offset-deg>
+        <factor>270</factor>
+        <axis>
+        <object-name>form-axis</object-name>
+        </axis>
+    </animation>
+
+
+<animation>
+        <name>Floo2d knob</name>
+        <type>knob</type>
+        <object-name>knb2</object-name>
+        <property>controls/lighting/extknob</property>
+        <factor>1</factor>
+                <axis>
+            <object-name>extltmain-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/lighting/extknob</property>
+                <value>0</value>
+                <value>1</value>
+                <value>2.6</value> 
+                <value>4</value>
+                <value>5</value>             
+                <wrap>false</wrap>
+            </binding>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/lighting/extlight</property>
+                <value>0</value>
+                <value>1</value>
+                <value>2</value> 
+                <value>3</value>
+                <value>4</value>             
+                <wrap>false</wrap>
+            </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </action>
+    </animation>
+
+
+<animation>
+        <type>rotate</type>
+        <object-name>knb2</object-name>
+        <object-name>rect99</object-name>
+        <property>controls/lighting/extknob</property>
+        <offset-deg>30</offset-deg>
+        <factor>60</factor>
+        <axis>
+        <object-name>extltmain-axis</object-name>
+        </axis>
+    </animation>
+
+
 
 
 <!-- Comms -->

@@ -2099,6 +2099,12 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             <path>messages/enabled</path>
         </aircraft-data>
 
+		      <tutorials>
+          <tutorial include="Help/startup.xml"/>
+         <!-- <tutorial include="Help/shutdown.xml"/>
+          <tutorial include="/Missions/oilrig-landing.xml"/>-->
+      </tutorials>
+
 		</sim>
 
 <messages>

@@ -3,15 +3,29 @@
 # Hide the hud when not in the cockpit view
 setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
 # Init some vars
+setprop("f22/mslview",0);
 setprop("f22/aga",0);
 setprop("f22/age",0);
 setprop("f22/obogs/mixture",0);
 setprop("f22/obogs/mode",0);
 setprop("f22/obogs/main",0);
+setprop("controls/refuel/tanks",0);
+# Floats
+setprop("controls/lighting/mfd",0.1);
+setprop("controls/lighting/mfd",0);
+setprop("controls/lighting/instpnl",0.1);
+setprop("controls/lighting/instpnl",0);
+setprop("controls/lighting/flood-norm",0.1);
+setprop("controls/lighting/flood-norm",0);
+setprop("controls/lighting/formation-norm",0.1);
+setprop("controls/lighting/formation-norm",0);
+setprop("controls/lighting/extknob",0);
 var NM2FT = 6076;
+setprop("controls/switches/airsource",0);
 setprop("f22/ejection/lon",0);
 setprop("f22/ejection/lat",0);
 setprop("f22/ejection/alt",1000);
+
 # ground opps
 setprop("f22/ground/slr-cover",0);
 setprop("f22/ground/apu-cover",0);
@@ -195,6 +209,42 @@ var crashdetect = func {
     }
 }
 
+var navblink = func() {
+  var nav = getprop("controls/lighting/nav-lights");
+  setprop("controls/lighting/nav-lights",!nav);
+  print("*blink*");
+}
+ 
+navblinktimer = maketimer(0.5,navblink);
+setprop("controls/lighting/extlight",0);
+# External Lighting
+var knobcheck = func() {
+  var knob = getprop("controls/lighting/extlight");
+  if (knob == 0) {
+    # off
+    setprop("controls/lighting/beacon",0);
+    setprop("controls/lighting/nav-lights",0);
+  } elsif (knob == 1) {
+    # anti collison (beacon)
+    setprop("controls/lighting/beacon",1);
+    setprop("controls/lighting/nav-lights",0);
+    navblinktimer.stop();
+  } elsif (knob == 2) {
+    # nav and anti coll
+    setprop("controls/lighting/beacon",1);
+    setprop("controls/lighting/nav-lights",1);
+    navblinktimer.stop();
+  } elsif (knob == 3) {
+    # nav blink
+    setprop("controls/lighting/beacon",0);
+    navblinktimer.start();
+  } elsif (knob == 4) {
+    # nav
+    navblinktimer.stop();
+    setprop("controls/lighting/beacon",0);
+    setprop("controls/lighting/nav-lights",1);
+  }
+}
 
 
 
@@ -1536,7 +1586,8 @@ updatehudtimer.start();
 engsmoke = maketimer(0.1,engint);
 engsmoke.start();
 
-
+extlightknobtimer = maketimer(0.2,knobcheck);
+extlightknobtimer.start();
 guntimer = maketimer(0.1,gunsightupdate);
 guntimer.start();
 loadtimer = maketimer(1.5,stringstore);
@@ -1572,11 +1623,19 @@ consoletimer = maketimer(0,consoleslight);
 # Shake
 shake_timer = maketimer(0.0001, shake);
 shake_timer2 = maketimer(0.0001, shake2);
+var tutmessage = func() {
+  setprop("sim/messages/atc","Welcome aboard the F-22A Raptor, Need help? Check out Help --> Tutorials");
+  tuttimer.stop();
+}
+
+
+tuttimer = maketimer(5,tutmessage);
 
 
 
 setlistener("sim/signals/fdm-initialized", func {
 # Spawned in/went to location
+tuttimer.start();
 K14.initSightComputer();
 headupdate.start();
 shake_timer.start();
@@ -1646,6 +1705,15 @@ var gearlighting = func(){
 }
 setlistener("/controls/gear/gear-down",gearlighting);
 
+var tutorialinit = func(type) {
+  if (type == "startup") {
+    print("Startup Tutorial Started");
+    emu.engstopr();
+    emu.engstopl();
+    setprop("controls/electric/battswitch",0);
+    setprop("controls/electric/battswitch-pos",-1);
+  }
+}
 
 var flight_debug = func(){
   screen.property_display.add("/controls/flight/elevator");

@@ -60,6 +60,7 @@ var smallsearch = func(cs=nil) {
 	var stringtimer = maketimer(1,stringparse);
 	stringtimer.start();
 	print("F-22A Loaded in");
+	setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/ground/pilot",1);
 
     ]]>
 
