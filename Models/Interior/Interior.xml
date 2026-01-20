@@ -1793,7 +1793,170 @@ New: Refuel in air switch.
 -->
 
 
+<animation>
+        <type>knob</type>
+    <object-name>pbrake</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
 
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/gear/brake-parking</property>
+                <value>0</value>
+                <value>1</value>             
+                
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>airtoair</tooltip-id>
+                <label>Parking Brake</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+
+<animation>
+		<type>rotate</type>
+		<object-name>pbrake</object-name>
+		<property>controls/gear/brake-parking</property>
+		<factor>-50</factor>
+        <axis>
+<object-name>pbrake-axis</object-name>
+        </axis>
+	</animation>
+
+
+
+
+
+
+<animation>
+        <type>knob</type>
+    <object-name>ldglt</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/lighting/ldg</property>
+                <value>-1</value> 
+                <value>0</value>
+                <value>1</value>             
+                
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>airtoair</tooltip-id>
+                <label>Landing Gear Lights</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+
+<animation>
+		<type>rotate</type>
+		<object-name>ldglt</object-name>
+		<property>controls/lighting/ldg</property>
+		<factor>40</factor>
+        <axis>
+<object-name>ldglt-axis</object-name>
+        </axis>
+	</animation>
+
+
+
+
+
+<animation>
+        <type>knob</type>
+    <object-name>flcsflap</object-name>
+        <value>0.0</value> <!-- or property as usual for rotate animation -->
+
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/flcs/flap</property>
+                <value>0</value>
+                <value>1</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>airtoair</tooltip-id>
+                <label>Auto Flaps Extend / Normal</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+
+<animation>
+		<type>rotate</type>
+		<object-name>aar</object-name>
+		<property>controls/refuel/Switch</property>
+		<factor>40</factor>
+        <axis>
+<object-name>aar-axis</object-name>
+        </axis>
+	</animation>
 
 
 

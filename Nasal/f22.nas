@@ -20,6 +20,7 @@ setprop("controls/lighting/flood-norm",0);
 setprop("controls/lighting/formation-norm",0.1);
 setprop("controls/lighting/formation-norm",0);
 setprop("controls/lighting/extknob",0);
+setprop("controls/lighting/ldg",0);
 var NM2FT = 6076;
 setprop("controls/switches/airsource",0);
 setprop("f22/ejection/lon",0);
@@ -243,6 +244,23 @@ var knobcheck = func() {
     navblinktimer.stop();
     setprop("controls/lighting/beacon",0);
     setprop("controls/lighting/nav-lights",1);
+  }
+  var ldg = getprop("controls/lighting/ldg");
+  if (ldg == 0) {
+    # no gear light
+    setprop("controls/lighting/taxi-light",0);
+    setprop("controls/lighting/landing-lights",0);
+  }
+  if (ldg == -1) {
+    setprop("controls/lighting/taxi-light",0);
+    setprop("controls/lighting/landing-lights",1);
+  }
+  if (ldg == 1) {
+    setprop("controls/lighting/taxi-light",1);
+    setprop("controls/lighting/landing-lights",0);
+  }
+  if (getprop("f22/throttler") > 0.3 and getprop("controls/gear/brake-parking") == 1) {
+    setprop("controls/gear/brake-parking",0);
   }
 }
 
