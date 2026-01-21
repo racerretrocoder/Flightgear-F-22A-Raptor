@@ -3,6 +3,10 @@
 # Hide the hud when not in the cockpit view
 setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
 # Init some vars
+setprop("f22/fcs/extra",0);
+setprop("f22/fcs/aoalimit",90);
+setprop("f22/fcs/glimit",0);
+setprop("f22/fcsmode",0);
 setprop("f22/mslview",0);
 setprop("f22/aga",0);
 setprop("f22/age",0);
