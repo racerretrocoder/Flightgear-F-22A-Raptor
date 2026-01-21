@@ -38,60 +38,18 @@
 	 
   </animation>
 
-
-  <animation>
-    <type>rotate</type>
-    <object-name>head</object-name>
-    
-    <property>controls/flight/elevator</property>
-    <factor> -15 </factor> 
-    <center>
-      <x-m> 0.0 </x-m>
-      <y-m> 0.000 </y-m>
-      <z-m> 0.159 </z-m>
-    </center>
-    <axis>
-      <x> 0.000 </x>
-      <y> 1.000 </y>
-      <z> 0.000 </z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>rotate</type>
-    <object-name>head</object-name>
-  
-    <property>controls/flight/rudder</property>
-    <factor>-25</factor>
-    <center>
-      <x-m> 0.0 </x-m>
-      <y-m> 0.000 </y-m>
-      <z-m> 0.159 </z-m>
-    </center>
-    <axis>
-      <x> 0.000 </x>
-      <y> 0.000 </y>
-      <z> 1.000 </z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>rotate</type>
-     <object-name>head</object-name>
-   
-    <property>controls/flight/aileron</property>
-    <factor> -10.0</factor>
-    <center>
-      <x-m> 0.074 </x-m>
-      <y-m> 0.000 </y-m>
-      <z-m> 0.159 </z-m>
-    </center>
-    <axis>
-      <x> 1.000 </x>
-      <y> 0.000 </y>
-      <z> 0.000 </z>
-    </axis>
-  </animation> 
+<animation>
+<type>select</type>
+<object-name>head</object-name>      
+<condition>
+<not>
+<equals>
+<property>sim/current-view/view-number-raw</property>
+<value>105</value>
+</equals>
+</not>
+</condition>
+</animation>
 
 </PropertyList>
 

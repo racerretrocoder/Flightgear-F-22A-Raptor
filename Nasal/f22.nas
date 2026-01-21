@@ -854,6 +854,7 @@ var repair = func{
   setprop("f22/dead",0); # Show the model
   setprop("/sim/failure-manager/engines/engine/serviceable",1); # Fix the engines
   setprop("/sim/failure-manager/engines/engine[1]/serviceable",1); # Fix the engines
+  setprop("f22/canopy-jett",0);
   guns.reload();
 
 }
@@ -863,6 +864,16 @@ var repair = func{
 #eject
 
 #    
+var shooteject = func {
+  setprop("/controls/armament/selected-weapon", "eject");
+  setprop("/sim/weight[9]/selected", "eject");
+  setprop("/controls/armament/station[9]/release", 0);
+  m2000_load.SelectNextPylon();
+  var pylon = getprop("/controls/armament/missile/current-pylon");
+  m2000_load.dropLoad(pylon);
+  print("Should eject!");
+  setprop("/sim/weight[9]/selected", "none");
+}
 
 var eject = func{
 #    if (getprop("f22/ejected")==1 or !getprop("controls/seat/ejection-safety-lever")) {
@@ -870,23 +881,22 @@ var eject = func{
 #        return;
 #    }
     # ACES II activation
+    if (getprop("f22/ejected") != 0) {
+      return 1;
+    }
     print("Eject Phase one starting");
-    screen.log.write("canopy jettisoned");
+    screen.log.write("Canopy Jettisoned");
+    setprop("f22/ejected",1); # hide canopy
+    setprop("f22/canopy-jett",1);
     setprop("f22/ejection/lat",getprop("position/latitude-deg"));
     setprop("f22/ejection/lon",getprop("position/longitude-deg"));
     setprop("f22/ejection/alt",getprop("position/altitude-ft"));
-    setprop("/controls/armament/selected-weapon", "eject");
-    setprop("/sim/weight[9]/selected", "eject");
-    setprop("/controls/armament/station[9]/release", 0);
-    m2000_load.SelectNextPylon();
-    var pylon = getprop("/controls/armament/missile/current-pylon");
-    m2000_load.dropLoad(pylon);
-    print("Should eject!");
-    setprop("/sim/weight[9]/selected", "none");
-    setprop("f22/ejected",1); # hide canopy
-    setprop("/controls/engines/engine/cut-off",1); # Engines Off
-    setprop("/controls/engines/engine[2]/cut-off",1); 
-    settimer(eject2, 0.4);# this is to give the sim time to load the exterior view, so there is no stutter while seat fires and it gets stuck.
+
+    
+    setprop("/controls/engines/engine/cutoff",1); # Engines Off
+    setprop("/controls/engines/engine[1]/cutoff",1); 
+    settimer(shooteject, 0.1);
+    settimer(eject2, 0.3);# this is to give the sim time to load the exterior view, so there is no stutter while seat fires and it gets stuck.
     damage.damageLog.push("Pilot ejected!");
     print("Phase 1 done!")
 }
@@ -895,7 +905,10 @@ var eject2 = func{
   setprop("f22/ejected",2);
   setprop("/controls/flight/speedbrake",1);
   setprop("/sim/messages/atc", "Ejecting!");
-  view.setViewByIndex(105); # Ejection view
+  if (getprop("sim/current-view/view-number-raw") == 0) {
+    view.setViewByIndex(105); # Go to Ejection view when only in cockpit
+  }
+  screen.log.write("Press v (and shift-v) to change Missile Camera views, 1st Person, 3rd Person");
    # viewMissile.view_firing_missile(es);
     #setprop("sim/view[0]/enabled",0); #disabled since it might get saved so user gets no pilotview in next aircraft he flies in.
 #    settimer(func {crash.eject();},3.5);  turn off the jet if its still alive
