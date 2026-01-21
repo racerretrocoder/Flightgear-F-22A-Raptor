@@ -149,6 +149,32 @@ elsif (pg == 8){
     guns.multishotnext();
 }
 
+elsif (pg == 10) {
+    # PRF Decrease
+    print(pg);
+    # DeLRease Radar Range
+    var rng = getprop("controls/PRF/range");
+# 10,20,40,60,160,300
+if (rng == 5){
+    print("Cant decrease it anymore");
+}
+elsif (rng == 10) {
+    setprop("controls/PRF/range", 5);
+} elsif (rng == 20){
+    # InLRease it
+    setprop("controls/PRF/range", 10);
+} elsif (rng == 40){
+    # InLRease it
+    setprop("controls/PRF/range", 20);
+} elsif (rng == 60){
+    # InLRease it
+    setprop("controls/PRF/range", 40);
+} elsif (rng == 160){
+    setprop("controls/PRF/range", 60);
+} elsif (rng == 300){
+    setprop("controls/PRF/range", 160);
+}
+}
 
 elsif (pg == 2) {
     print(pg);
@@ -267,7 +293,32 @@ setprop("controls/CMS/prgmselected",1);
 elsif (pg == 8){
     guns.multishotradar();
 }
-
+elsif (pg == 10) {
+    # PRF Decrease
+    print(pg);
+    # DeLRease Radar Range
+    var rng = getprop("controls/PRF/range");
+# 10,20,40,60,160,300
+if (rng == 5){
+    setprop("controls/PRF/range", 10);
+}
+elsif (rng == 10) {
+    setprop("controls/PRF/range", 20);
+} elsif (rng == 20){
+    # InLRease it
+    setprop("controls/PRF/range", 40);
+} elsif (rng == 40){
+    # InLRease it
+    setprop("controls/PRF/range", 60);
+} elsif (rng == 60){
+    # InLRease it
+    setprop("controls/PRF/range", 160);
+} elsif (rng == 160){
+    setprop("controls/PRF/range", 300);
+} elsif (rng == 300){
+    setprop("controls/PRF/range", 300);
+}
+}
 elsif (pg == 2) {
 
     print(pg);

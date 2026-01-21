@@ -14,6 +14,47 @@
     </offsets>
   </model>
 	<!---->
+<animation>
+	<type>rotate</type>
+  <object-name>cursor</object-name>
+	<property>/controls/PRF/cursorx</property>
+	<factor>1800</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>cursor</object-name>
+  <property>/controls/PRF/cursorz</property>
+    <factor>0.128</factor> <!--1.0-->
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+<!--
+	<animation>
+		<type>translate</type>
+		<object-name>cursor</object-name>
+		<property>controls/PRF/cursorx</property>
+		<condition>
+			<not><property>instrumentation/radar/radar-standby</property></not>
+		</condition>
+		<factor>1</factor>
+		<axis><y>1</y></axis>
+	</animation>-->
+
+
 
 	 <text>
   <name>dir</name>
@@ -1094,11 +1135,11 @@
 
  <animation>
         <type>select</type>
-  <object-name>blip10</object-name>
+  <object-name>friend0</object-name>
   <object-name>text10</object-name>
         <condition>
 			<equals>
-       <property>controls/PRF/contact[10]/istracked</property>
+       <property>controls/PRF/friend[0]/istracked</property>
 				<value>1</value>
 			</equals>
         </condition>
@@ -1106,9 +1147,9 @@
 
 <animation>
 	<type>rotate</type>
-  <object-name>blip10</object-name>
+  <object-name>friend0</object-name>
   <object-name>text10</object-name>
-	<property>/controls/PRF/contact[10]/heading</property>
+	<property>/controls/PRF/friend[0]/heading</property>
 	<factor>1</factor>
 	<offset-deg>0</offset-deg>
 	<center>
@@ -1121,9 +1162,9 @@
 
 <animation>
   <type>translate</type>
-  <object-name>blip10</object-name>
+  <object-name>friend0</object-name>
   <object-name>text10</object-name>
-  <property>/controls/PRF/contact[10]/range</property>
+  <property>/controls/PRF/friend[0]/range</property>
     <factor>0.0128</factor>
   <offset-m>0</offset-m>
   <axis>
@@ -1142,7 +1183,7 @@
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
     <type type="string">text-value</type>
-    <property type="string">/controls/PRF/contact[10]/callsign</property>
+    <property type="string">/controls/PRF/friend[0]/callsign</property>
     <format type="string">%s</format> <!-- the sprintf() format to display the value -->
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
@@ -1160,11 +1201,610 @@
    <type type="string">number-value</type>
    <format type="string">%5.0f Kft</format>
   <truncate type="bool">true</truncate>
-  <property>/controls/PRF/contact[10]/alt</property>
+  <property>/controls/PRF/friend[0]/alt</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
 
 <!--Thats 10! Yipee!-->
+
+ <animation>
+        <type>select</type>
+  <object-name>friend1</object-name>
+  <object-name>text11</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/friend[1]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>friend1</object-name>
+  <object-name>text11</object-name>
+	<property>/controls/PRF/friend[1]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>friend1</object-name>
+  <object-name>text11</object-name>
+  <property>/controls/PRF/friend[1]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text11</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/friend[1]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text11</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/friend[1]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ <animation>
+        <type>select</type>
+  <object-name>friend2</object-name>
+  <object-name>text12</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/friend[2]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>friend2</object-name>
+  <object-name>text12</object-name>
+	<property>/controls/PRF/friend[2]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>friend2</object-name>
+  <object-name>text12</object-name>
+  <property>/controls/PRF/friend[2]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text12</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/friend[2]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text12</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/friend[2]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+ <animation>
+        <type>select</type>
+  <object-name>friend3</object-name>
+  <object-name>text13</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/friend[3]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>friend3</object-name>
+  <object-name>text13</object-name>
+	<property>/controls/PRF/friend[3]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>friend3</object-name>
+  <object-name>text13</object-name>
+  <property>/controls/PRF/friend[3]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text13</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/friend[3]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text13</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/friend[3]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+
+ <animation>
+        <type>select</type>
+  <object-name>friend4</object-name>
+  <object-name>text14</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/friend[4]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>friend4</object-name>
+  <object-name>text14</object-name>
+	<property>/controls/PRF/friend[4]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>friend4</object-name>
+  <object-name>text14</object-name>
+  <property>/controls/PRF/friend[4]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text14</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/friend[4]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text14</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/friend[4]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ <animation>
+        <type>select</type>
+  <object-name>friend5</object-name>
+  <object-name>text15</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/friend[5]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>friend5</object-name>
+  <object-name>text15</object-name>
+	<property>/controls/PRF/friend[5]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>friend5</object-name>
+  <object-name>text15</object-name>
+  <property>/controls/PRF/friend[5]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text15</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/friend[5]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text15</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/friend[5]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ <animation>
+        <type>select</type>
+  <object-name>friend6</object-name>
+  <object-name>text16</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/friend[6]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>friend6</object-name>
+  <object-name>text16</object-name>
+	<property>/controls/PRF/friend[6]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>friend6</object-name>
+  <object-name>text16</object-name>
+  <property>/controls/PRF/friend[6]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text16</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/friend[6]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text16</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/friend[6]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+
+ <animation>
+        <type>select</type>
+  <object-name>friend7</object-name>
+  <object-name>text17</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/friend[7]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>friend7</object-name>
+  <object-name>text17</object-name>
+	<property>/controls/PRF/friend[7]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>friend7</object-name>
+  <object-name>text17</object-name>
+  <property>/controls/PRF/friend[7]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text17</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/friend[7]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text17</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/friend[7]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+
+
+ <animation>
+        <type>select</type>
+  <object-name>friend8</object-name>
+  <object-name>text18</object-name>
+        <condition>
+			<equals>
+       <property>controls/PRF/friend[8]/istracked</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>friend8</object-name>
+  <object-name>text18</object-name>
+	<property>/controls/PRF/friend[8]/heading</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>friend8</object-name>
+  <object-name>text18</object-name>
+  <property>/controls/PRF/friend[8]/range</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+	 <text>
+  <name>text18</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">/controls/PRF/friend[8]/callsign</property>
+    <format type="string">%s</format> <!-- the sprintf() format to display the value -->
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>text18</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/friend[8]/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
 
 </PropertyList>

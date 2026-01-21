@@ -1336,25 +1336,46 @@ var timer_loop = func{
 }
 };
 
-
+setprop("controls/cursorscreen",0);
 # Radar Cursor
 setprop("controls/radar/cursorx",0);
 setprop("controls/radar/cursorz",0);
-setprop("controls/radar/cursormode",0);
+setprop("controls/PRF/cursorx",0);
+setprop("controls/PRF/cursorz",0);
 var cursor = func {
   # Check status of x and z (x and y)
-  if (getprop("controls/radar/cursor-x") == 1) {
-    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") + 0.0008);
-  }
-  if (getprop("controls/radar/cursor-x") == -1) {
-    setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") - 0.0008);
-  }
-
-  if (getprop("controls/radar/cursor-z") == 1) {
-    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") - 0.0008);
-  }
-  if (getprop("controls/radar/cursor-z") == -1) {
-    setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") + 0.0008);
+  if (getprop("controls/cursorscreen") == 0) {
+    if (getprop("controls/radar/cursor-x") == 1) {
+      setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") + 0.0008);
+    }
+    if (getprop("controls/radar/cursor-x") == -1) {
+      setprop("controls/radar/cursorx", getprop("controls/radar/cursorx") - 0.0008);
+    }
+    if (getprop("controls/radar/cursor-z") == 1) {
+      setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") - 0.0008);
+    }
+    if (getprop("controls/radar/cursor-z") == -1) {
+      setprop("controls/radar/cursorz", getprop("controls/radar/cursorz") + 0.0008);
+    }
+  } else {
+    if (getprop("controls/radar/cursor-x") == 1) {
+      setprop("controls/PRF/cursorx", getprop("controls/PRF/cursorx") + 0.0008);
+    }
+    if (getprop("controls/radar/cursor-x") == -1) {
+      setprop("controls/PRF/cursorx", getprop("controls/PRF/cursorx") - 0.0008);
+      if (getprop("controls/PRF/cursorx") > 0.2) {
+        setprop("controls/PRF/cursorx", 0);
+      }
+      if (getprop("controls/PRF/cursorx") < -0.2) {
+        setprop("controls/PRF/cursorx", 0);
+      }
+    }
+    if (getprop("controls/radar/cursor-z") == 1) {
+      setprop("controls/PRF/cursorz", getprop("controls/PRF/cursorz") - 0.0008);
+    }
+    if (getprop("controls/radar/cursor-z") == -1) {
+      setprop("controls/PRF/cursorz", getprop("controls/PRF/cursorz") + 0.0008);
+    }
   }
 }
 
