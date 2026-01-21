@@ -427,7 +427,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <system file="Systems/hook.xml"/>
  <!--<system file="Systems/holdback.xml"/>-->
  <flight_control name="FCS: F-22">
-
+<property>/f22/fcsmode</property>
 <property>/f22/gen1</property>
 <property>/f22/gen2</property>
 <property>/sim/failure-manager/engines/engine[0]/serviceable</property>
@@ -601,13 +601,38 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <!--On-->     1    0  <!--Disables G limit--> 
             </tableData>
           </table>
+</function>
 
+
+<function name="fcs/aoa-pre">  
+<product>
+<property>fcs/fbw-override</property>
+        <table>
+            <independentVar lookup="row">aero/alpha-deg</independentVar>
+            <independentVar lookup="column">/f22/fcs/aoalimit</independentVar>
+            <tableData> 
+                    10    20    30    40    50    60    70    80    90  
+              -20   1     1     1     1     1     1     1     1     1         
+              -10   1     1     1     1     1     1     1     1     1           
+              -1    1     1     1     1     1     1     1     1     1             
+               0    1     1     1     1     1     1     1     1     1              
+              10    0.1   1     1     1     1     1     1     1     1                   
+              20    0     0.1   1     1     1     1     1     1     1                     
+              30    0     0     0.1   1     1     1     1     1     1                     
+              40    0     0     0     0.1   1     1     1     1     1                    
+              50    0     0     0     0     0.1   1     1     1     1                  
+              60    0     0     0     0     0     0.1   1     1     1                
+              70    0     0     0     0     0     0     0.1   1     1              
+              80    0     0     0     0     0     0     0     0.1   1
+              89    0     0     0     0     0     0     0     0     0.1  
+              90    0     0     0     0     0     0     0     0     0   
+            </tableData>
+          </table>
+      </product>
    </function>
 
 
 <function name="fcs/elevator-g-limit">  
-    <product>
-      <property>fcs/fbw-override</property> <!--if its Zero. Itll Cancel out the glimit, Making this function output 0-->
     <table>
             <independentVar lookup="row">/accelerations/pilot-gdamped</independentVar>
             <tableData>   
@@ -616,7 +641,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
               11.5     0 
             </tableData>
           </table>
-</product>
    </function>
 
 
@@ -695,6 +719,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
       <function name="fcs/Elev-pos-norm-limit-sum-g">  <!--BOTH Limiters-->
 <product>
+      <property>fcs/aoa-pre</property>
       <property>fcs/elevator-g-limit</property>
       <property>fcs/Elev-pos-norm-limit-sum</property>
 </product>
@@ -708,12 +733,15 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
 
-   <function name="fcs/Elev-pos-norm-g-limit">  <!--Main Elevator POS with G Limit-->
+   <function name="fcs/Elev-pos-norm-g-limit">  <!--For thrust vectoring-->
 <product>
+      <property>fcs/aoa-pre</property>
       <property>fcs/elevator-g-limit</property>
       <property>fcs/elevator-cmd-norm</property>
 </product>
    </function>
+
+
 
   <function name="fcs/ail-pos-norm-limit-sum-main">  <!--Main Elevator POS with Limit-->
 <product>

@@ -64,7 +64,8 @@ var manualstartr = func {
 
 
 var engstart = func {
-   
+   setprop("f22/gen1",1);
+   setprop("f22/gen2",1);
    settimer(eng1start, 2);
    settimer(eng2start, 2);
    settimer(battery, 36);
