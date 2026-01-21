@@ -17,8 +17,6 @@
   
   <animation>
     <type>material</type>
-    <object-name>20</object-name>
-    <object-name>40</object-name>
     <object-name>+</object-name>
     <object-name>-</object-name>
     <object-name>multi0</object-name>
@@ -65,7 +63,7 @@
 		</axis>
 	</animation>
 	
-	<!-- radar  range -->
+	<!-- radar  range 
 	<animation>
 	 <type>select</type>
 	 <object-name>20</object-name>
@@ -86,7 +84,7 @@
 				<value>40</value>
 		 	</equals>	
 		</condition>
- </animation>
+ </animation>-->
  
  <!-- radar dots -->
  <animation>

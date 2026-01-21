@@ -1104,15 +1104,15 @@
 
         </condition>
     </animation>
-
+<!--
   <animation>
         <type>select</type>
         <object-name>TWS2</object-name>
-        
+
 		<condition>
 			<property>instrumentation/radar2/wcs-mode/tws-auto</property>
 		</condition>
-    </animation>
+    </animation>-->
 
 <!--Range Numbers-->
 	 <text>
@@ -1427,7 +1427,7 @@
 	</animation>
 -->
 
-
+<!--
 	<animation>
 		<type>select</type>
 		<object-name>stand-by</object-name>
@@ -1448,7 +1448,7 @@
 		<condition>
 			<property>instrumentation/radar2/wcs-mode/tws-auto</property>
 		</condition>
-	</animation>
+	</animation>-->
 	<animation>
 		<type>select</type>
 		<object-name>az-field-120</object-name>
@@ -1503,7 +1503,7 @@
 
 
 
-
+<!--
 	<animation>
 		<type>textranslate</type>
 		<object-name>miles-drum-1</object-name>
@@ -1534,7 +1534,7 @@
 			</greater-than>
 		</condition>
 	</animation>
-
+-->
 
 
 
@@ -1544,9 +1544,9 @@
 	<MP1>
 		<group-name>MP1</group-name>
 		<hdg-name>MP1hdg</hdg-name>
-		<alt0-name>MP1alt0</alt0-name>
-		<alt1-name>MP1alt1</alt1-name>
-		<alt2-name>MP1alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP1symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[0]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[0]/bearing-deg</bearing-deg>
@@ -1724,9 +1724,9 @@
 	<MP2> <!--Group MP2 -->
 		<group-name>MP2</group-name>
 		<hdg-name>MP2hdg</hdg-name>
-		<alt0-name>MP2alt0</alt0-name>
-		<alt1-name>MP2alt1</alt1-name>
-		<alt2-name>MP2alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP2symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[1]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[1]/bearing-deg</bearing-deg>
@@ -1904,9 +1904,9 @@
 	<MP3> <!--Group MP3 -->
 		<group-name>MP3</group-name>
 		<hdg-name>MP3hdg</hdg-name>
-		<alt0-name>MP3alt0</alt0-name>
-		<alt1-name>MP3alt1</alt1-name>
-		<alt2-name>MP3alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP3symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[2]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[2]/bearing-deg</bearing-deg>
@@ -2085,9 +2085,9 @@
 	<MP4> <!--Group MP4 -->
 		<group-name>MP4</group-name>
 		<hdg-name>MP4hdg</hdg-name>
-		<alt0-name>MP4alt0</alt0-name>
-		<alt1-name>MP4alt1</alt1-name>
-		<alt2-name>MP4alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP4symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[3]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[3]/bearing-deg</bearing-deg>
@@ -2267,9 +2267,9 @@
 	<MP5> <!--Group MP5 -->
 		<group-name>MP5</group-name>
 		<hdg-name>MP5hdg</hdg-name>
-		<alt0-name>MP5alt0</alt0-name>
-		<alt1-name>MP5alt1</alt1-name>
-		<alt2-name>MP5alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP5symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[4]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[4]/bearing-deg</bearing-deg>
@@ -2449,9 +2449,9 @@
 	<MP6> <!--Group MP6 -->
 		<group-name>MP6</group-name>
 		<hdg-name>MP6hdg</hdg-name>
-		<alt0-name>MP6alt0</alt0-name>
-		<alt1-name>MP6alt1</alt1-name>
-		<alt2-name>MP6alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP6symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[5]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[5]/bearing-deg</bearing-deg>
@@ -2630,9 +2630,9 @@
 	<MP7> <!--Group MP7 -->
 		<group-name>MP7</group-name>
 		<hdg-name>MP7hdg</hdg-name>
-		<alt0-name>MP7alt0</alt0-name>
-		<alt1-name>MP7alt1</alt1-name>
-		<alt2-name>MP7alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP7symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[6]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[6]/bearing-deg</bearing-deg>
@@ -2811,9 +2811,9 @@
 	<MP8> <!--Group MP8 -->
 		<group-name>MP8</group-name>
 		<hdg-name>MP8hdg</hdg-name>
-		<alt0-name>MP8alt0</alt0-name>
-		<alt1-name>MP8alt1</alt1-name>
-		<alt2-name>MP8alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP8symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[7]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[7]/bearing-deg</bearing-deg>
@@ -2993,9 +2993,9 @@
 	<MP9> <!--Group MP9 -->
 		<group-name>MP9</group-name>
 		<hdg-name>MP9hdg</hdg-name>
-		<alt0-name>MP9alt0</alt0-name>
-		<alt1-name>MP9alt1</alt1-name>
-		<alt2-name>MP9alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP9symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[8]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[8]/bearing-deg</bearing-deg>
@@ -3174,9 +3174,9 @@
 	<MP10> <!--Group MP10 -->
 		<group-name>MP10</group-name>
 		<hdg-name>MP10hdg</hdg-name>
-		<alt0-name>MP10alt0</alt0-name>
-		<alt1-name>MP10alt1</alt1-name>
-		<alt2-name>MP10alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP10symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[9]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[9]/bearing-deg</bearing-deg>
@@ -3356,9 +3356,9 @@
 	<MP11> <!--Group MP11 -->
 		<group-name>MP11</group-name>
 		<hdg-name>MP11hdg</hdg-name>
-		<alt0-name>MP11alt0</alt0-name>
-		<alt1-name>MP11alt1</alt1-name>
-		<alt2-name>MP11alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP11symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[10]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[10]/bearing-deg</bearing-deg>
@@ -3538,9 +3538,9 @@
 	<MP12> <!--Group MP12 -->
 		<group-name>MP12</group-name>
 		<hdg-name>MP12hdg</hdg-name>
-		<alt0-name>MP12alt0</alt0-name>
-		<alt1-name>MP12alt1</alt1-name>
-		<alt2-name>MP12alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP12symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[11]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[11]/bearing-deg</bearing-deg>
@@ -3719,9 +3719,9 @@
 	<MP13> <!--Group MP13 -->
 		<group-name>MP13</group-name>
 		<hdg-name>MP13hdg</hdg-name>
-		<alt0-name>MP13alt0</alt0-name>
-		<alt1-name>MP13alt1</alt1-name>
-		<alt2-name>MP13alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP13symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[12]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[12]/bearing-deg</bearing-deg>
@@ -3898,9 +3898,9 @@
 	<MP14> <!--Group MP14 -->
 		<group-name>MP14</group-name>
 		<hdg-name>MP14hdg</hdg-name>
-		<alt0-name>MP14alt0</alt0-name>
-		<alt1-name>MP14alt1</alt1-name>
-		<alt2-name>MP14alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP14symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[13]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[13]/bearing-deg</bearing-deg>
@@ -4078,9 +4078,9 @@
 	<MP15> <!--Group MP15 -->
 		<group-name>MP15</group-name>
 		<hdg-name>MP15hdg</hdg-name>
-		<alt0-name>MP15alt0</alt0-name>
-		<alt1-name>MP15alt1</alt1-name>
-		<alt2-name>MP15alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP15symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[14]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[14]/bearing-deg</bearing-deg>
@@ -4258,9 +4258,9 @@
 	<MP16> <!--Group MP16 -->
 		<group-name>MP16</group-name>
 		<hdg-name>MP16hdg</hdg-name>
-		<alt0-name>MP16alt0</alt0-name>
-		<alt1-name>MP16alt1</alt1-name>
-		<alt2-name>MP16alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP16symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[15]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[15]/bearing-deg</bearing-deg>
@@ -4438,9 +4438,9 @@
 	<MP17> <!--Group MP17 -->
 		<group-name>MP17</group-name>
 		<hdg-name>MP17hdg</hdg-name>
-		<alt0-name>MP17alt0</alt0-name>
-		<alt1-name>MP17alt1</alt1-name>
-		<alt2-name>MP17alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP17symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[16]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[16]/bearing-deg</bearing-deg>
@@ -4618,9 +4618,9 @@
 	<MP18> <!--Group MP18 -->
 		<group-name>MP18</group-name>
 		<hdg-name>MP18hdg</hdg-name>
-		<alt0-name>MP18alt0</alt0-name>
-		<alt1-name>MP18alt1</alt1-name>
-		<alt2-name>MP18alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP18symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[17]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[17]/bearing-deg</bearing-deg>
@@ -4798,9 +4798,9 @@
 	<MP19> <!--Group MP19 -->
 		<group-name>MP19</group-name>
 		<hdg-name>MP19hdg</hdg-name>
-		<alt0-name>MP19alt0</alt0-name>
-		<alt1-name>MP19alt1</alt1-name>
-		<alt2-name>MP19alt2</alt2-name>
+		<alt0-name>MPalt0</alt0-name>
+		<alt1-name>MPalt0</alt1-name>
+		<alt2-name>MPalt0</alt2-name>
 		<symb-carrier-name>MP19symb-carrier</symb-carrier-name>
 		<display>instrumentation/radar2/targets/multiplayer[18]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/multiplayer[18]/bearing-deg</bearing-deg>
@@ -4981,9 +4981,9 @@
 	<TK1> <!--Group TK1 -->
 		<group-name>TK1</group-name>
 		<hdg-name>TK1hdg</hdg-name>
-		<alt0-name>TK1alt0</alt0-name>
-		<alt1-name>TK1alt1</alt1-name>
-		<alt2-name>TK1alt2</alt2-name>
+		<alt0-name>TKalt0</alt0-name>
+		<alt1-name>TKalt0</alt1-name>
+		<alt2-name>TKalt0</alt2-name>
 		<display>instrumentation/radar2/targets/tanker[0]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/tanker[0]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/tanker[0]/tid-draw-range-nm</draw-range-nm>
@@ -5137,9 +5137,9 @@
 	<TK2> <!--Group TK2 -->
 		<group-name>TK2</group-name>
 		<hdg-name>TK2hdg</hdg-name>
-		<alt0-name>TK2alt0</alt0-name>
-		<alt1-name>TK2alt1</alt1-name>
-		<alt2-name>TK2alt2</alt2-name>
+		<alt0-name>TKalt0</alt0-name>
+		<alt1-name>TKalt0</alt1-name>
+		<alt2-name>TKalt0</alt2-name>
 		<display>instrumentation/radar2/targets/tanker[1]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/tanker[1]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/tanker[1]/tid-draw-range-nm</draw-range-nm>
@@ -5293,9 +5293,9 @@
 	<TK3> <!--Group TK3 -->
 		<group-name>TK3</group-name>
 		<hdg-name>TK3hdg</hdg-name>
-		<alt0-name>TK3alt0</alt0-name>
-		<alt1-name>TK3alt1</alt1-name>
-		<alt2-name>TK3alt2</alt2-name>
+		<alt0-name>TKalt0</alt0-name>
+		<alt1-name>TKalt0</alt1-name>
+		<alt2-name>TKalt0</alt2-name>
 		<display>instrumentation/radar2/targets/tanker[2]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/tanker[2]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/tanker[2]/tid-draw-range-nm</draw-range-nm>
@@ -5450,9 +5450,9 @@
 	<TK4> <!--Group TK4 -->
 		<group-name>TK4</group-name>
 		<hdg-name>TK4hdg</hdg-name>
-		<alt0-name>TK4alt0</alt0-name>
-		<alt1-name>TK4alt1</alt1-name>
-		<alt2-name>TK4alt2</alt2-name>
+		<alt0-name>TKalt0</alt0-name>
+		<alt1-name>TKalt0</alt1-name>
+		<alt2-name>TKalt0</alt2-name>
 		<display>instrumentation/radar2/targets/tanker[3]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/tanker[3]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/tanker[3]/tid-draw-range-nm</draw-range-nm>
@@ -5603,9 +5603,9 @@
 	<TK5> <!--Group TK5 -->
 		<group-name>TK5</group-name>
 		<hdg-name>TK5hdg</hdg-name>
-		<alt0-name>TK5alt0</alt0-name>
-		<alt1-name>TK5alt1</alt1-name>
-		<alt2-name>TK5alt2</alt2-name>
+		<alt0-name>TKalt0</alt0-name>
+		<alt1-name>TKalt0</alt1-name>
+		<alt2-name>TKalt0</alt2-name>
 		<display>instrumentation/radar2/targets/tanker[4]/displaya</display>
 		<bearing-deg>instrumentation/radar2/targets/tanker[4]/bearing-deg</bearing-deg>
 		<draw-range-nm>instrumentation/radar2/targets/tanker[4]/tid-draw-range-nm</draw-range-nm>

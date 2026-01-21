@@ -4348,7 +4348,6 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdl</property>
-               <value>0</value>
                <value>1</value>
                <wrap>true</wrap>
     </binding>
@@ -4391,8 +4390,7 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdl</property>
-               <value>0</value>
-               <value>3</value>
+               <value>10</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>
@@ -4521,7 +4519,6 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdr</property>
-               <value>0</value>
                <value>1</value>
                <wrap>true</wrap>
     </binding>
@@ -4564,8 +4561,7 @@ __/\\\\____________/\\\\__/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\_______________/\\\\\\\
     <binding>
                <command>property-cycle</command>
                <property>systems/MFD/modemfdr</property>
-               <value>0</value>
-               <value>3</value>
+               <value>10</value>
                <wrap>true</wrap>
     </binding>
 	   <binding>

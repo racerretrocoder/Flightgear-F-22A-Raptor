@@ -282,7 +282,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="32">
+  <!--<animation n="32">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.032</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[0]/col[32]/elevation-ft</property>
@@ -290,7 +290,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="33">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.033</object-name>
@@ -570,7 +570,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="64">
+  <!--<animation n="64">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.064</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[1]/col[32]/elevation-ft</property>
@@ -578,7 +578,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="65">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.065</object-name>
@@ -858,7 +858,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="96">
+  <!--<animation n="96">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.096</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[2]/col[32]/elevation-ft</property>
@@ -866,7 +866,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="97">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.097</object-name>
@@ -1146,7 +1146,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="128">
+  <!--<animation n="128">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.128</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[3]/col[32]/elevation-ft</property>
@@ -1154,7 +1154,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="129">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.129</object-name>
@@ -1434,7 +1434,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="160">
+  <!--<animation n="160">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.160</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[4]/col[32]/elevation-ft</property>
@@ -1442,7 +1442,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="161">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.161</object-name>
@@ -1722,6 +1722,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
+  <!--
   <animation n="192">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.192</object-name>
@@ -1730,7 +1731,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="193">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.193</object-name>
@@ -2010,7 +2011,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="224">
+  <!--<animation n="224">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.224</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[6]/col[32]/elevation-ft</property>
@@ -2018,7 +2019,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="225">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.225</object-name>
@@ -2298,6 +2299,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
+  <!--
   <animation n="256">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.256</object-name>
@@ -2306,7 +2308,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="257">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.257</object-name>
@@ -2586,7 +2588,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="288">
+  <!--<animation n="288">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.288</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[8]/col[32]/elevation-ft</property>
@@ -2594,7 +2596,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="289">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.289</object-name>
@@ -2874,7 +2876,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="320">
+  <!--<animation n="320">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.320</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[9]/col[32]/elevation-ft</property>
@@ -2882,7 +2884,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="321">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.321</object-name>
@@ -3162,7 +3164,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="352">
+  <!--<animation n="352">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.352</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[10]/col[32]/elevation-ft</property>
@@ -3170,7 +3172,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="353">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.353</object-name>
@@ -3450,7 +3452,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="384">
+  <!--<animation n="384">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.384</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[11]/col[32]/elevation-ft</property>
@@ -3458,7 +3460,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="385">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.385</object-name>
@@ -3738,7 +3740,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="416">
+  <!--<animation n="416">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.416</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[12]/col[32]/elevation-ft</property>
@@ -3746,7 +3748,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="417">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.417</object-name>
@@ -4026,7 +4028,7 @@
       <x type="double">1</x>
     </axis>
   </animation>
-  <animation n="448">
+  <!--<animation n="448">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.448</object-name>
     <property type="string">/instrumentation/terrain-map/pixels/row[13]/col[32]/elevation-ft</property>
@@ -4034,7 +4036,7 @@
     <axis>
       <x type="double">1</x>
     </axis>
-  </animation>
+  </animation>-->
   <animation n="449">
     <type type="string">textranslate</type>
     <object-name type="string">Plane.449</object-name>

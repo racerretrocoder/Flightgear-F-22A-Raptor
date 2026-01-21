@@ -1,7 +1,26 @@
 AC3Db
 MATERIAL "glow" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 1 1 1  shi 128  trans 0
 OBJECT world
-kids 25
+kids 26
+OBJECT poly
+name "icon2"
+loc 0.0155631 0.0811596 0.00253153
+texture "PRF.png"
+crease 45.000000
+numvert 4
+0 0.00486393 -0.00753125
+0 0.00486393 0.00753125
+0 -0.00486393 0.00753125
+0 -0.00486393 -0.00753125
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+0 1 1
+1 0 1
+2 0 0
+3 1 0
+kids 0
 OBJECT poly
 name "rect"
 loc 0.0155895 0.0702534 -0.0800648

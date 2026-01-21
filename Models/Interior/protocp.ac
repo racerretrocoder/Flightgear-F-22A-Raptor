@@ -60423,11 +60423,10 @@ refs 2
 0 0 0
 kids 0
 OBJECT poly
-name "FLCS_Guards"
+name "flcsguard"
 loc -5.50554 -0.234859 -0.0217906
 data 9
 Torus.001
-texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/f16/Models/Cockpit/Main/temp.zKnob.png"
 crease 40.000000
 numvert 408
 0.249829 0.00414759 0.306622
