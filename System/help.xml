@@ -2,7 +2,10 @@
 
 <PropertyList>
         	<title>Lockheed Martin F-22A Raptor  V0.89</title>
-			
+			<key>
+				<name>F6</name>
+				<desc>Pull Ejection Handle</desc>
+			</key>	
 			<key>
 				<name>c</name>
 				<desc>Toggle canopy</desc>
@@ -48,6 +51,14 @@
        		<key>
 				<name>Shift-T</name>
 				<desc>Toggle the FBW Override switch (0 is off 1 is on)</desc>
+			</key>
+			       		<key>
+				<name>Arrow Keys</name>
+				<desc>Move Radar Cursor</desc>
+			</key>
+       		<key>
+				<name>t</name>
+				<desc>Radar cursor / Select and Lock highlighted target</desc>
 			</key>
 			<key>
         			<name>q</name>

@@ -7,7 +7,7 @@ print("LOADING Missiles, Bombs and more!: missile.nas .");
 #       This code is modifed for emersary damage support. Flare detection added, Crater spawner, Missile alert sender, 
 #       This code is majorly edited by Phoenix
 ################################################################################
-
+setprop("f22/mslv",0);
 # If you want to have missile flight data print out into the console set this to 1
 var debugflight = 0;
 # if you want to print messages into the console that relate to missile flight, set this to 1
@@ -386,11 +386,13 @@ var MISSILE = {
         me.lonN.setDoubleValue(alon);
         me.altN.setDoubleValue(aalt);
         me.hdgN.setDoubleValue(ac_hdg);
-        me.pitchN.setDoubleValue(ac_pitch);
+        
         if (me.eject != 1) {
             me.rollN.setDoubleValue(ac_roll);
+            me.pitchN.setDoubleValue(ac_pitch);
         } else {
             me.rollN.setDoubleValue(0);
+            me.pitchN.setDoubleValue(-90);
         }
         
         
@@ -927,7 +929,13 @@ broddamage: func (cs,dist,msl) {
         # calculate altitude and elevation velocity vector (no incidence here).
         var alt_ft = me.altN.getValue() + (speed_down_fps * dt);
         pitch_deg = math.atan2(speed_down_fps, speed_horizontal_fps) * R2D;
-        me.pitch = pitch_deg;
+        if (me.eject != 1) {
+            me.pitch = pitch_deg;
+        } else {
+            print("ejection pitch");
+            me.pitch = -90;
+        }
+
         
         var dist_h_m = speed_horizontal_fps * dt * FT2M;
         
@@ -991,14 +999,20 @@ broddamage: func (cs,dist,msl) {
         me.lonN.setDoubleValue(me.coord.lon());
         me.altN.setDoubleValue(alt_ft);
         me.coord.set_alt(alt_ft);
-        me.pitchN.setDoubleValue(pitch_deg);
+        if (me.eject != 1) {
+            me.pitchN.setDoubleValue(pitch_deg);
+        } else {
+            print("Pitch set!");
+            me.pitchN.setDoubleValue(-90); # straight down
+        }
+
         me.hdgN.setDoubleValue(hdg_deg);
 
         setprop("controls/armament/pos/lat",me.coord.lat());
         setprop("controls/armament/pos/lon",me.coord.lon());
         setprop("controls/armament/pos/alt",alt_ft);
         setprop("controls/armament/pos/hdg",hdg_deg);
-        if (me.eject == 1) {
+        if (me.eject == 1 or getprop("f22/mslv") == 1) {
             # ejection!!
             setprop("f22/ejection/lat",me.coord.lat());
             setprop("f22/ejection/lon",me.coord.lon());

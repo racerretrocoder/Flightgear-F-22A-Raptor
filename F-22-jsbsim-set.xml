@@ -1684,7 +1684,28 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       </view>
 	    <view n="105">
             <!-- Custom Made Ejection View -->
-            <name>Ejection View</name>
+            <name>Ejection View (1st Person)</name>
+            <type>lookfrom</type>
+            <enabled>true</enabled>
+           <!-- <heading-offset-deg>180</heading-offset-deg>
+            <pitch-offset-deg>10</pitch-offset-deg>-->
+		<config>
+        	<eye-lon-deg-path type="string">f22/ejection/lon</eye-lon-deg-path>
+        	<eye-lat-deg-path type="string">f22/ejection/lat</eye-lat-deg-path>
+          	<eye-alt-ft-path type="string">f22/ejection/alt</eye-alt-ft-path>
+					 <from-model type="bool">false</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">0.0317</x-offset-m>
+          <y-offset-m archive="y">1.0017</y-offset-m>
+          <z-offset-m archive="y">-0.004</z-offset-m>
+          <pitch-offset-deg>-41</pitch-offset-deg>
+		  <heading-offset-deg>88</heading-offset-deg>
+          <default-field-of-view-deg>116</default-field-of-view-deg>
+        </config>
+        </view>
+			    <view n="106">
+            <!-- Custom Made Ejection View -->
+            <name>Ejection View (3rd Person)</name>
             <type>lookat</type>
             <enabled>true</enabled>
            <!-- <heading-offset-deg>180</heading-offset-deg>
@@ -1703,7 +1724,6 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
           <default-field-of-view-deg>95</default-field-of-view-deg>
         </config>
         </view>
-		
 		<view n="1">
 			<config>
 				<target-z-offset-m archive="y" type="double">0</target-z-offset-m>
@@ -2295,6 +2315,17 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 	<input>
 		 <keyboard>
+		 <key n="262">
+          <name>F6</name>
+          <desc>eject</desc>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+           <command>nasal</command>
+           <script>
+            f22.eject();
+           </script>
+          </binding>
+         </key>
 	      <key n="356">
             <name>Left</name>
             <repeatable type="bool">false</repeatable>

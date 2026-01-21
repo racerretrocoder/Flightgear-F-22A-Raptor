@@ -6,7 +6,8 @@
 # Authors: Nikolai V. Chr., Pinto, Colin Geniet and Richard (with improvement by Onox)
 #
 #
-
+setprop("payload/armament/spikee","");
+setprop("payload/armament/MAW-active-callsign","");
 
 ############################ Config ########################################################################################
 var full_damage_dist_m = getprop("payload/d-config/full_damage_dist_m");# Can vary from aircraft to aircraft depending on how many failure modes it has.
@@ -406,6 +407,7 @@ var DamageRecipient =
                 if (radarOn) {
                     setprop("payload/armament/MAW-bearing", bearing);
                     setprop("payload/armament/MAW-active", 1);# resets every 1 seconds
+                    setprop("payload/armament/MAW-active-callsign", notification.Callsign);# resets every 1 seconds
                 } elsif (CWIOn) {
                     setprop("payload/armament/MAW-semiactive", 1);# resets every 1 seconds
                     if (notification.Callsign != nil) setprop("payload/armament/MAW-semiactive-callsign", notification.Callsign);# resets every 1 seconds
@@ -1373,6 +1375,8 @@ var processCallsigns = func () {
       var str6 = player.getNode("sim/multiplay/generic/string[6]");
       if (str6 != nil and str6.getValue() != nil and str6.getValue() != "" and size(""~str6.getValue())==4 and left(md5(myCallsign),4) == str6.getValue()) {
         painted = 1;
+        # callsign is spiking us
+        setprop("payload/armament/spikee",callsign);
         if (rwr_audio_extended) {
           append(paint_list, getModel(player.getNode("sim/model/path")));
         }
@@ -1383,6 +1387,8 @@ var processCallsigns = func () {
       setprop("payload/armament/MAW-active", 0);# resets every 1.1 seconds without warning
       setprop("payload/armament/MAW-semiactive", 0);
       setprop("payload/armament/MAW-semiactive-callsign", "");
+      setprop("payload/armament/spikee","");
+      setprop("payload/armament/MAW-active-callsign","");
   }
 
   # spike handling:

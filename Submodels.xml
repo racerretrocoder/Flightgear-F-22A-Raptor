@@ -291,5 +291,24 @@
   </submodel>
 
 
+ <submodel>
+    <name>canopyjett</name> 
+    <model>Aircraft/F-22/Models/canopyonly.xml</model>
+    <trigger>f22/canopy-jett</trigger>
+    <speed>70</speed>
+    <repeat>false</repeat>
+    <delay>0</delay>
+    <count>-1</count>
+    <x-offset> 24.0 </x-offset>
+    <y-offset> 0 </y-offset>
+    <z-offset> 0.53 </z-offset>
+    <pitch-offset> 15</pitch-offset>
+    <life>60</life>
+    <wind>false</wind>
+    <weight>30.231485</weight>
+    <cd>5.695</cd>
+    <eda>0.11136354</eda> 
+   </submodel>
+
 
 </PropertyList>

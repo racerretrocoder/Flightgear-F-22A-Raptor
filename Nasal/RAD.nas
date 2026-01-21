@@ -589,26 +589,38 @@ var dlink_loopcontacts = func {
       #
       # Range
       # WIP Make own HSD Range
+      var range = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm");
+      if (range > 4.75) {
+        range = 4.75;
+      }
       if (getprop("controls/PRF/range") == 5){
-      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm"));
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",range);
       }
       if (getprop("controls/PRF/range") == 10){
-      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 2);
+      range = range / 2;
+      if (range > 4.75) {
+        range = 4.75;
+      }
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",range);
       }
       if (getprop("controls/PRF/range") == 20){
-      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 4);
+      range = range / 4;
+      if (range > 4.75) {
+        range = 4.75;
+      }
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",range);
       }
       if (getprop("controls/PRF/range") == 40){
-      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 6);
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",range / 6);
       }
       if (getprop("controls/PRF/range") == 60){
-      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 16);
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",range / 16);
       }
-      if (getprop("controls/PRF/range") == 160){ # WOWZERS!
-      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 30);
+      if (getprop("controls/PRF/range") == 160){ # WOWZERrange
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",range / 30);
       }
-      if (getprop("controls/PRF/range") == 360){ # WOWZERS!
-      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 30);
+      if (getprop("controls/PRF/range") == 360){ # WOWZERrange
+      setprop("controls/PRF/contact[" ~ mpid ~ "]/range",range / 30);
       }
       # Callsign
       setprop("controls/PRF/contact[" ~ mpid ~ "]/callsign",getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign"));
@@ -649,26 +661,30 @@ var dlink_loopfriends = func {
       #
       # Range
       # WIP Make own HSD Range
+      var range = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm");
+      if (range > 4.75) {
+        range = 4.75;
+      }
       if (getprop("controls/PRF/range") == 5){
-      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm"));
+      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",range);
       }
       if (getprop("controls/PRF/range") == 10){
-      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 2);
+      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",range / 2);
       }
       if (getprop("controls/PRF/range") == 20){
-      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 4);
+      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",range / 4);
       }
       if (getprop("controls/PRF/range") == 40){
-      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 6);
+      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",range / 6);
       }
       if (getprop("controls/PRF/range") == 60){
-      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 16);
+      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",range / 16);
       }
-      if (getprop("controls/PRF/range") == 160){ # WOWZERS!
-      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 30);
+      if (getprop("controls/PRF/range") == 160){ # WOWZErange
+      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",range / 30);
       }
-      if (getprop("controls/PRF/range") == 360){ # WOWZERS!
-      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm") / 30);
+      if (getprop("controls/PRF/range") == 360){ # WOWZErange
+      setprop("controls/PRF/friend[" ~ mpid ~ "]/range",range / 30);
       }
       # Callsign
       setprop("controls/PRF/friend[" ~ mpid ~ "]/callsign",getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign"));
