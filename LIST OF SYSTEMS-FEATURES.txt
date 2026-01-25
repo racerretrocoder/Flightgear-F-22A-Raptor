@@ -1,8 +1,10 @@
 4 Inpdependent Multifunction Displays. 
 HUD
-PRF
+PRF (Kinda like an HSD)
 RWR
 Programable Countermessures
+ECM
+Realistic Fuel
 Fast engine start time (<30 seconds)
 Powerful, APG-77 Radar with SLR Enhancements
 Thrust Vectoring Engine Nozzles

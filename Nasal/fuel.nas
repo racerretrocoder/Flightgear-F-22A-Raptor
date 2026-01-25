@@ -30,12 +30,15 @@ setlistener("systems/refuel/contact", func(n) {
 var fillup = func {
 		if (wow and parked) {
 		foreach(f; fueltanks) {		
-		var cap 	= f.getNode("capacity-gal_us");
-		var level = f.getNode("level-gal_us");
-		if (cap.getValue() > level.getValue()) {
-			refueling_grnd.setValue(1);
-			f.getNode("selected", 1).setBoolValue(1);
-			interpolate(f.getNode("level-gal_us"), cap.getValue(), 20);
+			var cap 	= f.getNode("capacity-gal_us");
+			var level = f.getNode("level-gal_us");
+			if (cap.getValue() > level.getValue()) {
+				refueling_grnd.setValue(1);
+				if (f.getNode("refuelselect", 1) == 1) {
+					print("Can fill!");
+					f.getNode("selected", 1).setBoolValue(1);
+					interpolate(f.getNode("level-gal_us"), cap.getValue(), 20);
+				}
 			} 
 		}	
 		settimer( func refueling_grnd.setValue(0), 20);
@@ -95,7 +98,7 @@ var fuelTanks = func {
 	settimer(fuelTanks, 0.3);
 }
 
-setlistener("/sim/signals/fdm-initialized", fuelTanks);
+#setlistener("/sim/signals/fdm-initialized", fuelTanks);
 # debug
 setprop("fuel/tankstyle",0);
 var debugtest = func() {
