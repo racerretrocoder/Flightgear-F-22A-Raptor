@@ -306,8 +306,18 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <yaw>   0.00 </yaw>
     </orient>-->
     <feed>0</feed>
+    <feed>1</feed>
+    <feed>2</feed>
     <feed>3</feed>
+    <feed>4</feed>
     <feed>5</feed>
+    <feed>6</feed>
+    <feed>7</feed>
+    <feed>8</feed>
+    <feed>9</feed>
+    <feed>10</feed>
+    <feed>11</feed>
+    <feed>12</feed>
     <thruster file="direct">
      <sense> 1 </sense>
      <location unit="IN">
@@ -334,9 +344,19 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <roll>  0.00 </roll>
       <yaw>   0.00 </yaw>
     </orient>--> 
+    <feed>0</feed>
     <feed>1</feed>
     <feed>2</feed>
+    <feed>3</feed>
     <feed>4</feed>
+    <feed>5</feed>
+    <feed>6</feed>
+    <feed>7</feed>
+    <feed>8</feed>
+    <feed>9</feed>
+    <feed>10</feed>
+    <feed>11</feed>
+    <feed>12</feed>
     <thruster file="direct">
      <location unit="IN">
       <x> 354.20 </x>
@@ -351,30 +371,118 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     </thruster>
   </engine>
 
-
-   <tank type="FUEL" number="0">
+    <!--6.603 lb / us gallon-->
+   <tank type="FUEL" number="0"> <!-- F1A -->
      <location unit="IN">
      <x> 268.52 </x>
-     <y>   -24.00 </y>
+     <y>   0 </y>
      <z> -15.36 </z>
      </location>
 <priority>2</priority>
-     <capacity unit="LBS"> 9000.00 </capacity>
-     <contents unit="LBS"> 9000.00 </contents> <!-- 8421  -->
+     <capacity unit="LBS"> 2514.00 </capacity>
+     <contents unit="LBS"> 2514.00 </contents> <!-- 8421  -->
   </tank>
 
-  <tank type="FUEL" number="1">
+  <tank type="FUEL" number="1"> <!-- F1B -->
      <location unit="IN">
      <x> 268.52 </x>
-     <y>  24.00 </y>
+     <y>  0 </y>
      <z> -15.36 </z>
      </location>
         <priority>2</priority>
-     <capacity unit="LBS"> 9000.00 </capacity>
-     <contents unit="LBS"> 9000.00 </contents>
+     <capacity unit="LBS"> 2137.00 </capacity>
+     <contents unit="LBS"> 2137.00 </contents>
   </tank>
 
-  <tank type="FUEL" number="2">
+  <tank type="FUEL" number="2"> <!-- F2 -->
+     <location unit="IN">
+     <x> 268.52 </x>
+     <y>  0 </y>
+     <z> -15.36 </z>
+     </location>
+        <priority>2</priority>
+     <capacity unit="LBS"> 4693.00 </capacity>
+     <contents unit="LBS"> 4693.00 </contents>
+  </tank>
+
+
+  <tank type="FUEL" number="3"> <!-- A1R -->
+     <location unit="IN">
+     <x> 268.52 </x>
+     <y>  0 </y>
+     <z> -15.36 </z>
+     </location>
+        <priority>2</priority>
+     <capacity unit="LBS"> 2514.00 </capacity>
+     <contents unit="LBS"> 2514.00 </contents>
+  </tank>
+
+  <tank type="FUEL" number="4"> <!-- A1L -->
+     <location unit="IN">
+     <x> 268.52 </x>
+     <y>  0 </y>
+     <z> -15.36 </z>
+     </location>
+        <priority>2</priority>
+     <capacity unit="LBS"> 2514.00 </capacity>
+     <contents unit="LBS"> 2514.00 </contents>
+  </tank>
+
+
+
+  <!--wings-->
+  <tank type="FUEL" number="5"> <!-- A2R -->
+     <location unit="IN">
+     <x> 268.52 </x>
+     <y>  0 </y>
+     <z> -15.36 </z>
+     </location>
+        <priority>2</priority>
+     <capacity unit="LBS"> 2478.00 </capacity>
+     <contents unit="LBS"> 2478.00 </contents>
+  </tank>
+
+  <tank type="FUEL" number="6"> <!-- A2L -->
+     <location unit="IN">
+     <x> 268.52 </x>
+     <y>  0 </y>
+     <z> -15.36 </z>
+     </location>
+        <priority>2</priority>
+     <capacity unit="LBS"> 2478.00 </capacity>
+     <contents unit="LBS"> 2478.00 </contents>
+  </tank>
+
+
+
+
+  <tank type="FUEL" number="7"> <!-- A3R -->
+     <location unit="IN">
+     <x> 268.52 </x>
+     <y>  0 </y>
+     <z> -15.36 </z>
+     </location>
+        <priority>2</priority>
+     <capacity unit="LBS"> 510.00 </capacity>
+     <contents unit="LBS"> 510.00 </contents>
+  </tank>
+
+  <tank type="FUEL" number="8"> <!-- A3L -->
+     <location unit="IN">
+     <x> 268.52 </x>
+     <y>  0 </y>
+     <z> -15.36 </z>
+     </location>
+        <priority>2</priority>
+     <capacity unit="LBS"> 510.00 </capacity>
+     <contents unit="LBS"> 510.00 </contents>
+  </tank>
+
+
+
+
+ <!--Ext-->
+  <tank type="FUEL" number="9">
  
      <location unit="IN">
      <x> 268.52 </x>
@@ -382,40 +490,40 @@ The Force that pushes the aircraft for increased manuverability should be lowere
      <z> -15.36 </z>
      </location>
 <priority>1</priority>
-     <capacity unit="LBS"> 8140.00 </capacity>
+     <capacity unit="LBS"> 3909.00 </capacity>
      <contents unit="LBS"> 0 </contents>
   </tank>
 
-<tank type="FUEL" number="3">
+<tank type="FUEL" number="10">
      <location unit="IN">
      <x> 268.52 </x>
      <y>   -24.00 </y>
      <z> -15.36 </z>
      </location>
 <priority>1</priority>
-     <capacity unit="LBS"> 8140.00 </capacity>
+     <capacity unit="LBS"> 3909.00 </capacity>
      <contents unit="LBS"> 0 </contents>
   </tank>
 
-  <tank type="FUEL" number="4">
+  <tank type="FUEL" number="11">
      <location unit="IN">
      <x> 268.52 </x>
-     <y>   24.00 </y>
+     <y>   34.00 </y>
      <z> -15.36 </z>
      </location>
 <priority>1</priority>
-     <capacity unit="LBS"> 8140.00 </capacity>
+     <capacity unit="LBS"> 3909.00 </capacity>
      <contents unit="LBS"> 0 </contents>
   </tank>
 
-<tank type="FUEL" number="5">
+<tank type="FUEL" number="12">
      <location unit="IN">
      <x> 268.52 </x>
-     <y>   -24.00 </y>
+     <y>   -34.00 </y>
      <z> -15.36 </z>
      </location>
 <priority>1</priority>
-     <capacity unit="LBS"> 8140.00 </capacity>
+     <capacity unit="LBS"> 3909.00 </capacity>
      <contents unit="LBS"> 0 </contents>
   </tank>
 
@@ -484,7 +592,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <independentVar lookup="row">/controls/refuel/Switch</independentVar>
             <tableData>
  0     1
- 1     0.5
+ 1     0.1
             </tableData>
           </table>
 

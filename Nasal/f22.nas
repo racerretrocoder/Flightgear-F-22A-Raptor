@@ -13,7 +13,7 @@ setprop("f22/age",0);
 setprop("f22/obogs/mixture",0);
 setprop("f22/obogs/mode",0);
 setprop("f22/obogs/main",0);
-setprop("controls/refuel/tanks",0);
+setprop("controls/refuel/tanks",1);
 # Floats
 
 setprop("controls/lighting/consoleknob",0.1); #instruments-norm
@@ -427,6 +427,7 @@ setprop("controls/apu/startinprogress",0);
 # Controls the battery switch, APU, and Engine start switches and there effectiveness (If they work or not)
 
 var engloop = func{
+var messycodeplacement = 1;
 setprop("sim/multiplay/visibility-range-nm",2000); # Going to put this here because smh the -set dosent set it to be 1000
 var jfsr = getprop("controls/electric/engine/start-r");
 var jfsl = getprop("controls/electric/engine/start-l");
@@ -454,16 +455,11 @@ var bat = getprop("controls/electric/battswitch");
               }
               if(getprop("/engines/engine/n1") < 28) {
               setprop("/controls/engines/engine/starter",getprop("controls/electric/engine/start-r"));
-              print("eng1 rebound disarmed");
             }
 
             if(getprop("/engines/engine[1]/n1") < 28) {
               setprop("/controls/engines/engine[1]/starter",getprop("controls/electric/engine/start-l"));
-              print("eng2 rebound disarmed");
             } 
-
-
-
             if(getprop("/engines/engine/n1") > 28) {
               # Rebound the switches when its good
               setprop("controls/electric/engine/start-r",getprop("/controls/engines/engine/starter"));
@@ -476,8 +472,7 @@ var bat = getprop("controls/electric/battswitch");
               setprop("controls/electric/engine/start-l",getprop("/controls/engines/engine[1]/starter"));
               #print("eng2 rebound armed");
             } 
-
-            }
+          }
 }
 
 
@@ -754,16 +749,16 @@ var addlefttank = func() {
 }
 
 var removerighttank = func() {
-  setprop("consumables/fuel/tank[3]/level-lbs",0);
-  setprop("consumables/fuel/tank[5]/level-lbs",0);
+  setprop("consumables/fuel/tank[10]/level-lbs",0);
+  setprop("consumables/fuel/tank[12]/level-lbs",0);
   setprop("controls/armament/rdt",0);
   setprop("controls/armament/rrdt",0);
   screen.log.write("All right drop tanks removed");
 }
 
 var removelefttank = func() {
-  setprop("consumables/fuel/tank[2]/level-lbs",0);
-  setprop("consumables/fuel/tank[4]/level-lbs",0);
+  setprop("consumables/fuel/tank[9]/level-lbs",0);
+  setprop("consumables/fuel/tank[11]/level-lbs",0);
   setprop("controls/armament/ldt",0);
   setprop("controls/armament/lldt",0);
   screen.log.write("All left drop tanks removed");
@@ -778,10 +773,10 @@ var checkforext = func {
   var farrightdrop = getprop("controls/armament/rrdt");
 	var pylon3 = getprop("sim/weight[2]/selected");
   var pylon5 = getprop("sim/weight[4]/selected");
-  var fuelleft = getprop("consumables/fuel/tank[2]/level-lbs");
-  var fuelright = getprop("consumables/fuel/tank[3]/level-lbs");
-  var fuelfarleft = getprop("consumables/fuel/tank[4]/level-lbs");
-  var fuelfarright = getprop("consumables/fuel/tank[5]/level-lbs");
+  var fuelleft = getprop("consumables/fuel/tank[9]/level-lbs");
+  var fuelright = getprop("consumables/fuel/tank[10]/level-lbs");
+  var fuelfarleft = getprop("consumables/fuel/tank[11]/level-lbs");
+  var fuelfarright = getprop("consumables/fuel/tank[12]/level-lbs");
 	if ( pylon3 == "Aim-120" or pylon3 == "Aim-9x" or pylon3 == "Aim-7" or pylon3 == "Aim-9m" or pylon5 == "Aim-120" or pylon5 == "Aim-9x" or pylon5 == "Aim-7" or pylon5 == "Aim-9m" or rightdrop == 1 or leftdrop == 1 or farrightdrop == 1 or farleftdrop == 1) {
 		setprop("controls/armament/extpylons", 1);
 	} else {
@@ -790,18 +785,28 @@ var checkforext = func {
 
   # only allow fuel entering EXT Tanks if the left and right tanks are filled
   if (leftdrop != 1 or rightdrop != 1) {
-    setprop("consumables/fuel/tank[2]/level-lbs",0);
-    setprop("consumables/fuel/tank[3]/level-lbs",0);
+    setprop("consumables/fuel/tank[9]/level-lbs",0);
+    setprop("consumables/fuel/tank[10]/level-lbs",0);
+		setprop("consumables/fuel/tank[9]/selected", 0);
+		setprop("consumables/fuel/tank[10]/selected", 0);
     if (fuelright > 0 or fuelleft > 0) {
-      screen.log.write("There are no drop tanks attached for these tanks. See Pylons loads to attach them");
+      screen.log.write("There are no drop tanks attached for these inboard tanks. See Pylons loads to attach them");
     }
-  } 
+  } else {
+    setprop("consumables/fuel/tank[9]/selected", 1);
+		setprop("consumables/fuel/tank[10]/selected", 1);
+  }
   if (farrightdrop != 1 or farleftdrop != 1) {
-    setprop("consumables/fuel/tank[4]/level-lbs",0);
-    setprop("consumables/fuel/tank[5]/level-lbs",0);
+    setprop("consumables/fuel/tank[11]/level-lbs",0);
+    setprop("consumables/fuel/tank[12]/level-lbs",0);
+		setprop("consumables/fuel/tank[11]/selected", 0);
+		setprop("consumables/fuel/tank[12]/selected", 0);
     if (fuelfarright > 0 or fuelfarleft > 0) {
-      screen.log.write("There are no drop tanks attached for these tanks. See Pylons loads to attach them");
+      screen.log.write("There are no drop tanks attached for these outboard tanks. See Pylons loads to attach them");
     }
+  } else {
+    setprop("consumables/fuel/tank[11]/selected", 1);
+		setprop("consumables/fuel/tank[12]/selected", 1);
   }
 }
 
@@ -1512,8 +1517,6 @@ var throtl = func() {
   }
 }
 
-
-
 var sightradarupdate = func {
       if (radar.tgts_list == nil) {
         return;
@@ -1676,6 +1679,43 @@ var hudupdate = func() {
   setprop("sim/hud/color/brightness",getprop("f22/brightness"));
 }
 
+var tankselector = func() {
+  var switch = getprop("controls/refuel/tanks");
+  if (switch == 0) {
+    # only ext's
+    setprop("consumables/fuel/tank[0]/refuelselect",0);
+    setprop("consumables/fuel/tank[1]/refuelselect",0);
+    setprop("consumables/fuel/tank[2]/refuelselect",0);
+    setprop("consumables/fuel/tank[3]/refuelselect",0);
+    setprop("consumables/fuel/tank[4]/refuelselect",0);
+    setprop("consumables/fuel/tank[5]/refuelselect",0);
+    setprop("consumables/fuel/tank[6]/refuelselect",0);
+    setprop("consumables/fuel/tank[7]/refuelselect",0);
+    setprop("consumables/fuel/tank[8]/refuelselect",0);
+    
+    setprop("consumables/fuel/tank[9]/refuelselect",1);
+    setprop("consumables/fuel/tank[10]/refuelselect",1);
+    setprop("consumables/fuel/tank[11]/refuelselect",1);
+    setprop("consumables/fuel/tank[12]/refuelselect",1);
+  } else {
+    # enable main tanks
+    setprop("consumables/fuel/tank[0]/refuelselect",1);
+    setprop("consumables/fuel/tank[1]/refuelselect",1);
+    setprop("consumables/fuel/tank[2]/refuelselect",1);
+    setprop("consumables/fuel/tank[3]/refuelselect",1);
+    setprop("consumables/fuel/tank[4]/refuelselect",1);
+    setprop("consumables/fuel/tank[5]/refuelselect",1);
+    setprop("consumables/fuel/tank[6]/refuelselect",1);
+    setprop("consumables/fuel/tank[7]/refuelselect",1);
+    setprop("consumables/fuel/tank[8]/refuelselect",1);
+
+    setprop("consumables/fuel/tank[9]/refuelselect",0);
+    setprop("consumables/fuel/tank[10]/refuelselect",0);
+    setprop("consumables/fuel/tank[11]/refuelselect",0);
+    setprop("consumables/fuel/tank[12]/refuelselect",0);
+  }
+}
+
 
 updatehudtimer = maketimer(0.1,hudupdate);
 updatehudtimer.start();
@@ -1686,7 +1726,8 @@ extlightknobtimer = maketimer(0.2,knobcheck);
 extlightknobtimer.start();
 fastextlightknobtimer = maketimer(0,fastknobcheck);
 fastextlightknobtimer.start();
-
+tankselectortimer = maketimer (0.5,tankselector);
+tankselectortimer.start();
 
 guntimer = maketimer(0.1,gunsightupdate);
 guntimer.start();

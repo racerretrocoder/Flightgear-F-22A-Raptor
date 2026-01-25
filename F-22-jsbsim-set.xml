@@ -2223,38 +2223,84 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	<consumables>
 		<fuel>
 			<tank n="0">
-				<name>FWD fuselage</name>
+				<name>F-1A Compartment</name>
 				<kill-when-empty type="bool">false</kill-when-empty>
 				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
 			</tank>
 			<tank n="1">
-				<name>AFT fuselage</name>
+				<name>F-1B Pump Box</name>
 				<kill-when-empty type="bool">false</kill-when-empty>
 				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
 			</tank>
 			<tank n="2">
-
-        <name>Left-EXT-tank</name> 
-        <selected type="bool">false</selected>
-      </tank>
-      <tank n="3">
-
-        <name>Right-EXT-Tank</name> 
-        <selected type="bool">false</selected>
-      </tank>
-			
+				<name>F-2</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="3">
+				<name>A-1R</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
 			<tank n="4">
-        <name>Far-Left-EXT-tank</name> 
-        <selected type="bool">false</selected>
-      </tank>
-      <tank n="5">
-
-        <name>Far-Right-EXT-Tank</name> 
-        <selected type="bool">false</selected>
-      </tank>
-			
-
-
+				<name>A-1L</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="5">
+				<name>A-2R (Right Wing)</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="6">
+				<name>A-2L (Left Wing)</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="7">
+				<name>A-3R</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="8">
+				<name>A-3L</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<!--External Tanks-->
+			<tank n="9">
+				<name>Left Inboard External Tank</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="10">
+				<name>Right Inboard External Tank</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="11">
+				<name>Left Outboard External Tank</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="12">
+				<name>Right Outboard External Tank</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
 			</fuel>
 	</consumables>
 	
@@ -3054,7 +3100,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 </terrain-map>
 	
 		<aar> 
-            <file>Aircraft/Generic/aar.nas</file>
+            <file>Aircraft/F-22/Nasal/aar.nas</file>
         </aar>
         <rwrs>
             <file>Aircraft/F-22/Nasal/rwr.nas</file>
@@ -3162,7 +3208,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <file>Aircraft/F-22/Nasal/datalink.nas</file>
 </datalink>
 
-
+<dlinkhack>
+<file>Aircraft/F-22/Nasal/hack.nas</file>
+</dlinkhack>
 <!--AI Searcher-->
 		<misc>
 			<file>Aircraft/F-22/Nasal/misc.nas</file>

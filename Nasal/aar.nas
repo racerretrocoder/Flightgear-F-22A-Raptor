@@ -175,8 +175,9 @@ var update_loop = func {
 				var ppg = t.getNode("density-ppg").getValue();
 				var capacity = t.getNode("capacity-gal_us").getValue() * ppg;
 				var lbs = t.getNode("level-gal_us").getValue() * ppg;
-
-				lbs += fuel_per_tank;
+				if (t.getNode("refuelselect").getValue() == 1) {
+					lbs += fuel_per_tank;
+				}
 				if (lbs > capacity)
 					lbs = capacity;
 

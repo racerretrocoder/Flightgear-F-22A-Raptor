@@ -499,7 +499,7 @@ var receive_loop = func {
     }
 }
 
-var receive_timer = maketimer(receive_period, receive_loop);
+var receive_timer = maketimer(0, receive_loop);
 
 
 # Start / stop listener
