@@ -1878,6 +1878,40 @@ Old
 		</axis>
 	</animation>
 -->
+
+<!--Canopy movement-->
+
+	<animation>
+        <type>translate</type>
+    	<object-name>canopy in</object-name>
+		<object-name>canopy out</object-name>
+		<object-name>cabin</object-name>
+		<object-name>canopyframe</object-name>
+        <property>fdm/jsbsim/fcs/canopy</property>
+        <factor>0.13</factor>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+	<animation>
+        <type>translate</type>
+    	<object-name>canopy in</object-name>
+		<object-name>canopy out</object-name>
+		<object-name>cabin</object-name>
+		<object-name>canopyframe</object-name>
+        <property>sim/multiplay/generic/float[36]</property>
+        <factor>0.08</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+
+
 <animation>
     <type>rotate</type>
     <object-name>canopy in</object-name>
@@ -1887,7 +1921,7 @@ Old
    <property>sim/multiplay/generic/float[36]</property>
     <interpolation>
       <entry><ind> 0 </ind><dep>  0 </dep></entry>
-      <entry><ind> 1 </ind><dep> 30 </dep></entry>
+      <entry><ind> 1 </ind><dep> 23 </dep></entry>
     </interpolation>
     <center>
       <x-m> -3.5 </x-m>
