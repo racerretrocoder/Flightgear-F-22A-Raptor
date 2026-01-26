@@ -1807,7 +1807,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
         <function name="fcs/canopy">
-      <description>rips the canopy off when flying</description>
+      <description>canopy animation</description>
           <table>
     <independentVar lookup="row">/canopy/position-norm</independentVar>
     <tableData>
