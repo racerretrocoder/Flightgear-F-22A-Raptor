@@ -170,7 +170,7 @@
 				<menu n="10">
 					<label>F-22A Raptor</label>
 					<enabled type="bool">true</enabled>
-   <item>
+   			<item>
                 <name>autostart</name>
                 <label>Autostart | Autoshutdown</label>
                 <binding>
@@ -187,7 +187,7 @@
 						 <script>aircraft.livery.dialog.toggle()</script>
 					</binding>
 				</item>
-   <item>
+   					<item>
                         <label>Ground Crew Operations</label>
                         <enabled type="bool">true</enabled>
                         <name>gco</name>
@@ -258,6 +258,15 @@
             <dialog-name>secure</dialog-name>
         </binding>
 			</item>
+   					<item>
+                        <label>KY-58 Encryption Cipher Code</label>
+                        <enabled type="bool">true</enabled>
+                        <name>gco</name>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>cipher</dialog-name>
+                        </binding>
+                    </item>
 
                     <item>
                         <label>Mig-28.nas dialog</label>
