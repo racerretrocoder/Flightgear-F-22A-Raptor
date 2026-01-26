@@ -105,10 +105,20 @@ var readslot = func(datacart,pointer) {
         if(line3[0] == "OFF"){var main = 0;}
         if(line3[0] == "ON"){var main = 1;}
         if(line3[0] == "TD"){var main = 2;}
+        var line4 = split(":",datacart[pointer + 4]);
+        print(line4[0]);
+
+        if(line4[0] == ""){var cipher = 0;} else {
+            var cipher = num(line4[0]);
+            if (cipher == nil) {
+                cipher == 0;
+            }
+        }
         print("DTC.nas: KY-58 Update");
         setprop("controls/ky58/mode",mode);
         setprop("controls/ky58/type",type);
         setprop("controls/ky58/main",main);
+        setprop("controls/ky58/cipherkey",cipher);
     }
 
     var readscrlog = func(datacart,pointer) {
