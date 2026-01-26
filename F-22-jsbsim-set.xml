@@ -9,10 +9,10 @@
 <variant-id type="int">1</variant-id>
         <long-description>
             The Lockheed Martin F-22A "Raptor" is a fifth-generation tactical fighter manufactured by Lockheed Martin and Boeing. It combines supersonic cruise, low-observability, and sensor fusion. The definitive production Block 30/35 model features the AN/APG-77v1 AESA radar and F119-PW-100 engines. The F-22A, the only production F-22 variant, became operational in 2005 and is operated exclusively by the United States Air Force.
-			This aircraft wouldnt exist without the following amazing people: Weapons and Radar improved from 5H1N0B1, Yanes Bechir, and Developer0607. Canvas HUD and Canvas Payload dialog improved from Yanes Bechir. Multiplayer Damage Code from OPRF Members, FDM improved from others. 3D from Pigs, Silver-Snail (cockpit) Phoenix (MFDS) Echoed, Phoenix (Weapons). Main Model Improved from the FGUK Team. Cactus, Phoenix (Missile storing and flare doors). POLSKY1 Cockpit Details, Phoenix 3d model detail. Sounds from Phoenix and others. Textures, Liveries, Phoenix and other pilots alike! Effects, Phoenix.
+			Compatible with FGCOMM-Mumble
         </long-description>
 		
-		<author>Phoenix, Silver-Snail (Snail), Pigs, Clash (KJ7NLL), Developer0607 (Ghost), And others</author>
+		<author>Phoenix, Silver-Snail (Snail), Pigs, Clash (KJ7NLL), Developer0607 (Ghost), And others:  Weapons and Radar improved from 5H1N0B1, Yanes Bechir, and Developer0607. Canvas HUD and Canvas Payload dialog improved from Yanes Bechir. Multiplayer Damage Code from OPRF Members, FDM improved from others. 3D from Pigs, Silver-Snail (cockpit) Phoenix (MFDS) Echoed, Phoenix (Weapons). Main Model Improved from the FGUK Team. Cactus, Phoenix (Missile storing and flare doors). POLSKY1 Cockpit Details, Phoenix 3d model detail. Sounds from Phoenix and others. Textures, Liveries, Phoenix and other pilots alike! Effects, Phoenix.</author>
 		
 		<status>Alpha v0.89a</status> 
 		
@@ -2844,21 +2844,25 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             <frequencies>
                 <selected-mhz type="double">385.40</selected-mhz>
                 <standby-mhz type="double">291.73</standby-mhz>
-         <!--       <current-mhz-digit-1 type="int">0</current-mhz-digit-1>
-                <current-mhz-digit-2 type="int">0</current-mhz-digit-2>
-                <current-mhz-digit-3 type="int">0</current-mhz-digit-3>
-                <current-mhz-digit-4 type="int">0</current-mhz-digit-4>
-                <current-mhz-digit-5 type="int">0</current-mhz-digit-5>-->
             </frequencies>
         </comm>
         <comm n="1">
-	            <operable type="bool">1</operable>
+	        <operable type="bool">1</operable>
             <volume type="double">1</volume>
             <frequencies>
                 <selected-mhz type="double">121.80</selected-mhz>
                 <standby-mhz type="double">132.55</standby-mhz>
             </frequencies>
         </comm>
+        <comm n="2"> <!--Aux comm-->
+	        <operable type="bool">1</operable>
+            <volume type="double">1</volume>
+            <frequencies>
+                <selected-mhz type="double">121.80</selected-mhz>
+                <standby-mhz type="double">132.55</standby-mhz>
+            </frequencies>
+        </comm>
+
 
 		<tacan>
 			<switch-position type="int">1</switch-position>

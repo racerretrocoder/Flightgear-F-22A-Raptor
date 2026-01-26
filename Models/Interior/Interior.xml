@@ -259,10 +259,67 @@ fdm/jsbsim/fcs/engine-gen-spin-output
 	</model>-->
 
 
+<!--aux comm-->
+ <model>
+     <name>auxcomm</name>
+		<path>Aircraft/F-22/Models/Interior/Instruments/auxcomm/auxcomm.xml</path>
+			<offsets>
+				<x-m>-0.965</x-m>
+					<y-m>-0.03</y-m>
+				<z-m>-0.77</z-m>
+			<pitch-deg>0</pitch-deg>
+		</offsets>
+	</model>
+<animation>
+
+ <object-name>rgearbri</object-name>
+ <object-name>lgearbri</object-name>
+ <object-name>ngearbri</object-name>
+  <type>select</type>
+  <condition>
+<greater-than>
+				<property>controls/electric/battswitch</property> 
+				<value>1</value>
+			</greater-than>
+  </condition>
+ </animation>
+
+<animation>
+ <object-name>auxcomm</object-name>
+  <type>select</type>
+  <condition>
+<greater-than>
+				<property>f22/auxcomm/on</property> 
+				<value>0.5</value>
+			</greater-than>
+  </condition>
+ </animation>
+
+
+<animation>
+  <type>pick</type>
+   <object-name>auxzero</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>nasal</command>
+      <script>screen.log.write("AUX COMM (COMM 3) Zeroed out");setprop("f22/auxcomm/digit1",0);setprop("f22/auxcomm/digit2",0);</script>
+    </binding>
+    </action>
+            <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rfe</tooltip-id>
+                <label>Zeroize AUX COMM (COMM 3)</label>
+            </binding>
+        </hovered>
+</animation>
+
 
  
 	 <model>
-
   <path>Aircraft/F-22/Models/Interior/Instruments/hud/hud.xml</path>
 	<offsets>
       <x-m> -4.223 </x-m>
@@ -477,6 +534,94 @@ fdm/jsbsim/fcs/engine-gen-spin-output
 </or>
   </condition>
  </animation>
+
+
+<!--AUX COMM-->
+                <command>property-adjust</command>
+                <property>/autopilot/settings/target-altitude-ft</property>
+                <factor>100</factor>
+                <min>0</min>
+                <max>40000</max>                
+                <wrap>false</wrap>
+
+
+<animation>
+        <name>auxfreq1</name>
+        <type>knob</type>
+        <object-name>freq1</object-name>
+        <property>f22/auxcomm/digit1</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+
+        <axis>
+            <object-name>freq1-axis</object-name>
+        </axis>
+
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/f22/auxcomm/digit1</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>500</max>                
+                <wrap>false</wrap>
+            </binding>
+     <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+                    <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rfe</tooltip-id>
+                <label>Hold SHIFT to seek fast</label>
+            </binding>
+        </hovered>
+    </animation>
+
+
+<animation>
+        <name>auxfreq2</name>
+        <type>knob</type>
+        <object-name>freq2</object-name>
+        <property>f22/auxcomm/digit2</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <object-name>freq2-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/f22/auxcomm/digit2</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>500</max>                
+                <wrap>false</wrap>
+            </binding>
+     <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+                        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rfe</tooltip-id>
+                <label>Hold SHIFT to seek fast</label>
+            </binding>
+        </hovered>
+    </animation>
+
 
 
 
@@ -849,6 +994,138 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
 -->
 
 
+<!--Oxygen-->
+
+
+<animation>
+        <type>knob</type>
+    <object-name>mix</object-name>
+        <property>f22/obogs/mixture</property>
+        <factor>60</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+
+        <axis>
+            <object-name>mix-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/f22/obogs/mixture</property>
+                <value>0</value>
+                <value>1</value>      
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ky58mode</tooltip-id>
+                <label>Mixture Setting</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+
+
+<animation>
+        <type>knob</type>
+    <object-name>oxy2</object-name>
+        <property>f22/obogs/flow</property>
+        <factor>60</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+
+        <axis>
+            <object-name>oxy2-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/f22/obogs/flow</property>
+                <value>0</value>
+                <value>1</value>      
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ky58mode</tooltip-id>
+                <label>Flow Setting</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
+
+
+<animation>
+        <type>knob</type>
+    <object-name>oxy</object-name>
+        <property>f22/obogs/main</property>
+        <factor>60</factor>
+        <center>
+            <x-m>0.0</x-m><y-m>0.027</y-m><z-m>0.0238</z-m>
+        </center>
+
+        <axis>
+            <object-name>oxy-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/f22/obogs/main</property>
+                <value>0</value>
+                <value>1</value>      
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>ky58mode</tooltip-id>
+                <label>Onboard Oxygen Generator System (OBOGS) Main Power</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+    </animation>
 
 
 
@@ -2901,6 +3178,81 @@ New: Refuel in air switch.
 
 
 
+
+
+<animation>
+        <name>auxcomm vol</name>
+        <type>knob</type>
+        <object-name>auxvol</object-name>
+        <property>instrumentation/comm[2]/volume</property>
+        <factor>310</factor>
+        <axis>
+          <object-name>auxvolaxis</object-name>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>instrumentation/comm[2]/volume</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+                        <hovered>
+         <binding>
+         <command>set-tooltip</command>
+         <tooltip-id>comm3vol</tooltip-id>
+         <label>AUX COMM (COMM 3) Volume</label>
+         </binding>
+        </hovered>
+    </animation>
+
+
+
+
+<animation>
+        <name>auxcomm vol</name>
+        <type>knob</type>
+        <object-name>rwrvol</object-name>
+        <property>controls/vol/rwr</property>
+        <factor>310</factor>
+        <axis>
+          <object-name>rwrvol-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>controls/vol/rwr</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+                        <hovered>
+         <binding>
+         <command>set-tooltip</command>
+         <tooltip-id>rwrvol</tooltip-id>
+         <label>Radar Warning Reciver Volume</label>
+         </binding>
+        </hovered>
+    </animation>
+
+
+
 <!-- Comms -->
 
 <animation>
@@ -2921,11 +3273,6 @@ New: Refuel in air switch.
                 <max>1</max>                
                 <wrap>false</wrap>
             </binding>
-<binding>
-         <command>set-tooltip</command>
-         <tooltip-id>comm1vol</tooltip-id>
-         <label>Comm 1 Volume</label>
-         </binding>
                  <binding>
      <command>property-cycle</command>
                 <property>/sim/model/wheel</property>
@@ -2933,6 +3280,13 @@ New: Refuel in air switch.
                   <value>0</value>
      </binding>
         </action>
+                        <hovered>
+         <binding>
+         <command>set-tooltip</command>
+         <tooltip-id>comm1vol</tooltip-id>
+         <label>COMM 1 Volume</label>
+         </binding>
+        </hovered>
     </animation>
 
 <animation>
@@ -2954,11 +3308,6 @@ New: Refuel in air switch.
                 <max>1</max>                
                 <wrap>false</wrap>
             </binding>
-<binding>
-         <command>set-tooltip</command>
-         <tooltip-id>comm2vol</tooltip-id>
-         <label>Comm 2 Volume</label>
-         </binding>
                  <binding>
      <command>property-cycle</command>
                 <property>/sim/model/wheel</property>
@@ -2966,6 +3315,13 @@ New: Refuel in air switch.
                   <value>0</value>
      </binding>
         </action>
+                <hovered>
+         <binding>
+         <command>set-tooltip</command>
+         <tooltip-id>comm2vol</tooltip-id>
+         <label>COMM 2 Volume</label>
+         </binding>
+        </hovered>
     </animation>
 
 

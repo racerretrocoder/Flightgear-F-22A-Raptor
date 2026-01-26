@@ -11,11 +11,58 @@ setprop("f22/mslview",0);
 setprop("f22/aga",0);
 setprop("f22/age",0);
 setprop("f22/obogs/mixture",0);
-setprop("f22/obogs/mode",0);
+setprop("f22/obogs/flow",0);
 setprop("f22/obogs/main",0);
 setprop("controls/refuel/tanks",1);
-# Floats
 
+
+#
+# Aux Comm
+#
+
+setprop("f22/auxcomm/digit1",118);
+setprop("f22/auxcomm/digit2",100);
+var auxcommloop = func {
+  var digit1 = getprop("f22/auxcomm/digit1"); #  123
+  var digit2 = getprop("f22/auxcomm/digit2"); # .456
+  var decimals = digit2 / 1000;
+  var auxfreq = digit1 + decimals;
+  setprop("instrumentation/comm[2]/frequencies/selected-mhz",auxfreq);
+}
+auxcomm = maketimer(0,auxcommloop);
+auxcomm.start();
+setprop("f22/auxcomm/on",0);
+# Radio stuff
+
+var radioloop = func {
+  var batt = getprop("controls/electric/battswitch");
+  var maingen = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
+  if (batt == 2 and maingen == 0) {
+    # comm 3 only
+    setprop("instrumentation/comm[0]/operable",0);
+    setprop("instrumentation/comm[1]/operable",0);
+    setprop("instrumentation/comm[2]/operable",1);
+    setprop("f22/auxcomm/on",1);
+  }
+  if (batt == 2 and maingen == 1) {
+    # all
+    setprop("instrumentation/comm[0]/operable",1);
+    setprop("instrumentation/comm[1]/operable",1);
+    setprop("instrumentation/comm[2]/operable",1);
+    setprop("f22/auxcomm/on",1);
+  }
+  if (batt == 0 and maingen == 0) {
+    setprop("instrumentation/comm[0]/operable",0);
+    setprop("instrumentation/comm[1]/operable",0);
+    setprop("instrumentation/comm[2]/operable",0);
+    setprop("f22/auxcomm/on",0);
+  }
+}
+radios = maketimer(0,radioloop);
+radios.start();
+
+# Floats
+setprop("controls/vol/rwr",0.5);
 setprop("controls/lighting/consoleknob",0.1); #instruments-norm
 setprop("controls/lighting/consoleknob",0); #instruments-norm
 setprop("controls/lighting/mfd",0.1);

@@ -1130,14 +1130,20 @@
             <mode>looped</mode>
             <type>avionics</type>
             <condition>
+            <and>
                 <equals>
                     <property>payload/armament/spike</property>
                     <value>1</value>
                 </equals>
+                <equals>
+                    <property>/sim/current-view/internal</property>
+                    <value>1</value>
+                </equals>
+                </and>
             </condition>
             <volume>
-                <property>/sim/current-view/internal</property>
-                <factor>0.5</factor>
+                <property>controls/vol/rwr</property>
+                <factor>1</factor>
             </volume>
            
         </rwr>
@@ -3503,7 +3509,10 @@ Counter
                   <value>0.9</value>
                 </greater-than>
             </condition>
-
+            <volume>
+                <property>controls/vol/rwr</property>
+                <factor>2</factor>
+            </volume>
 
         </rwr>
 
@@ -3522,7 +3531,10 @@ Counter
                   <value>0.9</value>
                 </greater-than>
             </condition>
-
+            <volume>
+                <property>controls/vol/rwr</property>
+                <factor>2</factor>
+            </volume>
 
         </rwr>
 
@@ -3564,7 +3576,7 @@ Counter
                 </greater-than>
             </condition>
             <volume>
-                <property>sim/current-view/internal</property>
+                <property>controls/vol/rwr</property>
                 <factor>1</factor>
             </volume>
 
@@ -3641,8 +3653,8 @@ Counter
                 </greater-than>
             </condition>
             <volume>
-                <property>sim/current-view/internal</property>
-                <factor>1</factor>
+                <property>controls/vol/rwr</property>
+                <factor>2</factor>
             </volume>
 
         </rwr>
@@ -3665,8 +3677,8 @@ Counter
                 </greater-than>
             </condition>
             <volume>
-                <property>sim/current-view/internal</property>
-                <factor>1</factor>
+                <property>controls/vol/rwr</property>
+                <factor>2</factor>
             </volume>
         </rwr>
 

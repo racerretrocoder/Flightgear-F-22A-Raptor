@@ -41,12 +41,12 @@
 				<desc>Toggle Aim-9 bay doors</desc>
 			</key>			
 			<key>
-				<name>l  (Lower-case L)</name>
-				<desc>Launch flares</desc>
+				<name>l (Lower-case L)</name>
+				<desc>Fire the current selected counter messure program</desc>
 			</key>
 			<key>
 				<name>Shift-R</name>
-				<desc>Toggle HUD Radar Silent/Active</desc>
+				<desc>Toggle Radar Silent/Active</desc>
 			</key>
        		<key>
 				<name>Shift-T</name>
@@ -66,11 +66,7 @@
     			</key>
       <key>
         <name>r</name>
-        <desc>Change Radar Distances</desc>
-      </key>
-      <key>
-        <name>Shift-i</name>
-        <desc>Toggle Experimental Dogfight Mode (Just for fun. Not actually usefull. yet...)</desc>
+        <desc>Cycle Radar Range</desc>
       </key>
       <key>
         <name>m</name>
@@ -78,40 +74,29 @@
       </key>
       <key>
         <name>n</name>
-        <desc>Select an Air to ground Weapon</desc>
-      </key>
-      <key>
-        <name>i</name>
-        <desc>Select a DEBUG Missile</desc>
+        <desc>Select an Air to Ground Weapon</desc>
       </key>
 	   <key>
         <name>y</name>
         <desc>Lock on to the Next Target</desc>
       </key>
-	  
-	  	   <key>
-        <name>U</name>
-        <desc>Toggle New Smoke winders </desc>
-      </key>
 
 			<!--Todo: Make a scroll bar.. some how...-->
 			<line>Lockheed Martin F-22A</line>
-			<line></line>
-						<line></line>
 			<line>---------------------------------Specifications:</line>
-
-						<line>The debug XMAA Missile is a experimental 160nm Long range missile. Flys at mach 5</line>
-
-			<line>Maximum speed: Mach 2.25 @ 65000ft: Mach 1.8+ @ sea level</line>
-			<line>Super Cruise speed: Mach 1.10 20000-65000ft ~~ Mil Thrust</line>
-			<line>Sustained turn rate (FBW ON): 28+ deg/sec </line>
-			<line>Sustained turn rate (FBW OFF): 128+ deg/sec </line>
-			<line>This plane can Super cruise</line>
-			<line>Which means it can go faster than mach 1</line>
-			<line>With no Afterburner</line>
+			<line>Ceiling 65000ft</line>
+			<line>Maximum speed: Mach 2.25 @ 40000ft: Mach 1.8+ @ sea level</line>
+			<line>Super Cruise speed: Mach 1.30 40000ft Mil Thrust</line>
+			<line>Maximum AOA: 70 Degreese</line>
 			<line></line>
-			<line>The radar hud is a special hud that will show you targets and which target your locked on too</line>
-			<line></line>
+			<line>AGP-77 AESA Radar Specifications:------------------</line>
+			<line>Maximum Range: 320 Nautical Miles</line>
+			<line>Maximum Azimuth 270 (In SLR Mode) 120 in RWS</line>
+			<line>Modes----------------------------------------------</line>
+			<line>TWS: Azimuth: 65, Speed: Normal, Range: 5-160</line>
+			<line>RWS: Azimuth: 120, Speed: Normal, Range: 5-320</line>
+			<line>ACM: Azimuth: 65, Speed: Fast, Range: 5-160, HUD Lockable</line>
+			<line>SLR: Azimuth: 270, Speed: Normal, Range: 5-320, Aid with Side Looking Radars</line>
 <line>To turn on the Radar HUD, Press the switch on the lower right console that is labled power.</line>
 <line>You will know its on when the green light just below the switch turns on, (You may have to press it twice when you spawn in)</line>
 			<line></line>		
@@ -139,7 +124,7 @@
 <line>Use the VS, ASI Up Down Rocker buttons to the right of the text panel to change the rates of the autopilot</line>	
 <line>For heading: Wing leveler is only inplemented at the moment.</line>		
 <line></line>
-<line>We like to constantly add new cool things to Raptor! If you like this jet: Update it here! https://github.com/racerretrocoder/Flightgear-F-22A-Raptor</line>
-<line>Me and snail hope you Love flying this jet! :D</line>
-
+<line>We like to constantly add alot of new cool things to Raptor! (At bare minimum, One update / week) If you like this jet: Update it here! https://github.com/racerretrocoder/Flightgear-F-22A-Raptor</line>
+<line>We hope you Love flying this jet! :D</line>
+<line>P.S. If you need help, Or want to submit a custom livery, Come join my discord temporily (Or stay up to you) server! (Check the link at the bottom of the github repo or readme.md file)</line>
 </PropertyList>
