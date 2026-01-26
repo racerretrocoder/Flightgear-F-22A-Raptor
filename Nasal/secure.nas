@@ -30,7 +30,7 @@ var chat = events.LogBuffer.new(echo: 0);
 
 
 
-var lettergrouping = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0",":","-","!",".","?",","," "];
+var lettergrouping = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0"," ","-","!",".","?",",",":"];
 var upperlettergrouping = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","1","2","3","4","5","6","7","8","9","0",":","-","!",".","?",","," "];
 # Total: 43
 # Indexes: 0-42
@@ -177,7 +177,7 @@ var smallsearch = func(cs=nil) {
       # were searching for someone...
       if (getprop("ai/models/multiplayer[" ~ i ~ "]/callsign") == cs) {
           # we have our number
-          print(mpid);
+          ####print(mpid);
           mpid = i;
           return mpid; # Bam!
      }
@@ -285,7 +285,7 @@ var getcode = func {
     }
     var precode = first + second + third + fourth;
     var code = precode * factor; # TD 
-    print(code);
+    ####print(code);
     setprop("/sim/multiplay/generic/int[3]",code);
     return code;
 }
@@ -351,6 +351,7 @@ var encryptiontest = func {
     } else {
         screen.log.write("KY-58: Encryption not functioning as intended, Modes LD, RV Disabled",1,0,0);
     }
+    setprop("controls/ky58/cipherkey",0);
 }
 encryptiontest();
 
