@@ -25,11 +25,17 @@ DTCDESC:                   Give a DTC Description (To mostlikely display on the 
 Sample DTC File: <--btw That space next to the colon is important! (the description)
 SCREENLOG:                 Get ready to send a message
 Hello from the DTC Cart!:  Send a message
+
+
 DLINK:                     Enter Datalink Config
 CODE:                      Enter Code change mode
 1234:                      Datalink changes to 1234
+
+
 BINGO:                     Enter Bingo fuel mode (exit Datalink config too)
 2500:                      Change Bingo FUEL
+
+
 CMDS:                      Custom Chaff flare settings
 PRGM1:                     First program
 Test DTC Program:          Program name
@@ -71,8 +77,18 @@ NONONONONO!:      Name
 You can have 4 CMS programs on 1 dtc!
  PRGM3 and PRGM4
 
+ Set the KY-58
+
+KY58: 
+C:      Mode  (P,C,LD,RV) LD and RV have encryption and require the cipher key
+4:      Channel on that mode
+ON:     State (OFF,ON,TD)
+65:     Private Encryption Cipher Key (Its an integer, and its only For the LD mode and the RV mode)
+
+
+
 SCREENLOG:
-Done loading DTC: 
+This is a sample Datacartridge. Take a look at the comments in this file to learn how to make one of your own!: 
 RAPTORDTC:           Allways have this at the end to stop reading the DTC further.
 
 And that it! simple really. 

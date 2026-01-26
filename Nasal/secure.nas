@@ -294,11 +294,11 @@ var checkcode = func(ourcode) {
     if (getprop("ai/models/multiplayer[" ~ i ~ "]/sim/multiplay/generic/int[3]") == ourcode) {
             mpid = i;
             var callsign = getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign");
-            setprop("/controls/KY58/contacts/" ~ callsign ~ "/code",getprop("ai/models/multiplayer[" ~ i ~ "]/sim/multiplay/generic/int[3]")); # Make a specifc property per each pilot
-            setprop("/controls/KY58/contacts/" ~ callsign ~ "/message",getprop("ai/models/multiplayer[" ~ i ~ "]/sim/multiplay/generic/string[8]")); # Check for new mail!
-            if (getprop("/controls/KY58/contacts/" ~ callsign ~ "/message") != getprop("/controls/KY58/contacts/" ~ callsign ~ "/oldmessage")) {
+            setprop("/controls/KY58/contacts/contact[" ~ mpid ~ "]/code",getprop("ai/models/multiplayer[" ~ i ~ "]/sim/multiplay/generic/int[3]")); # Make a specifc property per each pilot
+            setprop("/controls/KY58/contacts/contact[" ~ mpid ~ "]/message",getprop("ai/models/multiplayer[" ~ i ~ "]/sim/multiplay/generic/string[8]")); # Check for new mail!
+            if (getprop("/controls/KY58/contacts/contact[" ~ mpid ~ "]/message") != getprop("/controls/KY58/contacts/contact[" ~ mpid ~ "]/oldmessage")) {
                 # Message changed!
-                var newmessage = getprop("/controls/KY58/contacts/" ~ callsign ~ "/message");
+                var newmessage = getprop("/controls/KY58/contacts/contact[" ~ mpid ~ "]/message");
                 if (getprop("controls/ky58/encrypted") == 1) {
                     # Encryption is enabled. 
                     newmessage = decrypt(newmessage);
@@ -308,7 +308,7 @@ var checkcode = func(ourcode) {
                 }
                 chat.push("" ~ callsign ~ ": " ~ newmessage ~ "");
                 # Update old message 
-                setprop("/controls/KY58/contacts/" ~ callsign ~ "/oldmessage",getprop("ai/models/multiplayer[" ~ i ~ "]/sim/multiplay/generic/string[8]"));
+                setprop("/controls/KY58/contacts/contact[" ~ mpid ~ "]/oldmessage",getprop("ai/models/multiplayer[" ~ i ~ "]/sim/multiplay/generic/string[8]"));
             }
         }
     }
