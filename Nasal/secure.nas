@@ -1,3 +1,4 @@
+print("KY-58: secure.nas starting up, Namespace: KY58");
 #
 # Secure Communication with MP Players
 # Version 2.0
@@ -30,6 +31,7 @@ var chat = events.LogBuffer.new(echo: 0);
 
 
 var lettergrouping = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0",":","-","!",".","?",","," "];
+var upperlettergrouping = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","1","2","3","4","5","6","7","8","9","0",":","-","!",".","?",","," "];
 # Total: 43
 # Indexes: 0-42
 # There MUST be an even ammount of indexes, We cant select half an index!
@@ -45,120 +47,122 @@ var decrypt = func(message) {
     var encryptedmessage = "";
     var total = size(message);
     var totalgroup = size(lettergrouping);
-    print("Ammount of indexes in char group: ",totalgroup-1);
+    ###print("Ammount of indexes in char group: ",totalgroup-1);
     var newstring = "";
     for(var i = 0; i < total; i += 1) {
         var ingroup = 0; # If its a valid charecter
         var groupin = 0; # The index in the letter group
         var thechar = utf8.chstr(message[i]);
-        print("Decrypting: ",thechar);
-        for(var j = 0; j < totalgroup; j += 1) {
+        ###print("Decrypting: ",thechar);
+        for(var h = 0; h < totalgroup; h += 1) {
             if (ingroup == 0) {
-                if (thechar == lettergrouping[j]) {
-                    print("That charecter is in the group! its at: ",groupin);
-                    groupin = j;
+                if (thechar == lettergrouping[h]) {
+                    ###print("That charecter is in the group! its at: ",h);
+                    groupin = h;
                     ingroup = 1;
                 }
             }
         }
-        print("Scanned through the group!");
+        ###print("Scanned through the group!");
         if (ingroup == 1) {
             # encrypt
-            if (groupin < 21) {
-                # add
-                encryptedindex = groupin + cipher;
-            } elsif (groupin > 21 or groupin == 21) {
-                # subtract
-                encryptedindex = groupin - cipher;
-            }
+            #if (groupin < 21) {
+                # added
+            var encryptedindex = groupin - cipher;
+            #} elsif (groupin > 21 or groupin == 21) {
+                # subtracted
+            #    encryptedindex = groupin - cipher;
+            #}
             # overflow check
             if (encryptedindex > 42) {
+                ###print("Index overflow");
                 encryptedindex = encryptedindex - 42;
             } elsif (encryptedindex < 0) { # for all negitive indexes
                 encryptedindex = encryptedindex + 42;
+                ###print("Index underflow");
             }
             var encryptedchar = lettergrouping[encryptedindex];
-            print("Decrypted Index: ",encryptedindex);
-            print("Decrypted Charecter: ",encryptedchar);
+            ###print("Decrypted Index: ",encryptedindex);
+            ###print("Decrypted Charecter: ",encryptedchar);
             if (encryptedchar == " ") {
-                print("Its a space!");
+                ###print("Its a space!");
             }
             encryptedmessage = "" ~ encryptedmessage ~ "" ~ encryptedchar ~ ""; # append the encrypted charecter to the message
         } else {
-            print("That charecter wasnt in the valid group of letters!");
+            ###print("That charecter wasnt in the valid group of letters!");
             var encryptedchar = "-";
             encryptedmessage = "" ~ encryptedmessage ~ "" ~ encryptedchar ~ ""; # append the encrypted charecter to the message
         }
-        print("Heres our Decrypted Message so far: ",encryptedmessage);
+        ###print("Heres our Decrypted Message so far: ",encryptedmessage);
     }
 #    encryptedmessage = left(encryptedmessage); # reverse em
-    print("Decryption complete!");
-    print("first message: ",message);
-    print("decry message: ",encryptedmessage);
+    ###print("Decryption complete!");
+    ###print("first message: ",message);
+    ###print("decry message: ",encryptedmessage);
     return encryptedmessage;
 }
 
 var encrypt = func(message) {
     var cipher = getprop("controls/ky58/cipherkey"); # how many indexes should the cursor move
+    message = string.lc(message);
     while (cipher > 42) {
         cipher = cipher - 42;
     }
     if (cipher == 42) {
-        screen.log.write("KY58 Warning! This cipher code is not as secure! (It resolves to 42)",1,0,0);
+        screen.log.write("KY-58 Warning! This cipher code is not as secure! (It resolves to 42)",1,0,0);
     }
     var encryptedmessage = "";
     var total = size(message);
     var totalgroup = size(lettergrouping);
-    print("Ammount of indexes in char group: ",totalgroup-1);
+    ###print("Ammount of indexes in char group: ",totalgroup-1);
     var newstring = "";
     for(var i = 0; i < total; i += 1) {
         var ingroup = 0; # If its a valid charecter
         var groupin = 0; # The index in the letter group
         var thechar = utf8.chstr(message[i]);
-        print("Encrypting: ",thechar);
+        ###print("Encrypting: ",thechar);
         for(var j = 0; j < totalgroup; j += 1) {
             if (ingroup == 0) {
                 if (thechar == lettergrouping[j]) {
-                    print("That charecter is in the group! its at: ",groupin);
+                    ###print("That charecter is in the group! its at: ",j);
                     groupin = j;
                     ingroup = 1;
                 }
             }
         }
-        print("Scanned through the group!");
+        ###print("Scanned through the group!");
         if (ingroup == 1) {
-            # encrypt
-            if (groupin < 21) {
-                # add
-                encryptedindex = groupin + cipher;
-            } elsif (groupin > 21 or groupin == 21) {
-                # subtract
-                encryptedindex = groupin - cipher;
-            }
+            var encryptedindex = groupin + cipher;
+            #} elsif (groupin > 21 or groupin == 21) {
+                # subtracted
+            #    encryptedindex = groupin - cipher;
+            #}
             # overflow check
             if (encryptedindex > 42) {
+                ###print("Index overflow");
                 encryptedindex = encryptedindex - 42;
             } elsif (encryptedindex < 0) { # for all negitive indexes
                 encryptedindex = encryptedindex + 42;
+                ###print("Index underflow");
             }
             var encryptedchar = lettergrouping[encryptedindex];
-            print("Encrypted Index: ",encryptedindex);
-            print("Encrypted Charecter: ",encryptedchar);
+            ###print("Encrypted Index: ",encryptedindex);
+            ###print("Encrypted Charecter: ",encryptedchar);
             if (encryptedchar == " ") {
-                print("Its a space!");
+                ###print("Its a space!");
             }
             encryptedmessage = "" ~ encryptedmessage ~ "" ~ encryptedchar ~ ""; # append the encrypted charecter to the message
         } else {
-            print("That charecter wasnt in the valid group of letters!");
+            ###print("That charecter wasnt in the valid group of letters!");
             var encryptedchar = "-";
             encryptedmessage = "" ~ encryptedmessage ~ "" ~ encryptedchar ~ ""; # append the encrypted charecter to the message
         }
-        print("Heres our Encrypted Message so far: ",encryptedmessage);
+        ###print("Heres our Encrypted Message so far: ",encryptedmessage);
     }
 #    encryptedmessage = left(encryptedmessage); # reverse em
-    print("Encryption complete!");
-    print("first message: ",message);
-    print("encrpt message: ",encryptedmessage);
+    ###print("Encryption complete!");
+    ###print("first message: ",message);
+    ###print("encrpt message: ",encryptedmessage);
     return encryptedmessage;
 }
 
@@ -334,4 +338,20 @@ var updatebuffer = func {
 
 updatetimer = maketimer(1,updatebuffer);
 updatetimer.start();
+
+var encryptiontest = func {
+    print("KY58 Testing encryption...");
+    screen.log.write("KY-58: Testing encryption integrity...");
+    setprop("controls/ky58/cipherkey",30);
+    var message = "abcdefghijklmnopqrstuvwxyz1234567890";
+    encryption = encrypt(message);
+    var decryption = decrypt(encryption);
+    if (decryption == message) {
+        screen.log.write("KY-58: Encryption test succeded. Operational",0,1,0);
+    } else {
+        screen.log.write("KY-58: Encryption not functioning as intended, Modes LD, RV Disabled",1,0,0);
+    }
+}
+encryptiontest();
+
 print("secure.nas: KY-58 Secure Voice Terminal Operational! (Made by Phoenix) | Encryption Version 1.0");
