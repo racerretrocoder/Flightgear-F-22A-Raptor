@@ -3528,72 +3528,53 @@ FR
 
 
 
-	<model>
- <name>landinglight</name>
- <path>Aircraft/Generic/spotlight.xml</path>
- <offsets>
+
+
+  <!-- Compositor lights -->
+
+    <light>
+        <name>landing-light-center</name>
+        <type>spot</type>
+        <position>
         <x-m>-4.4</x-m>
 	    <y-m>-0.0</y-m>
 		<z-m>-2.47099</z-m>
-    <pitch-deg>   -0.000 </pitch-deg>
-    <heading-deg>  0 </heading-deg>
- </offsets>
- <overlay>
-  <params>
-   <name>landinglight</name>
-   <power-source>sim/multiplay/generic/int[26]</power-source>
-   <direction>
-    <x>1</x>
-    <y>0</y>
-    <z>1</z>
-   </direction>
-   <ambient>
-    <r>1</r>
-    <g>1</g>
-    <b>1</b>
-   </ambient>
-   <specular>
-    <r>1.0</r>
-    <g>1</g>
-    <b>1</b>
-   </specular>
-      <!-- ALS settings -->
-  </params>
- </overlay>
-</model>
-	<model>
- <name>landinglight</name>
- <path>Aircraft/Generic/spotlight.xml</path>
- <offsets>
-        <x-m>-4.4</x-m>
-	    <y-m>-0.0</y-m>
-		<z-m>-2.47099</z-m>
-    <pitch-deg>   -8.000 </pitch-deg>
-    <heading-deg>  0 </heading-deg>
- </offsets>
- <overlay>
-  <params>
-   <name>landinglight</name>
-   <power-source>sim/multiplay/generic/int[26]</power-source>
-   <direction>
-    <x>0</x>
-    <y>0</y>
-    <z>0</z>
-   </direction>
-   <ambient>
-    <r>1</r>
-    <g>1</g>
-    <b>1</b>
-   </ambient>
-   <specular>
-    <r>1.0</r>
-    <g>1</g>
-    <b>1</b>
-   </specular>
-      <!-- ALS settings -->
-  </params>
- </overlay>
-</model>
+        </position>
+        <direction>
+            <x>-1.0</x>
+            <y> 0</y>
+            <z> 0.0</z>
+        </direction>
+        <ambient>
+            <r>1.00</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>0</a>
+        </ambient>
+        <diffuse>
+            <r>1.00</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+            <r>1.00</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>sim/multiplay/generic/int[26]</property>
+        </dim-factor>
+        <attenuation>
+            <c>1.0</c>
+            <l>0.0225</l>
+            <q>0.000001875</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>40</spot-exponent>
+        <range-m>1800</range-m>
+    </light>
 
 
 

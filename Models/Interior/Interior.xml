@@ -2253,9 +2253,9 @@ New: Refuel in air switch.
             <binding>
                 <command>property-cycle</command>
                 <property>/controls/lighting/ldg</property>
-                <value>-1</value> 
+                <value>1</value> 
                 <value>0</value>
-                <value>1</value>             
+                <value>-1</value>             
                 
                 <wrap>false</wrap>
             </binding>
@@ -2601,15 +2601,14 @@ New: Refuel in air switch.
   <increase>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/clickJFS</property>
+        <property>sim/model/clicksmall</property>
       </binding>
         </increase>
         <decrease>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/clickJFS</property>
+        <property>sim/model/clicksmall</property>
       </binding>
-
         </decrease> 
     </animation>
 
@@ -2654,13 +2653,13 @@ New: Refuel in air switch.
   <increase>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/clickJFS</property>
+        <property>sim/model/clicksmall</property>
       </binding>
         </increase>
         <decrease>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/clickJFS</property>
+        <property>sim/model/clicksmall</property>
       </binding>
         </decrease> 
     </animation>
@@ -3330,11 +3329,11 @@ New: Refuel in air switch.
 -->
 
 
-
+<!--
       <animation>
         <type>knob</type>
         <object-name>LDGLIGHT</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value>
         <axis>
         <object-name>airsource-axis</object-name>
         </axis>
@@ -3363,31 +3362,7 @@ New: Refuel in air switch.
         <property>sim/model/clicksmall</property>
       </binding>
         </decrease> 
-    </animation>
-
-
-
-
-<animation>
-        <type>rotate</type>
-        <object-name>LDGLIGHT</object-name>
-        <property>controls/lighting/landing-lights</property>
-        <offset-deg>0</offset-deg>
-        <factor>-40</factor>
-        <axis>
-            <x>0.0</x>
-            <y>1.0</y>
-            <z>0.0</z>
-        </axis>
-        <center>
-            <x-m> -5.08234 </x-m>
-	    <y-m> 0.273292 </y-m>
-	    <z-m> -0.204265 </z-m>
-        </center>
-    </animation>
-
-
-
+    </animation>-->
 
 
 
