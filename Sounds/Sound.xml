@@ -212,7 +212,7 @@
     <offset>-0.65</offset>
    </volume>
     <pitch>
-                <property>engines/engine[0]/n1</property>
+                <property>fdm/jsbsim/fcs/effected0n1</property>
                 <offset>0.86349949816</offset>
                 <factor>0.00455001673</factor>
             </pitch>
@@ -242,7 +242,7 @@
 	<max>0.5</max>
    </volume>
     <pitch>
-                <property>engines/engine[0]/n1</property>
+                <property>fdm/jsbsim/fcs/effected0n1</property>
                 <offset>0.86349949816</offset>
                 <factor>0.00455001673</factor>
             </pitch>
@@ -255,7 +255,7 @@
    <condition>
 
 <greater-than>  
- <property>engines/engine[0]/n1</property>
+ <property>fdm/jsbsim/fcs/effected0n1</property>
    <value>90</value>
   </greater-than>
 
@@ -275,7 +275,7 @@
     <offset>0</offset>
    </volume>
   <!--  <pitch>
-                <property>engines/engine[0]/n1</property>
+                <property>fdm/jsbsim/fcs/effected0n1</property>
                 <offset>0.86349949816</offset>
                 <factor>0.00455001673</factor>
             </pitch> -->
@@ -306,7 +306,7 @@
 	<max>0.5</max>
    </volume>
     <pitch>
-                <property>engines/engine[1]/n1</property>
+                <property>fdm/jsbsim/fcs/effected1n1</property>
                 <offset>0.86349949816</offset>
                 <factor>0.00455001673</factor>
             </pitch>
@@ -319,7 +319,7 @@
    <condition>
 
 <greater-than>  
- <property>engines/engine[1]/n1</property>
+ <property>fdm/jsbsim/fcs/effected1n1</property>
    <value>90</value>
   </greater-than>
 
@@ -360,7 +360,7 @@
    <condition>
 
 <greater-than>  
- <property>engines/engine[1]/n1</property>
+ <property>fdm/jsbsim/fcs/effected1n1</property>
    <value>90</value>
   </greater-than>
 
@@ -400,7 +400,7 @@
    <condition>
 
 <greater-than>  
- <property>engines/engine[1]/n1</property>
+ <property>fdm/jsbsim/fcs/effected1n1</property>
    <value>90</value>
   </greater-than>
 
@@ -440,7 +440,7 @@
    <condition>
 
 <greater-than>  
- <property>engines/engine[1]/n1</property>
+ <property>fdm/jsbsim/fcs/effected1n1</property>
    <value>90</value>
   </greater-than>
 
@@ -475,7 +475,7 @@
 	<max>0.1</max>
    </pitch>
   <!--  <pitch>
-                <property>engines/engine[0]/n1</property>
+                <property>fdm/jsbsim/fcs/effected0n1</property>
                 <offset>0.86349949816</offset>
                 <factor>0.00455001673</factor>
             </pitch> -->
