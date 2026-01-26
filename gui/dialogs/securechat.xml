@@ -11,7 +11,7 @@
 		<empty><stretch>1</stretch></empty>
 
 		<text>
-			<label>KY58 Secure Voice Terminal</label>
+			<label>KY58 Secure Voice Terminal (Version 2.0)</label>
 		</text>
 
 		<empty><stretch>1</stretch></empty>
@@ -56,8 +56,7 @@
 			<script><![CDATA[
 			var update = func {
 			if (KY58.getpower() == 0){
-			screen.log.write("KY58 is currently OFF. Please turn it on, And set the settings to match your copilots");
-		
+			screen.log.write("KY58 is currently OFF. Please turn it on, set the KY-58 modes, encryption cipher (if using LD or RV), Whether TD is being used or not To match your copilots to chat privately");
 			return 0;
 			}
 				var str = "";
@@ -133,8 +132,15 @@
 					var callsign = getprop("sim/multiplay/callsign");
 					KY58.chat.push("" ~ callsign ~ ": " ~ getprop("controls/ky58/buffer") ~ "");
 					var message = getprop("controls/ky58/buffer");
-					screen.log.write("KY-58: " ~ callsign ~ ": "~ message ~ "",1,0.5,0);
-					setprop("sim/multiplay/generic/string[8]",getprop("controls/ky58/buffer"));
+					
+					if (getprop("controls/ky58/encrypted") == 1) {
+						screen.log.write("[Encrypted] KY-58: " ~ callsign ~ ": "~ message ~ "",1,0.5,0);
+						# encrypt the message
+						message = KY58.encrypt(message);
+					} else {
+						screen.log.write("KY-58: " ~ callsign ~ ": "~ message ~ "",1,0.5,0);
+					}
+					setprop("sim/multiplay/generic/string[8]",message);
 					setprop("controls/ky58/buffer","");
 				]]></script>
 		</binding>
