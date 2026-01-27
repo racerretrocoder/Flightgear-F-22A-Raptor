@@ -1887,7 +1887,7 @@ Old
 		<object-name>canopy out</object-name>
 		<object-name>cabin</object-name>
 		<object-name>canopyframe</object-name>
-        <property>fdm/jsbsim/fcs/canopy</property>
+        <property>sim/multiplay/generic/float[36]</property>
         <factor>0.13</factor>
         <axis>
             <x>1</x>
@@ -1920,8 +1920,8 @@ Old
 		<object-name>canopyframe</object-name>
    <property>sim/multiplay/generic/float[36]</property>
     <interpolation>
-      <entry><ind> 0 </ind><dep>  0 </dep></entry>
-      <entry><ind> 1 </ind><dep> 23 </dep></entry>
+      <entry><ind> 0.2 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1.0 </ind><dep> 27 </dep></entry>
     </interpolation>
     <center>
       <x-m> -3.5 </x-m>
