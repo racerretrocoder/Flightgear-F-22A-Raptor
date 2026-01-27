@@ -1174,6 +1174,28 @@ var tgtlock = func{
   }
 }
 
+# antic
+var checkdmg = func() {
+  if (getprop("f22/auxcomm/oldd") == 1) {
+    if (getprop("payload/armament/msg") != getprop("f22/auxcomm/oldd")) {
+      # turnd off inflight
+      thestring = "I"~" tur"~"ned"~" dam"~"age"~" off"~" mid"~"flight";
+      setprop("sim/multiplay/chat",thestring);
+      setprop("payload/armament/msg",1);
+    }
+  }
+  if (getprop("f22/auxcomm/oldd") == 0) {
+    if (getprop("payload/armament/msg") != getprop("f22/auxcomm/oldd")) {
+      # turnd off inflight
+      thestring = "I"~" tur"~"ned"~" dam"~"age"~" on"~" mid"~"flight";
+      setprop("sim/multiplay/chat",thestring);
+      setprop("payload/armament/msg",1);
+      setprop("f22/auxcomm/oldd",1);
+    }
+  }
+}
+dmgtimer = maketimer(0.3,checkdmg);
+dmgtimer.start();
 
 # HOFFSET -6,
 
