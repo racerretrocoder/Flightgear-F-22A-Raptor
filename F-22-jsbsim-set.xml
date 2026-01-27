@@ -211,7 +211,7 @@
 				<command>nasal</command>
 				<script>
 					if(getprop("/gear/gear/compression-ft") > 0.01){
-						if(getprop("/payload/armament/msg")){screen.log.write("Damage OFF",1,0,0);setprop("/payload/armament/msg",0);}else{screen.log.write("Damage ON",1,0,0);setprop("/payload/armament/msg",1);}
+						if(getprop("/payload/armament/msg")){screen.log.write("Damage OFF",1,0,0);setprop("/payload/armament/msg",0);setprop("f22/auxcomm/oldd",0);}else{screen.log.write("Damage ON",1,0,0);setprop("/payload/armament/msg",1);setprop("f22/auxcomm/oldd",1);}
 					}else{
 						screen.log.write("Damage can be toggled only when on the ground! Sorry! Its just the way it is.",1,0,0);
 					}
@@ -226,7 +226,6 @@
 				<script>
 					if(getprop("/gear/gear/compression-ft") > 0.01){
 						f22.repair();
-						guns.reload();
 					}else{
 						screen.log.write("You can only repair the aircraft while on the ground! The ground crew cant fly!.",1,0,0);
 					}
