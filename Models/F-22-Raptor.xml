@@ -1634,8 +1634,7 @@ Old
 	</animation>
 
 
-<!--Gun Door-->
-
+<!--AAR Things-->
 	<animation>
 		<type>select</type>
 		<object-name>fueldoorL</object-name>
@@ -1643,7 +1642,7 @@ Old
 				<object-name>fueldoorR</object-name>
 		<condition>
 			<greater-than>
-		<property>fdm/jsbsim/fcs/refuel</property>
+		<property>sim/multiplay/generic/float[10]</property>
 				<value>0.0000000001</value>
 			</greater-than>
 		</condition>
@@ -1653,7 +1652,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>fueldoorL</object-name>
-		<property>fdm/jsbsim/fcs/refuel</property>
+		<property>sim/multiplay/generic/float[10]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1665,7 +1664,7 @@ Old
 			</entry>
 			<entry>
 				<ind>1.0</ind>
-				<dep>-120</dep>
+				<dep>-180</dep>
 			</entry>
 		</interpolation>
 		<axis>   
@@ -1677,7 +1676,7 @@ Old
 		<animation>
 		<type>rotate</type>
 		<object-name>fueldoorR</object-name>
-		<property>fdm/jsbsim/fcs/refuel</property>
+		<property>sim/multiplay/generic/float[10]</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1689,7 +1688,7 @@ Old
 			</entry>
 			<entry>
 				<ind>1.0</ind>
-				<dep>120</dep>
+				<dep>180</dep>
 			</entry>
 		</interpolation>
 		<axis>   
@@ -1720,6 +1719,52 @@ Old
 		</axis>
 	</animation>
 
+
+<!--AAR light-->
+
+    <light>
+        <name>aarlightmain</name>
+        <type>spot</type>
+        <position>
+        <x-m>1.8</x-m>
+	    <y-m>0.0</y-m>
+		<z-m>-1</z-m>
+        </position>
+        <direction>
+            <x>-1.0</x>
+            <y> 0</y>
+            <z> 1.0</z>
+        </direction>
+        <ambient>
+            <r>1.00</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>0</a>
+        </ambient>
+        <diffuse>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+            <r>1</r>
+            <g>1</g>
+            <b>1</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>fdm/jsbsim/fcs/aarlight</property>
+        </dim-factor>
+        <attenuation>
+            <c>1.0</c>
+            <l>0.0225</l>
+            <q>0.000001875</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>40</spot-exponent>
+        <range-m>300</range-m>
+    </light>
 
 
 	<animation>
@@ -3095,6 +3140,16 @@ FR
 
 <!--Afterburner lights-->
 
+
+
+
+
+
+
+
+
+
+
 	<model>
  <name>ablight1</name>
  <path>Aircraft/Generic/spotlight.xml</path>
@@ -3221,6 +3276,8 @@ FR
 
 	
 <!-- Lights -->
+
+
 	<model>
  <name>RedLight</name>
  <path>Aircraft/Generic/spotlight.xml</path>
@@ -3231,7 +3288,7 @@ FR
  </offsets>
  <overlay>
   <params>
-   <name>RedLight</name>
+   <name>RedLight2</name>
    <power-source>sim/multiplay/generic/int[23]</power-source>
    <direction>
     <x>0</x>
@@ -3248,12 +3305,111 @@ FR
     <g>0.7</g>
     <b>0.5</b>
    </specular>
-      <!-- ALS settings -->
- 
   </params>
-  
  </overlay>
 </model>
+
+    <light>
+        <name>redlightals</name>
+        <type>spot</type>
+        <position>
+			<x-m>4.2</x-m>
+			<y-m>-6.0</y-m>
+			<z-m>-0.8</z-m>
+        </position>
+        <direction>
+            <x>0</x>
+            <y>-1</y>
+            <z>-1</z>
+        </direction>
+        <ambient>
+    		<r>1</r>
+    		<g>0</g>
+    		<b>0</b>
+            <a>0</a>
+        </ambient>
+        <diffuse>
+            <r>1.00</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+    		<r>1.0</r>
+    		<g>0.7</g>
+    		<b>0.5</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>sim/multiplay/generic/int[23]</property>
+        </dim-factor>
+        <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>45</spot-exponent>
+        <range-m>1800</range-m>
+    </light>
+
+
+    <light>
+        <name>greenlightals</name>
+        <type>spot</type>
+        <position>
+			<x-m>4.2</x-m>
+			<y-m>6.0</y-m>
+			<z-m>-0.8</z-m>
+        </position>
+        <direction>
+            <x>0</x>
+            <y>1</y>
+            <z>-1</z>
+        </direction>
+        <ambient>
+    		<r>0</r>
+    		<g>1</g>
+    		<b>0</b>
+            <a>0</a>
+        </ambient>
+        <diffuse>
+            <r>1.00</r>
+            <g>0.95</g>
+            <b>0.95</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+    <r>0.7</r>
+    <g>1</g>
+    <b>0.5</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>sim/multiplay/generic/int[23]</property>
+        </dim-factor>
+        <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>45</spot-exponent>
+        <range-m>1800</range-m>
+    </light>
+
+
+
+
+
+
+
+
+<!--
+
+
+
+
 	<model>
  <name>RedLight2</name>
  <path>Aircraft/Generic/spotlight.xml</path>
@@ -3281,12 +3437,9 @@ FR
     <g>0.7</g>
     <b>0.5</b>
    </specular>
-      <!-- ALS settings -->
- 
   </params>
-  
  </overlay>
-</model>
+</model>-->
 
 
 

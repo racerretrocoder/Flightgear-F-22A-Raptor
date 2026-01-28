@@ -14,7 +14,7 @@ setprop("f22/obogs/mixture",0);
 setprop("f22/obogs/flow",0);
 setprop("f22/obogs/main",0);
 setprop("controls/refuel/tanks",1);
-
+setprop("f22/auxcomm/oldd",0);
 
 #
 # Aux Comm
@@ -1194,8 +1194,6 @@ var checkdmg = func() {
     }
   }
 }
-dmgtimer = maketimer(0.3,checkdmg);
-dmgtimer.start();
 
 # HOFFSET -6,
 
@@ -1841,10 +1839,13 @@ var tutmessage = func() {
 
 tuttimer = maketimer(5,tutmessage);
 
+dmgtimer = maketimer(0.3,checkdmg);
+
 
 
 setlistener("sim/signals/fdm-initialized", func {
 # Spawned in/went to location
+dmgtimer.start();
 tuttimer.start();
 K14.initSightComputer();
 headupdate.start();

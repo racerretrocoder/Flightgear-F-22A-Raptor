@@ -547,10 +547,9 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
             <crashsmoke type="bool">false</crashsmoke>
             <crashflame type="bool">false</crashflame>
 			-->
-
-
-
 <bool n="8" type="bool" alias="/engines/engine/cutoff"/>  <!--For Idleing Smoke-->
+ <float n="9" type="double" alias="/controls/lighting/aar"/>  <!--AARLIGHT-->
+ <float n="10" type="double" alias="/fdm/jsbsim/fcs/refuel"/> <!--AAR-->
  <float n="11" type="double" alias="/fdm/jsbsim/fcs/tv-animation-lower"/>
  <float n="12" type="double" alias="/fdm/jsbsim/fcs/AIM120"/>
  <float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
@@ -561,7 +560,7 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
  <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the Vapor, and more-->
 
 
-
+<!--Flight controls-->
  <float n="21" type="double" alias="/fdm/jsbsim/fcs/Elev-pos-norm-limit-sum-main"/>
  <float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
  <float n="23" type="double" alias="/fdm/jsbsim/fcs/left-flaperon-pos-norm"/>
@@ -572,29 +571,32 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
   <float n="28" type="double" alias="/fdm/jsbsim/fcs/leading-edge-flap-main"/>
   <float n="29" type="double" alias="/fdm/jsbsim/systems/hook/tailhook-pos-norm"/>
  <float n="30" type="double" alias="/velocities/mach"/><!--For the MP Sonic Boom, Vapor, and more-->
-
  <float n="31" type="double" alias="/fdm/jsbsim/fcs/ab1"/>	
- <float n="32" type="double" alias="/fdm/jsbsim/fcs/ab2"/>	  <!--Burner-->
-
-
-
+ <float n="32" type="double" alias="/fdm/jsbsim/fcs/ab2"/>	  <!--Burners-->
  <float n="33" type="double" alias="/fdm/jsbsim/fcs/gundoor"/>	<!--Gun-->
+ 
 
-<float n="34" type="double" alias="/engines/engine/n1"/>	 
-<float n="35" type="double" alias="/controls/lighting/actualform"/>
+
+<float n="34" type="double" alias="/engines/engine/n1"/> <!--TODO: Figure out what is using this because its actually not needed-->
+
+
+
+<float n="35" type="double" alias="/controls/lighting/actualform"/> <!--Formation light bars-->
 <float n="36" type="double" alias="/fdm/jsbsim/fcs/canopy"/>
 <float n="37" type="double" alias="/fdm/jsbsim/fcs/apuflap1"/>	
 <float n="38" type="double" alias="/fdm/jsbsim/fcs/right-flaperon-pos-norm"/>	
-<float n="39" type="double" alias="/f22/head-hdg-deg"/>	
-<int n="2" type="int">1</int><!-- radar-standby (Enemy RWR Detection) -->
-<int n="3" type="int">0</int><!-- KY58 int -->
-<int n="4" type="int" alias="/f22/dead"/>
-<int n="5" type="int" alias="/f22/engint"/>
-<int n="10" type="int" alias="/controls/lighting/nav-lights"/>
-<int n="11" type="int" alias="/controls/lighting/beacon"/> 
-<int n="13" type="int" alias="/controls/smoke/Switch"/> 
-<int n="15" type="int" alias="/f22/ejected"/>
-<int n="16" type="int" alias="/controls/lighting/logo-lights"/>
+<float n="39" type="double" alias="/f22/head-hdg-deg"/>	<!--Head movement-->
+<int n="2" type="int">1</int><!-- radar-standby (If this is 1, Enemies cant see us on there RWR) -->
+<int n="3" type="int">0</int><!-- KY58 Channel Code -->
+<int n="4" type="int" alias="/f22/dead"/> <!--crash effects-->
+<int n="5" type="int" alias="/f22/engint"/> <!--Engine flameouts-->
+<!--
+<int n="10" type="int" alias="/controls/lighting/nav-lights"/>  
+<int n="11" type="int" alias="/controls/lighting/beacon"/> 		
+-->
+<int n="13" type="int" alias="/controls/smoke/Switch"/> <!-- not needed -->
+<int n="15" type="int" alias="/f22/ejected"/> <!--Ejection-->
+<int n="16" type="int" alias="/controls/lighting/logo-lights"/> <!--Tail flood (may remove future)-->
 <int n="17" type="int" alias="/controls/armament/extpylons"/>  <!--Ext pylons-->
 <int n="18" type="int" alias="/controls/armament/rdt"/> 
 <int n="19" type="int" alias="/controls/armament/ldt"/>   <!--Drop tanks--> 
@@ -606,17 +608,18 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 <int n="23" type="int" alias="/fdm/jsbsim/fcs/light"/>
 
 
-<int n="24" type="int" alias="/controls/apu/smoke"/>
-<int n="25" type="int" alias="/controls/apu/apuflame"/>
-<int n="26" type="int" alias="/fdm/jsbsim/fcs/landlight"/>
-<int n="27" type="int" alias="/controls/armament/rrdt"/>
-<int n="28" type="int" alias="/controls/armament/lldt"/>
+<!-- <int n="24" type="int" alias="/controls/apu/smoke"/>
+<int n="25" type="int" alias="/controls/apu/apuflame"/> not needed / doesnt work-->
+<int n="26" type="int" alias="/fdm/jsbsim/fcs/landlight"/> 
+
+<int n="27" type="int" alias="/controls/armament/rrdt"/> <!--Drop tanks-->
+<int n="28" type="int" alias="/controls/armament/lldt"/> <!--Drop tanks-->
 
 <!--Missiles in bays on MP-->
 <string n="5" type="string">0:none:S0:0</string><!-- string 5 used by stores -->
-<string n="6" type="string"></string><!-- string 6 used by radar lock RWR warning -->
+<string n="6" type="string"></string><!-- string 6 used by radar lock warning -->
 <string n="7" type="string"></string><!-- string 7 used by datalink -->
-<string n="8" type="string">KY58:</string> <!--KY-58-->
+<string n="8" type="string">KY58:</string> <!--string 8 used by KY-58 secure MP-Chat-->
 
 
 
