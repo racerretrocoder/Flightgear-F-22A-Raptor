@@ -78,6 +78,7 @@ setprop("controls/lighting/formation-norm",0);
 setprop("controls/lighting/extknob",0);
 setprop("controls/lighting/ldg",0);
 setprop("controls/hooksw",1);
+setprop("controls/lighting/aar",1);
 var NM2FT = 6076;
 setprop("controls/switches/airsource",0);
 setprop("f22/ejection/lon",0);
