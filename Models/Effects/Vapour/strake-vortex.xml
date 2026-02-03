@@ -12,21 +12,21 @@
 
  <animation>
   <type>scale</type>
-  <object-name>Bounding_box2</object-name>
+  <object-name>Bounding_box1</object-name>
   <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
-  <x-min>1.0</x-min>
-  <y-min>0.4</y-min>
-  <z-min>0.4</z-min>
-  <x-factor>0.035</x-factor>
-  <y-factor>0.04</y-factor>
-  <z-factor>0.035</z-factor>
+  <x-min>0.8</x-min>
+  <y-min>4.5</y-min>
+  <z-min>0.35</z-min>
+  <x-factor>0.02</x-factor>
+  <y-factor>0.0</y-factor>
+  <z-factor>0</z-factor>
  </animation>
 
  <animation>
-  <type>rotate</type> 
-  <object-name>Bounding_box2</object-name>
+  <type>rotate</type>
+  <object-name>Bounding_box1</object-name>
   <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
-  <offset-deg>-25</offset-deg>
+  <offset-deg>-20</offset-deg>
   <factor>-0.2</factor>
   <center>
    <x-m>0.</x-m>
