@@ -1892,7 +1892,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>gundoor</object-name>
-		<property>sim/multiplay/generic/float[33]</property>
+		<property>fdm/jsbsim/fcs/gun-main</property>
 		<interpolation>
 		<!--	<entry>
 				<ind>0.0</ind>
@@ -1967,7 +1967,7 @@ Old
 		
 		<condition>
 			<greater-than>
-				<property>sim/multiplay/generic/float[33]</property>
+				<property>fdm/jsbsim/fcs/gun-main</property>
 				<value>0.0000000001</value>
 			</greater-than>
 		</condition>

@@ -28,8 +28,8 @@ setprop("controls/armament/multishot/message","Multishot Disabled");
 setprop("controls/armament/multishot/lockattempts",0);
 setprop("controls/armament/multishotstate",0);
 setprop("controls/armament/missile/multishot",0);
-
-
+setprop("controls/armament/gunlag",0); # Delay of the flap to stay open
+setprop("controls/armament/gun-trigger-no-delay",0);
 # Radar functions
 
 var attemptmultilock = func(csind) {
@@ -155,21 +155,45 @@ var checkburst = func() {
 }
 reset = maketimer(0,checkburst);
 
-# Controls
+
+#
+#
+#    Controls
+#
+#
+
+var gunlagmain = func() {
+    var trig = getprop("/controls/armament/gun-trigger-no-delay");
+    var flap = getprop("/fdm/jsbsim/fcs/gun-main");
+    if (trig == 1 and flap == 1) {
+        setprop("/controls/armament/gun-trigger", 1);
+    } else {
+        setprop("/controls/armament/gun-trigger", 0);
+    }
+}
+
+
+gunlagshoot = maketimer(0,gunlagmain);
+gunlagshoot.start();
+
+
 # Trigger
 
-fire_MG = func() {  # b would be in the ()
+
+fire_MG = func() { 
 
     var time = getprop("/sim/time/elapsed-sec");
     if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
-    if (getprop("controls/armament/trigger") == 0){return;} #hmmm
+    if (getprop("controls/armament/trigger") == 0){return;}
     if(getprop("/controls/armament/stick-selector") == 1)
     {
         # guns
         if (getprop("controls/armament/master-arm") == 1 and getprop("ai/submodels/submodel[1]/count") != 0) {
         isFiring = 1;
         
-        setprop("/controls/armament/gun-trigger", 1);
+        setprop("controls/armament/gun-trigger-no-delay",1);
+        setprop("controls/armament/gunlag",1);
+        flap_timer.start();
         #settimer(autostopFiring, 0.47); # Fast burst
         reset.start();
         } else {
@@ -187,17 +211,12 @@ fire_MG = func() {  # b would be in the ()
             } else {
                 # Normal Control
             # var time = getprop("/sim/time/elapsed-sec");
-                if(time - dt > 0.5) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
+                if(time - dt > 0.5) # missile delay. only shoot missiles every 0.5 seconds
                 {
-                    var missile = getprop("controls/missile");
-                    setprop("controls/missile", !missile);
                     dt = time;
-                    m2000_load. SelectNextPylon();
+                    screen.log.write("Trigger!");
                     f22.fire(0,0); # Open the bay doors of the currently selected weapon
-                    var pylon = getprop("/controls/armament/missile/current-pylon");
-                    m2000_load.dropLoad(pylon);
-                    print("Should fire Missile");
-                    setprop("/controls/armament/missile-trigger", 1);
+                    f22.firemsluntill(); # Auto fire the missile
                 }
             }
         } else {
@@ -219,16 +238,10 @@ fire_MG_pic = func() {  # b would be in the ()
         # var time = getprop("/sim/time/elapsed-sec"); 
         if(time - dt > 0.5) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
             {
-                var missile = getprop("controls/missile");
-                setprop("controls/missile", !missile);
                 dt = time;
-                m2000_load.SelectNextPylon();
                 screen.log.write("Pickle!");
                 f22.fire(0,0); # Open the bay doors of the currently selected weapon
-                var pylon = getprop("/controls/armament/missile/current-pylon");
-                m2000_load.dropLoad(pylon);
-                print("Should fire Missile");
-                setprop("/controls/armament/missile-trigger", 1);
+                f22.firemsluntill(); # Auto fire the missile
             }
         }
     } else {
@@ -241,8 +254,19 @@ fire_MG_pic = func() {  # b would be in the ()
 var autostopFiring = func() {
     setprop("/controls/armament/missile-trigger", 0);
     setprop("/controls/armament/gun-trigger", 0);
+    setprop("controls/armament/gun-trigger-no-delay",0);
     isFiring = 0;
 }
+
+
+var flapreset = func() {
+    # after seconds. reset the flap
+    setprop("controls/armament/gunlag",0);
+    flap_timer.stop();
+}
+
+
+flap_timer = maketimer(8, flapreset);
 
 
 var stopFiring = func() {
@@ -250,6 +274,7 @@ var stopFiring = func() {
 
         setprop("/controls/armament/missile-trigger", 0);
     setprop("/controls/armament/gun-trigger", 0);
+    setprop("controls/armament/gun-trigger-no-delay",0);
     isFiring = 0;
     }
 }
@@ -296,7 +321,7 @@ var valid_mp_types = {
     multiplayer: 1, tanker: 1, aircraft: 1, ship: 1, groundvehicle: 1,
 };
 
-# Find a MP aircraft close to a given point (code from the Mirage 2000)
+# Find a MP aircraft close to a given point (code from the Mirage 2000, and from F-16 Viper)
 var findmultiplayer = func(targetCoord, dist) {
     if(targetCoord == nil) return nil;
 
@@ -374,7 +399,7 @@ var hitmessage = func(typeOrd,callsign,hits) {
     if (getprop("payload/armament/msg") == 1) {
       #setprop("/sim/multiplay/chat", phrase);   Old damage system
         #armament.defeatSpamFilter(phrase);
-    print("Guns hit target");
+    print("Guns hit target: ",hits);
         var msg = notifications.ArmamentNotification.new("mhit", 4, -1*(damage.shells["M61A1 shell"][0]+1));
         msg.RelativeAltitude = 0;
         msg.Bearing = 0;
