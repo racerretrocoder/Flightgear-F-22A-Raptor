@@ -16,6 +16,10 @@ setprop("f22/obogs/main",0);
 setprop("controls/refuel/tanks",1);
 setprop("f22/auxcomm/oldd",0);
 
+
+setprop("f22/rbleed",0.0);
+setprop("f22/lbleed",0.0);
+
 #
 # Aux Comm
 #
@@ -60,6 +64,17 @@ var radioloop = func {
 }
 radios = maketimer(0,radioloop);
 radios.start();
+
+
+# Inlet vents
+var rinlet = func() {
+  var throttle = getprop("f22/throttler");
+  var n1 = getprop("fdm/jsbsim/fcs/effected1n1");
+  
+}
+
+
+
 
 # Floats
 setprop("controls/vol/rwr",0.5);

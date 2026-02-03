@@ -94,6 +94,12 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 		<object-name>Left_Rocket_Bay</object-name> Textured but i like it dark now
 
 -->
+    <object-name>lbleed1</object-name>
+  <object-name>lbleed2</object-name>
+    <object-name>lbleed3</object-name>
+		    <object-name>rbleed1</object-name>
+  <object-name>rbleed2</object-name>
+    <object-name>rbleed3</object-name>
 		<object-name>canopyframe</object-name>
 		<object-name>rfd</object-name>
 		<object-name>lfd</object-name>
@@ -321,6 +327,12 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
   <object-name>apuflap2</object-name>
   <object-name>apuflap1</object-name>
   <object-name>Fuselage_2</object-name>
+    <object-name>lbleed1</object-name>
+  <object-name>lbleed2</object-name>
+    <object-name>lbleed3</object-name>
+	    <object-name>rbleed1</object-name>
+  <object-name>rbleed2</object-name>
+    <object-name>rbleed3</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture-AKfuselage</texture-prop>
   <texture>Liveries/maps/newbody.png</texture>
@@ -729,7 +741,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
    <y-m>-2.53</y-m>
    <z-m>-0.8</z-m>
 
-   <heading-deg>-10</heading-deg>
+   <heading-deg>-15</heading-deg>
   </offsets>
  </model>
 
@@ -742,7 +754,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
    <y-m>2.53</y-m>
    <z-m>-0.8</z-m>
 
-   <heading-deg>10</heading-deg>
+   <heading-deg>15</heading-deg>
   </offsets>
  </model>
 
@@ -756,7 +768,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
    <y-m>2.3</y-m>
    <z-m>-0.8</z-m>
 
-   <heading-deg>10</heading-deg>
+   <heading-deg>15</heading-deg>
   </offsets>
  </model>
 
@@ -770,7 +782,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
    <y-m>-2.3</y-m>
    <z-m>-0.8</z-m>
 
-   <heading-deg>-10</heading-deg>
+   <heading-deg>-15</heading-deg>
   </offsets>
  </model>
 
@@ -1632,6 +1644,187 @@ Old
 		<object-name>apuflap2-axis</object-name>
 		</axis>
 	</animation>
+
+
+
+<!--bleeds-->
+
+	<animation>
+		<type>rotate</type>
+		<object-name>rbleed1</object-name>
+		<property>fdm/jsbsim/fcs/inlet1angle</property>
+		<interpolation>
+					<entry>
+				<ind>-1.0</ind>
+				<dep>-90</dep>
+			</entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>rbleed1-axis</object-name>
+		</axis>
+	</animation>
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>rbleed2</object-name>
+		<property>fdm/jsbsim/fcs/inlet1angle</property>
+		<interpolation>
+					<entry>
+				<ind>-1.0</ind>
+				<dep>-90</dep>
+			</entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>rbleed2-axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>rbleed3</object-name>
+		<property>fdm/jsbsim/fcs/inlet1angle</property>
+		<interpolation>
+					<entry>
+				<ind>-1.0</ind>
+				<dep>-90</dep>
+			</entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>rbleed3-axis</object-name>
+		</axis>
+	</animation>
+
+
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>lbleed1</object-name>
+		<property>fdm/jsbsim/fcs/inlet0angle</property>
+		<interpolation>
+					<entry>
+				<ind>-1.0</ind>
+				<dep>-90</dep>
+			</entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>lbleed1-axis</object-name>
+		</axis>
+	</animation>
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>lbleed2</object-name>
+		<property>fdm/jsbsim/fcs/inlet0angle</property>
+		<interpolation>
+					<entry>
+				<ind>-1.0</ind>
+				<dep>-90</dep>
+			</entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>lbleed2-axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>lbleed3</object-name>
+		<property>fdm/jsbsim/fcs/inlet0angle</property>
+		<interpolation>
+					<entry>
+				<ind>-1.0</ind>
+				<dep>-90</dep>
+			</entry>
+			<entry>
+				<ind>0.0</ind>
+				<dep>0</dep>
+			</entry>
+			<entry>
+				<ind>1.0</ind>
+				<dep>90 	</dep>
+			</entry>
+		</interpolation>
+		<axis>   
+		<object-name>lbleed3-axis</object-name>
+		</axis>
+	</animation>
+
+
+	<animation>
+		<type>select</type>
+		<object-name>bleedr</object-name>
+		
+		<condition>
+			<greater-than>
+		<property>fdm/jsbsim/fcs/inlet1angle</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+	
+	</animation>	
+
+
+	<animation>
+		<type>select</type>
+		<object-name>bleedl</object-name>
+		
+		<condition>
+			<greater-than>
+		<property>fdm/jsbsim/fcs/inlet0angle</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+	
+	</animation>	
+
+
+
+
+
+
 
 
 <!--AAR Things-->
