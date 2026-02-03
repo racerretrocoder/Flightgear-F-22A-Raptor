@@ -15,8 +15,8 @@ setprop("f22/obogs/flow",0);
 setprop("f22/obogs/main",0);
 setprop("controls/refuel/tanks",1);
 setprop("f22/auxcomm/oldd",0);
-
-
+setprop("f22/bayupdate",0);
+setprop("controls/baydoor/AIM120lock",0);
 setprop("f22/rbleed",0.0);
 setprop("f22/lbleed",0.0);
 
@@ -593,6 +593,44 @@ var rSpeed  = getprop("/velocities/airspeed-kt") or 0;
 }# from m2005
 
 
+var bayupdate = func () {
+  var aim9 = getprop("fdm/jsbsim/fcs/AIM9X");
+  var aim120 = getprop("fdm/jsbsim/fcs/AIM120");
+  if (aim9 == 0 or aim120 == 1) {
+    setprop("f22/bayupdate",1);
+  } else {
+    setprop("f22/bayupdate",0);
+  }
+}
+
+
+
+
+bayloop = maketimer(0,bayupdate);
+bayloop.start();
+
+
+var firemsluntill = func () {
+    mslbaytimer.start();
+}
+
+
+var firemslbay = func () {
+    if (getprop("f22/bayupdate") == 1) {
+                      
+      m2000_load.SelectNextPylon();
+      var missile = getprop("controls/missile");
+      setprop("controls/missile", !missile);
+      var pylon = getprop("/controls/armament/missile/current-pylon");
+      m2000_load.dropLoad(pylon);
+      print("Should fire Missile");
+      setprop("/controls/armament/missile-trigger", 1);
+      print("f22.nas: in firemslbay() - Missile away!");
+      mslbaytimer.stop();
+    }
+  print("f22.nas: in firemslbay() - Waiting for bays...");
+}
+mslbaytimer = maketimer(0,firemslbay);
 
 
 var fire = func(v,a) {
@@ -665,13 +703,18 @@ aimlock = maketimer(0.3, aimlock);
 aimlock.start();
 
 
-
+setprop("/controls/baydoors/AIM9Xlock", 0);
 
 
 var closebays = func{
+  if (getprop("controls/baydoors/AIM120lock") == 0) {
 	            	setprop("/controls/baydoors/AIM120", 0);
+  }
                 if (getprop("instrumentation/radar/lock") == 0) {
-                  setprop("/controls/baydoors/AIM9X", 1);  # animations are inverted: todo fix the bay door animations
+                  if (getprop("controls/baydoors/AIM9Xlock") == 0) {
+ setprop("/controls/baydoors/AIM9X", 1);  # animations are inverted: todo fix the bay door animations
+                  }
+                 
                 }
                 print("bay doors closed");
                 timer_baydoorsclose.stop();

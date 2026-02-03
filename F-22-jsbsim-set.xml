@@ -548,6 +548,8 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
             <crashflame type="bool">false</crashflame>
 			-->
 <bool n="8" type="bool" alias="/engines/engine/cutoff"/>  <!--For Idleing Smoke-->
+<float n="7" type="double" alias="/fdm/jsbsim/fcs/inlet0angle"/>  
+ <float n="8" type="double" alias="/fdm/jsbsim/fcs/inlet1angle"/> 
  <float n="9" type="double" alias="/controls/lighting/aar"/>  <!--AARLIGHT-->
  <float n="10" type="double" alias="/fdm/jsbsim/fcs/refuel"/> <!--AAR-->
  <float n="11" type="double" alias="/fdm/jsbsim/fcs/tv-animation-lower"/>
@@ -573,7 +575,7 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
  <float n="30" type="double" alias="/velocities/mach"/><!--For the MP Sonic Boom, Vapor, and more-->
  <float n="31" type="double" alias="/fdm/jsbsim/fcs/ab1"/>	
  <float n="32" type="double" alias="/fdm/jsbsim/fcs/ab2"/>	  <!--Burners-->
- <float n="33" type="double" alias="/fdm/jsbsim/fcs/gundoor"/>	<!--Gun-->
+ <float n="33" type="double" alias="/fdm/jsbsim/fcs/gun-main"/>	<!--Gun-->
  
 
 
@@ -2481,6 +2483,12 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <value>0</value>
 <value>1</value> <!--i should move this to the FDM so i can make a nice smooth value-->
 				</binding>
+				<binding>
+					<command>property-cycle</command>
+					<property>controls/baydoors/AIM120lock</property>
+<value>0</value>
+<value>1</value> <!--i should move this to the FDM so i can make a nice smooth value-->
+				</binding>
 			</key>
 					<key n="6">
 				<name>Ctrl-F</name>
@@ -2488,6 +2496,12 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 				<binding>
 					<command>property-cycle</command>
 					<property>controls/baydoors/AIM9X</property>
+<value>0</value>
+<value>1</value> <!--i should move this to the FDM so i can make a nice smooth value-->
+				</binding>
+				<binding>
+					<command>property-cycle</command>
+					<property>controls/baydoors/AIM9Xlock</property>
 <value>0</value>
 <value>1</value> <!--i should move this to the FDM so i can make a nice smooth value-->
 				</binding>
@@ -2569,8 +2583,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  <value>4</value>
 </binding>
   <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);var weaponname = getprop("controls/armament/selected-weapon");missile.Loading_missile(weaponname);</script></binding>
-   <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 0)</script></binding>
+   <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 0);setprop("/controls/baydoors/AIM120lock", 0);</script></binding>
       <binding><command>nasal</command><script>setprop("/controls/missile", 3)</script></binding>
+
+	  
  </key> 
 		
 
@@ -2593,7 +2609,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
   <value>4</value>
 </binding>
   <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);var weaponname = getprop("controls/armament/selected-weapon");missile.Loading_missile(weaponname);</script></binding>
-   <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 0)</script></binding>
+   <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 0);setprop("/controls/baydoors/AIM120lock", 0);</script></binding>
       <binding><command>nasal</command><script>setprop("/controls/missile", 3)</script></binding>
  </key> 
 

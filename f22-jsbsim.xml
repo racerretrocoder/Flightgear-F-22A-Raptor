@@ -2358,6 +2358,24 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     </function>
 
 
+    <function name="fcs/gun-main">  
+
+        <table>
+            <independentVar lookup="row">fcs/gundoor</independentVar>
+            <independentVar lookup="column">fcs/gunflapmove</independentVar>
+            <tableData>
+                     0      1
+              0      0      1
+              1      1      1
+
+            </tableData> 
+          </table>
+
+   </function>
+
+
+
+
 <channel name="Vectors">
 
    <aerosurface_scale name="Vector Radian Engine1">
@@ -2500,6 +2518,22 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <channel name="Misc">
 
+   <kinematic name="gunflapmove">
+     <input>/controls/armament/gunlag</input>
+     <traverse>
+       <setting>
+          <position>  0 </position>
+          <time>     0</time>
+       </setting>
+       <setting>
+          <position>  1 </position>
+          <time>      0.3</time>
+       </setting>
+     </traverse>
+     <output>fcs/gunflapslow</output>
+   </kinematic>
+
+
 
         <fcs_function name="/engines/engine[0]/n2-60-to-80-log">
             <function>
@@ -2576,7 +2610,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
    <kinematic name="gundoor">
-     <input>/controls/armament/gun-trigger</input>
+     <input>/controls/armament/gun-trigger-no-delay</input>
      <traverse>
        <setting>
           <position>  0 </position>
@@ -2584,7 +2618,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        </setting>
        <setting>
           <position>  1 </position>
-          <time>      0.1 </time>
+          <time>      0.2 </time>
        </setting>
      </traverse>
      <output>fcs/gundoor</output>
@@ -2657,7 +2691,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        </setting>
        <setting>
           <position>  1 </position>
-          <time>      0.3 </time>
+          <time>      0.5 </time>
        </setting>
      </traverse>
      <output>fcs/AIM9X</output>
@@ -2672,7 +2706,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        </setting>
        <setting>
           <position>  1 </position>
-          <time>      0.45 </time>
+          <time>      0.6 </time>
        </setting>
      </traverse>
      <output>fcs/AIM120</output>
