@@ -29,7 +29,7 @@
 		<flight-model>jsb</flight-model>
 		
 		<aero>f22-jsbsim</aero>
-
+		<primary-set type="bool">true</primary-set>
 
 
 	<hitches>
