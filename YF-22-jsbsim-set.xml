@@ -1,0 +1,3285 @@
+<?xml version="1.0"?>
+	
+<PropertyList>
+					<abdens type="double">0</abdens>
+	<sim>
+               <!-- <nasal-gc-threaded type="bool">true</nasal-gc-threaded> Spreads the load of all the timers off one core-->
+		<description>YF-22A ATF Prototype (JSBSim FDM)</description>
+		<expected-aircraft-dir-name>F-22</expected-aircraft-dir-name>
+<variant-id type="int">1</variant-id>
+        <long-description>
+            The Lockheed Martin F-22A "Raptor" is a fifth-generation tactical fighter manufactured by Lockheed Martin and Boeing. It combines supersonic cruise, low-observability, and sensor fusion. The definitive production Block 30/35 model features the AN/APG-77v1 AESA radar and F119-PW-100 engines. The F-22A, the only production F-22 variant, became operational in 2005 and is operated exclusively by the United States Air Force.
+			Compatible with FGCOMM-Mumble
+        </long-description>
+		
+		<author>Phoenix, Silver-Snail (Snail), Pigs, Clash (KJ7NLL), Developer0607 (Ghost), And others:  Weapons and Radar improved from 5H1N0B1, Yanes Bechir, and Developer0607. Canvas HUD and Canvas Payload dialog improved from Yanes Bechir. Multiplayer Damage Code from OPRF Members, FDM improved from others. 3D from Pigs, Silver-Snail (cockpit) Phoenix (MFDS) Echoed, Phoenix (Weapons). Main Model Improved from the FGUK Team. Cactus, Phoenix (Missile storing and flare doors). POLSKY1 Cockpit Details, Phoenix 3d model detail. Sounds from Phoenix and others. Textures, Liveries, Phoenix and other pilots alike! Effects, Phoenix.</author>
+		
+		<status>Alpha v0.89a</status> 
+		
+		<rating>
+			<FDM type="int">4</FDM> 
+			<systems type="int">3</systems> <!--Wont be 5 because of Classifed stuff... 4 untill i get missiles COMPLETE! Like Fully Complete.-->
+			<cockpit type="int">3.5</cockpit> <!--.5 Because it dosent look like real thing. but its nice-->
+			<model type="int">4</model>
+		</rating>
+	
+
+
+
+		<flight-model>jsb</flight-model>
+		
+		<aero>yf22-jsbsim</aero>
+	<variant-of>F-22-jsbsim</variant-of>
+
+
+	<hitches>
+			<!-- make sure some properties do exist, when the list for multiplayer transfere is defined-->
+			<!-- they need to be in the same value, as they are initialized in the FDM, to get the same values after reset should fix this somehow-->
+			<hook-open type="bool">false</hook-open>
+			<aerotow>
+				<tow>
+					<local-pos-x type="float">0</local-pos-x>
+					<local-pos-y type="float">0</local-pos-y>
+					<local-pos-z type="float">0</local-pos-z>
+					<length type="float">28</length>
+					<elastic-constant type="float">10000</elastic-constant>
+					<weight-per-m-kg-m type="float">1</weight-per-m-kg-m>
+					<dist type="float">1</dist>
+					<connected-to-property-node type="bool"/>
+					<brake-force type="float">100000</brake-force>
+					<connected-to-ai-or-mp-callsign type="string">*</connected-to-ai-or-mp-callsign>
+					<end-force-x type="float">-3.50</end-force-x>
+					<end-force-y type="float">0</end-force-y>
+					<end-force-z type="float">0</end-force-z>
+				</tow>
+				<speed-in-tow-direction type="float">0</speed-in-tow-direction>
+				<open type="bool">true</open>
+				<is-slave type="bool">false</is-slave>
+				<rope>
+				<path_to_model type="string">Aircraft/F-22/Models/rope.xml</path_to_model>
+				</rope>
+			</aerotow>
+			<winch>
+				<automatic-release-angle-deg type="float">90.0</automatic-release-angle-deg>
+			</winch>
+		</hitches>
+
+
+	<previews>
+<!--Got rid of that silly preview. I need more! Itll be nice to have around 20ish previews-->
+            <preview>                
+<type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash.png</path>
+            </preview>
+            <preview>                
+<type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash1.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash2.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash3.png</path>
+            </preview>
+    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash4.png</path>
+            </preview>
+    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash5.png</path>
+            </preview>
+    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash6.png</path>
+            </preview>
+			    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash7.png</path>
+            </preview>
+						    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash8.png</path>
+            </preview>
+  </previews>
+
+		<fuel-fraction>1</fuel-fraction>
+		
+		<startup>
+			<splash-texture>Aircraft/F-22/Splash.png</splash-texture>
+		</startup>
+	
+		<model>
+		            <pushback>
+                <kp type="double">100</kp>
+                <ki type="double">25</ki>
+                <kd type="double">0</kd>
+                <position-norm type="double">0</position-norm>
+                <target-speed-fps type="double">0</target-speed-fps>
+            </pushback>
+			<path>Aircraft/F-22/Models/YF-22.xml</path>
+			<fallback-model-index type="int">516</fallback-model-index>
+	<livery>
+		<name type="string">Aircraft/F-22/Models/Liveries/AK.xml</name>
+		<file type="string">AK</file>
+	</livery>
+<radar>
+					<time-until-impact type="int">0</time-until-impact>
+</radar>
+</model>
+		
+		<submodels> 
+    		<serviceable type="bool">true</serviceable>
+    		<path>Aircraft/F-22/Submodels.xml</path>           
+			 
+  		</submodels>
+				
+		<systems>
+			<electrical>
+			<path>Aircraft/F-22/System/Electrical.xml</path>
+			</electrical>
+			<autopilot>
+			   <path>Aircraft/F-22/System/Autopilot.xml</path>
+			</autopilot>
+		</systems>
+	
+	    <mp-systems>
+					<radar-enabled type="bool">true</radar-enabled>
+					<ecm-rwr-enabled type="bool">true</ecm-rwr-enabled>
+					<combat-enabled type="bool">true</combat-enabled>
+		</mp-systems>
+	
+		<sound>
+			<path>Aircraft/F-22/Sounds/Sound.xml</path>
+		</sound>
+		
+	
+		<menubar>
+			<default>
+				<menu n="10">
+					<label>YF-22 Lightning II</label>
+					<enabled type="bool">true</enabled>
+   			<item>
+                <name>autostart</name>
+                <label>Autostart | Autoshutdown</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>emu.autostart()</script>
+                </binding>
+            </item>
+
+
+					<item>
+					<label>Select Livery</label>
+					<binding>
+						<command>nasal</command>
+						 <script>aircraft.livery.dialog.toggle()</script>
+					</binding>
+				</item>
+   					<item>
+                        <label>Ground Crew Operations</label>
+                        <enabled type="bool">true</enabled>
+                        <name>gco</name>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>ground</dialog-name>
+                        </binding>
+                    </item>
+	<item>
+			<label>Pylons loads</label>
+			<binding>
+				<command>nasal</command>
+				 <script>CanvasPylonsDlg.showPylonsDlg()</script>
+			</binding>
+		</item>
+
+
+<item>
+			<label>Toggle Damage</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if(getprop("/gear/gear/compression-ft") > 0.01){
+						if(getprop("/payload/armament/msg")){screen.log.write("Damage OFF",1,0,0);setprop("/payload/armament/msg",0);setprop("f22/auxcomm/oldd",0);}else{screen.log.write("Damage ON",1,0,0);setprop("/payload/armament/msg",1);setprop("f22/auxcomm/oldd",1);}
+					}else{
+						screen.log.write("Damage can be toggled only when on the ground! Sorry! Its just the way it is.",1,0,0);
+					}
+				</script>
+			</binding>
+		</item>
+
+<item>
+			<label>Repair damage (On Ground)</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if(getprop("/gear/gear/compression-ft") > 0.01){
+						f22.repair();
+					}else{
+						screen.log.write("You can only repair the aircraft while on the ground! The ground crew cant fly!.",1,0,0);
+					}
+				</script>
+			</binding>
+		</item>
+
+   <item>
+                        <label>Tacview Options [wip] (broken)</label>
+                        <enabled type="bool">true</enabled>
+                        <name>tacview</name>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>tacview</dialog-name>
+                        </binding>
+                    </item>
+<item>
+        <label>Event Log</label>
+        <binding>
+            <command>dialog-show</command>
+            <dialog-name>flightlog</dialog-name>
+        </binding>
+</item>
+
+<item>
+        <label>KY-58 Secure MP-Chat</label>
+        <binding>
+            <command>dialog-show</command>
+            <dialog-name>secure</dialog-name>
+        </binding>
+			</item>
+   					<item>
+                        <label>KY-58 Encryption Cipher Code</label>
+                        <enabled type="bool">true</enabled>
+                        <name>gco</name>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>cipher</dialog-name>
+                        </binding>
+                    </item>
+
+                    <item>
+                        <label>Mig-28.nas dialog</label>
+                        <enabled type="bool">true</enabled>
+                        <name>scenario28</name>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>scenario28</dialog-name>
+                        </binding>
+                    </item>
+
+			<item>
+			<label>Toggle Old Damage (For dogfighting old F-15 and F-14, P-51, etc)</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if(getprop("/gear/gear/compression-ft") > 0.01){
+						if(getprop("/payload/armament/oldmsg")){screen.log.write("Old Damage OFF",1,0,0);setprop("/payload/armament/oldmsg",0);}else{screen.log.write("Old Damage ON",1,0,0);setprop("/payload/armament/oldmsg",1);}
+					}else{
+						screen.log.write("Damage can be toggled only when on the ground! Sorry! Its just the way it is.",1,0,0);
+					}
+				</script>
+			</binding>
+		</item>
+			<item>
+			<label>Yell for a pushback</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+					screen.log.write("" ~ getprop("sim/multiplay/callsign") ~ ": Pushback! Please Help Me!");
+					setprop("sim/messages/atc","Pushback: Dont worry! Im here for your taxi needs :)"); # dont worry about invalid ")"
+					</script>
+			</binding>
+        <binding>
+           <command>dialog-show</command>
+           <dialog-name>pushback</dialog-name>
+           <offset>1</offset>
+        </binding>
+		</item>
+
+
+
+<item>
+			<label>jammer on</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+jammer.start();
+				</script>
+			</binding>
+		</item>
+<item>
+			<label>jammer off</label>
+			<binding>
+				<command>nasal</command>
+				<script>
+jammer.stop();
+				</script>
+			</binding>
+		</item>
+  <!--                  <item>
+                      <label>Jammer: Enable</label>
+                      <name>enemies</name>
+		    <binding>
+			<command>nasal</command>
+       			<script>
+				jammer.start();
+       			</script>
+		    </binding>
+                    </item>
+                    <item>
+                      <label>Jammer: Disable</label>
+                      <name>enemies</name>
+		    <binding>
+			<command>nasal</command>
+       			<script>
+				jammer.stop();
+       			</script>
+		    </binding>
+                    </item>-->
+	<item>
+			<label>Toggle cockpit shaking</label>
+			<binding>
+				<command>nasal</command>
+				 <script>if (getprop("f22/shaking") == 0){screen.log.write("Shaking enabled");setprop("f22/shaking",1);}else{screen.log.write("Shaking disabled");setprop("f22/shaking",0);}</script>
+			</binding>
+		</item>
+
+				</menu>
+			</default>
+		</menubar>
+
+    <gui>
+      <current-style>1</current-style>
+      <style n="1">
+        <colors>
+			<input>
+				<red type="float">0.1</red>
+				<green type="float">0.1</green>
+				<blue type="float">0.1</blue>
+				<alpha type="float">1.0</alpha>
+			</input>
+          <input-misc>
+            <blue>0.1</blue>
+            <green>0.1</green>
+            <red>1</red>
+          </input-misc>
+          <input-legend>
+            <blue>1</blue>
+            <green>1</green>
+            <red>1</red>
+          </input-legend>
+
+		<title>
+			<red   type="float">0</red>
+			<green type="float">0.8</green>
+			<blue  type="float">1</blue>
+		</title>
+
+		<background>
+			<alpha   type="float">0.8</alpha>
+			<red   type="float">0</red>
+			<green type="float">0</green>
+			<blue  type="float">0</blue>
+		</background>
+		<checkbox-misc>
+			<red   type="float">0</red>
+			<green type="float">1</green>
+			<blue  type="float">1</blue>
+		</checkbox-misc>
+		<checkbox-highlight>
+			<red   type="float">0</red>
+			<green type="float">1</green>
+			<blue  type="float">1</blue>
+		</checkbox-highlight>
+		<checkbox-foreground>
+			<red   type="float">0</red>
+			<green type="float">0.5</green>
+			<blue  type="float">1</blue>
+		</checkbox-foreground>
+		<title-unfocused>
+			<red   type="float">0.235</red>
+			<green type="float">0.231</green>
+			<blue  type="float">0.216</blue>
+		</title-unfocused>
+		<title-text>
+			<red   type="float">0.875</red>
+			<green type="float">0.859</green>
+			<blue  type="float">0.824</blue>
+		</title-text>
+		<title-text-unfocused>
+			<red   type="float">0.502</red>
+			<green type="float">0.490</green>
+			<blue  type="float">0.471</blue>
+		</title-text-unfocused>
+		<title-highlight>
+			<red   type="float">0.1</red>
+			<green type="float">0.1</green>
+			<blue  type="float">0.1</blue>
+		</title-highlight>
+		<title-highlight-unfocused>
+			<red   type="float">0.0</red>
+			<green type="float">0.0</green>
+			<blue  type="float">0.0</blue>
+		</title-highlight-unfocused>
+
+		<!-- default colors for all GUI objects -->
+		<bg_color>
+			<red   type="float">0.1</red>
+			<green type="float">0.1</green>
+			<blue  type="float">0.1</blue>
+		</bg_color>
+
+		<bg_color_contrast>
+			<red   type="float">0.2</red>
+			<green type="float">0.2</green>
+			<blue  type="float">0.2</blue>
+		</bg_color_contrast>
+
+		<fg_color>
+			<red   type="float">0.1</red>
+			<green type="float">0.1</green>
+			<blue  type="float">0.1</blue>
+		</fg_color>
+
+		<text_color>
+			<red   type="float">0.235</red>
+			<green type="float">0.235</green>
+			<blue  type="float">0.235</blue>
+		</text_color>
+
+		<backdrop_fg_color>
+			<red   type="float">0.1</red>
+			<green type="float">0.1</green>
+			<blue  type="float">0.1</blue>
+		</backdrop_fg_color>
+		<radio_forground>
+			<red   type="float">0.0</red>
+			<green type="float">0.6</green>
+			<blue  type="float">1.0</blue>
+		</radio_forground>
+
+		<button_bg_color>
+			<red   type="float">0</red>
+			<green type="float">0.6</green>
+			<blue  type="float">1</blue>
+		</button_bg_color>
+		
+		<button>
+			<red   type="float">0</red>
+			<green type="float">0.6</green>
+			<blue  type="float">1</blue>
+		</button>
+		<slider>
+			<red   type="float">0</red>
+			<green type="float">0.6</green>
+			<blue  type="float">1</blue>
+		</slider>
+		<hrule>
+			<red   type="float">0</red>
+			<green type="float">0</green>
+			<blue  type="float">1</blue>
+		</hrule>
+		<vrule>
+			<red   type="float">0</red>
+			<green type="float">0</green>
+			<blue  type="float">1</blue>
+		</vrule>
+		<combo-editfield>
+			<red   type="float">0</red>
+			<green type="float">0.6</green>
+			<blue  type="float">1</blue>
+		</combo-editfield>
+		<button_backdrop_bg_color>
+			<red   type="float">0.934</red>
+			<green type="float">0.930</green>
+			<blue  type="float">0.926</blue>
+		</button_backdrop_bg_color>
+
+		<button_bg_color_down>
+			<red   type="float">0.88</red>
+			<green type="float">0.87</green>
+			<blue  type="float">0.86</blue>
+		</button_bg_color_down>
+
+		<button_bg_color_hover>
+			<red   type="float">0.996</red>
+			<green type="float">0.992</green>
+			<blue  type="float">0.988</blue>
+		</button_bg_color_hover>
+
+		<button_bg_color_insensitive>
+			<red   type="float">0.89</red>
+			<green type="float">0.89</green>
+			<blue  type="float">0.89</blue>
+		</button_bg_color_insensitive>
+        </colors>
+      </style>
+    </gui>
+<multiplay>
+<chat_display>1</chat_display>
+<generic>
+
+
+<!--
+
+Multiplayer Variables   note: Turn weapon stations into 1 string. or even better, bring nasal into the mix
+Theres alot! I am lucky that flightgear will let us pass this many through MP
+
+-->
+
+<bool n="0" type="bool" alias="/damage/sounds/explode-on"/>
+<bool n="1" type="bool" alias="/damage/fire/serviceable"/>
+<bool n="2" type="bool" alias="/damage/fire/crashflame"/>
+<bool n="3" type="bool" alias="/damage/fire/crashsmoke"/>
+<bool n="4" type="bool" alias="/damage/fire/crashsmolfire"/>
+
+<!--            <crashsmolfire type="bool">false</crashsmolfire>
+            <crashsmoke type="bool">false</crashsmoke>
+            <crashflame type="bool">false</crashflame>
+			-->
+<bool n="8" type="bool" alias="/engines/engine/cutoff"/>  <!--For Idleing Smoke-->
+ <float n="9" type="double" alias="/controls/lighting/aar"/>  <!--AARLIGHT-->
+ <float n="10" type="double" alias="/fdm/jsbsim/fcs/refuel"/> <!--AAR-->
+ <float n="11" type="double" alias="/fdm/jsbsim/fcs/tv-animation-lower"/>
+ <float n="12" type="double" alias="/fdm/jsbsim/fcs/AIM120"/>
+ <float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
+ <float n="15" type="double" alias="/fdm/jsbsim/fcs/tv-animation-top"/>
+<float n="16" type="double" alias="/f22/head-ptc-deg"/>	
+ <float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor -->
+ <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
+ <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the Vapor, and more-->
+
+
+<!--Flight controls-->
+ <float n="21" type="double" alias="/fdm/jsbsim/fcs/Elev-pos-norm-limit-sum-main"/>
+ <float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
+ <float n="23" type="double" alias="/fdm/jsbsim/fcs/left-flaperon-pos-norm"/>
+  <float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
+ <float n="25" type="double" alias="/fdm/jsbsim/fcs/tv-animation"/>
+ <float n="26" type="double" alias="/fdm/jsbsim/fcs/ail-pos-norm-limit-sum-main"/>
+  <float n="27" type="double" alias="/fdm/jsbsim/fcs/speedbrake-pos-norm"/>
+  <float n="28" type="double" alias="/fdm/jsbsim/fcs/leading-edge-flap-main"/>
+  <float n="29" type="double" alias="/fdm/jsbsim/systems/hook/tailhook-pos-norm"/>
+ <float n="30" type="double" alias="/velocities/mach"/><!--For the MP Sonic Boom, Vapor, and more-->
+ <float n="31" type="double" alias="/fdm/jsbsim/fcs/ab1"/>	
+ <float n="32" type="double" alias="/fdm/jsbsim/fcs/ab2"/>	  <!--Burners-->
+ <float n="33" type="double" alias="/fdm/jsbsim/fcs/gundoor"/>	<!--Gun-->
+ 
+
+
+<float n="34" type="double" alias="/engines/engine/n1"/> <!--TODO: Figure out what is using this because its actually not needed-->
+
+
+
+<float n="35" type="double" alias="/controls/lighting/actualform"/> <!--Formation light bars-->
+<float n="36" type="double" alias="/fdm/jsbsim/fcs/canopy"/>
+<float n="37" type="double" alias="/fdm/jsbsim/fcs/apuflap1"/>	
+<float n="38" type="double" alias="/fdm/jsbsim/fcs/right-flaperon-pos-norm"/>	
+<float n="39" type="double" alias="/f22/head-hdg-deg"/>	<!--Head movement-->
+<int n="2" type="int">1</int><!-- radar-standby (If this is 1, Enemies cant see us on there RWR) -->
+<int n="3" type="int">0</int><!-- KY58 Channel Code -->
+<int n="4" type="int" alias="/f22/dead"/> <!--crash effects-->
+<int n="5" type="int" alias="/f22/engint"/> <!--Engine flameouts-->
+<!--
+<int n="10" type="int" alias="/controls/lighting/nav-lights"/>  
+<int n="11" type="int" alias="/controls/lighting/beacon"/> 		
+-->
+<int n="13" type="int" alias="/controls/smoke/Switch"/> <!-- not needed -->
+<int n="15" type="int" alias="/f22/ejected"/> <!--Ejection-->
+<int n="16" type="int" alias="/controls/lighting/logo-lights"/> <!--Tail flood (may remove future)-->
+<int n="17" type="int" alias="/controls/armament/extpylons"/>  <!--Ext pylons-->
+<int n="18" type="int" alias="/controls/armament/rdt"/> 
+<int n="19" type="int" alias="/controls/armament/ldt"/>   <!--Drop tanks--> 
+<int n="20" type="int" alias="/fdm/jsbsim/fcs/taxilight"/> 
+
+<!--<int n="6" type="int" alias="/sim/failure-manager/engines/engine[1]/failure-level"/>-->
+
+
+<int n="23" type="int" alias="/fdm/jsbsim/fcs/light"/>
+
+
+<!-- <int n="24" type="int" alias="/controls/apu/smoke"/>
+<int n="25" type="int" alias="/controls/apu/apuflame"/> not needed / doesnt work-->
+<int n="26" type="int" alias="/fdm/jsbsim/fcs/landlight"/> 
+
+<int n="27" type="int" alias="/controls/armament/rrdt"/> <!--Drop tanks-->
+<int n="28" type="int" alias="/controls/armament/lldt"/> <!--Drop tanks-->
+
+<!--Missiles in bays on MP-->
+<string n="5" type="string">0:none:S0:0</string><!-- string 5 used by stores -->
+<string n="6" type="string"></string><!-- string 6 used by radar lock warning -->
+<string n="7" type="string"></string><!-- string 7 used by datalink -->
+<string n="8" type="string">KY58:</string> <!--string 8 used by KY-58 secure MP-Chat-->
+
+
+
+<!--Todo: Fix this mess in a nice way xd-->
+<!--Done! String[5] is now the stores string. it cycles between pylons around once per second. Deciphers the string kinda like the dtc code splitting it between :'s-->
+
+</generic>		
+<visibility-range-nm type="int">2000</visibility-range-nm> <!--Dosent work here for some reason-->
+	</multiplay>
+	        <help n="0" include="System/help.xml"/>
+		<hud>
+		   <path n="1">Aircraft/F-22/HUD/hud.xml</path>
+		   <visibility n="1">true</visibility> 
+		   <palette>
+			<color n="0">
+			 <alpha type="float">1</alpha>
+			 <antialiased type="bool">false</antialiased>
+			 <brightness type="float">1</brightness>
+			 <transparent type="bool">true</transparent>
+			 <red type="float">0.0</red>
+			 <green type="float">1.0</green>
+			 <blue type="float">0.0</blue>
+			</color>
+			<color n="1">
+			 <alpha type="float">1</alpha>
+			 <antialiased type="bool">false</antialiased>
+			 <brightness type="float">1</brightness>
+			 <transparent type="bool">true</transparent>
+			 <red type="float">0.0</red>
+			 <green type="float">1.0</green>
+			 <blue type="float">0.0</blue>
+			</color>
+		   </palette>
+		</hud>
+		
+		<instrumentation>
+				<path>Aircraft/F-22/System/Instrumentation.xml</path>
+
+		
+				<fuel-gauges>
+					<total type="double">100</total>
+				</fuel-gauges>
+		
+				<g-meter>
+					<g-max archive="y" type="double">1</g-max>
+					<g-min archive="y" type="double">1</g-min>
+				</g-meter>
+				
+				<radar-altimeter>
+					<limit-bug type="double">250</limit-bug>
+				</radar-altimeter>
+		
+				<aoa-indexer>
+					<!-- target = 11.3 deg AoA -->
+					<too-slow-deg>13.7</too-slow-deg>	<!-- target +2.4 deg -->
+					<slow-deg>12.1</slow-deg>			<!-- target +0.8 deg -->
+					<target-deg>11.3</target-deg>		<!-- target -->
+					<fast-deg>10.5</fast-deg>			<!-- target -0.8 deg -->
+					<too-fast-deg>8.9</too-fast-deg>	<!-- target -2.4 deg -->
+				</aoa-indexer>
+		
+				<warnings>
+					<master-caution type="bool">0</master-caution>
+				</warnings>
+        <datalink>
+            <data type="int">0</data>
+            <power type="bool">true</power>
+            <channel type="int">1212</channel>
+            <power_prop type="string">/instrumentation/datalink/power</power_prop>
+            <channel_prop type="string">instrumentation/datalink/channel</channel_prop>
+            <receive_period type="double">1</receive_period>
+        </datalink>
+<!-- Radar Visibility Calculator Datas -->
+
+<!-- Jettoo (glazmax) and xiii (Alexis Bory) -->
+
+<!-- Aircraft name, RCS(m2), 4th root of RCS, radar type, max. radar range(km),
+max. radar range target seize(RCS)m2, 4th root of radar RCS -->
+
+		<radar-performance>
+			<data>
+				<aircraft n="0">
+					<name>generic</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="1">
+					<name>707</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="2">
+					<name>737-300</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>2.11</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="3">
+					<name>747</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="4">
+					<name>787</name>
+					<rcs-sq-meter>35</rcs-sq-meter>
+					<rcs-4th-root>1.86</rcs-4th-root>
+					<radar-type>WXR-2100</radar-type>
+					<max-radar-rng-km>160</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="5">
+					<name>A24-Viking</name>
+					<rcs-sq-meter>2</rcs-sq-meter>
+					<rcs-4th-root>1.19</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="6">
+					<name>A-10</name>
+					<rcs-sq-meter>25</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="7">
+					<name>A300</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="8">
+					<name>A320</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="9">
+					<name>A380</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.11</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="10">
+					<name>a4</name>
+					<rcs-sq-meter>10</rcs-sq-meter>	
+					<rcs-4th-root>1.77</rcs-4th-root>
+					<radar-type>APG-53</radar-type>
+					<max-radar-rng-km>15</max-radar-rng-km>
+					<max-target-sq-meter>5</max-target-sq-meter>
+					<max-target-4th-root>1.49</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="11">
+					<name>A-6E</name>
+					<rcs-sq-meter>14</rcs-sq-meter>
+					<rcs-4th-root>1.93</rcs-4th-root>
+					<radar-type>APQ-112</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>06</ecm-type-num>
+				</aircraft>
+				<aircraft n="12">
+					<name>A6M2</name>
+					<rcs-sq-meter>15</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="13">
+					<name>Albatross</name>
+					<rcs-sq-meter>40</rcs-sq-meter>
+					<rcs-4th-root>2.51</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="14">
+					<name>Aerostar-700</name>
+					<rcs-sq-meter>10</rcs-sq-meter>
+					<rcs-4th-root>1.86</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="15">
+					<name>Alouette-II</name>
+					<rcs-sq-meter>15</rcs-sq-meter>
+					<rcs-4th-root>2.51</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="16">
+					<name>Alouette-III</name>
+					<rcs-sq-meter>20</rcs-sq-meter>
+					<rcs-4th-root>2.11</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="17">
+					<name>Alphajet</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="18">
+					<name>an-2</name>
+					<rcs-sq-meter>2</rcs-sq-meter>
+					<rcs-4th-root>1.19</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="19">
+					<name>AN-225</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.59</rcs-4th-root>
+					<radar-type>unknown</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="20">
+					<name>apache</name>
+					<rcs-sq-meter>30</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>APG-78</radar-type>
+					<max-radar-rng-km>8</max-radar-rng-km>
+					<max-target-sq-meter>1</max-target-sq-meter>
+					<max-target-4th-root>1</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="21">
+					<name>ASK21</name>
+					<rcs-sq-meter>	1</rcs-sq-meter>
+					<rcs-4th-root>1</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="22">
+					<name>b1900d</name>
+					<rcs-sq-meter>20</rcs-sq-meter>
+					<rcs-4th-root>2.11</rcs-4th-root>
+					<radar-type>wx500</radar-type>
+					<max-radar-rng-km>60</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="23">
+					<name>B-1B</name>
+					<rcs-sq-meter>4</rcs-sq-meter>
+					<rcs-4th-root>1.41</rcs-4th-root>
+					<radar-type>APQ-164</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>01</ecm-type-num>
+				</aircraft>
+				<aircraft n="24">
+					<name>b2-spirit</name>
+					<rcs-sq-meter>0.0015</rcs-sq-meter>
+					<rcs-4th-root>0.19</rcs-4th-root>
+					<radar-type>APQ-181</radar-type>
+					<max-radar-rng-km>333</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>02</ecm-type-num>
+				</aircraft>
+				<aircraft n="25">
+					<name>b29</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>3.16</rcs-4th-root>
+					<radar-type>APQ-19</radar-type>
+					<max-radar-rng-km>45</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="26">
+					<name>B-52F</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>3.16</rcs-4th-root>
+					<radar-type>APQ-166</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="27">
+					<name>BAC-TSR2</name>
+					<rcs-sq-meter>15</rcs-sq-meter>
+					<rcs-4th-root>1.86</rcs-4th-root>
+					<radar-type>Blue Parrot</radar-type>
+					<max-radar-rng-km>46</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="28">
+					<name>beaufighter</name>
+					<rcs-sq-meter>9</rcs-sq-meter>
+					<rcs-4th-root>1.73</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="29">
+					<name>bf109</name>
+					<rcs-sq-meter>15</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="30">
+					<name>Buccaneer</name>
+					<rcs-sq-meter>10</rcs-sq-meter>
+					<rcs-4th-root>1.77</rcs-4th-root>
+					<radar-type>Blue Parrot</radar-type>
+					<max-radar-rng-km>46</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="31">
+					<name>c310</name>
+					<rcs-sq-meter>4</rcs-sq-meter>
+					<rcs-4th-root>1.41</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="32">
+					<name>c172</name>
+					<rcs-sq-meter>2</rcs-sq-meter>
+					<rcs-4th-root>1.19</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="33">
+					<name>Citation</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="34">
+					<name>E3B</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>APY-1/2</radar-type>
+					<max-radar-rng-km>650</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>03</ecm-type-num>
+				</aircraft>
+				<aircraft n="35">
+					<name>F-86</name>
+					<rcs-sq-meter>9</rcs-sq-meter>
+					<rcs-4th-root>1.73</rcs-4th-root>
+					<radar-type>APG-37</radar-type>
+					<max-radar-rng-km>50</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="36">
+					<name>f104</name>
+					<rcs-sq-meter>9</rcs-sq-meter>
+					<rcs-4th-root>1.73</rcs-4th-root>
+					<radar-type>ASG-14</radar-type>
+					<max-radar-rng-km>60</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="37">
+					<name>f-14b</name>
+					<rcs-sq-meter>25</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>AWG-9</radar-type>
+					<max-radar-rng-km>333</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>14</ecm-type-num>
+				</aircraft>
+				<aircraft n="38">
+					<name>f-14d</name>
+					<rcs-sq-meter>25</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>APG-71</radar-type>
+					<max-radar-rng-km>380</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>14</ecm-type-num>
+				</aircraft>
+				<aircraft n="39">
+					<name>f-15</name>
+					<rcs-sq-meter>30</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>APG-70</radar-type>
+					<max-radar-rng-km>235</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>15</ecm-type-num>
+				</aircraft>
+				<aircraft n="40">
+					<name>f16</name>
+					<rcs-sq-meter>1.5</rcs-sq-meter>
+					<rcs-4th-root>1.11</rcs-4th-root>
+					<radar-type>APG-68</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>16</ecm-type-num>
+				</aircraft>
+				<aircraft n="41">
+					<name>f18</name>
+					<rcs-sq-meter>1.0</rcs-sq-meter>
+					<rcs-4th-root>1.00</rcs-4th-root>
+					<radar-type>APG-73</radar-type>
+					<max-radar-rng-km>326</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>18</ecm-type-num>
+				</aircraft>
+				<aircraft n="42">
+					<name>F-22A-Raptor</name>
+					<rcs-sq-meter>0.0001</rcs-sq-meter>
+					<rcs-4th-root>0.17</rcs-4th-root>
+					<radar-type>APG-77</radar-type>
+					<max-radar-rng-km>410</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>22</ecm-type-num>
+				</aircraft>
+				<aircraft n="43">
+					<name>f35</name>
+					<rcs-sq-meter>0.0025</rcs-sq-meter>
+					<rcs-4th-root>0.22</rcs-4th-root>
+					<radar-type>APG-81</radar-type>
+					<max-radar-rng-km>350</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>23</ecm-type-num>
+				</aircraft>
+				<aircraft n="44">
+					<name>f117</name>
+					<rcs-sq-meter>0.015</rcs-sq-meter>
+					<rcs-4th-root>0.35</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="45">
+					<name>Fokker-50</name>
+					<rcs-sq-meter>40</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="46">
+					<name>harrier</name>
+					<rcs-sq-meter>15</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>APG-65</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>07</ecm-type-num>
+				</aircraft>
+				<aircraft n="47">
+					<name>hunter</name>
+					<rcs-sq-meter>8</rcs-sq-meter>
+					<rcs-4th-root>2</rcs-4th-root>
+					<radar-type>Akco</radar-type>
+					<max-radar-rng-km>10</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>08</ecm-type-num>
+				</aircraft>
+				<aircraft n="48">
+					<name>j22</name>
+					<rcs-sq-meter>9</rcs-sq-meter>
+					<rcs-4th-root>1.79</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="49">
+					<name>KC135</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.43</rcs-4th-root>
+					<radar-type>APN-218</radar-type>
+					<max-radar-rng-km>160</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>13</ecm-type-num>
+				</aircraft>
+				<aircraft n="50">
+					<name>Lightning</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>AI-23</radar-type>
+					<max-radar-rng-km>111</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="51">
+					<name>SR71-Blackbird</name>
+					<rcs-sq-meter>0.015</rcs-sq-meter>
+					<rcs-4th-root>0.35</rcs-4th-root>
+					<radar-type>APQ-108</radar-type>
+					<max-radar-rng-km>200</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!-- range classified -->
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="52">
+					<name>MiG-21</name>
+					<rcs-sq-meter>4</rcs-sq-meter>
+					<rcs-4th-root>1.41</rcs-4th-root>
+					<radar-type>RP-21</radar-type>
+					<max-radar-rng-km>18</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="53">
+					<name>Mig-29</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>Sapfir</radar-type>
+					<max-radar-rng-km>115</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>29</ecm-type-num>
+				</aircraft>
+				<aircraft n="54">
+					<name>mirage2000</name>
+					<rcs-sq-meter>2</rcs-sq-meter>
+					<rcs-4th-root>1.19</rcs-4th-root>
+					<radar-type>RDY</radar-type>
+					<max-radar-rng-km>220</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>09</ecm-type-num>
+				</aircraft>
+				<aircraft n="55">
+					<name>MPCarrier</name>
+					<rcs-sq-meter>160000</rcs-sq-meter>
+					<rcs-4th-root>20</rcs-4th-root>
+					<radar-type>SPS-49</radar-type>
+					<max-radar-rng-km>525</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>01</ecm-type-num>
+				</aircraft>
+				<aircraft n="56">
+					<name>Tornado</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>Foxhunter</radar-type>
+					<max-radar-rng-km>210</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="57">
+					<name>Mirage-IIIC</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>Cyrano-2</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>09</ecm-type-num>
+				</aircraft>
+				<aircraft n="58">
+					<name>F-4D</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>APQ-72</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>04</ecm-type-num>
+				</aircraft>
+				<aircraft n="59">
+					<name>A-7E</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>APQ-126</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>07</ecm-type-num>
+				</aircraft>
+				<aircraft n="60">
+					<name>F-8E</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>unknown</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>07</ecm-type-num>
+				</aircraft>
+				<aircraft n="61">
+					<name>F-105</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>NASARR R-14A</radar-type>
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>04</ecm-type-num>
+				</aircraft>
+				<aircraft n="62">
+					<name>T-38</name>
+					<rcs-sq-meter>1.5</rcs-sq-meter>
+					<rcs-4th-root>1.11</rcs-4th-root>
+					<radar-type>APG-68</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>16</ecm-type-num>
+				</aircraft>
+				<aircraft n="63">
+					<name>Mirage_F1</name>
+					<rcs-sq-meter>7</rcs-sq-meter>
+					<rcs-4th-root>1.63</rcs-4th-root>
+					<radar-type>Cyrano-4-MR</radar-type><!-- non-doppler -->
+					<max-radar-rng-km>150</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root><!--guess-->
+					<ecm-type-num>09</ecm-type-num>
+				</aircraft>
+				<aircraft n="64"><!-- -->
+					<name>typhoon</name>
+					<rcs-sq-meter>0.5</rcs-sq-meter>
+					<rcs-4th-root>0.84</rcs-4th-root>
+					<radar-type>ecr-90</radar-type>
+					<max-radar-rng-km>400</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>16</ecm-type-num>
+				</aircraft>
+				<aircraft n="65"><!--values copied from f16-->
+					<name>hawk</name>
+					<name>T-45</name>
+					<rcs-sq-meter>1.5</rcs-sq-meter>
+					<rcs-4th-root>1.11</rcs-4th-root>
+					<radar-type>APG-68</radar-type>
+					<max-radar-rng-km>296</max-radar-rng-km>
+					<max-target-sq-meter>100</max-target-sq-meter>
+					<max-target-4th-root>3.16</max-target-4th-root>
+					<ecm-type-num>16</ecm-type-num>
+				</aircraft>
+				<aircraft n="66">
+					<name>717</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="67">
+					<name>733</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="68">
+					<name>737</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="69">
+					<name>738</name>
+					<rcs-sq-meter>80</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="70">
+					<name>747-400</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="71">
+					<name>757</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="72">
+					<name>767</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="73">
+					<name>777</name>
+					<rcs-sq-meter>100</rcs-sq-meter>
+					<rcs-4th-root>2.34</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="74">
+					<name>A310</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="75">
+					<name>A319</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="76">
+					<name>A321</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="77">
+					<name>A330-MRTT</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="78">
+					<name>A332</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="79">
+					<name>A333</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="80">
+					<name>A342</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="81">
+					<name>A343</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="82">
+					<name>A345</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="83">
+					<name>A346</name>
+					<rcs-sq-meter>50</rcs-sq-meter>
+					<rcs-4th-root>1.96</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="84">
+					<name>CRJ-200</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="85">
+					<name>MD80</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="86">
+					<name>MD90</name>
+					<rcs-sq-meter>5</rcs-sq-meter>
+					<rcs-4th-root>1.49</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+				<aircraft n="87">
+					<name>eurofighter</name>
+					<rcs-sq-meter>25</rcs-sq-meter>
+					<rcs-4th-root>2.23</rcs-4th-root>
+					<radar-type>none</radar-type>
+					<max-radar-rng-km>0</max-radar-rng-km>
+					<max-target-sq-meter>0</max-target-sq-meter>
+					<max-target-4th-root>0</max-target-4th-root>
+					<ecm-type-num>00</ecm-type-num>
+				</aircraft>
+			</data>
+		</radar-performance>
+
+		</instrumentation>
+
+		<rendering>
+			<redout>
+				<parameters>
+					<blackout-complete-g>15</blackout-complete-g>
+					<blackout-onset-g>15</blackout-onset-g>
+				</parameters>
+			</redout>
+		</rendering>
+	
+
+			    <!--    <view n="101">
+
+            <name>Missile View</name>
+            <type>lookat</type>
+            <enabled>true</enabled>
+            <heading-offset-deg>180</heading-offset-deg>
+            <pitch-offset-deg>10</pitch-offset-deg>
+        </view> -->
+
+		<view n="0">
+		<name>Cockpit View</name>
+		<type>lookfrom</type>
+		<internal archive="y">true</internal>
+		<config>
+			<pitch-offset-deg>-4.0</pitch-offset-deg>
+			<x-offset-m archive="y">0</x-offset-m><!--  direita/esquerda/de z para x   -->
+			<y-offset-m archive="y">0.3</y-offset-m><!-- cima/baixo/de y para y   -->
+			<z-offset-m archive="y">-5.1</z-offset-m><!--  frente/atraz/de x para z  -->
+			<default-field-of-view-deg>75.3</default-field-of-view-deg>
+		</config>
+		</view>
+		
+		<view n="100">
+	   <name>Pilot cam</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">0.00</x-offset-m>
+          <y-offset-m archive="y">0.35</y-offset-m>
+          <z-offset-m archive="y">-5.5</z-offset-m>
+          <pitch-offset-deg>0</pitch-offset-deg>
+		  <heading-offset-deg>180</heading-offset-deg>
+          <default-field-of-view-deg>95</default-field-of-view-deg>
+        </config>
+      </view>
+
+
+		<view n="101">
+	   <name>Thrust Vector Camera (Warning can be hot)</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">-1.2849686</x-offset-m>
+          <y-offset-m archive="y">0.28261718</y-offset-m>
+          <z-offset-m archive="y">5.223632812</z-offset-m>
+          <pitch-offset-deg>-9.492</pitch-offset-deg>
+		  <heading-offset-deg>175.302714</heading-offset-deg>
+          <default-field-of-view-deg>120</default-field-of-view-deg>
+        </config>
+      </view>
+
+		<view n="102">
+	   <name>Left Wingtip Camera</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">-6.3366387</x-offset-m>
+          <y-offset-m archive="y">-0.8121093825</y-offset-m>
+          <z-offset-m archive="y">3.983398437</z-offset-m>
+          <pitch-offset-deg>1.47675</pitch-offset-deg>
+		  <heading-offset-deg>357.7453027</heading-offset-deg>
+          <default-field-of-view-deg>116</default-field-of-view-deg>
+        </config>
+      </view>
+
+		<view n="103">
+	   <name>Left Aim-9 Bay</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">-2.3653443</x-offset-m>
+          <y-offset-m archive="y">-0.997656257</y-offset-m>
+          <z-offset-m archive="y">-0.072265</z-offset-m>
+          <pitch-offset-deg>-2.2341875</pitch-offset-deg>
+		  <heading-offset-deg>2.847599</heading-offset-deg>
+          <default-field-of-view-deg>116</default-field-of-view-deg>
+        </config>
+      </view>
+		<view n="104">
+	   <name>Center bay</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">-2.3653443</x-offset-m>
+          <y-offset-m archive="y">-0.997656257</y-offset-m>
+          <z-offset-m archive="y">-0.072265</z-offset-m>
+          <pitch-offset-deg>-2.2341875</pitch-offset-deg>
+		  <heading-offset-deg>2.847599</heading-offset-deg>
+          <default-field-of-view-deg>116</default-field-of-view-deg>
+        </config>
+      </view>
+	    <view n="105">
+            <!-- Custom Made Ejection View -->
+            <name>Ejection View (1st Person)</name>
+            <type>lookfrom</type>
+            <enabled>true</enabled>
+           <!-- <heading-offset-deg>180</heading-offset-deg>
+            <pitch-offset-deg>10</pitch-offset-deg>-->
+		<config>
+        	<eye-lon-deg-path type="string">f22/ejection/lon</eye-lon-deg-path>
+        	<eye-lat-deg-path type="string">f22/ejection/lat</eye-lat-deg-path>
+          	<eye-alt-ft-path type="string">f22/ejection/alt</eye-alt-ft-path>
+					 <from-model type="bool">false</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">0.0317</x-offset-m>
+          <y-offset-m archive="y">1.0017</y-offset-m>
+          <z-offset-m archive="y">-0.004</z-offset-m>
+          <pitch-offset-deg>-41</pitch-offset-deg>
+		  <heading-offset-deg>88</heading-offset-deg>
+          <default-field-of-view-deg>116</default-field-of-view-deg>
+        </config>
+        </view>
+			    <view n="106">
+            <!-- Custom Made Ejection View -->
+            <name>Ejection View (3rd Person)</name>
+            <type>lookat</type>
+            <enabled>true</enabled>
+           <!-- <heading-offset-deg>180</heading-offset-deg>
+            <pitch-offset-deg>10</pitch-offset-deg>-->
+		<config>
+        	<target-lon-deg-path type="string">f22/ejection/lon</target-lon-deg-path>
+        	<target-lat-deg-path type="string">f22/ejection/lat</target-lat-deg-path>
+          	<target-alt-ft-path type="string">f22/ejection/alt</target-alt-ft-path>
+					 <from-model type="bool">false</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">0.00</x-offset-m>
+          <y-offset-m archive="y">0.35</y-offset-m>
+          <z-offset-m archive="y">-5.5</z-offset-m>
+          <pitch-offset-deg>0</pitch-offset-deg>
+		  <heading-offset-deg>180</heading-offset-deg>
+          <default-field-of-view-deg>95</default-field-of-view-deg>
+        </config>
+        </view>
+		<view n="1">
+			<config>
+				<target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+				<pitch-offset-deg>0</pitch-offset-deg>
+			</config>
+		</view>
+
+
+		<view n="2">
+			<config>
+				<y-offset-m archive="y" type="double">6.0</y-offset-m>
+				<z-offset-m archive="y">-19.7</z-offset-m>
+				<target-z-offset-m archive="y" type="double">0.0</target-z-offset-m>
+			</config>
+		</view>
+	
+		<view n="3">
+			<config>
+				<target-z-offset-m archive="y" type="double">0.0</target-z-offset-m>
+			</config>
+		</view>
+	
+		<view n="4">
+			<config>
+				<target-z-offset-m archive="y" type="double">0.0</target-z-offset-m>
+			</config>
+		</view>
+	
+		<view n="5">
+			<config>
+				<target-z-offset-m archive="y" type="double">0.0</target-z-offset-m>
+			</config>
+		</view>
+	
+		<view n="6">
+			<config>
+				<target-z-offset-m archive="y" type="double">0.0</target-z-offset-m>
+			</config>
+		</view>
+
+    <weight n="0">
+      <name>pylon1</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> 0.3 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="1">
+      <name>pylon2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> 0.4 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="2">
+      <name>pylon3</name>
+      <tank>2</tank>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> -3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="3">
+      <name>pylon4</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.4 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+    </weight>
+
+    <weight n="4">
+      <name>pylon5</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> 3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+    </weight>
+
+    <weight n="5">
+      <name>pylon6</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.65 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+
+<!--pylon 7 and pylon 8 are aim-9s!-->
+    <weight n="6">
+      <name>pylon7</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+<x-m type="double"> -3.8  </x-m>
+<y-m type="double"> 1.7 </y-m>
+<z-m type="double"> -1.3 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>             <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>             <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-73</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+
+<!--pylon 7 and pylon 8 are aim-9s!-->
+
+    <weight n="7">
+      <name>pylon8</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+<x-m type="double"> -3.8  </x-m>
+<y-m type="double"> -1.7 </y-m>
+<z-m type="double"> -1.3 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-73</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="8">
+      <name>pylon9</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> -3.8</x-m>
+          <y-m type="double"> -0.65 </y-m>
+          <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="9">
+      <name>pylon10</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.2 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+
+    </weight>
+
+
+
+
+	    <weight n="10">
+      <name>pylon11</name>  <!--For ejection seat-->
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>eject</selected>
+      <offsets>
+
+			<x-m archive="y">5</x-m><!--  direita/esquerda/de z para x   -->
+			<y-m archive="y">0</y-m><!-- cima/baixo/de y para y   -->
+			<z-m archive="y">-5.1</z-m><!--  frente/atraz/de x para z  -->
+      </offsets>
+
+    </weight>
+
+
+   <weight n="11">
+      <name>pylon4-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.67 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+    </weight>
+
+
+    <weight n="12">
+      <name>pylon10-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+
+    </weight>
+	    <weight n="13">
+      <name>pylon1-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8 </x-m>
+    <y-m type="double"> 0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="14">
+      <name>pylon2-1</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> 0.67 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+
+	    <weight n="15">
+      <name>pylon1-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> 0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="16">
+      <name>pylon2-1</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> -0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="17">
+      <name>pylon17</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> -3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+    <weight n="18">
+      <name>pylon18</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> 3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+    <weight n="19">
+      <name>pylon17</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> -3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+    <weight n="20">
+      <name>pylon18</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> 3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+        <tacview-recording type="bool">0</tacview-recording>
+
+
+          <aircraft-data>
+            <!-- Properties that get saved to persist locally between FG sessions -->
+            <path>messages/enabled</path>
+        </aircraft-data>
+
+		      <tutorials>
+          <tutorial include="Help/startup.xml"/>
+         <!-- <tutorial include="Help/shutdown.xml"/>
+          <tutorial include="/Missions/oilrig-landing.xml"/>-->
+      </tutorials>
+
+		</sim>
+
+<messages>
+	<!--The simple tips/warnings-->
+	<enabled userarchive="y" type="bool">true</enabled>
+</messages>
+
+<f22>
+            <brightness type="double">0</brightness>
+<ready type="bool">false</ready> <!--For the MFD's-->
+        <party type="bool">false</party>
+<ejected type="int">0</ejected>
+<bingo type="int">2000</bingo>
+<isbingo type="int">0</isbingo>
+<blink type="int">0</blink>
+<throttle type="double">-0.1</throttle>
+<mslbright type="double">10</mslbright>
+<shaking userarchive="y" type="int">1</shaking>
+</f22>
+
+
+<su-27>
+<instrumentation>
+<HUD>
+            <brightness type="double">1</brightness>
+</HUD>
+<N010-radar>
+        <emitting type="bool">false</emitting>
+</N010-radar>
+</instrumentation>
+</su-27>
+        <sound>
+            <rwr-new type="double">0</rwr-new>
+        </sound>
+
+
+   <damage>
+        <sounds>
+            <nearby-explode-on type="bool">false</nearby-explode-on>
+            <missile-hit type="bool">false</missile-hit>
+        </sounds>
+        <fire>
+            <crashsmolfire type="bool">false</crashsmolfire>
+            <crashsmoke type="bool">false</crashsmoke>
+            <crashflame type="bool">false</crashflame>
+            <serviceable type="bool">false</serviceable>
+        </fire>
+    </damage>
+	<!-- payload options -->
+
+<payload>
+        <d-config>
+            <full_damage_dist_m type="double">-2</full_damage_dist_m>
+            <use_hitpoints_instead_of_failure_modes_bool type="bool">false</use_hitpoints_instead_of_failure_modes_bool>
+            <hp_max type="double">200</hp_max>
+            <hitable_by_air_munitions type="bool">true</hitable_by_air_munitions>
+            <hitable_by_cannon type="bool">true</hitable_by_cannon>
+            <is_fleet type="bool">false</is_fleet>
+            <rwr_to_screen type="bool">true</rwr_to_screen>
+            <rwr_audio_extended type="bool">true</rwr_audio_extended>
+            <tacview_supported type="bool">false</tacview_supported>
+            <m28_auto type="bool">false</m28_auto>
+            <mlw_max type="double">20</mlw_max>
+            <auto_flare_caller type="bool">false</auto_flare_caller>
+		</d-config>
+		<!-- Yep. this should go here... -->
+	
+
+		
+	  <armament>
+	    <flares type="int">0</flares>
+        <enable-craters type="bool">true</enable-craters>
+        <MLW-bearing type="double">0</MLW-bearing>
+        <MLW-count type="int">0</MLW-count>
+        <MLW-launcher type="string"></MLW-launcher>
+        <MAW-bearing type="double">0</MAW-bearing>
+        <MAW-active type="bool">false</MAW-active>
+        <MAW-semiactive type="bool">false</MAW-semiactive>
+        <msg type="bool">false</msg>
+		<oldmsg type="bool">false</oldmsg>
+        <spike type="bool">false</spike>
+        <models type="string">Aircraft/F-22/Models/emesary/</models>
+    </armament>
+</payload>
+	<systems>
+<MFD include ="System/MFD.xml">
+<pullup type="int">0</pullup>
+</MFD>
+
+		<refuel>
+  <type>boom</type>
+  <serviceable type="bool">true</serviceable>
+ </refuel>
+	</systems>
+
+	<consumables>
+		<fuel>
+			<tank n="0">
+				<name>F-1A Compartment</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="1">
+				<name>F-1B Pump Box</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="2">
+				<name>F-2</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="3">
+				<name>A-1R</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="4">
+				<name>A-1L</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="5">
+				<name>A-2R (Right Wing)</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="6">
+				<name>A-2L (Left Wing)</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="7">
+				<name>A-3R</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="8">
+				<name>A-3L</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<!--External Tanks-->
+			<tank n="9">
+				<name>Left Inboard External Tank</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="10">
+				<name>Right Inboard External Tank</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="11">
+				<name>Left Outboard External Tank</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			<tank n="12">
+				<name>Right Outboard External Tank</name>
+				<kill-when-empty type="bool">false</kill-when-empty>
+				<selected type="bool">true</selected>
+				<refuelselect type="bool">true</refuelselect>
+			</tank>
+			</fuel>
+	</consumables>
+	
+	
+	<ai>
+    <closest>
+      <callsign type="string">   0 </callsign>
+      <range type="double">     -2 </range>
+      <heading type="int">       0 </heading>
+      <bearing type="int">       0 </bearing>
+      <altitude type="int">      0 </altitude>
+      <speed type="int">         0 </speed>
+      <longitude type="double">  0 </longitude>
+      <latitude type="double">   0 </latitude>
+    </closest>
+	<scenario>
+	   <path>Aircraft/F-22/AI/EGOD_arrestor_cables.xml</path> <!--Not needed-->
+	  </scenario>
+  </ai>
+  
+  
+
+<controls include ="System/controls.xml">
+	<lighting>
+		<instruments-norm type="double">0</instruments-norm>
+		<panel-norm type="double">0</panel-norm>
+		<strobe type="bool">false</strobe>
+		<nav-lights type="bool">false</nav-lights>
+	</lighting>
+
+	<gear>
+		<!-- Start with the Parking Brake on -->
+		<brake-parking type="double">1.0</brake-parking>
+	</gear>
+	</controls>
+
+	<engines>
+		<engine n="0">
+			<running>false</running>
+			<augmentation type="int">0</augmentation>	
+		</engine>
+		<engine n="1">
+			<running>false</running>
+		<augmentation type="int">0</augmentation>
+		</engine>
+	</engines>
+	
+	<canopy>
+		<state type="int">0</state>
+			<Jettison type="int">0</Jettison>	  
+	</canopy>
+	
+	<environment>
+    <turbulence>
+      <use-cloud-turbulence>true</use-cloud-turbulence>
+    </turbulence>
+  </environment>
+
+	<input>
+		 <keyboard>
+		 <key n="262">
+          <name>F6</name>
+          <desc>eject</desc>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+           <command>nasal</command>
+           <script>
+            f22.eject();
+           </script>
+          </binding>
+         </key>
+	      <key n="356">
+            <name>Left</name>
+            <repeatable type="bool">false</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/radar/cursor-x</property>
+                <value type="int">-1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/radar/cursor-x</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="358">
+            <name>Right</name>
+            <repeatable type="bool">false</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/radar/cursor-x</property>
+                <value type="int">1</value>
+            </binding>
+
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/radar/cursor-x</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="357">
+            <name>Up</name>
+            <repeatable type="bool">true</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/radar/cursor-z</property>
+                <value type="int">-1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/radar/cursor-z</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="359">
+            <name>Down</name>
+            <repeatable type="bool">true</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/radar/cursor-z</property>
+                <value type="int">1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/radar/cursor-z</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+			<key n="15">
+				<name>Ctrl-o</name>
+				<desc>Delock radar</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/instrumentation/radar/lock</property>
+					<value type="int">0</value>
+				</binding>
+								<binding>
+					<command>property-assign</command>
+					<property>/instrumentation/radar/lock2</property>
+					<value type="int">0</value>
+				</binding>
+			</key>
+
+
+
+			<key n="4">
+				<name>Ctrl-D</name>
+				<desc>Open/close baydoors</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>controls/baydoors/AIM120</property>
+<value>0</value>
+<value>1</value> <!--i should move this to the FDM so i can make a nice smooth value-->
+				</binding>
+			</key>
+					<key n="6">
+				<name>Ctrl-F</name>
+				<desc>Open/close baydoors (aim-9x)</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>controls/baydoors/AIM9X</property>
+<value>0</value>
+<value>1</value> <!--i should move this to the FDM so i can make a nice smooth value-->
+				</binding>
+			</key>
+
+			
+			<key n="99">
+				<name>c</name>
+				<desc>Open/close canopy</desc>
+				<binding>
+					<command>nasal</command>
+					<script>f22.canopy_switch(getprop("canopy/enabled"),2)</script>
+				</binding>
+
+			</key>
+
+			 <key n="113">
+        			<name>q</name>
+        			<desc>Reset to default view</desc>
+        			<binding>
+            				<command>nasal</command>
+            				<script>f22.reset_view(0)</script>
+        			</binding>
+    			</key>
+<key n="116">
+  <name>t</name>
+  <desc>cursor clock</desc>
+  <binding>
+ <command>nasal</command>
+ <script>f22.cursorclick();</script>
+</binding>
+  <binding>
+ <command>nasal</command>
+ <script>setprop("controls/radar/cursormode",1);</script> <!--stop the time from showing-->
+</binding>
+ </key> 
+
+
+
+<key n="101">
+  <name>e</name>
+  <desc>Fire selected WCS weapon</desc>
+	<binding>
+		<command>nasal</command>
+		<script>setprop("controls/armament/trigger",1);#guns.fire_MG();</script>
+	</binding>
+    <binding>
+   <command>property-toggle</command>
+   <property>controls/missile</property>
+  </binding>
+
+  <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>setprop("controls/armament/trigger",0);guns.stopFiring();</script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>setprop("/controls/armament/missile-trigger", 0);</script>
+    </binding>
+  </mod-up>
+ </key>
+
+ <key n="109">
+  <name>m</name>
+  <desc>Cycle selected WCS AA weapon</desc>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon</property>
+ <value>Aim-9x</value>
+ <value>Aim-120</value>
+ <value>Aim-260</value>
+</binding>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon-digit</property>
+ <value>1</value>
+ <value>2</value>
+ <value>4</value>
+</binding>
+  <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);var weaponname = getprop("controls/armament/selected-weapon");missile.Loading_missile(weaponname);</script></binding>
+   <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 0)</script></binding>
+      <binding><command>nasal</command><script>setprop("/controls/missile", 3)</script></binding>
+ </key> 
+		
+
+		 <key n="110">
+  <name>n</name>
+  <desc>Cycle selected WCS AG weapon</desc>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon</property>
+
+ <value>GBU-39</value>
+ <value>JDAM</value>
+</binding>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon-digit</property>
+
+ <value>3</value>
+
+  <value>4</value>
+</binding>
+  <binding><command>nasal</command><script>screen.log.write("Selected " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);var weaponname = getprop("controls/armament/selected-weapon");missile.Loading_missile(weaponname);</script></binding>
+   <binding><command>nasal</command><script>setprop("/controls/baydoors/AIM120", 0)</script></binding>
+      <binding><command>nasal</command><script>setprop("/controls/missile", 3)</script></binding>
+ </key> 
+
+
+ 
+		 <key n="105">
+  <name>i</name>
+  <desc>Cycle selected DEBUG MISSILE</desc>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon</property>
+
+ <value>Aim-7</value>
+ <value>XMAA</value>
+ <value>Aim-9m</value>
+</binding>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/selected-weapon-digit</property>
+
+ <value>5</value>
+
+  <value>6</value>
+</binding>
+  <binding><command>nasal</command><script>screen.log.write("Selected Debug missile: " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
+ </key> 
+
+
+<key n="119">
+  <name>w</name>
+  <desc>Cycle Gun/Missile</desc>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/armament/stick-selector</property> <!--Working!! :D-->
+ <value>1</value>
+ <value>2</value>
+</binding>
+ </key> 	
+
+ <key n="108">
+	 <name>l</name>
+     <desc>Trigger flare release</desc>      
+	 <binding>
+     <command>nasal</command>
+ <script>CMS.updatecms();CMS.trigger();</script>
+      </binding>
+  <binding>
+   <command>property-toggle</command>
+   <property>controls/flare</property>
+  </binding>
+
+    </key>
+	 <key n="114">
+  <name>r</name>
+  <desc>Switch Radar Range</desc>
+  <binding>
+ <command>nasal</command>
+ <script>radar.switch_distance();screen.log.write("Radar Range: " ~ f22.myRadar.rangeTab[radar.rangeIndex] ~ "nm.",1,1,0);</script>
+</binding>
+ </key> 
+<key n="121">
+  <name>y</name>
+  <desc>select target</desc>
+  <binding>
+ <command>nasal</command>
+ <script>radar.next_Target_Index();</script>
+</binding>
+
+ </key> 
+	<key n="125">
+     <name>}</name>
+     <desc>Engine Autostart</desc> 
+	<binding>
+		<command>nasal</command>
+		 <script>emu.autostart();</script>
+		
+	</binding>
+  </key>
+   <key n="72">
+    <name>H</name>
+    <desc>Active Target Seeking</desc>
+    <binding>
+       <command>nasal</command>
+       <script>hud.activate_borsight()</script>
+    </binding>
+  </key>
+  
+  <key n="84">
+    <name>t</name>
+    <desc>toggle MPO</desc>
+  <binding>
+ <command>property-cycle</command>
+ <property>controls/FBW/Switch</property>
+ <value>0</value>
+ <value>1</value>
+</binding>
+ <binding><command>nasal</command><script>screen.log.write("FBW Override is " ~ getprop("controls/FBW/Switch"),0.5,0.5,1);</script></binding>
+  </key>
+  
+  <key n="82">
+    <name>R</name>
+    <desc>Active Telemeter</desc> <!--...-->
+    <binding>
+       <command>nasal</command>
+       <script>hud.activate_Telemeter()</script>
+    </binding>
+  </key>
+ <!-- 
+  <key n="116">
+    <name>t</name>
+    <desc>Ajusting Radar Distance</desc>
+    <binding>
+       <command>nasal</command>
+       <script>hud.switch_distance()</script>
+    </binding>
+  </key>
+  -->
+  <!--
+   <key n="81">
+    <name>q</name>
+    <desc>Toggle radar standby mode</desc>
+    <binding>
+      <command>property-toggle</command>
+      <property>instrumentation/radar/display-rdr</property>
+    </binding>
+  </key>
+  -->
+<key n="82">
+  <name>R</name>
+  <desc>Toggle Radar On/Off</desc>
+  <binding>
+   <command>property-toggle</command>
+   <property>su-27/instrumentation/N010-radar/emitting</property>
+  </binding>
+ </key>
+  
+  <key n="14">
+    <name>Ctrl-n</name> <!--Broken-->
+    <desc>Changes Target</desc>
+    <binding>
+      <command>nasal</command>
+      <script>hud.previous_Target_Index()</script>
+    </binding>
+  </key>
+  
+  <key n="79">
+   <name>O</name>
+   <desc>Hook down</desc>
+   <binding>
+     <command>property-assign</command>
+     <property>fdm/jsbsim/systems/hook/tailhook-cmd-norm</property>
+     <value type="double">1.0</value>
+   </binding>
+ </key>
+
+ <key n="111">
+   <name>o</name>
+   <desc>Hook Up</desc>
+   <binding>
+     <command>property-assign</command>
+     <property>fdm/jsbsim/systems/hook/tailhook-cmd-norm</property>
+     <value type="double">0.0</value>
+   </binding>
+ </key>
+		<key n="117">
+	  <name>U</name>
+	  <desc>Toggle smoke</desc>
+	  <binding>
+              <command>property-cycle</command>
+        <property>controls/smoke/Switch</property>
+                <value>0</value>
+                <value>1</value>
+                <wrap>true</wrap>
+	  </binding>
+  </key>
+
+
+
+   <!-- map keys for catapult launch -->
+ <key n="67">
+   <name>C</name>
+   <desc>Catapult Launch Command.</desc>
+     <binding>
+     <command>property-assign</command>
+     <property>controls/gear/brake-parking</property>
+     <value type="double">0</value>
+   </binding> 
+   <binding>
+     <command>property-assign</command>
+     <property>fdm/jsbsim/systems/catapult/cat-launch-cmd</property>
+     <value type="double">1</value>
+   </binding>
+   <binding>
+     <command>property-assign</command>
+     <property>fdm/jsbsim/systems/holdback/holdback-cmd</property>
+     <value type="double">0</value>
+   </binding>
+
+
+   <mod-up>
+     <binding>
+       <command>property-assign</command>
+       <property>/controls/gear/catapult-launch-cmd</property>
+       <value type="bool">false</value>
+     </binding>
+   </mod-up>
+ </key>
+
+ <!-- map keys for launch-bar -->
+ <key n="76">
+   <name>L</name>
+   <desc>Launch-bar engage.</desc>
+   <binding>
+     <command>property-assign</command>
+     <property>controls/gear/brake-parking</property>
+     <value type="double">1</value>
+   </binding>
+   <binding>
+     <command>property-assign</command>
+     <property>fdm/jsbsim/systems/holdback/holdback-cmd</property>
+     <value type="double">1</value>
+   </binding>
+  <binding>
+ <command>nasal</command>
+ <script>screen.log.write("Catapult engaged. Bring throttle up, then press shift-c to launch");</script>
+</binding>
+
+   <mod-up>
+     <binding>
+       <command>property-assign</command>
+       <property>/controls/gear/launchbar</property>
+       <value type="bool">false</value>
+     </binding>
+   </mod-up>
+ </key>
+
+
+		 </keyboard>
+	 </input>
+
+	<instrumentation>
+
+		<frontcontrols>
+			<digit1 type="int">0</digit1>
+			<digit2 type="int">0</digit2>
+			<digit3 type="int">0</digit3>
+			<digit4 type="int">0</digit4>
+			<digit5 type="int">0</digit5>
+			<digit6 type="int">0</digit6>
+			<all type="double">000.000</all>
+			<c1a type="double">000.000</c1a>
+			<c1b type="double">000.000</c1b>
+			<c2a type="double">000.000</c2a>
+			<c2b type="double">000.000</c2b>
+		</frontcontrols>
+        <comm n="0">
+            <operable type="bool">1</operable>
+            <volume type="double">1</volume>
+            <frequencies>
+                <selected-mhz type="double">385.40</selected-mhz>
+                <standby-mhz type="double">291.73</standby-mhz>
+            </frequencies>
+        </comm>
+        <comm n="1">
+	        <operable type="bool">1</operable>
+            <volume type="double">1</volume>
+            <frequencies>
+                <selected-mhz type="double">121.80</selected-mhz>
+                <standby-mhz type="double">132.55</standby-mhz>
+            </frequencies>
+        </comm>
+        <comm n="2"> <!--Aux comm-->
+	        <operable type="bool">1</operable>
+            <volume type="double">1</volume>
+            <frequencies>
+                <selected-mhz type="double">121.80</selected-mhz>
+                <standby-mhz type="double">132.55</standby-mhz>
+            </frequencies>
+        </comm>
+
+
+		<tacan>
+			<switch-position type="int">1</switch-position>
+		</tacan>
+		<nav>
+			<frequencies>
+				<selected-freq type="double">115.8</selected-freq>
+				<standby-freq type="double">115.8</standby-freq>
+			</frequencies>
+		</nav>
+		
+        <datalink>
+            <data type="int">0</data>
+            <power type="bool">true</power>
+            <channel type="int">1212</channel>
+            <power_prop type="string">/instrumentation/datalink/power</power_prop>
+            <channel_prop type="string">instrumentation/datalink/channel</channel_prop>
+            <receive_period type="double">1</receive_period>
+        </datalink>
+ 
+ 
+ 
+		 <rwr>
+      <display-lighting-intens type="double">0.4</display-lighting-intens>
+      <symbology-lighting-intens type="double">1</symbology-lighting-intens>
+    </rwr>
+
+		<enav><selected type="int">3</selected></enav>
+<radar>
+
+  <range type="int" archive="y">40</range>
+  <range-factor type="double" archive="n">0.001888</range-factor>
+  <minimized type="bool" archive="y">false</minimized>
+  <selected type="int">2</selected>
+  <lock type="int">0</lock>
+  <lock2 type="int">0</lock2>
+  <threat-spotted type="int">0</threat-spotted> <!--for lockhelper.nas-->
+      <!-- inicio en pruebas -->
+  <enabled type="bool">0</enabled>
+  <grid type="bool">1</grid>
+  <az-field type="double">120</az-field>
+
+  <range type="double">150</range>
+  <range-selected type="double">50</range-selected>
+  <radar2-range type="double">150</radar2-range>
+  <display-rdr type="bool">true</display-rdr>
+  <radar-standby type="int">0</radar-standby>
+<mode>
+  <rws type="bool">true</rws>
+  <tws-auto type="bool">false</tws-auto>
+    <main type="int">0</main> <!--0 TWS 1 RWS 2 Custom-->
+</mode>
+
+</radar> 
+
+
+  <radar2>
+  <hasrcs type="double">0</hasrcs> <!--will be functional soon-->
+  <direction type="double">0</direction>
+	<lockmarker type="double">0</lockmarker>
+   <sweep-width-m type="double">0.0844</sweep-width-m>
+   <range-width-m type="double">0.0846</range-width-m>
+   <radius-ppi-display-m type="double">0.0846</radius-ppi-display-m>
+   <hud-eye-dist-m type="double">0.6705</hud-eye-dist-m>
+   <hud-radius-m type="double">0.071</hud-radius-m>
+   <sweep-speed type="double">1.5</sweep-speed>
+   <!--RWS Mode to start-->
+   <sweep-display-width type="double">0.0846</sweep-display-width>
+   <hud>
+    <target type="bool">1</target>
+   </hud>
+   <targets>
+    <aircraft n="0">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="1">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="2">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="3">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="4">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="5">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="6">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="7">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+   </targets>
+  </radar2>
+
+   <radar-awg-9>
+    <ccm-mode-spl type="bool">false</ccm-mode-spl>
+    <ccm-mode-alt-dhf type="bool">false</ccm-mode-alt-dhf>
+    <ccm-mode-trs type="bool">false</ccm-mode-trs>
+    <display-rdr type="bool">true</display-rdr>
+    <display-ir type="bool">false</display-ir>
+    <display-iff type="bool">false</display-iff>
+    <mode type="string">PDS</mode> <!-- PDS, RWS, TWS, PDSTT, PSTT, VSL -->
+    <ant-trk-light type="bool">false</ant-trk-light>
+    <rd-rot-light type="bool">false</rd-rot-light>
+    <jat-light type="bool">false</jat-light>
+    <irot-light type="bool">false</irot-light>
+    </radar-awg-9>
+
+    <terrain-radar>
+      <hi-elev>
+        <alt-ft type="double">-9999.9</alt-ft>
+        <lat-deg type="double">-9999.9</lat-deg>
+        <lon-deg type="double">-9999.9</lon-deg>
+        <dist-m type="double">-9999.9</dist-m>
+        <collision-status type="string">initialised</collision-status>
+      </hi-elev>
+      <settings>
+        <mode type="string">extend</mode>
+        <state type="string">off</state>
+        <range-m type="double">2500</range-m>
+        <step-m type="double">250</step-m>
+        <max-climb-rate-fps type="double">120</max-climb-rate-fps>
+        <hi-elev-markers type="bool">false</hi-elev-markers>
+      </settings>
+    </terrain-radar>
+  <efis>
+
+			<ecam>
+					<display-mode type="string">FUEL</display-mode>
+			</ecam>
+			<nd>
+					<display-mode type="string">VOR</display-mode>
+					<display-mode-knob type="int">2</display-mode-knob>
+					<display-range type="int">20</display-range>
+				
+			</nd>
+			<input>
+				<vor-adf-1 type="int">1</vor-adf-1>
+				<vor-adf-2 type="int">1</vor-adf-2>
+				<CSTR type="bool">1</CSTR>
+				<WPT type="bool">1</WPT>
+				<VORD type="bool">1</VORD>
+				<NDB type="bool">1</NDB>
+				<ARPT type="bool">1</ARPT>
+				<WX type="bool">1</WX>
+				<TERR type="bool">1</TERR>
+				<TRAF type="bool">1</TRAF>
+				<taxi type="bool">1</taxi>
+			</input>
+
+		
+		</efis>
+		
+	</instrumentation>
+
+	<nasal>
+ <CanvasPylonsDlg><file>Aircraft/F-22/Nasal/CanvasDlg/Canvas-pylons-Dlg.nas</file> </CanvasPylonsDlg>
+        <hack>
+            <file>Aircraft/F-22/Nasal/hackCanvas.nas</file><!-- must be first -->
+        </hack>
+	 <livery>
+<file>Aircraft/F-22/Nasal/liveries.nas</file>
+</livery>
+        <topgun>
+            <file>Aircraft/F-22/Nasal/mig28.nas</file>
+        </topgun>
+
+
+        <rcs>
+            <!-- must be before radar -->
+            <file>Aircraft/F-22/Nasal/rcs_mand.nas</file>
+            <file>Aircraft/F-22/Nasal/rcs.nas</file>
+        </rcs>
+		
+	 <notifications>
+            <file>Aircraft/F-22/Nasal/ArmamentNotification.nas</file>
+            <file>Aircraft/F-22/Nasal/GeoBridgedTransmitter.nas</file>
+        </notifications>
+        
+ <vector>
+            <file>Aircraft/F-22/Nasal/vector.nas</file> <!--math stuff. not thrust lol-->
+        </vector>
+
+
+
+		<baydoors>
+ 			<file>Aircraft/F-22/Nasal/baydoors.nas</file>
+ 		</baydoors>
+		<low>
+            <file>Aircraft/F-22/Nasal/low.nas</file>
+        </low>
+		        <hudmath>
+            <file>Aircraft/F-22/Nasal/hud_math.nas</file>
+        </hudmath>
+  <canvas_HUD>
+            <file>Aircraft/F-22/Nasal/hud.nas</file>
+    </canvas_HUD>    
+	<terrain-map>
+ 
+<file>Aircraft/F-22/Nasal/terrain-map.nas</file>
+ 
+</terrain-map>
+	
+		<aar> 
+            <file>Aircraft/F-22/Nasal/aar.nas</file>
+        </aar>
+        <rwrs>
+            <file>Aircraft/F-22/Nasal/rwr.nas</file>
+        </rwrs>
+		
+
+        <radar_system>
+        	<file>Aircraft/F-22/Nasal/radar-system-database.nas</file>
+            <file>Aircraft/F-22/Nasal/radar-system.nas</file>
+            <file>Aircraft/F-22/Nasal/rwr-only.nas</file>
+        </radar_system>
+
+		        <rwrs>
+            <file>Aircraft/F-22/Nasal/rwr.nas</file>
+        </rwrs>
+
+    <radardist>
+      <file>Aircraft/Instruments-3d/radardist/radardist.nas</file>
+    </radardist>
+
+        <customrcs>
+            <!-- must be before radar -->
+            <file>Aircraft/F-22/Nasal/crcs.nas</file>
+        </customrcs>
+	<!-- Main Radar -->
+    <radar>
+      <file>Aircraft/F-22/Nasal/radar2.nas</file> 
+    </radar>
+
+        <lockhelper>
+            <file>Aircraft/F-22/Nasal/lockhelper.nas</file><!-- my 3rd custom nasal script! :D -->
+        </lockhelper>
+
+		
+    <WCS><file>Aircraft/F-22/Nasal/wcs-helper.nas</file> </WCS>
+		<mig28>
+			<file>Aircraft/F-22/Nasal/dmgrec.nas</file> <!-- hehehehe. Advanced Situational Awareness-->
+		</mig28>
+<damage>
+            <file>Aircraft/F-22/Nasal/damage.nas</file>
+        </damage>
+
+	        <ai>
+          <file>Aircraft/F-22/Nasal/AI_list.nas</file> <!--From F-16-->
+        </ai>
+       <!-- <viewMissile>
+          <file>Aircraft/F-22/Nasal/MissileView.nas</file>From F-16
+        </viewMissile>-->
+
+    <missile>
+      <file>Aircraft/F-22/Nasal/weapons/missile.nas</file>
+      <file>Aircraft/F-22/Nasal/weapons/Loading_Missiles.nas</file>
+      <file>Aircraft/F-22/Nasal/weapons/missile_GroundTargeting.nas</file>
+    </missile>
+
+    <m2000_load>
+      <file>Aircraft/F-22/Nasal/weapons/ext_stores.nas</file>
+    </m2000_load>
+
+<armament>
+      <file>Aircraft/F-22/Nasal/weapons/missile-code.nas</file>
+</armament>  <!--OPRF Missile-code present Only for the RWR to work-->
+
+
+    <guns>
+      <file>Aircraft/F-22/Nasal/weapons.nas</file>
+    </guns>
+    <m2000_controls>
+      <file>Aircraft/F-22/Nasal/weapons/controls.nas</file>
+    </m2000_controls>
+  <fuel>
+   <file>Aircraft/F-22/Nasal/fuel.nas</file>
+  </fuel>
+  
+  <emu>
+   <file>Aircraft/F-22/Nasal/emu.nas</file>
+  </emu>
+  <enav>
+<file>Aircraft/F-22/Nasal/enav.nas</file>
+</enav>
+
+ <engfire>
+            <file>Aircraft/F-22/Nasal/engfire.nas</file>
+        </engfire>
+
+ <leftscr>
+            <file>Aircraft/F-22/Nasal/leftscreen.nas</file>
+        </leftscr>
+
+ <tacview>
+            <file>Aircraft/F-22/Nasal/tacview.nas</file>
+        </tacview>
+		<f22>
+			<file>Aircraft/F-22/Nasal/f22.nas</file>
+			<file>Aircraft/F-22/Nasal/light.nas</file>
+			<file>Aircraft/F-22/Nasal/rain.nas</file>
+			<file>Aircraft/F-22/Nasal/doors.nas</file>
+			<file>Aircraft/F-22/Nasal/views.nas</file>
+			<file>Aircraft/F-22/Nasal/electrical.nas</file>
+		</f22>
+
+
+
+<datalink>
+<file>Aircraft/F-22/Nasal/datalink.nas</file>
+</datalink>
+
+<dlinkhack>
+<file>Aircraft/F-22/Nasal/hack.nas</file>
+</dlinkhack>
+<!--AI Searcher-->
+		<misc>
+			<file>Aircraft/F-22/Nasal/misc.nas</file>
+		</misc>
+
+		        <TB01>
+          <file>Aircraft/F-22/Nasal/weapons/tb01.nas</file> <!--System for a Debug Bomb-->
+        </TB01>
+
+
+<!--MFD's Lowest if i want to implement other name space code with them-->
+<MFD2>
+<file>Aircraft/F-22/Nasal/MFD2.nas</file>
+</MFD2>
+<MFD1>
+<file>Aircraft/F-22/Nasal/MFD1.nas</file>
+</MFD1>
+<MFD3>
+<file>Aircraft/F-22/Nasal/MFD3.nas</file>
+</MFD3>
+<smallscreens>
+<file>Aircraft/F-22/Nasal/smallscreens.nas</file>
+</smallscreens>
+<!--Front Radio Controls-->
+
+<!--
+<jammer>
+<file>Aircraft/F-22/Nasal/jammer.nas</file>
+</jammer>-->
+		<fc>
+			<file>Aircraft/F-22/Nasal/RAD.nas</file>
+		</fc>
+
+		<KY58>
+			<file>Aircraft/F-22/Nasal/secure.nas</file>
+		</KY58>
+
+		<CMS>
+			<file>Aircraft/F-22/Nasal/cms.nas</file> <!--my custom Chaff/Flare system-->
+		</CMS>
+		<DTC>
+			<file>Aircraft/F-22/Nasal/DTC.nas</file> <!--my custom Datacartridge system-->
+		</DTC>
+		<jammer>
+			<file>Aircraft/F-22/Nasal/jammer.nas</file> <!--Replace the code with working one-->
+		</jammer>
+    	<K14>
+	  <file>Aircraft/F-22/Nasal/lead-computer.nas</file>
+	  <file>Aircraft/Instruments-3d/computing-gun-sights/K14/Nasal/K14-reticle.nas</file>
+	</K14>
+		
+	<!--<tips>   disabled for now. its a bit buggy
+			<file>Aircraft/F-22/Nasal/messages.nas</file>
+		</tips>-->
+
+	</nasal>
+</PropertyList>
