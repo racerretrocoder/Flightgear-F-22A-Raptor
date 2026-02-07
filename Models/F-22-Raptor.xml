@@ -1652,7 +1652,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>rbleed1</object-name>
-		<property>fdm/jsbsim/fcs/inlet1angle</property>
+		<property>sim/multiplay/generic/float[8]</property>
 		<interpolation>
 					<entry>
 				<ind>-1.0</ind>
@@ -1676,7 +1676,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>rbleed2</object-name>
-		<property>fdm/jsbsim/fcs/inlet1angle</property>
+		<property>sim/multiplay/generic/float[8]</property>
 		<interpolation>
 					<entry>
 				<ind>-1.0</ind>
@@ -1699,7 +1699,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>rbleed3</object-name>
-		<property>fdm/jsbsim/fcs/inlet1angle</property>
+		<property>sim/multiplay/generic/float[8]</property>
 		<interpolation>
 					<entry>
 				<ind>-1.0</ind>
@@ -1725,7 +1725,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>lbleed1</object-name>
-		<property>fdm/jsbsim/fcs/inlet0angle</property>
+		<property>sim/multiplay/generic/float[7]</property>
 		<interpolation>
 					<entry>
 				<ind>-1.0</ind>
@@ -1749,7 +1749,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>lbleed2</object-name>
-		<property>fdm/jsbsim/fcs/inlet0angle</property>
+		<property>sim/multiplay/generic/float[7]</property>
 		<interpolation>
 					<entry>
 				<ind>-1.0</ind>
@@ -1772,7 +1772,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>lbleed3</object-name>
-		<property>fdm/jsbsim/fcs/inlet0angle</property>
+		<property>sim/multiplay/generic/float[7]</property>
 		<interpolation>
 					<entry>
 				<ind>-1.0</ind>
@@ -1799,7 +1799,7 @@ Old
 		
 		<condition>
 			<greater-than>
-		<property>fdm/jsbsim/fcs/inlet1angle</property>
+		<property>sim/multiplay/generic/float[8]</property>
 				<value>0</value>
 			</greater-than>
 		</condition>
@@ -1813,7 +1813,7 @@ Old
 		
 		<condition>
 			<greater-than>
-		<property>fdm/jsbsim/fcs/inlet0angle</property>
+		<property>sim/multiplay/generic/float[7]</property>
 				<value>0</value>
 			</greater-than>
 		</condition>

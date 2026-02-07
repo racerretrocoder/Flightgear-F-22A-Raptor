@@ -12,7 +12,7 @@
 <!--Engine 1 smoke ints: 0, 1-->
     <condition>
         <greater-than>
-          <property>sim/multiplay/generic/float[33]</property>
+          <property>sim/multiplay/generic/bool[7]</property>
           <value>0</value>
         </greater-than>
     </condition>
