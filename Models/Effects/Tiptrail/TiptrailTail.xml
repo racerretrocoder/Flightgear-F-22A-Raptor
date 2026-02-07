@@ -108,7 +108,7 @@
         </end>
 
         <life-sec>
-           <expression><product><value>1</value><property>/fdm/jsbsim/fcs/cont-time-tail</property></product></expression>
+           <expression><product><value>1</value><property>sim/multiplay/generic/float[5]</property></product></expression>
         </life-sec>
 
         <mass-kg>  0.5 </mass-kg>
