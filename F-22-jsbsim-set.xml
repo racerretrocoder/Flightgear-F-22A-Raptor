@@ -549,6 +549,11 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 			-->
 <bool n="7" type="bool" alias="/controls/armament/gun-trigger"/>  
 <bool n="8" type="bool" alias="/engines/engine/cutoff"/>  <!--For Idleing Smoke-->
+
+
+
+<float n="6" type="double" alias="/fdm/jsbsim/fcs/cont-time"/>
+<float n="5" type="double" alias="/fdm/jsbsim/fcs/cont-time-tail"/>    
 <float n="7" type="double" alias="/fdm/jsbsim/fcs/inlet0angle"/>  
  <float n="8" type="double" alias="/fdm/jsbsim/fcs/inlet1angle"/> 
  <float n="9" type="double" alias="/controls/lighting/aar"/>  <!--AARLIGHT-->
