@@ -15,11 +15,16 @@
       <and>
         <greater-than>
           <property>/environment/relative-humidity</property>
-          <value>0</value>
+          <value>-100</value>
         </greater-than>
+                        <greater-than>
+          <property>/environment/dewpoint-degc</property>
+          <value>-50</value>
+        </greater-than>
+
         <greater-than>
           <property>/environment/temperature-degc</property>
-          <value>0</value>
+          <value>-100</value>
         </greater-than>
         <greater-than>
           <property>sim/multiplay/generic/float[19]</property>
@@ -31,6 +36,7 @@
         </greater-than>
       </and>
     </condition>
+
 
         <attach>world</attach>
 
@@ -59,8 +65,8 @@
 
         <counter>
             <particles-per-sec>
-                <value>3000</value>
-                <spread>0.005</spread>
+                <value>2000</value>
+                <spread>0.000</spread>
             </particles-per-sec>
         </counter>
 
@@ -84,15 +90,15 @@
           <red><expression><product><value>0.95</value><property>/rendering/scene/diffuse/red</property></product></expression></red>
           <green><expression><product><value>0.95</value><property>/rendering/scene/diffuse/red</property></product></expression></green>
           <blue><expression><product><value>0.95</value><property>/rendering/scene/diffuse/red</property></product></expression></blue>
-          <alpha><value> 0.030 </value></alpha>
+          <alpha><value> 0 </value></alpha>
         </color>
         <size>
-          <value>0.025</value>
+          <value>1.025</value>
         </size>
         </end>
 
         <life-sec>
-            <value>3</value>
+           <expression><product><value>1</value><property>/fdm/jsbsim/fcs/cont-time</property></product></expression>
         </life-sec>
 
         <mass-kg>  0.5 </mass-kg>

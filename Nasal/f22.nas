@@ -19,7 +19,15 @@ setprop("f22/bayupdate",0);
 setprop("controls/baydoor/AIM120lock",0);
 setprop("f22/rbleed",0.0);
 setprop("f22/lbleed",0.0);
-
+setprop("f22/quick-gear",1);
+setprop("f22/gear1/pos",1);
+setprop("f22/gear2/pos",1);
+setprop("f22/gear3/pos",1);
+setprop("f22/gear-damaged",0);
+setprop("f22/gear1/failed",0);
+setprop("f22/gear2/failed",0);
+setprop("f22/gear3/failed",0);
+setprop("fdm/jsbsim/gear/gear-pos-norm",1);
 #
 # Aux Comm
 #
@@ -73,8 +81,71 @@ var rinlet = func() {
   
 }
 
+var gearloop = func() {
+  var gearhandle = getprop("controls/gear/gear-down");
+  var speed = getprop("velocities/airspeed-kt");
+  var damaged = getprop("f22/gear-damaged");
+  var fdmgear = getprop("fdm/jsbsim/fcs/gear-control");
+  var damagegear1 = getprop("f22/gear1/failed");
+  var damagegear2 = getprop("f22/gear2/failed");
+  var damagegear3 = getprop("f22/gear3/failed");
+  if (gearhandle == 1) {
+    # gear is down
+    # check for damage
+    if (damaged == 0) {
+      if (speed > 290) {
+        setprop("f22/gear-damaged",1);
+        print("gear is getting damaged!!!");
+        screen.log.write("The gear is getting damaged! Slow down!",1,0,0);
+        # RNG
+        var chance = 0.9;
+        var gear1 = rand() < (1-chance);
+        var gear2 = rand() < (1-chance);
+        var gear3 = rand() < (1-chance);
+        setprop("f22/gear1/failed",gear1);
+        setprop("f22/gear2/failed",gear2);
+        setprop("f22/gear3/failed",gear3);
+        if (gear1 == 0 and gear2 == 0 and gear3 == 0) {
+          # turn it back on 
+          setprop("f22/gear-damaged",0);
+        }
+      }
+    }
+  }
 
+  if (damagegear1 == 1) {
+    # nose is damaged
+    if (fdmgear < 0.25) {
+      setprop("f22/gear1/pos",fdmgear);
+    }
+  } else {
+    setprop("f22/gear1/pos",fdmgear);
+  }
+  if (damagegear2 == 1) {
+    # left is damaged
+    if (fdmgear < 0.75) {
+      setprop("f22/gear2/pos",fdmgear);
+    }
+  } else {
+    setprop("f22/gear2/pos",fdmgear);
+  }
+  if (damagegear3 == 1) {
+    # left is damaged
+    if (fdmgear < 0.75) {
+      setprop("f22/gear3/pos",fdmgear);
+    }
+  } else {
+    setprop("f22/gear3/pos",fdmgear);
+  }
+  if (damaged != 1) {
+  setprop("fdm/jsbsim/gear/gear-pos-norm",fdmgear);
+  } else {
+    
+  setprop("fdm/jsbsim/gear/gear-pos-norm",0.2);
+  }
+}
 
+gearmain = maketimer(0,gearloop);
 
 # Floats
 setprop("controls/vol/rwr",0.5);
@@ -1896,14 +1967,35 @@ var tutmessage = func() {
 }
 
 
+var geardelaymain = func() {
+  gearmain.start();
+  geardelay.stop();
+  setprop("f22/quick-gear",0);
+}
+
 tuttimer = maketimer(5,tutmessage);
-
 dmgtimer = maketimer(0.3,checkdmg);
-
-
+geardelay = maketimer(10,geardelaymain);
 
 setlistener("sim/signals/fdm-initialized", func {
 # Spawned in/went to location
+gearmain.stop();
+setprop("f22/gear1/failed",0);
+setprop("f22/gear2/failed",0);
+setprop("f22/gear3/failed",0);
+setprop("f22/gear1/pos",1);
+setprop("f22/gear2/pos",1);
+setprop("f22/gear3/pos",1);
+setprop("f22/gear-damaged",0);
+
+setprop("f22/quick-gear",1);
+setprop("fdm/jsbsim/gear/gear-pos-norm",1);
+setprop("controls/gear/gear-down",1);
+geardelay.start();
+
+setprop("controls/engines/engine[0]/throttle",0);
+setprop("controls/engines/engine[1]/throttle",0);
+setprop("controls/gear/brake-parking",1);
 dmgtimer.start();
 tuttimer.start();
 K14.initSightComputer();
@@ -1913,7 +2005,6 @@ shake_timer2.start();
 crash_timer.stop(); # stop crash xd
 crashreinit_timer.start();
 repair();
-setprop("controls/gear/gear-down",1);
 screen.log.write("Ready");
 timer_jitter.start();  
 timer_flarecheck.start();          # flare checker

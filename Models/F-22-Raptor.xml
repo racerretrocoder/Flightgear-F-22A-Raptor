@@ -682,7 +682,10 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
        <property>sim/multiplay/generic/float[30]</property><!-- velocities/mach -->
        <value>1.0</value>
       </less-than>
-
+                <greater-than>
+          <property>/environment/dewpoint-degc</property>
+          <value>0</value>
+        </greater-than>
     </condition>
   </animation>
 <!--
@@ -798,7 +801,10 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
     <object-name>left-strake-vortex3</object-name>
     <condition>
        <and>
-    
+                    <greater-than>
+          <property>/environment/dewpoint-degc</property>
+          <value>-10</value>
+        </greater-than>
           <greater-than>
            <property>accelerations/pilot-gdamped</property>
            <value>5</value>
@@ -865,7 +871,10 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
       <condition>
            <and>
-            
+                            <greater-than>
+          <property>/environment/dewpoint-degc</property>
+          <value>-50</value>
+        </greater-than>
                 <greater-than>
                  <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
                  <value>18.0</value>
@@ -2665,7 +2674,7 @@ FR
 		<object-name>nwheel</object-name>
 		<condition>
 			<greater-than>
-				<property>gear/gear[0]/position-norm</property>
+				<property>f22/gear1/pos</property>
 				<value>0.0</value>
 			</greater-than>
 		</condition>
@@ -2674,7 +2683,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>nwheel</object-name>
-		<property>gear/gear[0]/position-norm</property>
+		<property>f22/gear1/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.25</ind>
@@ -2708,7 +2717,7 @@ FR
 	<animation>
 		<type>translate</type>
 		<object-name>nwheel</object-name>
-		<property>gear/gear[0]/position-norm</property>
+		<property>f22/gear1/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.25</ind>
@@ -2729,7 +2738,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>gear-door2</object-name>
-		<property>gear/gear[0]/position-norm</property>
+		<property>f22/gear1/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -2753,7 +2762,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>gear-door1</object-name>
-		<property>gear/gear[0]/position-norm</property>
+		<property>f22/gear1/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -2783,7 +2792,7 @@ FR
 
 			<condition>
 			<greater-than>
-				<property>gear/gear[1]/position-norm</property>
+				<property>f22/gear2/pos</property>
 				<value>0.999999999999</value>
 			</greater-than>
 		</condition>
@@ -2806,7 +2815,7 @@ FR
 		<object-name>backwheels</object-name>
 			<condition>
 			<greater-than>
-				<property>gear/gear[1]/position-norm</property>
+				<property>f22/gear2/pos</property>
 				<value>0.999999999999</value>
 			</greater-than>
 		</condition>
@@ -2826,7 +2835,7 @@ FR
 		<object-name>lwheel</object-name>
 		<condition>
 			<greater-than>
-				<property>gear/gear[1]/position-norm</property>
+				<property>f22/gear2/pos</property>
 				<value>0.25</value>
 			</greater-than>
 		</condition>
@@ -2837,7 +2846,7 @@ FR
 		<object-name>rwheel</object-name>
 		<condition>
 			<greater-than>
-				<property>gear/gear[2]/position-norm</property>
+				<property>f22/gear3/pos</property>
 				<value>0.25</value>
 			</greater-than>
 		</condition>
@@ -2846,7 +2855,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>lwheel</object-name>
-		<property>gear/gear[1]/position-norm</property>
+		<property>f22/gear2/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.75</ind>
@@ -2872,7 +2881,7 @@ FR
 	<animation>
 		<type>translate</type>
 		<object-name>lwheel</object-name>
-		<property>gear/gear[1]/position-norm</property>
+		<property>f22/gear2/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.75</ind>
@@ -2893,7 +2902,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>rwheel</object-name>
-		<property>gear/gear[2]/position-norm</property>
+		<property>f22/gear3/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.75</ind>
@@ -2919,7 +2928,7 @@ FR
 	<animation>
 		<type>translate</type>
 		<object-name>rwheel</object-name>
-		<property>gear/gear[2]/position-norm</property>
+		<property>f22/gear3/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.75</ind>
@@ -2940,7 +2949,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>rgear-door1</object-name>
-		<property>gear/gear[2]/position-norm</property>
+		<property>f22/gear3/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.5</ind>
@@ -2964,7 +2973,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>lgear-door1</object-name>
-		<property>gear/gear[1]/position-norm</property>
+		<property>f22/gear2/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.5</ind>
@@ -2988,7 +2997,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>rgear-door2</object-name>
-		<property>gear/gear[2]/position-norm</property>
+		<property>f22/gear3/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.5</ind>
@@ -3012,7 +3021,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>lgear-door2</object-name>
-		<property>gear/gear[1]/position-norm</property>
+		<property>f22/gear2/pos</property>
 		<interpolation>
 			<entry>
 				<ind>0.5</ind>
@@ -3090,6 +3099,19 @@ FR
 		<heading-deg>0</heading-deg>
 	</offsets>
 	</model>
+
+			<model>
+		<path>Aircraft/F-22/Models/smoke/ses.xml</path>
+		<offsets>
+    		<x-m>-0.50 </x-m>
+    		<y-m> -1.96 </y-m>
+    		<z-m> -1.13 </z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+		<heading-deg>0</heading-deg>
+	</offsets>
+	</model>
+
 
 
 
