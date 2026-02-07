@@ -1171,6 +1171,22 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
 
+<property>/f22/quick-gear</property>
+<function name="gear/gear-control">  
+    <table>
+      <independentVar lookup="row">gear/gear-control-pre</independentVar>
+      <independentVar lookup="column">/f22/quick-gear</independentVar>
+      <tableData>
+                0     1 
+        0       0     1
+        1       1     1
+      </tableData>
+    </table>
+</function>
+
+
+
+
 <!-- Jet Generators -->
 
 
@@ -1729,7 +1745,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <time>     2.5 </time>
        </setting>
      </traverse>
-     <output>gear/gear-pos-norm</output>
+     <output>gear/gear-control-pre</output>
    </kinematic>
 
   </channel>
@@ -2174,7 +2190,17 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         </table>
 
    </function>
-
+<function name="fcs/cont-time">
+        <table>
+            <independentVar lookup="row">/environment/dewpoint-degc</independentVar>
+            <tableData>
+            -50      0.01
+             -1      0.1
+              0      0.3
+              10     3
+</tableData>
+          </table>
+   </function>
 
 <function name="fcs/missile-eff-main">
         <table>

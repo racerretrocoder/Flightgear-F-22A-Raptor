@@ -76,6 +76,10 @@
      <property>velocities/airspeed-kt</property>
      <value>60</value>
     </greater-than>
+                <greater-than>
+          <property>/environment/dewpoint-degc</property>
+          <value>-50</value>
+        </greater-than>
 
 	<less-than>
      <property>velocities/airspeed-kt</property>
@@ -136,9 +140,9 @@
 	<particle>
 		<start>
 			<color>
-				<red><value>   1 </value></red>
-					<green><value> 1 </value></green>
-						<blue><value> 1</value></blue>
+          <red><expression><product><value>1.0</value><property>/rendering/scene/diffuse/red</property></product></expression></red>
+          <green><expression><product><value>1.0</value><property>/rendering/scene/diffuse/red</property></product></expression></green>
+          <blue><expression><product><value>1.0</value><property>/rendering/scene/diffuse/red</property></product></expression></blue>
 						<alpha><value> 0.1 </value></alpha>
 					</color>
 				<size>
@@ -148,9 +152,9 @@
 
 	<end>
 		<color>
-			<red><value>   1.0 </value></red>
-				<green><value> 1.0 </value></green>
-					<blue><value>  1.0 </value></blue>
+          <red><expression><product><value>0.95</value><property>/rendering/scene/diffuse/red</property></product></expression></red>
+          <green><expression><product><value>0.95</value><property>/rendering/scene/diffuse/red</property></product></expression></green>
+          <blue><expression><product><value>0.95</value><property>/rendering/scene/diffuse/red</property></product></expression></blue>
 						<alpha><value> 1.0 </value></alpha>
 					</color>
 				<size>
