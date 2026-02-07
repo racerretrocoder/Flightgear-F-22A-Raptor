@@ -686,6 +686,10 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
           <property>/environment/dewpoint-degc</property>
           <value>0</value>
         </greater-than>
+		            <less-than>
+				<property>/sim/time/sun-angle-rad</property>
+				<value>1.5</value>
+			</less-than>
     </condition>
   </animation>
 <!--
@@ -801,6 +805,10 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
     <object-name>left-strake-vortex3</object-name>
     <condition>
        <and>
+	               <less-than>
+				<property>/sim/time/sun-angle-rad</property>
+				<value>1.5</value>
+			</less-than>
                     <greater-than>
           <property>/environment/dewpoint-degc</property>
           <value>-10</value>
@@ -871,6 +879,10 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
       <condition>
            <and>
+		               <less-than>
+				<property>/sim/time/sun-angle-rad</property>
+				<value>1.5</value>
+			</less-than>
                             <greater-than>
           <property>/environment/dewpoint-degc</property>
           <value>-50</value>
@@ -3253,19 +3265,44 @@ FR
 			<heading-deg>0</heading-deg>
 		</offsets>
 	</model>
-
-<!--	
+	<!--
 	<model>
-		<path>Aircraft/F-22/Models/Effects/Tiptrail/Tiptrail.xml</path>
+		<path>Aircraft/F-22/Models/Effects/Tiptrail/TiptrailTail.xml</path>
 		<offsets>
-			<x-m>5.92757</x-m>
-			<y-m>-3.01026</y-m>
-			<z-m>2.52251</z-m>
+			<x-m>4.704</x-m>
+			<y-m>-6.41627</y-m>
+			<z-m>-0.672509</z-m>
 			<roll-deg>0</roll-deg>
 			<pitch-deg>45</pitch-deg>
 			<heading-deg>0</heading-deg>
 		</offsets>
-	</model> -->
+	</model>-->
+
+<!--tails-->
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Tiptrail/TiptrailTail.xml</path>
+		<offsets>
+			<x-m>5.92757</x-m>
+			<y-m>-3.01026</y-m>
+			<z-m>2.22251</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>45</pitch-deg>
+			<heading-deg>0</heading-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/F-22/Models/Effects/Tiptrail/TiptrailTail.xml</path>
+		<offsets>
+			<x-m>5.92757</x-m>
+			<y-m>3.01026</y-m>
+			<z-m>2.22251</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>45</pitch-deg>
+			<heading-deg>0</heading-deg>
+		</offsets>
+	</model>
+
 	
 	<model>
 		<path>Aircraft/F-22/Models/Effects/Trail/TrailR.xml</path>
@@ -3304,18 +3341,21 @@ FR
 			<heading-deg>0</heading-deg>
 		</offsets>
 	</model>
-<!--
+		<!--
 	<model>
-		<path>Aircraft/F-22/Models/Effects/Tiptrail/Tiptrail.xml</path>
+		<path>Aircraft/F-22/Models/Effects/Tiptrail/TiptrailTail.xml</path>
 		<offsets>
-			<x-m>5.92757</x-m>
-			<y-m>3.01026</y-m>
-			<z-m>2.52251</z-m>
+			<x-m>4.704</x-m>
+			<y-m>6.41627</y-m>
+			<z-m>-0.672509</z-m>
 			<roll-deg>0</roll-deg>
 			<pitch-deg>45</pitch-deg>
 			<heading-deg>0</heading-deg>
 		</offsets>
-	</model>
+	</model>-->
+	
+<!--
+ae
 	-->
 
 
