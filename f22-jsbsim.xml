@@ -1726,7 +1726,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
        </setting>
        <setting>
           <position> 1 </position>
-          <time>     3 </time>
+          <time>     2.5 </time>
        </setting>
      </traverse>
      <output>gear/gear-pos-norm</output>

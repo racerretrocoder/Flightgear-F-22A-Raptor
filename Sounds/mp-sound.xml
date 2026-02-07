@@ -166,7 +166,7 @@
       <condition> 
         <not>
         	    <equals>
-		    <property>sim/multiplay/generic/float[33]</property>
+		    <property>sim/multiplay/generic/bool[7]</property>
 		    <value>0</value>
 		</equals>
     </not>
@@ -188,7 +188,7 @@
       <and>
         <not>
         	    <equals>
-		    <property>sim/multiplay/generic/float[33]</property>
+		    <property>sim/multiplay/generic/bool[7]</property>
 		    <value>0</value>
 		</equals>
     </not>
@@ -214,7 +214,7 @@
       <and>
         <not>
         	    <equals>
-		    <property>sim/multiplay/generic/float[33]</property>
+		    <property>sim/multiplay/generic/bool[7]</property>
 		    <value>0</value>
 		</equals>
     </not>
@@ -240,7 +240,7 @@
       <and>
         <not>
         	    <equals>
-		    <property>sim/multiplay/generic/float[33]</property>
+		    <property>sim/multiplay/generic/bool[7]</property>
 		    <value>0</value>
 		</equals>
     </not>
