@@ -542,7 +542,7 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 <bool n="2" type="bool" alias="/damage/fire/crashflame"/>
 <bool n="3" type="bool" alias="/damage/fire/crashsmoke"/>
 <bool n="4" type="bool" alias="/damage/fire/crashsmolfire"/>
-
+<bool n="5" type="bool" alias="/controls/apu/smoke"/>
 <!--            <crashsmolfire type="bool">false</crashsmolfire>
             <crashsmoke type="bool">false</crashsmoke>
             <crashflame type="bool">false</crashflame>
@@ -550,7 +550,9 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 <bool n="7" type="bool" alias="/controls/armament/gun-trigger"/>  
 <bool n="8" type="bool" alias="/engines/engine/cutoff"/>  <!--For Idleing Smoke-->
 
-
+<float n="2" type="double" alias="/f22/gear1/pos"/>
+<float n="3" type="double" alias="/f22/gear2/pos"/>    
+<float n="4" type="double" alias="/f22/gear3/pos"/>  
 
 <float n="6" type="double" alias="/fdm/jsbsim/fcs/cont-time"/>
 <float n="5" type="double" alias="/fdm/jsbsim/fcs/cont-time-tail"/>    
