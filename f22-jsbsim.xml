@@ -92,7 +92,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
      <z>  38.00 </z>
    </location>
    <location name="VRP" unit="IN">
-     <x>0</x>
+     <x>210</x>
      <y>0</y>
      <z>0</z>
    </location>
@@ -208,7 +208,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <location unit="IN">
      <x> 200.5  </x>
      <y> 200   </y>
-     <z>   -90    </z>
+     <z>   -45   </z>
     </location>
     <static_friction>  1.00 </static_friction>
     <dynamic_friction> 1.00 </dynamic_friction>
@@ -220,14 +220,14 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <location unit="IN">
      <x> 200  </x>
      <y>-200    </y>
-     <z>   -90   </z>
+     <z>   -45  </z>
     </location>
     <static_friction>  1.00 </static_friction>
     <dynamic_friction> 1.00 </dynamic_friction>
     <spring_coeff unit="LBS/FT">      41750.00 </spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 4175.00  </damping_coeff>
   </contact>
-<!--Todo: Fix these so there in the right spot
+<!--Todo: Fix these so there in the right spot-->
    <contact type="STRUCTURE" name="RADOME_NOSE">
     <location unit="IN">
      <x>   0    </x>
@@ -266,9 +266,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <contact type="STRUCTURE" name="RIGHT_STAB_TIP_CENTRE">
     <location unit="IN">
-     <x> 652.0   </x>
+     <x> 752.0   </x>
      <y> 174.5   </y>
-     <z> 5.218   </z>
+     <z> -0.218   </z>
     </location>
     <static_friction>  1.00 </static_friction>
     <dynamic_friction> 1.00 </dynamic_friction>
@@ -278,16 +278,15 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <contact type="STRUCTURE" name="LEFT_STAB_TIP_CENTRE">
     <location unit="IN">
-     <x> 652.0   </x>
+     <x> 752.0   </x>
      <y>-174.5   </y>
-     <z> 5.218   </z>
+     <z> -0.218   </z>
     </location>
     <static_friction>  1.00 </static_friction>
     <dynamic_friction> 1.00 </dynamic_friction>
     <spring_coeff unit="LBS/FT">      41750.00 </spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 4175.00  </damping_coeff>
   </contact> 
--->
 
 
  </ground_reactions>

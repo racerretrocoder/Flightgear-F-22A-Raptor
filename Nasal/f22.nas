@@ -34,7 +34,7 @@ setprop("environment/aircraft-effects/glass-temp-index",0.80);
 setprop("f22/auxcomm/digit1",118);
 setprop("f22/auxcomm/digit2",100);
 setprop("f22/auxcomm/on",0);
-
+setprop("f22/grind",0);
 #
 # Temp init 
 #
@@ -472,19 +472,36 @@ var kaboom = func(speed,type) {
       setprop("f22/runonce",1);
     }
   }
+
   if (getprop("f22/water") == 0) {
-    if (speed > 80 and onground == 1) {
-      # SLAM!
-      setprop("/f22/crash/explodsfx",1);
-      setprop("/sim/multiplay/generic/bool[2]",1); # Turn on fire
-      setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
-    }
-    if (speed < 80 and onground == 1) {
-      # SLAM!
+    if (type != 1) {
+      if (speed > 80 and onground == 1) {
+        # SLAM!
+        setprop("/f22/crash/explodsfx",1);
+        setprop("/sim/multiplay/generic/bool[2]",1); # Turn on fire
+        setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
+      }
+      if (speed < 80 and onground == 1) {
+        # SLAM!
+        setprop("/sim/multiplay/generic/bool[2]",0); # Turn off fire
+        setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
+      }
+    } else {
+      # lightest crash. No fire, No smoke
+      setprop("f22/grind",1);
+      if (speed > 250 and onground == 1) {
+        # grinding effects
+        setprop("f22/grind",1);
+      } else {
+        setprop("f22/grind",0);
+      }
       setprop("/sim/multiplay/generic/bool[2]",0); # Turn off fire
-      setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
+      setprop("/sim/multiplay/generic/bool[3]",0); # Turn off smoke
     }
-  } else {
+
+  } 
+  
+  else {
     setprop("/sim/multiplay/generic/bool[2]",0); # Turn off fire
     setprop("/sim/multiplay/generic/bool[3]",0); # Turn off smoke
   }
@@ -509,14 +526,14 @@ var crashdetect = func {
         if (getprop("/f22/dead") == 0){
 
         
-            if (speed < 100) {
+            if (speed < 80) {
               screen.log.write("You crashed! Light Damage",1,0,0);
               setprop("/f22/dead",1);
               setprop("/f22/crash/type",1);
               setprop("/f22/crash/doneonce",1);
             }
             # Highspeed crash
-            if (speed > 100 and speed < 160) {
+            if (speed > 80 and speed < 160) {
               screen.log.write("You crashed! Medium Damage",1,0,0);
               setprop("/f22/dead",2);
               setprop("/f22/crash/type",2);
@@ -550,7 +567,10 @@ var crashdetect = func {
       var speed = getprop("/velocities/airspeed-kt");
       var type = getprop("/f22/crash/type");
       kaboom(speed,type); # show fire
-      setprop("/position/altitude-ft",getprop("/position/ground-elev-ft") - 3); # Hug the ground. But stay under it
+      if (type != 1) {
+        setprop("/position/altitude-ft",getprop("/position/ground-elev-ft") - 3); # Hug the ground. But stay under it
+      }
+
 
 
     }
@@ -2179,9 +2199,8 @@ var geardelaymain = func() {
 tuttimer = maketimer(5,tutmessage);
 dmgtimer = maketimer(0.3,checkdmg);
 geardelay = maketimer(10,geardelaymain);
-
 setlistener("sim/signals/fdm-initialized", func {
-  setprop("f22/water",0);
+setprop("f22/water",0);
 # Spawned in/went to location
 gearmain.stop();
 setprop("f22/gear1/failed",0);
@@ -2191,12 +2210,10 @@ setprop("f22/gear1/pos",1);
 setprop("f22/gear2/pos",1);
 setprop("f22/gear3/pos",1);
 setprop("f22/gear-damaged",0);
-
 setprop("f22/quick-gear",1);
 setprop("fdm/jsbsim/gear/gear-pos-norm",1);
 setprop("controls/gear/gear-down",1);
 geardelay.start();
-
 setprop("controls/engines/engine[0]/throttle",0);
 setprop("controls/engines/engine[1]/throttle",0);
 setprop("controls/gear/brake-parking",1);
@@ -2219,9 +2236,7 @@ timer_damage.start();
 blinktimer.start();
 bingotimer.start();
 consoletimer.start();
-
-
-
+setprop("f22/grind",0);
 });
 
 

@@ -518,6 +518,82 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 </animation>
 
 
+	<animation>
+		<type>spin</type>
+		<object-name>lwheelwheel2</object-name>
+			<condition>
+			<greater-than>
+				<property>gear/gear[1]/rollspeed-ms</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+		<property>gear/gear[1]/rollspeed-ms</property>
+  <factor>15</factor>
+
+    <center>
+<object-name>bwheel-axis</object-name>
+    </center>
+    <axis>
+<object-name>bwheel-axis</object-name>
+    </axis>
+	</animation>
+
+	<animation>
+		<type>spin</type>
+		<object-name>rwheelwheel2</object-name>
+			<condition>
+			<greater-than>
+				<property>gear/gear[2]/rollspeed-ms</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+		<property>gear/gear[2]/rollspeed-ms</property>
+  <factor>15</factor>
+
+    <center>
+<object-name>bwheel-axis</object-name>
+    </center>
+    <axis>
+<object-name>bwheel-axis</object-name>
+    </axis>
+	</animation>
+
+
+
+
+	<animation>
+		<type>spin</type>
+		<object-name>nwheel2</object-name>
+			<condition>
+			<greater-than>
+				<property>gear/gear/rollspeed-ms</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+		<property>gear/gear/rollspeed-ms</property>
+  <factor>5</factor>
+
+    <center>
+<object-name>fwheel-axis</object-name>
+    </center>
+    <axis>
+<object-name>fwheel-axis</object-name>
+    </axis>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>lwheelwheel2</object-name>
+		<object-name>rwheelwheel2</object-name>
+		<condition>
+			<equals>
+				<property>sim/multiplay/generic/float[4]</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+
+
 
 
 
@@ -2680,21 +2756,40 @@ FR
     </animation>
 
 <!-- Nose gear animations-->
-
 	<animation>
 		<type>select</type>
-		<object-name>nwheel</object-name>
+		<object-name>nwheel2</object-name>
 		<condition>
+			<equals>
+				<property>sim/multiplay/generic/float[2]</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>nwheel1</object-name>
+		<condition>
+		<and>
 			<greater-than>
 				<property>sim/multiplay/generic/float[2]</property>
-				<value>0.0</value>
+				<value>0</value>
 			</greater-than>
+			<not>
+			<equals>
+				<property>sim/multiplay/generic/float[2]</property>
+				<value>1</value>
+			</equals>
+			</not>
+		</and>
 		</condition>
 	</animation>
 	
 	<animation>
 		<type>rotate</type>
 		<object-name>nwheel</object-name>
+		<object-name>nwheel1</object-name>
 		<property>sim/multiplay/generic/float[2]</property>
 		<interpolation>
 			<entry>
@@ -2729,6 +2824,7 @@ FR
 	<animation>
 		<type>translate</type>
 		<object-name>nwheel</object-name>
+		<object-name>nwheel1</object-name>
 		<property>sim/multiplay/generic/float[2]</property>
 		<interpolation>
 			<entry>
@@ -2795,7 +2891,7 @@ FR
 		</axis>
 	</animation>
 
-<!-- Main gear animations
+<!--
 
 
 	<animation>
@@ -2821,25 +2917,44 @@ FR
 		<object-name>frontwheelsaxis</object-name>
 		</axis>
 	</animation>
-
-	<animation>
-		<type>spin</type>
-		<object-name>backwheels</object-name>
-			<condition>
-			<greater-than>
-				<property>sim/multiplay/generic/float[3]</property>
-				<value>0.999999999999</value>
-			</greater-than>
-		</condition>
-		<property>gear/gear/rollspeed-ms</property>
-  <factor>25</factor>
-
-		<axis>   
-		<object-name>rearwheelsaxis</object-name>
-		</axis>
-	</animation>
 -->
 
+	<animation>
+		<type>select</type>
+		<object-name>lwheelwheel</object-name>
+		<condition>
+		<and>
+			<greater-than>
+				<property>sim/multiplay/generic/float[3]</property>
+				<value>0.25</value>
+			</greater-than>
+			<not>
+			<equals>
+				<property>sim/multiplay/generic/float[3]</property>
+				<value>1</value>
+			</equals>
+			</not>
+		</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>rwheelwheel</object-name>
+		<condition>
+		<and>
+			<greater-than>
+				<property>sim/multiplay/generic/float[4]</property>
+				<value>0.25</value>
+			</greater-than>
+			<not>
+			<equals>
+				<property>sim/multiplay/generic/float[4]</property>
+				<value>1</value>
+			</equals>
+			</not>
+		</and>
+		</condition>
+	</animation>
 
 
 	<animation>
@@ -2852,6 +2967,7 @@ FR
 			</greater-than>
 		</condition>
 	</animation>
+
 	
 	<animation>
 		<type>select</type>
@@ -2867,6 +2983,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>lwheel</object-name>
+		<object-name>lwheelwheel</object-name>
 		<property>sim/multiplay/generic/float[3]</property>
 		<interpolation>
 			<entry>
@@ -2893,6 +3010,7 @@ FR
 	<animation>
 		<type>translate</type>
 		<object-name>lwheel</object-name>
+		<object-name>lwheelwheel</object-name>
 		<property>sim/multiplay/generic/float[3]</property>
 		<interpolation>
 			<entry>
@@ -2914,6 +3032,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>rwheel</object-name>
+		<object-name>rwheelwheel</object-name>
 		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
@@ -2940,6 +3059,7 @@ FR
 	<animation>
 		<type>translate</type>
 		<object-name>rwheel</object-name>
+		<object-name>rwheelwheel</object-name>
 		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
