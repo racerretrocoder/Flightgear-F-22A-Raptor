@@ -102,10 +102,16 @@ var gearloop = func() {
         var gear1 = rand() < (1-chance);
         var gear2 = rand() < (1-chance);
         var gear3 = rand() < (1-chance);
-        setprop("f22/gear1/failed",gear1);
-        setprop("f22/gear2/failed",gear2);
-        setprop("f22/gear3/failed",gear3);
-        if (gear1 == 0 and gear2 == 0 and gear3 == 0) {
+        if (getprop("f22/gear1/failed") == 0) {
+          setprop("f22/gear1/failed",gear1);
+        }
+        if (getprop("f22/gear2/failed") == 0) {
+          setprop("f22/gear2/failed",gear2);
+        }
+        if (getprop("f22/gear3/failed") == 0) {
+          setprop("f22/gear3/failed",gear3);
+        }
+        if (gear1 == 0 or gear2 == 0 or gear3 == 0) {
           # turn it back on 
           setprop("f22/gear-damaged",0);
         }

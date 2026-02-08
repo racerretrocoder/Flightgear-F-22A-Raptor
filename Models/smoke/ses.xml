@@ -12,7 +12,7 @@
 <!--Engine 1 smoke ints: 0, 1-->
     <condition>
         <equals>
-          <property>controls/apu/smoke</property>
+          <property>sim/multiplay/generic/bool[5]</property>
           <value>1</value>
         </equals>
     </condition>

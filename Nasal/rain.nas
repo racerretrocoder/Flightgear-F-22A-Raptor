@@ -28,7 +28,7 @@ var splashZ = props.globals.getNode("environment/aircraft-effects/splash-vector-
 
 var airspeedProp = props.globals.getNode("velocities/airspeed-kt");
 
-var rtimer = maketimer(0.05, func {
+var rtimer = maketimer(0.005, func {
    var airspeed = airspeedProp.getValue();
    var airspeed_max = 120;
    if (airspeed > airspeed_max) {
@@ -39,7 +39,7 @@ var rtimer = maketimer(0.05, func {
       vectorAC = vector.Math.normalize(vectorAC);
 
       splashX.setDoubleValue(vectorAC[0]*2);
-      splashY.setDoubleValue(vectorAC[1]*2);
+      splashY.setDoubleValue(0);
       splashZ.setDoubleValue(vectorAC[2]*2);
       #print(vector.Math.format(vectorAC));
    } else {

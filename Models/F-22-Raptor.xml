@@ -2686,7 +2686,7 @@ FR
 		<object-name>nwheel</object-name>
 		<condition>
 			<greater-than>
-				<property>f22/gear1/pos</property>
+				<property>sim/multiplay/generic/float[2]</property>
 				<value>0.0</value>
 			</greater-than>
 		</condition>
@@ -2695,7 +2695,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>nwheel</object-name>
-		<property>f22/gear1/pos</property>
+		<property>sim/multiplay/generic/float[2]</property>
 		<interpolation>
 			<entry>
 				<ind>0.25</ind>
@@ -2729,7 +2729,7 @@ FR
 	<animation>
 		<type>translate</type>
 		<object-name>nwheel</object-name>
-		<property>f22/gear1/pos</property>
+		<property>sim/multiplay/generic/float[2]</property>
 		<interpolation>
 			<entry>
 				<ind>0.25</ind>
@@ -2750,7 +2750,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>gear-door2</object-name>
-		<property>f22/gear1/pos</property>
+		<property>sim/multiplay/generic/float[2]</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -2774,7 +2774,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>gear-door1</object-name>
-		<property>f22/gear1/pos</property>
+		<property>sim/multiplay/generic/float[2]</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -2804,7 +2804,7 @@ FR
 
 			<condition>
 			<greater-than>
-				<property>f22/gear2/pos</property>
+				<property>sim/multiplay/generic/float[3]</property>
 				<value>0.999999999999</value>
 			</greater-than>
 		</condition>
@@ -2827,7 +2827,7 @@ FR
 		<object-name>backwheels</object-name>
 			<condition>
 			<greater-than>
-				<property>f22/gear2/pos</property>
+				<property>sim/multiplay/generic/float[3]</property>
 				<value>0.999999999999</value>
 			</greater-than>
 		</condition>
@@ -2847,7 +2847,7 @@ FR
 		<object-name>lwheel</object-name>
 		<condition>
 			<greater-than>
-				<property>f22/gear2/pos</property>
+				<property>sim/multiplay/generic/float[3]</property>
 				<value>0.25</value>
 			</greater-than>
 		</condition>
@@ -2858,7 +2858,7 @@ FR
 		<object-name>rwheel</object-name>
 		<condition>
 			<greater-than>
-				<property>f22/gear3/pos</property>
+				<property>sim/multiplay/generic/float[4]</property>
 				<value>0.25</value>
 			</greater-than>
 		</condition>
@@ -2867,7 +2867,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>lwheel</object-name>
-		<property>f22/gear2/pos</property>
+		<property>sim/multiplay/generic/float[3]</property>
 		<interpolation>
 			<entry>
 				<ind>0.75</ind>
@@ -2893,7 +2893,7 @@ FR
 	<animation>
 		<type>translate</type>
 		<object-name>lwheel</object-name>
-		<property>f22/gear2/pos</property>
+		<property>sim/multiplay/generic/float[3]</property>
 		<interpolation>
 			<entry>
 				<ind>0.75</ind>
@@ -2914,7 +2914,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>rwheel</object-name>
-		<property>f22/gear3/pos</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.75</ind>
@@ -2940,7 +2940,7 @@ FR
 	<animation>
 		<type>translate</type>
 		<object-name>rwheel</object-name>
-		<property>f22/gear3/pos</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.75</ind>
@@ -2961,7 +2961,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>rgear-door1</object-name>
-		<property>f22/gear3/pos</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.5</ind>
@@ -2985,7 +2985,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>lgear-door1</object-name>
-		<property>f22/gear2/pos</property>
+		<property>sim/multiplay/generic/float[3]</property>
 		<interpolation>
 			<entry>
 				<ind>0.5</ind>
@@ -3009,7 +3009,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>rgear-door2</object-name>
-		<property>f22/gear3/pos</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.5</ind>
@@ -3033,7 +3033,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>lgear-door2</object-name>
-		<property>f22/gear2/pos</property>
+		<property>sim/multiplay/generic/float[3]</property>
 		<interpolation>
 			<entry>
 				<ind>0.5</ind>
