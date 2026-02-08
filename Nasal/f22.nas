@@ -28,12 +28,43 @@ setprop("f22/gear1/failed",0);
 setprop("f22/gear2/failed",0);
 setprop("f22/gear3/failed",0);
 setprop("fdm/jsbsim/gear/gear-pos-norm",1);
+setprop("f22/frost",0);
+setprop("f22/water",0);
+setprop("environment/aircraft-effects/glass-temp-index",0.80);
+setprop("f22/auxcomm/digit1",118);
+setprop("f22/auxcomm/digit2",100);
+setprop("f22/auxcomm/on",0);
+
+#
+# Temp init 
+#
+
+setprop("environment/aircraft-effects/temperature-inside-degC", getprop("environment/temperature-degc"));
+setprop("environment/aircraft-effects/dewpoint-inside-degC", getprop("environment/dewpoint-degc"));
+if (getprop("environment/temperature-degc") < 0) {
+ setprop("/environment/aircraft-effects/frost-exterior",1);
+}
+setprop("controls/ecs/airconditioning-temperature",0);
+setprop("controls/ecs/mode",0);
+setprop("controls/ecs/airconditioning-temperature-manual",0);
+setprop("controls/ecs/windshield-hot-air-knob",0);
+setprop("environment/aircraft-effects/frost-outside",0);
+setprop("environment/aircraft-effects/frost-inside",0);
+setprop("/environment/aircraft-effects/fog-inside", 0);
+setprop("/environment/aircraft-effects/fog-outside", 0);
+setprop("/environment/aircraft-effects/temperature-glass-degC", 0);
+setprop("/environment/aircraft-effects/dewpoint-inside-degC", 0);
+setprop("/environment/aircraft-effects/temperature-inside-degC", 0);
+setprop("/environment/aircraft-effects/temperature-outside-ram-degC", 0);
+setprop("/environment/aircraft-effects/frost-level", 0);
+setprop("/environment/aircraft-effects/fog-level", 0);
+
+
+
 #
 # Aux Comm
 #
 
-setprop("f22/auxcomm/digit1",118);
-setprop("f22/auxcomm/digit2",100);
 var auxcommloop = func {
   var digit1 = getprop("f22/auxcomm/digit1"); #  123
   var digit2 = getprop("f22/auxcomm/digit2"); # .456
@@ -41,9 +72,11 @@ var auxcommloop = func {
   var auxfreq = digit1 + decimals;
   setprop("instrumentation/comm[2]/frequencies/selected-mhz",auxfreq);
 }
+
 auxcomm = maketimer(0,auxcommloop);
 auxcomm.start();
-setprop("f22/auxcomm/on",0);
+
+
 # Radio stuff
 
 var radioloop = func {
@@ -74,13 +107,171 @@ radios = maketimer(0,radioloop);
 radios.start();
 
 
-# Inlet vents
-var rinlet = func() {
-  var throttle = getprop("f22/throttler");
-  var n1 = getprop("fdm/jsbsim/fcs/effected1n1");
-  
-}
+# Custom Temperature | Pretty much all of it is based on from the F-16 code (f16.nas)
 
+
+
+var tempmainloop = func() {
+  # if (getprop("position/altitude-ft") > 10000 and getprop("controls/switches/airsource") != 3) {
+  #   setprop("f22/frost",1);
+  # } else {
+  #   setprop("f22/frost",0);
+  # }
+  # setprop("environment/aircraft-effects/frost-level",getprop("fdm/jsbsim/fcs/frost"));
+
+  var obogs = getprop("f22/obogs/main"); 
+  var flow = getprop("f22/obogs/flow");
+  if (obogs == 1) {
+    setprop("controls/ecs/mode",1);
+  } else {
+    setprop("controls/ecs/mode",0);
+  }
+  if (flow == 1) {
+    setprop("controls/ecs/windshield-hot-air-knob",1);
+  } else {
+    setprop("controls/ecs/windshield-hot-air-knob",0);
+  }
+  var arsc = getprop("controls/switches/airsource"); 
+  var extdegc = getprop("environment/temperature-degc");
+  var extdewc = getprop("environment/dewpoint-degc");
+  var frost = getprop("environment/aircraft-effects/frost-level");
+  var inttmp = getprop("environment/aircraft-effects/temperature-inside-degC");
+  var intdewc = getprop("environment/aircraft-effects/dewpoint-inside-degC");
+  var actmp = getprop("controls/ecs/airconditioning-temperature");
+  var ecsmode = getprop("controls/ecs/mode");
+  var acdew = 5.0; # Dry
+  var acrun = 0;
+  var elec = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
+
+  if (arsc == 3 and elec == 1) {
+    acrun = 1;
+  }
+
+  var hotairdegmin = 2.3; # Cockpit instrumentation heat
+  var pilotdegmin = 0.2; #
+  var glassdegminperdegdiff = 0.18;
+  var acdegminperdegdiff = 0.65;
+  var knob = getprop("controls/ecs/windshield-hot-air-knob");
+  var hotaironwindshield = 0;
+
+  if (elec == 1 and knob == 1) {
+    hotaironwindshield = 1;
+  }
+
+  if (ecsmode == 1) {
+    # automatic ac control 
+    # From F-16
+    if (frost > 0.8) {
+        actmp += 0.70;
+    } elsif (frost > 0.4) {
+        actmp += 0.30;
+    } elsif (frost > 0.2) {
+        actmp += 0.15;
+    } elsif (frost > 0.0) {
+        actmp += 0.05;
+    } elsif (inttmp > 21) {
+        actmp -= actmp*0.1;
+    } elsif (inttmp < 10) {
+        actmp += 0.25;
+    }
+    if (actmp > 80){
+      actmp = 80;
+    } 
+    if (actmp < -4){
+      actmp = -4;
+    } 
+    setprop("controls/ecs/airconditioning-temperature", actmp);
+  }
+  # calculators
+  
+  # From F-16: Ram rise
+  var ramrise = (getprop("fdm/jsbsim/velocities/vtrue-kts")*getprop("fdm/jsbsim/velocities/vtrue-kts"))/(87*87);#this is called the ram rise formula
+  extdegc += ramrise;
+  if (getprop("canopy/position-norm") > 0) {
+    inttmp = getprop("environment/temperature-degc");
+  } else {
+    inttmp += hotaironwindshield * (hotairdegmin/(60/0.5));
+
+    if (inttmp < 37) {
+      inttmp += pilotdegmin/(60/0.5); # Pilot heat
+    }
+
+    # outside ram
+    var coolfactor = ((extdegc+getprop("environment/temperature-degc"))*0.5-inttmp)*glassdegminperdegdiff/(60/0.5);# 1 degrees difference will cool/warm with 0.5 DegCelsius/min
+    inttmp += coolfactor;
+    if (acrun == 1) {
+      inttmp += (actmp-inttmp)*acdegminperdegdiff/(60/0.5);# (tempAC-tempInside) = degs/mins it should change
+    }
+  }
+  var tempIndex = getprop("environment/aircraft-effects/glass-temp-index");
+  var tempGlass = tempIndex * (inttmp - extdegc) + extdegc;
+
+  # dew int
+  if (getprop("canopy/position-norm") > 0) {
+    # canopy is open, inside dewpoint aligns to outside dewpoint instead
+    intdewc = extdewc;
+  } else {
+    var tempInsideDewTarget = 0;
+    if (acrun == 1) {
+      if ((extdegc-actmp) == 0) {
+        var slope = 1; # divide by zero prevention
+      } else {
+        var slope = (extdewc - acdew)/(extdegc-actmp);
+      }
+    tempInsideDewTarget = slope*(inttmp-actmp)+acdew;
+
+    } else {
+      tempInsideDewTarget = extdewc;
+    }
+    if (tempInsideDewTarget > intdewc) {
+      intdewc = math.clamp(intdewc + 0.15, -1000, tempInsideDewTarget);
+    } else {
+      intdewc = math.clamp(intdewc - 0.15, tempInsideDewTarget, 1000);
+    }
+  }
+
+  var fogext = math.clamp((extdewc-tempGlass)*0.05, 0, 1);
+  var fogint = math.clamp((intdewc-tempGlass)*0.05, 0, 1);
+  var frostext = getprop("environment/aircraft-effects/frost-outside");
+  var frostint = getprop("environment/aircraft-effects/frost-inside");
+  var rain = getprop("environment/rain-norm");
+  if (rain == nil) {
+      rain = 0;
+  }
+  var frostSpeedInside = math.clamp(-tempGlass, -60, 60)/600 + (tempGlass<0?fogint/50:0);
+  var frostSpeedOutside = math.clamp(-tempGlass, -60, 60)/600 + (tempGlass<0?(fogext/50 + rain/50):0);
+  var maxFrost = math.clamp(1 + ((tempGlass + 5) / (0 + 5)) * (0 - 1), 0, 1);# -5 is full frost, 0 is no frost
+  var maxFrostInside = math.clamp(maxFrost - math.clamp(inttmp/30,0,1), 0, 1);# frost having harder time to form while being constantly thawed.
+  frostext = math.clamp(frostext + frostSpeedOutside, 0, maxFrost);
+  frostint = math.clamp(frostint + frostSpeedInside, 0, maxFrostInside);
+  var frostNorm = frostext>frostint?frostext:frostint;
+
+  fogext = math.clamp(fogext-frostext / 4, 0, 1);
+  fogint = math.clamp(fogint-frostint / 4, 0, 1);
+  fogNorm = fogext>fogint?fogext:fogint;
+
+  # finally: apply 
+  setprop("/environment/aircraft-effects/fog-inside", fogint);
+  setprop("/environment/aircraft-effects/fog-outside", fogext);
+  setprop("/environment/aircraft-effects/frost-inside", frostint);
+  setprop("/environment/aircraft-effects/frost-outside", frostext);
+  setprop("/environment/aircraft-effects/temperature-glass-degC", tempGlass);
+  setprop("/environment/aircraft-effects/dewpoint-inside-degC", intdewc);
+  setprop("/environment/aircraft-effects/temperature-inside-degC", inttmp);
+  setprop("/environment/aircraft-effects/temperature-outside-ram-degC", extdegc);
+  # effects
+  setprop("/environment/aircraft-effects/frost-level", frostNorm);
+  setprop("/environment/aircraft-effects/fog-level", fogNorm);
+} 
+
+
+temperatureloop = maketimer(0.1,tempmainloop);
+temperatureloop.start();
+print("---------- Temperature loop activated ----------");
+
+
+
+# Landing gear controller
 var gearloop = func() {
   var gearhandle = getprop("controls/gear/gear-down");
   var speed = getprop("velocities/airspeed-kt");
@@ -232,6 +423,11 @@ var waterstop = func {
   timer_water.stop();
 }
 
+var custommsg = func {
+  screen.log.write("Aircraft went swimmin' with the fishies!!",1,0,0);
+}
+
+
 var oppfunc = func(heading) {
   if (heading != nil) {
     var opposite = 0;
@@ -271,26 +467,26 @@ var kaboom = func(speed,type) {
       setprop("/sim/multiplay/generic/bool[4]",1);
 
       timer_water.start();
-      screen.log.write("Aircraft dived into water!!",1,0,0);
+      custommsg();
+      setprop("f22/water",1);
       setprop("f22/runonce",1);
     }
   }
-
-  if (speed > 80 and onground == 1) {
-    # SLAM!
-    setprop("/f22/crash/explodsfx",1);
-    setprop("/sim/multiplay/generic/bool[2]",1); # Turn on fire
-    setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
-  }
-  if (speed < 80 and onground == 1) {
-    # SLAM!
+  if (getprop("f22/water") == 0) {
+    if (speed > 80 and onground == 1) {
+      # SLAM!
+      setprop("/f22/crash/explodsfx",1);
+      setprop("/sim/multiplay/generic/bool[2]",1); # Turn on fire
+      setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
+    }
+    if (speed < 80 and onground == 1) {
+      # SLAM!
+      setprop("/sim/multiplay/generic/bool[2]",0); # Turn off fire
+      setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
+    }
+  } else {
     setprop("/sim/multiplay/generic/bool[2]",0); # Turn off fire
-    setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
-  }
-  if (onground == 0) {
-    # Water!
-    setprop("/sim/multiplay/generic/bool[2]",0); # Turn off fire
-    setprop("/sim/multiplay/generic/bool[3]",0); # Turn on smoke
+    setprop("/sim/multiplay/generic/bool[3]",0); # Turn off smoke
   }
   
 }
@@ -1977,6 +2173,7 @@ var geardelaymain = func() {
   gearmain.start();
   geardelay.stop();
   setprop("f22/quick-gear",0);
+
 }
 
 tuttimer = maketimer(5,tutmessage);
@@ -1984,6 +2181,7 @@ dmgtimer = maketimer(0.3,checkdmg);
 geardelay = maketimer(10,geardelaymain);
 
 setlistener("sim/signals/fdm-initialized", func {
+  setprop("f22/water",0);
 # Spawned in/went to location
 gearmain.stop();
 setprop("f22/gear1/failed",0);
@@ -2021,6 +2219,9 @@ timer_damage.start();
 blinktimer.start();
 bingotimer.start();
 consoletimer.start();
+
+
+
 });
 
 

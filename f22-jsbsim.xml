@@ -2561,6 +2561,24 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <channel name="Misc">
 
+   <kinematic name="hook pos">
+      <input>/f22/frost</input>
+      <traverse>
+        <setting>
+          <position>0</position>
+          <time>0</time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>80</time>
+        </setting>
+       </traverse>
+      <output>fcs/frost-pre</output>
+   </kinematic>
+
+
+
+
    <kinematic name="gunflapmove">
      <input>/controls/armament/gunlag</input>
      <traverse>
@@ -2755,11 +2773,23 @@ The Force that pushes the aircraft for increased manuverability should be lowere
      <output>fcs/AIM120</output>
    </kinematic>
 
-
-
-
-
    </channel>
+
+<function name="fcs/frost">
+        <table>
+    <independentVar lookup="row">/position/altitude-ft</independentVar>
+    <independentVar lookup="column">fcs/frost-pre</independentVar>
+            <tableData>
+                       0     1
+              10000    0   0.4
+              20000    0     1
+            </tableData>
+          </table>
+</function>
+
+
+
+
 
 
    <function name="fcs/abani1">
