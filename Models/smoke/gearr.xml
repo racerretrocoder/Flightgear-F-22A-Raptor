@@ -12,7 +12,7 @@
 <!--Engine 1 smoke ints: 0, 1-->
     <condition>
         <equals>
-          <property>f22/gear3/tiresmoke</property>
+          <property>sim/multiplay/generic/int[7]</property>
           <value>1</value>
         </equals>
     </condition>

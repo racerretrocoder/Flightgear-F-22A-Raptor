@@ -44,6 +44,7 @@ setprop("f22/auxcomm/digit1",118);
 setprop("f22/auxcomm/digit2",100);
 setprop("f22/auxcomm/on",0);
 setprop("f22/grind",0);
+setprop("f22/runwaysplash",0); # pushed water from jets
 #
 # Temp init 
 #
@@ -288,6 +289,7 @@ rsmoke = maketimer(0.5,rsmoketimer);
 # Landing gear controller
 var gearloop = func() {
   # smoke and stuff
+  var cwow = getprop("gear/gear[0]/wow");
   var lwow = getprop("gear/gear[1]/wow");
   var rwow = getprop("gear/gear[2]/wow");
   var lwowold = getprop("f22/gear2/tiresmokeold");
@@ -307,6 +309,19 @@ var gearloop = func() {
     setprop("f22/gear3/tiresmokeold",rwow);
   } elsif (rwow == 0) {
     setprop("f22/gear3/tiresmokeold",0);
+  }
+  #now combine the ab's and check if they both active
+  var ab1 = getprop("fdm/jsbsim/fcs/ab1");
+  var ab2 = getprop("fdm/jsbsim/fcs/ab2");
+  if (ab1 > 0 and ab2 > 0) {
+    # both abs on
+    if (lwow == 1 or rwow == 1 or cwow == 1) {
+      setprop("f22/runwaysplash",1);
+    } else {
+      setprop("f22/runwaysplash",0);
+    }
+  } else {
+    setprop("f22/runwaysplash",0);
   }
 
 
