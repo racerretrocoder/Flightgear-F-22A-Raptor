@@ -6693,8 +6693,7 @@ Eject handle
 </animation>
 
 
-<!--Lighting-->
-
+<!--Lighting
 	<model>
  <name>floodl</name>
  <path>Aircraft/Generic/spotlight.xml</path>
@@ -6724,69 +6723,330 @@ Eject handle
    </specular>
   </params>
  </overlay>
-</model>
-	<model>
- <name>floodR</name>
- <path>Aircraft/Generic/spotlight.xml</path>
- <offsets>
+</model>-->
+
+
+
+
+    <light>
+        <name>floodL</name>
+        <type>spot</type>
+        <position>
 			<x-m>-5.7</x-m>
-			<y-m>0.2</y-m>
-			<z-m>0.14</z-m>
- </offsets>
- <overlay>
-  <params>
-   <name>floodlight2</name>
-   <power-source>controls/lighting/actualflood</power-source>
-   <direction>
-    <x>0</x>
-    <y>0</y>
-    <z>1</z>
-   </direction>
-   <ambient>
+			<y-m>-0.3</y-m>
+			<z-m>0.44</z-m>
+        </position>
+        <direction>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </direction>
+        <ambient>
     <r>0.0</r>
     <g>0.5</g>
     <b>0.6</b>
-   </ambient>
-   <specular>
-    <r>0.1</r>
-    <g>0.1</g>
-    <b>0.1</b>
-   </specular>
-  </params>
- </overlay>
-</model>
+            <a>0</a>
+        </ambient>
+        <diffuse>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+    		<r>0</r>
+    		<g>0</g>
+    		<b>0</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>controls/lighting/actualflood</property>
+        </dim-factor>
+        <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>45</spot-exponent>
+        <range-m>1800</range-m>
+    </light>
+
+    <light>
+        <name>floodC</name>
+        <type>spot</type>
+        <position>
+			<x-m>-5.7</x-m>
+			<y-m>-0.0</y-m>
+			<z-m>0.44</z-m>
+        </position>
+        <direction>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </direction>
+        <ambient>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </ambient>
+        <diffuse>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+    		<r>0</r>
+    		<g>0</g>
+    		<b>0</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>controls/lighting/actualflood</property>
+        </dim-factor>
+        <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>45</spot-exponent>
+        <range-m>1800</range-m>
+    </light>
 
 
-	<model>
- <name>floodl1</name>
- <path>Aircraft/Generic/spotlight.xml</path>
- <offsets>
+    <light>
+        <name>floodC</name>
+        <type>spot</type>
+        <position>
+			<x-m>-5.7</x-m>
+			<y-m>-0.15</y-m>
+			<z-m>0.44</z-m>
+        </position>
+        <direction>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </direction>
+        <ambient>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </ambient>
+        <diffuse>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+    		<r>0</r>
+    		<g>0</g>
+    		<b>0</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>controls/lighting/actualflood</property>
+        </dim-factor>
+        <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>45</spot-exponent>
+        <range-m>1800</range-m>
+    </light>
+
+
+    <light>
+        <name>floodC</name>
+        <type>spot</type>
+        <position>
+			<x-m>-5.7</x-m>
+			<y-m>0.15</y-m>
+			<z-m>0.44</z-m>
+        </position>
+        <direction>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </direction>
+        <ambient>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </ambient>
+        <diffuse>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+    		<r>0</r>
+    		<g>0</g>
+    		<b>0</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>controls/lighting/actualflood</property>
+        </dim-factor>
+        <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>45</spot-exponent>
+        <range-m>1800</range-m>
+    </light>
+
+
+
+    <light>
+        <name>floodR</name>
+        <type>spot</type>
+        <position>
+			<x-m>-5.7</x-m>
+			<y-m>0.3</y-m>
+			<z-m>0.44</z-m>
+        </position>
+        <direction>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </direction>
+        <ambient>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </ambient>
+        <diffuse>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+    		<r>0</r>
+    		<g>0</g>
+    		<b>0</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>controls/lighting/actualflood</property>
+        </dim-factor>
+        <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>45</spot-exponent>
+        <range-m>1800</range-m>
+    </light>
+
+
+
+
+    <light>
+        <name>floodL1</name>
+        <type>spot</type>
+        <position>
 			<x-m>-5.7</x-m>
 			<y-m>-0.2</y-m>
 			<z-m>0.14</z-m>
- </offsets>
- <overlay>
-  <params>
-   <name>floodlight11</name>
-   <power-source>controls/lighting/actualflood</power-source>
-   <direction>
-    <x>-1</x>
-    <y>0</y>
-    <z>1</z>
-   </direction>
-   <ambient>
+        </position>
+        <direction>
+            <x>1</x>
+            <y>0</y>
+            <z>-1</z>
+        </direction>
+        <ambient>
     <r>0.0</r>
     <g>0.5</g>
     <b>0.6</b>
-   </ambient>
-   <specular>
+            <a>0</a>
+        </ambient>
+        <diffuse>
     <r>0.0</r>
-    <g>0.0</g>
-    <b>0.0</b>
-   </specular>
-  </params>
- </overlay>
-</model>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+    		<r>0</r>
+    		<g>0</g>
+    		<b>0</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>controls/lighting/actualflood</property>
+        </dim-factor>
+        <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>45</spot-exponent>
+        <range-m>1800</range-m>
+    </light>
+
+
+
+
+    <light>
+        <name>floodR1</name>
+        <type>spot</type>
+        <position>
+			<x-m>-5.7</x-m>
+			<y-m>0.2</y-m>
+			<z-m>0.14</z-m>
+        </position>
+        <direction>
+            <x>1</x>
+            <y>0</y>
+            <z>-1</z>
+        </direction>
+        <ambient>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </ambient>
+        <diffuse>
+    <r>0.0</r>
+    <g>0.5</g>
+    <b>0.6</b>
+            <a>0</a>
+        </diffuse>
+        <specular>
+    		<r>0</r>
+    		<g>0</g>
+    		<b>0</b>
+            <a>0</a>
+        </specular>
+        <dim-factor>
+            <property>controls/lighting/actualflood</property>
+        </dim-factor>
+        <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+        </attenuation>
+        <spot-cutoff>60</spot-cutoff>
+        <spot-exponent>45</spot-exponent>
+        <range-m>1800</range-m>
+    </light>
+
+<!--
 	<model>
  <name>floodR1</name>
  <path>Aircraft/Generic/spotlight.xml</path>
@@ -6816,6 +7076,6 @@ Eject handle
    </specular>
   </params>
  </overlay>
-</model>
+</model>-->
 
 </PropertyList>
