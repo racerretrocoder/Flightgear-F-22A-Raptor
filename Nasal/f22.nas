@@ -337,8 +337,9 @@ var gearloop = func() {
   if (damaged != 1) {
   setprop("fdm/jsbsim/gear/gear-pos-norm",fdmgear);
   } else {
-    
-  setprop("fdm/jsbsim/gear/gear-pos-norm",0.2);
+    if (fdmgear < 0.15) {
+      setprop("fdm/jsbsim/gear/gear-pos-norm",0);
+    }
   }
 }
 

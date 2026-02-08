@@ -208,7 +208,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <location unit="IN">
      <x> 200.5  </x>
      <y> 200   </y>
-     <z>   -45   </z>
+     <z>   -40  </z>
     </location>
     <static_friction>  1.00 </static_friction>
     <dynamic_friction> 1.00 </dynamic_friction>
@@ -220,14 +220,14 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <location unit="IN">
      <x> 200  </x>
      <y>-200    </y>
-     <z>   -45  </z>
+     <z>   -40  </z>
     </location>
     <static_friction>  1.00 </static_friction>
     <dynamic_friction> 1.00 </dynamic_friction>
     <spring_coeff unit="LBS/FT">      41750.00 </spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 4175.00  </damping_coeff>
   </contact>
-<!--Todo: Fix these so there in the right spot-->
+<!--Todo: Fix so there in the right spot
    <contact type="STRUCTURE" name="RADOME_NOSE">
     <location unit="IN">
      <x>   0    </x>
@@ -238,7 +238,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <dynamic_friction> 1.00 </dynamic_friction>
     <spring_coeff unit="LBS/FT">      41750.00 </spring_coeff>
     <damping_coeff unit="LBS/FT/SEC"> 4175.00  </damping_coeff>
-  </contact>
+  </contact>-->
 
   <contact type="STRUCTURE" name="RIGHT_WING_TIP_FRONT">
     <location unit="IN">
