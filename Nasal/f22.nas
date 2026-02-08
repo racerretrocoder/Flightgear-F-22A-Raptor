@@ -19,6 +19,7 @@ setprop("f22/bayupdate",0);
 setprop("controls/baydoor/AIM120lock",0);
 setprop("f22/rbleed",0.0);
 setprop("f22/lbleed",0.0);
+
 setprop("f22/quick-gear",1);
 setprop("f22/gear1/pos",1);
 setprop("f22/gear2/pos",1);
@@ -27,6 +28,14 @@ setprop("f22/gear-damaged",0);
 setprop("f22/gear1/failed",0);
 setprop("f22/gear2/failed",0);
 setprop("f22/gear3/failed",0);
+# more gear stuff
+setprop("f22/gear2/tiresmoke",0);
+setprop("f22/gear3/tiresmoke",0);
+setprop("f22/gear2/tiresmokeold",1); # Set like this to disable instant smoke on spawn
+setprop("f22/gear3/tiresmokeold",1); # Set like this to disable instant smoke on spawn
+setprop("f22/gear2/name","leftgear");
+setprop("f22/gear3/name","rightgear");
+
 setprop("fdm/jsbsim/gear/gear-pos-norm",1);
 setprop("f22/frost",0);
 setprop("f22/water",0);
@@ -38,7 +47,6 @@ setprop("f22/grind",0);
 #
 # Temp init 
 #
-
 setprop("environment/aircraft-effects/temperature-inside-degC", getprop("environment/temperature-degc"));
 setprop("environment/aircraft-effects/dewpoint-inside-degC", getprop("environment/dewpoint-degc"));
 if (getprop("environment/temperature-degc") < 0) {
@@ -58,8 +66,6 @@ setprop("/environment/aircraft-effects/temperature-inside-degC", 0);
 setprop("/environment/aircraft-effects/temperature-outside-ram-degC", 0);
 setprop("/environment/aircraft-effects/frost-level", 0);
 setprop("/environment/aircraft-effects/fog-level", 0);
-
-
 
 #
 # Aux Comm
@@ -108,8 +114,6 @@ radios.start();
 
 
 # Custom Temperature | Pretty much all of it is based on from the F-16 code (f16.nas)
-
-
 
 var tempmainloop = func() {
   # if (getprop("position/altitude-ft") > 10000 and getprop("controls/switches/airsource") != 3) {
@@ -269,10 +273,43 @@ temperatureloop = maketimer(0.1,tempmainloop);
 temperatureloop.start();
 print("---------- Temperature loop activated ----------");
 
+var lsmoketimer = func() {
+  setprop("f22/gear2/tiresmoke",0);
+  lsmoke.stop();
+}
+var rsmoketimer = func() {
+  setprop("f22/gear3/tiresmoke",0);
+  rsmoke.stop();
+}
 
 
+lsmoke = maketimer(0.5,lsmoketimer);
+rsmoke = maketimer(0.5,rsmoketimer);
 # Landing gear controller
 var gearloop = func() {
+  # smoke and stuff
+  var lwow = getprop("gear/gear[1]/wow");
+  var rwow = getprop("gear/gear[2]/wow");
+  var lwowold = getprop("f22/gear2/tiresmokeold");
+  var rwowold = getprop("f22/gear3/tiresmokeold");
+  if (lwow != lwowold and lwow == 1) {
+    # Touch down!
+    setprop("f22/gear2/tiresmoke",1);
+    lsmoke.start();
+    setprop("f22/gear2/tiresmokeold",lwow);
+  } elsif (lwow == 0) {
+    setprop("f22/gear2/tiresmokeold",0);
+  }
+  if (rwow != rwowold and rwow == 1) {
+    # Touch down!
+    setprop("f22/gear3/tiresmoke",1);
+    rsmoke.start();
+    setprop("f22/gear3/tiresmokeold",rwow);
+  } elsif (rwow == 0) {
+    setprop("f22/gear3/tiresmokeold",0);
+  }
+
+
   var gearhandle = getprop("controls/gear/gear-down");
   var speed = getprop("velocities/airspeed-kt");
   var damaged = getprop("f22/gear-damaged");
