@@ -20,6 +20,7 @@
   <object-name>glasstint</object-name>
   <object-name>hudglass</object-name>
   <object-name>lock</object-name>
+  <object-name>poly</object-name>
 </animation>	
 
 
@@ -27,11 +28,12 @@
   <inherits-from>Effects/model-transparent</inherits-from>
   <!-- Replace 'HUD.l.canvas' with the object the canvas is placed on -->
   <object-name>hudglass</object-name>
+  <object-name>poly</object-name>
 </effect>
  <effect>
   <inherits-from>Effects/glass</inherits-from>
   <!-- Replace 'HUD.l.canvas' with the object the canvas is placed on -->
-  <object-name>glasstint</object-name>
+  <object-name>poly</object-name>
 </effect>
 
 
