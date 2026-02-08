@@ -11,10 +11,16 @@
     <pass>true</pass>
 <!--Engine 1 smoke ints: 0, 1-->
     <condition>
+    <and>
         <equals>
-          <property>f22/gear3/tiresmoke</property>
+          <property>sim/multiplay/generic/int[8]</property>
           <value>1</value>
         </equals>
+        <greater-than>
+          <property>/environment/rain-norm</property>
+          <value>0</value> <!--must be raining-->
+        </greater-than>
+    </and>
     </condition>
 
     <attach>world</attach>
@@ -54,13 +60,13 @@
     <particle>
       <start>
         <color>
-          <red><value>   0.6 </value></red>
-          <green><value> 0.6 </value></green>
-          <blue><value>  0.6 </value></blue>
+          <red><value>   0.9 </value></red>
+          <green><value> 0.9 </value></green>
+          <blue><value>  0.9 </value></blue>
           <alpha><value> 0.3</value></alpha>
         </color>
         <size>
-          <value>0.65</value>
+          <value>5</value>
         </size>
       </start>
 
@@ -72,12 +78,12 @@
           <alpha><value> 0.0 </value></alpha>
         </color>
         <size>
-          <value>5</value>
+          <value>15</value>
         </size>
       </end>
 
       <life-sec>
-        <value>0.5</value>
+        <value>10</value>
       </life-sec>
         
       <mass-kg>  0.5 </mass-kg>

@@ -600,6 +600,9 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 <int n="3" type="int">0</int><!-- KY58 Channel Code -->
 <int n="4" type="int" alias="/f22/dead"/> <!--crash effects-->
 <int n="5" type="int" alias="/f22/engint"/> <!--Engine flameouts-->
+<int n="6" type="int" alias="/f22/gear2/tiresmoke"/> 
+<int n="7" type="int" alias="/f22/gear3/tiresmoke"/> 
+<int n="8" type="int" alias="/f22/runwaysplash"/> 
 <!--
 <int n="10" type="int" alias="/controls/lighting/nav-lights"/>  
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 		
@@ -611,10 +614,6 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 <int n="18" type="int" alias="/controls/armament/rdt"/> 
 <int n="19" type="int" alias="/controls/armament/ldt"/>   <!--Drop tanks--> 
 <int n="20" type="int" alias="/fdm/jsbsim/fcs/taxilight"/> 
-
-<!--<int n="6" type="int" alias="/sim/failure-manager/engines/engine[1]/failure-level"/>-->
-
-
 <int n="23" type="int" alias="/fdm/jsbsim/fcs/light"/>
 
 
