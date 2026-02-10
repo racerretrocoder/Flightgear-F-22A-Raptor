@@ -518,7 +518,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 </animation>
 
 
-<!--Compression Right_Main_Gear_C_0, right-main-gear-axl, rwheelwheel, rwheelwheel2
+<!--Compression Right_Main_Gear_C_0, right-main-gear-axl, rwheelwheel, rwheelwheel2 gear[1] is the left gear[2] is the right -->
 
 	  <animation>
     <type>translate</type>
@@ -527,16 +527,95 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 	<object-name>rwheelwheel</object-name>
     <object-name>rwheelwheel2</object-name>
 
-    <property>controls/cabin/shaking</property>
+    <property>gear/gear[2]/compression-m</property>
+	<offset-m>-0.13</offset-m>
     <axis>
       <x1-m>  0.0 </x1-m>
       <y1-m>  0.0 </y1-m>
       <z1-m>  0.0 </z1-m>
-      <x2-m>  0.5 </x2-m>
-      <y2-m> -0.6 </y2-m>
-      <z2-m>  0.9 </z2-m>
+      <x2-m>  0.0 </x2-m>
+      <y2-m>  0.0 </y2-m>
+      <z2-m>  1.0 </z2-m>
     </axis>
-  </animation>-->
+  </animation>
+
+	  <animation>
+    <type>translate</type>
+    <object-name>Left_Main_Gear_Cy_0</object-name>
+    <object-name>left-main-gear-axl</object-name>
+	<object-name>lwheelwheel</object-name>
+    <object-name>lwheelwheel2</object-name>
+
+    <property>gear/gear[1]/compression-m</property>
+	<offset-m>-0.13</offset-m>
+    <axis>
+      <x1-m>  0.0 </x1-m>
+      <y1-m>  0.0 </y1-m>
+      <z1-m>  0.0 </z1-m>
+      <x2-m>  0.0 </x2-m>
+      <y2-m>  0.0 </y2-m>
+      <z2-m>  1.0 </z2-m>
+    </axis>
+  </animation>
+
+
+	  <animation>
+    <type>translate</type>
+    <object-name>Nose_Gear_Cylinder02_</object-name>
+    <object-name>Nose_Gear_Cylinde</object-name>
+	<object-name>nwheel1</object-name>
+    <object-name>nwheel2</object-name>
+    <object-name>Nose_Gear_Holder02</object-name>
+    <property>gear/gear[0]/compression-m</property>
+	<offset-m>-0.13</offset-m>
+    <axis>
+      <x1-m>  0.0 </x1-m>
+      <y1-m>  0.0 </y1-m>
+      <z1-m>  0.0 </z1-m>
+      <x2-m>  0.0 </x2-m>
+      <y2-m>  0.0 </y2-m>
+      <z2-m>  1.0 </z2-m>
+    </axis>
+  </animation>
+
+<!--Now for the hard part, rotation of this Nose_Gear_Holder01 thingy-->
+	  <animation>
+    <type>translate</type>
+    <object-name>Nose_Gear_Holder01</object-name>
+	<offset-m>-0.098</offset-m>
+    <axis>
+      <x>  0.0 </x>
+      <y>  0.0 </y>
+      <z>  1.0 </z>
+    </axis>
+  </animation>
+<!--Calculated High Precision-->
+  	  <animation>
+    <type>translate</type>
+    <object-name>Nose_Gear_Holder01</object-name>
+	<property>gear/gear[0]/compression-m</property>
+	<factor>-0.45224</factor>
+	<offset-m>0.01</offset-m>
+    <axis>
+      <x>  1.0 </x>
+      <y>  0.0 </y>
+      <z>  0.0 </z>
+    </axis>
+  </animation>
+
+
+
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Nose_Gear_Holder01</object-name>
+		<property>gear/gear[0]/compression-norm</property>
+					<factor>-40</factor>
+<offset-m>0.13</offset-m>
+		<axis>   
+		<object-name>Nose_Gear_Holder01-axis</object-name>
+		</axis>
+	</animation>
 
 
 	<animation>

@@ -25,11 +25,12 @@ MATERIAL "BlackRubber" rgb 0.200279 0.200279 0.200279  amb 0.200279 0.200279 0.2
 MATERIAL "OrangePlastic" rgb 1 0.598049 0  amb 1 0.598049 0  emis 0 0 0  spec 1 1 1  shi 32  trans 0
 MATERIAL "ac3dmat13" rgb 0.273684 0.273684 0.273684  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 128  trans 0
 OBJECT world
-kids 197
+kids 198
 OBJECT poly
 name "fwheel-axis"
 loc -3.66916 -2.35334 -0.274776
 crease 45.000000
+hidden
 numvert 2
 0 0 -0.256217
 0 0 0.256218
@@ -46,6 +47,7 @@ loc -3.6673 -2.3568 0.00105499
 data 20
 Nose_Wheel_Pnevmatic
 crease 30.000000
+hidden
 numvert 1473
 0 0.28903 -0.00105499
 0 0.28619 0.018975
@@ -11405,6 +11407,7 @@ loc 8.73115e-011 0 0
 data 20
 Right_Main_Gear_Disk
 crease 30.000000
+hidden
 numvert 742
 2.40688 -2.14414 -1.63786
 2.40674 -2.14563 -1.63786
@@ -17704,6 +17707,7 @@ data 21
 Right_Main_Gear_P.004
 texture "Map__8_Noise.png"
 crease 30.000000
+hidden
 numvert 448
 2.32284 -1.84305 -1.6191
 2.32823 -1.87019 -1.64479
@@ -20849,6 +20853,7 @@ loc 8.73115e-011 0 0
 data 21
 Right_Main_Gear_Pnevm
 crease 30.000000
+hidden
 numvert 320
 2.31937 -1.82562 -1.58672
 2.32284 -1.84305 -1.6191
@@ -22975,6 +22980,7 @@ data 17
 Left_Main_Gear_Pn
 texture "Map__8_Noise.png"
 crease 30.000000
+hidden
 numvert 448
 2.32284 -1.84305 1.6191
 2.32823 -1.87019 1.64479
@@ -26120,6 +26126,7 @@ loc 8.73115e-011 0 0
 data 21
 Left_Main_Gear_Pnevma
 crease 30.000000
+hidden
 numvert 320
 2.31937 -1.82562 1.58672
 2.32284 -1.84305 1.6191
@@ -28241,6 +28248,7 @@ loc 8.73115e-011 0 0
 data 19
 Left_Main_Gear_Disk
 crease 30.000000
+hidden
 numvert 742
 2.40674 -2.14562 1.63787
 2.40688 -2.14414 1.63787
@@ -34538,6 +34546,7 @@ name "lbleed3"
 loc 0.487657 -0.0663141 -0.74762
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.0885887 -0.19277 1.60368
 -0.164604 -0.153705 1.50109
@@ -34577,6 +34586,7 @@ name "lbleed1"
 loc 0.931969 -0.0631475 -0.748384
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.14492 -0.255562 1.74254
 0.0733446 -0.255983 1.74323
@@ -34616,6 +34626,7 @@ name "lbleed2"
 loc 0.71195 -0.0744943 -0.746673
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.0686646 -0.195225 1.61495
 -0.143117 -0.153997 1.50899
@@ -34655,6 +34666,7 @@ name "rbleed2"
 loc 0.713265 -0.0924311 -0.697519
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.0686647 -0.199897 -0.22184
 -0.143117 -0.158669 -0.115875
@@ -34694,6 +34706,7 @@ name "rbleed1"
 loc 0.933284 -0.0810843 -0.69923
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.0619654 -0.210791 -0.218832
 -0.137232 -0.168078 -0.112471
@@ -34733,6 +34746,7 @@ name "rbleed3"
 loc 0.488972 -0.0842509 -0.698466
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.172705 -0.249555 -0.332509
 0.074164 -0.247939 -0.348856
@@ -34771,6 +34785,7 @@ OBJECT poly
 name "lbleed1-axis"
 loc 0.798218 -0.183407 0.643259
 crease 45.000000
+hidden
 numvert 2
 0 0.114895 -0.299313
 0 -0.114898 0.29932
@@ -34785,6 +34800,7 @@ OBJECT poly
 name "lbleed2-axis"
 loc 0.572549 -0.185265 0.649145
 crease 45.000000
+hidden
 numvert 2
 0 -0.109657 0.30128
 0 0.109654 -0.301272
@@ -34799,6 +34815,7 @@ OBJECT poly
 name "lbleed3-axis"
 loc 0.326336 -0.175974 0.6099
 crease 45.000000
+hidden
 numvert 2
 0 0.104379 -0.30314
 0 -0.104382 0.303148
@@ -34813,6 +34830,7 @@ OBJECT poly
 name "rbleed3-axis"
 loc 0.332018 -0.211423 -0.706742
 crease 45.000000
+hidden
 numvert 2
 0 0.104382 0.303148
 0 -0.10438 -0.30314
@@ -34827,6 +34845,7 @@ OBJECT poly
 name "rbleed2-axis"
 loc 0.573458 -0.228302 -0.751873
 crease 45.000000
+hidden
 numvert 2
 0 -0.114895 -0.299313
 0 0.114898 0.29932
@@ -34842,6 +34861,7 @@ name "lbleed3"
 loc 0.487657 -0.064847 -0.74752
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.172705 -0.244883 1.72751
 0.0741639 -0.255653 1.73826
@@ -34881,6 +34901,7 @@ name "lbleed1"
 loc 0.931969 -0.0616804 -0.748284
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.0619652 -0.206119 1.61536
 -0.137232 -0.163406 1.509
@@ -34920,6 +34941,7 @@ name "rbleed2"
 loc 0.713265 -0.0910868 -0.697556
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.150149 -0.241212 -0.349748
 0.0755239 -0.249078 -0.348116
@@ -34959,6 +34981,7 @@ name "rbleed1"
 loc 0.933284 -0.0797399 -0.699267
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.14492 -0.260235 -0.346011
 0.0733448 -0.260655 -0.346694
@@ -34998,6 +35021,7 @@ name "rbleed3"
 loc 0.488972 -0.0829065 -0.698503
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.0885887 -0.197442 -0.208673
 -0.164604 -0.158378 -0.10609
@@ -35036,6 +35060,7 @@ OBJECT poly
 name "bleedr"
 loc 0.488972 -0.0882462 -0.696501
 crease 45.000000
+hidden
 numvert 14
 -0.172705 -0.244883 -0.334512
 0.074164 -0.243267 -0.350859
@@ -35074,6 +35099,7 @@ OBJECT poly
 name "fueldoor-2L-axis"
 loc 0.572282 -0.146666 0.0656666
 crease 45.000000
+hidden
 numvert 2
 0.291891 0 0
 -0.291891 0 0
@@ -35088,6 +35114,7 @@ OBJECT poly
 name "fueldoor-R2-axis"
 loc 0.617413 -0.146666 -0.116315
 crease 45.000000
+hidden
 numvert 2
 -0.291891 0 0
 0.291891 0 0
@@ -35102,6 +35129,7 @@ OBJECT poly
 name "fueldoorL"
 loc 0.694386 -0.0371404 0.0849177
 crease 45.000000
+hidden
 numvert 4
 0.240008 0 0.108449
 -0.234553 0 0.109993
@@ -35122,6 +35150,7 @@ loc 0 -0.576507 0.0644852
 data 8
 Mesh.005
 crease 30.000000
+hidden
 numvert 108
 -7.65498 -0.396253 -0.589488
 -7.65452 -0.388731 -0.588849
@@ -36511,6 +36540,7 @@ loc 0 -0.591319 -0.0737562
 data 8
 Mesh.004
 crease 30.000000
+hidden
 numvert 108
 -7.65498 -0.396253 0.589488
 -7.65452 -0.388731 0.588849
@@ -37904,6 +37934,7 @@ loc 10.6568 -0.00848603 -0.0863258
 data 4
 Cube
 crease 30.000000
+hidden
 numvert 64
 0.182671 0.04 -0.182671
 -0.182673 0.04 -0.182671
@@ -38372,6 +38403,7 @@ loc 10.6568 -0.00848603 -0.0863258
 data 6
 Circle
 crease 30.000000
+hidden
 numvert 352
 0.118071 0.056098 0.0234861
 0.119188 0.0523469 0.0237083
@@ -40973,6 +41005,7 @@ loc -5.32618 0.0121884 -6.35797
 data 4
 Cube
 crease 30.000000
+hidden
 numvert 64
 0.182671 0.04 -0.182672
 -0.182671 0.04 -0.182672
@@ -41441,6 +41474,7 @@ loc -5.32618 0.0121884 -6.35797
 data 6
 Circle
 crease 30.000000
+hidden
 numvert 352
 0.118071 0.056098 0.0234861
 0.119188 0.0523472 0.0237074
@@ -44042,6 +44076,7 @@ loc -5.33059 -0.00370169 6.44429
 data 4
 Cube
 crease 30.000000
+hidden
 numvert 64
 -0.190067 -0.00732899 -0.196937
 -0.196937 -0.00732899 -0.190067
@@ -44510,6 +44545,7 @@ loc -5.33059 -0.00370169 6.44429
 data 6
 Circle
 crease 30.000000
+hidden
 numvert 352
 0.112703 0.056098 -3.91006e-005
 0.110538 0.056098 -0.0220218
@@ -47110,6 +47146,7 @@ name "apucover"
 loc 1.41706 -0.505197 1.51185
 texture "redcover.png"
 crease 45.000000
+hidden
 numvert 6
 1.01192 -0.00381923 0.010062
 0.521293 -0.105032 0.276708
@@ -47133,6 +47170,7 @@ name "chocks"
 loc 3.01399 -2.57859 2.1762
 texture "chock.png"
 crease 61.000000
+hidden
 numvert 16
 -0.190491 -0.0732415 -0.834844
 -0.532387 -0.0732415 -0.834844
@@ -47285,6 +47323,7 @@ name "chocks"
 loc 1.80974 -2.5799 0.908329
 texture "chock.png"
 crease 61.000000
+hidden
 numvert 16
 0.190491 -0.0732415 0.433476
 0.532379 -0.0732415 0.433476
@@ -47437,6 +47476,7 @@ name "chocks"
 loc 1.80974 -2.57961 -2.17017
 texture "chock.png"
 crease 61.000000
+hidden
 numvert 16
 0.190491 -0.0732415 0.834843
 0.532379 -0.0732415 0.834843
@@ -47589,6 +47629,7 @@ name "chocks"
 loc 3.01399 -2.5783 -0.902302
 texture "chock.png"
 crease 61.000000
+hidden
 numvert 16
 -0.190491 -0.0732415 -0.433476
 -0.532387 -0.0732415 -0.433476
@@ -47741,6 +47782,7 @@ name "rsensorcover"
 loc -7.41646 -1.3127 -0.300614
 texture "redcover.png"
 crease 45.000000
+hidden
 numvert 4
 -0.0149755 0.129359 0
 0.0149755 0.129359 0
@@ -47759,6 +47801,7 @@ OBJECT poly
 name "navlight"
 loc -5.93251 -0.722994 -0.707648
 crease 45.000000
+hidden
 numvert 4
 -0.239214 -0.0483423 0.0343633
 -0.222896 0.0267912 -0.0154486
@@ -47777,6 +47820,7 @@ OBJECT poly
 name "navlight"
 loc -5.95231 -0.719875 0.723917
 crease 45.000000
+hidden
 numvert 4
 0.222991 -0.027791 -0.0119346
 0.238925 0.0489237 0.0355389
@@ -47795,6 +47839,7 @@ OBJECT poly
 name "burner-axis"
 loc 6.24133 -0.890438 1.89577
 crease 45.000000
+hidden
 numvert 2
 0 0 1.31306
 0 0 -1.31306
@@ -47809,6 +47854,7 @@ OBJECT poly
 name "lwrv-axis"
 loc 6.24133 -1.14523 1.91239
 crease 45.000000
+hidden
 numvert 2
 0 0 -1.31306
 0 0 1.31306
@@ -47824,6 +47870,7 @@ name "apuflap1"
 loc 1.58887 -0.493676 1.38342
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 6
 0.085418 0.0667935 -0.140496
 -0.0915173 0.0577869 -0.140427
@@ -47847,6 +47894,7 @@ name "AIM-9R"
 loc -4.05547 -0.378565 3.15466
 texture "loads/aim9.png"
 crease 45.000000
+hidden
 numvert 1046
 4.50799 -0.91258 -4.56172
 4.33628 -0.92713 -4.57277
@@ -60222,6 +60270,7 @@ OBJECT poly
 name "AIM-9-L-RAIL"
 loc -4.08261 -0.415531 3.08672
 crease 45.000000
+hidden
 numvert 352
 4.20475 -0.802243 -4.34047
 4.22418 -0.792366 -4.3436
@@ -64433,6 +64482,7 @@ OBJECT poly
 name "9xdr1l"
 loc -0.868163 -1.24375 -2.01559
 crease 45.000000
+hidden
 numvert 8
 -1.73501 -0.000186324 0.000130177
 -1.73501 0 0
@@ -64484,6 +64534,7 @@ OBJECT poly
 name "9xdr2l"
 loc -0.868163 -1.71389 -1.68685
 crease 45.000000
+hidden
 numvert 8
 -1.38688 0.198395 0.347912
 -1.38688 0.198581 0.347782
@@ -64541,6 +64592,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank09
 crease 30.000000
+hidden
 numvert 98
 2.54325 -1.14946 1.15108
 2.54325 -1.15232 1.15037
@@ -65380,6 +65432,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank10
 crease 30.000000
+hidden
 numvert 98
 2.54325 -1.10702 1.16239
 2.54325 -1.10988 1.16168
@@ -66219,6 +66272,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank11
 crease 30.000000
+hidden
 numvert 98
 2.54325 -1.06206 1.17245
 2.54325 -1.06492 1.17173
@@ -67058,6 +67112,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank12
 crease 30.000000
+hidden
 numvert 98
 2.54325 -1.01779 1.18259
 2.54325 -1.02065 1.18188
@@ -67897,6 +67952,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank13
 crease 30.000000
+hidden
 numvert 98
 2.4834 -0.75851 1.49146
 2.4834 -0.75857 1.48871
@@ -68736,6 +68792,7 @@ loc 9.65665e-008 -2.32831e-009 0
 data 9
 OilTank14
 crease 30.000000
+hidden
 numvert 98
 2.4834 -0.75837 1.53246
 2.4834 -0.75843 1.52971
@@ -69575,6 +69632,7 @@ loc 9.65665e-008 -2.32831e-009 0
 data 9
 OilTank15
 crease 30.000000
+hidden
 numvert 98
 2.4834 -0.75622 1.57536
 2.4834 -0.75628 1.57261
@@ -70414,6 +70472,7 @@ loc 9.65665e-008 -2.32831e-009 0
 data 9
 OilTank16
 crease 30.000000
+hidden
 numvert 98
 2.4834 -0.75436 1.61766
 2.4834 -0.75442 1.61491
@@ -71253,6 +71312,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank01
 crease 30.000000
+hidden
 numvert 98
 2.65668 -1.15232 -1.15567
 2.65583 -1.15518 -1.15108
@@ -72092,6 +72152,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank02
 crease 30.000000
+hidden
 numvert 98
 2.65668 -1.10988 -1.16699
 2.65583 -1.11274 -1.16239
@@ -72931,6 +72992,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank03
 crease 30.000000
+hidden
 numvert 98
 2.65668 -1.06492 -1.17704
 2.65583 -1.06777 -1.17245
@@ -73770,6 +73832,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank04
 crease 30.000000
+hidden
 numvert 98
 2.65668 -1.02065 -1.18719
 2.65583 -1.02351 -1.18259
@@ -74609,6 +74672,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank05
 crease 30.000000
+hidden
 numvert 98
 2.59682 -0.76406 -1.49019
 2.59598 -0.7601 -1.48636
@@ -75448,6 +75512,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank06
 crease 30.000000
+hidden
 numvert 98
 2.59682 -0.76392 -1.53119
 2.59598 -0.75996 -1.52736
@@ -76287,6 +76352,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank07
 crease 30.000000
+hidden
 numvert 98
 2.59682 -0.76177 -1.57409
 2.59598 -0.75782 -1.57026
@@ -77126,6 +77192,7 @@ loc -2.23226e-008 9.31323e-010 0
 data 9
 OilTank08
 crease 30.000000
+hidden
 numvert 98
 2.59682 -0.75991 -1.61639
 2.59598 -0.75596 -1.61256
@@ -77963,6 +78030,7 @@ OBJECT poly
 name "apuflap1underside"
 loc 1.58947 -0.494058 1.38397
 crease 45.000000
+hidden
 numvert 6
 0.085417 0.0667934 -0.140495
 -0.0915177 0.0577868 -0.140427
@@ -77986,6 +78054,7 @@ name "apuflap2underside"
 loc 0.716861 -0.474253 1.40848
 texture "Liveries/PH/body.png"
 crease 45.000000
+hidden
 numvert 6
 0.288478 -0.00292772 0.00668752
 0.14861 -0.0805151 0.183908
@@ -78008,6 +78077,7 @@ OBJECT poly
 name "apuflap2-axis"
 loc 0.66819 -0.553489 1.58791
 crease 45.000000
+hidden
 numvert 2
 -0.411318 0 0
 0.411318 0 0
@@ -78023,6 +78093,7 @@ name "apuflap2"
 loc 0.712665 -0.473579 1.40826
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 6
 0.120636 0.0766491 -0.183007
 -0.117139 0.080515 -0.183908
@@ -78045,6 +78116,7 @@ OBJECT poly
 name "apuflap1-axis"
 loc 1.69163 -0.551604 1.5242
 crease 45.000000
+hidden
 numvert 2
 0.409753 0.0358487 0
 -0.409753 -0.0358487 0
@@ -78059,6 +78131,7 @@ OBJECT poly
 name "navlight"
 loc 4.4487 -0.824101 -5.37785
 crease 45.000000
+hidden
 numvert 4
 -0.126791 -0.0199608 -0.210397
 -0.0359306 -0.0163809 -0.221539
@@ -78077,6 +78150,7 @@ OBJECT poly
 name "rfd-axis"
 loc 1.37154 -1.2676 -1.52901
 crease 45.000000
+hidden
 numvert 2
 -1.5589 0 0
 1.5589 0 0
@@ -78091,6 +78165,7 @@ OBJECT poly
 name "lfd-axis"
 loc 1.38863 -1.26212 1.51685
 crease 45.000000
+hidden
 numvert 2
 1.5589 0 0
 -1.5589 0 0
@@ -78105,6 +78180,7 @@ OBJECT poly
 name "rfd2-axis"
 loc 1.40104 -1.60143 -1.34
 crease 45.000000
+hidden
 numvert 2
 1.5589 0 0
 -1.5589 0 0
@@ -78119,6 +78195,7 @@ OBJECT poly
 name "lfd2-axis"
 loc 1.52114 -1.60143 1.29022
 crease 45.000000
+hidden
 numvert 2
 -1.5589 0 0
 1.5589 0 0
@@ -78133,6 +78210,7 @@ OBJECT poly
 name "baydoor2L"
 loc -0.533568 -1.73054 0.468371
 crease 45.000000
+hidden
 numvert 2
 1.5589 0 0
 -1.5589 0 0
@@ -78147,6 +78225,7 @@ OBJECT poly
 name "9xdr1-axis"
 loc -0.152333 -1.05468 -1.66839
 crease 45.000000
+hidden
 numvert 2
 1.20381 1.19209e-007 -2.38419e-007
 -1.20381 0 0
@@ -78161,6 +78240,7 @@ OBJECT poly
 name "9xdr3-axis"
 loc -0.088101 -1.51599 -1.33852
 crease 45.000000
+hidden
 numvert 2
 1.49141 -4.76837e-007 1.19209e-007
 -1.49141 -4.76837e-007 1.19209e-007
@@ -78175,6 +78255,7 @@ OBJECT poly
 name "9xdl2l"
 loc -0.868163 -1.7121 1.68304
 crease 45.000000
+hidden
 numvert 8
 -1.73501 -0.000186324 -0.000130177
 -1.73501 0 0
@@ -78226,6 +78307,7 @@ OBJECT poly
 name "fueldoor-L-axis"
 loc 0.692074 -0.0493054 0.195119
 crease 45.000000
+hidden
 numvert 2
 -0.291891 0 0
 0.291891 0 0
@@ -78240,6 +78322,7 @@ OBJECT poly
 name "fueldoor-R-axis"
 loc 0.722235 -0.0493054 -0.241518
 crease 45.000000
+hidden
 numvert 2
 0.291891 0 0
 -0.291891 0 0
@@ -78254,6 +78337,7 @@ OBJECT poly
 name "gundoor-axis"
 loc -0.40206 -0.56453 -1.60175
 crease 45.000000
+hidden
 numvert 2
 -0.551445 0 0
 0.551445 0 0
@@ -78268,6 +78352,7 @@ OBJECT poly
 name "navlight"
 loc 5.14725 1.54298 -2.58392
 crease 45.000000
+hidden
 numvert 4
 0.164478 0.372313 -0.180779
 0.194796 0.361659 -0.17638
@@ -78286,6 +78371,7 @@ OBJECT poly
 name "navlight"
 loc 5.1366 1.55285 2.60505
 crease 45.000000
+hidden
 numvert 4
 0.164478 0.371675 0.182088
 0.194796 0.361649 0.176401
@@ -78304,6 +78390,7 @@ OBJECT poly
 name "navlight"
 loc 5.11797 1.55097 -2.58392
 crease 45.000000
+hidden
 numvert 4
 0.164478 0.372313 -0.180779
 0.194796 0.361659 -0.17638
@@ -78322,6 +78409,7 @@ OBJECT poly
 name "navlight"
 loc 5.11531 1.56616 2.60505
 crease 45.000000
+hidden
 numvert 4
 -0.194796 -0.361649 -0.176401
 -0.164478 -0.371675 -0.182088
@@ -78340,6 +78428,7 @@ OBJECT poly
 name "navlight"
 loc 5.08602 1.56162 -2.58392
 crease 45.000000
+hidden
 numvert 4
 -0.194796 -0.361659 0.17638
 -0.164478 -0.372313 0.180779
@@ -78358,6 +78447,7 @@ OBJECT poly
 name "leftfan-axis"
 loc -0.819237 -0.764389 0.37472
 crease 45.000000
+hidden
 numvert 2
 1.5589 0 0
 -1.5589 0 0
@@ -78372,6 +78462,7 @@ OBJECT poly
 name "rightfan-axis"
 loc -0.819237 -0.761113 -0.347513
 crease 45.000000
+hidden
 numvert 2
 1.5589 0 0
 -1.5589 0 0
@@ -78386,6 +78477,7 @@ OBJECT poly
 name "LEF-RIGHT-AXIS"
 loc 1.81445 -0.792921 -4.29938
 crease 45.000000
+hidden
 numvert 2
 -1.10231 0 1.10231
 1.10231 0 -1.10231
@@ -78400,6 +78492,7 @@ OBJECT poly
 name "LEF-LEFT-AXIS"
 loc 2.49592 -0.792921 4.91014
 crease 45.000000
+hidden
 numvert 2
 1.10231 0 1.10231
 -1.10231 0 -1.10231
@@ -78414,6 +78507,7 @@ OBJECT poly
 name "BAYLEFT-axis"
 loc -0.508876 -1.7549 1.10726
 crease 45.000000
+hidden
 numvert 2
 1.5589 0.00803518 0
 -1.55963 -0.00346303 0
@@ -78428,6 +78522,7 @@ OBJECT poly
 name "BAYRIGHT-axis"
 loc -0.508876 -1.7549 -1.11307
 crease 45.000000
+hidden
 numvert 2
 1.5596 0.0132595 0.00966799
 -1.55775 -1.19209e-007 0
@@ -78442,6 +78537,7 @@ OBJECT poly
 name "9xdr2-axis"
 loc -0.918476 -1.51595 -1.33872
 crease 45.000000
+hidden
 numvert 2
 1.5589 0 0
 -1.5589 0 0
@@ -78456,6 +78552,7 @@ OBJECT poly
 name "9xdl1-axis"
 loc -0.819773 -1.05059 1.67538
 crease 45.000000
+hidden
 numvert 2
 1.20381 -1.19209e-007 0
 -1.20381 0 0
@@ -78472,6 +78569,7 @@ loc 12.6262 1.34759 0.00832656
 data 6
 Line01
 crease 30.000000
+hidden
 numvert 127
 -6.45153 -2.62267 1.11352
 -6.43285 -2.6853 0.945346
@@ -79280,6 +79378,7 @@ loc 12.6262 1.34759 0.00832656
 data 6
 Line02
 crease 30.000000
+hidden
 numvert 127
 -6.45153 -2.62267 -1.11352
 -6.43285 -2.6853 -0.945346
@@ -80092,6 +80191,7 @@ data 18
 Right_Back_Turbina
 texture "nozzle.png"
 crease 30.000000
+hidden
 numvert 145
 4.09689 -1.00933 -0.647829
 4.09689 -0.98941 -0.600774
@@ -81230,6 +81330,7 @@ data 17
 Right_Back_Turbin
 texture "nozzle.png"
 crease 30.000000
+hidden
 numvert 960
 4.11565 -0.9314 -1.12288
 4.10304 -0.85787 -0.846959
@@ -89163,6 +89264,7 @@ data 17
 Left_Nose_Gear_Do
 texture "Liveries/bays.png"
 crease 30.000000
+hidden
 numvert 172
 -4.12536 -1.48997 0.2361
 -3.90796 -1.7687 0.23983
@@ -90109,6 +90211,7 @@ name "Left_Nose_Gear_Door_0"
 data 19
 Left_Nose_Gear_Door
 crease 30.000000
+hidden
 numvert 197
 -4.80093 -1.55272 0.22568
 -4.27775 -1.56999 0.24885
@@ -91881,6 +91984,7 @@ data 17
 Right_Nose_Gear_D
 texture "Liveries/bays.png"
 crease 30.000000
+hidden
 numvert 172
 -4.12536 -1.48997 -0.2361
 -3.90796 -1.7687 -0.23983
@@ -92827,6 +92931,7 @@ name "Right_Nose_Gear_Door_"
 data 20
 Right_Nose_Gear_Door
 crease 30.000000
+hidden
 numvert 197
 -4.80093 -1.55272 -0.22567
 -4.27775 -1.56999 -0.24885
@@ -94596,6 +94701,7 @@ data 10
 Left_Ruler
 texture "Map__9_Mix.png"
 crease 30.000000
+hidden
 numvert 54
 6.2636 0.85648 2.12374
 6.75419 0.87668 2.15055
@@ -94983,6 +95089,7 @@ data 17
 Left_Eleron01.001
 texture "flaps.png"
 crease 30.000000
+hidden
 numvert 56
 5.1389 -0.80558 2.455
 5.32145 -0.80987 1.85204
@@ -95284,6 +95391,7 @@ data 17
 Left_Eleron01.002
 texture "Liveries/maps/leftwingbottom.dds"
 crease 30.000000
+hidden
 numvert 304
 5.67862 -0.80998 2.00537
 5.61588 -0.82297 2.01928
@@ -97656,6 +97764,7 @@ data 17
 Left_Eleron02.001
 texture "flaps.png"
 crease 30.000000
+hidden
 numvert 32
 4.91929 -0.86047 5.59773
 5.18668 -0.83262 4.94327
@@ -97850,6 +97959,7 @@ data 17
 Left_Eleron02.002
 texture "Liveries/maps/leftwingbottom.dds"
 crease 30.000000
+hidden
 numvert 337
 4.98122 -0.86006 4.33825
 4.97197 -0.85005 4.31532
@@ -100836,6 +100946,7 @@ data 13
 Left_Keel.001
 texture "Map__20_Mix.png"
 crease 30.000000
+hidden
 numvert 58
 4.52511 0.82846 2.18331
 4.88055 1.61945 2.58114
@@ -101227,6 +101338,7 @@ loc -0.000368714 -0.00446057 1.19209e-007
 data 18
 Left_Main_Gear_Bay
 crease 30.000000
+hidden
 numvert 920
 2.68212 -0.73777 2.21658
 2.68212 -0.73777 2.26443
@@ -108867,6 +108979,7 @@ data 21
 Left_Nozzle_Bottom_Pa
 texture "Liveries/maps/vectorin.dds"
 crease 30.000000
+hidden
 numvert 307
 6.19406 -0.99415 0.36448
 6.19403 -0.99415 0.4332
@@ -111739,6 +111852,7 @@ texture "Liveries/maps/vectorin.dds"
 texrep -1 -1
 texoff -1 -1
 crease 30.000000
+hidden
 numvert 307
 6.87636 -0.68849 0.52741
 6.70471 -0.68851 0.5332
@@ -114609,6 +114723,7 @@ data 21
 Right_Nozzle_Bottom_P
 texture "Liveries/maps/vectorin.dds"
 crease 30.000000
+hidden
 numvert 307
 6.19406 -0.99415 -0.36448
 6.19403 -0.99415 -0.4332
@@ -117479,6 +117594,7 @@ data 21
 Right_Nozzle_Top_Part
 texture "Liveries/maps/vectorin.dds"
 crease 30.000000
+hidden
 numvert 307
 6.87635 -0.68849 -0.52741
 6.7047 -0.68851 -0.5332
@@ -120345,6 +120461,7 @@ loc -0.000368714 -0.00446057 0
 data 21
 Left_Nozzle_Inner_Sid
 crease 30.000000
+hidden
 numvert 60
 6.24671 -1.23656 0.72941
 6.24671 -1.18597 0.91478
@@ -120736,6 +120853,7 @@ data 16
 Left_Prewing.001
 texture "flaps.png"
 crease 30.000000
+hidden
 numvert 35
 3.42105 -0.96262 5.91382
 3.14887 -0.95496 5.91845
@@ -120944,6 +121062,7 @@ data 12
 Left_Prewing
 texture "flaps.png"
 crease 30.000000
+hidden
 numvert 45
 2.95912 -0.86839 5.4344
 3.40544 -0.90603 5.90371
@@ -121245,6 +121364,7 @@ data 19
 Left_Stabilizer.001
 texture "Liveries/maps/leftelev-default.dds"
 crease 30.000000
+hidden
 numvert 37
 8.00005 -0.81616 4.14808
 7.07312 -0.8159 3.37569
@@ -121499,6 +121619,7 @@ data 19
 Left_Stabilizer.002
 texture "underelev.png"
 crease 30.000000
+hidden
 numvert 25
 7.99815 -0.8349 4.14799
 7.30822 -0.83609 3.35171
@@ -121649,6 +121770,7 @@ data 9
 Left_Wing
 texture "Liveries/maps/leftwingbottom.dds"
 crease 30.000000
+hidden
 numvert 708
 4.80558 -0.86931 4.57486
 4.80558 -0.86931 4.57486
@@ -127152,6 +127274,7 @@ data 13
 Left_Wing.001
 texture "Liveries/maps/wingdefault.dds"
 crease 30.000000
+hidden
 numvert 120
 1.90826 -0.72536 1.85204
 5.29188 -0.84582 2.02595
@@ -127961,6 +128084,7 @@ name "left-main-door-down"
 data 21
 Left_Main_Gear_Door02
 crease 30.000000
+hidden
 numvert 443
 2.22432 -1.84494 1.15939
 2.08738 -1.73154 1.16058
@@ -131393,6 +131517,7 @@ data 21
 Left_Main_Gear_Do.001
 texture "Liveries/maps/bottom.dds"
 crease 30.000000
+hidden
 numvert 18
 2.91407 -2.0244 1.15232
 2.05359 -1.70164 1.14732
@@ -131506,6 +131631,7 @@ data 17
 Left_Main_Gear_Do
 texture "Liveries/maps/bottom.dds"
 crease 30.000000
+hidden
 numvert 83
 2.6786 -1.0969 2.27039
 2.70204 -1.0969 2.27039
@@ -131890,6 +132016,7 @@ name "Left_Main_Gear_Door01"
 data 21
 Left_Main_Gear_Door01
 crease 30.000000
+hidden
 numvert 269
 2.68212 -1.09603 2.26737
 2.68212 -1.14295 2.24761
@@ -133888,6 +134015,7 @@ name "Left_MGear_Door_S"
 data 17
 Left_MGear_Door_S
 crease 30.000000
+hidden
 numvert 60
 1.90655 -0.77784 2.25106
 1.91593 -0.77784 2.25106
@@ -134362,6 +134490,7 @@ name "Left_MGear_Door_S.001"
 data 21
 Left_MGear_Door_S.001
 crease 30.000000
+hidden
 numvert 28
 2.68584 -0.76975 2.25539
 2.69521 -0.76975 2.25539
@@ -134580,6 +134709,7 @@ name "Left_MGear_Door_S.002"
 data 21
 Left_MGear_Door_S.002
 crease 30.000000
+hidden
 numvert 60
 2.68584 -0.77784 2.25106
 2.69521 -0.77784 2.25106
@@ -135054,6 +135184,7 @@ name "Left_MGear_Door_Shtok"
 data 21
 Left_MGear_Door_Shtok
 crease 30.000000
+hidden
 numvert 28
 1.90655 -0.76975 2.25539
 1.91593 -0.76975 2.25539
@@ -135273,6 +135404,7 @@ loc -0.77713 -0.00446057 0.021908
 data 6
 Line01
 crease 30.000000
+hidden
 numvert 127
 6.9483 -0.47092 1.11352
 6.95896 -0.40644 0.945346
@@ -136081,6 +136213,7 @@ loc -0.77713 -0.00446057 0.021908
 data 6
 Line02
 crease 30.000000
+hidden
 numvert 127
 6.9483 -0.47092 -1.11352
 6.95896 -0.40644 -0.945346
@@ -136889,6 +137022,7 @@ loc -0.000368714 -0.00446057 0
 data 6
 Line03
 crease 30.000000
+hidden
 numvert 127
 6.06277 -1.25719 1.00144
 6.07622 -1.32094 0.85019
@@ -137697,6 +137831,7 @@ loc -0.000368714 -0.00446057 0
 data 6
 Line04
 crease 30.000000
+hidden
 numvert 127
 6.06277 -1.25719 -1.00144
 6.07622 -1.32094 -0.85019
@@ -138505,6 +138640,7 @@ loc -0.000368714 -0.00446057 0
 data 13
 Nose_Gear_Bay
 crease 30.000000
+hidden
 numvert 54
 -3.66499 -1.29259 -0.23631
 -3.66499 -1.45273 -0.23631
@@ -138911,6 +139047,7 @@ data 21
 Right_Main_Gear_D.001
 texture "Liveries/maps/bottom.dds"
 crease 30.000000
+hidden
 numvert 18
 2.91738 -2.01961 -1.15115
 2.14466 -1.68964 -1.14759
@@ -139015,6 +139152,7 @@ name "Right_Main_Gear_D_0"
 data 17
 Right_Main_Gear_D
 crease 30.000000
+hidden
 numvert 443
 2.22609 -1.84626 -1.1599
 2.11384 -1.73002 -1.16044
@@ -142453,6 +142591,7 @@ name "right-main-door-up"
 data 21
 Right_Main_Gear_Door0
 crease 30.000000
+hidden
 numvert 269
 2.68212 -1.09603 -2.26737
 2.68212 -1.14295 -2.24761
@@ -144453,6 +144592,7 @@ data 21
 Right_Main_Gear_D.002
 texture "Liveries/maps/bottom.dds"
 crease 30.000000
+hidden
 numvert 83
 2.70204 -1.09691 -2.27039
 2.6786 -1.09691 -2.27039
@@ -144837,6 +144977,7 @@ name "Right_MGear_Door_"
 data 17
 Right_MGear_Door_
 crease 30.000000
+hidden
 numvert 60
 1.91593 -0.77784 -2.25106
 1.90655 -0.77784 -2.25106
@@ -145311,6 +145452,7 @@ name "Right_MGear_Door_.001"
 data 21
 Right_MGear_Door_.001
 crease 30.000000
+hidden
 numvert 28
 2.69522 -0.76975 -2.25539
 2.68584 -0.76975 -2.25539
@@ -145529,6 +145671,7 @@ name "Right_MGear_Door_.002"
 data 21
 Right_MGear_Door_.002
 crease 30.000000
+hidden
 numvert 28
 1.91593 -0.76975 -2.25539
 1.90655 -0.76975 -2.25539
@@ -145747,6 +145890,7 @@ name "Right_MGear_Door_Shto"
 data 21
 Right_MGear_Door_Shto
 crease 30.000000
+hidden
 numvert 60
 2.69522 -0.77784 -2.25106
 2.68584 -0.77784 -2.25106
@@ -146223,6 +146367,7 @@ data 11
 Right_Ruler
 texture "Map__9_Mix.png"
 crease 30.000000
+hidden
 numvert 54
 6.75419 0.87668 -2.15055
 6.2636 0.85648 -2.12374
@@ -146607,6 +146752,7 @@ data 18
 Right_Back_Turbina
 texture "nozzle.png"
 crease 30.000000
+hidden
 numvert 145
 4.09689 -1.00933 -0.647829
 4.09689 -0.98941 -0.600774
@@ -147745,6 +147891,7 @@ data 17
 Right_Back_Turbin
 texture "nozzle.png"
 crease 30.000000
+hidden
 numvert 960
 4.11565 -0.9314 -1.12288
 4.10304 -0.85787 -0.846959
@@ -155681,6 +155828,7 @@ data 18
 Right_Eleron01.001
 texture "flaps.png"
 crease 30.000000
+hidden
 numvert 56
 5.1389 -0.80558 -2.455
 5.23785 -0.80551 -2.13338
@@ -155982,6 +156130,7 @@ data 18
 Right_Eleron01.002
 texture "Liveries/maps/leftwingbottom.dds"
 crease 30.000000
+hidden
 numvert 304
 5.61588 -0.82297 -2.01928
 5.67862 -0.80998 -2.00537
@@ -158354,6 +158503,7 @@ data 18
 Right_Eleron02.001
 texture "flaps.png"
 crease 30.000000
+hidden
 numvert 32
 5.45354 -0.84571 -4.95347
 5.18668 -0.83263 -4.94327
@@ -158547,6 +158697,7 @@ data 18
 Right_Eleron02.002
 texture "Liveries/maps/leftwingbottom.dds"
 crease 30.000000
+hidden
 numvert 337
 4.98122 -0.86006 -4.33825
 4.97197 -0.85005 -4.31531
@@ -161533,6 +161684,7 @@ data 14
 Right_Keel.001
 texture "Map__20_Mix.png"
 crease 30.000000
+hidden
 numvert 58
 4.95938 1.22515 -2.4163
 5.17846 1.94433 -2.76487
@@ -161924,6 +162076,7 @@ loc -0.000368714 -0.00446057 0
 data 19
 Right_Main_Gear_Bay
 crease 30.000000
+hidden
 numvert 920
 2.68212 -0.73777 -2.21658
 2.68212 -0.73777 -2.26443
@@ -169556,6 +169709,7 @@ loc -0.000368714 -0.00446057 0
 data 21
 Right_Nozzle_Inner_Si
 crease 30.000000
+hidden
 numvert 60
 6.24671 -1.23656 -0.72941
 6.24671 -1.18597 -0.91478
@@ -169947,6 +170101,7 @@ data 17
 Right_Prewing.001
 texture "flaps.png"
 crease 30.000000
+hidden
 numvert 35
 3.42105 -0.96262 -5.91382
 2.62713 -0.92751 -5.43718
@@ -170155,6 +170310,7 @@ data 13
 Right_Prewing
 texture "flaps.png"
 crease 30.000000
+hidden
 numvert 45
 2.95912 -0.8684 -5.4344
 3.44637 -0.94146 -5.91382
@@ -170457,6 +170613,7 @@ data 20
 Right_Stabilizer.001
 texture "Liveries/maps/rightelev-deafult.dds"
 crease 30.000000
+hidden
 numvert 37
 8.00005 -0.81616 -4.14809
 7.07312 -0.81591 -3.37569
@@ -170699,6 +170856,7 @@ data 20
 Right_Stabilizer.002
 texture "underelev.png"
 crease 30.000000
+hidden
 numvert 27
 7.30822 -0.83609 -3.35171
 7.99815 -0.8349 -4.14799
@@ -170873,6 +171031,7 @@ name "TAIL-R-OUT"
 loc 5.27482 0.818124 -2.11935
 texture "Liveries/INNER-TAIL.png"
 crease 45.000000
+hidden
 numvert 24
 1.65843 -1.45569 0.79237
 1.58432 -1.29603 0.70922
@@ -171012,6 +171171,7 @@ data 10
 Right_Keel
 texture "Map__2_Mix.png"
 crease 30.000000
+hidden
 numvert 31
 5.99543 1.40647 -2.51488
 6.81473 -0.3737 -1.55966
@@ -171171,6 +171331,7 @@ name "TAIL-L-OUT"
 loc 5.31032 0.741139 2.07234
 texture "Liveries/INNER-TAIL.png"
 crease 45.000000
+hidden
 numvert 26
 1.69392 -1.53267 -0.825605
 1.62294 -1.3787 -0.745365
@@ -171319,6 +171480,7 @@ data 9
 Left_Keel
 texture "Map__2_Mix.png"
 crease 30.000000
+hidden
 numvert 31
 6.82591 -0.39619 1.59645
 6.81473 -0.3737 1.55966
@@ -171472,6 +171634,7 @@ loc 0.0139884 -0.00101972 0
 data 11
 Cabin_Glass
 crease 30.000000
+hidden
 numvert 323
 -4.23227 0.19675 0.40136
 -4.30946 0.18704 0.40948
@@ -174352,6 +174515,7 @@ loc -0.000368714 -0.00446057 0
 data 11
 Cabin_Glass
 crease 30.000000
+hidden
 numvert 323
 -4.23227 0.19675 0.40136
 -4.30946 0.18704 0.40948
@@ -177236,6 +177400,7 @@ data 10
 Right_Wing
 texture "Liveries/maps/leftwingbottom.dds"
 crease 30.000000
+hidden
 numvert 708
 4.80558 -0.86931 -4.57486
 4.80558 -0.86931 -4.57486
@@ -182739,6 +182904,7 @@ data 14
 Right_Wing.001
 texture "Liveries/maps/defaultwingright.dds"
 crease 30.000000
+hidden
 numvert 120
 1.90826 -0.72536 -1.85204
 5.29188 -0.84582 -2.02595
@@ -183571,6 +183737,7 @@ OBJECT poly
 name "navlight"
 loc 5.08869 1.57681 2.60505
 crease 45.000000
+hidden
 numvert 4
 0.164478 0.371675 0.182088
 0.194796 0.361649 0.176401
@@ -183589,6 +183756,7 @@ OBJECT poly
 name "rect"
 loc -0.578082 -0.910784 0
 crease 45.000000
+hidden
 numvert 4
 -0.59387 0.39801 0
 0.59387 0.39801 0
@@ -183609,6 +183777,7 @@ loc -0.000368714 -0.00446057 0
 data 11
 Left_Intake
 crease 30.000000
+hidden
 numvert 423
 -3.52649 -0.65252 0.79143
 -2.85437 -0.48661 0.28989
@@ -187151,6 +187320,7 @@ name "right-main-gear-axl"
 data 21
 Right_Main_Gear_C.001
 crease 30.000000
+hidden
 numvert 291
 2.47539 -2.17778 -1.2883
 2.47806 -2.17778 -1.30715
@@ -189235,6 +189405,7 @@ name "Right_Main_Gear_C_0"
 data 17
 Right_Main_Gear_C
 crease 30.000000
+hidden
 numvert 60
 2.47539 -2.17778 -1.2883
 2.47806 -2.17778 -1.30715
@@ -189621,6 +189792,7 @@ name "Right_Main_Gear_C.001"
 data 21
 Right_Main_Gear_C.002
 crease 30.000000
+hidden
 numvert 738
 2.39953 -1.20455 -1.30711
 2.45582 -1.21998 -1.29311
@@ -195964,6 +196136,7 @@ name "Right_Main_Gear_Cylin"
 data 21
 Right_Main_Gear_Cylin
 crease 30.000000
+hidden
 numvert 50
 2.5311 -1.32893 -1.36705
 2.51727 -1.32388 -1.38518
@@ -196361,6 +196534,7 @@ name "Right_Main_Gear_P.003"
 data 21
 Right_Main_Gear_P.005
 crease 30.000000
+hidden
 numvert 25
 2.69552 -1.23184 -1.45185
 2.68726 -1.22882 -1.46268
@@ -196478,6 +196652,7 @@ name "Right_Main_Gear_Porsh"
 data 21
 Right_Main_Gear_Porsh
 crease 30.000000
+hidden
 numvert 49
 2.68726 -1.22882 -1.46268
 2.68859 -1.23219 -1.46379
@@ -196790,6 +196965,7 @@ name "Right_Main_Gear_P"
 data 21
 Right_Main_Gear_P.003
 crease 30.000000
+hidden
 numvert 25
 2.13149 -1.51324 -1.31351
 2.13978 -1.49933 -1.28747
@@ -196907,6 +197083,7 @@ name "Right_Main_Gear_P.001"
 data 21
 Right_Main_Gear_P.002
 crease 30.000000
+hidden
 numvert 49
 2.13978 -1.49933 -1.28747
 2.13578 -1.50604 -1.28446
@@ -197219,6 +197396,7 @@ name "Right_Main_Gear_P_0"
 data 17
 Right_Main_Gear_P
 crease 30.000000
+hidden
 numvert 49
 2.14416 -1.31437 -1.28747
 2.14416 -1.32218 -1.28446
@@ -197528,6 +197706,7 @@ name "Right_Main_Gear_P_1"
 data 21
 Right_Main_Gear_P.001
 crease 30.000000
+hidden
 numvert 25
 2.14416 -1.33056 -1.31351
 2.14416 -1.31437 -1.28747
@@ -197652,6 +197831,7 @@ name "left-main-gear-axl"
 data 21
 Left_Main_Gear_Cy.001
 crease 30.000000
+hidden
 numvert 291
 2.47806 -2.17778 1.30715
 2.47539 -2.17778 1.2883
@@ -199729,6 +199909,7 @@ name "Left_Main_Gear_Cy_0"
 data 17
 Left_Main_Gear_Cy
 crease 30.000000
+hidden
 numvert 64
 2.47539 -1.75032 1.2883
 2.47806 -1.75032 1.30715
@@ -200126,6 +200307,7 @@ name "Left_Main_Gear_Cy.001"
 data 21
 Left_Main_Gear_Cy.002
 crease 30.000000
+hidden
 numvert 738
 2.4578 -1.21998 1.30711
 2.45582 -1.21998 1.29311
@@ -206469,6 +206651,7 @@ name "Left_Main_Gear_Cylind"
 data 21
 Left_Main_Gear_Cylind
 crease 30.000000
+hidden
 numvert 50
 2.52251 -1.33513 1.38752
 2.5195 -1.32952 1.38703
@@ -206866,6 +207049,7 @@ name "Left_Main_Gear_Po.002"
 data 21
 Left_Main_Gear_Po.004
 crease 30.000000
+hidden
 numvert 25
 2.69039 -1.23554 1.46408
 2.68859 -1.23219 1.46379
@@ -206983,6 +207167,7 @@ name "Left_Main_Gear_Porshe"
 data 21
 Left_Main_Gear_Porshe
 crease 30.000000
+hidden
 numvert 49
 2.69039 -1.23554 1.46408
 2.68859 -1.23219 1.46379
@@ -207295,6 +207480,7 @@ name "Left_Main_Gear_Po"
 data 21
 Left_Main_Gear_Po.003
 crease 30.000000
+hidden
 numvert 25
 2.14416 -1.33056 1.28344
 2.14416 -1.32218 1.28446
@@ -207412,6 +207598,7 @@ name "Left_Main_Gear_Po.001"
 data 21
 Left_Main_Gear_Po.002
 crease 30.000000
+hidden
 numvert 49
 2.14416 -1.33056 1.28344
 2.14416 -1.32218 1.28446
@@ -207725,6 +207912,7 @@ loc 0 -3.25963e-009 0
 data 17
 Left_Main_Gear_Po
 crease 30.000000
+hidden
 numvert 49
 2.13149 -1.51324 1.28344
 2.13578 -1.50604 1.28446
@@ -208034,6 +208222,7 @@ name "Left_Main_Gear_Po_1"
 data 21
 Left_Main_Gear_Po.001
 crease 30.000000
+hidden
 numvert 25
 2.13149 -1.51324 1.28344
 2.13578 -1.50604 1.28446
@@ -208154,6 +208343,7 @@ OBJECT poly
 name "9xdl1l"
 loc -0.868678 -1.23575 1.963
 crease 45.000000
+hidden
 numvert 8
 -1.38958 0.176514 -0.287674
 -1.38958 0.176653 -0.28756
@@ -208212,6 +208402,7 @@ Fuselage
 texture "Liveries/maps/defaultnose.dds"
 texoff 0.00558659 0
 crease 30.000000
+hidden
 numvert 55
 -8.66179 -1.11407 0
 -8.83895 -1.06574 0
@@ -208597,6 +208788,7 @@ Fuselage.001
 texture "Liveries/maps/defaultnose.dds"
 texoff 0.00558659 0
 crease 30.000000
+hidden
 numvert 55
 -8.86222 -1.03249 0.09288
 -8.87329 -0.95691 0.17812
@@ -208982,6 +209174,7 @@ Fuselage.002
 texture "Liveries/maps/defaultnose.dds"
 texoff 0.00558659 0
 crease 30.000000
+hidden
 numvert 97
 -8.66179 -0.8208 0.32592
 -8.86478 -0.83439 0.25659
@@ -209726,6 +209919,7 @@ OBJECT poly
 name "baydoor2R"
 loc -0.533568 -1.72986 -0.505131
 crease 45.000000
+hidden
 numvert 2
 -1.5589 0 0
 1.5589 0 0
@@ -209750,6 +209944,7 @@ data 12
 Fuselage.002
 texture "Liveries/maps/abovecpt.dds"
 crease 30.000000
+hidden
 numvert 125
 -4.46218 -0.57293 0.82155
 -4.46218 -0.57293 -0.82155
@@ -210559,6 +210754,7 @@ data 12
 Fuselage.002
 texture "Liveries/maps/abovecpt.dds"
 crease 30.000000
+hidden
 numvert 98
 -4.19586 0.06494 -0.48679
 -4.06073 0.08193 -0.47531
@@ -211169,6 +211365,7 @@ name "lfd2"
 loc 1.29446 -1.42962 1.4013
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 28
 0.272905 0.0042944 0.00277054
 0.272905 0.00393677 0.00290322
@@ -211517,6 +211714,7 @@ name "rfd2"
 loc 1.29431 -1.4226 1.44787
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 28
 0.272905 0.0042944 -2.86401
 0.272905 0.00393677 -2.86415
@@ -211865,6 +212063,7 @@ name "lfd"
 loc 1.29556 -1.43109 1.40281
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 28
 0.0818558 0.160454 0.116986
 0.0818596 0.160266 0.117248
@@ -212213,6 +212412,7 @@ name "rfd"
 loc 1.29279 -1.42288 1.44736
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 28
 0.0818558 0.160454 -2.97526
 0.0818596 0.160266 -2.97553
@@ -212560,6 +212760,7 @@ OBJECT poly
 name "navlight"
 loc 4.41275 -0.821158 5.33884
 crease 45.000000
+hidden
 numvert 4
 -0.109902 -0.0163809 0.199374
 -0.0161619 -0.0199608 0.242945
@@ -212584,6 +212785,7 @@ data 10
 FlameModel
 texture "Effects/Afterburner/old/transparentday.png"
 crease 80.000000
+hidden
 numvert 64
 0.0704207 0 0
 0.0704207 -0.169287 0.363037
@@ -213240,6 +213442,7 @@ data 10
 FlameModel
 texture "Effects/Afterburner/old/transparentday.png"
 crease 80.000000
+hidden
 numvert 64
 -0.0704207 0 0
 -0.0704207 -0.169287 0.363037
@@ -213897,6 +214100,7 @@ data 10
 FlameModel
 texture "Effects/Afterburner/old/transparentday.png"
 crease 80.000000
+hidden
 numvert 64
 -0.0704207 0 0
 -0.0704207 -0.169287 0.363037
@@ -214553,6 +214757,7 @@ data 10
 FlameModel
 texture "Effects/Afterburner/old/transparentday.png"
 crease 80.000000
+hidden
 numvert 64
 -1.17421e-005 -0.160719 0.198077
 0.0402994 -0.144275 0.205745
@@ -215209,6 +215414,7 @@ data 10
 FlameModel
 texture "Effects/Afterburner/old/transparentday.png"
 crease 80.000000
+hidden
 numvert 64
 1.17421e-005 -0.0484277 0.25044
 -0.0402994 -0.0648724 0.242772
@@ -215866,6 +216072,7 @@ data 10
 FlameModel
 texture "Effects/Afterburner/old/transparentday.png"
 crease 80.000000
+hidden
 numvert 64
 1.18017e-005 -0.0484277 0.25044
 -0.0402994 -0.0648724 0.242772
@@ -216522,6 +216729,7 @@ data 10
 FlameModel
 texture "Effects/Afterburner/old/transparentday.png"
 crease 80.000000
+hidden
 numvert 64
 0.0704207 0 0
 0.0704207 -0.169287 0.363037
@@ -217178,6 +217386,7 @@ data 10
 FlameModel
 texture "Effects/Afterburner/old/transparentday.png"
 crease 80.000000
+hidden
 numvert 64
 -0.0704207 0 0
 -0.0704207 -0.169287 0.363037
@@ -217835,6 +218044,7 @@ data 10
 FlameModel
 texture "Effects/Afterburner/old/transparentday.png"
 crease 80.000000
+hidden
 numvert 64
 -0.0704207 0 0
 -0.0704207 -0.169287 0.363037
@@ -218491,6 +218701,7 @@ loc -0.000368714 -0.00446057 0
 data 12
 Cabin_Carcas
 crease 30.000000
+hidden
 numvert 79
 -3.94652 0.09887 -0.42781
 -3.94238 0.09887 -0.43626
@@ -218895,6 +219106,7 @@ data 12
 Cabin_Carcas
 texture "Interior/grey-blue-flood.png"
 crease 30.000000
+hidden
 numvert 225
 -6.25913 -0.17907 -0.36789
 -5.95839 -0.14017 -0.40554
@@ -220495,6 +220707,7 @@ data 12
 Cabin_Carcas
 texture "Interior/grey-blue-flood.png"
 crease 30.000000
+hidden
 numvert 225
 -6.54993 -0.11194 0.28501
 -6.54993 -0.11194 0.2809
@@ -222100,6 +222313,7 @@ name "rightfrontturbine"
 loc -0.648509 -0.760815 -0.347746
 texture "nozzle2.png"
 crease 45.000000
+hidden
 numvert 1081
 0.10173 0.415015 -0.0228825
 0.10173 0.413535 0.0414495
@@ -231133,6 +231347,7 @@ name "leftfrontturbine"
 loc -0.648509 -0.764353 0.374768
 texture "nozzle2.png"
 crease 45.000000
+hidden
 numvert 1081
 0.10173 0.415015 -0.0228823
 0.10173 0.413535 0.0414497
@@ -240165,6 +240380,7 @@ OBJECT poly
 name "9xdl2-axis"
 loc -0.884005 -1.51354 1.33517
 crease 45.000000
+hidden
 numvert 2
 1.49141 -1.19209e-007 0
 -1.49141 0 0
@@ -240182,6 +240398,7 @@ data 16
 Right_Rocket_Bay
 texture "intbay.png"
 crease 30.000000
+hidden
 numvert 263
 -2.39849 -1.35475 -0.571527
 -2.39849 -1.35474 -0.384139
@@ -241662,6 +241879,7 @@ data 15
 Left_Rocket_Bay
 texture "intbay.png"
 crease 30.000000
+hidden
 numvert 263
 -2.39849 -1.35475 0.577115
 -2.39849 -1.35474 0.387896
@@ -243153,6 +243371,7 @@ data 12
 Fuselage.002
 texture "intbay.png"
 crease 30.000000
+hidden
 numvert 4
 0.533908 -1.51687 -1.3329
 0.533908 -1.05654 -1.67181
@@ -243171,6 +243390,7 @@ OBJECT poly
 name "bayr"
 texture "intbay.png"
 crease 45.000000
+hidden
 numvert 4
 -2.22323 -1.17073 -0.728605
 -2.25841 -1.51359 -1.3351
@@ -243196,6 +243416,7 @@ data 12
 Fuselage.002
 texture "intbay.png"
 crease 30.000000
+hidden
 numvert 140
 -1.62608 -0.705132 -1.06135
 -1.60745 -1.17999 -0.721858
@@ -245235,6 +245456,7 @@ OBJECT poly
 name "bayr"
 texture "intbay.png"
 crease 45.000000
+hidden
 numvert 8
 -1.41869 -1.18389 -0.727554
 -1.80715 -1.18459 -0.728033
@@ -245264,6 +245486,7 @@ data 16
 Right_Rocket_Bay
 texture "Liveries/maps/SIDER.png"
 crease 30.000000
+hidden
 numvert 4
 -2.29224 -1.52955 -1.24146
 0.08081 -1.51763 -1.24146
@@ -245289,6 +245512,7 @@ data 12
 Fuselage.002
 texture "Liveries/maps/SIDER.png"
 crease 30.000000
+hidden
 numvert 193
 0.941749 -0.708912 -1.05846
 1.06717 -1.17205 -0.717933
@@ -246184,6 +246408,7 @@ data 12
 Fuselage.002
 texture "Liveries/PH/SIDEL.dds"
 crease 30.000000
+hidden
 numvert 145
 5.69428 -0.96781 1.64022
 5.70845 -1.06779 1.46698
@@ -246953,6 +247178,7 @@ data 12
 Fuselage.002
 texture "intbay.png"
 crease 30.000000
+hidden
 numvert 87
 -1.47073 -0.705502 1.09788
 -1.4534 -1.18008 0.758063
@@ -247683,6 +247909,7 @@ OBJECT poly
 name "AIM-9-R-RAIL"
 loc -4.06007 -0.422203 -3.0695
 crease 45.000000
+hidden
 numvert 352
 4.60326 -0.800621 4.40738
 4.60892 -0.791312 4.41824
@@ -251895,6 +252122,7 @@ name "AIM-9L"
 loc -4.03294 -0.385237 -3.13744
 texture "loads/aim9.png"
 crease 45.000000
+hidden
 numvert 1046
 2.2339 -1.01332 4.84961
 2.37374 -0.98695 4.85318
@@ -264275,6 +264503,7 @@ name "LEFTMAINDOOR2"
 loc 0.125803 -0.00271046 -0.751257
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 12
 -2.44277 0.018716 1.48776
 -2.19403 0.0187159 1.28813
@@ -264415,6 +264644,7 @@ name "object"
 loc 0.127104 -0.00271046 2.9547
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 12
 -2.44277 0.0182929 -1.48776
 -2.25625 0.018293 -1.72233
@@ -264559,6 +264789,7 @@ name "RIGHTMAINDOOR2"
 loc 0.000650316 0.00308704 1.85298
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 12
 -2.19403 0.0200181 -1.28813
 -2.19404 0.020879 -1.28813
@@ -264699,6 +264930,7 @@ name "object"
 loc -0.000650302 0.00308704 -1.85298
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 12
 -2.25625 0.0200183 1.72232
 -2.25626 0.020879 1.72232
@@ -264839,6 +265071,7 @@ name "9xdr1"
 loc -0.868163 -1.24022 -2.01719
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 6
 -1.73501 -0.000186324 0.000130177
 1.73501 -0.000186324 0.000130177
@@ -264877,6 +265110,7 @@ name "9xdr2"
 loc -0.868163 -1.71446 -1.68638
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 6
 -1.38688 0.198395 0.347912
 -1.38688 0.198581 0.347782
@@ -264915,6 +265149,7 @@ name "9xdl2"
 loc -0.868163 -1.7129 1.68269
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 6
 -1.73501 0 0
 1.73501 -2.38419e-007 0
@@ -264953,6 +265188,7 @@ name "9xdl1"
 loc -0.868678 -1.22665 1.96348
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 6
 -1.73839 -0.000139832 -0.000114441
 1.73839 -0.000139713 -0.000114799
@@ -264997,6 +265233,7 @@ data 12
 Fuselage.002
 texture "Liveries/maps/body2.png"
 crease 30.000000
+hidden
 numvert 43
 -1.8344 0.09071 0.1744
 -1.84737 0.01759 0.37688
@@ -265299,6 +265536,7 @@ OBJECT poly
 name "topv-axis"
 loc 6.23769 -0.599825 1.91614
 crease 45.000000
+hidden
 numvert 2
 0 0 1.31306
 0 0 -1.31306
@@ -265318,6 +265556,7 @@ name "9xdr"
 loc 0 0.000356317 0.00112188
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 4
 1.71038 -0.000288129 8.63075e-005
 -1.71038 -0.000288248 8.64267e-005
@@ -265342,6 +265581,7 @@ name "9xdr"
 loc 0 -0.000356436 -0.00112176
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 4
 -1.36719 -0.233331 -0.173337
 1.36719 -0.233332 -0.173337
@@ -265370,6 +265610,7 @@ name "9xdr"
 loc 6.41346e-005 -0.0012188 -3.8147e-006
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 4
 -1.71029 0 0.0179105
 1.71029 2.38419e-007 -0.0179105
@@ -265394,6 +265635,7 @@ name "9xdr"
 loc 6.41346e-005 0.00121903 -3.8147e-006
 texture "Liveries/bays.png"
 crease 45.000000
+hidden
 numvert 4
 1.36527 0.226194 -0.19025
 -1.36896 0.226194 -0.161616
@@ -265420,6 +265662,7 @@ data 12
 Cabin_Carcas
 texture "cpt.png"
 crease 30.000000
+hidden
 numvert 811
 -4.44965 0.17394 0.42358
 -4.37246 0.18366 0.4171
@@ -271411,6 +271654,7 @@ OBJECT poly
 name "cabin"
 loc -5.39607 0.0078828 -0.455364
 crease 45.000000
+hidden
 numvert 584
 -0.187213 -0.051646 0.0652632
 -0.183151 -0.0548288 0.0638095
@@ -275210,6 +275454,7 @@ loc -0.000368714 -0.00446057 0
 data 12
 Right_Intake
 crease 30.000000
+hidden
 numvert 423
 -3.52649 -0.65252 -0.79143
 -3.18243 -0.56885 -0.54091
@@ -278745,6 +278990,7 @@ name "rintcover"
 loc -3.86679 -1.51859 -1.11053
 texture "redcover.png"
 crease 45.000000
+hidden
 numvert 19
 0.587543 -0.110465 -0.0566843
 0.475847 -0.0903878 0.0799992
@@ -278794,6 +279040,7 @@ name "lintcover"
 loc -3.86679 -1.51859 -1.11053
 texture "redcover.png"
 crease 45.000000
+hidden
 numvert 19
 0.498809 0.0844119 2.3952
 0.415315 0.271508 2.53014
@@ -278843,6 +279090,7 @@ name "lsensorcover"
 loc -7.54888 -1.09356 -0.478385
 texture "redcover.png"
 crease 45.000000
+hidden
 numvert 4
 0.276539 0.137859 -0.0332268
 -0.416039 0.107391 0.0730028
@@ -278862,6 +279110,7 @@ name "lsensorcover"
 loc -7.54888 -1.09356 -0.477738
 texture "redcover.png"
 crease 45.000000
+hidden
 numvert 4
 0.41402 -0.112427 0.805078
 -0.310699 -0.0848098 0.7394
@@ -278881,6 +279130,7 @@ name "lsensorcover"
 loc -7.60754 -1.30035 0.302108
 texture "redcover.png"
 crease 45.000000
+hidden
 numvert 4
 -0.0149755 -0.129359 0
 0.0149755 -0.129359 0
@@ -278899,6 +279149,7 @@ OBJECT poly
 name "smladder"
 loc -5.18634 -3.04687 -0.00353712
 crease 45.000000
+hidden
 numvert 16728
 0.218282 2.93396 0.691126
 0.232777 2.93223 0.689242
@@ -559899,6 +560150,7 @@ name "fillin"
 loc -3.82204 0.234617 -0.00522492
 texture "grey-blue-flood.png"
 crease 45.000000
+hidden
 numvert 11
 -0.107723 -0.14032 -0.458071
 -0.0582745 -0.0410381 -0.386529
@@ -559934,6 +560186,7 @@ data 12
 Cabin_Carcas
 texture "grey-blue-flood.png"
 crease 30.000000
+hidden
 numvert 120
 -4.06735 0.22246 -0.37844
 -4.03913 0.27946 -0.30965
@@ -560750,6 +561003,7 @@ data 12
 Cabin_Carcas
 texture "grey-blue-flood.png"
 crease 30.000000
+hidden
 numvert 4
 -4.14162 0.21277 -0.38606
 -4.21771 0.20308 -0.39513
@@ -560771,6 +561025,7 @@ data 12
 Cabin_Carcas
 texture "grey-blue-flood.png"
 crease 30.000000
+hidden
 numvert 75
 -6.59978 -0.0854001 -0.21723
 -6.63518 -0.0643201 -0.17222
@@ -561458,6 +561713,7 @@ data 12
 Cabin_Carcas
 texture "grey-blue-flood.png"
 crease 30.000000
+hidden
 numvert 120
 -6.76672 -0.0154001 0
 -6.73025 -0.02442 -0.03074
@@ -562260,6 +562516,7 @@ data 12
 Cabin_Carcas
 texture "grey-blue-flood.png"
 crease 30.000000
+hidden
 numvert 120
 -3.59903 0.42096 0
 -3.69449 0.38059 -0.08193
@@ -563074,6 +563331,7 @@ name "fillin"
 loc -6.72804 -0.105731 -0.00157169
 texture "grey-blue-flood.png"
 crease 45.000000
+hidden
 numvert 9
 -0.179163 -0.000115052 0.00153158
 -0.092452 -0.0112606 -0.0883902
@@ -563103,6 +563361,7 @@ name "fillin"
 loc -6.2862 -0.24094 0.000868499
 texture "grey-blue-flood.png"
 crease 45.000000
+hidden
 numvert 4
 -0.264112 0 -0.378788
 0.26658 0.0688555 -0.464278
@@ -563121,6 +563380,7 @@ OBJECT poly
 name "refeulrecpt"
 loc 0.691763 -0.208389 -0.000987245
 crease 45.000000
+hidden
 numvert 6
 -0.222381 0 -0.217573
 0.235203 0 -0.220779
@@ -563143,6 +563403,7 @@ OBJECT poly
 name "fueldoorR"
 loc 0.692783 -0.0371404 -0.133056
 crease 45.000000
+hidden
 numvert 4
 -0.418272 0 0.10702
 0.420418 0 0.109467
@@ -563168,6 +563429,7 @@ data 8
 Fuselage
 texture "Liveries/maps/undercpt.dds"
 crease 30.000000
+hidden
 numvert 323
 -4.07787 -1.20912 -0.576
 -3.9864 -1.36885 -0.4887
@@ -565280,6 +565542,7 @@ data 12
 Fuselage.001
 texture "Liveries/maps/bottom.dds"
 crease 30.000000
+hidden
 numvert 2102
 7.37261 -0.86696 1.53686
 7.50111 -0.85503 1.52609
@@ -580450,6 +580713,7 @@ data 12
 Fuselage.002
 texture "Liveries/maps/newbody.png"
 crease 30.000000
+hidden
 numvert 1244
 2.72837 -0.83544 1.85204
 2.72837 -0.83544 -1.85204
@@ -589511,6 +589775,7 @@ OBJECT poly
 name "bleedr"
 loc 0.933284 -0.0850796 -0.697265
 crease 45.000000
+hidden
 numvert 14
 -0.0619654 -0.206119 -0.220835
 -0.137232 -0.163406 -0.114473
@@ -589549,6 +589814,7 @@ OBJECT poly
 name "bleedr"
 loc 0.713265 -0.0964264 -0.695554
 crease 45.000000
+hidden
 numvert 14
 -0.0686647 -0.195225 -0.223843
 -0.143117 -0.153997 -0.117877
@@ -589587,6 +589853,7 @@ OBJECT poly
 name "bleedr"
 loc 0.713265 -0.0964264 -0.695554
 crease 45.000000
+hidden
 numvert 14
 -0.150796 -0.248588 -0.34718
 0.0733448 -0.244405 -0.347695
@@ -589625,6 +589892,7 @@ OBJECT poly
 name "bleedl"
 loc 0.712231 -0.0741244 -0.746573
 crease 45.000000
+hidden
 numvert 14
 -0.0686647 -0.195225 1.61495
 -0.143117 -0.153997 1.50899
@@ -589663,6 +589931,7 @@ OBJECT poly
 name "bleedl"
 loc 0.932251 -0.0627775 -0.748284
 crease 45.000000
+hidden
 numvert 14
 -0.14492 -0.255562 1.74254
 0.0733446 -0.255983 1.74323
@@ -589701,6 +589970,7 @@ OBJECT poly
 name "bleedl"
 loc 0.487939 -0.0659442 -0.74752
 crease 45.000000
+hidden
 numvert 14
 -0.0885887 -0.19277 1.60368
 -0.164604 -0.153705 1.50109
@@ -589739,6 +590009,7 @@ OBJECT poly
 name "rbleed1-axis"
 loc 0.797427 -0.253621 -0.791181
 crease 45.000000
+hidden
 numvert 2
 0 0.125274 0.295128
 0 -0.125271 -0.295121
@@ -589754,6 +590025,7 @@ name "lbleed2"
 loc 0.71195 -0.0730273 -0.746573
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 14
 -0.150796 -0.248588 1.73829
 0.0733448 -0.244405 1.7388
@@ -589793,6 +590065,7 @@ name "gundoor"
 loc -0.402568 -0.512631 -1.50131
 texture "Liveries/maps/newbody.png"
 crease 45.000000
+hidden
 numvert 6
 -0.378117 -0.0583326 -0.101298
 0.371198 -0.0331339 -0.103471
@@ -589820,6 +590093,7 @@ name "Nose_Gear_Cylinder01"
 data 20
 Nose_Gear_Cylinder01
 crease 30.000000
+hidden
 numvert 819
 -3.73745 -1.51349 -0.03181
 -3.73814 -1.50701 -0.03181
@@ -596338,6 +596612,7 @@ name "Nose_Gear_Cylinde"
 data 17
 Nose_Gear_Cylinde
 crease 30.000000
+hidden
 numvert 937
 -3.60751 -1.99227 0.02421
 -3.60251 -1.99227 0.000829995
@@ -606650,6 +606925,7 @@ name "Nose_Gear_Cylinder02_"
 data 20
 Nose_Gear_Cylinder02
 crease 30.000000
+hidden
 numvert 33
 -3.60251 -1.58369 0.000829995
 -3.60751 -1.58369 0.02421
@@ -606869,6 +607145,7 @@ name "Nose_Gear_Cylinder03"
 data 20
 Nose_Gear_Cylinder03
 crease 30.000000
+hidden
 numvert 34
 -4.0848 -1.28531 0.00174001
 -4.09545 -1.29818 0.01726
@@ -607138,6 +607415,7 @@ name "Nose_Gear_Cylinde.001"
 data 21
 Nose_Gear_Cylinde.001
 crease 30.000000
+hidden
 numvert 17
 -3.7674 -1.54243 0.00174001
 -3.75987 -1.53299 0.01295
@@ -607219,6 +607497,7 @@ name "Nose_Gear_Cylinder04_"
 data 20
 Nose_Gear_Cylinder04
 crease 30.000000
+hidden
 numvert 33
 -3.75987 -1.53299 0.01295
 -3.76332 -1.53732 0.01639
@@ -608687,6 +608966,7 @@ name "Nose_Gear_Holder02"
 data 18
 Nose_Gear_Holder02
 crease 30.000000
+hidden
 numvert 123
 -3.67011 -2.01002 -0.03658
 -3.67034 -2.0101 -0.04457
@@ -609741,6 +610021,7 @@ loc -3.6673 -2.3568 0.001055
 data 20
 Nose_Wheel_Pnevmatic
 crease 30.000000
+hidden
 numvert 1473
 -0.00185966 0.00345039 0.093565
 0.00711012 0.00104046 0.093565
@@ -621094,6 +621375,7 @@ OBJECT poly
 name "bwheel-axis"
 loc 2.40014 -2.23473 -1.83777
 crease 45.000000
+hidden
 numvert 2
 0 0 0.256218
 0 0 -0.256217
@@ -621107,7 +621389,6 @@ kids 0
 OBJECT group
 name "rwheelwheel"
 loc -0.000368714 -0.00446057 0
-hidden
 kids 3
 OBJECT poly
 name "rwheel2"
@@ -632680,7 +632961,6 @@ kids 0
 OBJECT group
 name "lwheelwheel"
 loc -0.000368714 -0.00446057 0
-hidden
 kids 3
 OBJECT poly
 name "lwheel2"
@@ -644249,4 +644529,18 @@ refs 3
 704 0 0
 715 1 0
 248 1 1
+kids 0
+OBJECT poly
+name "Nose_Gear_Holder01-axis"
+loc -3.66697 -1.55922 0.27307
+crease 45.000000
+numvert 2
+0 0 -0.198857
+0 0 0.198867
+numsurf 1
+SURF 0x32
+mat 1
+refs 2
+0 0 0
+1 1 0
 kids 0
