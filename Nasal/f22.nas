@@ -1,8 +1,43 @@
 # f22.nas | Everything Raptor needs at the call of a function
-# Phoenix
+# All code (excepted code that was labled under a different developer) authored by Phoenix
+# Copyright (c) 2026, Backdoor Interactive! (Phoenix, Uapilot)
+# Now for a more formal introduction
+#
+#
+#  ________  _______   _______      ________   ________  ________                                                                                                                                                                         
+# |\  _____\/  ___  \ /  ___  \    |\   ___  \|\   __  \|\   ____\                                                                                                                                                                        
+# \ \  \__//__/|_/  //__/|_/  /|   \ \  \\ \  \ \  \|\  \ \  \___|_                                                                                                                                                                       
+#  \ \   __\__|//  / /__|//  / /    \ \  \\ \  \ \   __  \ \_____  \                                                                                                                                                                      
+#   \ \  \_|   /  /_/__  /  /_/__  __\ \  \\ \  \ \  \ \  \|____|\  \                                                                                                                                                                     
+#    \ \__\   |\________\\________\\__\ \__\\ \__\ \__\ \__\____\_\  \                                                                                                                                                                    
+#     \|__|    \|_______|\|_______\|__|\|__| \|__|\|__|\|__|\_________\                                                                                                                                                                   
+#                                                          \|_________|                                                                                                                                                                   
+#                                                                                                                                                                                                                                         
+#                                                                                                                                                                                                                                         
+#                                                                                                                                                                                                                                         
+#                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+#                                                                                                                                                                                                                                         
+#  ________  ________  ________  _________  ________  ________  ________           _____ ______   ________  ___  ________           ________   ________  ________  ________  ___               ________  ________  ________  _______      
+# |\   __  \|\   __  \|\   __  \|\___   ___\\   __  \|\   __  \|\   ____\         |\   _ \  _   \|\   __  \|\  \|\   ___  \        |\   ___  \|\   __  \|\   ____\|\   __  \|\  \             |\   ____\|\   __  \|\   ___ \|\  ___ \     
+# \ \  \|\  \ \  \|\  \ \  \|\  \|___ \  \_\ \  \|\  \ \  \|\  \ \  \___|_        \ \  \\\__\ \  \ \  \|\  \ \  \ \  \\ \  \       \ \  \\ \  \ \  \|\  \ \  \___|\ \  \|\  \ \  \            \ \  \___|\ \  \|\  \ \  \_|\ \ \   __/|    
+#  \ \   _  _\ \   __  \ \   ____\   \ \  \ \ \  \\\  \ \   _  _\ \_____  \        \ \  \\|__| \  \ \   __  \ \  \ \  \\ \  \       \ \  \\ \  \ \   __  \ \_____  \ \   __  \ \  \            \ \  \    \ \  \\\  \ \  \ \\ \ \  \_|/__  
+#   \ \  \\  \\ \  \ \  \ \  \___|    \ \  \ \ \  \\\  \ \  \\  \\|____|\  \        \ \  \    \ \  \ \  \ \  \ \  \ \  \\ \  \       \ \  \\ \  \ \  \ \  \|____|\  \ \  \ \  \ \  \____        \ \  \____\ \  \\\  \ \  \_\\ \ \  \_|\ \ 
+#    \ \__\\ _\\ \__\ \__\ \__\        \ \__\ \ \_______\ \__\\ _\ ____\_\  \        \ \__\    \ \__\ \__\ \__\ \__\ \__\\ \__\       \ \__\\ \__\ \__\ \__\____\_\  \ \__\ \__\ \_______\       \ \_______\ \_______\ \_______\ \_______\
+#     \|__|\|__|\|__|\|__|\|__|         \|__|  \|_______|\|__|\|__|\_________\        \|__|     \|__|\|__|\|__|\|__|\|__| \|__|        \|__| \|__|\|__|\|__|\_________\|__|\|__|\|_______|        \|_______|\|_______|\|_______|\|_______|
+#                                                                 \|_________|                                                                             \|_________|                                                                   
+#       - uapilot, Thank you for this
+#
+
+# Some terminology
+
+# "thingy" refers to an object that sticks out from the reset in a unique way.
+# Thought you guys might want to know. 
+
+
+
 # Hide the hud when not in the cockpit view
 setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
-# Init some vars
+# Init some vars and props
 setprop("f22/fcs/extra",0);
 setprop("f22/fcs/aoalimit",90);
 setprop("f22/fcs/glimit",0);
@@ -19,7 +54,6 @@ setprop("f22/bayupdate",0);
 setprop("controls/baydoor/AIM120lock",0);
 setprop("f22/rbleed",0.0);
 setprop("f22/lbleed",0.0);
-
 setprop("f22/quick-gear",1);
 setprop("f22/gear1/pos",1);
 setprop("f22/gear2/pos",1);
@@ -286,7 +320,7 @@ var rsmoketimer = func() {
 
 lsmoke = maketimer(0.5,lsmoketimer);
 rsmoke = maketimer(0.5,rsmoketimer);
-# Landing gear controller
+# Landing gear controller, Phoenix
 var gearloop = func() {
   # smoke and stuff
   var cwow = getprop("gear/gear[0]/wow");
@@ -324,7 +358,6 @@ var gearloop = func() {
     setprop("f22/runwaysplash",0);
   }
 
-
   var gearhandle = getprop("controls/gear/gear-down");
   var speed = getprop("velocities/airspeed-kt");
   var damaged = getprop("f22/gear-damaged");
@@ -361,7 +394,7 @@ var gearloop = func() {
       }
     }
   }
-
+  # and apply it in the animation
   if (damagegear1 == 1) {
     # nose is damaged
     if (fdmgear < 0.25) {
@@ -398,6 +431,7 @@ var gearloop = func() {
 gearmain = maketimer(0,gearloop);
 
 # Floats
+# Idea, Make some of these saveable. So when you resume a flight, Volume knobs will maintain there position
 setprop("controls/vol/rwr",0.5);
 setprop("controls/lighting/consoleknob",0.1); #instruments-norm
 setprop("controls/lighting/consoleknob",0); #instruments-norm
@@ -457,7 +491,7 @@ var dt = 0;
 var time = getprop("/sim/time/elapsed-sec");
 
 
-var updatehead = func {
+var updatehead = func { # Head movement thingy
   if (getprop("sim/current-view/internal") == 1) {
     setprop("f22/head-hdg-deg",getprop("sim/current-view/heading-offset-deg"));
     setprop("f22/head-ptc-deg",getprop("sim/current-view/pitch-offset-deg"));

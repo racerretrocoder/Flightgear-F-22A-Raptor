@@ -518,6 +518,27 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 </animation>
 
 
+<!--Compression Right_Main_Gear_C_0, right-main-gear-axl, rwheelwheel, rwheelwheel2
+
+	  <animation>
+    <type>translate</type>
+    <object-name>Right_Main_Gear_C_0</object-name>
+    <object-name>right-main-gear-axl</object-name>
+	<object-name>rwheelwheel</object-name>
+    <object-name>rwheelwheel2</object-name>
+
+    <property>controls/cabin/shaking</property>
+    <axis>
+      <x1-m>  0.0 </x1-m>
+      <y1-m>  0.0 </y1-m>
+      <z1-m>  0.0 </z1-m>
+      <x2-m>  0.5 </x2-m>
+      <y2-m> -0.6 </y2-m>
+      <z2-m>  0.9 </z2-m>
+    </axis>
+  </animation>-->
+
+
 	<animation>
 		<type>spin</type>
 		<object-name>lwheelwheel2</object-name>
@@ -583,7 +604,6 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
 	<animation>
 		<type>select</type>
-		<object-name>lwheelwheel2</object-name>
 		<object-name>rwheelwheel2</object-name>
 		<condition>
 			<equals>
@@ -593,7 +613,16 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 		</condition>
 	</animation>
 
-
+	<animation>
+		<type>select</type>
+		<object-name>lwheelwheel2</object-name>
+		<condition>
+			<equals>
+				<property>sim/multiplay/generic/float[3]</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
 
 
 
