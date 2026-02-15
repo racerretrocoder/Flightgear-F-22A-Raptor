@@ -1570,7 +1570,8 @@ var updatemkr = func() {
 mkrtimer = maketimer(0.1,updatemkr);
 mkrtimer.start();
 
-
+setprop("instrumentation/radar/jam",1);
+setprop("instrumentation/radar/jamlock",0);
 # What happens when the radar Locks on, Goes into STT and spikes target (see lockhelper.nas)
 # Also controls the radar mode, Scanning settings, Azimuth, Speed, etc
 var tgtlock = func{
@@ -1584,7 +1585,37 @@ var tgtlock = func{
     #print(target1_x / 10);
     setprop("instrumentation/radar2/sweep-speed", 10);
     setprop("instrumentation/radar/lock2", 2);
+    if(getprop("instrumentation/radar/mode/main") == 4)
+    {   # JAM
+        setprop("instrumentation/radar/jamlock",1);
+        if (getprop("controls/jammer/en") == 0) {
+          jammer.start();
+          screen.log.write("Jamming fake missile alerts to locked target!",0,1,0);
+          setprop("controls/jammer/en",1);
+        }
+    } else {
+        setprop("instrumentation/radar/jam",0);        
+        if (getprop("controls/jammer/en") == 1) {
+          jammer.stop();
+          setprop("controls/jammer/en",0);
+        }
+    }
   } elsif (getprop("instrumentation/radar/lock") == 0){
+    if(getprop("instrumentation/radar/mode/main") == 4)
+    {   # JAM
+        setprop("instrumentation/radar/jamlock",0);
+        setprop("instrumentation/radar/jam",1);
+        setprop("instrumentation/radar/az-field", 90);
+        setprop("instrumentation/radar2/sweep-display-width", 0.1646);        
+        setprop("instrumentation/radar2/sweep-speed", 5);   
+        if (getprop("controls/jammer/en") == 1) {
+          jammer.stop();
+          setprop("controls/jammer/en",0);
+        }
+    } else {
+        setprop("instrumentation/radar/jam",0);
+        setprop("instrumentation/radar/jamlock",0);
+    }
     if(getprop("instrumentation/radar/mode/main") == 3)
     {   # SLR
         setprop("instrumentation/radar/az-field", 280);

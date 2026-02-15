@@ -1330,10 +1330,25 @@ elsif(getprop("instrumentation/radar/mode/main") == 2)
       #  AzField.setValue(120);
       #  swp_diplay_width = 0.0844;
     }
+
 elsif(getprop("instrumentation/radar/mode/main") == 3)
     {
         f22.acmtimer.stop();
         screen.log.write("Side looking radars off");
+        screen.log.write("Jamming Mode Enabled");
+        setprop("instrumentation/radar/az-field", 120);
+        setprop("instrumentation/radar/mode/main", 4);
+        setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
+        setprop("instrumentation/radar2/sweep-speed", 2);
+        # ACM Check   
+      #  wcs_mode = "pulse-srch";
+      #  AzField.setValue(120);
+      #  swp_diplay_width = 0.0844;
+    }
+
+elsif(getprop("instrumentation/radar/mode/main") == 4)
+    {
+        screen.log.write("Jamming Mode Disabled");
         setprop("instrumentation/radar/az-field", 120);
         setprop("instrumentation/radar/mode/main", 0);
         setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
