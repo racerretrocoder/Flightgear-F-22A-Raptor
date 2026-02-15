@@ -5,12 +5,71 @@
 setprop("controls/jammer/status",0);
 setprop("controls/jammer/autodeploy",0);
 setprop("controls/jammer/autodeploymode",1);
+setprop("controls/jammer/heading",60);
+setprop("controls/jammer/callsign","");
+setprop("controls/jammer/distance",10); # 5 nm
 # How it works. Constantly Release "invisible chaff and flares" as fast as possible. the goal here is protect the plane the best we can. 
 # The attacker wont know the jammer is on because it wont show the flares out on multiplayer. There missile will just magically miss. 
 # If the number is not nil or 0. then itll run an RNG every time the number changes and the targets missile code checks our number again
 
 var flare = "rotors/main/blade[3]/flap-deg";
 var chaff = "rotors/main/blade[3]/position-deg";
+
+
+var spec = func() {
+  var en = getprop("controls/jammer/en");
+  var ae = getprop("controls/radar/lockedcallsign");
+  var hg = getprop("controls/jammer/heading"); # IN TRUE
+  var dt = getprop("controls/jammer/distance"); # IN TRUE
+  # SUPER IMPORTANT
+  var negoffset = 0.5;
+  var neg = rand() < (1-negoffset);
+  var offset = rand() * (rand() *4);
+  if (neg == 1) {
+    offset = offset * -1;
+  }
+  var dist = dt + offset;
+  print("Jammer offset: "~offset~"");
+  print("Jammer dist: "~dist~"");
+
+  if (ae != nil and en == 1) {
+    var mp = misc.smallsearch(ae);
+    var lat1 = getprop("ai/models/multiplayer[" ~ mp ~ "]/position/latitude-deg");
+    var lon1 = getprop("ai/models/multiplayer[" ~ mp ~ "]/position/longitude-deg");
+    var alt1 = getprop("ai/models/multiplayer[" ~ mp ~ "]/position/altitude-ft");
+    # coord thingy
+    var coord1 = geo.Coord.new();  
+    var gndelev1 = alt1;
+    coord1.set_latlon(lat1, lon1, gndelev1);
+    var mslhdg = hg + offset; # IN TRUE
+    if (mslhdg < 0) {
+      mslhdg = mslhdg + 360;
+    }
+    # move the virt msl
+    coord1.apply_course_distance(mslhdg, dist * NM2M);
+    var newlat = coord1.lat();
+    var newlon = coord1.lon();
+    var deleted = 0;
+    # the sender
+    var unique = -11;
+    var typeID = 52;
+    var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
+    var altm = alt1*FT2M;
+
+    msg.Position.set_latlon(newlon,newlat,altm);
+    msg.Flags = 1; #act rad msl
+    msg.Flags = bits.set(msg.Flags, 0); # (should show smoke? 1 yes 0 no) | will do no for now. since there is actually no missile
+    msg.IsDistinct = !deleted; # The missile is "Not" dead
+    msg.RemoteCallsign = ae;
+    msg.UniqueIndex = ""~typeID~unique; # tid and the current missile number
+    msg.Pitch = offset; # simple
+    msg.Heading = mslhdg; # simple
+    msg.u_fps = 500; # simple
+    #msg.isValid();
+    notifications.geoBridgedTransmitter.NotifyAll(msg); # send
+  }
+}
+
 
 # INIT.
 setprop("/rotors/main/blade[3]/flap-deg", 0);  # flare
@@ -28,6 +87,7 @@ setprop("/rotors/main/blade[3]/position-deg", flarerand);
 ##etprop("/rotors/main/blade[3]/flap-deg", 0);
 ##etprop("/rotors/main/blade[3]/position-deg", 0);
 #                },0.00001); # this may be the key to our speed
+spec();
 }
  
 # Method1 results:
@@ -104,13 +164,13 @@ var method5 = func {
   setprop("/rotors/main/blade[3]/position-deg", flarerand);
   resetinf();
 }
-
+setprop("controls/jammer/en",0);
 method1timer = maketimer(0.00001,method1);
 method1timerwithzero = maketimer(0,method1);
 method2timer = maketimer(0.00001,method2);
 method3timer = maketimer(0.00001,method3);
 method4timer = maketimer(0.00001,method4);
-
+fakemissile = maketimer(0,spec);
 var cycledeploymode = func() {
   var mode = getprop("controls/jammer/autodeploymode");
   if (mode == 1) {
@@ -141,8 +201,10 @@ var toggle = func() {
   var status = getprop("controls/jammer/status");
   if (status == 0) {
     jammer.start();
+    fakemissile.start();
   } else {
     jammer.stop();
+    fakemissile.stop();
   }
 }
 
@@ -163,11 +225,13 @@ var start = func {
   method1timerwithzero.start();
   setprop("sim/messages/atc","Jammer running");
   setprop("controls/jammer/status",1);
+  fakemissile.start();
 }
 var stop = func {
   method1timerwithzero.stop();
   setprop("sim/messages/atc","Jammer stopped");
   setprop("controls/jammer/status",0);
+  fakemissile.stop();
 }
 var silentstop = func {
   method1timerwithzero.stop();

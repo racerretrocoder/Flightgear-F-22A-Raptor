@@ -1,0 +1,64 @@
+
+
+Nasal stuff is currently main priority!
+
+
+=================================
+{ List is in order of priority  }
+=================================
+
+FDM stuff:
+Make the rudders limmit themselves at speeds above 263kts  -- Done -- Fixed the bug(s)
+speed brake needs to be set lower slows down too fast! -- Done
+improve landing gear stuff. it's buggy some times  -- when can i do this
+
+Nasal stuff:
+Make the missiles miss if you go slower than a set mach -- done works well!
+Make a script to detect when radar is locked or not for aim9 sound  --Done
+Edit Sendinflight(); in missile.nas to show the missile smoke on the MP target -- Done. tested as of november 30th 2024
+Make missile.nas successfully find and respond to target chaff and flares -- done Fully Operational (!!!!) 
+Make a script to detect the current mfd page and what function a button commences -- Done MFD's Looking shiny!
+Fully use all the buttons on ALL of the MFDs with each one indivudially seperated to what page there on -- Done. Fully capable. see MFD1-3.nas to see how they work
+Make radar2.nas send a spike warning to the target its locked on to. -- i still dont know how radar spiking works
+fully complete front controls for the new cockpit -- done
+
+Model / 3D stuff:
+add canopy rain -- need to know how this would work
+moving switches (Snail) -- In progress
+make afterburners change color depending on the time of day -- done. could improve it to detect the level of light instead.
+"real" bay doors -- done. they look amazing
+make a fully fledged radar MFD page. with TWS, RWS, with a grid and TDV style. with pointers telling where the radar is pointing. have it change when it locks on -- Done. 
+Make canopy lock inflight to prevent mach 1 openings of the canopy... --Done   -- Broken again. todo
+More interior features! (Optional)  -- done: revised intire cockpit to look like the real thing.
+Better Aim-120 3d model -- Done
+better missile models in general. -- Done. Hand made Aim-9m. add Fire coming at the back of all fired missiles. 
+Make the front intake fans spin with N1 (Use objects as axises) --Done
+Make the wheels spin -- Done -- Created a bug.
+Make more stuff move -- good
+WEP page on MFD -ideas Gives status of the weapon like if it missed -- Inprogress
+Lower the emmissve factor on the main model-- Done
+make rwr revamp look like the example picture  -- Done
+Make the smoke when gun fires over MP so you know when its being shot -- Done. You see the gun spin and the flap go up on MP too!
+
+
+Overall enhancements:
+
+Sound:
+weapon sounds! Explosion on a enemy target. Missile sound firing from inside and outside the cockpit -- done. Could need revising
+Missile drop sfx (for bombs aswell)  -- i need a sound
+make mp sounds better -- 
+Wheel touch down and spinning SFX
+better High g turn sounds over the wings  -- done
+no pilot sfx. Its just annoying -- done
+
+Special Features:
+improve aim-120 flight model -- done
+improve aim-9x flight model -- done
+more liveries -- in progress: made KPAM AFB liveries. with there TY tail. i might do hawaii next with HH
+Make 8x GBU-39s so that its on par with the real thing -- done. theres no way to remove the rear 4 GBU's atm. so youll have to shoot them.
+Datalink -- in progress: encounters nasal error from setlistner on the voltage prop
+HSD thingy -- Need more ideas
+AAR custom refueling system -- need an idea
+
+
+Secret entry -- done
