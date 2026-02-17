@@ -529,73 +529,63 @@ jammer.stop();
 <chat_display>1</chat_display>
 <generic>
 
-
 <!--
+Multiplayer Variables
+I love multiplayer animations. So were making full use of this!
 
-Multiplayer Variables   note: Turn weapon stations into 1 string. or even better, bring nasal into the mix
-Theres alot! I am lucky that flightgear will let us pass this many through MP
-
+Make sure that all of them start with a "/"
+ex: /controls/flight/elevator
+Or it just wont work
 -->
-
-<bool n="0" type="bool" alias="/damage/sounds/explode-on"/>
-<bool n="1" type="bool" alias="/damage/fire/serviceable"/>
-<bool n="2" type="bool" alias="/damage/fire/crashflame"/>
-<bool n="3" type="bool" alias="/damage/fire/crashsmoke"/>
-<bool n="4" type="bool" alias="/damage/fire/crashsmolfire"/>
+<bool n="0" type="bool" alias="/damage/sounds/explode-on"/>		<!--Damage effects-->
+<bool n="1" type="bool" alias="/damage/fire/serviceable"/>		<!--Damage effects-->
+<bool n="2" type="bool" alias="/damage/fire/crashflame"/>		<!--Damage effects-->
+<bool n="3" type="bool" alias="/damage/fire/crashsmoke"/>		<!--Damage effects-->
+<bool n="4" type="bool" alias="/damage/fire/crashsmolfire"/>	<!--Damage effects-->
 <bool n="5" type="bool" alias="/controls/apu/smoke"/>
-<!--            <crashsmolfire type="bool">false</crashsmolfire>
-            <crashsmoke type="bool">false</crashsmoke>
-            <crashflame type="bool">false</crashflame>
-			-->
 <bool n="7" type="bool" alias="/controls/armament/gun-trigger"/>  
 <bool n="8" type="bool" alias="/engines/engine/cutoff"/>  <!--For Idleing Smoke-->
 
+<float n="1" type="double" alias="/fdm/jsbsim/fcs/light"/>
 <float n="2" type="double" alias="/f22/gear1/pos"/>
 <float n="3" type="double" alias="/f22/gear2/pos"/>    
 <float n="4" type="double" alias="/f22/gear3/pos"/>  
-
-<float n="6" type="double" alias="/fdm/jsbsim/fcs/cont-time"/>
 <float n="5" type="double" alias="/fdm/jsbsim/fcs/cont-time-tail"/>    
+<float n="6" type="double" alias="/fdm/jsbsim/fcs/cont-time"/>
 <float n="7" type="double" alias="/fdm/jsbsim/fcs/inlet0angle"/>  
- <float n="8" type="double" alias="/fdm/jsbsim/fcs/inlet1angle"/> 
- <float n="9" type="double" alias="/controls/lighting/aar"/>  <!--AARLIGHT-->
- <float n="10" type="double" alias="/fdm/jsbsim/fcs/refuel"/> <!--AAR-->
- <float n="11" type="double" alias="/fdm/jsbsim/fcs/tv-animation-lower"/>
- <float n="12" type="double" alias="/fdm/jsbsim/fcs/AIM120"/>
- <float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
- <float n="15" type="double" alias="/fdm/jsbsim/fcs/tv-animation-top"/>
-<float n="16" type="double" alias="/f22/head-ptc-deg"/>	
- <float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor -->
- <float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
- <float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the Vapor, and more-->
+<float n="8" type="double" alias="/fdm/jsbsim/fcs/inlet1angle"/> 
+<float n="9" type="double" alias="/controls/lighting/aar"/>  <!--AARLIGHT-->
+<float n="10" type="double" alias="/fdm/jsbsim/fcs/refuel"/> <!--AAR-->
+<float n="11" type="double" alias="/fdm/jsbsim/fcs/tv-animation-lower"/>
+<float n="12" type="double" alias="/fdm/jsbsim/fcs/AIM120"/>
 
-
-<!--Flight controls-->
- <float n="21" type="double" alias="/fdm/jsbsim/fcs/Elev-pos-norm-limit-sum-main"/>
- <float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
- <float n="23" type="double" alias="/fdm/jsbsim/fcs/left-flaperon-pos-norm"/>
-  <float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
- <float n="25" type="double" alias="/fdm/jsbsim/fcs/tv-animation"/>
- <float n="26" type="double" alias="/fdm/jsbsim/fcs/ail-pos-norm-limit-sum-main"/>
-  <float n="27" type="double" alias="/fdm/jsbsim/fcs/speedbrake-pos-norm"/>
-  <float n="28" type="double" alias="/fdm/jsbsim/fcs/leading-edge-flap-main"/>
-  <float n="29" type="double" alias="/fdm/jsbsim/systems/hook/tailhook-pos-norm"/>
- <float n="30" type="double" alias="/velocities/mach"/><!--For the MP Sonic Boom, Vapor, and more-->
- <float n="31" type="double" alias="/fdm/jsbsim/fcs/ab1"/>	
- <float n="32" type="double" alias="/fdm/jsbsim/fcs/ab2"/>	  <!--Burners-->
- <float n="33" type="double" alias="/fdm/jsbsim/fcs/gun-main"/>	<!--Gun-->
- 
-
-
-<float n="34" type="double" alias="/engines/engine/n1"/> <!--TODO: Figure out what is using this because its actually not needed-->
-
-
-
+<float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
+<float n="15" type="double" alias="/fdm/jsbsim/fcs/tv-animation-top"/>
+<float n="16" type="double" alias="/f22/head-ptc-deg"/>	 <!--pilot head-->
+<float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor -->
+<float n="18" type="double" alias="/controls/engines/engine/throttle"/>	
+<float n="19" type="double" alias="/velocities/airspeed-kt"/><!--For the Vapor, and more-->
+<float n="20" type="double" alias="/fdm/jsbsim/fcs/landlight"/>
+<float n="21" type="double" alias="/fdm/jsbsim/fcs/Elev-pos-norm-limit-sum-main"/>
+<float n="22" type="double" alias="/fdm/jsbsim/fcs/rudder-pos-deg"/>
+<float n="23" type="double" alias="/fdm/jsbsim/fcs/left-flaperon-pos-norm"/>
+<float n="24" type="double" alias="/fdm/jsbsim/fcs/ail-left-deg-limit"/>
+<float n="25" type="double" alias="/fdm/jsbsim/fcs/tv-animation"/>
+<float n="26" type="double" alias="/fdm/jsbsim/fcs/ail-pos-norm-limit-sum-main"/>
+<float n="27" type="double" alias="/fdm/jsbsim/fcs/speedbrake-pos-norm"/>
+<float n="28" type="double" alias="/fdm/jsbsim/fcs/leading-edge-flap-main"/>
+<float n="29" type="double" alias="/fdm/jsbsim/systems/hook/tailhook-pos-norm"/>
+<float n="30" type="double" alias="/velocities/mach"/><!--For the MP Sonic Boom, Vapor, and more-->
+<float n="31" type="double" alias="/fdm/jsbsim/fcs/ab1"/>	
+<float n="32" type="double" alias="/fdm/jsbsim/fcs/ab2"/>	  <!--Burners-->
+<float n="33" type="double" alias="/fdm/jsbsim/fcs/gun-main"/>	<!--Gun-->
+<float n="34" type="double" alias="/engines/engine/n1"/> <!--Probably for the fans?, No point in this being brodcasted twice multiplayer[mpid]/engines/engine/n1-->
 <float n="35" type="double" alias="/controls/lighting/actualform"/> <!--Formation light bars-->
 <float n="36" type="double" alias="/fdm/jsbsim/fcs/canopy"/>
 <float n="37" type="double" alias="/fdm/jsbsim/fcs/apuflap1"/>	
 <float n="38" type="double" alias="/fdm/jsbsim/fcs/right-flaperon-pos-norm"/>	
 <float n="39" type="double" alias="/f22/head-hdg-deg"/>	<!--Head movement-->
+
 <int n="2" type="int">1</int><!-- radar-standby (If this is 1, Enemies cant see us on there RWR) -->
 <int n="3" type="int">0</int><!-- KY58 Channel Code -->
 <int n="4" type="int" alias="/f22/dead"/> <!--crash effects-->
@@ -614,12 +604,15 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 <int n="18" type="int" alias="/controls/armament/rdt"/> 
 <int n="19" type="int" alias="/controls/armament/ldt"/>   <!--Drop tanks--> 
 <int n="20" type="int" alias="/fdm/jsbsim/fcs/taxilight"/> 
-<int n="23" type="int" alias="/fdm/jsbsim/fcs/light"/>
 
+<!--used to be lights
+<int n="23" type="int" alias=""/>
+<int n="26" type="int" alias=""/> 
 
+-->
 <!-- <int n="24" type="int" alias="/controls/apu/smoke"/>
 <int n="25" type="int" alias="/controls/apu/apuflame"/> not needed / doesnt work-->
-<int n="26" type="int" alias="/fdm/jsbsim/fcs/landlight"/> 
+
 
 <int n="27" type="int" alias="/controls/armament/rrdt"/> <!--Drop tanks-->
 <int n="28" type="int" alias="/controls/armament/lldt"/> <!--Drop tanks-->
@@ -630,13 +623,10 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 <string n="7" type="string"></string><!-- string 7 used by datalink -->
 <string n="8" type="string">KY58:</string> <!--string 8 used by KY-58 secure MP-Chat-->
 
-
-
-<!--Todo: Fix this mess in a nice way xd-->
-<!--Done! String[5] is now the stores string. it cycles between pylons around once per second. Deciphers the string kinda like the dtc code splitting it between :'s-->
-
 </generic>		
-<visibility-range-nm type="int">2000</visibility-range-nm> <!--Dosent work here for some reason-->
+
+
+<visibility-range-nm type="int">2000</visibility-range-nm> <!--Cant just do this, Nasal has to override it-->
 	</multiplay>
 	        <help n="0" include="System/help.xml"/>
 		<hud>
@@ -666,8 +656,6 @@ Theres alot! I am lucky that flightgear will let us pass this many through MP
 		
 		<instrumentation>
 				<path>Aircraft/F-22/System/Instrumentation.xml</path>
-
-		
 				<fuel-gauges>
 					<total type="double">100</total>
 				</fuel-gauges>
@@ -2210,7 +2198,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
             <mlw_max type="double">20</mlw_max>
             <auto_flare_caller type="bool">false</auto_flare_caller>
 		</d-config>
-		<!-- Yep. this should go here... -->
+		
 	
 
 		

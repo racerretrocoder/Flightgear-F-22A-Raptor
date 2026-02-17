@@ -9,6 +9,11 @@
   <spherical>true</spherical>
  </animation>
 
+  <effect>
+    <inherits-from>Aircraft/F-22/Models/Stores/Countermeasures/flare</inherits-from>
+    <object-name>flare</object-name>
+  </effect>
+
  <animation>
   <type>dist-scale</type>
   <object-name>flare</object-name>
