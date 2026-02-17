@@ -2,7 +2,7 @@
 
 ![image](/Screenshots/pic.png)
 This is the F-22 add-on for FlightGear!
-You can join our Discord server: https://discord.gg/B9WWFcwY2V
+If you need help: You can join our Discord server temporarily if you want: https://discord.gg/B9WWFcwY2V
 
 ## Installation:
 
