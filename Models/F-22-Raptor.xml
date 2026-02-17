@@ -3888,7 +3888,7 @@ ae
  <overlay>
   <params>
    <name>RedLight2</name>
-   <power-source>sim/multiplay/generic/int[23]</power-source>
+   <power-source>sim/multiplay/generic/float[1]</power-source>
    <direction>
     <x>0</x>
     <y>1</y>
@@ -3940,7 +3940,7 @@ ae
             <a>0</a>
         </specular>
         <dim-factor>
-            <property>sim/multiplay/generic/int[23]</property>
+            <property>sim/multiplay/generic/float[1]</property>
         </dim-factor>
         <attenuation>
     <c>0.375</c>
@@ -3985,7 +3985,7 @@ ae
             <a>0</a>
         </specular>
         <dim-factor>
-            <property>sim/multiplay/generic/int[23]</property>
+            <property>sim/multiplay/generic/float[1]</property>
         </dim-factor>
         <attenuation>
     <c>0.375</c>
@@ -4020,7 +4020,7 @@ ae
  <overlay>
   <params>
    <name>RedLight2</name>
-   <power-source>sim/multiplay/generic/int[23]</power-source>
+   <power-source>sim/multiplay/generic/float[1]</power-source>
    <direction>
     <x>0</x>
     <y>1</y>
@@ -4054,7 +4054,7 @@ ae
  <overlay>
   <params>
    <name>GreenLight2</name>
-   <power-source>sim/multiplay/generic/int[23]</power-source>
+   <power-source>sim/multiplay/generic/float[1]</power-source>
    <direction>
     <x>0</x>
     <y>-1</y>
@@ -4085,7 +4085,7 @@ ae
  <overlay>
   <params>
    <name>GreenLight</name>
-   <power-source>sim/multiplay/generic/int[23]</power-source>
+   <power-source>sim/multiplay/generic/float[1]</power-source>
    <direction>
     <x>0</x>
     <y>-1</y>
@@ -4117,7 +4117,7 @@ ae
  <overlay>
   <params>
    <name>beacon1</name>
-   <power-source>/sim/model/lights/beacon/state</power-source>
+   <power-source>sim/model/lights/beacon/state</power-source>
    <direction>
     <x>0</x>
     <y>1</y>
@@ -4149,7 +4149,7 @@ ae
  <overlay>
   <params>
    <name>beacon2</name>
-   <power-source>/sim/model/lights/beacon/state</power-source>
+   <power-source>sim/model/lights/beacon/state</power-source>
    <direction>
     <x>0</x>
     <y>1</y>
@@ -4179,7 +4179,7 @@ ae
  <overlay>
   <params>
    <name>beacon2</name>
-   <power-source>/sim/model/lights/beacon/state</power-source>
+   <power-source>sim/model/lights/beacon/state</power-source>
    <direction>
     <x>-1</x>
     <y>-1</y>
@@ -4210,7 +4210,7 @@ ae
  <overlay>
   <params>
    <name>beacon1</name>
-   <power-source>/sim/model/lights/beacon/state</power-source>
+   <power-source>sim/model/lights/beacon/state</power-source>
    <direction>
     <x>-1</x>
     <y>-1</y>
@@ -4316,7 +4316,7 @@ ae
             <a>0</a>
         </specular>
         <dim-factor>
-            <property>sim/multiplay/generic/int[26]</property>
+            <property>sim/multiplay/generic/float[20]</property>
         </dim-factor>
         <attenuation>
             <c>1.0</c>
@@ -4647,7 +4647,7 @@ ae
     </animation>
 
 
-
+<!--Pretty much all of this is damage effects-->
 
 <!--Elevators-->
 	 <animation>
@@ -4841,7 +4841,7 @@ ae
 
 
 
-
+<!--Ground equipment-->
 
 
 <animation>
@@ -5044,5 +5044,5 @@ ae
 </condition>
 </animation>
 
+<!--5000 lines!-->
 </PropertyList>
-
