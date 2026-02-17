@@ -66,6 +66,8 @@
 
 
 	<previews>
+
+
 <!--Got rid of that silly preview. I need more! Itll be nice to have around 20ish previews-->
                         <preview>                
 <type>exterior</type>
@@ -89,6 +91,25 @@
                 <splash type="bool">true</splash>
                 <path>gui/splashes/splash0.png</path>
             </preview>
+
+            <preview>                
+<type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash111.png</path>
+            </preview>
+            <preview>                
+<type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash222.png</path>
+            </preview>
+            <preview>                
+<type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash333.png</path>
+            </preview>
+
+
+
             <preview>                
 <type>exterior</type>
                 <splash type="bool">true</splash>
@@ -99,6 +120,7 @@
                 <splash type="bool">true</splash>
                 <path>gui/splashes/splash2.png</path>
             </preview>
+
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
@@ -128,6 +150,36 @@
                 <type>exterior</type>
                 <splash type="bool">true</splash>
                 <path>gui/splashes/splash8.png</path>
+            </preview>
+						    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash9.png</path>
+            </preview>
+						    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash10.png</path>
+            </preview>
+						    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash11.png</path>
+            </preview>
+						    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash12.png</path>
+            </preview>
+						    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash13.png</path>
+            </preview>
+						    <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/splash14.png</path>
             </preview>
   </previews>
 
