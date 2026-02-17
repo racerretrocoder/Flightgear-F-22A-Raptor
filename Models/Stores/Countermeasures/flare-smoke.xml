@@ -4,8 +4,8 @@
 <particlesystem>
   <name>flare-smoke</name>
   <texture>puff.png</texture>
-  <emissive>false</emissive>
-  <lighting>true</lighting>
+  <emissive>true</emissive>
+  <lighting>false</lighting>
   
   <offsets>
    <x-m>0</x-m>
@@ -56,10 +56,10 @@
       <value>1</value>
      </red>
      <green>
-      <value>1</value>
+      <value>0.7</value>
      </green>
      <blue>
-      <value>1</value>
+      <value>0.5</value>
      </blue>
      <alpha>
       <value>1</value>
@@ -75,17 +75,17 @@
       <value>1</value>
      </red>
      <green>
-      <value>1</value>
+      <value>0.7</value>
      </green>
      <blue>
-      <value>1</value>
+      <value>0.5</value>
      </blue>
      <alpha>
       <value>0.1</value>
      </alpha>
     </color>
     <size>
-     <value>5</value>
+     <value>0.4</value>
     </size>
    </end>
    <life-sec>

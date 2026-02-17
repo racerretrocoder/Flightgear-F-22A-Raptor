@@ -58,10 +58,10 @@
       <value>1</value>
      </green>
      <blue>
-      <value>1</value>
+      <value>0.5</value>
      </blue>
      <alpha>
-      <value>1</value>
+      <value>0.5</value>
      </alpha>
     </color>
     <size>
@@ -74,10 +74,10 @@
       <value>1</value>
      </red>
      <green>
-      <value>1</value>
+      <value>0.5</value>
      </green>
      <blue>
-      <value>1</value>
+      <value>0.5</value>
      </blue>
      <alpha>
       <value>0.1</value>
@@ -88,7 +88,7 @@
     </size>
    </end>
    <life-sec>
-    <value>0.7</value>
+    <value>6</value>
    </life-sec>
    <mass-kg>0.00001</mass-kg>
    <radius-m>0.015</radius-m>

@@ -1387,6 +1387,9 @@ var processCallsigns = func () {
       setprop("payload/armament/MAW-active", 0);# resets every 1.1 seconds without warning
       setprop("payload/armament/MAW-semiactive", 0);
       setprop("payload/armament/MAW-semiactive-callsign", "");
+      if (getprop("payload/armament/spike") == 0) {
+        setprop("payload/armament/spikee","");
+      }
   }
 
   # spike handling:
