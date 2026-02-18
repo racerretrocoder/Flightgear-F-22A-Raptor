@@ -69,7 +69,8 @@
 
 
 <!--Got rid of that silly preview. I need more! Itll be nice to have around 20ish previews-->
-                        <preview>                
+                        <preview>             
+
 <type>exterior</type>
                 <splash type="bool">true</splash>
                 <path>gui/splashes/splash.png</path>
@@ -84,6 +85,11 @@
 <type>exterior</type>
                 <splash type="bool">true</splash>
                 <path>gui/splashes/splasha.png</path>
+            </preview>
+            <preview>                
+<type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/ae.png</path>
             </preview>
 
 			<preview>  
