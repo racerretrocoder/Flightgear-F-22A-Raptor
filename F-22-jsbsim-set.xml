@@ -634,6 +634,8 @@ Or it just wont work
 <float n="11" type="double" alias="/fdm/jsbsim/fcs/tv-animation-lower"/>
 <float n="12" type="double" alias="/fdm/jsbsim/fcs/AIM120"/>
 
+<float n="13" type="double" alias="/engines/engine[0]/nozzle-pos-norm"/>
+
 <float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
 <float n="15" type="double" alias="/fdm/jsbsim/fcs/tv-animation-top"/>
 <float n="16" type="double" alias="/f22/head-ptc-deg"/>	 <!--pilot head-->

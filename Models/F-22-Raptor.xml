@@ -2815,7 +2815,7 @@ FR
 
 
 
-<!--Afterburner movement ae-->
+<!--Vector movement-->
 	<animation>
         <type>translate</type>
 			<object-name>left-down-vector</object-name>
@@ -2827,6 +2827,45 @@ FR
             <z>1</z>
         </axis>
     </animation>
+
+	<animation>
+        <type>translate</type>
+			<object-name>left-up-vector</object-name>
+        <property>sim/multiplay/generic/float[32]</property>
+        <factor>0.0547</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+
+
+	<animation>
+        <type>translate</type>
+			<object-name>left-down-vector</object-name>
+        <property>fdm/jsbsim/fcs/nozzle0</property>
+        <factor>-0.0547</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+
+	<animation>
+        <type>translate</type>
+			<object-name>left-up-vector</object-name>
+        <property>fdm/jsbsim/fcs/nozzle0</property>
+        <factor>0.0547</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+
+
 
 
 	<animation>
@@ -2851,15 +2890,27 @@ FR
             <z>1</z>
         </axis>
     </animation>
+
 	<animation>
         <type>translate</type>
-			<object-name>left-up-vector</object-name>
-        <property>sim/multiplay/generic/float[32]</property>
+			<object-name>right-down-vector</object-name>
+        <property>fdm/jsbsim/fcs/nozzle1</property>
+        <factor>-0.0547</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+	<animation>
+        <type>translate</type>
+			<object-name>right-up-vector</object-name>
+        <property>fdm/jsbsim/fcs/nozzle1</property>
         <factor>0.0547</factor>
         <axis>
             <x>0</x>
             <y>0</y>
-            <z>1</z>
+            <z>-1</z>
         </axis>
     </animation>
 
@@ -4825,8 +4876,7 @@ ae
 <object-name>rfd2</object-name>
 <object-name>lfd</object-name>
 <object-name>lfd2</object-name>
-<object-name>9xdr2-axis</object-name>
-<object-name>9xdr3-axis</object-name>
+
 <object-name>Right_Back_Turbina</object-name>
 <object-name>Left_Back_Turbina</object-name>
 <object-name>rect</object-name> <!--Odd rectangle-->
