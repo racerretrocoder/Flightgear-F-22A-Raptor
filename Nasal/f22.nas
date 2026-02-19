@@ -13,8 +13,7 @@
 #     \|__|    \|_______|\|_______\|__|\|__| \|__|\|__|\|__|\_________\                                                                                                                                                                   
 #                                                          \|_________|                                                                                                                                                                   
 #                                                                                                                                                                                                                                         
-#        
-print("ae");                                                                                                                                                                                                                                 
+#                                                                                                                                                                                                                                 
 #                                                                                                                                                                                                                                         
 #                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 #                                                                                                                                                                                                                                         
@@ -102,6 +101,29 @@ setprop("/environment/aircraft-effects/temperature-inside-degC", 0);
 setprop("/environment/aircraft-effects/temperature-outside-ram-degC", 0);
 setprop("/environment/aircraft-effects/frost-level", 0);
 setprop("/environment/aircraft-effects/fog-level", 0);
+
+var toggleradar = func {
+  # property
+  # su-27/instrumentation/N010-radar/emitting
+  var cwow = getprop("gear/gear[0]/wow");
+  var lwow = getprop("gear/gear[1]/wow");
+  var rwow = getprop("gear/gear[2]/wow");
+  if (cwow == 0 and lwow == 0 and rwow == 0) {
+    if (getprop("su-27/instrumentation/N010-radar/emitting") == 0) {
+      screen.log.write("Radar ACTIVE",0,1,0);
+      setprop("su-27/instrumentation/N010-radar/emitting",1);
+      setprop("controls/radar/cursormode",1);
+    } else {
+      screen.log.write("Radar STANDBY",0,1,0);
+      setprop("su-27/instrumentation/N010-radar/emitting",0);
+      setprop("controls/radar/cursormode",0);
+    }
+  } else {
+    screen.log.write("Cant enable the radar when on the ground!",1,0,0);
+  }
+}
+
+
 
 #
 # Aux Comm
@@ -1507,7 +1529,7 @@ var cursorclick = func() {
       }
     }
 }
-setprop("controls/radar/cursormode",1);
+setprop("controls/radar/cursormode",0); # now set to disabled as this hides the stuff
 print("cursorclick complete");
 print("lockablecallsigns: ",lockablecallsigns);
 var callsignsize = utf8.size(lockablecallsigns);

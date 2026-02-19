@@ -2810,10 +2810,10 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <key n="82">
   <name>R</name>
   <desc>Toggle Radar On/Off</desc>
-  <binding>
-   <command>property-toggle</command>
-   <property>su-27/instrumentation/N010-radar/emitting</property>
-  </binding>
+    <binding>
+      <command>nasal</command>
+      <script>f22.toggleradar();</script>
+    </binding>
  </key>
   
   <key n="14">

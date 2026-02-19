@@ -1361,6 +1361,10 @@ elsif(getprop("instrumentation/radar/mode/main") == 4)
 }
 
 next_Target_Index = func(cantprint=0,canlock=1){
+    if (getprop("su-27/instrumentation/N010-radar/emitting") == 0) {
+        screen.log.write("The radar is currently in standby. Press Shift-R to turn it on",1,0,0);
+        return 0;
+    }
     Target_Index += 1;
     #print(size(tgts_list));
     if(Target_Index > size(tgts_list) - 1)
@@ -1379,6 +1383,10 @@ next_Target_Index = func(cantprint=0,canlock=1){
 }
 
 previous_Target_Index = func(canprint=0){
+    if (getprop("su-27/instrumentation/N010-radar/emitting") == 0) {
+        screen.log.write("The radar is currently in standby. Press Shift-R to turn it on",1,0,0);
+        return 0;
+    }
     Target_Index -= 1;
     #print(size(tgts_list));
     if(Target_Index < 0)
