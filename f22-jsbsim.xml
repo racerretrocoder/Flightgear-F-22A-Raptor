@@ -541,7 +541,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <property>/sim/failure-manager/engines/engine[1]/serviceable</property>
 <property>/engines/engine[0]/egt-degf</property>
 <property>/engines/engine[1]/egt-degf</property>
-
+<property>/engines/engine[0]/nozzle-pos-norm</property>
+<property>/engines/engine[1]/nozzle-pos-norm</property>
 <!--Some engine stuff-->
    <function name="fcs/effected0n1">  
         <table>
@@ -584,6 +585,25 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           </table>
    </function>
 
+
+   <function name="fcs/nozzle0">  
+        <table>
+            <independentVar lookup="row">/engines/engine[0]/nozzle-pos-norm</independentVar>
+            <tableData>   
+            0     1 
+            1     0
+            </tableData>
+          </table>
+   </function>
+   <function name="fcs/nozzle1">  
+        <table>
+            <independentVar lookup="row">/engines/engine[1]/nozzle-pos-norm</independentVar>
+            <tableData>   
+            0     1 
+            1     0
+            </tableData>
+          </table>
+   </function>
 
 <!--inlets-->
    <function name="fcs/inlet0">  
