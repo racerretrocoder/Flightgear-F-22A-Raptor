@@ -3310,11 +3310,12 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <datalink>
 <file>Aircraft/F-22/Nasal/datalink.nas</file>
 </datalink>
-
+<!--
 <dlinkhack>
 <file>Aircraft/F-22/Nasal/hack.nas</file>
-</dlinkhack>
-<!--AI Searcher-->
+</dlinkhack>-->
+
+<!--AI Searcher | misc.nas-->
 		<misc>
 			<file>Aircraft/F-22/Nasal/misc.nas</file>
 		</misc>
@@ -3338,11 +3339,6 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <file>Aircraft/F-22/Nasal/smallscreens.nas</file>
 </smallscreens>
 <!--Front Radio Controls-->
-
-<!--
-<jammer>
-<file>Aircraft/F-22/Nasal/jammer.nas</file>
-</jammer>-->
 		<fc>
 			<file>Aircraft/F-22/Nasal/RAD.nas</file>
 		</fc>
@@ -3358,12 +3354,15 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<file>Aircraft/F-22/Nasal/DTC.nas</file> <!--my custom Datacartridge system-->
 		</DTC>
 		<jammer>
-			<file>Aircraft/F-22/Nasal/jammer.nas</file> <!--Replace the code with working one-->
+			<file>Aircraft/F-22/Nasal/jammer.nas</file>
 		</jammer>
     	<K14>
 	  <file>Aircraft/F-22/Nasal/lead-computer.nas</file>
 	  <file>Aircraft/Instruments-3d/computing-gun-sights/K14/Nasal/K14-reticle.nas</file>
 	</K14>
+	<stpt>
+		<file>Aircraft/F-22/Nasal/positional.nas</file> <!--Positional-->
+	</stpt>
 		
 	<!--<tips>   disabled for now. its a bit buggy
 			<file>Aircraft/F-22/Nasal/messages.nas</file>

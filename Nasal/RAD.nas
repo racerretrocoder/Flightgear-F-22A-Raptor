@@ -577,7 +577,7 @@ var dlink_loopcontacts = func {
     }
     if (result == nil){result = 0;}
     setprop("controls/PRF/contact["~ mpid ~"]/istracked",result);
-    var ourhdg = getprop("/orientation/heading-deg");
+    var ourhdg = getprop("/orientation/heading-deg"); # In true
     var therehdg = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/bearing-deg");
     var ans = ourhdg - therehdg;
     if (ans < 0) {

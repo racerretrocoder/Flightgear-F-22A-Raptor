@@ -79,9 +79,12 @@ setprop("f22/auxcomm/digit2",100);
 setprop("f22/auxcomm/on",0);
 setprop("f22/grind",0);
 setprop("f22/runwaysplash",0); # pushed water from jets
+setprop("f22/fcs/mode","AUTO");
+
 #
 # Temp init 
 #
+
 setprop("environment/aircraft-effects/temperature-inside-degC", getprop("environment/temperature-degc"));
 setprop("environment/aircraft-effects/dewpoint-inside-degC", getprop("environment/dewpoint-degc"));
 if (getprop("environment/temperature-degc") < 0) {
@@ -119,7 +122,7 @@ var toggleradar = func {
       setprop("controls/radar/cursormode",0);
     }
   } else {
-    screen.log.write("Cant enable the radar when on the ground!",1,0,0);
+    screen.log.write("Cant enable the radar when on the ground",1,0,0);
   }
 }
 
@@ -1487,6 +1490,8 @@ var lockuntill = func(callsign) {
 # Need more ideas to get this to work
 setprop("controls/radar/cursorvariaton",0.23);
 var cursorclick = func() {
+  if (getprop("controls/cursorscreen") == 0) {
+    # FCR
   var lockablecallsigns = "";
   var xpos = getprop("controls/radar/cursorx");
   var zpos = getprop("controls/radar/cursorz");
@@ -1527,30 +1532,33 @@ var cursorclick = func() {
           print("RadZ Checks out for: ",callsign);
           var zcheck = 1;
         }
-        if (xcheck == 1 and zcheck == 1) {
-          if (lockablecallsigns == "") {
-            lockablecallsigns = callsign;
-          } else {
-            lockablecallsigns = "" ~ lockablecallsigns ~ "|" ~ callsign ~ "";
+            if (xcheck == 1 and zcheck == 1) {
+              if (lockablecallsigns == "") {
+                lockablecallsigns = callsign;
+              } else {
+                lockablecallsigns = "" ~ lockablecallsigns ~ "|" ~ callsign ~ "";
+              }
+
+            }
+
           }
-
         }
-      
-      }
     }
-}
-setprop("controls/radar/cursormode",0); # now set to disabled as this hides the stuff
-print("cursorclick complete");
-print("lockablecallsigns: ",lockablecallsigns);
-var callsignsize = utf8.size(lockablecallsigns);
-if (callsignsize > 7 and lockablecallsigns != "") {
-  # Not a callsign
-  screen.log.write("Cant have more than 1 target under cursor!");
-  screen.log.write(lockablecallsigns);
-} else {
-  lockuntill(lockablecallsigns);
-}
 
+    print("cursorclick complete");
+    print("lockablecallsigns: ",lockablecallsigns);
+    var callsignsize = utf8.size(lockablecallsigns);
+    if (callsignsize > 7 and lockablecallsigns != "") {
+      # Not a callsign
+      screen.log.write("Cant have more than 1 target under cursor!");
+      screen.log.write(lockablecallsigns);
+    } else {
+      lockuntill(lockablecallsigns);
+    }
+  } elsif (getprop("controls/cursorscreen") == 1) {
+    # PRF
+    print("Cursor click on PRF");
+  }
 }
 
 
