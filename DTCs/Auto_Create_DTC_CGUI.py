@@ -4,7 +4,7 @@ os.system("cls")
 print("============================================================")
 print("FlightGear F-22A Automatic Raptor Datacartidge Creator (DTC)")
 print("Use this to automatically create a custom DTC to use")
-print("Code written by Phoenix (duh xdd)")
+print("Code written by Phoenix")
 print("============================================================")
 link16code = 0
 dlans = "n"

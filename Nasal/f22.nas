@@ -123,7 +123,17 @@ var toggleradar = func {
   }
 }
 
-
+var radaractiveloop = func {
+  var cwow = getprop("gear/gear[0]/wow");
+  var lwow = getprop("gear/gear[1]/wow");
+  var rwow = getprop("gear/gear[2]/wow");
+  if (cwow == 1 or lwow == 1 or rwow == 1) {
+    setprop("su-27/instrumentation/N010-radar/emitting",0);
+    setprop("controls/radar/cursormode",0);
+  }
+}
+mainradloop = maketimer(1,radaractiveloop);
+mainradloop.start();
 
 #
 # Aux Comm
@@ -1647,9 +1657,9 @@ var tgtlock = func{
     }  
     if(getprop("instrumentation/radar/mode/main") == 1)
     {   # RWS
-        setprop("instrumentation/radar/az-field", 120);
+        setprop("instrumentation/radar/az-field", 180);
         setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
-        setprop("instrumentation/radar2/sweep-speed", 1);   
+        setprop("instrumentation/radar2/sweep-speed", 2);   
     }
     elsif(getprop("instrumentation/radar/mode/main") == 0)
     {
@@ -2448,7 +2458,7 @@ var flight_debug = func(){
   screen.property_display.add("/controls/engines/engine[1]/throttle");
 }
 
-setprop("controls/radar/cursormode",1);
+#setprop("controls/radar/cursormode",1);
 
 print("f22.nas Ready!");
 # End f22.nas

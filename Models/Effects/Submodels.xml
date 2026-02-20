@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<submodel>
-		<name>impact smoke</name>
+		<name>impactsmoke</name>
 		<model>Aircraft/F-22/Models/Effects/flack.xml</model>
 		<speed>0</speed>
 		<repeat>true</repeat>

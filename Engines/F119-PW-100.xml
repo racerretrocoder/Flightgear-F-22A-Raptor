@@ -14,7 +14,7 @@
 <turbine_engine name="F119-PW-100">
   <milthrust> 27000.0 </milthrust>
   <maxthrust> 35000.0 </maxthrust>
-  <bypassratio>     0.0001 </bypassratio>
+  <bypassratio>     -0.5</bypassratio> <!--This makes the engine accelerate like there real life counterpart-->
   <tsfc>            0.6 </tsfc>
   <atsfc>           1.4 </atsfc>
   <bleed>           0.0</bleed>

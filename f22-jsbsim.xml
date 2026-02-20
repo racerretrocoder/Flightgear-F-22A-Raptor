@@ -825,7 +825,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <independentVar lookup="row">aero/alpha-deg</independentVar>
             <independentVar lookup="column">/f22/fcs/aoalimit</independentVar>
             <tableData> 
-                    10    20    30    40    50    60    70    80    90  
+                    10    20    30    40    50    60    70    80    90    
               -20   1     1     1     1     1     1     1     1     1         
               -10   1     1     1     1     1     1     1     1     1           
               -1    1     1     1     1     1     1     1     1     1             
@@ -838,8 +838,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
               60    0     0     0     0     0     0.1   1     1     1                
               70    0     0     0     0     0     0     0.1   1     1              
               80    0     0     0     0     0     0     0     0.1   1
-              89    0     0     0     0     0     0     0     0     0.1  
-              90    0     0     0     0     0     0     0     0     0   
+              89    0     0     0     0     0     0     0     0     1 
+              90    0     0     0     0     0     0     0     0     1
             </tableData>
           </table>
       </product>
