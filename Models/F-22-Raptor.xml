@@ -4676,6 +4676,40 @@ ae
   </offsets>
  </model>
 
+<!--Hook fairings-->
+<animation>
+        <type>rotate</type>
+
+<object-name>hookfairingl</object-name>
+	<object-name>hfl</object-name>
+        <property>sim/multiplay/generic/float[29]</property>
+        <offset-deg>0</offset-deg>
+        <factor>120</factor>
+
+        <axis>
+<object-name>lf-axis</object-name>
+        </axis>
+    </animation>
+
+
+<animation>
+        <type>rotate</type>
+
+<object-name>hookfairingr</object-name>
+	<object-name>hfr</object-name>
+        <property>sim/multiplay/generic/float[29]</property>
+        <offset-deg>0</offset-deg>
+        <factor>-120</factor>
+
+        <axis>
+<object-name>rf-axis</object-name>
+        </axis>
+    </animation>
+
+
+
+
+
 <!-- Nose gear turning -->
 <animation>
         <type>rotate</type>
