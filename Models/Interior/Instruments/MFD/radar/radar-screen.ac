@@ -8394,7 +8394,7 @@ kids 0
 OBJECT poly
 name "spacera"
 loc 0.000180819 -0.00989451 0.00507912
-texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Interior/Instruments/MFD/WEPSET.png"
+texture "WEPSET.png"
 crease 45.000000
 numvert 4
 0 -0.0857134 -0.0861169
