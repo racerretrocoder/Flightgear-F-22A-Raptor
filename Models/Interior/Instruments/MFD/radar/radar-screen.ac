@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
-MATERIAL "ac3dmat11" rgb 0 0 0  amb 0 0 0  emis 0.00526316 0.00526316 0.0842105  spec 0 0 0  shi 0  trans 0
+MATERIAL "ac3dmat11" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 1 1 1  shi 128  trans 0
 MATERIAL "ac3dmat7" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 0  trans 0
 MATERIAL "ac3dmat6" rgb 0 1 0  amb 0.2 0.2 0.2  emis 0 1 0  spec 0.2 0.2 0.2  shi 0  trans 0
 OBJECT world
@@ -8394,6 +8394,7 @@ kids 0
 OBJECT poly
 name "spacera"
 loc 0.000180819 -0.00989451 0.00507912
+texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/Interior/Instruments/MFD/WEPSET.png"
 crease 45.000000
 numvert 4
 0 -0.0857134 -0.0861169
@@ -8404,10 +8405,10 @@ numsurf 1
 SURF 0x30
 mat 1
 refs 4
-0 0.96875 0.0429688
-1 0.0234375 0.0429688
-2 0.0234375 0.973662
-3 0.96875 0.973662
+0 0.662498 0.462206
+1 0.335636 0.462206
+2 0.335636 0.643624
+3 0.662498 0.643624
 kids 0
 OBJECT poly
 name "MPalt0"

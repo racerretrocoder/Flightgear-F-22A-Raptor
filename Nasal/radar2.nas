@@ -149,10 +149,10 @@ var Radar = {
         me.maj_sweep();
         
         var loop_Update = func(){
-            var radarWorking = #getprop("/systems/electrical/outputs/radar"); idea, put standby trigger here
-            27;
+            var radarWorking = getprop("/su-27/instrumentation/N010-radar/emitting"); #idea, put standby trigger here
+#            27;
             radarWorking = (radarWorking == nil) ? 0 : radarWorking;
-            if(radarWorking > 21)
+            if(radarWorking == 1)
             {
                 #screen.log.write("loop");
                 me.update();
@@ -420,7 +420,7 @@ var Radar = {
                         
                         if(AprimeTerrainAlt > Aprime.alt())
                         {
-                            isVisible = 1;  # used to be 0  ;phoenix
+                            isVisible = 0;  # used to be 0
                         }
                     }
                 }

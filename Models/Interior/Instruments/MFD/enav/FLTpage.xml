@@ -97,7 +97,7 @@ Use increments of .01 Because the unit is meters.
   <object-name>Engine2</object-name>
     <object-name>aoa</object-name>
       <object-name>flaps</object-name>
-          
+     <object-name>fuel-head</object-name>     
   <ambient>
     <red>0.0</red>
     <green>1.0</green>
@@ -114,6 +114,40 @@ Use increments of .01 Because the unit is meters.
     <blue>0.3</blue>
   </emission> 
  </animation>
+
+ 	 <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>-0.081</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">Switch FCS</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>fuel-head</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0045</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.035</y-m>
+   <z-m>-0.081</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">AOA LIMIT %5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>/f22/fcs/aoalimit</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 
 
  <animation>
