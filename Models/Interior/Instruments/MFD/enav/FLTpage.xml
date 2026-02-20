@@ -358,12 +358,34 @@ Use increments of .01 Because the unit is meters.
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
    <type type="string">number-value</type>
-   <format type="string">AoA%5.f</format>
+   <format type="string">AoA%5.1f</format>
   <truncate type="bool">false</truncate>
-  <property>/fdm/jsbsim/aero/alpha-rad</property>
+  <property>/orientation/alpha-deg</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
+
+
+
+ <text>
+  <name>aoa</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.017</y-m>
+   <z-m>0.02</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">text-value</type>
+   <format type="string">FCS: %s</format>
+  <truncate type="bool">false</truncate>
+  <property>/f22/fcs/mode</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
 
  <text>
   <name>aoa</name>

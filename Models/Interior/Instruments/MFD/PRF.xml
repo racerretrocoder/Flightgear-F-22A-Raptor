@@ -17,6 +17,7 @@
 <animation>
 	<type>rotate</type>
   <object-name>cursor</object-name>
+  
 	<property>/controls/PRF/cursorx</property>
 	<factor>1800</factor>
 	<offset-deg>0</offset-deg>
@@ -33,6 +34,7 @@
 <animation>
   <type>translate</type>
   <object-name>cursor</object-name>
+  
   <property>/controls/PRF/cursorz</property>
     <factor>0.128</factor> <!--1.0-->
   <offset-m>0</offset-m>
@@ -1805,6 +1807,61 @@
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
+
+
+
+
+
+
+
+
+
+<!--STPT-->
+
+ <animation>
+        <type>select</type>
+        <object-name>st0</object-name>
+  <object-name>stt0</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[0]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st0</object-name>
+  <object-name>stt0</object-name>
+	<property>f22/stpt/point[0]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st0</object-name>
+  <object-name>stt0</object-name>
+  <property>f22/stpt/point[0]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+
+
 
 
 </PropertyList>
