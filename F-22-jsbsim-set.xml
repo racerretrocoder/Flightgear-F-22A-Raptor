@@ -628,15 +628,14 @@ Or it just wont work
 <float n="5" type="double" alias="/fdm/jsbsim/fcs/cont-time-tail"/>    
 <float n="6" type="double" alias="/fdm/jsbsim/fcs/cont-time"/>
 <float n="7" type="double" alias="/fdm/jsbsim/fcs/inlet0angle"/>  
-<float n="8" type="double" alias="/fdm/jsbsim/fcs/inlet1angle"/> 
-<float n="9" type="double" alias="/controls/lighting/aar"/>  <!--AARLIGHT-->
-<float n="10" type="double" alias="/fdm/jsbsim/fcs/refuel"/> <!--AAR-->
+<!--<float n="8" type="double" alias="/fdm/jsbsim/fcs/inlet1angle"/>-->
+<!--<float n="9" type="double" alias="/controls/lighting/aar"/>  AARLIGHT-->
+<!--<float n="10" type="double" alias="/fdm/jsbsim/fcs/refuel"/> AAR-->
 <float n="11" type="double" alias="/fdm/jsbsim/fcs/tv-animation-lower"/>
+<float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
 <float n="12" type="double" alias="/fdm/jsbsim/fcs/AIM120"/>
 
 <!--<float n="13" type="double" alias="/engines/engine[0]/nozzle-pos-norm"/>-->
-
-<float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
 <float n="15" type="double" alias="/fdm/jsbsim/fcs/tv-animation-top"/>
 <float n="16" type="double" alias="/f22/head-ptc-deg"/>	 <!--pilot head-->
 <float n="17" type="double" alias="/orientation/alpha-deg"/><!--For Vapor -->
@@ -674,9 +673,12 @@ Or it just wont work
 <int n="10" type="int" alias="/controls/lighting/nav-lights"/>  
 <int n="11" type="int" alias="/controls/lighting/beacon"/> 		
 -->
-<int n="13" type="int" alias="/controls/smoke/Switch"/> <!-- not needed -->
+<!--<int n="13" type="int" alias="/controls/smoke/Switch"/>  not needed -->
+
 <int n="15" type="int" alias="/f22/ejected"/> <!--Ejection-->
-<int n="16" type="int" alias="/controls/lighting/logo-lights"/> <!--Tail flood (may remove future)-->
+
+<!--<int n="16" type="int" alias="/controls/lighting/logo-lights"/> Tail flood (may remove future)-->
+
 <int n="17" type="int" alias="/controls/armament/extpylons"/>  <!--Ext pylons-->
 <int n="18" type="int" alias="/controls/armament/rdt"/> 
 <int n="19" type="int" alias="/controls/armament/ldt"/>   <!--Drop tanks--> 

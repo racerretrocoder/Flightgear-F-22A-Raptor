@@ -731,17 +731,46 @@ broddamage: func (cs,dist,msl) {
 
 # craters, because why not!
 
-	sendCrater: func (lat,lon,alt,size,hdg,static) {
+	sendCrater: func (lat,lon,alt,sizeae,hdg,static,typeID,except="") {
 		var uni = int(rand()*15000000);
-		var msg = notifications.StaticNotification.new("stat", uni, 1, size);
+		var msg = notifications.StaticNotification.new("stat", uni, 1, sizeae);
         var altM = alt*FT2M;
-        msg.Position.set_latlon(lat,lon,altM); # MUST BE METERS! LEARNED HARD WAY
+        msg.Position.set_latlon(lat,lon,altM); # TODO: Check altM units and make sure they are correct.
         msg.IsDistinct = 0;
         msg.Heading = hdg;
         notifications.hitBridgedTransmitter.NotifyAll(msg);
-#print("fox2.nas: transmit crater");
-#f14.debugRecipient.Receive(msg);
-		damage.statics["obj_"~uni] = [static, lat,lon,alt, hdg,size];
+		damage.statics["obj_"~uni] = [static,lat,lon,alt,hdg,sizeae];
+        #
+        # Damage all players around location (Set a limit of 5 miles)
+        #
+        var list = props.globals.getNode("/ai/models").getChildren("multiplayer");
+        var total = size(list);
+        var mpid = 0;
+        var bombcoord = geo.Coord.new();
+        bombcoord.set_latlon(lat,lon,0); # Set alt to zero to have a 2D representation
+        for(var i = 0; i < total; i += 1) {
+            var mplat = getprop("ai/models/multiplayer[" ~ i ~ "]/position/latitude-deg");
+            var mplon = getprop("ai/models/multiplayer[" ~ i ~ "]/position/longitude-deg");
+            var callsign = getprop("ai/models/multiplayer[" ~ i ~ "]/callsign");
+            if (callsign != except) {
+                var mpcoord = geo.Coord.new();
+                mpcoord.set_latlon(mplat,mplon,0);
+                var distm = bombcoord.direct_distance_to(mpcoord);
+                var distnm = distm * M2NM;
+                if (distm < 100) {
+                    var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
+                    msg.RelativeAltitude = alt;
+                    msg.Bearing = 90;
+                    msg.Distance = distm;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
+                    msg.RemoteCallsign = callsign;
+                    notifications.hitBridgedTransmitter.NotifyAll(msg);
+                    print("That bombs explosion effected other targets!");
+                    damage.damageLog.push(sprintf("Explosion of the previous weapon hit "~callsign~" at %.1f meters", distm));
+                    
+                }
+            }
+
+        }
 	},
 
     update: func(){
@@ -1091,7 +1120,8 @@ broddamage: func (cs,dist,msl) {
 var msllat = getprop("controls/armament/pos/lat");
 var msllon = getprop("controls/armament/pos/lon");    # This props are Accurate and update every time the function update() is called (this function)
 var mslalt = getprop("controls/armament/pos/alt");
-                        me.sendCrater(msllat, msllon, mslalt, 1, 0, static);
+                        me.sendCrater(msllat, msllon, mslalt, 1, 0, static, typeID); # Hit everything EXCEPT the target we just hit dead on
+                        screen.log.write("Bomb exploded!",0,1,0);
 				}
             }
 
@@ -1123,27 +1153,26 @@ var mslalt = getprop("controls/armament/pos/alt");
             {
                 if(ground > alt_ft*FT2M)
                 {
-                    if(me.NameOfMissile == "TB-01") { # We are an armed Nuclear bomb
-                        TB01.explode(); # Explode the Nuke
-                    }
+                    # Not used if(me.NameOfMissile == "TB-01") { # We are an armed Nuclear bomb
+                    # Not used     TB01.explode(); # Explode the Nuke | Display message on the screen
+                    # Not used }
                     if (me.isbomb == 1){
                 var static = geo.put_model(getprop("payload/armament/models") ~ "crater_big.xml", me.coord.lat(), me.coord.lon());
 		       	if(getprop("payload/armament/msg")) {
                         #sendCrater: func (lat,lon,alt,size,hdg,static)
-var msllat = getprop("controls/armament/pos/lat");
-var msllon = getprop("controls/armament/pos/lon");    # This props are Accurate and update every time the function update() is called (this function btw :D)
-var mslalt = getprop("controls/armament/pos/alt");
-                        me.sendCrater(msllat, msllon, mslalt, 1, 0, static);
+                    var msllat = getprop("controls/armament/pos/lat");
+                    var msllon = getprop("controls/armament/pos/lon");
+                    var mslalt = getprop("controls/armament/pos/alt");
+                    me.sendCrater(msllat, msllon, mslalt, 1, 0, static, me.getTypeID(me.NameOfMissile)); # Hit everything INCLUDING our target that we missed (if not far away) 
 				}
                     }
-                            if (debugflight == 1) {
-                    print("Missile hit the ground");
-    }
-
+                        if (debugflight == 1) {
+                            print("Missile hit the ground");
+                        }
                     me.free = 1;
                     setprop("payload/armament/flares", 0);
                     me.animate_explosion();
-                    settimer(func(){ me.del(); }, 1);
+                    settimer(func(){ me.del(); }, 5);
                     return;
                 }
             }
@@ -1158,7 +1187,6 @@ var mslalt = getprop("controls/armament/pos/alt");
         me.hdg = hdg_deg;
         if(me.life_time < me.Life)
         {
-
             settimer(func(){ me.update()}, 0);
         }
     },
