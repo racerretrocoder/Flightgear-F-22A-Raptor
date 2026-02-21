@@ -1857,7 +1857,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>rbleed1</object-name>
-		<property>sim/multiplay/generic/float[8]</property>
+		<property>sim/multiplay/generic/float[7]</property>
 		<interpolation>
 					<entry>
 				<ind>-1.0</ind>
@@ -1881,7 +1881,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>rbleed2</object-name>
-		<property>sim/multiplay/generic/float[8]</property>
+		<property>sim/multiplay/generic/float[7]</property>
 		<interpolation>
 					<entry>
 				<ind>-1.0</ind>
@@ -1904,7 +1904,7 @@ Old
 	<animation>
 		<type>rotate</type>
 		<object-name>rbleed3</object-name>
-		<property>sim/multiplay/generic/float[8]</property>
+		<property>sim/multiplay/generic/float[7]</property>
 		<interpolation>
 					<entry>
 				<ind>-1.0</ind>
@@ -2004,7 +2004,7 @@ Old
 		
 		<condition>
 			<greater-than>
-		<property>sim/multiplay/generic/float[8]</property>
+		<property>sim/multiplay/generic/float[7]</property>
 				<value>0</value>
 			</greater-than>
 		</condition>
