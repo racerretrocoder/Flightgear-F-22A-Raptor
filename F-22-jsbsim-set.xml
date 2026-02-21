@@ -634,7 +634,7 @@ Or it just wont work
 <float n="11" type="double" alias="/fdm/jsbsim/fcs/tv-animation-lower"/>
 <float n="12" type="double" alias="/fdm/jsbsim/fcs/AIM120"/>
 
-<float n="13" type="double" alias="/engines/engine[0]/nozzle-pos-norm"/>
+<!--<float n="13" type="double" alias="/engines/engine[0]/nozzle-pos-norm"/>-->
 
 <float n="14" type="double" alias="/fdm/jsbsim/fcs/AIM9X"/>
 <float n="15" type="double" alias="/fdm/jsbsim/fcs/tv-animation-top"/>
@@ -656,7 +656,7 @@ Or it just wont work
 <float n="31" type="double" alias="/fdm/jsbsim/fcs/ab1"/>	
 <float n="32" type="double" alias="/fdm/jsbsim/fcs/ab2"/>	  <!--Burners-->
 <float n="33" type="double" alias="/fdm/jsbsim/fcs/gun-main"/>	<!--Gun-->
-<float n="34" type="double" alias="/engines/engine/n1"/> <!--Probably for the fans?, No point in this being brodcasted twice multiplayer[mpid]/engines/engine/n1-->
+<!--<float n="34" type="double" alias="/engines/engine/n1"/> Probably for the fans?, No point in this being brodcasted twice multiplayer[mpid]/engines/engine/n1-->
 <float n="35" type="double" alias="/controls/lighting/actualform"/> <!--Formation light bars-->
 <float n="36" type="double" alias="/fdm/jsbsim/fcs/canopy"/>
 <float n="37" type="double" alias="/fdm/jsbsim/fcs/apuflap1"/>	
@@ -680,7 +680,7 @@ Or it just wont work
 <int n="17" type="int" alias="/controls/armament/extpylons"/>  <!--Ext pylons-->
 <int n="18" type="int" alias="/controls/armament/rdt"/> 
 <int n="19" type="int" alias="/controls/armament/ldt"/>   <!--Drop tanks--> 
-<int n="20" type="int" alias="/fdm/jsbsim/fcs/taxilight"/> 
+
 
 <!--used to be lights
 <int n="23" type="int" alias=""/>
