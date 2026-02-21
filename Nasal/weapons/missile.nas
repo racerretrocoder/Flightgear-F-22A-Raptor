@@ -18,6 +18,14 @@ var debugsysmessages = 0;
 var flaremsg = 0;
 var extradebug = 0;
 
+
+var inflight = func() {
+    setprop("payload/armament/inflight",1);
+}
+inflighttimer = maketimer(0.3,inflight);
+inflighttimer.start();
+
+
 # How to install Missiles onto your plane!
 # First and for most your going to need damage installed on it
 # Secondly Follow the install instructions to setup the missile pylons and weapon controller,   (ext_pylons.nas, weapons.nas)
@@ -613,7 +621,8 @@ if (me.Tgt != nil) {
 
 sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
     #Missile alert sender/missile smoke over damage MP
-    if(getprop("payload/armament/msg")){
+    if(getprop("payload/armament/msg") and getprop("payload/armament/inflight") == 1){
+
 
     if(me.free == 1) {
     if (debugsysmessages == 1) {
@@ -663,7 +672,7 @@ print("Unique ID: ");
       else {
             var callsign = ""; 
            }
-        msg.RemoteCallsign = callsign;
+        msg.RemoteCallsign = callsign; # send missile alert warning to whom
         msg.UniqueIndex = ""~typeID~unique; # tid and the current missile number
         msg.Pitch = ptch; # simple
         msg.Heading = hdg; # simple
@@ -673,6 +682,7 @@ print("Unique ID: ");
         if (debugsysmessages == 1) {
             print("Missile alert sent successfully");
         }
+        setprop("payload/armament/inflight",0); # This is to prevent from overloading the multiplayer
     }
 },
 
@@ -1640,8 +1650,8 @@ var semiactive = 0;
                     {
                        # setprop("/sim/multiplay/chat", phrase);
                         #var typeID = 0;
-    			var typeID = getprop("controls/armament/missile/typeid");
-                # missile defs
+    			        var typeID = getprop("controls/armament/missile/typeid");
+                        # missile defs
                         if(me.NameOfMissile == "Aim-260"){me.NameOfMissile="Aim-260";typeID = 53;}
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
@@ -1659,29 +1669,29 @@ var semiactive = 0;
                         
                         
                         var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
-                        msg.RelativeAltitude = 0;
+                        msg.RelativeAltitude = me.t_coord.alt();
                         msg.Bearing = me.coord.course_to(geo.aircraft_position());
-                        msg.Distance = 1;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
+                        msg.Distance = 0.1;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
                         msg.RemoteCallsign = me.Tgt.get_Callsign();
                         notifications.hitBridgedTransmitter.NotifyAll(msg);
+                        screen.log.write("Target hit!",0,1,0);
                         damage.damageLog.push(sprintf("You hit "~me.Tgt.get_Callsign()~" with "~me.NameOfMissile~" at %.1f meters", me.direct_dist_m));
                         var missilename = "invalid weapon";
-                                                        if (getprop("payload/armament/oldmsg") == 1){
-                                                            if (me.NameOfMissile == "Aim-9x"){
-                                                                missilename = "AIM-9";
-                                                            }
-                                                            if (me.NameOfMissile == "JDAM"){
-                                                                missilename = "GBU-31";
-                                                            }
-                                                            if (me.NameOfMissile == "Aim-120"){
-                                                                missilename = "AIM-120";
-                                                            }
-                                                            if (me.NameOfMissile == "Aim-260"){
-                                                                missilename = "AIM-54";
-                                                            }
-            setprop("sim/multiplay/chat", sprintf(""~missilename~" exploded: %.1f meters from: "~me.Tgt.get_Callsign()~":.....", 0.3));
-        }
-                    
+                        if (getprop("payload/armament/oldmsg") == 1){
+                            if (me.NameOfMissile == "Aim-9x"){
+                                missilename = "AIM-9";
+                            }
+                            if (me.NameOfMissile == "JDAM"){
+                                missilename = "GBU-31";
+                            }
+                            if (me.NameOfMissile == "Aim-120"){
+                                missilename = "AIM-120";
+                            }
+                            if (me.NameOfMissile == "Aim-260"){
+                                missilename = "AIM-54";
+                            }
+                            setprop("sim/multiplay/chat", sprintf(""~missilename~" exploded: %.1f meters from: "~me.Tgt.get_Callsign()~":.....", 0.3));
+                        }
                     }
                     else
                     {
