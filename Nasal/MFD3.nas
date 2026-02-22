@@ -487,6 +487,7 @@ elsif (pg == 2) {
     setprop("controls/radar/slot[" ~ slottype ~ "]/lon", lon); 
     setprop("controls/radar/slot[" ~ slottype ~ "]/alt", alt); 
     screen.log.write("Successfully saved data to slot "~ slottype);
+    stpt.createnew(lat,lon,alt);
 setprop("controls/radar/currentslot", getprop("instrumentation/frontcontrols/digit1"));
 var slottype = getprop("controls/radar/currentslot");
 
