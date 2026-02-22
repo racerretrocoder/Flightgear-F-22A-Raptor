@@ -2219,15 +2219,10 @@ var stringstore = func() {
   if (getprop("f22/currstation") == 20){
     setprop("f22/currstation",0); # Loop back to the first station
   }
-
-
-
-
 }
 
 
 var gunsightupdate = func() {
-
     if (getprop("instrumentation/radar/lock2") == 0){
       setprop("controls/armament/gunsight/range",2400);
     }
@@ -2238,7 +2233,6 @@ var gunsightupdate = func() {
       setprop("controls/armament/gunsight/azimuth2",0);
       setprop("controls/armament/gunsight/elevation2",0);
     }
-
     if (getprop("controls/armament/gunsight/sightmode") == 2) { # A/A
       setprop("controls/armament/gunsight/computer-on", 1);
       setprop("controls/armament/gunsight/power-on", 1);
@@ -2264,21 +2258,19 @@ var gunsightupdate = func() {
       setprop("controls/armament/gunsight/mask-off", 1);
       setprop("controls/armament/gunsight/reticleSelectorPos", 0);
     }
-
-
   # Check gunsights too
-  if (getprop("controls/armament/stick-selector") == 1 and getprop("controls/armament/master-arm") == 1) {
-    # guns on
-    if (getprop("f22/ags") == 1){
-      setprop("controls/armament/gunsight/sightmode",3);
-    } else {
-      setprop("controls/armament/gunsight/sightmode",2);
-    }
+    if (getprop("controls/armament/stick-selector") == 1 and getprop("controls/armament/master-arm") == 1) {
+      # guns on
+      if (getprop("f22/ags") == 1){
+        setprop("controls/armament/gunsight/sightmode",3);
+      } else {
+        setprop("controls/armament/gunsight/sightmode",2);
+      }
 
-    sightradarupdate();
-  } else {
-        setprop("controls/armament/gunsight/sightmode",0);
-  }
+      sightradarupdate();
+    } else {
+          setprop("controls/armament/gunsight/sightmode",0);
+    }
 }
 
 
@@ -2289,6 +2281,7 @@ var consoleslight = func() {
   }
 }
 
+# Engine fire smoke thingy
 var engint = func() {
   if (getprop("sim/failure-manager/engines/engine/serviceable") == 0 or getprop("sim/failure-manager/engines/engine[1]/serviceable") == 0) {
     if (getprop("sim/failure-manager/engines/engine/serviceable") == 0 and getprop("sim/failure-manager/engines/engine[1]/serviceable") == 0) {
@@ -2306,10 +2299,7 @@ var engint = func() {
 }
 
 
-#
-# BEGIN maketimer(); MAYHEM!
-#
-# seconds , function.  you can use 0 for the seconds
+
 var hudupdate = func() {
   setprop("sim/hud/color/alpha",getprop("f22/brightness"));
   setprop("sim/hud/color/brightness",getprop("f22/brightness"));
@@ -2352,19 +2342,54 @@ var tankselector = func() {
   }
 }
 
+var jettison = func(type) {
+  if (type == "external") {
+    if (getprop("controls/armament/rdt") == 1 or getprop("controls/armament/ldt") == 1 or getprop("controls/armament/rrdt") == 1 or getprop("controls/armament/lldt") == 1) {
+      # Only jet tanks first
+      screen.log.write("Tanks Jettisoned. Press again to JETT Weapons",0,1,0);
+      setprop("controls/armament/rdt",0);
+      setprop("controls/armament/rrdt",0);
+      setprop("controls/armament/ldt",0);
+      setprop("controls/armament/lldt",0);
+      return 0;
+    }
+		setprop("sim/weight[2]/selected","None");
+		setprop("sim/weight[19]/selected","None");
+		setprop("sim/weight[20]/selected","None");
+		setprop("sim/weight[18]/selected","None");
+		setprop("sim/weight[17]/selected","None");
+    removeright();
+    removeleft();
+  }
+}
+
+##########################################################################################################
+##########################################################################################################
+##########################################################################################################
+##########################################################################################################
+##########################################################################################################
+##########################################################################################################
+#########################  BEGIN maketimer(); MAYHEM!  ###################################################
+##########################################################################################################
+##########################################################################################################
+##########################################################################################################
+##########################################################################################################
+##########################################################################################################
+##########################################################################################################
+
+# seconds , function.  you can use 0 for the seconds for instant loop without flightgear freezee
+
 
 updatehudtimer = maketimer(0.1,hudupdate);
 updatehudtimer.start();
 engsmoke = maketimer(0.1,engint);
 engsmoke.start();
-
 extlightknobtimer = maketimer(0.2,knobcheck);
 extlightknobtimer.start();
 fastextlightknobtimer = maketimer(0,fastknobcheck);
 fastextlightknobtimer.start();
 tankselectortimer = maketimer (0.5,tankselector);
 tankselectortimer.start();
-
 guntimer = maketimer(0.1,gunsightupdate);
 guntimer.start();
 loadtimer = maketimer(1.5,stringstore);
@@ -2396,7 +2421,6 @@ timer_cursor.start();
 acmtimer = maketimer(2,radarlook);
 headupdate = maketimer(0,updatehead); # Pilot movement
 consoletimer = maketimer(0,consoleslight);
-
 # Shake
 shake_timer = maketimer(0.0001, shake);
 shake_timer2 = maketimer(0.0001, shake2);
@@ -2404,15 +2428,11 @@ var tutmessage = func() {
   #setprop("sim/messages/atc","Welcome aboard the F-22A Raptor, Need help? Check out Help --> Tutorials");
   tuttimer.stop();
 }
-
-
 var geardelaymain = func() {
   gearmain.start();
   geardelay.stop();
   setprop("f22/quick-gear",0);
-
 }
-
 tuttimer = maketimer(5,tutmessage);
 dmgtimer = maketimer(0.3,checkdmg);
 geardelay = maketimer(10,geardelaymain);
@@ -2420,6 +2440,8 @@ setlistener("sim/signals/fdm-initialized", func {
 setprop("f22/water",0);
 # Spawned in/went to location
 gearmain.stop();
+# Reset the landing gear, Feature inspired from F-16. Reset the landing gear status when relocate
+# This also fixes alot of bugs
 setprop("f22/gear1/failed",0);
 setprop("f22/gear2/failed",0);
 setprop("f22/gear3/failed",0);
@@ -2431,9 +2453,9 @@ setprop("f22/quick-gear",1);
 setprop("fdm/jsbsim/gear/gear-pos-norm",1);
 setprop("controls/gear/gear-down",1);
 geardelay.start();
-setprop("controls/engines/engine[0]/throttle",0);
-setprop("controls/engines/engine[1]/throttle",0);
-setprop("controls/gear/brake-parking",1);
+setprop("controls/engines/engine[0]/throttle",0); # Throttle down to ease development
+setprop("controls/engines/engine[1]/throttle",0); # Throttle down to ease development
+setprop("controls/gear/brake-parking",1); # And dont be rolling when we spawn in
 dmgtimer.start();
 tuttimer.start();
 K14.initSightComputer();
@@ -2469,7 +2491,6 @@ locktgt_timer.start();
 Flare_timer.start();
 timer_autoflare = maketimer(0.1, autoflares);
 
-
 var flareswitch = 0;
 var startflare = func{
   if (flareswitch == 0) {
@@ -2482,8 +2503,21 @@ var startflare = func{
 }
 
 
+
+
 var getCCIP = func {
       # get loading missiles
+
+######
+######
+###### BROKEN, UNUSED
+###### 
+######
+
+# ae
+# ae
+
+
       var msltyp = getprop("controls/armament/selected-weapon");
       missile.Loading_missile(msltyp);
       # Needed for missile.nas calculation
