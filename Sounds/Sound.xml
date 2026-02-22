@@ -2947,7 +2947,7 @@
             </volume>
 
         </locked>
-        <!--
+
   <pullup>
             <name>pullUp</name>
             <path>Aircraft/F-22/Sounds/sys/Pullup.wav</path>
@@ -3004,7 +3004,7 @@
                 <factor>1</factor>
             </volume>
 
-        </pullup>-->
+        </pullup>
 
 
 
