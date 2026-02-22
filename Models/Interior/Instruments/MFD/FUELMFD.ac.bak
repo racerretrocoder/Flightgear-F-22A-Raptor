@@ -2094,8 +2094,8 @@ refs 4
 0 1 0
 kids 0
 OBJECT poly
-name "recta"
-loc -0.000221765 0.0726246 -0.000694692
+name "rect"
+loc 0.000497255 -0.00222589 -0.00543874
 texture "Fuel_page.png"
 crease 45.000000
 numvert 4

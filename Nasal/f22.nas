@@ -38,64 +38,64 @@
 # Hide the hud when not in the cockpit view
 setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
 # Init some vars and props
-setprop("f22/fcs/extra",0);
-setprop("f22/fcs/aoalimit",90);
-setprop("f22/fcs/glimit",0);
-setprop("f22/fcsmode",0);
-setprop("f22/mslview",0);
-setprop("f22/aga",0);
-setprop("f22/age",0);
-setprop("f22/obogs/mixture",0);
-setprop("f22/obogs/flow",0);
-setprop("f22/obogs/main",0);
-setprop("controls/refuel/tanks",1);
-setprop("f22/auxcomm/oldd",0);
-setprop("f22/bayupdate",0);
-setprop("controls/baydoor/AIM120lock",0);
-setprop("f22/rbleed",0.0);
-setprop("f22/lbleed",0.0);
-setprop("f22/quick-gear",1);
-setprop("f22/gear1/pos",1);
-setprop("f22/gear2/pos",1);
-setprop("f22/gear3/pos",1);
-setprop("f22/gear-damaged",0);
-setprop("f22/gear1/failed",0);
-setprop("f22/gear2/failed",0);
-setprop("f22/gear3/failed",0);
+setprop("/f22/fcs/extra",0);
+setprop("/f22/fcs/aoalimit",90);
+setprop("/f22/fcs/glimit",0);
+setprop("/f22/fcsmode",0);
+setprop("/f22/mslview",0);
+setprop("/f22/aga",0);
+setprop("/f22/age",0);
+setprop("/f22/obogs/mixture",0);
+setprop("/f22/obogs/flow",0);
+setprop("/f22/obogs/main",0);
+setprop("/controls/refuel/tanks",1);
+setprop("/f22/auxcomm/oldd",0);
+setprop("/f22/bayupdate",0);
+setprop("/controls/baydoor/AIM120lock",0);
+setprop("/f22/rbleed",0.0);
+setprop("/f22/lbleed",0.0);
+setprop("/f22/quick-gear",1);
+setprop("/f22/gear1/pos",1);
+setprop("/f22/gear2/pos",1);
+setprop("/f22/gear3/pos",1);
+setprop("/f22/gear-damaged",0);
+setprop("/f22/gear1/failed",0);
+setprop("/f22/gear2/failed",0);
+setprop("/f22/gear3/failed",0);
 # more gear stuff
-setprop("f22/gear2/tiresmoke",0);
-setprop("f22/gear3/tiresmoke",0);
-setprop("f22/gear2/tiresmokeold",1); # Set like this to disable instant smoke on spawn
-setprop("f22/gear3/tiresmokeold",1); # Set like this to disable instant smoke on spawn
-setprop("f22/gear2/name","leftgear");
-setprop("f22/gear3/name","rightgear");
+setprop("/f22/gear2/tiresmoke",0);
+setprop("/f22/gear3/tiresmoke",0);
+setprop("/f22/gear2/tiresmokeold",1); # Set like this to disable instant smoke on spawn
+setprop("/f22/gear3/tiresmokeold",1); # Set like this to disable instant smoke on spawn
+setprop("/f22/gear2/name","leftgear");
+setprop("/f22/gear3/name","rightgear");
 
-setprop("fdm/jsbsim/gear/gear-pos-norm",1);
-setprop("f22/frost",0);
-setprop("f22/water",0);
-setprop("environment/aircraft-effects/glass-temp-index",0.80);
-setprop("f22/auxcomm/digit1",118);
-setprop("f22/auxcomm/digit2",100);
-setprop("f22/auxcomm/on",0);
-setprop("f22/grind",0);
-setprop("f22/runwaysplash",0); # pushed water from jets
-setprop("f22/fcs/mode","AUTO");
+setprop("/fdm/jsbsim/gear/gear-pos-norm",1);
+setprop("/f22/frost",0);
+setprop("/f22/water",0);
+setprop("/environment/aircraft-effects/glass-temp-index",0.80);
+setprop("/f22/auxcomm/digit1",118);
+setprop("/f22/auxcomm/digit2",100);
+setprop("/f22/auxcomm/on",0);
+setprop("/f22/grind",0);
+setprop("/f22/runwaysplash",0); # pushed water from jets
+setprop("/f22/fcs/mode","AUTO");
 
 #
 # Temp init 
 #
 
-setprop("environment/aircraft-effects/temperature-inside-degC", getprop("environment/temperature-degc"));
-setprop("environment/aircraft-effects/dewpoint-inside-degC", getprop("environment/dewpoint-degc"));
-if (getprop("environment/temperature-degc") < 0) {
+setprop("/environment/aircraft-effects/temperature-inside-degC", getprop("environment/temperature-degc"));
+setprop("/environment/aircraft-effects/dewpoint-inside-degC", getprop("environment/dewpoint-degc"));
+if (getprop("/environment/temperature-degc") < 0) {
  setprop("/environment/aircraft-effects/frost-exterior",1);
 }
-setprop("controls/ecs/airconditioning-temperature",0);
-setprop("controls/ecs/mode",0);
-setprop("controls/ecs/airconditioning-temperature-manual",0);
-setprop("controls/ecs/windshield-hot-air-knob",0);
-setprop("environment/aircraft-effects/frost-outside",0);
-setprop("environment/aircraft-effects/frost-inside",0);
+setprop("/controls/ecs/airconditioning-temperature",0);
+setprop("/controls/ecs/mode",0);
+setprop("/controls/ecs/airconditioning-temperature-manual",0);
+setprop("/controls/ecs/windshield-hot-air-knob",0);
+setprop("/environment/aircraft-effects/frost-outside",0);
+setprop("/environment/aircraft-effects/frost-inside",0);
 setprop("/environment/aircraft-effects/fog-inside", 0);
 setprop("/environment/aircraft-effects/fog-outside", 0);
 setprop("/environment/aircraft-effects/temperature-glass-degC", 0);
@@ -104,6 +104,64 @@ setprop("/environment/aircraft-effects/temperature-inside-degC", 0);
 setprop("/environment/aircraft-effects/temperature-outside-ram-degC", 0);
 setprop("/environment/aircraft-effects/frost-level", 0);
 setprop("/environment/aircraft-effects/fog-level", 0);
+
+# Hud "thingys"
+setprop("controls/hud/altmslth",0); # Altitude tape 1000's
+setprop("controls/hud/altmslhu",1); # Altitude tape 100's
+setprop("controls/hud/radaltth",0); # Radar Alt tape 1000's
+setprop("controls/hud/radalthu",0); # Radar Alt tape 100's
+setprop("controls/hud/altitude",5000); # Altitude AGL in which rad alt transitions over from MSL
+
+var hudalt = func() {
+  # control hud altitude tape
+  var msl = 0;
+  var rad = 0;
+  var agl = getprop("position/altitude-agl-ft");
+  var mslalt = getprop("position/altitude-ft");
+  var setalt = getprop("controls/hud/altitude");
+  if (agl < setalt) {
+    setprop("controls/hud/altwarn",1);
+    rad = 1; # turn on radar alt
+  } else {
+    msl = 1;
+    setprop("controls/hud/altwarn",0);
+  }
+  if (msl == 1) {
+    # show msl alt
+    if (mslalt < 1000) {
+      # switch to 100's
+      setprop("controls/hud/altmslth",0);
+      setprop("controls/hud/altmslhu",1);
+      setprop("controls/hud/radaltth",0);
+      setprop("controls/hud/radalthu",0);
+    } elsif (mslalt > 1000) {
+      # switch to 1000's
+      setprop("controls/hud/altmslth",1);
+      setprop("controls/hud/altmslhu",0);
+      setprop("controls/hud/radaltth",0);
+      setprop("controls/hud/radalthu",0);
+    }
+  }
+  if (rad == 1) {
+    # show radar alt
+    if (agl < 1000) {
+      # switch to 100's
+      setprop("controls/hud/altmslth",0);
+      setprop("controls/hud/altmslhu",0);
+      setprop("controls/hud/radaltth",0);
+      setprop("controls/hud/radalthu",1);
+    } elsif (mslalt > 1000) {
+      # switch to 1000's
+      setprop("controls/hud/altmslth",0);
+      setprop("controls/hud/altmslhu",0);
+      setprop("controls/hud/radaltth",1);
+      setprop("controls/hud/radalthu",0);
+    }
+  }
+}
+hudaltloop = maketimer(0.5,hudalt);
+hudaltloop.start();
+
 
 var toggleradar = func {
   # property

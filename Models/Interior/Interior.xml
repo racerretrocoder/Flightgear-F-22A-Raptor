@@ -565,7 +565,7 @@ fdm/jsbsim/fcs/engine-gen-spin-output
                 <property>/f22/auxcomm/digit1</property>
                 <factor>1</factor>
                 <min>0</min>
-                <max>500</max>                
+                <max>1000</max>                
                 <wrap>false</wrap>
             </binding>
      <binding>
@@ -603,7 +603,7 @@ fdm/jsbsim/fcs/engine-gen-spin-output
                 <property>/f22/auxcomm/digit2</property>
                 <factor>1</factor>
                 <min>0</min>
-                <max>500</max>                
+                <max>1000</max>                
                 <wrap>false</wrap>
             </binding>
      <binding>
