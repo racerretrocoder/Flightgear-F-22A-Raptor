@@ -1986,5 +1986,458 @@
 
 
 
+ <animation>
+        <type>select</type>
+        <object-name>st1</object-name>
+  <object-name>stt1</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[1]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st1</object-name>
+  <object-name>stt1</object-name>
+	<property>f22/stpt/point[1]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st1</object-name>
+  <object-name>stt1</object-name>
+  <property>f22/stpt/point[1]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+
+
+
+
+ <animation>
+        <type>select</type>
+        <object-name>st2</object-name>
+  <object-name>stt2</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[2]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st2</object-name>
+  <object-name>stt2</object-name>
+	<property>f22/stpt/point[2]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st2</object-name>
+  <object-name>stt2</object-name>
+  <property>f22/stpt/point[2]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+ <animation>
+        <type>select</type>
+        <object-name>st3</object-name>
+  <object-name>stt3</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[3]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st3</object-name>
+  <object-name>stt3</object-name>
+	<property>f22/stpt/point[3]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st3</object-name>
+  <object-name>stt3</object-name>
+  <property>f22/stpt/point[3]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+
+
+
+ <animation>
+        <type>select</type>
+        <object-name>st4</object-name>
+  <object-name>stt4</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[4]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st4</object-name>
+  <object-name>stt4</object-name>
+	<property>f22/stpt/point[4]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st4</object-name>
+  <object-name>stt4</object-name>
+  <property>f22/stpt/point[4]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+
+
+ <animation>
+        <type>select</type>
+        <object-name>st5</object-name>
+  <object-name>stt5</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[5]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st5</object-name>
+  <object-name>stt5</object-name>
+	<property>f22/stpt/point[5]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st5</object-name>
+  <object-name>stt5</object-name>
+  <property>f22/stpt/point[5]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+
+
+ <animation>
+        <type>select</type>
+        <object-name>st6</object-name>
+  <object-name>stt6</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[6]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st6</object-name>
+  <object-name>stt6</object-name>
+	<property>f22/stpt/point[6]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st6</object-name>
+  <object-name>stt6</object-name>
+  <property>f22/stpt/point[6]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+
+ <animation>
+        <type>select</type>
+        <object-name>st7</object-name>
+  <object-name>stt7</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[7]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st7</object-name>
+  <object-name>stt7</object-name>
+	<property>f22/stpt/point[7]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st7</object-name>
+  <object-name>stt7</object-name>
+  <property>f22/stpt/point[7]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+
+ <animation>
+        <type>select</type>
+        <object-name>st8</object-name>
+  <object-name>stt8</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[8]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st8</object-name>
+  <object-name>stt8</object-name>
+	<property>f22/stpt/point[8]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st8</object-name>
+  <object-name>stt8</object-name>
+  <property>f22/stpt/point[8]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+
+
+ <animation>
+        <type>select</type>
+        <object-name>st9</object-name>
+  <object-name>stt9</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[9]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st9</object-name>
+  <object-name>stt9</object-name>
+	<property>f22/stpt/point[9]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st9</object-name>
+  <object-name>stt9</object-name>
+  <property>f22/stpt/point[9]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+ <animation>
+        <type>select</type>
+        <object-name>st10</object-name>
+  <object-name>stt10</object-name>
+        <condition>
+			<equals>
+       <property>f22/stpt/point[10]/inuse</property>
+				<value>1</value>
+			</equals>
+        </condition>
+</animation>
+
+<animation>
+	<type>rotate</type>
+  <object-name>st10</object-name>
+  <object-name>stt10</object-name>
+	<property>f22/stpt/point[10]/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>st10</object-name>
+  <object-name>stt10</object-name>
+  <property>f22/stpt/point[10]/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+<!--
+ 	 <text>
+  <name>text0</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0035</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f Kft</format>
+  <truncate type="bool">true</truncate>
+  <property>/controls/PRF/contact/alt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+-->
 
 </PropertyList>

@@ -1636,10 +1636,15 @@ var cursorclick = func() {
         print("radxprf: ",radx);
         print("radzprf: ",radz);
         var hdground = math.round(hdg,0.01);
-        if (hdground < 0) {
+        if (hdground < 0 and hdground > -90) {
           hdground = hdground * -1;
           print("was negative");
         }
+        if (hdground < 0 and hdground < -90) {
+          hdground = hdground + 360; # revert
+          print("past 90");
+        }
+        
         var rnground = math.round(range,0.01);
         print("hdground: ",hdground);
         print("rnground: ",rnground);
@@ -1673,7 +1678,7 @@ var cursorclick = func() {
       setprop("f22/stpt/message","Selected STPT: " ~ lockablecallsigns ~ "");
     } else {
       setprop("f22/stpt/message","Deselected previous steerpoint");
-      setprop("f22.stpt/selected",-1);
+      setprop("f22/stpt/selected",-1);
     }
   }
 }
