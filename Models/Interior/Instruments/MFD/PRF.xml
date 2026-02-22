@@ -15,6 +15,57 @@
   </model>
 	<!---->
 
+	 <text>
+  <name>textmain</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>-0.046</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property type="string">f22/stpt/message</property>
+    <format type="string">%s</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>textmain</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>-0.052</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+  <property>f22/stpt/cursor/hdgtrue</property>
+   <format type="string">HDG True %5.0lf</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>textmain</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.075</y-m>
+   <z-m>-0.058</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+  <property>f22/stpt/cursor/range</property>
+   <format type="string">Range %5.0lf NM</format>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
 
   <animation>
         <type>select</type>
@@ -32,6 +83,21 @@
         </condition>
     </animation>
 
+
+  <animation>
+        <type>select</type>
+        <object-name>stptmark</object-name>
+        
+        <condition>
+	
+      <not>
+			<equals>
+       <property>f22/stpt/selected</property>
+				<value>-1</value>
+			</equals>
+      </not>
+        </condition>
+    </animation>
 
 
 <animation>
@@ -115,6 +181,7 @@
   <type>material</type>
   <object-name>dir</object-name>
     <object-name>text0</object-name>
+    <object-name>textmain</object-name>
      <object-name>5nm</object-name>		
      <object-name>10nm</object-name>			
       <object-name>20nm</object-name>
@@ -1837,6 +1904,42 @@
 
 
 <!--STPT-->
+
+<animation>
+	<type>rotate</type>
+  <object-name>stptmark</object-name>
+	<property>f22/stpt/cursor/hdgprf</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<center>
+	<object-name>dir-axis</object-name>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>stptmark</object-name>
+  <property>f22/stpt/cursor/rangeprf</property>
+    <factor>0.0128</factor>
+  <offset-m>0</offset-m>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+</animation>
+
+
+
+
+
+
+
+
+
 
  <animation>
         <type>select</type>

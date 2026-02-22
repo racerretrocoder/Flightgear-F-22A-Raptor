@@ -1,6 +1,6 @@
-# Phoenix
 # positional.nas
-# Basically a steerpoint backend
+# This is my custom steerpoint and coordnite processing backend
+# Ment to tie in with RAD.nas (front controls and datalink processing)
 print("Loading positional.nas...");
 
 
@@ -11,7 +11,11 @@ var createnew = func(lat,lon,alt) {
         print("Points are available");
         var list = props.globals.getNode("/f22/stpt").getChildren("point");
         var total = size(list);
-        print(total); # next value
+        
+
+        print(total); # Total is in fact our next value | if point[0] then total is 1. if theres point[0], and point[1] then its 2 total. so just add a point[total]
+
+
         # for(var i = 0; i < total; i += 1) {
         #     print(i);
         # }
@@ -84,8 +88,42 @@ var update = func() {
            #  #ns = ans + 180;
            #}
 
-
             setprop("f22/stpt/point[" ~ i ~ "]/hdgprf",ans);
+
+            if (i == getprop("f22/stpt/selected")) {
+                setprop("f22/stpt/cursor/lat",lat);
+                setprop("f22/stpt/cursor/lon",lon);
+                setprop("f22/stpt/cursor/alt",alt);
+                
+                setprop("f22/stpt/cursor/hdgprf",ans);
+                setprop("f22/stpt/cursor/hdgtrue",hdgtrue);
+                setprop("autopilot/settings/true-heading-deg",hdgtrue); # Autopilot :D
+                setprop("f22/stpt/cursor/range",range);
+                #setprop("f22/stpt/cursor/rangeprf",ans);
+                if (getprop("controls/PRF/range") == 5){
+                setprop("f22/stpt/cursor/rangeprf",range);
+                }
+                if (getprop("controls/PRF/range") == 10){
+                range = range / 2;
+                setprop("f22/stpt/cursor/rangeprf",range);
+                }
+                if (getprop("controls/PRF/range") == 20){
+                range = range / 4;
+                setprop("f22/stpt/cursor/rangeprf",range);
+                }
+                if (getprop("controls/PRF/range") == 40){
+                setprop("f22/stpt/cursor/rangeprf",range / 6);
+                }
+                if (getprop("controls/PRF/range") == 60){
+                setprop("f22/stpt/cursor/rangeprf",range / 16);
+                }
+                if (getprop("controls/PRF/range") == 160){
+                setprop("f22/stpt/cursor/rangeprf",range / 30);
+                }
+                if (getprop("controls/PRF/range") == 360){
+                setprop("f22/stpt/cursor/rangeprf",range / 30);
+                }
+            }
         }
     }
 }

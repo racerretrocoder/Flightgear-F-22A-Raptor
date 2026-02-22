@@ -1645,13 +1645,13 @@ var cursorclick = func() {
         print("rnground: ",rnground);
         var variation = getprop("controls/radar/cursorvariaton");
         # check the x
-        var radxpls = radx + variation+5;
-        var radxmin = radx - variation+5;
+        var radxpls = radx + variation;
+        var radxmin = radx - variation;
         var radzpls = radz + 0.05;
         var radzmin = radz - 0.05;
         var xcheck = 0;
         var zcheck = 0;
-        if (radxpls > hdground and radxmin < hdground) {
+        if (radxpls+2 > hdground and radxmin-2 < hdground) {
           print("RadX Checks out for: ",i);
           var xcheck = 1;
         }
@@ -1668,8 +1668,13 @@ var cursorclick = func() {
 
     print("PRF cursorclick complete");
     print("lockablecallsigns: ",lockablecallsigns);
-    screen.log.write("Selected STPT "~lockablecallsigns~"");
     setprop("f22/stpt/selected",lockablecallsigns);
+    if (lockablecallsigns != "") {
+      setprop("f22/stpt/message","Selected STPT: " ~ lockablecallsigns ~ "");
+    } else {
+      setprop("f22/stpt/message","Deselected previous steerpoint");
+      setprop("f22.stpt/selected",-1);
+    }
   }
 }
 setprop("f22/stpt/selected",-1);
@@ -2071,10 +2076,10 @@ var cursor = func {
     }
   } else {
     if (getprop("controls/radar/cursor-x") == 1) {
-      setprop("controls/PRF/cursorx", getprop("controls/PRF/cursorx") + 0.0008);
+      setprop("controls/PRF/cursorx", getprop("controls/PRF/cursorx") + 0.0003);
     }
     if (getprop("controls/radar/cursor-x") == -1) {
-      setprop("controls/PRF/cursorx", getprop("controls/PRF/cursorx") - 0.0008);
+      setprop("controls/PRF/cursorx", getprop("controls/PRF/cursorx") - 0.0003);
       if (getprop("controls/PRF/cursorx") > 0.2) {
         setprop("controls/PRF/cursorx", 0);
       }
