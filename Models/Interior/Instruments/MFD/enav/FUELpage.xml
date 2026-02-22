@@ -1707,5 +1707,98 @@
  </text>	
 
 
+
+
+   <text>
+  <name>fuel-lba</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.003</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.015</y-m>
+   <z-m>0.065</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">F-1A %5.0f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+   <text>
+  <name>fuel-lba</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.003</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.015</y-m>
+   <z-m>0.045</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">F-1B %5.0f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+   <text>
+  <name>fuel-lba</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.003</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.015</y-m>
+   <z-m>0.025</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">F-2 %5.0f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+
+   <text>
+  <name>fuel-lba</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.003</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.003</y-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/tank[3]/level-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+   <text>
+  <name>fuel-lba</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.003</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.02</y-m>
+   <z-m>-0.005</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/tank[4]/level-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
 </PropertyList>
 

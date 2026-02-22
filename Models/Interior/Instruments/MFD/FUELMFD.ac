@@ -5,7 +5,7 @@ MATERIAL "ac3dmat11" rgb 0 1 1  amb 0 1 1  emis 0 1 1  spec 0 1 1  shi 0  trans 
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 1 1 1  shi 0  trans 0
 MATERIAL "ac3dmat11" rgb 0 1 0  amb 0 1 0  emis 0 1 0  spec 0 1 0  shi 0  trans 0
 OBJECT world
-kids 80
+kids 81
 OBJECT poly
 name "r4"
 loc 0 -0.0204426 -0.0706841
@@ -2092,4 +2092,23 @@ refs 4
 2 0 1
 1 0 0
 0 1 0
+kids 0
+OBJECT poly
+name "recta"
+loc -0.000221765 0.0726246 -0.000694692
+texture "Fuel_page.png"
+crease 45.000000
+numvert 4
+0 -0.00738774 -0.0812175
+0 -0.00738774 0.0812175
+0 0.00738774 0.0812175
+0 0.00738774 -0.0812175
+numsurf 1
+SURF 0x30
+mat 3
+refs 4
+3 0.142578 0.952096
+2 0.0605469 0.952096
+1 0.0605469 0.847305
+0 0.142578 0.847305
 kids 0

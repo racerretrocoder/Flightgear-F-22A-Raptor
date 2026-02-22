@@ -11,4 +11,5 @@ The mode of the MFD can be found in /systems/MFD/
 6: Engine Screen
 7: Fuel Screen
 
+This is now outdated, Check out the enav XML's to see which screen goes to which integer
 

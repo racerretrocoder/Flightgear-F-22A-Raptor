@@ -3662,7 +3662,7 @@ Counter
 
         <rwr>
             <name>incoming</name> <!--When a missile is pitbul-->
-            <mode>once</mode>
+            <mode>looped</mode>
             <path>Aircraft/F-22/Sounds/sys/Counter.wav</path><!-- as of MLU tape 3 -->
             <type>avionics</type>
             <condition>

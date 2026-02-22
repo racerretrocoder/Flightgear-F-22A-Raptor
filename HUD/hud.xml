@@ -42,11 +42,14 @@
     </ladder>
 
     <tape>
-        <name>Altitude-MSL</name>
+        <name>Altitude-MSL-1000ft</name>
         <x>53</x>
         <y>-72</y>
         <width>5</width>
         <height>100</height>
+        <condition>
+            <property>controls/hud/altmslth</property>
+        </condition>
         <input>
             <property>/position/altitude-ft</property>
             <factor>1</factor>
@@ -70,6 +73,161 @@
         <enable-pointer>true</enable-pointer>
         <pointer-type>fixed</pointer-type>
     </tape>
+
+
+    <tape>
+        <name>Altitude-MSL-100ft</name>
+        <x>53</x>
+        <y>-72</y>
+        <width>5</width>
+        <height>100</height>
+        <condition>
+            <property>controls/hud/altmslhu</property>
+        </condition>
+        <input>
+            <property>/position/altitude-ft</property>
+            <factor>1</factor>
+            <max>100000</max>
+            <min>-1</min>
+        </input>
+        <major-divisions>100</major-divisions>
+        <minor-divisions>50</minor-divisions>
+        <display-span>300.0</display-span>
+        <option>right</option>
+        <option>vertical</option>
+        <tick-bottom>false</tick-bottom>
+        <tick-top>false</tick-top>
+        <tick-right>false</tick-right>
+        <tick-left>true</tick-left>
+        <cap-bottom>false</cap-bottom>
+        <cap-top>false</cap-top>
+        <cap-right>false</cap-right>
+        <cap-left>true</cap-left>
+        <marker-offset>5</marker-offset>
+        <enable-pointer>true</enable-pointer>
+        <pointer-type>fixed</pointer-type>
+    </tape>
+
+<!-- Radar Altitude -->
+
+    <tape>
+        <name>RadAltitude-1000ft</name>
+        <x>53</x>
+        <y>-72</y>
+        <width>5</width>
+        <height>100</height>
+        <condition>
+            <property>controls/hud/radaltth</property>
+        </condition>
+        <input>
+            <property>/position/altitude-agl-ft</property>
+            <factor>1</factor>
+            <max>100000</max>
+            <min>-1</min>
+        </input>
+        <major-divisions>1000</major-divisions>
+        <minor-divisions>500</minor-divisions>
+        <display-span>3000.0</display-span>
+        <option>right</option>
+        <option>vertical</option>
+        <tick-bottom>false</tick-bottom>
+        <tick-top>false</tick-top>
+        <tick-right>false</tick-right>
+        <tick-left>true</tick-left>
+        <cap-bottom>false</cap-bottom>
+        <cap-top>false</cap-top>
+        <cap-right>false</cap-right>
+        <cap-left>true</cap-left>
+        <marker-offset>5</marker-offset>
+        <enable-pointer>true</enable-pointer>
+        <pointer-type>fixed</pointer-type>
+    </tape>
+
+
+    <tape>
+        <name>RadAltitude-100ft</name>
+        <x>53</x>
+        <y>-72</y>
+        <width>5</width>
+        <height>100</height>
+        <condition>
+            <property>controls/hud/radalthu</property>
+        </condition>
+        <input>
+            <property>/position/altitude-agl-ft</property>
+            <factor>1</factor>
+            <max>100000</max>
+            <min>-1</min>
+        </input>
+        <major-divisions>100</major-divisions>
+        <minor-divisions>50</minor-divisions>
+        <display-span>300.0</display-span>
+        <option>right</option>
+        <option>vertical</option>
+        <tick-bottom>false</tick-bottom>
+        <tick-top>false</tick-top>
+        <tick-right>false</tick-right>
+        <tick-left>true</tick-left>
+        <cap-bottom>false</cap-bottom>
+        <cap-top>false</cap-top>
+        <cap-right>false</cap-right>
+        <cap-left>true</cap-left>
+        <marker-offset>5</marker-offset>
+        <enable-pointer>true</enable-pointer>
+        <pointer-type>fixed</pointer-type>
+    </tape>
+
+
+
+<label>
+	 <name>MSL</name>
+		<width>1</width>
+		<height>1</height>
+        <condition>
+            <or>
+                <property>controls/hud/altmslhu</property>
+                <property>controls/hud/altmslth</property>
+            </or>
+        </condition>
+	    <x>53</x>
+        <y>-72</y>
+	    <format>MSL</format>
+	    <halign>left</halign>
+</label>
+
+<label>
+	 <name>RAD</name>
+		<width>1</width>
+		<height>1</height>
+        <condition>
+            <or>
+                <property>controls/hud/radalthu</property>
+                <property>controls/hud/radaltth</property>
+            </or>
+        </condition>
+		<x>53</x>
+        <y>-72</y>
+		<format>RAD</format>
+		<halign>left</halign>
+</label>
+
+
+<label>
+	 <name>Altitude</name>
+		<width>1</width>
+		<height>1</height>
+        <condition>
+            <or>
+                <property>controls/hud/altwarn</property>
+            </or>
+        </condition>
+		<x>43</x>
+        <y>-92</y>
+		<format>Altitude</format>
+		<halign>left</halign>
+</label>
+
+
 
     <tape>
         <name>KIAS</name>
