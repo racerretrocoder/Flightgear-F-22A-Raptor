@@ -3242,18 +3242,13 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 		
     <WCS><file>Aircraft/F-22/Nasal/wcs-helper.nas</file> </WCS>
 		<mig28>
-			<file>Aircraft/F-22/Nasal/dmgrec.nas</file> <!-- hehehehe. Advanced Situational Awareness-->
+			<file>Aircraft/F-22/Nasal/dmgrec.nas</file>
 		</mig28>
-<damage>
+		<damage>
             <file>Aircraft/F-22/Nasal/damage.nas</file>
         </damage>
 
-	        <ai>
-          <file>Aircraft/F-22/Nasal/AI_list.nas</file> <!--From F-16-->
-        </ai>
-       <!-- <viewMissile>
-          <file>Aircraft/F-22/Nasal/MissileView.nas</file>From F-16
-        </viewMissile>-->
+
 
     <missile>
       <file>Aircraft/F-22/Nasal/weapons/missile.nas</file>
@@ -3312,17 +3307,19 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 <datalink>
 <file>Aircraft/F-22/Nasal/datalink.nas</file>
 </datalink>
+
 <!--
 <dlinkhack>
 <file>Aircraft/F-22/Nasal/hack.nas</file>
-</dlinkhack>-->
+</dlinkhack>
+-->
 
 <!--AI Searcher | misc.nas-->
 		<misc>
 			<file>Aircraft/F-22/Nasal/misc.nas</file>
 		</misc>
 
-		        <TB01>
+		<TB01>
           <file>Aircraft/F-22/Nasal/weapons/tb01.nas</file> <!--System for a Debug Bomb-->
         </TB01>
 

@@ -30,7 +30,7 @@
     </offsets>
   </model>
   
-  
+  <!--
    <animation>
   <type>material</type>
   <object-name>Lat</object-name>
@@ -57,7 +57,8 @@
     <green>0.8</green>
     <blue>0.3</blue>
   </emission> 
- </animation>
+ </animation>-->
+ 
 <!--
  <text>
   <name>Lat-label</name>

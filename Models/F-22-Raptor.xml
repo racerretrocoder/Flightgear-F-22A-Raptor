@@ -2179,7 +2179,7 @@ Old
 	
 	</animation>	
 
-	
+	<!--
 	<animation>
 		<type>select</type>
 		<object-name>gun</object-name>
@@ -2193,6 +2193,7 @@ Old
 		</condition>
 	
 	</animation>	
+
 	<animation>
 		<type>spin</type>
 		<object-name>gun</object-name>
@@ -2202,12 +2203,8 @@ Old
 
  <axis>
 		<object-name>gunaxis</object-name>
-  </axis>
-
-
-	
-	
-	</animation>	
+  </axis>	
+	</animation>	-->
 
 <!--Flare door left-->
 

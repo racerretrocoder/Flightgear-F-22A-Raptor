@@ -691,7 +691,7 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
 <animation>
         <type>knob</type>
     <object-name>dtc</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>airsource-axis</object-name>
         </axis>
@@ -730,7 +730,7 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
 <animation>
         <type>knob</type>
     <object-name>airsource</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>airsource-axis</object-name>
@@ -788,7 +788,7 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
 <animation>
         <type>knob</type>
     <object-name>ky58mode</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>airsource-axis</object-name>
@@ -844,7 +844,7 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
 <animation>
         <type>knob</type>
     <object-name>ky58type</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>airsource-axis</object-name>
@@ -905,7 +905,7 @@ __/\\\________/\\\__/\\\________/\\\__/\\\\\\\\\\\\_____________________/\\\\\\\
 <animation>
         <type>knob</type>
     <object-name>ky58main</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>airsource-axis</object-name>
@@ -1769,7 +1769,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 <animation>
         <type>knob</type>
     <object-name>apustart</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>apustart-axis</object-name>
@@ -1835,7 +1835,7 @@ _____/\\\\\\\\\\\________________________________________________________/\\\___
 <animation>
         <type>knob</type>
     <object-name>BATSWITCH</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>apustart-axis</object-name>
@@ -2129,7 +2129,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>hooksw</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>apustart-axis</object-name>
@@ -2186,7 +2186,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>pbrake</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>apustart-axis</object-name>
@@ -2243,7 +2243,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>ldglt</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>apustart-axis</object-name>
@@ -2296,11 +2296,11 @@ New: Refuel in air switch.
 
 
 
-
+<!--
 <animation>
         <type>knob</type>
     <object-name>flcsflap</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value>
 
         <axis>
    <object-name>apustart-axis</object-name>
@@ -2335,7 +2335,7 @@ New: Refuel in air switch.
       </binding>
         </decrease> 
     </animation>
-
+-->
 
 
 <animation>
@@ -2354,7 +2354,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>aar</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>apustart-axis</object-name>
@@ -2406,7 +2406,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>tanks</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>apustart-axis</object-name>
@@ -2510,7 +2510,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>MSTARM</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>apustart-axis</object-name>
@@ -2576,7 +2576,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>jfsStartL</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
 
         <axis>
    <object-name>apustart-axis</object-name>
@@ -2630,7 +2630,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>jfsStartR</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
@@ -2679,7 +2679,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>cutoffR</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
@@ -2737,7 +2737,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>cutoffL</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
@@ -2798,7 +2798,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>lbd</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
@@ -2848,7 +2848,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>rbd</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
@@ -3394,7 +3394,7 @@ New: Refuel in air switch.
       <animation>
         <type>knob</type>
         <object-name>PNLLT</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
         <object-name>airsource-axis</object-name>
         </axis>
@@ -3466,7 +3466,7 @@ New: Refuel in air switch.
       <animation>
         <type>knob</type>
         <object-name>taxi</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
         <object-name>airsource-axis</object-name>
         </axis>
@@ -3513,7 +3513,7 @@ New: Refuel in air switch.
       <animation>
         <type>knob</type>
         <object-name>navlights</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
         <object-name>airsource-axis</object-name>
         </axis>
@@ -3593,7 +3593,7 @@ New: Refuel in air switch.
       <animation>
         <type>knob</type>
         <object-name>beaconlights</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
         <object-name>airsource-axis</object-name>
         </axis>
@@ -3650,7 +3650,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>GPSDLT</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
@@ -3699,7 +3699,7 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>CAMERAS</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
@@ -3747,14 +3747,14 @@ New: Refuel in air switch.
 <animation>
         <type>knob</type>
     <object-name>ABITSYNC</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
         <action>
             <binding>
                 <command>property-cycle</command>
-                <property>/controls/armament/AMRAAMBITSYNCLOCK</property> <!--inverted silly me xd--> 
+                <property>/controls/armament/AMRAAMBITSYNCLOCK</property> 
                 <value>0</value>
                 <value>1</value>             
                 <wrap>false</wrap>
@@ -3809,18 +3809,18 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
  -->
 
 
-
+<!--
 <animation>
         <type>knob</type>
     <object-name>ALTFLAP</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
         <action>
             <binding>
                 <command>property-cycle</command>
-                <property>/controls/flight/altflap</property> <!--inverted silly me xd--> 
+                <property>/controls/flight/altflap</property> 
                 <value>-1</value>
                 <value>1</value>             
                 <wrap>false</wrap>
@@ -3862,14 +3862,14 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
 <animation>
         <type>knob</type>
     <object-name>TSWTSN</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
         <action>
             <binding>
                 <command>property-cycle</command>
-                <property>/controls/flight/TSWTSN</property> <!--inverted silly me xd--> 
+                <property>/controls/flight/TSWTSN</property> 
                 <value>-1</value>
                 <value>1</value>             
                 <wrap>false</wrap>
@@ -3911,14 +3911,14 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
 <animation>
         <type>knob</type>
     <object-name>APC</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
         <action>
             <binding>
                 <command>property-cycle</command>
-                <property>/controls/flight/APC</property> <!--inverted silly me xd--> 
+                <property>/controls/flight/APC</property> 
                 <value>-1</value>
                 <value>1</value>             
                 <wrap>false</wrap>
@@ -3954,20 +3954,20 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
         <axis>
         <object-name>APC-axis</object-name>
         </axis>
-</animation>
+</animation>-->
 
 
 <animation>
         <type>knob</type>
     <object-name>FBW</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
         <action>
             <binding>
                 <command>property-cycle</command>
-                <property>/controls/FBW/Switch</property> <!--inverted silly me xd--> 
+                <property>/controls/FBW/Switch</property> 
                 <value>0</value>
                 <value>1</value>             
                 <wrap>false</wrap>
@@ -4021,14 +4021,14 @@ __/\\\\\\\\\\\\\\\__/\\\\\\________________________/\\\_________________________
 <animation>
         <type>knob</type>
     <object-name>ARC</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
+        <value>0.0</value> 
         <axis>
    <object-name>apustart-axis</object-name>
         </axis>
         <action>
             <binding>
                 <command>property-cycle</command>
-                <property>/controls/flight/ARC</property> <!--inverted silly me xd--> 
+                <property>/controls/flight/ARC</property> 
                 <value>0</value>
                 <value>1</value>             
                 <wrap>false</wrap>
