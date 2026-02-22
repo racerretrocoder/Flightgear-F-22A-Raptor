@@ -50,18 +50,19 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
      <name>SMSpage</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/ENAV/MSLpage.xml</path>
 			<offsets>
-   <x-m>0.008</x-m>
-      <z-m>0.01</z-m>
-			<pitch-deg>0</pitch-deg>
+   <x-m>0.001</x-m>
+      <z-m>0.011</z-m>
+	  <y-m>-0.003</y-m>
+			<pitch-deg>-1</pitch-deg>
 		</offsets>
 	</model>	
 
 			<model>
      <name>FCRpage</name>
-		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/radar/radar-screen.xml</path>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/PRF.xml</path>
 			<offsets>
    <x-m>0.008</x-m>
-      <z-m>0.01</z-m>
+      <z-m>0.02</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
@@ -70,8 +71,8 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
      <name>WEPpage</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/WEPpage.xml</path>
 			<offsets>
-   <x-m>0.008</x-m>
-      <z-m>0.01</z-m>
+   <x-m>0.001</x-m>
+      <z-m>0.02</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
@@ -81,7 +82,7 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/FLTpage.xml</path>
 			<offsets>
    <x-m>0.008</x-m>
-      <z-m>0.00</z-m>
+      <z-m>0.015</z-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>
@@ -90,8 +91,9 @@ Button Lable text size is uaslly 125 for 3-4 letter phrases
      <name>RWRpage</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/RWRpage.xml</path>
 			<offsets>
-   <x-m>0.008</x-m>
-      <z-m>0.01</z-m>
+   <x-m>0.001</x-m>
+      <z-m>0.012</z-m>
+	  <y-m>0.003</y-m>
 			<pitch-deg>0</pitch-deg>
 		</offsets>
 	</model>

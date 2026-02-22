@@ -44,7 +44,7 @@
 	<text>
   <name>aoa</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.005</character-size>
+  <character-size type="double">0.004</character-size>
   <offsets>
   <!--Y is Left to right
 X is In and Out 
@@ -65,7 +65,7 @@ Z is Up and down-->
  <text>
   <name>aoa</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.006</character-size>
+  <character-size type="double">0.004</character-size>
   <offsets>
   <x-m>0.01</x-m>
    <y-m>-0.07</y-m>
@@ -82,7 +82,7 @@ Z is Up and down-->
  <text>
   <name>aoa</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.006</character-size>
+  <character-size type="double">0.004</character-size>
   <offsets>
   <x-m>0.01</x-m>
    <y-m>-0.07</y-m>
@@ -99,7 +99,7 @@ Z is Up and down-->
 	 <text>
   <name>aoa</name>
   <font>condensed.txf</font>
-  <character-size type="double">0.006</character-size>
+  <character-size type="double">0.004</character-size>
   <offsets>
   <x-m>0.01</x-m>
    <y-m>-0.07</y-m>

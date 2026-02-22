@@ -14,6 +14,26 @@
     </offsets>
   </model>
 	<!---->
+
+
+  <animation>
+        <type>select</type>
+        <object-name>elipse</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>controls/cursorscreen</property>
+				<value>0</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
+
 <animation>
 	<type>rotate</type>
   <object-name>cursor</object-name>
@@ -36,7 +56,7 @@
   <object-name>cursor</object-name>
   
   <property>/controls/PRF/cursorz</property>
-    <factor>0.128</factor> <!--1.0-->
+    <factor>0.138</factor> <!--1.0-->
   <offset-m>0</offset-m>
   <axis>
    <x>0</x>

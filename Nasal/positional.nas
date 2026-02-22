@@ -6,6 +6,7 @@ print("Loading positional.nas...");
 
 var createnew = func(lat,lon,alt) {
     # nil check thingy
+    var stptid = 0;
     if (getprop("f22/stpt/point[0]/inuse") != nil) {
         print("Points are available");
         var list = props.globals.getNode("/f22/stpt").getChildren("point");
@@ -18,13 +19,16 @@ var createnew = func(lat,lon,alt) {
         setprop("f22/stpt/point[" ~ total ~ "]/lat",lat);
         setprop("f22/stpt/point[" ~ total ~ "]/lon",lon);
         setprop("f22/stpt/point[" ~ total ~ "]/alt",alt);
+        stptid = total;
     } else {
         print("Creating a point...");
         setprop("f22/stpt/point[0]/inuse",1);
         setprop("f22/stpt/point[0]/lat",lat);
         setprop("f22/stpt/point[0]/lon",lon);
         setprop("f22/stpt/point[0]/alt",alt);
+        stptid = 0;
     }
+    screen.log.write("Created a new Steerpoint (STPT) With an ID of " ~ stptid ~ "",0,1,0);
 }
 
 # This function is to translate Latitutde and Longitude to displayable data!

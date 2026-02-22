@@ -7,7 +7,18 @@ print("Loading Center MFD...");
 # What MFD page are we on
 
 
-
+var mode = func{
+    # cursor mode switcher
+    var cursor = getprop("controls/cursorscreen");
+    if (cursor == 0) {
+        # switch to prf
+        screen.log.write("Cursor switched to PRF");
+        setprop("controls/cursorscreen",1);
+    } else {
+        screen.log.write("Cursor switched to FCR");
+        setprop("controls/cursorscreen",0);
+    }
+}
 
 
 # Buttons

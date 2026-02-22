@@ -76,6 +76,20 @@ Use increments of .01 Because the unit is meters.
                     </equals>
             </condition>
  </animation>
+
+<animation>
+  <object-name>1203</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>controls/armament/station/release</property>
+                        <value>false</value>
+                    </equals>
+            </condition>
+ </animation>
+
+
 <animation>
   <object-name>aim1202</object-name>
   <type>select</type>
@@ -87,6 +101,22 @@ Use increments of .01 Because the unit is meters.
                     </equals>
             </condition>
  </animation>
+
+
+<animation>
+  <object-name>1202</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>controls/armament/station[1]/release</property>
+                        <value>false</value>
+                    </equals>
+            </condition>
+ </animation>
+
+
+
  <animation>
   <object-name>aim1204</object-name>
   <type>select</type>
@@ -98,6 +128,21 @@ Use increments of .01 Because the unit is meters.
                     </equals>
             </condition>
  </animation>
+
+ <animation>
+  <object-name>1204</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>controls/armament/station[9]/release</property>
+                        <value>false</value>
+                    </equals>
+            </condition>
+ </animation>
+
+
+
  <animation>
   <object-name>aim1201</object-name>
   <type>select</type>
@@ -110,6 +155,20 @@ Use increments of .01 Because the unit is meters.
             </condition>
  </animation>
 
+
+ <animation>
+  <object-name>1201</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>controls/armament/station[8]/release</property>
+                        <value>false</value>
+                    </equals>
+            </condition>
+ </animation>
+
+
  <animation>
   <object-name>aim91</object-name>
   <type>select</type>
@@ -121,6 +180,19 @@ Use increments of .01 Because the unit is meters.
                     </equals>
             </condition>
  </animation>
+
+ <animation>
+  <object-name>9xl</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>controls/armament/station[6]/release</property>
+                        <value>false</value>
+                    </equals>
+            </condition>
+ </animation>
+
  <animation>
   <object-name>aim92</object-name>
   <type>select</type>
@@ -132,6 +204,19 @@ Use increments of .01 Because the unit is meters.
                     </equals>
             </condition>
  </animation>
+ <animation>
+  <object-name>9xr</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>controls/armament/station[7]/release</property>
+                        <value>false</value>
+                    </equals>
+            </condition>
+ </animation>
+
+
 <animation>
   <object-name>aim1205</object-name>
   <type>select</type>
@@ -144,6 +229,21 @@ Use increments of .01 Because the unit is meters.
             </condition>
  </animation>
 <animation>
+  <object-name>1205</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>controls/armament/station[3]/release</property>
+                        <value>false</value>
+                    </equals>
+            </condition>
+ </animation>
+
+
+
+
+<animation>
   <object-name>aim1206</object-name>
   <type>select</type>
 
@@ -151,6 +251,21 @@ Use increments of .01 Because the unit is meters.
                     <equals>
                         <property>sim/weight[5]/selected</property>
                         <value>Aim-120</value>
+                    </equals>
+            </condition>
+ </animation>
+
+
+
+
+<animation>
+  <object-name>1206</object-name>
+  <type>select</type>
+
+            <condition>
+                    <equals>
+                        <property>controls/armament/station[5]/release</property>
+                        <value>false</value>
                     </equals>
             </condition>
  </animation>
@@ -171,6 +286,12 @@ Use increments of .01 Because the unit is meters.
 	<animation>
 		<type>translate</type>
 		<object-name>aim1201</object-name>
+    <object-name>1201</object-name>
+    <object-name>1202</object-name>
+    <object-name>1203</object-name>
+    <object-name>1204</object-name>
+    <object-name>1205</object-name>
+    <object-name>1206</object-name>
 		<property>fdm/jsbsim/fcs/AIM120</property>
 		<factor>0.01  </factor>
 		<axis>
@@ -247,7 +368,7 @@ Use increments of .01 Because the unit is meters.
   <object-name>Engine2</object-name>
     <object-name>aoa</object-name>
       <object-name>flaps</object-name>
-             <object-name>wepon2</object-name>   
+             <object-name>wepon0</object-name>   
                <object-name>wepon1</object-name>  
   <ambient>
     <red>0.0</red>
@@ -266,6 +387,45 @@ Use increments of .01 Because the unit is meters.
   </emission> 
  </animation>
 
+ <animation>
+  <type>material</type>
+
+  <object-name>ecmtext</object-name>
+
+  <ambient>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>0.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.1</red>
+    <green>0.1</green>
+    <blue>0.0</blue>
+  </diffuse>
+  <emission>
+    <red>0.8</red>
+    <green>0.8</green>
+    <blue>0.3</blue>
+  </emission> 
+ </animation>
+
+
+	 <text>
+  <name>wepon0</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.02</y-m>
+   <z-m>0.037</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">WEAPONS SAFE</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
 
 	 <text>
   <name>wepon1</name>
@@ -277,27 +437,14 @@ Use increments of .01 Because the unit is meters.
    <z-m>0.037</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
-  <type type="string">literal</type>
-  <text type="string">Aim-9x</text>
+  <type type="string">string</type>
+  <text type="string">%s</text>
+  <property>/controls/armament/selected-weapon</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
 
-	 <text>
-  <name>wepon2</name>
-  <font>condensed.txf</font>
-  <character-size type="double">0.0056</character-size>
-  <offsets>
-  <x-m>0.01</x-m>
-   <y-m>-0.008</y-m>
-   <z-m>0.037</z-m>
-  </offsets>
-  <axis-alignment>yz-plane</axis-alignment>
-  <type type="string">literal</type>
-  <text type="string">Aim-120</text>
-  <draw-text type="bool">true</draw-text>
-  <alignment>left-top</alignment>
- </text>
+
 
 	 <text>
   <name>Engine2</name>
@@ -316,13 +463,13 @@ Use increments of .01 Because the unit is meters.
  </text>
 
 	 <text>
-  <name>Engine2</name>
+  <name>ecmtext</name>
   <font>condensed.txf</font>
   <character-size type="double">0.0056</character-size>
   <offsets>
   <x-m>0.01</x-m>
    <y-m>-0.00</y-m>
-   <z-m>-0.039</z-m>
+   <z-m>-0.079</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
   <type type="string">literal</type>
@@ -349,25 +496,29 @@ Use increments of .01 Because the unit is meters.
  </text>
 
 
+
 <animation>
-  <object-name>wepon2</object-name>
+  <object-name>wepon0</object-name>
   <type>select</type>
 
             <condition>
                     <equals>
-                        <property>controls/armament/selected-weapon</property>
-                        <value>Aim-120</value>
+                        <property>controls/armament/master-arm</property>
+                        <value>0</value>
                     </equals>
             </condition>
  </animation>
+
+
+
 <animation>
   <object-name>wepon1</object-name>
   <type>select</type>
 
             <condition>
                     <equals>
-                        <property>controls/armament/selected-weapon</property>
-                        <value>Aim-9x</value>
+                        <property>controls/armament/master-arm</property>
+                        <value>1</value>
                     </equals>
             </condition>
  </animation>
