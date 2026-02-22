@@ -1714,9 +1714,9 @@
   <font>condensed.txf</font>
   <character-size type="double">0.003</character-size>
   <offsets>
-  <x-m>0.01</x-m>
-   <y-m>-0.015</y-m>
-   <z-m>0.065</z-m>
+  <x-m>0.001</x-m>
+   <y-m>-0.013</y-m>
+   <z-m>0.062</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
    <type type="string">number-value</type>
@@ -1732,9 +1732,9 @@
   <font>condensed.txf</font>
   <character-size type="double">0.003</character-size>
   <offsets>
-  <x-m>0.01</x-m>
-   <y-m>-0.015</y-m>
-   <z-m>0.045</z-m>
+  <x-m>0.001</x-m>
+   <y-m>-0.013</y-m>
+   <z-m>0.042</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
    <type type="string">number-value</type>
@@ -1750,9 +1750,9 @@
   <font>condensed.txf</font>
   <character-size type="double">0.003</character-size>
   <offsets>
-  <x-m>0.01</x-m>
-   <y-m>-0.015</y-m>
-   <z-m>0.025</z-m>
+  <x-m>0.001</x-m>
+   <y-m>-0.0115</y-m>
+   <z-m>0.0215</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
    <type type="string">number-value</type>
@@ -1769,9 +1769,9 @@
   <font>condensed.txf</font>
   <character-size type="double">0.003</character-size>
   <offsets>
-  <x-m>0.01</x-m>
-   <y-m>-0.003</y-m>
-   <z-m>-0.005</z-m>
+  <x-m>0.001</x-m>
+   <y-m>-0.001</y-m>
+   <z-m>-0.002</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
    <type type="string">number-value</type>
@@ -1787,9 +1787,9 @@
   <font>condensed.txf</font>
   <character-size type="double">0.003</character-size>
   <offsets>
-  <x-m>0.01</x-m>
+  <x-m>0.001</x-m>
    <y-m>-0.02</y-m>
-   <z-m>-0.005</z-m>
+   <z-m>-0.002</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
    <type type="string">number-value</type>
@@ -1799,6 +1799,87 @@
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>	
+
+<!--wing tanks-->
+
+
+   <text>
+  <name>fuel-lba</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0025</character-size>
+  <offsets>
+  <x-m>0.001</x-m>
+   <y-m>0.029</y-m>
+   <z-m>-0.016</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f lbs A-2R</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/tank[5]/level-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+
+
+   <text>
+  <name>fuel-lba</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0025</character-size>
+  <offsets>
+  <x-m>0.001</x-m>
+   <y-m>-0.05</y-m>
+   <z-m>-0.016</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">A-2L %5.0f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/tank[6]/level-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+
+<!--rear-->
+   <text>
+  <name>fuel-lba</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0025</character-size>
+  <offsets>
+  <x-m>0.001</x-m>
+   <y-m>0.025</y-m>
+   <z-m>-0.056</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">%5.0f lbs A-3R</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/tank[7]/level-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+   <text>
+  <name>fuel-lba</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0025</character-size>
+  <offsets>
+  <x-m>0.001</x-m>
+   <y-m>-0.05</y-m>
+   <z-m>-0.056</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">A-3L %5.0f lbs</format>
+  <truncate type="bool">true</truncate>
+  <property>consumables/fuel/tank[8]/level-lbs</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>	
+
+
 
 </PropertyList>
 
