@@ -240,6 +240,26 @@
 -->
 
 
+ 	 <animation>
+  <type>material</type>
+  <object-name>fuel-lba</object-name>
+  <ambient>
+    <red>1</red>
+    <green>1</green>
+    <blue>1</blue>
+  </ambient>
+  <diffuse>
+    <red>1</red>
+    <green>1</green>
+    <blue>1</blue>
+  </diffuse>
+  <emission>
+    <red>1</red>
+    <green>1</green>
+    <blue>1</blue>
+  </emission> 
+ </animation>
+
 
 <!--Bars-->
  <animation>
@@ -1584,12 +1604,13 @@
     </condition>
   </animation>
 
+
+<!--
  <animation>
     <type>select</type>
     <object-name>fwdcross</object-name>
     <condition>
     <not>
-
       <greater-than>
        <property>consumables/fuel/tank[0]/level-lbs</property>
        <value>0</value>
@@ -1646,7 +1667,7 @@
       </equals>
 </and>
     </condition>
-  </animation>
+  </animation>-->
 
 
    <text>

@@ -5,7 +5,7 @@ kids 1
 OBJECT poly
 name "AIM9X"
 loc -2.70045 -5.0362 -0.955774
-texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-22/Models/loads/AIM-9X/AIM-9X_D.png"
+texture "AIM-9X_D.png"
 crease 45.000000
 numvert 1046
 1.74723 5.09314 0.96009

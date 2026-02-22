@@ -135070,7 +135070,7 @@ name "rightengineflight"
 loc 1.24814 -0.237528 -0.0697507
 data 8
 Mesh.013
-texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-23C/Models/Interior/0fdd30ec.png"
+texture "Instruments/EngineFire/0fdd30ec.png"
 crease 45.000000
 numvert 8
 -3.73012 0.70775 -0.125151
@@ -135148,7 +135148,7 @@ name "rightengineflight"
 loc 1.24814 -0.237528 -0.0697507
 data 8
 Mesh.013
-texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-23C/Models/Interior/0fdd30ec.png"
+texture "Instruments/EngineFire/0fdd30ec.png"
 crease 45.000000
 numvert 8
 -3.73319 0.722571 -0.103792
@@ -576304,7 +576304,7 @@ name "leftengineflight"
 loc 1.24814 -0.237528 -0.0697507
 data 8
 Mesh.013
-texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-23C/Models/Interior/0fdd30ec.png"
+texture "Instruments/EngineFire/0fdd30ec.png"
 crease 45.000000
 numvert 8
 -3.73319 0.72265 0.206071
@@ -576382,7 +576382,7 @@ name "leftengineflight"
 loc 1.24814 -0.237528 -0.0697507
 data 8
 Mesh.013
-texture "C:/Users/Michael/FlightGear/Downloads/fgdata_2024_1/Aircraft/F-23C/Models/Interior/0fdd30ec.png"
+texture "Instruments/EngineFire/0fdd30ec.png"
 crease 45.000000
 numvert 8
 -3.73319 0.722768 0.227353

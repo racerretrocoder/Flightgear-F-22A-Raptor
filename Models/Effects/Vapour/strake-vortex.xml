@@ -9,11 +9,11 @@
   <inherits-from>Aircraft/F-22/Models/Effects/vapour/strake-vortex</inherits-from>
   <object-name>Bounding_box2</object-name>
  </effect>
-
+<!--
  <animation>
   <type>scale</type>
   <object-name>Bounding_box1</object-name>
-  <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
+  <property>sim/multiplay/generic/float[17]</property>
   <x-min>0.8</x-min>
   <y-min>4.5</y-min>
   <z-min>0.35</z-min>
@@ -25,7 +25,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Bounding_box1</object-name>
-  <property>sim/multiplay/generic/float[17]</property><!-- orientation/alpha-deg -->
+  <property>sim/multiplay/generic/float[17]</property>
   <offset-deg>-20</offset-deg>
   <factor>-0.2</factor>
   <center>
@@ -38,6 +38,6 @@
    <y>1.0</y>
    <z>0.0</z>
   </axis>
- </animation>
+ </animation>-->
 
 </PropertyList>
