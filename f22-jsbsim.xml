@@ -1346,7 +1346,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <property>/controls/radar/cursorx</property>
 <property>/controls/radar/cursorz</property>
-
+<property>/controls/PRF/cursorx</property>
+<property>/controls/PRF/cursorz</property>
    <function name="fcs/radx">  
         <table>
             <independentVar lookup="row">/controls/radar/cursorx</independentVar>
@@ -1368,6 +1369,29 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           </table>
    </function>
 
+   <function name="fcs/radxprf">  
+        <table>
+            <independentVar lookup="row">/controls/PRF/cursorx</independentVar>
+            <tableData> <!--this is the heading-->
+              -0.2         360
+              -0.1         180
+                0          0
+                0.1        180
+                0.2        360
+            </tableData>
+          </table>
+   </function>
+
+   <function name="fcs/radzprf">  
+        <table>
+            <independentVar lookup="row">/controls/PRF/cursorz</independentVar>
+            <tableData>     
+               -0.464     -5
+                0         0
+                0.460     5
+            </tableData>
+          </table>
+   </function>
 
 
    <function name="fcs/pitch-trim-fbw">  

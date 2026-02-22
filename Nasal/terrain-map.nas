@@ -13,6 +13,9 @@
 #
 ################################################################################
 
+# Modified to fit raptors needs
+
+
 var row = 0;
 var RAD2DEG = 57.2957795;
 var DEG2RAD = 0.016774532925;
@@ -36,7 +39,7 @@ var get_elevation = func (lat, lon) {
 var terrain_map = {
 
 	init : func {
-		me.UPDATE_INTERVAL = 0.025;
+		me.UPDATE_INTERVAL = 0.2;
 		me.loopid = 0;
 
 		me.reset();

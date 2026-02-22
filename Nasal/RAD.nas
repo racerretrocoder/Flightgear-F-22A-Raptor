@@ -408,27 +408,25 @@ setprop("instrumentation/comm[1]/frequencies/standby-mhz", active);
 
 
 var aamode = func{
-
-setprop("systems/MFD/modemfdc", 2);
-setprop("systems/MFD/modemfdl", 1);
-setprop("systems/MFD/modemfdr", 5);
-
+  setprop("systems/MFD/modemfdc", 2); # Radar
+  setprop("systems/MFD/modemfdl", 1); # SMS
+  setprop("systems/MFD/modemfdr", 5); # RWR
+  setprop("systems/MFD/modemfdll", 1); # MSL
 }
 
 var agmode = func{
-
-setprop("systems/MFD/modemfdc", 5);
-setprop("systems/MFD/modemfdl", 1);
-setprop("systems/MFD/modemfdr", 4);
-
+  setprop("systems/MFD/modemfdc", 2); # Radar
+  setprop("systems/MFD/modemfdl", 1); # SMS
+  setprop("systems/MFD/modemfdr", 3); # GPS
+  setprop("systems/MFD/modemfdll", 2); # PRF
 }
 
 
 var nav = func{
-setprop("systems/MFD/modemfdc", 7);
-setprop("systems/MFD/modemfdl", 4);
-setprop("systems/MFD/modemfdr", 6);
-
+  setprop("systems/MFD/modemfdc", 7); # ENG
+  setprop("systems/MFD/modemfdl", 4); # FLT
+  setprop("systems/MFD/modemfdr", 6); # FUEL
+  setprop("systems/MFD/modemfdll", 5); # RWR
 }
 
 # Cool datalink stuff
@@ -547,6 +545,7 @@ var dlink_loop = func {
           setprop("controls/radar/datarec/alt", alt);
           print("Datalink is being sent over to us from " ~ reccall);
           screen.log.write("Datalink Coordnites were sent over from " ~ reccall ~ "!",1,1,0);
+          stpt.createnew(lat,lon,alt);
           setprop("instrumentation/datalink/lastcallsign", reccall);
           setprop("instrumentation/datalink/data",1);          
           clear_timer_long.start();

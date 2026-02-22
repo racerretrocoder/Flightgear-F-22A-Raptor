@@ -1615,10 +1615,64 @@ var cursorclick = func() {
     }
   } elsif (getprop("controls/cursorscreen") == 1) {
     # PRF
-    print("Cursor click on PRF");
+      print("Cursor click on PRF");
+  var lockablecallsigns = "";
+  var xpos = getprop("controls/PRF/cursorx");
+  var zpos = getprop("controls/PRF/cursorz");
+  var radx = getprop("fdm/jsbsim/fcs/radxprf");
+  var radz = getprop("fdm/jsbsim/fcs/radzprf");
+  # do stpt first
+  var list = props.globals.getNode("/f22/stpt").getChildren("point");
+  var total = size(list);
+  var mpid = 0;
+  for(var i = 0; i < total; i += 1) {
+      # were searching for someone...
+      #var callsign = getprop("instrumentation/radar2/marker/mark[" ~ i ~ "]/callsign");
+      var display = getprop("f22/stpt/point[" ~ i ~ "]/inuse");
+      var hdg = getprop("f22/stpt/point[" ~ i ~ "]/hdgprf");
+      var range = getprop("f22/stpt/point[" ~ i ~ "]/rangeprf");
+      if (hdg != nil and range != nil and display != nil) {
+      if (display == 1) {
+        print("radxprf: ",radx);
+        print("radzprf: ",radz);
+        var hdground = math.round(hdg,0.01);
+        if (hdground < 0) {
+          hdground = hdground * -1;
+          print("was negative");
+        }
+        var rnground = math.round(range,0.01);
+        print("hdground: ",hdground);
+        print("rnground: ",rnground);
+        var variation = getprop("controls/radar/cursorvariaton");
+        # check the x
+        var radxpls = radx + variation+5;
+        var radxmin = radx - variation+5;
+        var radzpls = radz + 0.05;
+        var radzmin = radz - 0.05;
+        var xcheck = 0;
+        var zcheck = 0;
+        if (radxpls > hdground and radxmin < hdground) {
+          print("RadX Checks out for: ",i);
+          var xcheck = 1;
+        }
+        if (radzpls > rnground and radzmin < rnground) {
+          print("RadZ Checks out for: ",i);
+          var zcheck = 1;
+        }
+          if (xcheck == 1 and zcheck == 1) {
+                lockablecallsigns = i;
+          }
+        }
+      }
+    }
+
+    print("PRF cursorclick complete");
+    print("lockablecallsigns: ",lockablecallsigns);
+    screen.log.write("Selected STPT "~lockablecallsigns~"");
+    setprop("f22/stpt/selected",lockablecallsigns);
   }
 }
-
+setprop("f22/stpt/selected",-1);
 
 var updatemkr = func() {
   var list = props.globals.getNode("/instrumentation/radar2/targets").getChildren("multiplayer");
