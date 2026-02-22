@@ -317,7 +317,26 @@ fdm/jsbsim/fcs/engine-gen-spin-output
         </hovered>
 </animation>
 
-
+<animation>
+  <type>pick</type>
+   <object-name>jett</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>nasal</command>
+      <script>screen.log.write("JETT: Ext Stores");f22.jettison("external");</script>
+    </binding>
+    </action>
+            <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rfe</tooltip-id>
+                <label>Zeroize AUX COMM (COMM 3)</label>
+            </binding>
+        </hovered>
+</animation>
  
 	 <model>
   <path>Aircraft/F-22/Models/Interior/Instruments/hud/hud.xml</path>
