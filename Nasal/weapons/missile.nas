@@ -127,7 +127,7 @@ var MISSILE = {
         m.deploy_time           = 0;  
         m.last_coord        = nil;
         m.unique_id         = -100;  # For missile alert to give each missile a number
-        m.targetcallsign    = "nothgi"; # nothing
+        m.targetcallsign    = "nothingatall"; # nothing
         m.isradarmissile    = 0;   # again, for missile alert sender to let our target know if this is radar or heat missile
         m.eject_speed       = 0;
         m.old_flare         = 0;  # used for counter messures
@@ -135,8 +135,12 @@ var MISSILE = {
         m.cmsalt            = 0;
         m.cmslat            = 0;
         m.cmslon            = 0;
-        m.cmsvariation      = 45; # The heading window (+ and -) inwhich the missile thinks he target is heading toward it
+        m.cmsvariation      = 45; # The azimuth (full size will be multiplayed by 2) in which the missile thinks he target is heading toward it
         m.cmsfool           = 0;
+        m.gpslat            = 0;
+        m.gpslon            = 0;
+        m.gpslat            = 0;
+        m.gpstarget         = 0;
        # m.ccip_altC = 0;
        # m.ccip_dens = 0;
        # m.ccip
@@ -332,6 +336,14 @@ var MISSILE = {
 
     # this function is to convert for the missile from aircraft coordinate to absolute coordinate
     release: func(){
+        # gps targeting check (This must run only once)
+        if (getprop("controls/radar/weaponcoords") == 1) {
+            me.gpstarget = 1;
+            me.gpslat = getprop("controls/radar/gpslock/lat");
+            me.gpslon = getprop("controls/radar/gpslock/lon");
+            me.gpsalt = getprop("controls/radar/gpslock/alt");
+            screen.log.write("Weapon released useing GPS!");
+        }
         me.status = 2;
         #me.animation_flags_props();
         
@@ -1200,7 +1212,7 @@ var mslalt = getprop("controls/armament/pos/alt");
                             
                                 setprop("payload/armament/flares", 0);
             print("tgt nil");
-        if (getprop("controls/radar/weaponcoords") == 0) {
+        if (me.gpstarget == 0) {
             me.free = 1;
                     return(1);
         }
@@ -1248,10 +1260,10 @@ var mslalt = getprop("controls/armament/pos/alt");
         {
             # status = launched : compute target position relative to seeker head.
             # Get target position.
-            if (getprop("controls/radar/weaponcoords") == 1){
-                            var lat = getprop("controls/radar/gpslock/lat");
-    var lon = getprop("controls/radar/gpslock/lon");
-    var alt = getprop("controls/radar/gpslock/alt");
+            if (me.gpstarget == 1){
+    var lat = me.gpslat;
+    var lon = me.gpslon;
+    var alt = me.gpsalt;
     var coord = geo.Coord.new();
     var gndelev = alt*FT2M;
     print("coord: lat:" ~ lat);
@@ -1283,7 +1295,7 @@ var mslalt = getprop("controls/armament/pos/alt");
             # Prevision of the next position with speed & heading and dt->time to next position
             # Prevision of the next altitude depend on the target appproch on the next second. dt = 0.1
             #me.vApproch;
-                        if (getprop("controls/radar/weaponcoords") == 1){
+                        if (me.gpstarget == 1){
                     var next_alt = t_alt;
                         } else {
                             if (me.Tgt == nil) {
@@ -1297,10 +1309,14 @@ var mslalt = getprop("controls/armament/pos/alt");
             # aircraft, 0.2 is the "time"of the precision, in second. This need
             # to be not arbitrary
             
-                    if (getprop("controls/radar/weaponcoords") == 1) {
-                    var lat = getprop("controls/radar/gpslock/lat");
-    var lon = getprop("controls/radar/gpslock/lon");
-    var alt = getprop("controls/radar/gpslock/alt");
+                    if (me.gpstarget == 1) {
+   #var lat = getprop("controls/radar/gpslock/lat");
+   #var lon = getprop("controls/radar/gpslock/lon");
+   #var alt = getprop("controls/radar/gpslock/alt");
+    var lat = me.gpslat;
+    var lon = me.gpslon;
+    var alt = me.gpsalt;
+
     var coord = geo.Coord.new();
     var gndelev = alt*FT2M;
     print("coord: lat:" ~ lat);
@@ -1790,7 +1806,7 @@ var semiactive = 0;
     
     search: func(c){
         var tgt = c;
-        if (getprop("controls/radar/weaponcoords") == 1) {
+        if (me.gpstarget == 1) {
             #screen.log.write("GPS active");
             var target = radar.GetTarget();
         } else {
@@ -1842,10 +1858,10 @@ var semiactive = 0;
         # Can GPS stuff be here?
         # if gps slaved override these with gps coords
 
-        if (getprop("controls/radar/weaponcoords") == 1) {
- me.TgtLon_prop       = getprop("controls/radar/gpslock/lon");
- me.TgtLat_prop       = getprop("controls/radar/gpslock/lat");
- me.TgtAlt_prop       = getprop("controls/radar/gpslock/alt");
+        if (me.gpstarget == 1) {
+ me.TgtLon_prop       = me.gpslat;
+ me.TgtLat_prop       = me.gpslon;
+ me.TgtAlt_prop       = me.gpsalt;
  me.TgtHdg_prop       = 0;   #getprop("/ai/closest/heading");
         } else {
             if (me.cmsfool == 0) {
