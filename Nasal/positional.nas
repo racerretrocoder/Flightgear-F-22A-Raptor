@@ -99,6 +99,7 @@ var update = func() {
             setprop("f22/stpt/point[" ~ i ~ "]/hdgprf",ans);
 
             if (i == getprop("f22/stpt/selected")) {
+
                 setprop("f22/stpt/cursor/lat",lat);
                 setprop("f22/stpt/cursor/lon",lon);
                 setprop("f22/stpt/cursor/alt",alt);
@@ -107,34 +108,40 @@ var update = func() {
                 setprop("controls/radar/slots/lon",lon);
                 setprop("controls/radar/slots/alt",alt);
 
+                setprop("controls/radar/gpslock/lat", lat); 
+                setprop("controls/radar/gpslock/lon", lon); 
+                setprop("controls/radar/gpslock/alt", alt); 
+
+
+
                 setprop("f22/stpt/cursor/hdgprf",ans);
                 setprop("f22/stpt/cursor/hdgtrue",hdgtrue);
                 setprop("autopilot/settings/true-heading-deg",hdgtrue); # Autopilot :D
                 setprop("f22/stpt/cursor/range",range);
-                #setprop("f22/stpt/cursor/rangeprf",ans);
-                if (getprop("controls/PRF/range") == 5){
                 setprop("f22/stpt/cursor/rangeprf",range);
-                }
-                if (getprop("controls/PRF/range") == 10){
-                range = range / 2;
-                setprop("f22/stpt/cursor/rangeprf",range);
-                }
-                if (getprop("controls/PRF/range") == 20){
-                range = range / 4;
-                setprop("f22/stpt/cursor/rangeprf",range);
-                }
-                if (getprop("controls/PRF/range") == 40){
-                setprop("f22/stpt/cursor/rangeprf",range / 6);
-                }
-                if (getprop("controls/PRF/range") == 60){
-                setprop("f22/stpt/cursor/rangeprf",range / 16);
-                }
-                if (getprop("controls/PRF/range") == 160){
-                setprop("f22/stpt/cursor/rangeprf",range / 30);
-                }
-                if (getprop("controls/PRF/range") == 360){
-                setprop("f22/stpt/cursor/rangeprf",range / 30);
-                }
+                #if (getprop("controls/PRF/range") == 5){
+                #setprop("f22/stpt/cursor/rangeprf",range);
+                #}
+                #if (getprop("controls/PRF/range") == 10){
+                #range = range / 2;
+                #setprop("f22/stpt/cursor/rangeprf",range);
+                #}
+                #if (getprop("controls/PRF/range") == 20){
+                #range = range / 4;
+                #setprop("f22/stpt/cursor/rangeprf",range);
+                #}
+                #if (getprop("controls/PRF/range") == 40){
+                #setprop("f22/stpt/cursor/rangeprf",range / 6);
+                #}
+                #if (getprop("controls/PRF/range") == 60){
+                #setprop("f22/stpt/cursor/rangeprf",range / 16);
+                #}
+                #if (getprop("controls/PRF/range") == 160){
+                #setprop("f22/stpt/cursor/rangeprf",range / 30);
+                #}
+                #if (getprop("controls/PRF/range") == 360){
+                #setprop("f22/stpt/cursor/rangeprf",range / 30);
+                #}
             }
         }
     }
