@@ -337,7 +337,7 @@ var MISSILE = {
     # this function is to convert for the missile from aircraft coordinate to absolute coordinate
     release: func(){
         # gps targeting check (This must run only once)
-        if (getprop("controls/radar/weaponcoords") == 1) {
+        if (getprop("controls/radar/weaponcoords") == 1 and me.isbomb == 1) {
             me.gpstarget = 1;
             me.gpslat = getprop("controls/radar/gpslock/lat");
             me.gpslon = getprop("controls/radar/gpslock/lon");
@@ -449,8 +449,8 @@ var MISSILE = {
 
         me.StartTime = props.globals.getNode("/sim/time/elapsed-sec", 1).getValue();
    var target = radar.GetTarget();
-        if (target == nil) {
-       var phrase =  me.fox ~ " at Nothing. Release " ~ me.NameOfMissile; #Missile shot
+        if (target == nil or me.gpstarget == 1) {
+       var phrase =  me.fox ~ " at Nothing / GPS Coordnites. Release " ~ me.NameOfMissile; #Missile shot
 
        me.fox = "Fox 1";  # Set only for proximity detect to fire missile with out lock and relock if target is back.
             if (debugmessages == 1) {
