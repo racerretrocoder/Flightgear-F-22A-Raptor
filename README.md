@@ -65,6 +65,7 @@ If you still have problems installing, you can join our Discord server.
 
 - `Ctrl+f` Toggles the side baydoors
 - `Ctrl+d` Toggles the center baydoors
+(Note that the bays will automatically be controlled when you shoot. use this if you want to keep them open)
 - `Ctrl+o` Unlock from the currently locked radar target
 - `w` switches the triggers mode. guns or missiles
 - `n/m` to choose what weapon you shoot when in missile mode
