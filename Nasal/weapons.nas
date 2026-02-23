@@ -1,4 +1,4 @@
-print("LOADING weapons.nas pew pew! fox 3 fox3!.");
+print("LOADING weapons.nas...");
 ################################################################################
 #
 #                        F-22 WEAPONS SETTINGS
@@ -211,7 +211,7 @@ fire_MG = func() {
             } else {
                 # Normal Control
             # var time = getprop("/sim/time/elapsed-sec");
-                if(time - dt > 0.5) # missile delay. only shoot missiles every 0.5 seconds
+                if(time - dt > 0) # missile delay. only shoot missiles every 0.5 seconds
                 {
                     dt = time;
                     screen.log.write("Trigger!");
@@ -236,7 +236,7 @@ fire_MG_pic = func() {  # b would be in the ()
             multishot();
         } else {
         # var time = getprop("/sim/time/elapsed-sec"); 
-        if(time - dt > 0.5) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
+        if(time - dt > 0) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
             {
                 dt = time;
                 screen.log.write("Pickle!");
