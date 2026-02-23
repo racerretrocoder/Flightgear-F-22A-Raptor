@@ -8431,7 +8431,7 @@ refs 4
 kids 0
 OBJECT poly
 name "spacerae"
-loc 0.000643064 -0.00638831 4.98002e-005
+loc 0.000910814 -0.00638831 4.98002e-005
 texture "WEPSET.png"
 crease 45.000000
 numvert 4

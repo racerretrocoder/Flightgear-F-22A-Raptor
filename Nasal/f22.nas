@@ -54,6 +54,8 @@ setprop("/f22/bayupdate",0);
 setprop("/controls/baydoor/AIM120lock",0);
 setprop("/f22/rbleed",0.0);
 setprop("/f22/lbleed",0.0);
+setprop("/f22/gen1",1);
+setprop("/f22/gen2",1);
 setprop("/f22/quick-gear",1);
 setprop("/f22/gear1/pos",1);
 setprop("/f22/gear2/pos",1);
@@ -111,7 +113,7 @@ setprop("controls/hud/altmslhu",1); # Altitude tape 100's
 setprop("controls/hud/radaltth",0); # Radar Alt tape 1000's
 setprop("controls/hud/radalthu",0); # Radar Alt tape 100's
 setprop("controls/hud/altitude",5000); # Altitude AGL in which rad alt transitions over from MSL
-
+setprop("controls/radar/ag",0); # Altitude AGL in which rad alt transitions over from MSL
 var hudalt = func() {
   # control hud altitude tape
   var msl = 0;
@@ -1764,6 +1766,21 @@ var tgtlock = func{
         }
     }
   } elsif (getprop("instrumentation/radar/lock") == 0){
+    if(getprop("instrumentation/radar/mode/main") == 5)
+    {   # AG
+        setprop("instrumentation/radar/jamlock",0);
+        setprop("instrumentation/radar/jam",0);
+        setprop("instrumentation/radar/az-field", 60);
+        setprop("instrumentation/radar2/sweep-display-width", 0.1646);        
+        setprop("instrumentation/radar2/sweep-speed",1);   
+        setprop("controls/radar/ag",1);
+    } else {
+      setprop("controls/radar/ag",0);
+    }
+
+
+
+
     if(getprop("instrumentation/radar/mode/main") == 4)
     {   # JAM
         setprop("instrumentation/radar/jamlock",0);

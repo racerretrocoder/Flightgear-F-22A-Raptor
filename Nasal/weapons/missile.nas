@@ -279,7 +279,7 @@ var MISSILE = {
         if(mslname == "Aim-120"){typeID = 52;}
         if(mslname == "Aim-7"){typeID = 55;}
         if(mslname == "Aim-9x"){typeID = 98;}
-        if(mslname == "GBU-39"){typeID = 18;}  # Missile definitions   
+        if(mslname == "GBU-39"){typeID = 35;}  # Missile definitions   
         if(mslname == "JDAM"){typeID = 35;}  
         if(mslname == "Aim-9m"){typeID = 69;}  
         if(mslname == "AGM-154"){typeID = 4;}
@@ -705,7 +705,7 @@ broddamage: func (cs,dist,msl) {
     if(msl == "Aim-120"){msl="Aim-120";typeID = 52;}
     if(msl == "Aim-7"){msl="Aim-7";typeID = 55;}
     if(msl == "Aim-9x"){msl="Aim-9x";typeID = 98;}
-    if(msl == "GBU-39"){msl="GBU-39";typeID = 18;}  # Missile definitions   
+    if(msl == "GBU-39"){msl="GBU-39";typeID = 35;}  # Missile definitions   
     if(msl == "JDAM"){msl="JDAM";typeID = 35;}  
     if(msl == "JDAM"){msl="JDAM";typeID = 6;}  
     if(msl == "Aim-9m"){msl="Aim-9m";typeID = 69;}  
@@ -1112,7 +1112,7 @@ broddamage: func (cs,dist,msl) {
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
-                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  # Missile definitions   
+                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 35;}  # Missile definitions   
                         if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
                         if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
@@ -1700,7 +1700,7 @@ var semiactive = 0;
                         if(me.NameOfMissile == "Aim-120"){me.NameOfMissile="Aim-120";typeID = 52;}
                         if(me.NameOfMissile == "Aim-7"){me.NameOfMissile="Aim-7";typeID = 55;}
                         if(me.NameOfMissile == "Aim-9x"){me.NameOfMissile="Aim-9x";typeID = 98;}
-                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 18;}  # Missile definitions   
+                        if(me.NameOfMissile == "GBU-39"){me.NameOfMissile="GBU-39";typeID = 35;}  # Missile definitions   
                         if(me.NameOfMissile == "JDAM"){me.NameOfMissile="JDAM";typeID = 35;}  
                         if(me.NameOfMissile == "Aim-9m"){me.NameOfMissile="Aim-9m";typeID = 69;}  
                         if(me.NameOfMissile == "XMAA"){me.NameOfMissile="XMAA";typeID = 59;}  # Aim-132 This XMAA is tempory. testing a longrange BVR missile Can only be accessed if the callsign is the developers callsign. AKA: me :D
