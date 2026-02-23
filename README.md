@@ -103,6 +103,16 @@ The FCR on the MFDs is the radar screen
         <td>Side-Looking Radar</td>
         <td>Raptor has advanced SLR'S at the side of the nose to allow for a crazy scan azimuth of 280 degrees. It's possible to lock and fire Aim-120's at bandits that are roughly on your tail!</td>
     </tr>
+    <tr>
+        <td>AG</td>
+        <td>Air to ground</td>
+        <td>This allows you to lock on to targets on the ground or that dont show any movement. Note that you wont be able to detect any targets that are moving faster than roughly 20kts</td>
+    </tr>
+    <tr>
+        <td>JAM</td>
+        <td>Jammer</td>
+        <td>This is not a radar mode where you can deploy weapons off of. Locking up a target in this mode will activate the jammer and brodcast *special radiation* to trigger the opponents RWR into beliving an active missile is on there tail</td>
+    </tr>
 </table>
 
 ### More Photos

@@ -1359,10 +1359,10 @@ elsif(getprop("instrumentation/radar/mode/main") == 3)
     {
         f22.acmtimer.stop();
         screen.log.write("Side looking radars off");
-        setprop("instrumentation/radar/az-field", 60);
+        setprop("instrumentation/radar/az-field", 120);
         setprop("instrumentation/radar/mode/main", 5);
-        setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
-        setprop("instrumentation/radar2/sweep-speed",0.5);
+        setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
+        setprop("instrumentation/radar2/sweep-speed",0.23);
         tgts_list = [];
     }
 elsif(getprop("instrumentation/radar/mode/main") == 5)

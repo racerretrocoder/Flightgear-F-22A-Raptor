@@ -1752,6 +1752,7 @@ var tgtlock = func{
     setprop("instrumentation/radar/lock2", 2);
 
     # Note that the radar mode is controlled in radar2.nas aswell
+    # The only difference is that this code runs in a loop
     if(getprop("instrumentation/radar/mode/main") == 4)
     {   # JAM
         setprop("instrumentation/radar/jamlock",1);
@@ -1773,8 +1774,8 @@ var tgtlock = func{
         setprop("instrumentation/radar/jamlock",0);
         setprop("instrumentation/radar/jam",0);
         setprop("instrumentation/radar/az-field", 60);
-        setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
-        setprop("instrumentation/radar2/sweep-speed",0.5);   
+        setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
+        setprop("instrumentation/radar2/sweep-speed",0.23);   
         setprop("controls/radar/ag",1);
     } else {
       setprop("controls/radar/ag",0);
@@ -1806,7 +1807,7 @@ var tgtlock = func{
     }  
     if(getprop("instrumentation/radar/mode/main") == 1)
     {   # RWS
-        setprop("instrumentation/radar/az-field", 180);
+        setprop("instrumentation/radar/az-field", 120);
         setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
         setprop("instrumentation/radar2/sweep-speed", 2);   
     }
