@@ -514,6 +514,18 @@ var Radar = {
         return IsInElevation;
     },
 
+    notGroundTarget: func(SelectedObject){
+        # Detection of ground target thingy
+        # Ground / Air target seperation
+        var TgtSpeed = SelectedObject.get_Speed();
+        var IsMoving = (TgtSpeed > 20);
+        if (getprop("controls/radar/ag") == 1) {
+            IsMoving = (TgtSpeed < 20);
+            return IsMoving;
+        }
+        return IsMoving;
+    },
+
     InRange: func(SelectedObject){
         # Check if it's in range
         IsInRange = 0;
@@ -641,6 +653,8 @@ var Radar = {
         return checked;
     },
 
+
+    # This function here determines if a target should be detected
     go_check: func(SelectedObject){
         #if radar : check : InRange, inAzimuth, inElevation, NotBeyondHorizon, doppler, isNotBehindTerrain
         #if Rwr   : check : InhisRange (radardist), inHisElevation, inHisAzimuth, NotBeyondHorizon, isNotBehindTerrain
@@ -664,12 +678,20 @@ var Radar = {
         {
             return;
         }
+        # A/G
+        print(me.notGroundTarget(SelectedObject));
+        append(me.Check_List, me.notGroundTarget(SelectedObject));
+        if(me.Check_List[3] == 0)
+        {
+            return;
+        }
+
         # RCS Stuff
         if (getprop("/instrumentation/radar2/hasrcs") != nil) {
             if (getprop("/instrumentation/radar2/hasrcs") == 1) {
                 # Small debug
                 append(me.Check_List, customrcs.getrcs(SelectedObject));
-                if(me.Check_List[3] == 0)
+                if(me.Check_List[4] == 0)
                 {
                     return;
                 }
@@ -677,11 +699,11 @@ var Radar = {
         }
 
         # Disabled for debug
-  #      append(me.Check_List, me.NotBeyondHorizon(SelectedObject));
-  #      if(me.Check_List[3] == 0)
-  #      {
-  #          return;
-  #      }
+        #append(me.Check_List, me.NotBeyondHorizon(SelectedObject));
+        #if(me.Check_List[5] == 0)
+        #{
+        #    return;
+        #}
   #      #me.heat_sensor(SelectedObject);
   #      append(me.Check_List, me.doppler(SelectedObject));
   #      if(me.Check_List[4] == 0)
@@ -1310,7 +1332,8 @@ radar_mode_toggle = func(){
         setprop("instrumentation/radar/mode/main", 1);
         setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
         setprop("instrumentation/radar2/sweep-speed", 0.5);   
-               f22.acmtimer.stop(); 
+        f22.acmtimer.stop(); 
+        tgts_list = [];
 
       #  wcs_mode = "pulse-srch";
       #  AzField.setValue(120);
@@ -1325,6 +1348,7 @@ elsif(getprop("instrumentation/radar/mode/main") == 2)
         setprop("instrumentation/radar/mode/main", 3);
         setprop("instrumentation/radar2/sweep-display-width", 0.1646);        
         setprop("instrumentation/radar2/sweep-speed", 2);
+        tgts_list = [];
         # ACM Check   
       #  wcs_mode = "pulse-srch";
       #  AzField.setValue(120);
@@ -1335,23 +1359,20 @@ elsif(getprop("instrumentation/radar/mode/main") == 3)
     {
         f22.acmtimer.stop();
         screen.log.write("Side looking radars off");
-        
-        setprop("instrumentation/radar/az-field", 120);
+        setprop("instrumentation/radar/az-field", 60);
         setprop("instrumentation/radar/mode/main", 5);
-        setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
-        setprop("instrumentation/radar2/sweep-speed", 2);
-        # ACM Check   
-      #  wcs_mode = "pulse-srch";
-      #  AzField.setValue(120);
-      #  swp_diplay_width = 0.0844;
+        setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
+        setprop("instrumentation/radar2/sweep-speed",0.5);
+        tgts_list = [];
     }
 elsif(getprop("instrumentation/radar/mode/main") == 5)
     {
         screen.log.write("Jamming Mode Enabled");
-        setprop("instrumentation/radar/az-field", 120);
+        setprop("instrumentation/radar/az-field", 60);
         setprop("instrumentation/radar/mode/main", 4);
-        setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
-        setprop("instrumentation/radar2/sweep-speed", 2);
+        setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
+        setprop("instrumentation/radar2/sweep-speed", 4);
+        tgts_list = [];
         # ACM Check   
       #  wcs_mode = "pulse-srch";
       #  AzField.setValue(120);
@@ -1364,8 +1385,9 @@ elsif(getprop("instrumentation/radar/mode/main") == 4)
         screen.log.write("Jamming Mode Disabled");
         setprop("instrumentation/radar/az-field", 120);
         setprop("instrumentation/radar/mode/main", 0);
-        setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
+        setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
         setprop("instrumentation/radar2/sweep-speed", 2);
+        tgts_list = [];
         # ACM Check   
       #  wcs_mode = "pulse-srch";
       #  AzField.setValue(120);

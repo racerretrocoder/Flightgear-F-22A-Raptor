@@ -1750,6 +1750,8 @@ var tgtlock = func{
     #print(target1_x / 10);
     setprop("instrumentation/radar2/sweep-speed", 10);
     setprop("instrumentation/radar/lock2", 2);
+
+    # Note that the radar mode is controlled in radar2.nas aswell
     if(getprop("instrumentation/radar/mode/main") == 4)
     {   # JAM
         setprop("instrumentation/radar/jamlock",1);
@@ -1767,12 +1769,12 @@ var tgtlock = func{
     }
   } elsif (getprop("instrumentation/radar/lock") == 0){
     if(getprop("instrumentation/radar/mode/main") == 5)
-    {   # AG
+    {   # A/G
         setprop("instrumentation/radar/jamlock",0);
         setprop("instrumentation/radar/jam",0);
         setprop("instrumentation/radar/az-field", 60);
-        setprop("instrumentation/radar2/sweep-display-width", 0.1646);        
-        setprop("instrumentation/radar2/sweep-speed",1);   
+        setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
+        setprop("instrumentation/radar2/sweep-speed",0.5);   
         setprop("controls/radar/ag",1);
     } else {
       setprop("controls/radar/ag",0);
@@ -1817,6 +1819,7 @@ var tgtlock = func{
     }
     elsif(getprop("instrumentation/radar/mode/main") == 2)
     {
+        # ACM
         setprop("instrumentation/radar/az-field", 60);
         setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
         setprop("instrumentation/radar2/sweep-speed", 2);   

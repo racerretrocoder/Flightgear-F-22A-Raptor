@@ -782,6 +782,8 @@
   <object-name>canpy</object-name>
   <object-name>milthrust</object-name>
     <object-name>TWS</object-name>
+	    <object-name>AG</object-name>
+		    <object-name>JAM</object-name>
     <object-name>SLR</object-name>
    <object-name>RWS2</object-name>
    <object-name>ACM</object-name>
@@ -993,6 +995,38 @@
   <alignment>left-top</alignment>
  </text>
 	 <text>
+  <name>AG</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.07</y-m>
+   <z-m>0.06</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">A/G</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+	 <text>
+  <name>JAM</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0055</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>0.07</y-m>
+   <z-m>0.06</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+  <type type="string">literal</type>
+  <text type="string">JAM</text>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+	 <text>
   <name>SLR</name>
   <font>condensed.txf</font>
   <character-size type="double">0.0055</character-size>
@@ -1104,6 +1138,42 @@
 
         </condition>
     </animation>
+
+
+  <animation>
+        <type>select</type>
+        <object-name>AG</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/mode/main</property>
+				<value>5</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
+  <animation>
+        <type>select</type>
+        <object-name>JAM</object-name>
+        
+        <condition>
+		
+
+			<equals>
+
+       <property>instrumentation/radar/mode/main</property>
+				<value>4</value>
+			</equals>
+
+        </condition>
+    </animation>
+
+
 <!--
   <animation>
         <type>select</type>
