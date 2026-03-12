@@ -810,7 +810,7 @@ var fcsloop = func() {
       }
     }
     # final checks
-    if (getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0 or getprop("autopilot/locks/altitude") != "" or getprop("orientation/pitch-deg") < -70 or getprop("orientation/pitch-deg") > 70 or getprop("controls/gear/gear-down") == 1 or getprop("velocities/airspeed-kt") < 200) {
+    if (getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0 or getprop("autopilot/locks/altitude") != "" or getprop("orientation/pitch-deg") < -70 or getprop("orientation/pitch-deg") > 70 or getprop("controls/gear/gear-down") == 1 or getprop("velocities/airspeed-kt") < 200 or getprop("velocities/airspeed-kt") > 800) {
       disable = 1;
     }
 
