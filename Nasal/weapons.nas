@@ -211,7 +211,7 @@ fire_MG = func() {
             } else {
                 # Normal Control
             # var time = getprop("/sim/time/elapsed-sec");
-                if(time - dt > 0) # missile delay. only shoot missiles every 0.5 seconds
+                if(1==1) # missile delay. only shoot missiles every 0.5 seconds
                 {
                     dt = time;
                     screen.log.write("Trigger!");
@@ -235,8 +235,8 @@ fire_MG_pic = func() {  # b would be in the ()
             print("Multiple Target Shot!");
             multishot();
         } else {
-        # var time = getprop("/sim/time/elapsed-sec"); 
-        if(time - dt > 0) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit
+        # var time = getprop("/sim/time/elapsed-sec");  
+        if(1==1) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit  time - dt > 0
             {
                 dt = time;
                 screen.log.write("Pickle!");
