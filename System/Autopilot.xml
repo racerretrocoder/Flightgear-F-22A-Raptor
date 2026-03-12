@@ -88,21 +88,20 @@
    <value>1.0</value>
   </reference>
   <output>
-   <property>/autopilot/internal/target-pitch-deg</property>
+   <property>/autopilot/internal/target-pitch-deg-ae</property>
   </output>
    <config>
-     <Kp>0.095</Kp>        <!-- proportional gain -0.01 -->
+     <Kp>0.855</Kp>        <!-- proportional gain -0.01 -->
     <beta>1.0</beta>       <!-- input value weighing factor -->
     <alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
     <gamma>0.0</gamma>     <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
-    <Ti>17.5</Ti>          <!-- integrator time  10.0 -->
+    <Ti>0.1</Ti>          <!-- integrator time  10.0 -->
     <Td>0.0001</Td>       <!-- derivator time -->
-    <u_min>-1.0</u_min>  <!-- minimum output clamp -->
-    <u_max>1.0</u_max>   <!-- maximum output clamp -->
+    <u_min>-0.2</u_min>  <!-- minimum output clamp -->
+    <u_max>0.2</u_max>   <!-- maximum output clamp -->
    </config>
   </pid-controller>
-
 
 
  
@@ -316,7 +315,7 @@
    <property>/orientation/pitch-deg</property>
   </input>
   <reference>
-   <property>/autopilot/internal/target-pitch-deg</property>
+   <property>/fdm/jsbsim/fcs/ghold</property>
   </reference>
   <output>
    <property>/f22/fcs/controls/elevator</property>
@@ -328,8 +327,8 @@
    <gamma>0.0</gamma>  <!-- input value weighing factor for -->
    <Ti>1.0</Ti>       <!-- integrator time  10.0 -->
    <Td>0.00001</Td>    <!-- derivator time -->
-   <u_min>-0.05</u_min> <!-- minimum output clamp -->
-   <u_max>0.05</u_max>
+   <u_min>-0.1</u_min> <!-- minimum output clamp -->
+   <u_max>0.1</u_max>
   </config>
  </pid-controller>
 

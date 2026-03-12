@@ -543,6 +543,16 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <property>/engines/engine[1]/egt-degf</property>
 <property>/engines/engine[0]/nozzle-pos-norm</property>
 <property>/engines/engine[1]/nozzle-pos-norm</property>
+<property>/autopilot/internal/target-pitch-deg-ae</property>
+   <function name="fcs/ghold">  
+<sum>
+<property>/orientation/pitch-deg</property>
+<property>/autopilot/internal/target-pitch-deg-ae</property>
+</sum>
+   </function>
+
+
+
 <!--Some engine stuff-->
    <function name="fcs/effected0n1">  
         <table>
