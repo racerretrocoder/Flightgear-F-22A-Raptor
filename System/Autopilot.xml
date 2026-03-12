@@ -96,10 +96,10 @@
     <alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
     <gamma>0.0</gamma>     <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
-    <Ti>0.1</Ti>          <!-- integrator time  10.0 -->
+    <Ti>0.5</Ti>          <!-- integrator time  10.0 -->
     <Td>0.0001</Td>       <!-- derivator time -->
-    <u_min>-0.2</u_min>  <!-- minimum output clamp -->
-    <u_max>0.2</u_max>   <!-- maximum output clamp -->
+    <u_min>-0.42</u_min>  <!-- minimum output clamp -->
+    <u_max>0.42</u_max>   <!-- maximum output clamp -->
    </config>
   </pid-controller>
 
