@@ -255,8 +255,8 @@
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
     <type type="string">text-value</type>
-    <property type="string">f22/leftsmall/sll1</property>
-    <format type="string">AUTO G%s</format>
+    <property type="string">f22/fcs/mode</property>
+    <format type="string">%s</format>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>

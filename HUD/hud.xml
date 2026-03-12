@@ -180,6 +180,20 @@
 
 
 <label>
+	 <name>Mode</name>
+		<width>1</width>
+		<height>1</height>
+	    <x>-78</x>
+        <y>-80</y>
+        <input>
+            <property>/f22/fcs/mode</property>
+        </input>
+        <format>%s</format>
+	    <halign>left</halign>
+</label>
+
+
+<label>
 	 <name>MSL</name>
 		<width>1</width>
 		<height>1</height>

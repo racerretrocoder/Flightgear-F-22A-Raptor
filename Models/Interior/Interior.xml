@@ -1764,6 +1764,47 @@ _____/\\\\\\\\\_________________________________________________________________
 		</axis>
 	</animation>
 
+
+
+
+ <animation>
+  <type>pick</type>
+   <object-name>fcsbt</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+   <binding>
+  <command>nasal</command>
+  <script>fc.changefcs();</script>
+</binding>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/fcsbt</property>
+		   <value>1</value>
+	   </binding>
+	   <mod-up>
+	   <binding>
+		   <command>property-assign</command>
+		   <property>/controls/buttons-pressed/fcsbt</property>
+		   <value>0</value>
+	   </binding>
+	   </mod-up>
+       </action>
+ </animation>
+	<animation>
+		<type>translate</type>
+		<object-name>fcsbt</object-name>
+		<property>/controls/buttons-pressed/fcsbt</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>0.647</x>
+			<z>0.11</z>
+		</axis>
+	</animation>
+
+
+
 <!--
 
                                                                                                                                                                 
