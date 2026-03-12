@@ -1775,7 +1775,7 @@ var tgtlock = func{
         setprop("instrumentation/radar/jam",0);
         setprop("instrumentation/radar/az-field", 60);
         setprop("instrumentation/radar2/sweep-display-width", 0.0846);        
-        setprop("instrumentation/radar2/sweep-speed",0.23);   
+        setprop("instrumentation/radar2/sweep-speed",0.4);   
         setprop("controls/radar/ag",1);
     } else {
       setprop("controls/radar/ag",0);
