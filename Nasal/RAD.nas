@@ -423,7 +423,14 @@ var agmode = func{
 
 
 var nav = func{
-  if (getprop("systems/MFD/modemfdc") == 7 and getprop("systems/MFD/modemfdl") == 4 and getprop("systems/MFD/modemfdr") == 6 and getprop("systems/MFD/modemfdll") == 5) {
+  setprop("systems/MFD/modemfdc", 7); # ENG
+  setprop("systems/MFD/modemfdl", 4); # FLT
+  setprop("systems/MFD/modemfdr", 6); # FUEL
+  setprop("systems/MFD/modemfdll", 5); # RWR
+}
+
+
+var changefcs = func{
     # cycle fcs modes after second press and on
     var fcsmode = getprop("f22/fcsmode");
     if (fcsmode == 2) {
@@ -433,12 +440,6 @@ var nav = func{
       
     }
     screen.log.write("Switched FCS Mode",0,1,0);
-  }
-  setprop("systems/MFD/modemfdc", 7); # ENG
-  setprop("systems/MFD/modemfdl", 4); # FLT
-  setprop("systems/MFD/modemfdr", 6); # FUEL
-  setprop("systems/MFD/modemfdll", 5); # RWR
-  
 }
 
 # Cool datalink stuff
