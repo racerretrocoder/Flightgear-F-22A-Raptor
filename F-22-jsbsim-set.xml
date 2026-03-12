@@ -2691,24 +2691,15 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
  
 		 <key n="105">
   <name>i</name>
-  <desc>Cycle selected DEBUG MISSILE</desc>
+  <desc>Cycle masterarm</desc>
   <binding>
  <command>property-cycle</command>
- <property>controls/armament/selected-weapon</property>
-
- <value>Aim-7</value>
- <value>XMAA</value>
- <value>Aim-9m</value>
+ <property>controls/armament/master-arm</property>
+ <value>1</value>
+ <value>0</value>
 </binding>
-  <binding>
- <command>property-cycle</command>
- <property>controls/armament/selected-weapon-digit</property>
-
- <value>5</value>
-
-  <value>6</value>
-</binding>
-  <binding><command>nasal</command><script>screen.log.write("Selected Debug missile: " ~ getprop("controls/armament/selected-weapon"),0.5,0.5,1);</script></binding>
+  <binding><command>nasal</command><script>var ae = "";var masterarm = getprop("controls/armament/master-arm");if (masterarm == 1){ae = "ON";} elsif (masterarm == 0){ae = "OFF";}
+  screen.log.write("Master arm " ~ ae,1,0,0);</script></binding>
  </key> 
 
 

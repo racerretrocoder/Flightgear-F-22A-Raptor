@@ -7,6 +7,10 @@
 				<desc>Pull Ejection Handle</desc>
 			</key>	
 			<key>
+				<name>i (lower case I)</name>
+				<desc>Toggle master arm switch</desc>
+			</key>	
+			<key>
 				<name>c</name>
 				<desc>Toggle canopy</desc>
 			</key>
