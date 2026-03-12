@@ -1484,7 +1484,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    </function>
 
-
+<property>f22/fcs/controls/elevator</property>
   <channel name="Pitch">
   
     <kinematic name="Elevator Delay">
@@ -1527,6 +1527,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <summer name="Pitch Trim Sum">
       <input>fcs/elevator-cmd-norm-delay-sm</input> <!--RAW ELEVATOR CONTROL INPUT!! | Note the g limiter all that stuff is applied directly into <axis>-->
       <input>fcs/pitch-trim-main</input>
+      <input>/f22/fcs/controls/elevator</input>
       <clipto>
         <min> -1 </min>
         <max>  1 </max>

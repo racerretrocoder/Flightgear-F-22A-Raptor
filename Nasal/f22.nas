@@ -81,7 +81,7 @@ setprop("/f22/auxcomm/digit2",100);
 setprop("/f22/auxcomm/on",0);
 setprop("/f22/grind",0);
 setprop("/f22/runwaysplash",0); # pushed water from jets
-setprop("/f22/fcs/mode","AUTO");
+setprop("/f22/fcs/mode","NAV");
 
 #
 # Temp init 
@@ -757,6 +757,75 @@ var crashdetect = func {
 
 
     }
+}
+setprop("autopilot/locks/fcs",""); # control
+# trims 
+setprop("f22/fcs/controls/elevator",0);
+setprop("f22/fcs/controls/aileron",0);
+setprop("f22/fcs/controls/rudder",0);
+#
+# FCS Controller
+#
+setprop("autopilot/locks/altitude","");
+# for ref:
+#setprop("/f22/fcs/extra",0);
+#setprop("/f22/fcs/aoalimit",90);
+#setprop("/f22/fcs/glimit",0);
+#setprop("/f22/fcsmode",0);
+
+var fcsloop = func() {
+  # Loop it slowly
+  var controlThresh = 0.01;
+  var negcontrolThresh = -1 * controlThresh;
+  var fcsmode = getprop("/f22/fcsmode");#mode
+  var glimit = getprop("/f22/fcs/glimit");#g
+  var alimit = getprop("/f22/fcs/aoalimit");#alpha
+  var elevator = getprop("/controls/flight/elevator");
+  var aileron = getprop("/controls/flight/aileron");
+  var rudder = getprop("/controls/flight/rudder");
+  var disable = 0;
+
+  if (fcsmode == 0) { # Navigation
+    setprop("f22/fcs/mode","NAV"); # the text
+    setprop("f22/fcs/glimit",9.0);
+    setprop("f22/fcs/aoalimit",70);
+  }
+  if (fcsmode == 1) { # max
+    setprop("f22/fcs/mode","OVRIDE"); # the text
+    setprop("f22/fcs/glimit",9.0);
+    setprop("f22/fcs/aoalimit",91);
+  }
+  if (fcsmode == 2) {
+    setprop("f22/fcs/glimit",9.0);
+    setprop("f22/fcs/aoalimit",30);
+    setprop("f22/fcs/mode","AUTO G"); # the text
+    # 1g mode
+    # do control check
+    if (elevator > controlThresh or aileron > controlThresh) {
+      disable = 1;
+    }
+    if (elevator < 0 or aileron < 0) {
+      if (elevator < negcontrolThresh or aileron < negcontrolThresh){
+        disable = 1;
+      }
+    }
+    # final checks
+    if (getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0 or getprop("autopilot/locks/altitude") != "" or getprop("orientation/pitch-deg") < -3 or getprop("orientation/pitch-deg") > 3 or getprop("controls/gear/gear-down") == 1 or getprop("velocities/airspeed-kt") < 100) {
+      disable = 1;
+    }
+
+    if (disable == 0){
+      # not moving controls, criteria met and fcs enabled
+      setprop("/autopilot/locks/fcs","1g");
+    } else {
+      setprop("f22/fcs/controls/elevator",0);
+      setprop("f22/fcs/controls/aileron",0);
+      setprop("f22/fcs/controls/rudder",0);
+      setprop("/autopilot/locks/fcs","");
+    }
+
+  }
+
 }
 
 
@@ -2521,6 +2590,8 @@ var geardelaymain = func() {
 tuttimer = maketimer(5,tutmessage);
 dmgtimer = maketimer(0.3,checkdmg);
 geardelay = maketimer(10,geardelaymain);
+
+fcscontrol = maketimer(0.3,fcsloop);
 setlistener("sim/signals/fdm-initialized", func {
 setprop("f22/water",0);
 # Spawned in/went to location
@@ -2561,6 +2632,7 @@ blinktimer.start();
 bingotimer.start();
 consoletimer.start();
 setprop("f22/grind",0);
+fcscontrol.start();
 });
 
 
