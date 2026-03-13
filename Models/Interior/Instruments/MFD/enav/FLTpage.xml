@@ -125,8 +125,10 @@ Use increments of .01 Because the unit is meters.
    <z-m>-0.081</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
-  <type type="string">literal</type>
-  <text type="string">Switch FCS</text>
+   <type type="string">number-value</type>
+   <format type="string">G LIMIT%5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>/f22/fcs/glimit</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
@@ -170,7 +172,7 @@ Use increments of .01 Because the unit is meters.
     <blue>0.8</blue>
   </emission> 
  </animation>
-
+<!--
 
 	 <text>
   <name>Engine2</name>
@@ -275,7 +277,7 @@ Use increments of .01 Because the unit is meters.
   <property>/engines/engine[1]/n2</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
- </text>
+ </text>-->
 
 	 <text>
   <name>milthrust</name>
@@ -358,14 +360,30 @@ Use increments of .01 Because the unit is meters.
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>
    <type type="string">number-value</type>
-   <format type="string">AoA%5.1f</format>
+   <format type="string">AoA%5.2f</format>
   <truncate type="bool">false</truncate>
   <property>/orientation/alpha-deg</property>
   <draw-text type="bool">true</draw-text>
   <alignment>left-top</alignment>
  </text>
 
-
+ <text>
+  <name>aoa</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.006</character-size>
+  <offsets>
+  <x-m>0.01</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.00</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">G%5.2f</format>
+  <truncate type="bool">false</truncate>
+  <property>/accelerations/pilot-gdamped</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
 
  <text>
   <name>aoa</name>
@@ -464,7 +482,7 @@ Use increments of .01 Because the unit is meters.
   <character-size type="double">0.0056</character-size>
   <offsets>
   <x-m>0.01</x-m>
-   <y-m>0.045</y-m>
+   <y-m>0.040</y-m>
    <z-m>-0.05</z-m>
   </offsets>
   <axis-alignment>yz-plane</axis-alignment>

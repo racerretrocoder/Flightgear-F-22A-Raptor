@@ -789,14 +789,20 @@ var fcsloop = func() {
     setprop("f22/fcs/mode","NAV"); # the text
     setprop("f22/fcs/glimit",9.0);
     setprop("f22/fcs/aoalimit",70);
+    setprop("f22/fcs/controls/elevator",0);
+    setprop("f22/fcs/controls/aileron",0);
+    setprop("f22/fcs/controls/rudder",0);
+    setprop("/autopilot/locks/fcs","");
   }
-  if (fcsmode == 1) { # max
-    setprop("f22/fcs/mode","OVRIDE"); # the text
-    setprop("f22/fcs/glimit",9.0);
-    setprop("f22/fcs/aoalimit",91);
+  if (fcsmode == 1) { # disab
+    setprop("f22/fcs/mode","OFF"); # the text
+    setprop("f22/fcs/controls/elevator",0);
+    setprop("f22/fcs/controls/aileron",0);
+    setprop("f22/fcs/controls/rudder",0);
+    setprop("/autopilot/locks/fcs","");
   }
   if (fcsmode == 2) {
-    setprop("f22/fcs/glimit",9.0);
+    setprop("f22/fcs/glimit",8.0);
     setprop("f22/fcs/aoalimit",30);
     setprop("f22/fcs/mode","AUTO G"); # the text
     # 1g mode
@@ -823,7 +829,11 @@ var fcsloop = func() {
       setprop("f22/fcs/controls/rudder",0);
       setprop("/autopilot/locks/fcs","");
     }
-
+  } 
+  if (fcsmode == 3) { # max
+    setprop("f22/fcs/mode","DFM"); # the text
+    setprop("f22/fcs/glimit",9.0);
+    setprop("f22/fcs/aoalimit",90);
   }
 
 }
