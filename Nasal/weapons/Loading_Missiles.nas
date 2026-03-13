@@ -46,7 +46,7 @@ var Loading_missile = func(name)
     var isbomb            = 0; # if this weapon is a bomb
     var pbrange           = 0; # in meters
     var multishot = 0;
-    var ignitedelay = 0.5; # If the weapon is NOT dropped from a rail, Delay starting the engine by however many seconds (Default 0.5)
+    var ignitedelay = 0; # If the weapon is NOT dropped from a rail, Delay starting the engine by however many seconds (Default 0.5)
 
 
 
@@ -135,7 +135,7 @@ var Loading_missile = func(name)
         detectionfovdeg = 180;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 180;                            # Seeker max total angular rotation
         maxg = 60;                                    # Thurst vectoring rocket motor
-        thrustlbs = 288;                              # 
+        thrustlbs = 340;                              # 
         thrustdurationsec = 5;           
         thrustlbsstage2 = 1;
         thrustdurationsecstage2 = 1;             

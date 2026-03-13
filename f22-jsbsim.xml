@@ -1557,7 +1557,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <input>/f22/fcs/controls/elevator</input>
       <clipto>
         <min> -1 </min>
-        <max>  1 </max>
+        <max>  0.6 </max>
       </clipto>
    </summer>
 

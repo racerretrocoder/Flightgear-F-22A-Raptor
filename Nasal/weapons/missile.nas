@@ -9,7 +9,7 @@ print("LOADING Missiles, Bombs and more!: missile.nas .");
 ################################################################################
 setprop("f22/mslv",0);
 # If you want to have missile flight data print out into the console set this to 1
-var debugflight = 0;
+var debugflight = 1;
 # if you want to print messages into the console that relate to missile flight, set this to 1
 var debugmessages = 0;
 # If you want status on missile alert, and status on releasing, and it hitting set this to 1
@@ -142,6 +142,8 @@ var MISSILE = {
         m.gpslon            = 0;
         m.gpslat            = 0;
         m.gpstarget         = 0;
+        m.armsd             = 0;
+        m.altcontrol        = 0;
        # m.ccip_altC = 0;
        # m.ccip_dens = 0;
        # m.ccip
@@ -335,7 +337,9 @@ var MISSILE = {
 
     # this function is to convert for the missile from aircraft coordinate to absolute coordinate
     release: func(){
+
         # gps targeting check (This must run only once)
+
         if (getprop("controls/radar/weaponcoords") == 1 and me.isbomb == 1) {
             me.gpstarget = 1;
             me.gpslat = getprop("controls/radar/gpslock/lat");
@@ -922,11 +926,17 @@ broddamage: func (cs,dist,msl) {
         {
             cdm = 0.2965 * math.pow(speed_m, -1.1506) + me.cd;
         }
+
+# Self distruction
+        if (me.armsd == 0) {
+            if (speed_m > me.SDspeed) {
+                # arm sd
+                me.armsd = 1;
+            }
+        }
         
-        # Self distruction
-        
-        if(me.life_time > 3) {
-            if(speed_m < getprop("controls/armament/missile/sdspeed")){
+        if(me.armsd == 1) {
+            if(speed_m < me.SDspeed){
                 if (debugflight == 1) {
                     print("missile is slower then the SDSPEED (in mach)");
                 }
@@ -988,6 +998,9 @@ broddamage: func (cs,dist,msl) {
             if(me.life_time > me.ignitedelay)
             {
                 me.update_track();
+                if (debugflight == 1) {
+                    print("!GUIDEANCE UPADATE!");
+                }
             }
             if (debugflight == 1) {
                 print("Life time:");
@@ -1351,7 +1364,7 @@ print("target ran");
             #print("DeltaElevation ", t_alt_delta_m);
             
             # cruise mode control :
-            if(me.cruisealt != 0)
+            if(me.cruisealt != 0 or me.pitbullrngm == 0)
             {
                 # this is for Air to ground cruise missile (SCALP, Taurus,
                 # Tomahawk...)
@@ -1394,9 +1407,18 @@ print("target ran");
                         # 10 seconds...
                         var t_alt_delta_m = (me.cruisealt - me.alt) * FT2M;
                         var t_elev_deg = math.atan2(t_alt_delta_m, t_alt_delta_m * 2) * R2D;
-                        if(me.cruisealt - me.alt < 100)
-                        {
-                            me.diveToken = 1;
+                        if (me.pitbullrngm != 0) {
+                            if(me.pitbull == 1) 
+                            {
+                                # old logic: me.cruisealt - me.alt < 100
+                                me.diveToken = 1;
+                            }
+                        } else {
+                            if(me.cruisealt - me.alt < 100) 
+                            {
+                                # old logic: 
+                                me.diveToken = 1;
+                            }
                         }
                         #print("Direct distance", me.coord.direct_distance_to(me.t_coord), " t_dist_m", t_dist_m);
                     }
@@ -1425,9 +1447,9 @@ print("target ran");
                 or (math.abs(modulo180) > me.missile_fov))
             {
                         if (debugflight == 1) {
--                print("me.missile_fov:", me.missile_fov, "me.curr_tgt_e:", me.curr_tgt_e, "degree h me.curr_tgt_h:", me.curr_tgt_h, "t_course:", t_course, "me.hdg:", me.hdg, "modulo180:", modulo180)
+                print("me.missile_fov:", me.missile_fov, "me.curr_tgt_e:", me.curr_tgt_e, "degree h me.curr_tgt_h:", me.curr_tgt_h, "t_course:", t_course, "me.hdg:", me.hdg, "modulo180:", modulo180);
     }
-;
+
                 me.free = 1;
                     setprop("payload/armament/flares", 0);
             }
@@ -1464,24 +1486,43 @@ print("target ran");
                 print("can pitbull");
                 # can pitbull
                 if (1 == 1) {
-   
+
+                    
 
 
                     if (t_dist_m > me.pitbullrngm + 30000) { # 16nm
+
                         # Cruise
-                        e_gain = 0.01;
-                        h_gain = 0.01;                    #    screen.log.write("> 30000!");
+                        if (me.coord.alt() > me.cruisealt - 1000 and me.coord.alt() < me.cruisealt + 1000) {
+                            e_gain = 1;
+                        } else {
+                            e_gain = 0.001;
+                        }
+                        e_gain = 0.001;
+                        h_gain = 0.001;
                     } elsif (t_dist_m > me.pitbullrngm + 20000) { # 10nm
                                 # Cruise
-                            e_gain = 0.1;
+                            if (me.coord.alt() > me.cruisealt - 1000 and me.coord.alt() < me.cruisealt + 1000) {
+                                e_gain = 1;
+                            } else {
+                                e_gain = 0.001;
+                            }
                             h_gain = 0.1;
                         }  elsif (t_dist_m > me.pitbullrngm + 10000) { # 10nm
-                            e_gain = 0.35;
+                        if (me.coord.alt() > me.cruisealt - 1000 and me.coord.alt() < me.cruisealt + 1000) {
+                            e_gain = 1;
+                        } else {
+                            e_gain = 0.001;
+                        }
                             h_gain = 0.35;
 
                             #missilealert();
                         }  elsif (t_dist_m > me.pitbullrngm + 5000) { # 10nm
-                            e_gain = 0.9;
+                        if (me.coord.alt() > me.cruisealt - 3000 and me.coord.alt() < me.cruisealt + 3000) {
+                            e_gain = 1;
+                        } else {
+                            e_gain = 0.001;
+                        }
                             h_gain = 0.9;
                             #missilealert();
                         }  elsif (t_dist_m > me.pitbullrngm) { # 10nm
@@ -1499,19 +1540,19 @@ print("target ran");
 
                     }
                 }
-            if(me.update_track_time - me.StartTime < 3)
+            if(me.update_track_time - me.StartTime < me.ignitedelay)
             {
                  if (me.pitbullrngm == 0) {
                   #  screen.log.write("pitbull is appearntly off");
-                e_gain = (me.update_track_time-me.StartTime - 1) / 4;
-                h_gain = (me.update_track_time-me.StartTime - 1) / 4;
+                e_gain = (me.update_track_time-me.StartTime - 1) / 8;
+                h_gain = (me.update_track_time-me.StartTime - 1) / 8;
                  }
                
                 #e_gain = 0;
                 #h_gain = 0;
 
             }
-            if(me.update_track_time - me.StartTime < 1)
+            if(me.update_track_time - me.StartTime < me.ignitedelay)
             {
                 e_gain = 0;
                 h_gain = 0;
@@ -1570,7 +1611,7 @@ print("target ran");
         var semiactive = 0;
         var target = radar.GetTarget();
 # If there is no target. Print. "there is no target"; to allow for shooting missiles at no targets. For ejecting etc.
-       if( me.fox == "Fox 1" )   {
+        if( me.fox == "Fox 1" )   {
             semiactive = 1;
 
             if(target == nil) { # or me.   ? forgot what my idea was here
@@ -1825,7 +1866,7 @@ print("target ran");
        #print("TUTUTTUTUTU ", me.Tgt.get_Speed());
        if(me.free == 0 and me.life_time > me.Life)
        {
-           settimer(func(){me.update_track()}, 2);
+           settimer(func(){me.update_track()}, 0); # Was 2 before.
        }
         } 
         else {
@@ -1845,10 +1886,10 @@ print("target ran");
         # if gps slaved override these with gps coords
 
         if (me.gpstarget == 1) {
- me.TgtLon_prop       = me.gpslat;
- me.TgtLat_prop       = me.gpslon;
- me.TgtAlt_prop       = me.gpsalt;
- me.TgtHdg_prop       = 0;   #getprop("/ai/closest/heading");
+        me.TgtLon_prop       = me.gpslat;
+        me.TgtLat_prop       = me.gpslon;
+        me.TgtAlt_prop       = me.gpsalt;
+        me.TgtHdg_prop       = 0;   #getprop("/ai/closest/heading");
         } else {
             if (me.cmsfool == 0) {
                 me.TgtLon_prop       = me.Tgt.get_Longitude; #getprop("/ai/closest/longitude");
