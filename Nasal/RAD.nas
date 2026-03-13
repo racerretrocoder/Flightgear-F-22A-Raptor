@@ -433,7 +433,7 @@ var nav = func{
 var changefcs = func{
     # cycle fcs modes after second press and on
     var fcsmode = getprop("f22/fcsmode");
-    if (fcsmode == 2) {
+    if (fcsmode == 3) {
       setprop("f22/fcsmode",0);
     } else {
       setprop("f22/fcsmode",fcsmode+1);
