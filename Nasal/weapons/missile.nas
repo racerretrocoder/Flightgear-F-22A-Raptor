@@ -122,6 +122,7 @@ var MISSILE = {
         m.flareres          = getprop("controls/armament/missile/flareres");
         m.isbomb            = getprop("controls/armament/missile/isbomb");
         m.eject             = getprop("controls/armament/missile/chute");
+        m.ignitedelay             = getprop("controls/armament/missile/ignitedelay");
         m.messagesent = 0;
         m.drop_time             = 0;    
         m.deploy_time           = 0;  
@@ -234,14 +235,12 @@ var MISSILE = {
     },
     
     
-		rho_sndspeed: func(altitude)
-		{
+	rho_sndspeed: func(altitude){
     # Calculate density of air: rho
     # at altitude (ft), using standard atmosphere,
     # standard temperature T and pressure p.
     var T = 0;
     var p = 0;
-
     if(altitude < 36152)
     {
         # curve fits for the troposphere
@@ -448,24 +447,19 @@ var MISSILE = {
 
 
         me.StartTime = props.globals.getNode("/sim/time/elapsed-sec", 1).getValue();
-   var target = me.Tgt;
+        var target = me.Tgt;
         if (target == nil or me.gpstarget == 1) {
-       var phrase =  me.fox ~ " at Nothing / GPS Coordnites. Release " ~ me.NameOfMissile; #Missile shot
-
-       me.fox = "Fox 1";  # Set only for proximity detect to fire missile with out lock and relock if target is back.
+            var phrase =  me.fox ~ " at Nothing / GPS Coordnites. Release " ~ me.NameOfMissile; #Missile shot
+            me.fox = "Fox 1";  # Set only for proximity detect to fire missile with out lock and relock if target is back.
             if (debugmessages == 1) {
                print(phrase);
             }
-
-        } 
-        else 
-        {
-        var phrase =  me.fox ~ " at " ~ me.Tgt.get_Callsign() ~ ". Release " ~ me.NameOfMissile; #Missile shot
-        if (getprop("payload/armament/oldmsg") == 1){
-            setprop("sim/multiplay/chat", phrase);
-        }
-        me.targetcallsign = me.Tgt.get_Callsign();
-        
+        } else {
+            var phrase =  me.fox ~ " at " ~ me.Tgt.get_Callsign() ~ ". Release " ~ me.NameOfMissile; #Missile shot
+            if (getprop("payload/armament/oldmsg") == 1){
+                setprop("sim/multiplay/chat", phrase);
+            }
+            me.targetcallsign = me.Tgt.get_Callsign();
             if (debugmessages == 1) {
                print(phrase);
                print("Missile away!");
@@ -473,12 +467,10 @@ var MISSILE = {
         }
 
         
-      if(MPMessaging.getValue() == 1)
-      {
+        if(MPMessaging.getValue() == 1) {
             damage.damageLog.push(phrase);
-      }
-        else
-        {
+        }
+        else {
            screen.log.write(phrase);
         }
         me.update();
@@ -804,12 +796,12 @@ broddamage: func (cs,dist,msl) {
         var f_lbs = me.force_lbs;
         if(getprop("controls/armament/missile/rail") == 1){
             if (debugsysmessages == 1) {
--            print("Missile launched from a rail");
+                print("Missile launched from a rail");
             }
             f_lbs = me.force_lbs * 0.3;
             if(me.life_time > 0)
             {
-                f_lbs = me.force_lbs * 0.1;
+                f_lbs = me.force_lbs * 0.3;
                 var Dapath = me.missile_model;
             if(me.model.getNode("path", 1).getValue() != Dapath)
                 {
@@ -817,14 +809,14 @@ broddamage: func (cs,dist,msl) {
                     me.reload_model(Dapath);
                 }
             }
-            if(me.life_time > 0.3)
+            if(me.life_time > me.ignitedelay)
             {
                 f_lbs = me.force_lbs * 0.3;
             }
         }
          else{
             if (debugmessages == 1) {
--            print("Missile ejected from a hardpoint!");
+                print("Missile ejected from a hardpoint!");
             }
             var Dapath = me.missile_NoSmoke; # Engine delay start
             if(me.model.getNode("path", 1).getValue() != Dapath)
@@ -837,10 +829,10 @@ broddamage: func (cs,dist,msl) {
             {
                 f_lbs = me.force_lbs * 0;
             }
-            if(me.life_time > getprop("controls/armament/missile/ignitedelay"))
+            if(me.life_time > me.ignitedelay)
             {
                 if (debugsysmessages == 1) {
-                    print("Ignititon delay over. Starting Rocket...");
+                    print("Ignititon delay over. Starting engine...");
                 }
                 f_lbs = me.force_lbs * 0.3;
                 var Dapath = me.missile_model;
@@ -856,7 +848,7 @@ broddamage: func (cs,dist,msl) {
                 print("Engine stage2 active");
             }
         }
-        # stage 2
+        # Rocket stage 2
         if (me.life_time > me.thrust_duration_stage2)
         {
             var Dapath = me.missile_NoSmoke;
@@ -867,15 +859,14 @@ broddamage: func (cs,dist,msl) {
             }
             #print( me.model.getNode("path", 1).getValue());
             f_lbs = 0;
-                if (debugsysmessages == 1) {
+            if (debugsysmessages == 1) {
                 print("Ran out of fuel in both stages!");
-                }
+            }
             #me.smoke_prop.setBoolValue(0);
         }
             if (debugflight == 1) {
             print("Engine thrust:", f_lbs);
             }
-        
                 # Anti-Rad | Broken
                     if(me.fox == "Magnum") {
                         print("Anti-Rad: Checking");
@@ -889,7 +880,7 @@ broddamage: func (cs,dist,msl) {
                     }
 
 
-        if(me.life_time > me.Life)
+        if(me.life_time > me.Life) # life cap
         {
             me.free = 1;
             return me.del();
@@ -932,7 +923,7 @@ broddamage: func (cs,dist,msl) {
             cdm = 0.2965 * math.pow(speed_m, -1.1506) + me.cd;
         }
         
-        # arm the sds
+        # Self distruction
         
         if(me.life_time > 3) {
             if(speed_m < getprop("controls/armament/missile/sdspeed")){
@@ -991,10 +982,10 @@ broddamage: func (cs,dist,msl) {
         
         var dist_h_m = speed_horizontal_fps * dt * FT2M;
         
-        # guidance
+        # Guidance
         if(me.status == 2 and me.free == 0)
         {
-            if(me.life_time > 1)
+            if(me.life_time > me.ignitedelay)
             {
                 me.update_track();
             }
@@ -1038,9 +1029,9 @@ broddamage: func (cs,dist,msl) {
                     }
                 }
                 if (debugflight == 1) {
-        print("Missile Main Status: ", me.status, " Is the missile delocked? ", me.free, " Is the missile fired? : ", init_launch);
-        print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, " dt :", dt);
-    }
+                    print("Missile Main Status: ", me.status, " Is the missile delocked? ", me.free, " Is the missile fired? : ", init_launch);
+                    print("**Altitude : ", alt_ft, " NextGroundElevation : ", me.nextGroundElevation, "Heading : ", hdg_deg, " **Pitch : ", pitch_deg, " dt :", dt);
+                }
 
 
 
@@ -1130,7 +1121,7 @@ broddamage: func (cs,dist,msl) {
                     }
                 return;
             }
-            if(me.life_time > 3)
+            if(me.life_time > me.ignitedelay)
             {
                 # if not exploded, check if the missile can keep the lock
                 if(me.free == 0)
@@ -1576,18 +1567,17 @@ print("target ran");
         if (me.eject == 1) {
             return 1;
         }
-var semiactive = 0;
+        var semiactive = 0;
         var target = radar.GetTarget();
 # If there is no target. Print. "there is no target"; to allow for shooting missiles at no targets. For ejecting etc.
        if( me.fox == "Fox 1" )   {
             semiactive = 1;
 
-            if( target == nil) { # or me.   ? forgot what my idea was here
-                        if (debugsysmessages == 1) {
--            print("poximity_detection(): There is no target! Not going to hit anyone");
-    }
-
-        return(1); # Missile searching
+            if(target == nil) { # or me.   ? forgot what my idea was here
+                if (debugsysmessages == 1) {
+                   print("poximity_detection(): There is no target! Not going to hit anyone");
+                }
+                return(1); # Missile searching
           
           }
        
