@@ -91,7 +91,7 @@
    <property>/autopilot/internal/target-pitch-deg-ae</property>
   </output>
    <config>
-     <Kp>0.855</Kp>        <!-- proportional gain -0.01 -->
+     <Kp>0.655</Kp>        <!-- proportional gain -0.01 -->
     <beta>1.0</beta>       <!-- input value weighing factor -->
     <alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
     <gamma>0.0</gamma>     <!-- input value weighing factor for -->
