@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 	
-<PropertyList>
+<PropertyList include="ver.xml">
 					<abdens type="double">0</abdens>
 	<sim>
                <!-- <nasal-gc-threaded type="bool">true</nasal-gc-threaded> Spreads the load of all the timers off one core-->
@@ -2732,7 +2732,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
       </binding>
 	 <binding>
      <command>nasal</command>
- <script>setprop("/controls/flare",!getprop("/controls/flare"));guns.flareresettimer.start();</script>
+ <script>setprop("/controls/flare",!getprop("/controls/flare"));guns.flareresettimer.start();</script> <!--used to stop cha flare on cockpit view entry-->
       </binding>
     </key>
 	 <key n="114">
