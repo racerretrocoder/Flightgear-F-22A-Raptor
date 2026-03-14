@@ -12,7 +12,9 @@ var checkinfo = func() {
         screen.log.write("New F-22A Raptor updates available on github!",0,1,0);
         screen.log.write("Details on update: "~newdetail~"",0,1,0);
         screen.log.write("https://github.com/racerretrocoder/Flightgear-F-22A-Raptor",0,1,0);
-    } 
+    } else {
+        print("raptor is up to date!");
+    }
 }
 
 var checkupdate = func() {

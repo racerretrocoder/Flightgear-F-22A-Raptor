@@ -773,7 +773,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <function name="fcs/rudder-cmd-limmiter">  
 <product>
       <property>fcs/fbw-override</property>
-      <property>fcs/rudder-cmd-norm-power</property>
+      <property>fcs/rudder-cmd-norm-delay</property>
         <table>
 
             <independentVar lookup="row">/velocities/mach</independentVar>
@@ -795,7 +795,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <function name="fcs/rudder-cmd-limmiter-no-fbw">  <!--Allows rudder to move when fbw is disabled-->
 <product>
       <property>fcs/fbw-override2</property>
-      <property>fcs/rudder-cmd-norm-power</property>
+      <property>fcs/rudder-cmd-norm-delay</property>
 </product>
 
    </function>
@@ -1821,8 +1821,60 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <channel name="Yaw">
 
+  
+    <kinematic name="rudder Delay">
+      <input>fcs/rudder-cmd-norm-power</input>
+      <traverse>
+        <setting>
+          <position>-1</position>
+          <time>1</time>
+        </setting>
+        <setting>
+          <position>0</position>
+          <time>1</time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>1</time>
+        </setting>
+       </traverse>
+      <output>fcs/rudder-cmd-norm-delay</output>
+   </kinematic>
+
+    <kinematic name="rudder Delay2">
+      <input>fcs/rudder-cmd-norm-power</input>
+      <traverse>
+        <setting>
+          <position>-1</position>
+          <time>2</time>
+        </setting>
+        <setting>
+          <position>0</position>
+          <time>2</time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>2</time>
+        </setting>
+       </traverse>
+      <output>fcs/rudder-cmd-norm-delay-extra-pre</output>
+   </kinematic>
+   <aerosurface_scale name="rudder calib">
+      <input>fcs/rudder-cmd-norm-delay-extra-pre</input>
+      <domain>
+        <min> -1 </min>
+        <max>  1 </max>
+      </domain>
+      <range>
+        <min> 1 </min>
+        <max> -1 </max>
+      </range>
+      <output>fcs/rudder-cmd-norm-extra</output>
+   </aerosurface_scale>
+
+
    <summer name="Rudder Command Sum">
-            <input>fcs/rudder-cmd-limmiter-no-fbw</input>
+      <input>fcs/rudder-cmd-limmiter-no-fbw</input>
       <input>fcs/rudder-cmd-limmiter</input>
       <input>fcs/yaw-trim-cmd-norm</input>
       <clipto>
@@ -3052,7 +3104,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             </switch>
 
             <scheduled_gain name="fcs/scheduled-steer-pos-deg">
-                <input>fcs/steer-cmd-norm</input>
+                <input>fcs/rudder-cmd-norm-extra</input>
                 <table>
                     <independentVar lookup="row">gear/unit[0]/wheel-speed-fps</independentVar>
                     <independentVar lookup="column">systems/NWS/engaged</independentVar>
@@ -3063,27 +3115,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
                         140 0   0
                     </tableData>
                 </table>
-                <output>fcs/steer-pos-deg-pre</output>
+                <output>fcs/steer-pos-deg</output>
             </scheduled_gain>
-            <!--then add delay!-->
-                <kinematic name="steer pos delay">
-                   <input>fcs/scheduled-steer-pos-deg</input>
-                   <traverse>
-                     <setting>
-                       <position>-90</position>
-                       <time>1</time>
-                     </setting>
-                     <setting>
-                       <position>0</position>
-                       <time>1</time>
-                     </setting>
-                     <setting>
-                       <position>90</position>
-                       <time>1</time>
-                     </setting>
-                    </traverse>
-                   <output>fcs/steer-pos-deg</output>
-                </kinematic>
         </channel>
 
 

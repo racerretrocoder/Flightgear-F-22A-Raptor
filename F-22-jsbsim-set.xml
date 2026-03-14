@@ -97,7 +97,11 @@
                 <splash type="bool">true</splash>
                 <path>gui/splashes/splash0.png</path>
             </preview>
-
+			<preview>  
+<type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>gui/splashes/ground.png</path>
+            </preview>
             <preview>                
 <type>exterior</type>
                 <splash type="bool">true</splash>
