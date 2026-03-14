@@ -85,7 +85,7 @@ var stopflaredelay = func() {
 }
 
 var runchaffseq = func() {
-    f22.flare();
+    f22.flare(); # doors
     stopchaffdelay();
     if (data3 == 1){chaffmainseq1.start();}
     if (data3 == 2){chaffmainseq1.start();}
@@ -129,7 +129,7 @@ var runchaffseq = func() {
 }
 
 var runflareseq = func() {
-    f22.flare();
+    f22.flare(); # doors
     stopflaredelay();
     if (data4 == 1){flaremainseq1.start();}
     if (data4 == 2){flaremainseq1.start();}
@@ -179,7 +179,6 @@ var chaff = func() {
     setprop("f22/chaff",getprop("f22/chaff") - 1);
     setprop("rotors/main/blade[3]/position-deg",rand());
     print("chaff rel");
-    screen.log.write("Chaff");
     relchaff = relchaff + 1;
     chaffreset.start();
 
@@ -190,7 +189,6 @@ var flare = func() {
     setprop("f22/flare",getprop("f22/flare") - 1);
     setprop("rotors/main/blade[3]/flap-deg",rand());
     setprop("/ai/submodels/submodel/flare-release",1);
-    screen.log.write("Flare");
     print("flare rel");
     relflare = relflare + 1;
     flarereset.start();
@@ -241,6 +239,7 @@ var check = func() {
 }
 
 var trigger = func() {
+    screen.log.write("Chaff Flare");
     updatecms();
     f22.flare();
     finish(); # reset sequnses
