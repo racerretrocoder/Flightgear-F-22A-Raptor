@@ -1,14 +1,8 @@
-
-## DECU Attempt (!)
-
-
-## Engines
-
-#Initialise
-
-
-props.globals.initNode("/sim/autostart/started", 0, "BOOL");
-
+# F-22 autostart
+setprop("f22/started",0);
+var click = func() {
+   setprop("sim/model/clicksmall",!getprop("sim/model/clicksmall"));
+}
 var eng1fuelon = func { setprop("/controls/engines/engine[0]/cutoff", 0); }
 var eng1fueloff = func { setprop("/controls/engines/engine[0]/cutoff", 1); }
 
@@ -66,17 +60,17 @@ var manualstartr = func {
 var engstart = func {
    setprop("f22/gen1",1);
    setprop("f22/gen2",1);
-   settimer(eng1start, 2);
-   settimer(eng2start, 2);
-   settimer(battery, 36);
+   click();
+   f22.throtl();
+   f22.throtr();
    setprop("f22/brightness",1);
-   f22.throttlertimer.start();
-   f22.throttleltimer.start();
+   #f22.throttlertimer.start();
+   #f22.throttleltimer.start();
 }
 
 var engstop = func {
-   eng1fueloff();
-   eng2fueloff();
+   f22.throtl();
+   f22.throtr();
 }      
 
 
@@ -88,40 +82,53 @@ var engstopr = func {
 }   
 
 
-setprop("/controls/electric/batteryswitch", 0);
-setprop("/controls/electric/batteryswitch-pos", -1);
-
 var apu = func() {
-   f22.apuseq1(); # start the apu
+   #f22.apuseq1(); # start the apu
+   # start the apu via the switch
+   screen.log.write("Starting APU");
+   setprop("controls/electric/apustart",1);
+   setprop("controls/electric/apustartpos",1);
+   click();
    timer_apucheck.start();
 }
 
 var autostart = func {
-   var startstatus = getprop("/sim/autostart/started");
+   var startstatus = getprop("/f22/started");
    if ( startstatus == 0 ) {
       gui.popupTip("Autostarting...");
 		#f22.cnpy.close();
-	  setprop("/sim/autostart/started", 1);
+	      setprop("f22/started", 1);
+         setprop("controls/lighting/consoleknob",0.5);
+         setprop("controls/lighting/extknob",5);
+         setprop("controls/lighting/extlight",4);
+         setprop("controls/lighting/formation-norm",1.0);
+         setprop("/controls/electric/battswitch",2);
+         setprop("/controls/electric/battswitch-pos",1);
+         setprop("controls/switches/airsource",3);
+         setprop("/f22/obogs/main",1);
+         click();
          setprop("/controls/electric/computer", 1);
          setprop("/controls/electric/MFD", 1);
          setprop("/controls/electric/SMS", 1);
          setprop("/controls/electric/CMS", 1);
          setprop("/controls/electric/AESA", 1);
          setprop("/controls/electric/controls", 1);
-         screen.log.write("Starting APU");
+         
          settimer(apu, 1);
 	  #gui.popupTip("Starting Engines");
 
 	  }
    if ( startstatus == 1 ) {
       gui.popupTip("Shutting Down...");
-      f22.throttletimer.stop();
-      setprop("f22/throttle",-0.1);
+      #f22.throttletimer.stop();
+      #setprop("f22/throttle",-0.1);
 		f22.cnpy.open();
-      setprop("/sim/autostart/started", 0);
-	  eng1fueloff();
-      eng2fueloff();
-      setprop("/controls/electric/batteryswitch", 0);
+      setprop("f22/started",0);
+      engstop();
+      setprop("/controls/electric/battswitch", 0);
+      setprop("/controls/electric/battswitch-pos", -1);
+      setprop("controls/switches/airsource",0);
+      click();
    }
 }
 
@@ -136,18 +143,18 @@ var apucheck = func {
          # APU running start engines
          f22.cnpy.close();     
          engstart();
-         screen.log.write("APU Running! Starting Engines");
+         screen.log.write("APU Running.");
          timer_apucheck.stop();
          timer_apucheck2.start();
       }
 }
 var apucheck2 = func {
       if (getprop("engines/engine/running") == 1 and getprop("engines/engine[1]/running") == 1) {
-      setprop("/controls/electric/batteryswitch", 2);
          setprop("controls/electric/apustart", -1);
          setprop("controls/electric/apustartpos", -1);
+         click();
          f22.apushutoffmain();
-         screen.log.write("Engines running");
+         screen.log.write("Autostart finished.");
 
          timer_apucheck2.stop();
       }

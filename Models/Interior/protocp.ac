@@ -42,7 +42,7 @@ MATERIAL "ac3dmat14" rgb 0.8 0.8 0.8  amb 0.489474 0.489474 0.489474  emis 0 0 0
 MATERIAL "DefaultWhite.009" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
 MATERIAL "Knobs8" rgb 0.827 0.827 0.827  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 50  trans 0
 OBJECT world
-kids 331
+kids 330
 OBJECT group
 name "externallightknob"
 loc -5.60371 -0.238463 0.419634
@@ -71086,9 +71086,13 @@ refs 2
 0 0 1
 1 0 0
 kids 0
+OBJECT group
+name "aarlit"
+loc -5.46974 -0.247153 0.338005
+kids 2
 OBJECT poly
 name "aarlight2"
-loc -5.44841 -0.236968 0.335891
+loc 0.0213299 0.0101855 -0.00211447
 crease 45.000000
 numvert 6
 0.0044322 0.000510663 -0.00433564
@@ -71128,7 +71132,7 @@ refs 3
 kids 0
 OBJECT group
 name "aarlight"
-loc -5.49107 -0.257339 0.34012
+loc -0.0213299 -0.0101855 0.0021145
 kids 1
 OBJECT poly
 name "knb"

@@ -1539,19 +1539,19 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
         <table>
             <independentVar lookup="row">aero/alpha-deg</independentVar>
-            <independentVar lookup="column">/velocities/airspeed-kt</independentVar>
+            <independentVar lookup="column">/velocities/groundspeed-kt</independentVar>
             <tableData>
-                        0    50  100   200   300   400 
-                -100    0    0  -0.4   -0.3   -0.2   -0.25    
-                -90     0.5  0  -0.4   -0.3   -0.2   -0.25    
-                -30     0.5  0  -0.4   -0.3   -0.2   -0.25    
-                -10     0.5  0  -0.4   -0.3   -0.2   -0.25      
-                -0.5    0.5  0   0     0     0     0
-                0      -0.5  0   0     0     0     0
-                0.5     0    0   0     0     0     0
-                0.6     0    0   0     0     0     0
-                15      0.3  0   0.4   0.3   0.2   0.25     
-                30      0.3  0   0.4   0.3   0.2   0.25     
+                       0   5    50  100   200   300   400 
+                -100   0   0    0  -0.4   -0.3   -0.2   -0.25    
+                -90    0   0.5  0  -0.4   -0.3   -0.2   -0.25    
+                -30    0   0.5  0  -0.4   -0.3   -0.2   -0.25    
+                -10    0   0.5  0  -0.4   -0.3   -0.2   -0.25      
+                -0.5   0   0.5  0   0     0     0     0
+                0      0  -0.5  0   0     0     0     0
+                0.5    0   0    0   0     0     0     0
+                0.6    0   0    0   0     0     0     0
+                15     0   0.3  0   0.4   0.3   0.2   0.25     
+                30     0   0.3  0   0.4   0.3   0.2   0.25     
             </tableData> 
           </table>
         <property>fcs/engine-gen-spin-output</property>
@@ -2477,9 +2477,11 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <description>light</description>
           <table>
     <independentVar lookup="row">/controls/lighting/landing-lights</independentVar>
+    <independentVar lookup="column">/controls/lighting/taxi-light</independentVar>
     <tableData>
-     0     0  
-     1    10
+           0    1
+     0     0    2
+     1    10    10
 
     </tableData>
    </table>

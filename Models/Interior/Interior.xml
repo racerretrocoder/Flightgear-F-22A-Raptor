@@ -2410,6 +2410,52 @@ New: Refuel in air switch.
 
 
 
+<animation>
+        <name>aar knob</name>
+        <type>knob</type>
+        <object-name>aarlit</object-name>
+        <property>controls/lighting/aar</property>
+        <factor>1</factor>
+        <center>
+            <x-m>0.0</x-m>
+			<y-m>0.027</y-m>
+			<z-m>0.0238</z-m>
+        </center>
+        <axis>
+            <x>0</x><y>0</y><z>0</z>
+        </axis>
+        <action>
+            <binding>
+                 <command>property-adjust</command>
+                <property>controls/lighting/aar</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>                
+                <wrap>false</wrap>
+            </binding>
+                 <binding>
+     <command>property-cycle</command>
+                <property>/sim/model/wheel</property>
+                 <value>1</value>
+                  <value>0</value>
+     </binding>
+        </action>
+    </animation>
+
+<animation>
+        <type>rotate</type>
+        <object-name>aarlit</object-name>
+        <property>controls/lighting/aar</property>
+        <offset-deg>30</offset-deg>
+        <factor>270</factor>
+        <axis>
+        <object-name>aarlight-axis</object-name>
+        </axis>
+    </animation>
+
+
+
+
 
 <animation>
         <type>knob</type>
