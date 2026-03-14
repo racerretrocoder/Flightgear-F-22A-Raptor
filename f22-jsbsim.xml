@@ -947,6 +947,23 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 </product>
    </function>
 
+   <function name="fcs/Elev-pos-norm-limit-sum-main-ani-ae">  <!--Main Elevator POS with Limit-->
+<product>
+      <property>fcs/Elev-pos-norm-limit-sum-main</property>
+      <property>fcs/aoa-pre</property>
+      <property>fcs/elevator-g-limit-ae</property>
+</product>
+   </function>
+   <function name="fcs/Elev-pos-norm-limit-sum-main-ani">  <!--Main Elevator POS with Limit-->
+<sum>
+      <property>fcs/Elev-pos-norm-limit-sum-main-ani-ae</property>
+      <property>fcs/aoa-elev-main</property>
+</sum>
+   </function>
+
+
+      
+
    <function name="fcs/aileron-cmd-norm-limit">  <!--Main Elevator POS with Limit-->
    <sum>
 <product>
@@ -1426,8 +1443,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <property>fcs/fbw-override</property>
         <table>
             <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
-
-            <tableData>     
+            <!--Stable pitch trims-->
+            <tableData>
+               100    0    
                150    -0.165
                200    -0.076
                250    -0.058
@@ -1511,7 +1529,34 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    </function>
 
+
+
 <property>f22/fcs/controls/elevator</property>
+
+<!--aoa elevator motion-->
+<function name="fcs/aoa-elev-pre">  
+        <table>
+            <independentVar lookup="row">aero/alpha-deg</independentVar>
+            <independentVar lookup="column">/velocities/airspeed-kt</independentVar>
+            <tableData>
+                        0    50  100   200   300   400 
+                -100    0    0  -0.3   -0.3   -0.3   -0.3     
+                -90     0.3  0  -0.3   -0.3   -0.3   -0.3     
+                -30     0.3  0  -0.3   -0.3   -0.3   -0.3     
+                -10     0.3  0  -0.3   -0.3   -0.3   -0.3       
+                -0.5    0.3  0   0     0     0     0
+                0      -0.3  0   0     0     0     0
+                0.5     0    0   0     0     0     0
+                0.6     0    0   0     0     0     0
+                15      0.3  0   0.5   0.5   0.5   0.5      
+                30      0.3  0   0.5   0.5   0.5   0.5      
+            </tableData> 
+          </table>
+</function>
+
+
+
+
   <channel name="Pitch">
   
     <kinematic name="Elevator Delay">
@@ -1533,7 +1578,24 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <output>fcs/elevator-cmd-norm-delay-sm</output>
    </kinematic>
 
-
+    <kinematic name="aoa elev">
+      <input>fcs/aoa-elev-pre</input>
+      <traverse>
+        <setting>
+          <position>-1</position>
+          <time>1.5</time>
+        </setting>
+        <setting>
+          <position>0</position>
+          <time>1.5</time>
+        </setting>
+        <setting>
+          <position>1</position>
+          <time>1.5</time>
+        </setting>
+       </traverse>
+      <output>fcs/aoa-elev-main</output>
+   </kinematic>
 
    <kinematic name="leading edge flaps">
      <input>fcs/leading-edge-flap-gear</input> <!--Auto flaps when gear down, Manuel control when up-->

@@ -1540,7 +1540,7 @@ print("target ran");
 
                     }
                 }
-            if(me.update_track_time - me.StartTime < me.ignitedelay)
+            if(me.update_track_time - me.StartTime < me.ignitedelay+0.5)
             {
                  if (me.pitbullrngm == 0) {
                   #  screen.log.write("pitbull is appearntly off");
@@ -1552,11 +1552,11 @@ print("target ran");
                 #h_gain = 0;
 
             }
-            if(me.update_track_time - me.StartTime < me.ignitedelay)
-            {
-                e_gain = 0;
-                h_gain = 0;
-            }
+            #if(me.update_track_time - me.StartTime < me.ignitedelay+0.5)
+            #{
+            #    e_gain = 0;
+            #    h_gain = 0;
+            #}
             #screen.log.write(e_gain);
             print((me.update_track_time-me.StartTime-1)/2);
             # compute target deviation variation then seeker move to keep
