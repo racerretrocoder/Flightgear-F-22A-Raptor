@@ -5073,7 +5073,7 @@ ae
 <object-name>pilot</object-name>
 <condition>
 <equals>
-<property>/f22/ground/pilot</property>
+<property>f22/ground/pilot</property>
 <value>1</value>
 </equals>
 </condition>
