@@ -832,10 +832,10 @@ var fcsloop = func() {
     setprop("f22/fcs/mode","DFM"); # the text
     setprop("f22/fcs/glimit",9.0);
     setprop("f22/fcs/aoalimit",90);
-      setprop("f22/fcs/controls/elevator",0);
-      setprop("f22/fcs/controls/aileron",0);
-      setprop("f22/fcs/controls/rudder",0);
-      setprop("/autopilot/locks/fcs","");
+    setprop("f22/fcs/controls/elevator",0);
+    setprop("f22/fcs/controls/aileron",0);
+    setprop("f22/fcs/controls/rudder",0);
+    setprop("/autopilot/locks/fcs","");
   }
 
 }
@@ -2398,12 +2398,14 @@ var throtr = func() {
     }
     setprop("f22/throttler",0);
     screen.log.write("Right Throttle set to Idle! Starting Right Engine...");    
+    setprop("f22/started",1);
     throttlertimer.start();
     emu.manualstartr();
   emu.timer_apucheck2.start(); # APU Shutoff rebound
   }
   elsif (getprop("f22/throttler") != -0.1){
     screen.log.write("Right Throttle Cut Off! Shutting down Right Engine...");
+    setprop("f22/started",0);
     throttlertimer.stop();
     setprop("f22/throttler",-0.1);
     emu.engstopr();
@@ -2421,12 +2423,14 @@ var throtl = func() {
     }
     setprop("f22/throttlel",0);
     screen.log.write("Left Throttle set to Idle! Starting Left Engine...");    
+    setprop("f22/started",1);
     throttleltimer.start();
     emu.manualstartl();
   emu.timer_apucheck2.start(); # APU Shutoff rebound
   }
   elsif (getprop("f22/throttlel") != -0.1){
     screen.log.write("Left Throttle Cut Off! Shutting down Left Engine...");
+    setprop("f22/started",0);
     throttleltimer.stop();
     setprop("f22/throttlel",-0.1);
     emu.engstopl();
