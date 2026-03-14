@@ -832,6 +832,10 @@ var fcsloop = func() {
     setprop("f22/fcs/mode","DFM"); # the text
     setprop("f22/fcs/glimit",9.0);
     setprop("f22/fcs/aoalimit",90);
+      setprop("f22/fcs/controls/elevator",0);
+      setprop("f22/fcs/controls/aileron",0);
+      setprop("f22/fcs/controls/rudder",0);
+      setprop("/autopilot/locks/fcs","");
   }
 
 }
@@ -1696,7 +1700,7 @@ var toggledfm = func() {
       setprop("systems/MFD/modemfdr",getprop(oldmfdr));
       setprop("systems/MFD/modemfdll",getprop(oldmfdll));
       # weapons
-      setprop("/controls/armament/selected-weapon","none");
+      setprop("/controls/armament/selected-weapon","Aim-120");
       setprop("/controls/armament/selected-weapon-digit",2);
       setprop("/controls/baydoors/AIM120", 0);setprop("/controls/baydoors/AIM120lock", 0);
       setprop("/controls/missile", 3);
