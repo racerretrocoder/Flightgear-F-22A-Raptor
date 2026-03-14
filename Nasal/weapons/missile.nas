@@ -1011,7 +1011,12 @@ broddamage: func (cs,dist,msl) {
             if(init_launch == 0 )
             {
                 # use the rail or a/c pitch for the first frame.
-                pitch_deg = getprop("orientation/pitch-deg");
+                if (me.eject != 1) {
+                    pitch_deg = getprop("orientation/pitch-deg");
+                } else {
+                    pitch_deg = 90;
+                }
+                
             }
             else
             {

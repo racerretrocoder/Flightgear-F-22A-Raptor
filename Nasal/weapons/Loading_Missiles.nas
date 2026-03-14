@@ -316,10 +316,10 @@ var Loading_missile = func(name)
         maxg = 12;                                    # eject
         thrustlbs = 5000;                                # 
         thrustdurationsec = 5;           
-        thrustlbsstage2 = 0;
-        thrustdurationsecstage2 = 5;    
+        thrustlbsstage2 = 1;
+        thrustdurationsecstage2 = 1;    
                                # 
-        weightlaunchlbs = 320;                        # Human + Chair
+        weightlaunchlbs = 420;                        # Human + Chair
         weightwarheadlbs = 60;
         dragcoeff = 0.1;                              # Parachute implementation attempt
         dragarea = 3.075;                             # sq ft
