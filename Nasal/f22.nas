@@ -829,6 +829,7 @@ var fcsloop = func() {
     }
   } 
   if (fcsmode == 3) { # max
+    if (getprop("f22/dogfightmode") == 1) {
     setprop("f22/fcs/mode","DFM"); # the text
     setprop("f22/fcs/glimit",9.0);
     setprop("f22/fcs/aoalimit",90);
@@ -836,8 +837,10 @@ var fcsloop = func() {
     setprop("f22/fcs/controls/aileron",0);
     setprop("f22/fcs/controls/rudder",0);
     setprop("/autopilot/locks/fcs","");
+    } else {
+      setprop("f22/fcsmode",0); # set back to nav
+    }
   }
-
 }
 
 

@@ -439,7 +439,7 @@ var changefcs = func{
       setprop("f22/fcsmode",fcsmode+1);
       
     }
-    screen.log.write("Switched FCS Mode",0,1,0);
+    #screen.log.write("Switched FCS Mode",0,1,0);
 }
 
 # Cool datalink stuff
