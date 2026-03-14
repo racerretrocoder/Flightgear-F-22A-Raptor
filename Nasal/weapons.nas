@@ -560,6 +560,13 @@ var switch_weapon = func(){
 #switch_weapon();
 #print("ae");
 
+var flrset = func() {
+    setprop("/controls/flare",3);
+    flareresettimer.stop();
+}
+setprop("/controls/flare",3);
+flareresettimer = maketimer(2,flrset);
+
 var missile_reject = func(){
     print("Reject pressed");
     if (getprop("/controls/armament/missile-reject") == 1) {
@@ -568,6 +575,7 @@ var missile_reject = func(){
         CMS.trigger();
         setprop("/controls/armament/missile-reject",0);
         setprop("/controls/flare",!getprop("/controls/flare")); # sound
+        flareresettimer.start();
     }
 }
 

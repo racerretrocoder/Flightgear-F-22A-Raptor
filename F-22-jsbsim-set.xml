@@ -2725,16 +2725,15 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
  <key n="108">
 	 <name>l</name>
-     <desc>Trigger flare release</desc>      
+     <desc>Trigger flare release</desc>     
 	 <binding>
      <command>nasal</command>
  <script>CMS.updatecms();CMS.trigger();</script>
       </binding>
-  <binding>
-   <command>property-toggle</command>
-   <property>controls/flare</property>
-  </binding>
-
+	 <binding>
+     <command>nasal</command>
+ <script>setprop("/controls/flare",!getprop("/controls/flare"));guns.flareresettimer.start();</script>
+      </binding>
     </key>
 	 <key n="114">
   <name>r</name>
