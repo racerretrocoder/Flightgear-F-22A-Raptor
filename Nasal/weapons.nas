@@ -510,7 +510,8 @@ var switch_weapon = func(){
                  missile.Loading_missile(weaponname);
             return 0;
         }
-
+        setprop("/controls/baydoors/AIM120", 0);setprop("/controls/baydoors/AIM120lock", 0);
+        setprop("/controls/missile", 3);
         setprop("/controls/armament/weapon-selected", 0);   
     }
     if(getprop("/controls/armament/weapon-selected") == -1) {
@@ -542,6 +543,8 @@ var switch_weapon = func(){
                  missile.Loading_missile(weaponname);
             return 0;
         }
+        setprop("/controls/baydoors/AIM120", 0);setprop("/controls/baydoors/AIM120lock", 0);
+        setprop("/controls/missile", 3);
         setprop("/controls/armament/weapon-selected", 0);   
     }
 }
@@ -556,6 +559,7 @@ var missile_reject = func(){
         CMS.updatecms();
         CMS.trigger();
         setprop("/controls/armament/missile-reject",0);
+        setprop("/controls/flare",!getprop("/controls/flare")); # sound
     }
 }
 
@@ -564,7 +568,7 @@ setlistener("/controls/armament/missile-reject",missile_reject);
 
 
 var stickreporter = func(){
-    if(getprop("/controls/armament/stick-selector") == 1)screen.log.write("Selected M61A1 Vulcon.",1,0.4,0.4);
+    if(getprop("/controls/armament/stick-selector") == 1)screen.log.write("Selected M61A2 Vulcon.",1,0.4,0.4);
     else{screen.log.write("Selected missiles.",1,0.4,0.4);}
 }
 setlistener("/controls/armament/stick-selector",stickreporter);
