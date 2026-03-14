@@ -1610,6 +1610,7 @@ var c = getprop("/sim/failure-manager/controls/flight/rudder/serviceable");
 var toggledfm = func() {
   # will record properties to save when toggling, then restore them back how they were when you exit dfm, such as FCS mode, radar mode and range, MFD configuration, etc...
   # current properties
+  
   var mfdc = getprop("systems/MFD/modemfdc");
   var mfdl = getprop("systems/MFD/modemfdl");
   var mfdr = getprop("systems/MFD/modemfdr");
@@ -1632,6 +1633,7 @@ var toggledfm = func() {
   if (elec) {
     # allow dfm changes
     if (dfm == 0) {
+      acmtimer.start();
       # activate dfm
       screen.log.write("Dogfight mode enabled",0,1,0);
       var weaponlist = SSWC.countlist(); # [aim9,aim120,aim260,gbu39,jdam]
@@ -1690,6 +1692,7 @@ var toggledfm = func() {
       setprop("f22/dogfightmode",1);
       # ok thats all for enable
     } else {
+      acmtimer.stop();
       # now disable
       screen.log.write("Dogfight mode disabled",0,1,0);
       # now revert settings
