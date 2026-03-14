@@ -2613,7 +2613,16 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 </binding>
  </key> 
 
-
+<key n="100">
+ <name>d</name>
+ <desc>DFM</desc>
+   <binding n="3">
+       <command>nasal</command>
+       <script>
+           f22.toggledfm();
+       </script>
+   </binding>
+</key>
 
 <key n="101">
   <name>e</name>
@@ -3353,7 +3362,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	<stpt>
 		<file>Aircraft/F-22/Nasal/positional.nas</file> <!--Positional-->
 	</stpt>
-		
+	<SSWC>
+		<file>Aircraft/F-22/Nasal/counting.nas</file> <!--Somewhat Simple Weapon Counter (tm)-->
+	</SSWC>
 	<!--<tips>   disabled for now. its a bit buggy
 			<file>Aircraft/F-22/Nasal/messages.nas</file>
 		</tips>-->

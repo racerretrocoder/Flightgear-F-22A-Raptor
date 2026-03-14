@@ -1,6 +1,6 @@
 # f22.nas | Everything Raptor needs at the call of a function
-# All code (excepted code that was labled under a different developer) authored by Phoenix
-# Copyright (c) 2026, Backdoor Interactive! (Phoenix, Uapilot)
+# All code (except code that was labled under a different developer and/or aircraft) is authored by Phoenix
+# Copyright (c) 2026, Backdoor Interactive! (Phoenix, uapilot)
 # Now for a more formal introduction
 #
 #
@@ -29,15 +29,12 @@
 #
 
 # Some terminology
-
 # "thingy" refers to an object that sticks out from the reset in a unique way.
 # Thought you guys might want to know. 
-
-
-
 # Hide the hud when not in the cockpit view
 setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
 # Init some vars and props
+setprop("/f22/dogfightmode",0);
 setprop("/f22/fcs/extra",0);
 setprop("/f22/fcs/aoalimit",90);
 setprop("/f22/fcs/glimit",0);
@@ -69,8 +66,8 @@ setprop("/f22/gear2/tiresmoke",0);
 setprop("/f22/gear3/tiresmoke",0);
 setprop("/f22/gear2/tiresmokeold",1); # Set like this to disable instant smoke on spawn
 setprop("/f22/gear3/tiresmokeold",1); # Set like this to disable instant smoke on spawn
-setprop("/f22/gear2/name","leftgear");
-setprop("/f22/gear3/name","rightgear");
+setprop("/f22/gear2/name","leftgear");  # only here to easily recognize in flight
+setprop("/f22/gear3/name","rightgear"); # only here to easily recognize in flight
 
 setprop("/fdm/jsbsim/gear/gear-pos-norm",1);
 setprop("/f22/frost",0);
@@ -107,15 +104,16 @@ setprop("/environment/aircraft-effects/temperature-outside-ram-degC", 0);
 setprop("/environment/aircraft-effects/frost-level", 0);
 setprop("/environment/aircraft-effects/fog-level", 0);
 
-# Hud "thingys"
+# HUD display
 setprop("controls/hud/altmslth",0); # Altitude tape 1000's
 setprop("controls/hud/altmslhu",1); # Altitude tape 100's
 setprop("controls/hud/radaltth",0); # Radar Alt tape 1000's
 setprop("controls/hud/radalthu",0); # Radar Alt tape 100's
 setprop("controls/hud/altitude",5000); # Altitude AGL in which rad alt transitions over from MSL
 setprop("controls/radar/ag",0); # Altitude AGL in which rad alt transitions over from MSL
+
+# Controls HUD altitude tape
 var hudalt = func() {
-  # control hud altitude tape
   var msl = 0;
   var rad = 0;
   var agl = getprop("position/altitude-agl-ft");
@@ -166,7 +164,7 @@ hudaltloop.start();
 
 
 var toggleradar = func {
-  # property
+  # the property used for this radar is:
   # su-27/instrumentation/N010-radar/emitting
   var cwow = getprop("gear/gear[0]/wow");
   var lwow = getprop("gear/gear[1]/wow");
@@ -215,7 +213,6 @@ auxcomm.start();
 
 
 # Radio stuff
-
 var radioloop = func {
   var batt = getprop("controls/electric/battswitch");
   var maingen = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
@@ -245,6 +242,7 @@ radios.start();
 
 
 # Custom Temperature | Pretty much all of it is based on from the F-16 code (f16.nas)
+# It was modified to be integrated with Raptor
 
 var tempmainloop = func() {
   # if (getprop("position/altitude-ft") > 10000 and getprop("controls/switches/airsource") != 3) {
@@ -398,6 +396,9 @@ var tempmainloop = func() {
   setprop("/environment/aircraft-effects/frost-level", frostNorm);
   setprop("/environment/aircraft-effects/fog-level", fogNorm);
 } 
+# some todo for this:
+# Make the fog and frost more gradually applied, Especially when toggling the canopy
+
 
 
 temperatureloop = maketimer(0.1,tempmainloop);
@@ -453,7 +454,6 @@ var gearloop = func() {
   } else {
     setprop("f22/runwaysplash",0);
   }
-
   var gearhandle = getprop("controls/gear/gear-down");
   var speed = getprop("velocities/airspeed-kt");
   var damaged = getprop("f22/gear-damaged");
@@ -508,7 +508,7 @@ var gearloop = func() {
     setprop("f22/gear2/pos",fdmgear);
   }
   if (damagegear3 == 1) {
-    # left is damaged
+    # gear is damaged
     if (fdmgear < 0.75) {
       setprop("f22/gear3/pos",fdmgear);
     }
@@ -707,8 +707,6 @@ var crashdetect = func {
       }
         # A slow fall to the ground < 130kts, probably flying slightly straight
         if (getprop("/f22/dead") == 0){
-
-        
             if (speed < 110) {
               screen.log.write("You crashed! Light Damage",1,0,0);
               setprop("/f22/dead",1);
@@ -735,7 +733,7 @@ var crashdetect = func {
               setprop("/f22/crash/doneonce",1);
             }   
             if (speed > 280) {
-              screen.log.write("You crashed! Maximum Damage",1,0,0);
+              screen.log.write("You crashed!!! Maximum Damage",1,0,0);
               setprop("/f22/dead",5);
               setprop("/f22/crash/type",2);
               setprop("/f22/crash/doneonce",1);
@@ -1191,6 +1189,7 @@ mslbaytimer = maketimer(0,firemslbay);
 var fire = func(v,a) {
 # This controls the Bay doors automaticly
 # Call this when you shoot a missile.
+# uapilot
 var dt = 0;
 var time = getprop("/sim/time/elapsed-sec");
 var weapon = getprop("/controls/armament/selected-weapon-digit");
@@ -1600,7 +1599,116 @@ var c = getprop("/sim/failure-manager/controls/flight/rudder/serviceable");
 }
 
 
-# Cool Radar Stuff!
+# Dogfight controller | Phoenix
+var toggledfm = func() {
+  # will record properties to save when toggling, then restore them back how they were when you exit dfm, such as FCS mode, radar mode and range, MFD configuration, etc...
+  # current properties
+  var mfdc = getprop("systems/MFD/modemfdc");
+  var mfdl = getprop("systems/MFD/modemfdl");
+  var mfdr = getprop("systems/MFD/modemfdr");
+  var mfdll = getprop("systems/MFD/modemfdll");
+  var radarrange = getprop("instrumentation/radar/range");
+  var radarmode = getprop("instrumentation/radar/mode/main");
+  var fcsmode = getprop("f22/fcsmode");
+  # saved properties
+  var oldmfdc = "f22/dogfight/modemfdc";
+  var oldmfdl = "f22/dogfight/modemfdl";
+  var oldmfdr = "f22/dogfight/modemfdr";
+  var oldmfdll = "f22/dogfight/modemfdll";
+  var oldradarrange = "f22/dogfight/range";
+  var oldradarmode = "f22/dogfight/radarmode";
+  var oldfcsmode = "f22/dogfight/fcsmode";
+
+  var elec = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
+  var dfm = getprop("f22/dogfightmode");
+
+  if (elec) {
+    # allow dfm changes
+    if (dfm == 0) {
+      # activate dfm
+      screen.log.write("Dogfight mode enabled",0,1,0);
+      var weaponlist = SSWC.countlist(); # [aim9,aim120,aim260,gbu39,jdam]
+      # first check aim-9's
+      if (weaponlist[0] != 0) {
+        # we have aim-9 switch to it
+        setprop("/controls/armament/selected-weapon","Aim-9x");
+        setprop("/controls/armament/selected-weapon-digit",1);
+        screen.log.write("Auto Selected: "~getprop("/controls/armament/selected-weapon")~"");
+        setprop("/controls/armament/weapon-selected", 0);   
+        var weaponname = getprop("controls/armament/selected-weapon");
+        setprop("/controls/armament/stick-selector",2);
+        missile.Loading_missile(weaponname);# refresh it
+      } elsif (weaponlist[1] != 0) {
+        # we have aim-9 switch to it
+        setprop("/controls/armament/selected-weapon","Aim-120");
+        setprop("/controls/armament/selected-weapon-digit",2);
+        screen.log.write("Auto Selected: "~getprop("/controls/armament/selected-weapon")~"");
+        setprop("/controls/armament/weapon-selected", 0);   
+        var weaponname = getprop("controls/armament/selected-weapon");
+        setprop("/controls/armament/stick-selector",2);
+        missile.Loading_missile(weaponname);# refresh it
+      } else {
+        # no weapons, GO GUNS!
+        print("dfm found no weps, going guns!");
+        setprop("/controls/armament/selected-weapon","none");
+        setprop("/controls/armament/selected-weapon-digit",2);
+        setprop("/controls/baydoors/AIM120", 0);setprop("/controls/baydoors/AIM120lock", 0);
+        setprop("/controls/missile", 3);
+        setprop("/controls/armament/stick-selector",1);
+      }
+      setprop("/controls/baydoors/AIM120", 0);setprop("/controls/baydoors/AIM120lock", 0);
+      setprop("/controls/missile", 3);
+      # ok there is our weapons figured out
+      # now lets save and restore all important properties
+      # i use strings here just for speed and convience
+      setprop(oldmfdc,mfdc);
+      setprop(oldmfdl,mfdl);
+      setprop(oldmfdr,mfdr);
+      setprop(oldmfdll,mfdll);
+      setprop(oldradarrange,radarrange);
+      setprop(oldradarmode,radarmode);
+      setprop(oldfcsmode,fcsmode);
+
+      # now apply custom dfm config
+      setprop("f22/fcsmode",3); # dogfight mode fcs
+      setprop("instrumentation/radar/range",10); # set range
+      setprop("instrumentation/radar/range-selected",10); # set range
+      setprop("instrumentation/radar/mode/main",2); # set ACM
+      # MFD
+      setprop("systems/MFD/modemfdc",2);
+      setprop("systems/MFD/modemfdl",1);
+      setprop("systems/MFD/modemfdr",5);
+      setprop("systems/MFD/modemfdll",1);
+
+      setprop("f22/dogfightmode",1);
+      # ok thats all for enable
+    } else {
+      # now disable
+      screen.log.write("Dogfight mode disabled",0,1,0);
+      # now revert settings
+      setprop("f22/fcsmode",getprop(oldfcsmode)); # dogfight mode fcs
+      setprop("instrumentation/radar/range",getprop(oldradarrange)); # set range
+      setprop("instrumentation/radar/range-selected",getprop(oldradarrange)); # set range
+      setprop("instrumentation/radar/mode/main",getprop(oldradarmode)); # set ACM
+      # MFD
+      setprop("systems/MFD/modemfdc",getprop(oldmfdc));
+      setprop("systems/MFD/modemfdl",getprop(oldmfdl));
+      setprop("systems/MFD/modemfdr",getprop(oldmfdr));
+      setprop("systems/MFD/modemfdll",getprop(oldmfdll));
+      # weapons
+      setprop("/controls/armament/selected-weapon","none");
+      setprop("/controls/armament/selected-weapon-digit",2);
+      setprop("/controls/baydoors/AIM120", 0);setprop("/controls/baydoors/AIM120lock", 0);
+      setprop("/controls/missile", 3);
+      setprop("/controls/armament/stick-selector",2);
+      setprop("f22/dogfightmode",0);
+      # ok thats all for disable
+    }
+  }
+}
+
+
+# Cool Radar Stuff!  (Phoenix, uapilot)
 # Stuff like radar cursor position to callsign
 # Dogfight mode! (ACM Radar mode)
 
@@ -1621,12 +1729,12 @@ var lockuntill = func(callsign) {
   }
 }
 
-
+# Phoenix
 # Trying to make a radar cursor simulation. 
 # Had an idea if the cursor position matched the position of the marker. 
-# The FDM will be used to scale the cursor position to match marker position
+# The JSBsim FDM will be used to scale the cursor position to match marker position
 # Find and lock the target we selected with the cursor. 
-# Need more ideas to get this to work
+# This idea worked out really well, So this will how we handle cursors on screens
 setprop("controls/radar/cursorvariaton",0.23);
 var cursorclick = func() {
   if (getprop("controls/cursorscreen") == 0) {
@@ -1683,7 +1791,6 @@ var cursorclick = func() {
           }
         }
     }
-
     print("cursorclick complete");
     print("lockablecallsigns: ",lockablecallsigns);
     var callsignsize = utf8.size(lockablecallsigns);
@@ -1751,7 +1858,6 @@ var cursorclick = func() {
         }
       }
     }
-
     print("PRF cursorclick complete");
     print("lockablecallsigns: ",lockablecallsigns);
     setprop("f22/stpt/selected",lockablecallsigns);
@@ -1776,7 +1882,6 @@ var updatemkr = func() {
       #var inrange = getprop("/instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/display");
       if (getprop("/instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/display") == 1){
       setprop("instrumentation/radar2/marker/mark[" ~ mpid ~ "]/display",getprop("/instrumentation/radar2/targets/multiplayer[" ~ mpid ~ "]/display"));
-
       #
       # Range
       # 
@@ -1907,12 +2012,12 @@ var tgtlock = func{
   }
 }
 
-# antic
+# antic, uapilot
 var checkdmg = func() {
-  if (getprop("f22/auxcomm/oldd") == 1) {
+  if (getprop("f22/auxcomm/oldd") == 1) { # Lol
     if (getprop("payload/armament/msg") != getprop("f22/auxcomm/oldd")) {
       # turnd off inflight
-      thestring = "I"~" tur"~"ned"~" dam"~"age"~" off"~" mid"~"flight";
+      thestring = "I"~" tried to tur"~"n"~" dam"~"age"~" off"~" mid"~"flight";
       setprop("sim/multiplay/chat",thestring);
       setprop("payload/armament/msg",1);
     }
@@ -1972,7 +2077,7 @@ setprop("misc/closestmp", 100000); # reset
 }
 
 
-# ACM "Dogfight mode"
+# ACM "Dogfight mode"  | Phoenix, uapilot
 # Still experimental
 # Debug messages left on
 var radarlook = func(cs=nil) {
@@ -2032,7 +2137,7 @@ var radarlook = func(cs=nil) {
           #screen.log.write("Radar ACM: Can lock! Locking...");
           #screen.log.write(callsign);
           #checkcloestmp("");
-          #        screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);''
+          #screen.log.write("Radar: Currently Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);''
          
           var radarcs = radar.tgts_list[radar.Target_Index].Callsign.getValue();
           acmcheck(radarcs,mpid,total);
@@ -2120,7 +2225,7 @@ var timer_loop = func{
 # logic
 # Pull up alarm. 
 # From respective owners
-
+# Modify this code to react to different Vspeeds when gear is down
 		 if (getprop("velocities/speed-east-fps") != 0 or getprop("velocities/speed-north-fps") != 0) {
       var start = geo.aircraft_position();
       var speed_down_fps  = getprop("velocities/speed-down-fps");
@@ -2202,7 +2307,7 @@ var cursor = func {
 }
 
 
-# Jitter
+# Jitter, Not sure if still needed
 
 var jitter = func{
 	setprop("/controls/rand", rand());
@@ -2249,7 +2354,7 @@ var crashreinit = func {
   crashreinit_timer.stop();
 }
 
-
+# Instrumentation blinking
 setprop("f22/blink",0);
 var blink = func() {
   setprop("f22/blink",!getprop("f22/blink"));
@@ -2262,8 +2367,10 @@ var checkbingo = func() {
     setprop("f22/isbingo",0);
   }
 }
-  setprop("f22/throttler",-0.1);
-  setprop("f22/throttlel",-0.1);
+
+# Throttle quadrant stuff
+setprop("f22/throttler",-0.1);
+setprop("f22/throttlel",-0.1);
 var updatethrotr = func() {
   #if (getprop("controls/engines/engine[1]/throttle") > 0.82 and getprop("engines/engine[1]/n2") < 98) {
   #  setprop("controls/engines/engine[1]/throttle",0.82); # wait till full rev to engage ab
@@ -2452,6 +2559,8 @@ var consoleslight = func() {
 }
 
 # Engine fire smoke thingy
+# uapilot (and Phoenix)
+# Combines engine failures into just one integer, Saves MP Property space
 var engint = func() {
   if (getprop("sim/failure-manager/engines/engine/serviceable") == 0 or getprop("sim/failure-manager/engines/engine[1]/serviceable") == 0) {
     if (getprop("sim/failure-manager/engines/engine/serviceable") == 0 and getprop("sim/failure-manager/engines/engine[1]/serviceable") == 0) {
@@ -2548,6 +2657,7 @@ var jettison = func(type) {
 ##########################################################################################################
 
 # seconds , function.  you can use 0 for the seconds for instant loop without flightgear freezee
+# not reaally efciant as it pegs core 0 on the first cpu 
 
 
 updatehudtimer = maketimer(0.1,hudupdate);

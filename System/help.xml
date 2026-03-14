@@ -35,7 +35,10 @@
 				<name>e</name>
 				<desc>Fire the current weapon type</desc>
 			</key>
-			
+			<key>
+				<name>d</name>
+				<desc>Toggle dogfight mode</desc>
+			</key>
 			<key>
 				<name>Ctrl+d</name>
 				<desc>Toggle Center bay doors</desc>
