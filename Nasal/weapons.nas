@@ -181,40 +181,69 @@ gunlagshoot.start();
 
 
 fire_MG = func() { 
+    var elec = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
+    if (elec) {
+        var time = getprop("/sim/time/elapsed-sec");
+        if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
+        if (getprop("controls/armament/trigger") == 0){return;}
+        if(getprop("/controls/armament/stick-selector") == 1)
+        {
+            # guns
+            if (getprop("controls/armament/master-arm") == 1 and getprop("ai/submodels/submodel[1]/count") != 0) {
+            isFiring = 1;
 
-    var time = getprop("/sim/time/elapsed-sec");
-    if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
-    if (getprop("controls/armament/trigger") == 0){return;}
-    if(getprop("/controls/armament/stick-selector") == 1)
-    {
-        # guns
-        if (getprop("controls/armament/master-arm") == 1 and getprop("ai/submodels/submodel[1]/count") != 0) {
-        isFiring = 1;
-        
-        setprop("controls/armament/gun-trigger-no-delay",1);
-        setprop("controls/armament/gunlag",1);
-        flap_timer.start();
-        #settimer(autostopFiring, 0.47); # Fast burst
-        reset.start();
-        } else {
-            screen.log.write("Master arm is not armed or the gun is out of ammo");
+            setprop("controls/armament/gun-trigger-no-delay",1);
+            setprop("controls/armament/gunlag",1);
+            flap_timer.start();
+            #settimer(autostopFiring, 0.47); # Fast burst
+            reset.start();
+            } else {
+                screen.log.write("Master arm is not armed or the gun is out of ammo");
+            }
+        }
+        if(getprop("/controls/armament/stick-selector") == 2)
+        {
+            # missiles
+                if (getprop("controls/armament/master-arm") == 1) {
+                # multishot check
+                if (getprop("controls/armament/multishotstate") == 1){
+                    print("Multiple Target Shot!");
+                    multishot();
+                } else {
+                    # Normal Control
+                # var time = getprop("/sim/time/elapsed-sec");
+                    if(1==1) # missile delay. only shoot missiles every 0.5 seconds
+                    {
+                        dt = time;
+                        screen.log.write("Trigger!");
+                        f22.fire(0,0); # Open the bay doors of the currently selected weapon
+                        f22.firemsluntill(); # Auto fire the missile
+                    }
+                }
+            } else {
+                screen.log.write("Master arm is not armed");
+            }
         }
     }
-    if(getprop("/controls/armament/stick-selector") == 2)
-    {
-        # missiles
+}
+# Pickle
+fire_MG_pic = func() {  # b would be in the ()
+    var elec = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
+    if (elec) {
+        var time = getprop("/sim/time/elapsed-sec");
+        if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
+        if (getprop("controls/armament/pickle") == 0){return;} #hmmm
             if (getprop("controls/armament/master-arm") == 1) {
-            # multishot check
+                # Multishot check
             if (getprop("controls/armament/multishotstate") == 1){
                 print("Multiple Target Shot!");
                 multishot();
             } else {
-                # Normal Control
-            # var time = getprop("/sim/time/elapsed-sec");
-                if(1==1) # missile delay. only shoot missiles every 0.5 seconds
+            # var time = getprop("/sim/time/elapsed-sec");  
+            if(1==1) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit  time - dt > 0
                 {
                     dt = time;
-                    screen.log.write("Trigger!");
+                    screen.log.write("Pickle!");
                     f22.fire(0,0); # Open the bay doors of the currently selected weapon
                     f22.firemsluntill(); # Auto fire the missile
                 }
@@ -223,30 +252,7 @@ fire_MG = func() {
             screen.log.write("Master arm is not armed");
         }
     }
-}
-# Pickle
-fire_MG_pic = func() {  # b would be in the ()
-    var time = getprop("/sim/time/elapsed-sec");
-    if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
-    if (getprop("controls/armament/pickle") == 0){return;} #hmmm
-        if (getprop("controls/armament/master-arm") == 1) {
-            # Multishot check
-        if (getprop("controls/armament/multishotstate") == 1){
-            print("Multiple Target Shot!");
-            multishot();
-        } else {
-        # var time = getprop("/sim/time/elapsed-sec");  
-        if(1==1) # Adjust this 0 for limit on how many missiles you can shoot at once speed limit  time - dt > 0
-            {
-                dt = time;
-                screen.log.write("Pickle!");
-                f22.fire(0,0); # Open the bay doors of the currently selected weapon
-                f22.firemsluntill(); # Auto fire the missile
-            }
-        }
-    } else {
-        screen.log.write("Master arm is not armed");
-    }
+
 }
 
 
