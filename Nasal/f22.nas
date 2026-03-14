@@ -2265,9 +2265,15 @@ var checkbingo = func() {
   setprop("f22/throttler",-0.1);
   setprop("f22/throttlel",-0.1);
 var updatethrotr = func() {
+  if (getprop("controls/engines/engine[1]/throttle") > 0.82 and getprop("engines/engine[1]/n2") < 98) {
+    setprop("controls/engines/engine[1]/throttle",0.82); # wait till full rev to engage ab
+  }
   setprop("f22/throttler",getprop("controls/engines/engine[1]/throttle"));
 }
 var updatethrotl = func() {
+  if (getprop("controls/engines/engine/throttle") > 0.82 and getprop("engines/engine/n2") < 98) {
+    setprop("controls/engines/engine/throttle",0.82); # wait till full rev to engage ab
+  }
   setprop("f22/throttlel",getprop("controls/engines/engine/throttle"));
 }
 
