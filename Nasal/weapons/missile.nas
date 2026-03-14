@@ -1011,12 +1011,20 @@ broddamage: func (cs,dist,msl) {
             if(init_launch == 0 )
             {
                 # use the rail or a/c pitch for the first frame.
+                # aero dynamics / engine deg
                 if (me.eject != 1) {
-                    pitch_deg = getprop("orientation/pitch-deg");
-                } else {
-                    pitch_deg = 90;
-                }
-                
+                    if (me.isbomb == 1) {
+                        pitch_deg = getprop("orientation/pitch-deg") - 3.5; # shove the bomb off
+                    } elsif (me.ignitedelay != 0) {
+                        # drop missile
+                        pitch_deg = getprop("orientation/pitch-deg") - 2;
+                    } else {
+                        # railed
+                        pitch_deg = getprop("orientation/pitch-deg");
+                    }
+                } 
+            } else {
+                pitch_deg = 90;
             }
             else
             {
@@ -1163,6 +1171,7 @@ broddamage: func (cs,dist,msl) {
                 {
                     if (me.isbomb == 1){
                         var info = geodinfo(me.coord.lat,me.coord.lon);
+                        var static = "ae";
                         if (info == nil) {
 		                	print("Nil, Regular ground");
                             #var static = geo.put_model(getprop("payload/armament/models") ~ "crater_big.xml", me.coord.lat(), me.coord.lon());
@@ -1179,6 +1188,7 @@ broddamage: func (cs,dist,msl) {
                         if (static != "ae") {
 		       	            if(getprop("payload/armament/msg")) {
                                     #sendCrater: func (lat,lon,alt,size,hdg,static)
+                                var static = geo.put_model(getprop("payload/armament/models") ~ "crater_big.xml", me.coord.lat(), me.coord.lon());
                                 me.sendCrater(me.coord.lat(), me.coord.lon(), me.coord.alt(), 1, 0, static, me.getTypeID(me.NameOfMissile)); # Hit everything INCLUDING our target that we missed (if not far away) 
 				            }
                         }

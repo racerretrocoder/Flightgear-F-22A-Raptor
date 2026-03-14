@@ -223,7 +223,7 @@ var Loading_missile = func(name)
         chute = 0;
         isbomb = 1;  
         multishot = 8; # up to 8 SDB's can be deployed at once
-        ignitedelay = 2.1;
+        ignitedelay = 1;
     }
  elsif(name == "JDAM")
  {
@@ -256,7 +256,7 @@ var Loading_missile = func(name)
      chute = 0;
      isbomb = 1;
      multishot = 6;
-     ignitedelay = 2.1;
+     ignitedelay = 1;
  }
 
 
