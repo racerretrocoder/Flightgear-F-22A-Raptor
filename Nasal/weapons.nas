@@ -454,6 +454,7 @@ setlistener("/controls/armament/target-selected",switch_target);
 var switch_weapon = func(){
     if(getprop("/controls/armament/weapon-selected") == 1) {
         # AA
+        setprop("/controls/missile", 3);
         if (getprop("/controls/armament/selected-weapon") == "none"){
             setprop("/controls/armament/selected-weapon","Aim-120");
             setprop("/controls/armament/selected-weapon-digit",2);
@@ -515,6 +516,7 @@ var switch_weapon = func(){
         setprop("/controls/armament/weapon-selected", 0);   
     }
     if(getprop("/controls/armament/weapon-selected") == -1) {
+        setprop("/controls/missile", 3);
         # AG
         if (getprop("/controls/armament/selected-weapon") == "none" or getprop("/controls/armament/selected-weapon") == "Aim-120" or getprop("/controls/armament/selected-weapon") == "Aim-260" or getprop("/controls/armament/selected-weapon") == "Aim-9x"){
             setprop("/controls/armament/selected-weapon","GBU-39");
@@ -544,7 +546,7 @@ var switch_weapon = func(){
             return 0;
         }
         setprop("/controls/baydoors/AIM120", 0);setprop("/controls/baydoors/AIM120lock", 0);
-        setprop("/controls/missile", 3);
+        
         setprop("/controls/armament/weapon-selected", 0);   
     }
 }
