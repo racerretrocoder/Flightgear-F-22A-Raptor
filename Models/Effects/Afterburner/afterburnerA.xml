@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <PropertyList>
-
+<!--Night RIGHT-->
  <path>thrust_cylinder.ac</path>
  <nopreview/>
 
@@ -8,8 +8,8 @@
   <type>scale</type>
   <object-name>Bounding_box</object-name>
   <property>sim/multiplay/generic/float[31]</property>
-  <x-factor>1.40</x-factor>
-  <y-factor>0.50</y-factor>
+  <x-factor>1.80</x-factor>
+  <y-factor>0.57</y-factor>
   <z-factor>0.25</z-factor>
  </animation>
 
