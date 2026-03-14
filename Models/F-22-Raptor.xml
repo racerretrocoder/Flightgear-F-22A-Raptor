@@ -1189,7 +1189,7 @@ Use below instead
 
     </condition>
     <offsets>
-				<x-m>6.927</x-m>
+				<x-m>6.327</x-m>
 			<y-m>0.65</y-m>
 			<z-m>-0.85</z-m>
          <pitch-deg>0</pitch-deg>
@@ -1209,7 +1209,7 @@ Use below instead
 
     </condition>
     <offsets>
-				<x-m>6.927</x-m>
+				<x-m>6.327</x-m>
 			<y-m>-0.65</y-m>
 			<z-m>-0.85</z-m>
          <pitch-deg>0</pitch-deg>
@@ -2551,7 +2551,7 @@ FR
 			<object-name>right-elevator</object-name>
 				<!-- <property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property> -->
 	<property>sim/multiplay/generic/float[21]</property>
-					<factor>20</factor>
+					<factor>45</factor>
 						<center>
 							<x-m>7.12347</x-m>
 								<y-m>1.9012</y-m>
@@ -2568,7 +2568,7 @@ FR
 			<object-name>right-elevator</object-name>
 				
 	<property>sim/multiplay/generic/float[26]</property>
-					<factor>-20</factor>
+					<factor>-30</factor>
 						<center>
 							<x-m>7.12347</x-m>
 								<y-m>1.9012</y-m>
@@ -2587,7 +2587,7 @@ FR
 			<object-name>left-elevator</object-name>
 
 	<property>sim/multiplay/generic/float[21]</property>
-						<factor>20</factor>
+						<factor>45</factor>
 							<center>
 								<x-m>7.12347</x-m>
 								<y-m>-1.9012</y-m>
@@ -2604,7 +2604,7 @@ FR
 			<object-name>left-elevator</object-name>
 
 	<property>sim/multiplay/generic/float[26]</property>
-						<factor>20</factor>
+						<factor>30</factor>
 							<center>
 								<x-m>7.12347</x-m>
 								<y-m>-1.9012</y-m>

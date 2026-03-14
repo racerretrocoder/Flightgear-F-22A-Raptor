@@ -1535,23 +1535,27 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <!--aoa elevator motion-->
 <function name="fcs/aoa-elev-pre">  
+<product>
+
         <table>
             <independentVar lookup="row">aero/alpha-deg</independentVar>
             <independentVar lookup="column">/velocities/airspeed-kt</independentVar>
             <tableData>
                         0    50  100   200   300   400 
-                -100    0    0  -0.3   -0.3   -0.3   -0.3     
-                -90     0.3  0  -0.3   -0.3   -0.3   -0.3     
-                -30     0.3  0  -0.3   -0.3   -0.3   -0.3     
-                -10     0.3  0  -0.3   -0.3   -0.3   -0.3       
-                -0.5    0.3  0   0     0     0     0
-                0      -0.3  0   0     0     0     0
+                -100    0    0  -0.4   -0.3   -0.2   -0.25    
+                -90     0.5  0  -0.4   -0.3   -0.2   -0.25    
+                -30     0.5  0  -0.4   -0.3   -0.2   -0.25    
+                -10     0.5  0  -0.4   -0.3   -0.2   -0.25      
+                -0.5    0.5  0   0     0     0     0
+                0      -0.5  0   0     0     0     0
                 0.5     0    0   0     0     0     0
                 0.6     0    0   0     0     0     0
-                15      0.3  0   0.5   0.5   0.5   0.5      
-                30      0.3  0   0.5   0.5   0.5   0.5      
+                15      0.3  0   0.4   0.3   0.2   0.25     
+                30      0.3  0   0.4   0.3   0.2   0.25     
             </tableData> 
           </table>
+        <property>fcs/engine-gen-spin-output</property>
+        </product>
 </function>
 
 
@@ -1564,15 +1568,15 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <traverse>
         <setting>
           <position>-1</position>
-          <time>0.13</time>
+          <time>0.33</time>
         </setting>
         <setting>
           <position>0</position>
-          <time>0.13</time>
+          <time>0.33</time>
         </setting>
         <setting>
           <position>1</position>
-          <time>0.13</time>
+          <time>0.33</time>
         </setting>
        </traverse>
       <output>fcs/elevator-cmd-norm-delay-sm</output>
@@ -2160,11 +2164,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
    <function name="fcs/tv-coefficient">
-     <difference>
-      <value>1</value>
-      <property>/controls/AAR/Switch</property> 
-      <property>fcs/gear-control</property> 
-     </difference>
+     <property>fcs/fbw-override</property>
    </function>
 
 
