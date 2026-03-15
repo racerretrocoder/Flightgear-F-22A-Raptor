@@ -144,6 +144,7 @@ var MISSILE = {
         m.gpstarget         = 0;
         m.armsd             = 0;
         m.altcontrol        = 0;
+        m.missed            = 0;
        # m.ccip_altC = 0;
        # m.ccip_dens = 0;
        # m.ccip
@@ -599,6 +600,7 @@ if (me.Tgt != nil) {
                 if(MPMessaging.getValue() == 1) {
                     damage.damageLog.push(phrase);
                     setprop("/sim/messages/atc", "Missile missed due to chaff and flares");
+                    me.missed = 1;
                 }
                 else {
                     setprop("/sim/messages/atc", phrase);
@@ -1520,25 +1522,25 @@ print("target ran");
                             if (me.coord.alt() > me.cruisealt - 1000 and me.coord.alt() < me.cruisealt + 1000) {
                                 e_gain = 1;
                             } else {
-                                e_gain = 0.001;
+                                e_gain = 0.01;
                             }
                             h_gain = 0.1;
                         }  elsif (t_dist_m > me.pitbullrngm + 10000) { # 10nm
                         if (me.coord.alt() > me.cruisealt - 1000 and me.coord.alt() < me.cruisealt + 1000) {
                             e_gain = 1;
                         } else {
-                            e_gain = 0.001;
+                            e_gain = 0.1;
                         }
-                            h_gain = 0.35;
+                            h_gain = 0.1;
 
                             #missilealert();
                         }  elsif (t_dist_m > me.pitbullrngm + 5000) { # 10nm
                         if (me.coord.alt() > me.cruisealt - 3000 and me.coord.alt() < me.cruisealt + 3000) {
                             e_gain = 1;
                         } else {
-                            e_gain = 0.001;
+                            e_gain = 0.3;
                         }
-                            h_gain = 0.9;
+                            h_gain = 0.3;
                             #missilealert();
                         }  elsif (t_dist_m > me.pitbullrngm) { # 10nm
                             e_gain = (me.update_track_time-me.StartTime - 1) / 4;
@@ -1753,16 +1755,20 @@ print("target ran");
                         if(me.NameOfMissile == "TB-01"){me.NameOfMissile="TB-01";typeID = 35;}
                         if(me.NameOfMissile == "eject"){me.NameOfMissile="eject";typeID = 93;}
                         
-                        
-                        var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
-                        msg.RelativeAltitude = me.t_coord.alt();
-                        msg.Bearing = me.coord.course_to(geo.aircraft_position());
-                        msg.Distance = 0.1;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
-                        msg.RemoteCallsign = me.Tgt.get_Callsign();
-                        notifications.hitBridgedTransmitter.NotifyAll(msg);
-                        screen.log.write("Target hit!",0,1,0);
-                        damage.damageLog.push(sprintf("You hit "~me.Tgt.get_Callsign()~" with "~me.NameOfMissile~" at %.1f meters", me.direct_dist_m));
-                        var missilename = "invalid weapon";
+                        if (me.missed == 0) {
+                            var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
+                            msg.RelativeAltitude = me.t_coord.alt();
+                            msg.Bearing = me.coord.course_to(geo.aircraft_position());
+                            msg.Distance = 0.1;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
+                            msg.RemoteCallsign = me.Tgt.get_Callsign();
+                            notifications.hitBridgedTransmitter.NotifyAll(msg);
+                            screen.log.write("Target hit!",0,1,0);
+                            damage.damageLog.push(sprintf("You hit "~me.Tgt.get_Callsign()~" with "~me.NameOfMissile~" at %.1f meters", me.direct_dist_m));
+                       
+                        } else {
+                            screen.log.write("Missile exploded on flare",1,0,0);
+                        }
+                         var missilename = "invalid weapon";
                         if (getprop("payload/armament/oldmsg") == 1){
                             if (me.NameOfMissile == "Aim-9x"){
                                 missilename = "AIM-9";
