@@ -275,6 +275,15 @@
                             <dialog-name>ground</dialog-name>
                         </binding>
                     </item>
+   					<item>
+                        <label>Datalink hacker</label>
+                        <enabled type="bool">true</enabled>
+                        <name>gco</name>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>hack</dialog-name>
+                        </binding>
+                    </item>
 	<item>
 			<label>Pylons loads</label>
 			<binding>
@@ -3368,6 +3377,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	<SSWC>
 		<file>Aircraft/F-22/Nasal/counting.nas</file> <!--Somewhat Simple Weapon Counter (tm)-->
 	</SSWC>
+	<dlinkhack>
+		<file>Aircraft/F-22/Nasal/hack.nas</file> <!--Somewhat Simple Weapon Counter (tm)-->
+	</dlinkhack>
 	<!--<tips>   disabled for now. its a bit buggy
 			<file>Aircraft/F-22/Nasal/messages.nas</file>
 		</tips>-->
