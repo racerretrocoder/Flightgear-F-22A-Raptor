@@ -1022,10 +1022,10 @@ broddamage: func (cs,dist,msl) {
                         # railed
                         pitch_deg = getprop("orientation/pitch-deg");
                     }
-                } 
-            } else {
+                } else {
                 pitch_deg = 90;
-            }
+                }
+            } 
             else
             {
                 # here will be set the max angle of pitch and the max angle

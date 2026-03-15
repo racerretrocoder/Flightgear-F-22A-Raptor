@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>hack</name>
+  <layout>vbox</layout>
+
+  <text>
+    <label>Tactical Datalink Hacker</label>
+  </text>
+
+  <hrule/>
+
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>CLASSIFIED</label>
+    </text>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>!MASTER ARM!</label>
+      <property>datalinkhacker/MASTARM</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>datalinkhacker/MASTARM</property>
+      </binding>
+    </checkbox>
+
+
+	<input>
+	  	<width>250</width>
+	  	<height>25</height>
+	  	<label>Current Datalink</label>
+	  	<property>instrumentation/datalink/channel</property>
+	  	<live>true</live>
+	  	<halign>left</halign>
+        <binding>
+            <command>dialog-apply</command>
+      	</binding>
+      	<color>
+      		<red>1</red>
+      		<green>0.5</green>
+      		<blue>0.5</blue>
+      	</color>
+      	<enable>
+
+                <property>datalinkhacker/MASTARM</property>
+
+        </enable>
+	</input>
+
+<input>
+	  	<width>250</width>
+	  	<height>25</height>
+	  	<label>Callsign to Hack</label>
+	  	<property>datalinkhacker/callsign</property>
+	  	<live>true</live>
+	  	<halign>left</halign>
+        <binding>
+            <command>dialog-apply</command>
+      	</binding>
+      	<color>
+      		<red>1</red>
+      		<green>0.5</green>
+      		<blue>0.5</blue>
+      	</color>
+      	<enable>
+
+                <property>datalinkhacker/MASTARM</property>
+
+        </enable>
+	</input>
+
+
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>START</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  dlinkhack.start();
+			</script>
+      </binding>
+            	<enable>
+
+                <property>datalinkhacker/MASTARM</property>
+
+        </enable>
+    </button>
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>STOP</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  dlinkhack.stop();
+			</script>
+      </binding>
+            	<enable>
+
+                <property>datalinkhacker/MASTARM</property>
+
+        </enable>
+    </button>
+<input>
+	  	<width>250</width>
+	  	<height>25</height>
+	  	<label>Result</label>
+	  	<property>datalinkhacker/hackedchannel</property>
+	  	<live>true</live>
+	  	<halign>left</halign>
+        <binding>
+            <command>dialog-apply</command>
+      	</binding>
+      	<color>
+      		<red>1</red>
+      		<green>0.5</green>
+      		<blue>0.5</blue>
+      	</color>
+      	<enable>
+
+                <property>datalinkhacker/MASTARM</property>
+
+        </enable>
+	</input>
+
+
+
+
+  </group>
+
+  <hrule/>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>true</stretch></empty>
+
+    <button>
+      <legend>Close</legend>
+      <default>true</default>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group>
+
+</PropertyList>
