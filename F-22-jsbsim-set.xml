@@ -18,9 +18,9 @@
 		
 		<rating>
 			<FDM type="int">4</FDM> 
-			<systems type="int">3</systems> <!--Wont be 5 because of Classifed stuff... 4 untill i get missiles COMPLETE! Like Fully Complete.-->
-			<cockpit type="int">3.5</cockpit> <!--.5 Because it dosent look like real thing. but its nice-->
-			<model type="int">4</model>
+			<systems type="int">5</systems> <!--Will be 5 because 5 is cool.-->
+			<cockpit type="int">5</cockpit>
+			<model type="int">5</model>
 		</rating>
 	
 
