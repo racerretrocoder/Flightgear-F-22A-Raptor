@@ -2358,11 +2358,11 @@ var jitter = func{
 	setprop("/controls/rand2", rand());
   var pol = rand();
   if (pol < 0.5) {
-    pol = pol * -1;
+    pol = pol * -30;
   }
   var polae = rand();
   if (polae < 0.5) {
-    polae = polae * -1;
+    polae = polae * -30;
   }
   setprop("f22/gun-h",pol);
   setprop("f22/gun-p",polae);
