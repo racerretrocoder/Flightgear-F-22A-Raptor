@@ -2461,6 +2461,19 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 	<input>
 		 <keyboard>
+
+ <key n="103">
+           <name>g</name>
+		             <desc>Landing gear toggle</desc>
+					           <repeatable type="bool">false</repeatable>
+							             <binding>
+										            <command>nasal</command>
+													           <script>
+															               f22.togglegear();
+																		              </script>
+																					            </binding>
+																								         </key>
+
 		 <key n="262">
           <name>F6</name>
           <desc>eject</desc>
