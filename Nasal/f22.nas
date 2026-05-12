@@ -2760,8 +2760,8 @@ acmtimer = maketimer(2,radarlook);
 headupdate = maketimer(0,updatehead); # Pilot movement
 consoletimer = maketimer(0,consoleslight);
 # Shake
-shake_timer = maketimer(0.1, shake);
-shake_timer2 = maketimer(0.1, shake2);
+shake_timer = maketimer(0.0001, shake);
+shake_timer2 = maketimer(0.0001, shake2);
 var tutmessage = func() {
   #setprop("sim/messages/atc","Welcome aboard the F-22A Raptor, Need help? Check out Help --> Tutorials");
   tuttimer.stop();
