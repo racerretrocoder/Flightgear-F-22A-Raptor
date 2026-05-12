@@ -90,7 +90,7 @@ var togglegear = func(togg) {
     # wow off
     setprop("controls/gear/gear-down",0);
   } else {
-    setprop("controls/gear/gear-down",1)
+    setprop("controls/gear/gear-down",1);
   }
 }
 
