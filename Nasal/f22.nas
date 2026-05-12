@@ -72,6 +72,28 @@ setprop("/f22/gear3/tiresmokeold",1); # Set like this to disable instant smoke o
 setprop("/f22/gear2/name","leftgear");  # only here to easily recognize in flight
 setprop("/f22/gear3/name","rightgear"); # only here to easily recognize in flight
 
+var gearcheck = func() {
+  var gear0 = getprop("gear/gear/wow");
+  var gear1 = getprop("gear/gear[1]/wow");
+  var gear2 = getprop("gear/gear[2]/wow");
+  if (gear0 == 1 or gear1 == 1 or gear2 == 1) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+var togglegear = func(togg) {
+  var gear = gearcheck();
+  var stat = getprop("controls/gear/gear-down");
+  if (gear == 0 and stat == 1) {
+    # wow off
+    setprop("controls/gear/gear-down",0);
+  } else {
+    setprop("controls/gear/gear-down",1)
+  }
+}
+
 setprop("/fdm/jsbsim/gear/gear-pos-norm",1);
 setprop("/f22/frost",0);
 setprop("/f22/water",0);
