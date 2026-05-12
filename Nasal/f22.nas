@@ -2351,7 +2351,7 @@ var cursor = func {
 }
 
 
-# Jitter, randomness stuff
+# ", randomness stuff
 
 var jitter = func{
 	setprop("/controls/rand", rand());
@@ -2365,7 +2365,7 @@ var jitter = func{
     polae = polae * -1;
   }
   setprop("f22/gun-h",pol);
-  setprop("f22/gun-p,polae);
+  setprop("f22/gun-p",polae);
 }
 
 
