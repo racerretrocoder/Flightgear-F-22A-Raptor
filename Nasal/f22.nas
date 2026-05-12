@@ -2351,15 +2351,25 @@ var cursor = func {
 }
 
 
-# Jitter, Not sure if still needed
+# Jitter, randomness stuff
 
 var jitter = func{
 	setprop("/controls/rand", rand());
 	setprop("/controls/rand2", rand());
+  var pol = rand();
+  if (pol < 0.5) {
+    pol = pol * -1;
+  }
+  var polae = rand();
+  if (polae < 0.5) {
+    polae = polae * -1;
+  }
+  setprop("f22/gun-h",pol);
+  setprop("f22/gun-p,polae);
 }
 
 
-# missile hit set back
+# Missile hit set back
 
 var mslhit = func{
   setprop("damage/sounds/missile-hit", 0);
@@ -2743,15 +2753,15 @@ timer_loopTimer = maketimer(0.25, timer_loop);
 timer_extpylons = maketimer(0.25, checkforext);
 timer_baydoorsclose = maketimer(1, closebays);
 timer_damage = maketimer(0.5, damagedetect);
-timer_jitter = maketimer(0.1, jitter);
-timer_cursor = maketimer(0, cursor);
+timer_jitter = maketimer(0.3, jitter);
+timer_cursor = maketimer(0.1, cursor);
 timer_cursor.start();
 acmtimer = maketimer(2,radarlook);
 headupdate = maketimer(0,updatehead); # Pilot movement
 consoletimer = maketimer(0,consoleslight);
 # Shake
-shake_timer = maketimer(0.0001, shake);
-shake_timer2 = maketimer(0.0001, shake2);
+shake_timer = maketimer(0.1, shake);
+shake_timer2 = maketimer(0.1, shake2);
 var tutmessage = func() {
   #setprop("sim/messages/atc","Welcome aboard the F-22A Raptor, Need help? Check out Help --> Tutorials");
   tuttimer.stop();
