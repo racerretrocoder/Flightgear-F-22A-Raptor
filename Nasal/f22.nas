@@ -83,6 +83,15 @@ var gearcheck = func() {
   }
 }
 
+var gearinv = func() {
+  ae = gearcheck();
+  if (ae == 1) {
+    return 0;
+  } else {
+    return 1;
+  }
+}
+
 var togglegear = func(togg) {
   var gear = gearcheck();
   var stat = getprop("controls/gear/gear-down");
