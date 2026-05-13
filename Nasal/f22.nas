@@ -2754,7 +2754,7 @@ timer_extpylons = maketimer(0.25, checkforext);
 timer_baydoorsclose = maketimer(1, closebays);
 timer_damage = maketimer(0.5, damagedetect);
 timer_jitter = maketimer(0.3, jitter);
-timer_cursor = maketimer(0.1, cursor);
+timer_cursor = maketimer(0, cursor);
 timer_cursor.start();
 acmtimer = maketimer(2,radarlook);
 headupdate = maketimer(0,updatehead); # Pilot movement
