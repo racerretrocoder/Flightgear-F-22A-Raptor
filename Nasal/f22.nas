@@ -2861,4 +2861,8 @@ var flight_debug = func(){
 #setprop("controls/radar/cursormode",1);
 
 print("f22.nas Ready!");
+var test = func () {
+  return 1;
+}
+
 # End f22.nas
