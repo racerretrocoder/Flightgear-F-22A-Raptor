@@ -1,5 +1,6 @@
+# misc.nas - The perfect script for literally any thingy that the thingy in yo head can thinkie!
 # Ai "Searcher", and other random stuff!
-# Created by Phoenix, Skid, and Uapilot
+# Created by Phoenix, and Uapilot
 #
 # This script is used to search for another pilots properties (Mainly the rotor prop)
 # it can be used for counter messure detection. and more.
@@ -192,19 +193,20 @@ var finddel = func(thestring, sub) {
         var answer = substr(thestring, 0, size(thestring) - size(sub));
 		#print(answer);
         return answer; # Deleted the sub!
-    } else {
+  } else {
         #print("didnt work :( "~sub~"");
 	    return thestring; # what can it be
-    }
+  }
 }
 
 
-var scalenum = func(num, min, max, ae, ea) {
+var scalenum = func(num, min, max, ae, ea) { # min max, unscaled range, ae ea, scaled range, num the number to scale
   # Phoenix - Scale a number, from min to ae and max to ea
-  num1 = num - min;
-  num2 = max - min;
-  num3 = (ea - ae) + ae;
-  thingy1 = num1 / num2;
-  thingy2 = thingy1 * num3;
-  return thingy2;
+  var y0 = ae;
+  var y1 = ea;
+  var x0 = min;
+  var x1 = max;
+  var x = num;
+  var scaled = y0 + (y1 - y0) * (x - x0) / (x1 - x0);
+  return scaled;
 }
