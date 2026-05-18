@@ -5,7 +5,7 @@
 # it can be used for counter messure detection. and more.
 
 
-# Skid, Phoenix
+# Phoenix
 
 # Search Funtion V2
 # The way i want this to work is you input it a callsign misc.search("Skid"); then itll search ai/models/multiplayer for Skid
@@ -196,4 +196,15 @@ var finddel = func(thestring, sub) {
         #print("didnt work :( "~sub~"");
 	    return thestring; # what can it be
     }
+}
+
+
+var scalenum = func(num, min, max, ae, ea) {
+  # Phoenix - Scale a number, from min to ae and max to ea
+  num1 = num - min;
+  num2 = max - min;
+  num3 = (ea - ae) + ae;
+  thingy1 = num1 / num2;
+  thingy2 = thingy1 * num3;
+  return thingy2;
 }
