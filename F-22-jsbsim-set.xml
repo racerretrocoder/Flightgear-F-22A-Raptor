@@ -12,12 +12,12 @@
 			Compatible with FGCOMM-Mumble
         </long-description>
 		
-		<author>Phoenix, Silver-Snail (Snail), Pigs, Clash (KJ7NLL), Developer0607 (Ghost), And others:  Weapons and Radar improved from 5H1N0B1, Yanes Bechir, and Developer0607. Canvas HUD and Canvas Payload dialog improved from Yanes Bechir. Multiplayer Damage Code from OPRF Members, FDM improved from others. 3D from Pigs, Silver-Snail (cockpit) Phoenix (MFDS) Echoed, Phoenix (Weapons). Main Model Improved from the FGUK Team. Cactus, Phoenix (Missile storing and flare doors). POLSKY1 Cockpit Details, Phoenix 3d model detail. Sounds from Phoenix and others. Textures, Liveries, Phoenix and other pilots alike! Effects, Phoenix.</author>
+		<author>Phoenix, Silver-Snail (Snail), Pigs, Clash (KJ7NLL), Developer0607 (Ghost), And others:  Weapons and Radar improved from 5H1N0B1, Yanes Bechir, OPRF, and Developer0607. Canvas HUD and Canvas Payload dialog improved from Yanes Bechir. Canvas MFD System from Phoenix. Multiplayer Damage Code from OPRF Members, FDM improved from others. 3D from Pigs, Silver-Snail (cockpit) Phoenix (MFDS) Echoed, Phoenix (Weapons). Main Model Improved from the FGUK Team. Cactus, Phoenix (Missile storing and flare doors). POLSKY1 Cockpit Details, Phoenix 3d model detail. Sounds from Phoenix and others. Textures, Liveries, Phoenix and other pilots alike! Effects, Phoenix.</author>
 		
 		<status>Alpha v0.89a</status> 
 		
 		<rating>
-			<FDM type="int">4</FDM> 
+			<FDM type="float">4.9</FDM>  <!--No FDM is perfect. Certainly not this one. But its good to some extent-->
 			<systems type="int">5</systems> <!--Will be 5 because 5 is cool.-->
 			<cockpit type="int">5</cockpit>
 			<model type="int">5</model>
@@ -2233,6 +2233,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 </messages>
 
 <f22>
+<canvasmfds type="int">0</canvasmfds>
             <brightness type="double">0</brightness>
 <ready type="bool">false</ready> <!--For the MFD's-->
         <party type="bool">false</party>
@@ -2461,19 +2462,6 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 	<input>
 		 <keyboard>
-
- <key n="103">
-           <name>g</name>
-		             <desc>Landing gear toggle</desc>
-					           <repeatable type="bool">false</repeatable>
-							             <binding>
-										            <command>nasal</command>
-													           <script>
-															               f22.togglegear();
-																		              </script>
-																					            </binding>
-																								         </key>
-
 		 <key n="262">
           <name>F6</name>
           <desc>eject</desc>
@@ -3350,15 +3338,26 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 
 <!--MFD's Lowest if i want to implement other name space code with them-->
-<MFD2>
-<file>Aircraft/F-22/Nasal/MFD2.nas</file>
-</MFD2>
+
 <MFD1>
 <file>Aircraft/F-22/Nasal/MFD1.nas</file>
 </MFD1>
+
+<MFD2>
+<file>Aircraft/F-22/Nasal/MFD2.nas</file>
+</MFD2>
+
 <MFD3>
 <file>Aircraft/F-22/Nasal/MFD3.nas</file>
 </MFD3>
+
+<!--New Canvas MFD's-->
+
+<CMFD1>
+<file>Aircraft/F-22/Nasal/canvas/MFD1.nas</file>
+</CMFD1>
+
+
 <smallscreens>
 <file>Aircraft/F-22/Nasal/smallscreens.nas</file>
 </smallscreens>

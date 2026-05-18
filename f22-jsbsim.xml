@@ -1414,6 +1414,29 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           </table>
    </function>
 
+<!--canvas-->
+   <function name="fcs/cradx">  
+        <table>
+            <independentVar lookup="row">/controls/radar/cursorx</independentVar>
+            <tableData>     
+               -0.069    -315
+                0.000      0
+                0.069     315
+            </tableData>
+          </table>
+   </function>
+
+   <function name="fcs/cradz">  
+        <table>
+            <independentVar lookup="row">/controls/radar/cursorz</independentVar>
+            <tableData>     
+               -0.066       355
+                0.066       -355
+            </tableData>
+          </table>
+   </function>
+
+
    <function name="fcs/radxprf">  
         <table>
             <independentVar lookup="row">/controls/PRF/cursorx</independentVar>
