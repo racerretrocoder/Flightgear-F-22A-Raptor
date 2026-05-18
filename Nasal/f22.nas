@@ -30,13 +30,13 @@
 
 # Some terminology
 # "thingy" refers to an object that sticks out from the reset in a unique way.
-# Thought you guys might want to know. 
-# Hide the hud when not in the cockpit view
+# Thought you guys might want to know... like cmon, its used in FG wiki too...
+# we gonna the hud when not in the cockpit view
 setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
 # Init some vars and props
 
 
-setprop("f22/cancheckupdates",1); # TODO: make this into an option + configuration window
+setprop("/f22/cancheckupdates",1); # TODO: make this into an option + configuration window
 setprop("/f22/dogfightmode",0);
 setprop("/f22/fcs/extra",0);
 setprop("/f22/fcs/aoalimit",90);
@@ -71,37 +71,6 @@ setprop("/f22/gear2/tiresmokeold",1); # Set like this to disable instant smoke o
 setprop("/f22/gear3/tiresmokeold",1); # Set like this to disable instant smoke on spawn
 setprop("/f22/gear2/name","leftgear");  # only here to easily recognize in flight
 setprop("/f22/gear3/name","rightgear"); # only here to easily recognize in flight
-
-var gearcheck = func() {
-  var gear0 = getprop("gear/gear/wow");
-  var gear1 = getprop("gear/gear[1]/wow");
-  var gear2 = getprop("gear/gear[2]/wow");
-  if (gear0 == 1 or gear1 == 1 or gear2 == 1) {
-    return 1;
-  } else {
-    return 0;
-  }
-}
-
-var gearinv = func() {
-  ae = gearcheck();
-  if (ae == 1) {
-    return 0;
-  } else {
-    return 1;
-  }
-}
-
-var togglegear = func() {
-  var gear = gearcheck();
-  var stat = getprop("controls/gear/gear-down");
-  if (gear == 0 and stat == 1) {
-    # wow off
-    setprop("controls/gear/gear-down",0);
-  } else {
-    setprop("controls/gear/gear-down",1);
-  }
-}
 
 setprop("/fdm/jsbsim/gear/gear-pos-norm",1);
 setprop("/f22/frost",0);
@@ -2351,25 +2320,15 @@ var cursor = func {
 }
 
 
-# ", randomness stuff
+# Jitter, Not sure if still needed
 
 var jitter = func{
 	setprop("/controls/rand", rand());
 	setprop("/controls/rand2", rand());
-  var pol = rand();
-  if (pol < 0.5) {
-    pol = pol * -30;
-  }
-  var polae = rand();
-  if (polae < 0.5) {
-    polae = polae * -30;
-  }
-  setprop("f22/gun-h",pol);
-  setprop("f22/gun-p",polae);
 }
 
 
-# Missile hit set back
+# missile hit set back
 
 var mslhit = func{
   setprop("damage/sounds/missile-hit", 0);
@@ -2753,7 +2712,7 @@ timer_loopTimer = maketimer(0.25, timer_loop);
 timer_extpylons = maketimer(0.25, checkforext);
 timer_baydoorsclose = maketimer(1, closebays);
 timer_damage = maketimer(0.5, damagedetect);
-timer_jitter = maketimer(0.3, jitter);
+timer_jitter = maketimer(0.1, jitter);
 timer_cursor = maketimer(0, cursor);
 timer_cursor.start();
 acmtimer = maketimer(2,radarlook);

@@ -13,13 +13,7 @@
     <x-offset> 21.0 </x-offset>
     <y-offset> 1.50 </y-offset>
     <z-offset> 0.53 </z-offset>
-            <heading-deg>
-                <property>f22/gun-h</property>
-                <offset>90</offset>
-            </heading-deg>
-            <pitch-deg>
-                <property>f22/gun-p</property>
-            </pitch-deg>
+    <pitch-offset> 2</pitch-offset>
     <life>15</life>
     <wind>true</wind>
     <weight>0.231485</weight>
@@ -43,13 +37,7 @@
     <x-offset> 21.0</x-offset>
     <y-offset> 1.50 </y-offset>
     <z-offset> 0.53 </z-offset>
-            <heading-deg>
-                <property>f22/gun-h</property>
-                <offset>90</offset>
-            </heading-deg>
-            <pitch-deg>
-                <property>f22/gun-p</property>
-            </pitch-deg>
+    <pitch-offset> 2 </pitch-offset>
     <life>15</life>
     <wind>true</wind>
     <weight>0.231485</weight>

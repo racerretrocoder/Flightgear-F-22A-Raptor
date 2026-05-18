@@ -182,7 +182,7 @@ gunlagshoot.start();
 
 fire_MG = func() { 
     var elec = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
-    if (elec and f22.gearinv()) {
+    if (elec) {
         var time = getprop("/sim/time/elapsed-sec");
         if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
         if (getprop("controls/armament/trigger") == 0){return;}
@@ -229,7 +229,7 @@ fire_MG = func() {
 # Pickle
 fire_MG_pic = func() {  # b would be in the ()
     var elec = getprop("fdm/jsbsim/fcs/engine-gen-spin-output");
-    if (elec and f22.gearinv()) {
+    if (elec) {
         var time = getprop("/sim/time/elapsed-sec");
         if(getprop("/sim/failure-manager/systems/wcs/failure-level"))return;
         if (getprop("controls/armament/pickle") == 0){return;} #hmmm
