@@ -1,0 +1,2 @@
+Note that rconsole.png and lconsole.png (and there cropped versions) were designed by Fabrizio Fracaroli
+The other text marking panels we're designed by Phoenix (racerretrocoder)
