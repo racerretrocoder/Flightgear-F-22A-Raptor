@@ -810,9 +810,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         <table>
             <independentVar lookup="row">fcs/tv-animation</independentVar>
             <tableData>
-          -1    1.353
+          -1    1.8353
            0    0
-           1    -1.353
+           1    -1.8353
             </tableData>
           </table>
 </product>
