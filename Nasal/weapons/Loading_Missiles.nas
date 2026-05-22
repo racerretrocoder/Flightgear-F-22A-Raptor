@@ -47,7 +47,7 @@ var Loading_missile = func(name)
     var pbrange           = 0; # in meters
     var multishot = 0;
     var ignitedelay = 0; # If the weapon is NOT dropped from a rail, Delay starting the engine by however many seconds (Default 0.5)
-    var engtype = 1;
+
 
 
     
@@ -339,8 +339,7 @@ var Loading_missile = func(name)
     {
         return 0;
     }
-    #  the Setprop thingies
-    setprop("controls/armament/missile/enginetype", engtype);
+    # SetProp
     setprop("controls/armament/missile/chute", chute);
     setprop("controls/armament/missile/address", address);
     setprop("controls/armament/missile/addressNoSmoke", NoSmoke);

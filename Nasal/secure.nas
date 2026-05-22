@@ -347,9 +347,9 @@ var encryptiontest = func {
     encryption = encrypt(message);
     var decryption = decrypt(encryption);
     if (decryption == message) {
-        screen.log.write("KY-58: Encryption test succeded. Operational",0,1,0);
+        print("secure.nas Encryption test succeded. Operational");
     } else {
-        screen.log.write("KY-58: Encryption not functioning as intended, Modes LD, RV Disabled",1,0,0);
+        screen.log.write("KY-58: Warning! Encryption not functioning as intended, Modes LD, RV Disabled",1,0,0);
     }
     setprop("controls/ky58/cipherkey",0);
 }

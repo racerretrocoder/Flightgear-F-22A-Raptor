@@ -390,7 +390,7 @@ fdm/jsbsim/fcs/engine-gen-spin-output
 	<!-- main MFD's -->
 	
 	<model>
-     <name>rightmfd</name>
+     <name>rightmfdae</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/right-enav-mfd.xml</path>
 			<offsets>
 				<x-m>-5.751</x-m>
@@ -401,7 +401,7 @@ fdm/jsbsim/fcs/engine-gen-spin-output
 	</model>
 	
 	<model>
-     <name>centermfd</name>
+     <name>centermfdae</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/centre-mfd.xml</path>
 			<offsets>
 				<x-m>-5.751</x-m>
@@ -411,7 +411,7 @@ fdm/jsbsim/fcs/engine-gen-spin-output
 		</offsets>
 	</model>	
 	<model>
-     <name>leftmfd</name>
+     <name>leftmfdae</name>
 		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/left-enav-mfd.xml</path>
 			<offsets>
 				<x-m>-5.751</x-m>
@@ -432,9 +432,9 @@ fdm/jsbsim/fcs/engine-gen-spin-output
 	</model>
 
 <animation>
- <object-name>leftmfd</object-name>
-  <object-name>rightmfd</object-name>
-   <object-name>centermfd</object-name>
+ <object-name>leftmfdae</object-name>
+  <object-name>rightmfdae</object-name>
+   <object-name>centermfdae</object-name>
     <object-name>lowermfd</object-name>
 
 

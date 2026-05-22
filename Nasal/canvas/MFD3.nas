@@ -1,4 +1,4 @@
-print("Loading Left Canvas MFD...");
+print("Loading Right Canvas MFD...");
 
 # 
 # Canvas MFD System for The F-22A Raptor (Left)
@@ -7,7 +7,7 @@ print("Loading Left Canvas MFD...");
 # Copyright (c) Phoenix, Backdoor Interactive, 2026
 # This code is "Ae" compatible.
 
-mfdval = "/systems/MFD/modemfdl";
+mfdval = "/systems/MFD/modemfdr";
 
 var mfd = canvas.new({
   "name": "Left-MFD",   # The name is optional but allow for easier identification
@@ -17,7 +17,7 @@ var mfd = canvas.new({
   "mipmapping": 1       # Enable mipmapping (optional)
 });
 
-mfd.addPlacement({"node": "leftmfd"});
+mfd.addPlacement({"node": "rightmfd"});
 mfd.setColorBackground(0.00784, 0.00784, 0.0823);
 
 var lables = mfd.createGroup();
@@ -197,7 +197,7 @@ var m1 = lables.createChild("text", "m1")
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
-                .setColor(1,1,1)             
+                .setColor(1,1,1)     
                 .setText("MENU");
 
 var m2 = lables.createChild("text", "m2")

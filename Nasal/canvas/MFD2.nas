@@ -1,4 +1,4 @@
-print("Loading Left Canvas MFD...");
+print("Loading Center Canvas MFD...");
 
 # 
 # Canvas MFD System for The F-22A Raptor (Left)
@@ -7,7 +7,7 @@ print("Loading Left Canvas MFD...");
 # Copyright (c) Phoenix, Backdoor Interactive, 2026
 # This code is "Ae" compatible.
 
-mfdval = "/systems/MFD/modemfdl";
+mfdval = "/systems/MFD/modemfdc";
 
 var mfd = canvas.new({
   "name": "Left-MFD",   # The name is optional but allow for easier identification
@@ -17,18 +17,17 @@ var mfd = canvas.new({
   "mipmapping": 1       # Enable mipmapping (optional)
 });
 
-mfd.addPlacement({"node": "leftmfd"});
+mfd.addPlacement({"node": "centermfd"});
 mfd.setColorBackground(0.00784, 0.00784, 0.0823);
 
 var lables = mfd.createGroup();
-  # FCR
 var FCR = mfd.createGroup();
 var FCRCursor = mfd.createGroup();
 var pathA = FCR.createChild("path");
 var cursor = FCR.createChild("path");
 
 
-# b l i p ssssss
+# fcr blippies
 var blip1 = FCR.createChild("path");
 var blip2 = FCR.createChild("path");
 var blip3 = FCR.createChild("path");
@@ -54,7 +53,7 @@ var bliparray = [blip1,blip2,blip3,blip4,blip5,blip6,blip7,blip8,blip9,blip10,bl
 # render the blips early
 for(var ae = 0; ae < 20; ae += 1) {
        bliparray[ae].moveTo(375, 580) #
-              .lineTo(375, 590) # right cursor barrier
+              .lineTo(375, 590) # draw a teeny tiny dash on the screen
               .set("stroke", "#FFFFFF") 
               .set("stroke-width", 10);
        # now hide it
@@ -181,7 +180,7 @@ pathA.moveTo(537.5, 210)  # right bound
        .set("stroke", "#00FF00") 
        .set("stroke-width", 3);
 
-var standby = FCR.createChild("text", "standby")
+var standby = lables.createChild("text", "stan")
                 .setTranslation(340, 340)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
@@ -193,44 +192,44 @@ var standby = FCR.createChild("text", "standby")
 
 # Top Lables - left to right
 var m1 = lables.createChild("text", "m1")
-                .setTranslation(60, 130)      
+                .setTranslation(60, 990)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
-                .setColor(1,1,1)             
-                .setText("MENU");
+                .setColor(0,1,0)  
+                .setText("MODE");
 
 var m2 = lables.createChild("text", "m2")
-                .setTranslation(200, 130)    
+                .setTranslation(200, 990)    
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
                 .setColor(0,1,0)             
-                .setText("SMS");
+                .setText("PRF");
 
 var m3 = lables.createChild("text", "m3")
-                .setTranslation(340, 130)      
+                .setTranslation(340, 990)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)         
-                .setColor(0,1,0)              
-                .setText("PRF");
+                .setColor(1,1,1)              
+                .setText("MENU");
 
 var m4 = lables.createChild("text", "m4")
-                .setTranslation(480, 130)     
+                .setTranslation(480, 990)     
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf")
                 .setFontSize(22, 1.2)        
                 .setColor(0,1,0)             
-                .setText("ENG");
+                .setText("FLT");
 
 var m5 = lables.createChild("text", "m5")
-                .setTranslation(610, 130)    
+                .setTranslation(610, 990)    
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)     
                 .setColor(0,1,0)            
-                .setText("FUEL");
+                .setText("POWER");
 
 
 # Left side lables - top to bottom
