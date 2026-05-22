@@ -366,8 +366,8 @@ refs 3
 25 0.50051 0.500163
 kids 0
 OBJECT poly
-name "leftmfd"
-loc 0.011404 -0.00704916 -0.0158679
+name "rightmfd"
+loc 0.011404 -0.00704916 -0.0134064
 texture "blank.png"
 crease 180.000000
 numvert 81

@@ -4,7 +4,7 @@
 <PropertyList>
 
 <model>
-		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/blank.ac</path>
+		<path>Aircraft/F-22/Models/Interior/Instruments/MFD/canvas/rightmfd.ac</path>
 			<offsets>
 				<x-m>0</x-m>
 					<y-m>0</y-m>
@@ -13,9 +13,9 @@
 		</offsets>
 	</model>
 
-   
   
    <model>
+  <name>classicenav</name>
     <path>Aircraft/F-22/Models/Interior/Instruments/MFD/enav/enavright.xml</path> <!--MFD Scripting-->
     <offsets>
       <x-m>-0.000</x-m>
@@ -23,16 +23,13 @@
       <z-m>-0.01</z-m>
     </offsets>
   </model>
+
+
   <animation>
-
   <object-name>pullup</object-name>
-
-
   <type>select</type>
-
             <condition>
                 <not>
-                
 <property>gear/gear/position-norm</property>
 </not>
                 <and>
@@ -45,7 +42,27 @@
                         <value>8</value>
                     </less-than>
                 </and>
-                
             </condition>
  </animation>
+
+
+<animation>
+  <object-name>classicenav</object-name>
+  <type>select</type>
+            <condition>
+                <not>
+<property>f22/canvasmfds</property>
+      </not>
+            </condition>
+ </animation>
+
+
+<animation>
+  <object-name>rightmfd</object-name>
+  <type>select</type>
+            <condition>
+<property>f22/canvasmfds</property>
+            </condition>
+ </animation>
+
 </PropertyList>
