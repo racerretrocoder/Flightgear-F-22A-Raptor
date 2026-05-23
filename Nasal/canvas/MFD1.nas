@@ -181,7 +181,7 @@ pathA.moveTo(537.5, 210)  # right bound
        .set("stroke", "#00FF00") 
        .set("stroke-width", 3);
 
-var standby = FCR.createChild("text", "standby")
+var radstb = FCR.createChild("text", "standby")
                 .setTranslation(340, 340)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
@@ -193,7 +193,7 @@ var standby = FCR.createChild("text", "standby")
 
 # Top Lables - left to right
 var m1 = lables.createChild("text", "m1")
-                .setTranslation(60, 130)      
+                .setTranslation(60, 100)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
@@ -201,7 +201,7 @@ var m1 = lables.createChild("text", "m1")
                 .setText("MENU");
 
 var m2 = lables.createChild("text", "m2")
-                .setTranslation(200, 130)    
+                .setTranslation(200, 100)    
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
@@ -209,7 +209,7 @@ var m2 = lables.createChild("text", "m2")
                 .setText("SMS");
 
 var m3 = lables.createChild("text", "m3")
-                .setTranslation(340, 130)      
+                .setTranslation(340, 100)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)         
@@ -217,7 +217,7 @@ var m3 = lables.createChild("text", "m3")
                 .setText("PRF");
 
 var m4 = lables.createChild("text", "m4")
-                .setTranslation(480, 130)     
+                .setTranslation(480, 100)     
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf")
                 .setFontSize(22, 1.2)        
@@ -371,10 +371,10 @@ var update = func() {
     l4.setText("");
     l5.setText("");
     rng.setText(sprintf("%d", radarrang));
-    if (getprop("instrumentation/radar/radar-standby") == 1) {
-      standby.setText("RADAR STANDBY");
+    if (getprop("f22/instrumentation/N010-radar/emitting") == 0) {
+      radstb.setText("RADAR STANDBY");
     } else {
-       standby.setText("");
+       radstb.setText("");
        #print("The radar is active!");
        # Blip rendering
        var list = props.globals.getNode("/instrumentation/radar2/marker").getChildren("mark");
@@ -437,6 +437,7 @@ var update = func() {
        l3.setText("SMS");
        l4.setText("FCR");
        r5.setText("");
+       rng.setText("");
   } else {
     #print("No FCR Screen");
     FCR.setVisible(0);
