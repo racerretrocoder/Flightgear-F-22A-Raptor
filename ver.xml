@@ -2,7 +2,7 @@
 <PropertyList>
 <!--This file helps keep raptor up to date!-->
 <version>
-<version type="string">0000000000000000000000000</version>
-<detail type="string">new update code!</detail> <!--message to be displayed on screen-->
+<version type="string">0000000000000000000000001</version>
+<detail type="string">Canvas MFDs update and Multishot!</detail> <!--message to be displayed on screen-->
 </version>
 </PropertyList>

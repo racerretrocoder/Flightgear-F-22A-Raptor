@@ -14,7 +14,7 @@ var MPMessaging = props.globals.getNode("/payload/armament/msg", 1);
 
 
 # Multishot stuff
-
+setprop("controls/armament/multishot/auto",1);
 setprop("controls/armament/multishot/callsign1","");
 setprop("controls/armament/multishot/callsign2","");
 setprop("controls/armament/multishot/callsign3","");
@@ -59,8 +59,8 @@ var attemptmultilock = func(csind) {
           return 1; # Success
         }
     }
-    screen.log.write("failed to lock onto:");
-    screen.log.write(getprop("controls/armament/multishot/callsign" ~ csind ~ ""));
+    #screen.log.write("failed to lock onto:");
+    #screen.log.write(getprop("controls/armament/multishot/callsign" ~ csind ~ ""));
     return 0;
 
 }

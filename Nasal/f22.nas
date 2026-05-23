@@ -2025,6 +2025,39 @@ var tgtlock = func{
   }
 }
 
+# Auto MutltiLock/shot
+var automultilock = func() {
+  var enabled = getprop("controls/armament/multishot/auto");
+  setprop("controls/armament/multishot/numcallsign",8);
+  if (enabled == 1) {
+    # scan the radar list for targets that are displaying
+    var numtgt = 0; # targets to display
+    var list = props.globals.getNode("/instrumentation/radar2/targets").getChildren("multiplayer");
+    var total = size(list);
+    var targets = [];
+    for(var i = 0; i < total; i += 1) {
+      var callsignindex = i+1;
+      if (callsignindex == 9) {
+        break;
+      }
+      if (getprop("instrumentation/radar2/targets/multiplayer[" ~ i ~ "]/display") == 1) {
+        var callsign = getprop("instrumentation/radar2/targets/multiplayer[" ~ i ~ "]/callsign");
+        append(targets, callsign);
+      } else {
+        append(targets, ""); # blank an index
+      }
+    }
+    var total = size(targets);
+    for(var i = 0; i < 8; i += 1) {
+      if (targets[i] != nil) {
+        var multi = i + 1;
+        setprop("controls/armament/multishot/callsign" ~ multi ~ "", targets[i]);
+      }
+    }
+  }
+}
+
+
 # antic, uapilot
 var checkdmg = func() {
   if (getprop("f22/auxcomm/oldd") == 1) { # Lol
@@ -2676,7 +2709,8 @@ var jettison = func(type) {
 # seconds , function.  you can use 0 for the seconds for instant loop without flightgear freezee
 # not reaally efciant as it pegs core 0 on the first cpu 
 
-
+multilocktimer = maketimer(0.3, automultilock);
+multilocktimer.start();
 updatehudtimer = maketimer(0.1,hudupdate);
 updatehudtimer.start();
 engsmoke = maketimer(0.1,engint);
