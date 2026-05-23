@@ -180,19 +180,19 @@ pathA.moveTo(537.5, 210)  # right bound
        .set("stroke", "#00FF00") 
        .set("stroke-width", 3);
 
-var standby = lables.createChild("text", "stan")
+var radstb = lables.createChild("text", "radstb")
                 .setTranslation(340, 340)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)         
                 .setColor(0,1,0)              
-                .setText("APG-88V2 AESA - VERSION 13743737423ABDS");
+                .setText("");
 
 
 
 # Top Lables - left to right
 var m1 = lables.createChild("text", "m1")
-                .setTranslation(60, 990)      
+                .setTranslation(75, 999)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
@@ -200,7 +200,7 @@ var m1 = lables.createChild("text", "m1")
                 .setText("MODE");
 
 var m2 = lables.createChild("text", "m2")
-                .setTranslation(200, 990)    
+                .setTranslation(230, 999)    
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
@@ -208,7 +208,7 @@ var m2 = lables.createChild("text", "m2")
                 .setText("PRF");
 
 var m3 = lables.createChild("text", "m3")
-                .setTranslation(340, 990)      
+                .setTranslation(355, 999)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)         
@@ -216,7 +216,7 @@ var m3 = lables.createChild("text", "m3")
                 .setText("MENU");
 
 var m4 = lables.createChild("text", "m4")
-                .setTranslation(480, 990)     
+                .setTranslation(510, 999)     
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf")
                 .setFontSize(22, 1.2)        
@@ -224,7 +224,7 @@ var m4 = lables.createChild("text", "m4")
                 .setText("FLT");
 
 var m5 = lables.createChild("text", "m5")
-                .setTranslation(610, 990)    
+                .setTranslation(645, 999)    
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)     
@@ -234,14 +234,15 @@ var m5 = lables.createChild("text", "m5")
 
 # Left side lables - top to bottom
 var l1 = lables.createChild("text", "l1")
-                .setTranslation(30, 175)      
+                .setTranslation(35, 175)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
                 .setColor(0,1,0)             
                 .setText("ENG");
+
 var rng = lables.createChild("text", "rng")
-                .setTranslation(30, 275)      
+                .setTranslation(55, 275)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
@@ -249,21 +250,21 @@ var rng = lables.createChild("text", "rng")
                 .setText("");
 
 var l2 = lables.createChild("text", "l2")
-                .setTranslation(30, 375)      
+                .setTranslation(35, 375)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
                 .setColor(0,1,0)             
                 .setText("FUEL");
 var l3 = lables.createChild("text", "l3")
-                .setTranslation(30, 575)      
+                .setTranslation(35, 575)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
                 .setColor(0,1,0)             
                 .setText("SMS");
 var l4 = lables.createChild("text", "l4")
-                .setTranslation(30, 775)      
+                .setTranslation(35, 775)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
@@ -271,7 +272,7 @@ var l4 = lables.createChild("text", "l4")
                 .setText("FCR");
 
 var l5 = lables.createChild("text", "l5")
-                .setTranslation(30, 975)      
+                .setTranslation(35, 975)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
@@ -281,35 +282,35 @@ var l5 = lables.createChild("text", "l5")
 # Right button lables, from top to bottom (again)
 
 var r1 = lables.createChild("text", "r1")
-                .setTranslation(675, 175)      
+                .setTranslation(695, 175)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
                 .setColor(0,1,0)             
                 .setText("DTC");
 var r2 = lables.createChild("text", "r2")
-                .setTranslation(675, 375)      
+                .setTranslation(695, 375)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
                 .setColor(0,1,0)             
                 .setText("FLT");
 var r3 = lables.createChild("text", "r3")
-                .setTranslation(675, 575)      
+                .setTranslation(695, 575)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
                 .setColor(0,1,0)             
                 .setText("WEP");
 var r4 = lables.createChild("text", "r4")
-                .setTranslation(675, 775)      
+                .setTranslation(695, 775)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
                 .setColor(0,1,0)             
                 .setText("RWR");
 var r5 = lables.createChild("text", "r5")
-                .setTranslation(675, 975)      
+                .setTranslation(695, 975)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)        
@@ -370,10 +371,10 @@ var update = func() {
     l4.setText("");
     l5.setText("");
     rng.setText(sprintf("%d", radarrang));
-    if (getprop("instrumentation/radar/radar-standby") == 1) {
-      standby.setText("RADAR STANDBY");
+    if (getprop("f22/instrumentation/N010-radar/emitting") == 0) {
+      radstb.setText("RADAR STANDBY");
     } else {
-       standby.setText("");
+       radstb.setText("");
        #print("The radar is active!");
        # Blip rendering
        var list = props.globals.getNode("/instrumentation/radar2/marker").getChildren("mark");
@@ -436,6 +437,7 @@ var update = func() {
        l3.setText("SMS");
        l4.setText("FCR");
        r5.setText("");
+       rng.setText("");
   } else {
     #print("No FCR Screen");
     FCR.setVisible(0);

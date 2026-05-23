@@ -803,16 +803,16 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
 
-<function name="fcs/vector-rad">   <!-- 77 DEG --> <!--orignal was 1.3-->
+<function name="fcs/vector-rad">   <!-- 77 DEG -->
     <product>
       <property>fcs/fbw-override</property>
       <property>fcs/engine-gen-spin-output</property>
         <table>
             <independentVar lookup="row">fcs/tv-animation</independentVar>
             <tableData>
-          -1    1.8353
+          -1    1.3853
            0    0
-           1    -1.8353
+           1    -1.3853
             </tableData>
           </table>
 </product>
@@ -1068,7 +1068,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
         <table>
             <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
-            <independentVar lookup="column">fcs/auto-flaps-control</independentVar>
+            <independentVar lookup="column">/controls/gear/gear-down</independentVar>
             <tableData>
                      0    1 <!--0 is gearup 1 is gear down-->  
               0      0    0.2
@@ -1092,8 +1092,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <independentVar lookup="column">/controls/gear/gear-down</independentVar>
             <tableData>
                      0    1 <!--0 is gearup 1 is gear down-->  
-              0      0    1 
-              1      1    1
+              0      0    0 
+              1      1    0
          </tableData> <!--Flaps are off and at full pilot control when the gear is up-->
           </table>
    </function>

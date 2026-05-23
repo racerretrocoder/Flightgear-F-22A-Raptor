@@ -86,9 +86,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="32.5"
-     inkscape:cx="126.01538"
-     inkscape:cy="271.32308"
+     inkscape:zoom="2.8726213"
+     inkscape:cx="76.23699"
+     inkscape:cy="50.476546"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -327,12 +327,12 @@
          id="tspan1038"
          style="stroke-width:0.325945">K</tspan></text>
     <rect
-       style="fill:#000000;fill-opacity:0;stroke:#15ff32;stroke-width:0.391221;stroke-dasharray:none;stroke-opacity:0.549689"
+       style="fill:#000000;fill-opacity:0;stroke:#15ff32;stroke-opacity:0.54968941;stroke-width:0.39122092;stroke-dasharray:none"
        id="tgt1-marker"
        width="21.002247"
        height="21.494576"
-       x="153.31424"
-       y="1062.0443" />
+       x="116.02193"
+       y="1055.6443" />
     <rect
        style="opacity:0.46;fill:#ff00ff;fill-opacity:1;stroke:#1a1a1a;stroke-width:1.36935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="ias_range_clip"
@@ -782,71 +782,71 @@
        y="0"
        xlink:href="#tgt1-marker"
        id="tgt2-marker"
-       transform="translate(-1.8461517,-0.67692001)"
-       style="stroke-width:0.391221;stroke-dasharray:none" />
+       transform="translate(0.49231,0.49231077)"
+       style="stroke-width:0.39122092;stroke-dasharray:none" />
     <use
        x="0"
        y="0"
        xlink:href="#tgt2-marker"
        id="tgt3-marker"
-       transform="translate(0.49230182,-1.046153)"
-       style="fill:#000000;fill-opacity:0;stroke-width:0.391221;stroke-dasharray:none" />
+       transform="translate(-0.98462154,-1.4769223)"
+       style="fill:#000000;fill-opacity:0;stroke-width:0.39122092;stroke-dasharray:none" />
     <use
        x="0"
        y="0"
        xlink:href="#tgt3-marker"
        id="tgt4-marker"
-       transform="translate(0.80000126,1.7230761)"
-       style="stroke-width:0.391221;stroke-dasharray:none" />
+       transform="translate(1.5384616e-6,1.4769223)"
+       style="stroke-width:0.39122092;stroke-dasharray:none" />
     <use
        x="0"
        y="0"
        xlink:href="#tgt4-marker"
        id="tgt5-marker"
-       transform="translate(-1.9076933,-0.86153851)"
-       style="stroke:url(#linearGradient1026);stroke-width:0.391221;stroke-dasharray:none;stroke-opacity:1" />
+       transform="translate(0.49230685,-0.49230777)"
+       style="stroke:url(#linearGradient1026);stroke-opacity:1;stroke-width:0.39122092;stroke-dasharray:none" />
     <use
        x="0"
        y="0"
        xlink:href="#tgt5-marker"
        id="tgt6-marker"
-       transform="translate(7.3846157,2.276923)"
-       style="stroke-width:0.391221;stroke-dasharray:none" />
+       transform="translate(3.076923e-7,0.49230769)"
+       style="stroke-width:0.39122092;stroke-dasharray:none" />
     <use
        x="0"
        y="0"
        xlink:href="#tgt6-marker"
        id="tgt7-marker"
-       transform="translate(-8.1230817,-2.7076923)"
-       style="stroke-width:0.391221;stroke-dasharray:none" />
+       transform="translate(-0.49231231,-0.49230769)"
+       style="stroke-width:0.39122092;stroke-dasharray:none" />
     <use
        x="0"
        y="0"
        xlink:href="#tgt7-marker"
        id="tgt8-marker"
-       transform="translate(3.2000044,0.676923)"
-       style="stroke-width:0.391221;stroke-dasharray:none" />
+       transform="translate(4.6153847e-6,0.98461536)"
+       style="stroke-width:0.39122092;stroke-dasharray:none" />
     <use
        x="0"
        y="0"
        xlink:href="#tgt8-marker"
        id="tgt9-marker"
-       transform="translate(1.1692286,-1.1076926)"
-       style="fill:#000000;fill-opacity:0;stroke:#15ff73;stroke-width:0.391221;stroke-dasharray:none;stroke-opacity:1" />
+       transform="translate(0.49230538,-0.98461566)"
+       style="fill:#000000;fill-opacity:0;stroke:#15ff73;stroke-opacity:1;stroke-width:0.39122092;stroke-dasharray:none" />
     <use
        x="0"
        y="0"
        xlink:href="#tgt9-marker"
        id="tgt10-marker"
-       transform="translate(-4.2461582,1.2923082)"
-       style="stroke-width:0.391221;stroke-dasharray:none" />
+       transform="translate(-4.6153846e-6,0.49230815)"
+       style="stroke-width:0.39122092;stroke-dasharray:none" />
     <use
        x="0"
        y="0"
        xlink:href="#tgt10-marker"
        id="tgt11-marker"
-       transform="translate(4.7999995,1.2307692)"
-       style="stroke-width:0.391221;stroke-dasharray:none" />
+       transform="translate(-3.076923e-7,-0.98461546)"
+       style="stroke-width:0.39122092;stroke-dasharray:none" />
     <rect
        style="opacity:0.46;fill:#ff00ff;fill-opacity:1;stroke:#1a1a1a;stroke-width:1.48125;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="alt_range_clip"
@@ -9469,34 +9469,12 @@
          style="fill:none;stroke:#00ff00;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.809827;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.80982739;stroke-dasharray:none;stroke-opacity:1"
        id="lock-marker"
        width="23.138462"
        height="22.646154"
        x="114.37347"
        y="1054.5803" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.562762;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-markersmall"
-       width="16.166306"
-       height="15.651608"
-       x="117.98019"
-       y="1058.6499"
-       inkscape:label="lock-markersmall" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.809827;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-marker-1"
-       width="23.138"
-       height="22.646154"
-       x="114.38954"
-       y="1054.9349" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.809827;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-marker-4"
-       width="23.138"
-       height="22.646154"
-       x="114.34975"
-       y="1054.6056" />
     <g
        id="VelocityVector"
        transform="matrix(0.90051277,0,0,0.90051277,-121.2478,913.35457)"
@@ -9603,62 +9581,5 @@
          y="-38.812088"
          transform="rotate(90)" />
     </g>
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.415343;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-marker8"
-       width="11.902867"
-       height="11.579718"
-       x="120.12703"
-       y="1060.6866" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.415343;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-marker7"
-       width="11.902867"
-       height="11.579718"
-       x="120.12703"
-       y="1060.6866" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.415343;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-marker6"
-       width="11.902867"
-       height="11.579718"
-       x="120.12703"
-       y="1060.6866" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.415343;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-marker5"
-       width="11.902867"
-       height="11.579718"
-       x="120.12703"
-       y="1060.6866" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.415343;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-marker4"
-       width="11.902867"
-       height="11.579718"
-       x="120.12703"
-       y="1060.6866" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.415343;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-marker3"
-       width="11.902867"
-       height="11.579718"
-       x="120.12703"
-       y="1060.6866" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.415343;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-marker2"
-       width="11.903106"
-       height="11.579718"
-       x="120.12703"
-       y="1060.6866" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:0.01;fill-rule:evenodd;stroke:#00ff00;stroke-width:0.415343;stroke-dasharray:none;stroke-opacity:1"
-       id="lock-marker1"
-       width="11.903106"
-       height="11.579718"
-       x="120.16057"
-       y="1060.7679"
-       inkscape:label="lock-marker1" />
   </g>
 </svg>

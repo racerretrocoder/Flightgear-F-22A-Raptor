@@ -101,6 +101,18 @@ var HUD = {
     m.tgt9Marker = m.get_element("tgt9-marker");
     m.tgt10Marker = m.get_element("tgt10-marker");
     m.lockMarker = m.get_element("lock-marker");
+    m.lockMarkersmall = m.get_element("lock-markersmall");
+    # Multi-target
+    m.lockMarker1 = m.get_element("lock-marker1");
+    m.lockMarker2 = m.get_element("lock-marker2");
+    m.lockMarker3 = m.get_element("lock-marker3");
+    m.lockMarker4 = m.get_element("lock-marker4");
+    m.lockMarker5 = m.get_element("lock-marker5");
+    m.lockMarker6 = m.get_element("lock-marker6");
+    m.lockMarker7 = m.get_element("lock-marker7");
+    m.lockMarker8 = m.get_element("lock-marker8");
+    #m.
+     
     m.VV = m.get_element("VelocityVector");
   
     #########################################    
@@ -521,7 +533,15 @@ me.pipperRadius = 10;
 			me.tgt9Marker.setVisible(0);
 			me.tgt10Marker.setVisible(0);
       me.lockMarker.setVisible(0);
-      me.NavDirector.setVisible(0);
+      me.lockMarker1.setVisible(0);
+      me.lockMarker2.setVisible(0);
+      me.lockMarker3.setVisible(0);
+      me.lockMarker4.setVisible(0);
+      me.lockMarker5.setVisible(0);
+      me.lockMarker6.setVisible(0);
+      me.lockMarker7.setVisible(0);
+      me.lockMarker8.setVisible(0);
+     me.NavDirector.setVisible(0);
 		me.Glidingpath.setVisible(0);
 		}
 		if (radarON == 0){me.Rdr_Indicator.setVisible(1);}else {me.Rdr_Indicator.setVisible(0);}
@@ -542,7 +562,7 @@ me.pipperRadius = 10;
 
 #**************LOCK MARKER *********************#
 		if(radar.GetTarget() != nil){
-      var target1_x = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("h-offset",1).getValue();
+      var target1_x = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("h-offset",1).getValue(); # getValue is slower than getprop, todo: Switch to getprope in the future
       var target1_z = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("v-offset",1).getValue();
       if (target1_x or 0 > 0 and radarON ==1)
       {
@@ -566,8 +586,100 @@ me.pipperRadius = 10;
           }
         }
         if (radarON == 1){
-              me.lockMarker.setVisible(1);
-              me.lockMarker.setTranslation(target1_x*getprop("f22/hudx"), -190+ -target1_z*getprop("f22/hudz"));}
+              if (getprop("instrumentation/radar/lock") == 1) {
+              me.lockMarker.setTranslation(target1_x*getprop("f22/hudx"), -190+ -target1_z*getprop("f22/hudz"));
+              me.lockMarkersmall.setTranslation(target1_x*getprop("f22/hudx"), -190+ -target1_z*getprop("f22/hudz"));
+              # Range scaling
+              var range = radar.tgts_list[radar.Target_Index].TgtsFiles.getNode("closure-last-range-nm",1).getValue();
+              if (range < 5) {
+                me.lockMarker.setVisible(1);
+                me.lockMarkersmall.setVisible(0);
+              } else {
+                me.lockMarker.setVisible(0);
+                me.lockMarkersmall.setVisible(1);
+              }
+                
+              } else {
+                me.lockMarker.setVisible(0);
+                me.lockMarkersmall.setVisible(0);
+              }
+
+      # Multishot lockmarker targets
+      #setprop("controls/armament/multishot/callsign1","");
+      #setprop("controls/armament/multishot/callsign2","");
+      #setprop("controls/armament/multishot/callsign3","");
+      #setprop("controls/armament/multishot/callsign4","");
+      #setprop("controls/armament/multishot/callsign5","");
+      #setprop("controls/armament/multishot/callsign6","");
+      #setprop("controls/armament/multishot/callsign7","");
+      #setprop("controls/armament/multishot/callsign8","");
+      var multiarray = [me.lockMarker1,me.lockMarker2,me.lockMarker3,me.lockMarker4,me.lockMarker5,me.lockMarker6,me.lockMarker7,me.lockMarker8];
+      for(var i = 1; i < 9; i += 1) {
+        var multics = getprop("controls/armament/multishot/callsign" ~ i ~ "");
+        var list = props.globals.getNode("/instrumentation/radar2/targets").getChildren("multiplayer");
+        var total = size(list);
+        var locked = 0;
+        var lockedcs = "";
+        var mdisplay = 0;
+        var arrayindex = i - 1;
+        for(var ae = 0; ae < total; ae += 1) {
+          # 
+          var targetstr = "instrumentation/radar2/targets/multiplayer[" ~ ae ~ "]/";
+          var callsign = getprop("" ~ targetstr ~ "callsign");
+          var display = getprop("" ~ targetstr ~ "display");
+          var multih = getprop("" ~ targetstr ~ "h-offset");
+          var multiv = getprop("" ~ targetstr ~ "v-offset");
+          if (display == 1 and callsign == multics) {
+            locked = 1;
+            lockedcs = callsign;
+            mdisplay = display;
+            break; # dont waste anymore energy when we already have the target
+          }  
+          # looks like we didnt break, 
+          if (mdisplay == 0) {
+            # hide it
+            var targetmulti = multiarray[arrayindex];
+            targetmulti.setVisible(0);
+          }
+        }
+        
+        if (locked == 1) {
+          #$print("hud.nas: Multishot target locked on!");
+          var targetmulti = multiarray[arrayindex];
+          if (mdisplay == 1) {
+            # recompute
+      var target1_x = multih; # getValue is slower than getprop, todo: Switch to getprope in the future
+      var target1_z = multiv;
+      if (target1_x or 0 > 0 and radarON ==1)
+      {
+        var dist_O = math.sqrt(math.pow(target1_x, 2)+math.pow(target1_z, 2));
+        var oriAngle = math.asin(target1_x / dist_O);
+        if(target1_z < 0){
+          oriAngle = 3.141592654 - oriAngle;
+        }
+        var Rollrad = (OurRoll.getValue() / 180) * 3.141592654;
+        target1_x = dist_O * math.sin(oriAngle - Rollrad);
+        target1_z = dist_O * math.cos(oriAngle - Rollrad);
+        var kx = abs(target1_x/7.25);
+        var kz = abs(target1_z/6);
+        if((kx > 1) or (kz > 1)){
+          if(kx > kz){
+            target1_x = target1_x / kx;
+            target1_z = target1_z / kx;
+          }else{
+            target1_z = target1_z / kz;
+            target1_x = target1_x / kz;
+          }
+        }
+      }
+            targetmulti.setVisible(1);
+
+            
+            targetmulti.setTranslation(target1_x*getprop("f22/hudx"), -190+ -target1_z*getprop("f22/hudz"));
+          }
+        }
+      }
+}
       }
     }
 
