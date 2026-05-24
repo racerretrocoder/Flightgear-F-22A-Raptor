@@ -481,6 +481,7 @@ var DamageRecipient =
                                 }
                                 printf("Took %.1f%% x %2d damage from %s! %s systems was hit.", probability*100, hit_count, typ, damaged_sys);
                                 damageLog.push(sprintf("%s hit you with %d %s.", notification.Callsign, hit_count, typ));
+                                f22.gunshit(hit_count);
                                 nearby_explosion();
                             }
                         } elsif (notification.SecondaryKind > 20 or notification.SecondaryKind < -40) {
@@ -505,6 +506,7 @@ var DamageRecipient =
                                 var percent = 100 * probability;
                                 printf("Took %.1f%% damage from %s clusterbomb at %0.1f meters from bomblet. %s systems was hit", percent,type,distance,failed);
                                 damageLog.push(sprintf("%s hit you with %s bomblet, %.1f meters distance.", notification.Callsign, type, dist));
+                                f22.missilehit();
                                 nearby_explosion();
                                 return;
                             }

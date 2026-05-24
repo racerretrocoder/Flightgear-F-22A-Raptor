@@ -1,7 +1,7 @@
 # f22.nas | Everything Raptor needs at the call of a function
 # All code (except code that was labled under a different developer and/or aircraft) is authored by Phoenix
 # Copyright (c) 2026, Backdoor Interactive! (Phoenix, uapilot)
-# Now for a more formal introduction
+# Now for a more 'formal' introduction
 #
 #
 #  ________  _______   _______      ________   ________  ________                                                                                                                                                                         
@@ -12,9 +12,7 @@
 #    \ \__\   |\________\\________\\__\ \__\\ \__\ \__\ \__\____\_\  \                                                                                                                                                                    
 #     \|__|    \|_______|\|_______\|__|\|__| \|__|\|__|\|__|\_________\                                                                                                                                                                   
 #                                                          \|_________|                                                                                                                                                                   
-#                                                                                                                                                                                                                                         
-#                                                                                                                                                                                                                                 
-#                                                                                                                                                                                                                                         
+#                                                                                                                                                                                                                                                                                                                                                                                                                                       
 #                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 #                                                                                                                                                                                                                                         
 #  ________  ________  ________  _________  ________  ________  ________           _____ ______   ________  ___  ________           ________   ________  ________  ________  ___               ________  ________  ________  _______      
@@ -31,9 +29,14 @@
 # Some terminology
 # "thingy" refers to an object that sticks out from the reset in a unique way.
 # Thought you guys might want to know... like cmon, its used in FG wiki too...
-# we gonna the hud when not in the cockpit view
+# we gonna hide the hud when not in the cockpit view
 setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibility[1]", n.getValue() == 0) },1);
 # Init some vars and props
+setprop("/f22/debug",0); # Debug screenlog.write()'s
+setprop("/f22/damage/rwing",0); 
+setprop("/f22/damage/lwing",0);
+setprop("f22/damage/spincoeff",0);
+setprop("f22/damage/trunk",0);
 
 
 setprop("/f22/cancheckupdates",1); # TODO: make this into an option + configuration window
@@ -642,7 +645,22 @@ timer_water = maketimer(2,waterstop);
 setprop("f22/runonce",0);
 var kaboom = func(speed,type) {
   var onground = 1;
-  if (getprop("/position/altitude-ft") < 0) {
+  var water = 0;
+
+  var info = geodinfo(getprop("position/latitude-deg"),getprop("position/longitude-deg"));
+  var static = "ae";
+  if (info == nil) {
+		print("Nil, Regular ground");
+  } elsif (info[1] == nil) {
+		print("Building go bye bye!!");
+	} elsif (!info[1].solid) {
+	 	print("Splash!");
+    water = 1;
+	} else {
+		print("Regular ground");
+	}
+
+  if (water == 1) {
     print("water!");
     setprop("/f22/crash/type",5);
     setprop("/velocities/airspeed-kt",0);
@@ -669,6 +687,8 @@ var kaboom = func(speed,type) {
       }
       if (speed < 80 and onground == 1) {
         # SLAM!
+        setprop("f22/damage/rwing",2); # tank5 
+        setprop("f22/damage/lwing",2); # tank6
         setprop("/sim/multiplay/generic/bool[2]",0); # Turn off fire
         setprop("/sim/multiplay/generic/bool[3]",1); # Turn on smoke
       }
@@ -1370,20 +1390,24 @@ var leftaim9x = func() {
   screen.log.write("Added 2 External Aim-9X's");
 }
 
-var removeright = func() {
+var removeright = func(ae=nil) {
   setprop("sim/weight[4]/selected","None");
   setprop("/controls/armament/station[4]/release","false");
   setprop("sim/weight[17]/selected","None");
   setprop("/controls/armament/station[17]/release","false");
-  screen.log.write("Removed right external weapons");
+  if (ae == nil) {
+    screen.log.write("Removed right external weapons");
+  }
 }
 
-var removeleft = func() {
+var removeleft = func(ae) {
   setprop("sim/weight[2]/selected","None");
   setprop("/controls/armament/station[2]/release","false");
   setprop("sim/weight[20]/selected","None");
   setprop("/controls/armament/station[20]/release","false");
-  screen.log.write("Removed left external weapons");
+  if (ae == nil) {
+    screen.log.write("Removed left external weapons");
+  }
 }
 
 
@@ -1522,6 +1546,8 @@ var flarecheck = func{
 var repair = func{
 #f22.repair()
   view.setViewByIndex(0);
+  setprop("f22/damage/rwing",0); # tank5 
+  setprop("f22/damage/lwing",0); # tank6
   setprop("/sim/failure-manager/controls/flight/aileron/serviceable",1); 
   setprop("/sim/failure-manager/controls/flight/elevator/serviceable",1);
   setprop("/sim/failure-manager/controls/flight/rudder/serviceable",1);  
@@ -1534,6 +1560,7 @@ var repair = func{
   setprop("/sim/failure-manager/engines/engine/serviceable",1); # Fix the engines
   setprop("/sim/failure-manager/engines/engine[1]/serviceable",1); # Fix the engines
   setprop("f22/canopy-jett",0);
+  setprop("f22/guncounter",0);
   guns.reload();
 
 }
@@ -2028,7 +2055,6 @@ var tgtlock = func{
 # Auto MutltiLock/shot
 var automultilock = func() {
   var enabled = getprop("controls/armament/multishot/auto");
-  setprop("controls/armament/multishot/numcallsign",8);
   if (enabled == 1) {
     # scan the radar list for targets that are displaying
     var numtgt = 0; # targets to display
@@ -2051,7 +2077,10 @@ var automultilock = func() {
     for(var i = 0; i < 8; i += 1) {
       if (targets[i] != nil) {
         var multi = i + 1;
+        if (getprop("controls/armament/multishot/callsign" ~ multi ~ "") == "") {
         setprop("controls/armament/multishot/callsign" ~ multi ~ "", targets[i]);
+        }
+        #setprop("controls/armament/multishot/callsign" ~ multi ~ "", targets[i]);
       }
     }
   }
@@ -2692,22 +2721,83 @@ var jettison = func(type) {
   }
 }
 
-##########################################################################################################
-##########################################################################################################
-##########################################################################################################
-##########################################################################################################
-##########################################################################################################
-##########################################################################################################
-#########################  BEGIN maketimer(); MAYHEM!  ###################################################
-##########################################################################################################
-##########################################################################################################
-##########################################################################################################
-##########################################################################################################
-##########################################################################################################
-##########################################################################################################
+var wingloop = func() {
+  var rwing = getprop("f22/damage/rwing"); # tank5 
+  var lwing = getprop("f22/damage/lwing"); # tank6
+  var spin = 0;
+  var trunk = 0; # mp property
+  if (rwing == 1) {
+    spin = 1;
+    setprop("consumables/fuel/tank[5]/level-lbs",0);
+    trunk = 1;
+  }
+  if (lwing == 1) {
+    spin = -1;
+    setprop("consumables/fuel/tank[6]/level-lbs",0);
+    trunk = 2;
+  }
+  if (rwing != 0 and lwing != 0) {
+    setprop("controls/lighting/formation-norm",0); # turn off lights
+    setprop("controls/lighting/extlight",0); # turn off lights
+    setprop("controls/armament/rdt",0);
+    setprop("controls/armament/rrdt",0);
+    setprop("controls/armament/ldt",0);
+    setprop("controls/armament/lldt",0);
+  	setprop("sim/weight[2]/selected","None");
+		setprop("sim/weight[19]/selected","None");
+		setprop("sim/weight[20]/selected","None");
+		setprop("sim/weight[18]/selected","None");
+		setprop("sim/weight[17]/selected","None");
+    removeright(1);
+    removeleft(1);
+    spin = 0;
+    trunk = 3;
+  }
+  setprop("f22/damage/spincoeff",spin);
+  setprop("f22/damage/trunk",trunk);
+}
+
+var gwing = func() {
+  var g = getprop("/accelerations/pilot-gdamped");
+  var speed = getprop("/velocities/airspeed-kt");
+  if (g > 11 and speed > 300) {
+    # SNAP!
+    ae = 0.5;
+    thewing = rand() < (1-ae);
+    if (thewing == 1) {
+      # its the lef- uhh RIGHT WING!!!
+      screen.log.write("Right wing damaged due to G-Forces",1,0,0);
+      setprop("f22/damage/rwing",1);
+    } else {
+      # the the other wing
+      screen.log.write("Left wing damaged due to G-Forces",1,0,0);
+      setprop("f22/damage/lwing",1);
+    }
+  }
+}
+
+
+
+###################################################################################
+###################################################################################
+###################################################################################
+###################################################################################
+###################################################################################
+###################################################################################
+#########################  BEGIN maketimer(); MAYHEM!  ############################
+###################################################################################
+###################################################################################
+###################################################################################
+###################################################################################
+###################################################################################
+###################################################################################
 
 # seconds , function.  you can use 0 for the seconds for instant loop without flightgear freezee
 # not reaally efciant as it pegs core 0 on the first cpu 
+wingtimer = maketimer(0.1, wingloop);
+wingtimer.start();
+gwingloop = maketimer(1, gwing);
+gwingloop.start();
 
 multilocktimer = maketimer(0.3, automultilock);
 multilocktimer.start();
@@ -2892,7 +2982,63 @@ var flight_debug = func(){
   screen.property_display.add("/controls/engines/engine[1]/throttle");
 }
 
-#setprop("controls/radar/cursormode",1);
+setprop("f22/guncounter",0);
+# Wing Damage Deployment
+var gunshit = func(hits) {
+  setprop("f22/guncounter",getprop("f22/guncounter")+hits);
+  var counter = getprop("f22/guncounter");
+  var chance = 0.0;
+  if (counter > 30) {
+    chance = 0.2;
+  } 
+  if (counter > 40) {
+    chance = 0.4;
+  }
+  if (counter > 50) {
+    chance = 0.8;
+  }
+  var gamble = rand() < (1-chance);
+  if (gamble == 1) {
+    # wing ded xd
+    # reset the counter
+    setprop("f22/guncounter",0);
+    ae = 0.5;
+    thewing = rand() < (1-ae);
+    if (thewing == 1) {
+      # its the lef- uhh RIGHT WING!!!
+      setprop("f22/damage/rwing",1);
+    } else {
+      # the the other wing
+      setprop("f22/damage/lwing",1);
+    }
+  }
+}
+var missilehit = func() {
+  var chance = 0.8;
+  var gamble = rand() > (1-chance);
+  if (gamble == 1) {
+    # wing ded xd
+    ae = 0.5;
+    thewing = rand() > (1-ae);
+    if (thewing == 1) {
+      # its the lef- uhh RIGHT WING!!!
+      setprop("f22/damage/rwing",1);
+    } else {
+      # the the other wing
+      setprop("f22/damage/lwing",1);
+    }
+    chance = 0.4;
+    var gambletwo = rand() > (1-chance); # gamble a second time
+    if (gambletwo == 1) {
+      setprop("f22/damage/rwing",1);
+      setprop("f22/damage/lwing",1);
+      # very bad bad bad luck lol
+    }
+  }
+}
+
+
+
 
 print("f22.nas Ready!");
 var test = func () {

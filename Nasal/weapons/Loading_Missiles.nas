@@ -53,7 +53,7 @@ var Loading_missile = func(name)
     
     if(name == "Aim-120")
     {
-        # AIM-120 :AMRAAM,      
+        # AIM-120D :AMRAAM,      
 	    typeid = 52;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
@@ -75,14 +75,14 @@ var Loading_missile = func(name)
         maxExplosionRange = 200;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
         maxspeed = 4.8;                              # In mach ( source is a guess )
         life = 110; # 
-        sdspeed = 0.65;                         # Test Self Destruct Speed. in mach
+        sdspeed = 0.32;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";
         rail = 0;
         cruisealt = 0;
         chute = 0;
         isbomb = 0;
         pbrange = 10000; # added on 
-        multishot = 6;
+        multishot = 6; # Up to 6 Aim-120s can be shot at once
         ignitedelay = 0.5;
     }
 
@@ -95,23 +95,23 @@ var Loading_missile = func(name)
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-260/AIM260.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         flareres = 0.98; # 0.999    Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
-        maxdetectionrngnm = 3008.8;                    #  300000000000000
+        maxdetectionrngnm = 500.8;                    #  300000000000000
         fovdeg = 360;                                
         detectionfovdeg = 360;                       
         trackmaxdeg = 360;                           
         maxg = 60;                                   
         thrustlbs = 1900;                            
         thrustlbsstage2 = 580;
-        thrustdurationsec = 18;
+        thrustdurationsec = 26;
         thrustdurationsecstage2 = 120;                      # 
         weightlaunchlbs = 421; # weightlaunch + fuel
         weightwarheadlbs = 44;
-        dragcoeff = 0.001;                              # really slow lowerd it a bit
+        dragcoeff = 0.09;                              # really slow lowerd it a bit
         dragarea = 0.0236;                            # sq ft
         maxExplosionRange = 200;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 8.7;                              # In mach ( source is a guess )
-        life = 100000000000; # 
-        sdspeed = 0.65;                         # Test Self Destruct Speed. in mach
+        maxspeed = 5.9;                              # In mach ( source is a guess )
+        life = 500; # 
+        sdspeed = 0.35;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";
         rail = 0;
         cruisealt = 0;
@@ -313,9 +313,9 @@ var Loading_missile = func(name)
         fovdeg = 1;                                 # seeker optical FOV
         detectionfovdeg = 1;                        # Search pattern diameter (rosette scan)
         trackmaxdeg = 1;                            # Seeker max total angular rotation
-        maxg = 12;                                    # eject
-        thrustlbs = 5000;                                # 
-        thrustdurationsec = 5;           
+        maxg = 20;                                    # eject
+        thrustlbs = 1000;                                # 
+        thrustdurationsec = 0.48;           
         thrustlbsstage2 = 1;
         thrustdurationsecstage2 = 1;    
                                # 

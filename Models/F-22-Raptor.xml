@@ -56,6 +56,28 @@ var smallsearch = func(cs=nil) {
 		setprop("ai/models/multiplayer[" ~ mpid ~ "]/controls/armament/station[" ~ pylon ~ "]/release",num(thesplit[3]));
 		#self.getNode("sim/weight[" ~ pylon ~ "]/selected",1).setValue(thesplit[1]); These is acting strange...
 		#self.getNode("controls/armament/station[" ~ pylon ~ "]/release",1).setValue(num(thesplit[3]));
+		
+
+		### Extra thingies
+		# wing damage
+		var wingtrunk = getprop("ai/models/multiplayer[" ~ mpid ~ "]/sim/multiplay/generic/int[29]");
+		if (wingtrunk == 0) {
+			setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/rwing",0);
+			setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/lwing",0);
+		}
+		if (wingtrunk == 1) {
+			setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/rwing",1);
+			setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/lwing",0);
+		}
+		if (wingtrunk == 2) {
+			setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/rwing",0);
+			setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/lwing",1);
+		}
+		if (wingtrunk == 3) {
+			setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/rwing",1);
+			setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/lwing",1);
+		}
+		
 	}
 	var stringtimer = maketimer(1,stringparse);
 	stringtimer.start();
@@ -4757,14 +4779,14 @@ ae
 <object-name>Right_Wing_1</object-name>
 <object-name>right-slat_0</object-name>
 <object-name>right-slat_1</object-name>
-<object-name>lgear-door1</object-name>
-<object-name>lgear-door2</object-name>
-<object-name>rgear-door1</object-name>
-<object-name>rgear-door2</object-name>
 <object-name>right-flap_0</object-name>
 <object-name>right-flap_1</object-name>
 <object-name>right-aileron_0</object-name>
 <object-name>right-aileron_1</object-name>
+<object-name>lgear-door1</object-name>
+<object-name>lgear-door2</object-name>
+<object-name>rgear-door1</object-name>
+<object-name>rgear-door2</object-name>
 <object-name>left-nosegear-door</object-name>
 <object-name>left-main-door-up</object-name>
 <object-name>right-main-door-up</object-name>
@@ -5124,6 +5146,86 @@ ae
 </equals>
 </condition>
 </animation>
+
+<!--Right Wing damage-->
+
+<animation>
+<type>select</type>
+<object-name>Right_Wing_0</object-name>
+<object-name>Right_Wing_1</object-name>
+<object-name>right-slat_0</object-name>
+<object-name>right-slat_1</object-name>
+<object-name>right-flap_0</object-name>
+<object-name>right-flap_1</object-name>
+<object-name>right-aileron_0</object-name>
+<object-name>right-aileron_1</object-name>
+<object-name>right-main-door-up</object-name>
+<object-name>Right_Main_Gear_Bay</object-name>
+<object-name>rightmidbay</object-name>
+<condition>
+<equals>
+<property>f22/damage/rwing</property>
+<value>0</value>
+</equals>
+</condition>
+</animation>
+
+<!--Right wing fire-->
+<model>
+  <path>Aircraft/F-22/Models/Effects/DamageSmoke/explosionwing.xml</path>
+  <condition>
+    <equals>
+      <property>f22/damage/rwing</property>
+      <value>1</value>
+    </equals>
+  </condition>
+  <offsets>
+    <x-m>2</x-m>
+    <y-m>3</y-m>
+    <z-m>0</z-m>
+    <heading-deg>0</heading-deg>
+    </offsets>
+  </model>
+
+
+
+<!--left wing damage-->
+<animation>
+<type>select</type>
+<object-name>Left_Wing_1</object-name>
+<object-name>Left_Wing_0</object-name>
+<object-name>left-aileron_0</object-name>
+<object-name>left-aileron_1</object-name>
+<object-name>left-flap_0</object-name>
+<object-name>left-slat_0</object-name>
+<object-name>left-slat_1</object-name>
+<object-name>left-flap_1</object-name>
+<condition>
+<equals>
+<property>f22/damage/lwing</property>
+<value>0</value>
+</equals>
+</condition>
+</animation>
+
+<!--Left wing fire-->
+<model>
+  <path>Aircraft/F-22/Models/Effects/DamageSmoke/explosionwingL.xml</path>
+  <condition>
+    <equals>
+      <property>f22/damage/lwing</property>
+      <value>1</value>
+    </equals>
+  </condition>
+  <offsets>
+    <x-m>2</x-m>
+    <y-m>-3</y-m>
+    <z-m>0</z-m>
+    <heading-deg>0</heading-deg>
+    </offsets>
+  </model>
+
+
 
 <!--5000 lines!-->
 </PropertyList>

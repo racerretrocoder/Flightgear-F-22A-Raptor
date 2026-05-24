@@ -4,6 +4,7 @@ print("LOADING weapons.nas...");
 #                        F-22 WEAPONS SETTINGS
 #							Thanks to the m2005-5's developpers
 #                          and Special thanks to Developer0607! (Ghost)
+#                          This code is now mainly edited by racerretrocoder (Phoenix)
 ################################################################################
 
 var dt = 0;
@@ -23,7 +24,7 @@ setprop("controls/armament/multishot/callsign5","");
 setprop("controls/armament/multishot/callsign6","");
 setprop("controls/armament/multishot/callsign7","");
 setprop("controls/armament/multishot/callsign8","");
-setprop("controls/armament/multishot/numcallsign",1);
+setprop("controls/armament/multishot/numcallsign",8);
 setprop("controls/armament/multishot/message","Multishot Disabled");
 setprop("controls/armament/multishot/lockattempts",0);
 setprop("controls/armament/multishotstate",0);
@@ -43,7 +44,7 @@ var attemptmultilock = func(csind) {
       # Cycle the radar
       radar.next_Target_Index(1,1); # Dont print w/ lock.
       var cs = getprop("instrumentation/radar/cs");
-      if (getprop("controls/armament/multishot/callsign" ~ csind ~ "") == cs) {
+      if (getprop("controls/armament/multishot/callsign" ~ csind ~ "") == cs and cs != "" and getprop("controls/armament/multishot/callsign" ~ csind ~ "") != "") {
           print("multilock loop: Radar locked successfully! Firing weapon...");
           # Radar locked on callsign[csind]
           # ready to shoot
@@ -109,7 +110,7 @@ var multishotreset = func() {
     setprop("controls/armament/multishot/callsign6","");
     setprop("controls/armament/multishot/callsign7","");
     setprop("controls/armament/multishot/callsign8","");
-    setprop("controls/armament/multishot/numcallsign",1);
+    setprop("controls/armament/multishot/numcallsign",8);
     setprop("controls/armament/multishotstate",0);
     setprop("controls/armament/multishot/message","Multishot Disabled");
 }
