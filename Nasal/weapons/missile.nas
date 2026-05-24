@@ -401,10 +401,7 @@ var MISSILE = {
         var alat = me.ac.lat() + out[0];
         var alon = me.ac.lon() + out[1];
         var aalt = (me.ac.alt() * M2FT) + out[2];
-        setprop("controls/armament/pos/lat",alat);
-        setprop("controls/armament/pos/lon",alon);
-        setprop("controls/armament/pos/alt",aalt);
-        setprop("controls/armament/pos/ptch",ac_pitch);
+
 
         me.latN.setDoubleValue(alat);
         me.lonN.setDoubleValue(alon);
@@ -599,7 +596,9 @@ if (me.Tgt != nil) {
                 }
                 if(MPMessaging.getValue() == 1) {
                     damage.damageLog.push(phrase);
-                    setprop("/sim/messages/atc", "Missile missed due to chaff and flares");
+                    if (getprop("f22/debug")) {
+                        setprop("/sim/messages/atc", "Missile missed due to chaff and flares");
+                    }
                     me.missed = 1;
                 }
                 else {
@@ -804,11 +803,11 @@ broddamage: func (cs,dist,msl) {
             if (debugsysmessages == 1) {
                 print("Missile launched from a rail");
             }
-            f_lbs = me.force_lbs * 0.3;
+            f_lbs = me.force_lbs * 0.3; # fire the rocket motor
             if(me.life_time > 0)
             {
                 f_lbs = me.force_lbs * 0.3;
-                var Dapath = me.missile_model;
+                var Dapath = me.missile_model; # Engine smoke and flame activated
             if(me.model.getNode("path", 1).getValue() != Dapath)
                 {
                 #print(Dapath);
@@ -1016,20 +1015,47 @@ broddamage: func (cs,dist,msl) {
                 # aero dynamics / engine deg
                 if (me.eject != 1) {
                     if (me.isbomb == 1) {
-                        pitch_deg = getprop("orientation/pitch-deg") - 3.5; # shove the bomb off
+                        if (getprop("orientation/alpha-deg") > 0) {
+                            pitch_deg = getprop("orientation/pitch-deg") - 3.5 + getprop("orientation/alpha-deg");
+                        } else {
+                            pitch_deg = getprop("orientation/pitch-deg");
+                        }
                     } elsif (me.ignitedelay != 0) {
                         # drop missile
-                        pitch_deg = getprop("orientation/pitch-deg") - 2;
+                        if (getprop("orientation/alpha-deg") > 0) {
+                            pitch_deg = getprop("orientation/pitch-deg") - 2.8 + getprop("orientation/alpha-deg");
+                        } else {
+                            pitch_deg = getprop("orientation/pitch-deg");
+                        }
                     } else {
                         # railed
-                        pitch_deg = getprop("orientation/pitch-deg");
+                        if (getprop("orientation/alpha-deg") > 0) {
+                            pitch_deg = getprop("orientation/pitch-deg") - getprop("orientation/alpha-deg");
+                        } else {
+                            pitch_deg = getprop("orientation/pitch-deg");
+                        }
                     }
                 } else {
-                pitch_deg = 90;
+                    pitch_deg = 90; # eject!
                 }
             } 
             else
             {
+
+
+                if (me.eject != 1) {
+                    if (me.isbomb == 1) {
+                        if (me.life_time < 2) {
+                            pitch_deg = getprop("orientation/pitch-deg") - 3.5; # shove the bomb off
+                        }
+                    } elsif (me.ignitedelay != 0) {
+                        # drop missile
+                        if (me.life_time < 2) {
+                            pitch_deg = getprop("orientation/pitch-deg") - 2.8;
+                        }
+                    }
+                }
+
                 # here will be set the max angle of pitch and the max angle
                 # of heading to avoid G overload
                 var myG = steering_speed_G(me.track_signal_e, me.track_signal_h, (total_s_ft / dt), mass, dt);
@@ -1144,7 +1170,9 @@ broddamage: func (cs,dist,msl) {
 		       	        if(getprop("payload/armament/msg")) {
                             #sendCrater: func (lat,lon,alt,size,hdg,static) 
                             me.sendCrater(me.coord.lat(), me.coord.lon(), me.coord.alt(), 1, 0, static, typeID); # Hit everything EXCEPT the target we just hit dead on
-                            screen.log.write("Bomb exploded!",0,1,0);
+                            if (getprop("f22/debug")) {
+                                screen.log.write("Bomb exploded!",0,1,0);
+                            }
 				        }
                     }
                 return;
@@ -1761,8 +1789,10 @@ print("target ran");
                             msg.Bearing = me.coord.course_to(geo.aircraft_position());
                             msg.Distance = 0.1;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
                             msg.RemoteCallsign = me.Tgt.get_Callsign();
-                            notifications.hitBridgedTransmitter.NotifyAll(msg);
-                            screen.log.write("Target hit!",0,1,0);
+                            notifications.hitBridgedTransmitter.NotifyAll(msg); 
+                            if (getprop("f22/debug")) {
+                                screen.log.write("Target hit!",0,1,0);
+                            }
                             damage.damageLog.push(sprintf("You hit "~me.Tgt.get_Callsign()~" with "~me.NameOfMissile~" at %.1f meters", me.direct_dist_m));
                        
                         } else {

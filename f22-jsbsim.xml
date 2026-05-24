@@ -2238,7 +2238,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </product>
 </function>
 
-
+          <property>/f22/damage/spincoeff</property>
    <function name="fcs/tv-coefficient">
      <property>fcs/fbw-override</property>
    </function>
@@ -3142,6 +3142,18 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             </scheduled_gain>
         </channel>
 
+<!--wing coeff-->
+   <function name="fcs/wing-coeff">  
+        <table>
+            <independentVar lookup="column">/f22/damage/rwing</independentVar>
+            <independentVar lookup="row">/f22/damage/lwing</independentVar>
+            <tableData>   
+                  0    1  
+             0    1    1  
+             1    1    0
+            </tableData>
+          </table>
+   </function>
 
  </flight_control>
 
@@ -3154,6 +3166,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
+          <property>fcs/wing-coeff</property>
           <table>
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <tableData>
@@ -3173,6 +3186,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>metrics/Sw-sqft</property>
            <property>fcs/flap-pos-deg</property>
            <property>fcs/flapcoeff</property>
+           <property>fcs/wing-coeff</property>
            <value> 0.01167 </value>
        </product>
     </function>
@@ -3182,6 +3196,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/leading-edge-flap-main</property>
+           <property>fcs/wing-coeff</property>
            <value> 0.08167 </value>
        </product>
     </function>
@@ -3192,7 +3207,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>fcs/speedbrake-pos-norm</property>
-           <value>0</value>
+           <property>fcs/wing-coeff</property>
+           <value>0.08</value>
        </product>
     </function>
 
@@ -3410,7 +3426,16 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <value>0.12</value>
        </product>
     </function>
-
+    <function name="aero/moment/Roll_wing">
+       <description>Roll moment due to damaged wings</description>
+       <product>
+          <property>aero/qbar-psf</property>
+          <property>metrics/Sw-sqft</property>
+          <property>metrics/bw-ft</property>
+          <property>/f22/damage/spincoeff</property>
+          <value>0.07</value>
+       </product>
+    </function>
     <function name="aero/moment/Roll_rudder">
        <description>Roll moment due to rudder</description>
        <product>

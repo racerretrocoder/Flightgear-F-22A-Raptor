@@ -718,7 +718,7 @@ Or it just wont work
 
 <int n="27" type="int" alias="/controls/armament/rrdt"/> <!--Drop tanks-->
 <int n="28" type="int" alias="/controls/armament/lldt"/> <!--Drop tanks-->
-
+<int n="29" type="int" alias="/f22/damage/trunk"/> <!--may i plz has a 29th int()??-->
 <!--Missiles in bays on MP-->
 <string n="5" type="string">0:none:S0:0</string><!-- string 5 used by stores -->
 <string n="6" type="string"></string><!-- string 6 used by radar lock warning -->
