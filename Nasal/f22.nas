@@ -37,7 +37,7 @@ setprop("/f22/damage/rwing",0);
 setprop("/f22/damage/lwing",0);
 setprop("f22/damage/spincoeff",0);
 setprop("f22/damage/trunk",0);
-
+setprop("f22/show-tint",1);
 
 setprop("/f22/cancheckupdates",1); # TODO: make this into an option + configuration window
 setprop("/f22/dogfightmode",0);
