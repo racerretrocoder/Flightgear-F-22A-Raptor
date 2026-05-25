@@ -3412,6 +3412,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<file>Aircraft/F-22/Nasal/messages.nas</file>
 		</tips>-->
 
+	<calculator>
+		<file>Aircraft/F-22/Nasal/calculator.nas</file> <!--This script checks out the github repository if there are any new commits-->
+	</calculator>
 
 	<vercheck>
 		<file>Aircraft/F-22/Nasal/vercheck.nas</file> <!--This script checks out the github repository if there are any new commits-->
