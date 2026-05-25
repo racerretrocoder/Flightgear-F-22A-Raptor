@@ -2754,13 +2754,13 @@ var wingloop = func() {
     trunk = 3;
   }
   setprop("f22/damage/spincoeff",spin);
-  setprop("f22/damage/trunk",trunk);
+  setprop("sim/multiplay/generic/string[4]",trunk);
 }
 
 var gwing = func() {
   var g = getprop("/accelerations/pilot-gdamped");
   var speed = getprop("/velocities/airspeed-kt");
-  if (g > 11 and speed > 300) {
+  if (g > 11 and speed > 300 or getprop("damage/sounds/nearby-explode-on") == 1) {
     # SNAP!
     ae = 0.5;
     thewing = rand() < (1-ae);
@@ -2796,7 +2796,7 @@ var gwing = func() {
 # not reaally efciant as it pegs core 0 on the first cpu 
 wingtimer = maketimer(0.1, wingloop);
 wingtimer.start();
-gwingloop = maketimer(1, gwing);
+gwingloop = maketimer(0.3, gwing);
 gwingloop.start();
 
 multilocktimer = maketimer(0.3, automultilock);
