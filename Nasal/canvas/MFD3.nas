@@ -19,12 +19,117 @@ var mfd = canvas.new({
 
 mfd.addPlacement({"node": "rightmfd"});
 mfd.setColorBackground(0.00784, 0.00784, 0.0823);
-
 var lables = mfd.createGroup();
   # FCR
 var FCR = mfd.createGroup();
+  # SMS
+var SMS = mfd.createGroup();
+var wepname = SMS.createChild("text", "wepname")
+       .setTranslation(375, 675)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(36, 1.2)        
+       .setColor(0,1,1)             
+       .setText("Select a weapon");
+
+
+
+var chaff = SMS.createChild("text", "chaff")
+       .setTranslation(160, 275)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+var flare = SMS.createChild("text", "flare")
+       .setTranslation(510, 275)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+var prgm = SMS.createChild("text", "prgm")
+       .setTranslation(210, 755)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+var prgmname = SMS.createChild("text", "prgmname")
+       .setTranslation(210, 845)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+
+var cs1 = SMS.createChild("text", "cs")
+       .setTranslation(180, 375)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+
+var cs2 = SMS.createChild("text", "cs")
+       .setTranslation(180, 405)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+
+var cs3 = SMS.createChild("text", "cs")
+       .setTranslation(180, 435)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+
+var cs4 = SMS.createChild("text", "cs")
+       .setTranslation(180, 465)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+
+var cs5 = SMS.createChild("text", "cs")
+       .setTranslation(480, 375)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+
+var cs6 = SMS.createChild("text", "cs")
+       .setTranslation(480, 405)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+
+var cs7 = SMS.createChild("text", "cs")
+       .setTranslation(480, 435)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+
+var cs8 = SMS.createChild("text", "cs")
+       .setTranslation(480, 465)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");
+
 var FCRCursor = mfd.createGroup();
 var pathA = FCR.createChild("path");
+var adi = FCR.createChild("path");
 var cursor = FCR.createChild("path");
 
 
@@ -150,6 +255,25 @@ pathA.moveTo(435, 585) # +-60
        .set("stroke", "#00FF00") 
        .set("stroke-width", 3);
 
+
+# Draw the attitude indicator
+
+adi.moveTo(100, 585) 
+       .lineTo(315,585) 
+       .set("stroke", "#00FF00") 
+       .set("stroke-width", 3);
+adi.moveTo(435, 585) 
+       .lineTo(650,585) 
+       .set("stroke", "#00FF00") 
+       .set("stroke-width", 3);
+adi.moveTo(650, 585)
+       .lineTo(650,605) 
+       .set("stroke", "#00FF00") 
+       .set("stroke-width", 3);
+adi.moveTo(100, 585) # Make the edge of them point down
+       .lineTo(100,605) 
+       .set("stroke", "#00FF00") 
+       .set("stroke-width", 3);
 
 
 
@@ -331,8 +455,22 @@ var update = func() {
        cradz = 0;
   }
   cursor.setTranslation(cradx,cradz); 
+
+
   if (getprop(mfdval) == 2) { # FCR Scripting
+    SMS.setVisible(0);
     FCR.setVisible(1); # engage the fcr 
+    adi.setCenter(375,585);
+    
+    # ok heres the deal on rotation, math.pi is 360 deg, So pi and -pi will result in the same thing, a 360 turn clockwise and counter-clockwise.
+    var rolldeg = getprop("orientation/roll-deg");
+    var ptchdeg = getprop("orientation/pitch-deg");
+    var rollscaled = misc.scalenum(rolldeg, -360, 360, -2*math.pi, 2*math.pi);
+    var ptchscaled = misc.scalenum(ptchdeg, -90, 90, 375, -375);
+    adi.setRotation(rollscaled);
+    adi.setTranslation(0,ptchscaled);
+
+
     var radarmode = getprop("instrumentation/radar/mode/main");
     var radarzoom = getprop("instrumentation/radar/mode/zoom");
     var radarrang = getprop("instrumentation/radar/range");
@@ -419,14 +557,11 @@ var update = func() {
                      bliparray[i].setTranslation(0,0);
               }
        }
-
-
-
-
     }
   } elsif (getprop(mfdval) == 0) {
        # main page
        FCR.setVisible(0);
+       SMS.setVisible(0);
        r1.setText("DTC");
        r2.setText("FLT");
        r3.setText("WEP");
@@ -436,8 +571,87 @@ var update = func() {
        l2.setText("FUEL");
        l3.setText("SMS");
        l4.setText("FCR");
-       r5.setText("");
+       l5.setText("");
        rng.setText("");
+  } elsif (getprop(mfdval) == 1) {
+       # SMS
+       FCR.setVisible(0);
+       
+       SMS.setVisible(1);
+       flare.setText("");
+       chaff.setText("");
+       prgm.setText("");
+       prgmname.setText("");
+       cs1.setText("");
+       cs2.setText("");
+       cs3.setText("");
+       cs4.setText("");
+       cs5.setText("");
+       cs6.setText("");
+       cs7.setText("");
+       cs8.setText("");
+       wepname.setText(getprop("controls/armament/selected-weapon"));
+       r1.setText("");
+       r2.setText("");
+       r3.setText("");
+       r4.setText("AUTO");
+       r5.setText("ADEP");
+       l1.setText("A/A");
+       l2.setText("A/G");
+       l3.setText("CMS");
+       l4.setText("XAM");
+       l5.setText("ECM");
+       rng.setText("");
+  } elsif (getprop(mfdval) == 9) {
+       # SMS --> CMS
+       FCR.setVisible(0);
+       SMS.setVisible(1);
+       wepname.setText("");
+       flare.setText("Flare: " ~ sprintf("%d", getprop("f22/flare")) ~ "");
+       chaff.setText("Chaff: " ~ sprintf("%d", getprop("f22/chaff")) ~ "");
+       prgm.setText("Program: " ~ sprintf("%d", getprop("controls/CMS/prgmselected")) ~ "");
+       prgmname.setText("Program Name: " ~ getprop("controls/CMS/prgmname") ~ "");
+       r1.setText("");
+       r2.setText("");
+       r3.setText("");
+       r4.setText("");
+       r5.setText("");
+       l1.setText("1");
+       l2.setText("2");
+       l3.setText("3");
+       l4.setText("4");
+       l5.setText("5");
+       rng.setText("");
+  } elsif (getprop(mfdval) == 8) { 
+       # SMS --> Multishot
+       r1.setText("");
+       r2.setText("");
+       r3.setText("");
+       r4.setText("");
+       r5.setText("");
+       l1.setText("RADAR");
+       l2.setText("NEXT");
+       l3.setText("PREV");
+       l4.setText("RSET");
+       l5.setText("TOGL");
+       rng.setText("");
+       flare.setText("");
+       chaff.setText("");
+       prgm.setText("" ~ getprop("controls/armament/multishot/message"));
+       prgmname.setText("Editing Target / Trigger will fire " ~ sprintf("%d", getprop("controls/armament/multishot/numcallsign")) ~ " weapons");
+
+       cs1.setText(getprop("controls/armament/multishot/callsign1"));
+       cs2.setText(getprop("controls/armament/multishot/callsign3"));
+       cs3.setText(getprop("controls/armament/multishot/callsign5"));
+       cs4.setText(getprop("controls/armament/multishot/callsign7"));
+
+       cs5.setText(getprop("controls/armament/multishot/callsign2"));
+       cs6.setText(getprop("controls/armament/multishot/callsign4"));
+       cs7.setText(getprop("controls/armament/multishot/callsign6"));
+       cs8.setText(getprop("controls/armament/multishot/callsign8"));
+       wepname.setText("");
+
+
   } else {
     #print("No FCR Screen");
     FCR.setVisible(0);

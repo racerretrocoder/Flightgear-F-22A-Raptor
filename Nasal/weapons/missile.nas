@@ -1015,25 +1015,14 @@ broddamage: func (cs,dist,msl) {
                 # aero dynamics / engine deg
                 if (me.eject != 1) {
                     if (me.isbomb == 1) {
-                        if (getprop("orientation/alpha-deg") > 0) {
-                            pitch_deg = getprop("orientation/pitch-deg") - 3.5 + getprop("orientation/alpha-deg");
-                        } else {
-                            pitch_deg = getprop("orientation/pitch-deg");
-                        }
+                        pitch_deg = getprop("orientation/pitch-deg") - 3.5;
                     } elsif (me.ignitedelay != 0) {
                         # drop missile
-                        if (getprop("orientation/alpha-deg") > 0) {
-                            pitch_deg = getprop("orientation/pitch-deg") - 2.8 + getprop("orientation/alpha-deg");
-                        } else {
-                            pitch_deg = getprop("orientation/pitch-deg");
-                        }
+                        pitch_deg = getprop("orientation/pitch-deg") - 2.8;
                     } else {
                         # railed
-                        if (getprop("orientation/alpha-deg") > 0) {
-                            pitch_deg = getprop("orientation/pitch-deg") - getprop("orientation/alpha-deg");
-                        } else {
-                            pitch_deg = getprop("orientation/pitch-deg");
-                        }
+                        pitch_deg = getprop("orientation/pitch-deg");
+
                     }
                 } else {
                     pitch_deg = 90; # eject!
