@@ -2062,25 +2062,21 @@ var automultilock = func() {
     var total = size(list);
     var targets = [];
     for(var i = 0; i < total; i += 1) {
-      var callsignindex = i+1;
-      if (callsignindex == 9) {
-        break;
-      }
-      if (getprop("instrumentation/radar2/targets/multiplayer[" ~ i ~ "]/display") == 1) {
+      if (getprop("instrumentation/radar2/targets/multiplayer[" ~ i ~ "]/display") == 1 and numtgt < 9) {
+        numtgt = numtgt + 1;
         var callsign = getprop("instrumentation/radar2/targets/multiplayer[" ~ i ~ "]/callsign");
         append(targets, callsign);
-      } else {
-        append(targets, ""); # blank an index
       }
     }
     var total = size(targets);
-    for(var i = 0; i < 8; i += 1) {
-      if (targets[i] != nil) {
-        var multi = i + 1;
-        if (getprop("controls/armament/multishot/callsign" ~ multi ~ "") == "") {
-        setprop("controls/armament/multishot/callsign" ~ multi ~ "", targets[i]);
+    for(var i = 0; i < total; i += 1) {
+      if (targets != []) {
+        if (targets[i] != nil) {
+          var multi = i + 1;
+          if (getprop("controls/armament/multishot/callsign" ~ multi ~ "") == "") { # this is what allows the callsign to be changed and automatically added in
+            setprop("controls/armament/multishot/callsign" ~ multi ~ "", targets[i]);
+          }
         }
-        #setprop("controls/armament/multishot/callsign" ~ multi ~ "", targets[i]);
       }
     }
   }

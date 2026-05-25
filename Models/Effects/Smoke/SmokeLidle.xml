@@ -24,7 +24,7 @@
 	 </less-than>
         <less-than>
           <property>/position/altitude-ft</property>
-          <value>15000</value>
+          <value>-10</value>
         </less-than>
       </and>
     </condition>
