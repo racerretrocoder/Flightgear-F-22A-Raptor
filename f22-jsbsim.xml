@@ -1205,7 +1205,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <independentVar lookup="column">/controls/apu/run</independentVar>
             <tableData>
                      0    1  
-              0      1    1  <!--todo: add debug switch for developing-->
+              0      0    1  <!--todo: add debug switch for developing-->
               1      1    1
             </tableData>
           </table>

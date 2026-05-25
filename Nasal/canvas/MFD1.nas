@@ -36,6 +36,12 @@ var lables = mfd.createGroup();
 var FCR = mfd.createGroup();
   # SMS
 var SMS = mfd.createGroup();
+  # RWR
+var RWR = mfd.createGroup();
+RWR.setScale(0.9,(math.pi -2) / 0.9);
+RWR.setTranslation(37.5,160);
+
+
 var wepname = SMS.createChild("text", "wepname")
        .setTranslation(375, 675)    
        .setAlignment("left-center") 
@@ -164,7 +170,7 @@ var blip17 = FCR.createChild("path");
 var blip18 = FCR.createChild("path");
 var blip19 = FCR.createChild("path");
 var blip20 = FCR.createChild("path");
-# center: 375, 585
+# center: X:375, Y:585
 var bliparray = [blip1,blip2,blip3,blip4,blip5,blip6,blip7,blip8,blip9,blip10,blip11,blip12,blip13,blip14,blip15,blip16,blip17,blip18,blip19,blip20]; # really bad, but untill i learn a better way, this works xdd
 # render the blips early
 for(var ae = 0; ae < 20; ae += 1) {
@@ -467,6 +473,7 @@ var update = func() {
 
   if (getprop(mfdval) == 2) { # FCR Scripting
     SMS.setVisible(0);
+    RWR.setVisible(0);
     FCR.setVisible(1); # engage the fcr 
     adi.setCenter(375,585);
     
@@ -568,6 +575,7 @@ var update = func() {
     }
   } elsif (getprop(mfdval) == 0) {
        # main page
+       RWR.setVisible(0);
        FCR.setVisible(0);
        SMS.setVisible(0);
        r1.setText("DTC");
@@ -584,7 +592,7 @@ var update = func() {
   } elsif (getprop(mfdval) == 1) {
        # SMS
        FCR.setVisible(0);
-       
+       RWR.setVisible(0);
        SMS.setVisible(1);
        flare.setText("");
        chaff.setText("");
@@ -658,8 +666,24 @@ var update = func() {
        cs7.setText(getprop("controls/armament/multishot/callsign6"));
        cs8.setText(getprop("controls/armament/multishot/callsign8"));
        wepname.setText("");
+       
 
 
+  } elsif (getprop(mfdval) == 5) { 
+    FCR.setVisible(0);
+    SMS.setVisible(0);
+    RWR.setVisible(1);
+    r1.setText("");
+    r2.setText("");
+    r3.setText("");
+    r4.setText("");
+    r5.setText("");
+    l1.setText("");
+    l2.setText("");
+    l3.setText("");
+    l4.setText("");
+    l5.setText("");
+       
   } else {
     #print("No FCR Screen");
     FCR.setVisible(0);
@@ -671,7 +695,10 @@ var update = func() {
 # Copied from the HUD
 var init = setlistener("/sim/signals/fdm-initialized", func() {
   removelistener(init); # only call once
-  screen.log.write("To test out the new canvas MFD system: press / go into f22 and set canvasmfds to 1",1,1,0);
+  if (getprop("sim/signals/fdm-initialized") == 1) {
+     var therwr = rwrs.RWRCanvas.new("RWRCanvas", RWR, [375,585/2],768);
+     timer = maketimer(0.5, func therwr.update());
+     timer.start();
+   }
   update();
-  
 });
