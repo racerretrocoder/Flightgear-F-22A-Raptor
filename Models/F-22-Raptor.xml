@@ -62,7 +62,7 @@ var smallsearch = func(cs=nil) {
 		# wing damage
 		var wingtrunk = getprop("ai/models/multiplayer[" ~ mpid ~ "]/sim/multiplay/generic/string[4]");
 		wingtrunk = num(wingtrunk);
-		screen.log.write(wingtrunk);
+		#screen.log.write(wingtrunk);
 		if (wingtrunk == 0) {
 			setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/damage/rwing",0);
 			setprop("ai/models/multiplayer[" ~ mpid ~ "]/f22/damage/lwing",0);
