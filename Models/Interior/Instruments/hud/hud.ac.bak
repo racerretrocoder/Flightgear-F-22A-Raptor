@@ -11,7 +11,6 @@ name "hudglass"
 loc 0.00975037 0.194329 0.0043333
 texture "CavasTex.png"
 crease 180.000000
-hidden
 numvert 81
 0 -0.0975422 -0.10425
 0 -0.0975422 -0.0781873
@@ -23188,9 +23187,10 @@ refs 4
 2903 0.640531 0.720786
 kids 0
 OBJECT poly
-name "tint"
+name "poly"
 loc -0.0190694 0.218518 0.00119883
 crease 45.000000
+hidden
 numvert 60
 0.0299399 0.12921 0.0637235
 0.0302676 0.130624 0.0506716

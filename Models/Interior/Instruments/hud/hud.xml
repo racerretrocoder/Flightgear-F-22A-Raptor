@@ -20,7 +20,7 @@
   <object-name>glasstint</object-name>
   <object-name>hudglass</object-name>
   <object-name>lock</object-name>
-  <object-name>poly</object-name>
+  <object-name>tint</object-name>
 </animation>	
 
 
@@ -28,12 +28,12 @@
   <inherits-from>Effects/model-transparent</inherits-from>
   <!-- Replace 'HUD.l.canvas' with the object the canvas is placed on -->
   <object-name>hudglass</object-name>
-  <object-name>poly</object-name>
+  <object-name>tint</object-name>
 </effect>
  <effect>
   <inherits-from>Effects/glass</inherits-from>
   <!-- Replace 'HUD.l.canvas' with the object the canvas is placed on -->
-  <object-name>poly</object-name>
+  <object-name>tint</object-name>
 </effect>
 
 
@@ -89,5 +89,29 @@
  </animation>
 
 
+
+<animation>
+  <type>pick</type>
+   <object-name>tint</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>nasal</command>
+      <script>setprop("f22/show-tint",0);</script>
+    </binding>
+    </action>
+</animation>
+
+ <animation>
+  <object-name>tint</object-name>
+  <type>select</type>
+  <condition>
+  <property>/f22/show-tint</property>
+
+
+  </condition>
+ </animation>
 
 </PropertyList>
