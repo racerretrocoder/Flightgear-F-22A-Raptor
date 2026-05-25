@@ -2760,7 +2760,7 @@ var wingloop = func() {
 var gwing = func() {
   var g = getprop("/accelerations/pilot-gdamped");
   var speed = getprop("/velocities/airspeed-kt");
-  if (g > 11 and speed > 300 or getprop("damage/sounds/nearby-explode-on") == 1) {
+  if (g > 11 and speed > 300) {
     # SNAP!
     ae = 0.5;
     thewing = rand() < (1-ae);
@@ -3014,7 +3014,7 @@ var gunshit = func(hits) {
   }
 }
 var missilehit = func() {
-  var chance = 0.8;
+  var chance = 0.5;
   var gamble = rand() > (1-chance);
   if (gamble == 1) {
     # wing ded xd
