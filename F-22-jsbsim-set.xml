@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 	
-<PropertyList include="ver.xml">
-					<abdens type="double">0</abdens>
+<PropertyList include="ver.xml"> <!--ver.xml is what the autoupdate check does-->
+<abdens type="double">0</abdens>
 	<sim>
+       	<instrument-options>
+       	    <canvas-popup-enable type="bool">true</canvas-popup-enable>
+       	</instrument-options>
                <!-- <nasal-gc-threaded type="bool">true</nasal-gc-threaded> Spreads the load of all the timers off one core-->
 		<description>F-22A (JSBSim FDM)</description>
 		<expected-aircraft-dir-name>F-22</expected-aircraft-dir-name>

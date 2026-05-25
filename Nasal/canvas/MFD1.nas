@@ -9,15 +9,27 @@ print("Loading Left Canvas MFD...");
 
 mfdval = "/systems/MFD/modemfdl";
 
-var mfd = canvas.new({
+
+var ae = canvas.new({
   "name": "Left-MFD",   # The name is optional but allow for easier identification
   "size": [1024, 1024],   # Size of the underlying texture (should be a power of 2, required) [Resolution]
   "view": [768, 1024],   # Virtual resolution (Defines the coordinate system of the canvas [Dimensions]
                         # which will be stretched the size of the texture, required)
   "mipmapping": 1       # Enable mipmapping (optional)
 });
+var placements = {"mfd" : ae};
 
-mfd.addPlacement({"node": "leftmfd"});
+placements.mfd.addPlacement({"node": "leftmfd"});
+var mfd = placements.mfd;
+
+var showmfd = func(screen='mfd') {
+    if(getprop("sim/instrument-options/canvas-popup-enable"))
+    {
+        # The optional second arguments enables creating a window decoration
+        var dlg = canvas.Window.new([400, 400], "dialog");
+        dlg.setCanvas( placements[screen] );
+    }
+}
 mfd.setColorBackground(0.00784, 0.00784, 0.0823);
 var lables = mfd.createGroup();
   # FCR

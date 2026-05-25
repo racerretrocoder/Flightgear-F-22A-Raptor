@@ -67,4 +67,27 @@
             </condition>
  </animation>
 
+
+<animation>
+  <type>pick</type>
+   <object-name>centermfd</object-name> 
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+      <command>nasal</command>
+      <script>CMFD2.showmfd()</script>
+    </binding>
+    </action>
+    <!--
+            <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rfe</tooltip-id>
+                <label>Show this MFD in its own seperate window</label>
+            </binding>
+        </hovered>
+    -->
+</animation>
 </PropertyList>
