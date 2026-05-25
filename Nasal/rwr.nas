@@ -431,7 +431,7 @@ var main_init_listener = setlistener("sim/signals/fdm-initialized", func {
      var root = cv.createGroup();
      rwr = RWRCanvas.new("RWRCanvas", root, [diam/2,diam/2],diam);
      removelistener(main_init_listener);
-     timer = maketimer(0.5, func rwr.update());
+     timer = maketimer(0, func rwr.update());
      timer.start();
    }
 }, 0, 0);

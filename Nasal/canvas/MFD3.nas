@@ -36,6 +36,12 @@ var lables = mfd.createGroup();
 var FCR = mfd.createGroup();
   # SMS
 var SMS = mfd.createGroup();
+  # RWR
+var RWR = mfd.createGroup();
+RWR.setScale(0.9,(math.pi -2) / 0.9);
+RWR.setTranslation(37.5,160);
+
+
 var wepname = SMS.createChild("text", "wepname")
        .setTranslation(375, 675)    
        .setAlignment("left-center") 
@@ -43,8 +49,6 @@ var wepname = SMS.createChild("text", "wepname")
        .setFontSize(36, 1.2)        
        .setColor(0,1,1)             
        .setText("Select a weapon");
-
-
 
 var chaff = SMS.createChild("text", "chaff")
        .setTranslation(160, 275)    
@@ -470,6 +474,7 @@ var update = func() {
 
 
   if (getprop(mfdval) == 2) { # FCR Scripting
+    RWR.setVisible(0);
     SMS.setVisible(0);
     FCR.setVisible(1); # engage the fcr 
     adi.setCenter(375,585);
@@ -573,6 +578,7 @@ var update = func() {
   } elsif (getprop(mfdval) == 0) {
        # main page
        FCR.setVisible(0);
+       RWR.setVisible(0);
        SMS.setVisible(0);
        r1.setText("DTC");
        r2.setText("FLT");
@@ -588,7 +594,7 @@ var update = func() {
   } elsif (getprop(mfdval) == 1) {
        # SMS
        FCR.setVisible(0);
-       
+       RWR.setVisible(0);
        SMS.setVisible(1);
        flare.setText("");
        chaff.setText("");
@@ -664,6 +670,20 @@ var update = func() {
        wepname.setText("");
 
 
+  } elsif (getprop(mfdval) == 5) { 
+    FCR.setVisible(0);
+    SMS.setVisible(0);
+    RWR.setVisible(1);
+    r1.setText("");
+    r2.setText("");
+    r3.setText("");
+    r4.setText("");
+    r5.setText("");
+    l1.setText("");
+    l2.setText("");
+    l3.setText("");
+    l4.setText("");
+    l5.setText("");
   } else {
     #print("No FCR Screen");
     FCR.setVisible(0);
@@ -675,7 +695,10 @@ var update = func() {
 # Copied from the HUD
 var init = setlistener("/sim/signals/fdm-initialized", func() {
   removelistener(init); # only call once
-  screen.log.write("To test out the new canvas MFD system: press / go into f22 and set canvasmfds to 1",1,1,0);
+  if (getprop("sim/signals/fdm-initialized") == 1) {
+     var therwr = rwrs.RWRCanvas.new("RWRCanvas", RWR, [375,585/2],768);
+     timer = maketimer(0.5, func therwr.update());
+     timer.start();
+   }
   update();
-  
 });
