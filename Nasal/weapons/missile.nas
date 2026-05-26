@@ -1030,21 +1030,6 @@ broddamage: func (cs,dist,msl) {
             } 
             else
             {
-
-
-                if (me.eject != 1) {
-                    if (me.isbomb == 1) {
-                        if (me.life_time < 2) {
-                            pitch_deg = getprop("orientation/pitch-deg") - 3.5; # shove the bomb off
-                        }
-                    } elsif (me.ignitedelay != 0) {
-                        # drop missile
-                        if (me.life_time < 2) {
-                            pitch_deg = getprop("orientation/pitch-deg") - 2.8;
-                        }
-                    }
-                }
-
                 # here will be set the max angle of pitch and the max angle
                 # of heading to avoid G overload
                 var myG = steering_speed_G(me.track_signal_e, me.track_signal_h, (total_s_ft / dt), mass, dt);
@@ -1398,7 +1383,7 @@ print("target ran");
             #print("DeltaElevation ", t_alt_delta_m);
             
             # cruise mode control :
-            if(me.cruisealt != 0 or me.pitbullrngm == 0)
+            if(me.cruisealt != 0)
             {
                 # this is for Air to ground cruise missile (SCALP, Taurus,
                 # Tomahawk...)

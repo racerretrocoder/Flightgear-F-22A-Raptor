@@ -95,31 +95,31 @@ var Loading_missile = func(name)
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-260/AIM260.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
         flareres = 0.98; # 0.999    Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
-        maxdetectionrngnm = 500.8;                    #  300000000000000
+        maxdetectionrngnm = 50;                    #  300000000000000
         fovdeg = 360;                                
         detectionfovdeg = 360;                       
         trackmaxdeg = 360;                           
         maxg = 60;                                   
         thrustlbs = 1900;                            
         thrustlbsstage2 = 580;
-        thrustdurationsec = 26;
+        thrustdurationsec = 46;
         thrustdurationsecstage2 = 120;                      # 
         weightlaunchlbs = 421; # weightlaunch + fuel
         weightwarheadlbs = 44;
-        dragcoeff = 0.09;                              # really slow lowerd it a bit
+        dragcoeff = 0.02;                              # really slow lowerd it a bit
         dragarea = 0.0236;                            # sq ft
         maxExplosionRange = 200;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 5.9;                              # In mach ( source is a guess )
+        maxspeed = 6.9;                              # In mach ( source is a guess )
         life = 500; # 
         sdspeed = 0.35;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";
-        rail = 0;
+        rail = 1;
         cruisealt = 0;
         chute = 0;
         isbomb = 0;
         pbrange = 0;
         multishot = 6;
-        ignitedelay = 2; 
+        ignitedelay = 0; 
     }
 
     elsif(name == "Aim-9x")
