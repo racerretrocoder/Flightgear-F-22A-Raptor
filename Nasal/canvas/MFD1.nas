@@ -40,6 +40,48 @@ var SMS = mfd.createGroup();
 var RWR = mfd.createGroup();
 RWR.setScale(0.9,(math.pi -2) / 0.9);
 RWR.setTranslation(37.5,160);
+  # ENG
+var ENG = mfd.createGroup();
+ENG.setVisible(0);
+var fpv = ENG.createChild("group", "FPV");
+
+fpv.createChild("path") # RPM ENG1
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(275, 185)
+       .arcLargeCW(45, 60, -0,  -60, 60);
+
+fpv.createChild("path") # RPM ENG2
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(475, 185)
+       .arcLargeCW(45, 60, -0,  -60, 60);
+
+fpv.createChild("path") # EGT ENG1
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(275, 385)
+       .arcLargeCW(45, 60, -0,  -60, 60);
+
+fpv.createChild("path") # EGT ENG2
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(475, 385)
+       .arcLargeCW(45, 60, -0,  -60, 60);
+
+fpv.createChild("path") # OIL ENG1
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(275*2, 585*2)
+       .arcLargeCW(45, 60, -0,  -60, 60)
+       .setScale(0.5);
+
+fpv.createChild("path") # OIL ENG2
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(475*2, 585*2)
+       .arcLargeCW(45, 60, -0,  -60, 60)
+       .setScale(0.5);
 
 
 var wepname = SMS.createChild("text", "wepname")
