@@ -2756,7 +2756,7 @@ var wingloop = func() {
 var gwing = func() {
   var g = getprop("/accelerations/pilot-gdamped");
   var speed = getprop("/velocities/airspeed-kt");
-  if (g > 13 and speed > 300) {
+  if (g > 14.8 and speed > 300) {
     # SNAP!
     ae = 0.5;
     thewing = rand() < (1-ae);
