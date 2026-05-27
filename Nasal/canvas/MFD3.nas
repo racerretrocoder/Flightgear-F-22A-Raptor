@@ -441,12 +441,12 @@ pathA.moveTo(537.5, 210)  # right bound
        .set("stroke-width", 3);
 
 var radstb = FCR.createChild("text", "standby")
-                .setTranslation(340, 340)      
+                .setTranslation(310, 440)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)         
                 .setColor(0,1,0)              
-                .setText("APG-88V2 AESA - VERSION 13743737423ABDS");
+                .setText("test");
 
 
 
@@ -646,7 +646,7 @@ var update = func() {
     l4.setText("");
     l5.setText("");
     rng.setText(sprintf("%d", radarrang));
-    if (getprop("f22/instrumentation/N010-radar/emitting") == 0) {
+    if (getprop("su-27/instrumentation/N010-radar/emitting") == 0) {
       radstb.setText("RADAR STANDBY");
     } else {
        radstb.setText("");

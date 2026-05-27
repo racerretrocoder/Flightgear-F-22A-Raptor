@@ -264,6 +264,12 @@ var cs8 = SMS.createChild("text", "cs")
 
 var FCRCursor = mfd.createGroup();
 var pathA = FCR.createChild("path");
+var horizrad = FCR.createChild("path");
+horizrad.moveTo(375, 965)  # left bound
+       .lineTo(375,975)
+       .set("stroke", "#00FFFF") 
+       .set("stroke-width", 3);
+
 var adi = FCR.createChild("path");
 var cursor = FCR.createChild("path");
 
@@ -439,12 +445,12 @@ pathA.moveTo(537.5, 210)  # right bound
        .set("stroke-width", 3);
 
 var radstb = FCR.createChild("text", "standby")
-                .setTranslation(340, 340)      
+                .setTranslation(310, 440)      
                 .setAlignment("left-center") 
                 .setFont("B612/B612-Bold.ttf") 
                 .setFontSize(22, 1.2)         
                 .setColor(0,1,0)              
-                .setText("");
+                .setText("test");
 
 
 
@@ -596,7 +602,6 @@ var update = func() {
     ENG.setVisible(0);
     FCR.setVisible(1); # engage the fcr 
     adi.setCenter(375,585);
-    
     # ok heres the deal on rotation, math.pi is 360 deg, So pi and -pi will result in the same thing, a 360 turn clockwise and counter-clockwise.
     var rolldeg = getprop("orientation/roll-deg");
     var ptchdeg = getprop("orientation/pitch-deg");
@@ -644,10 +649,16 @@ var update = func() {
     l4.setText("");
     l5.setText("");
     rng.setText(sprintf("%d", radarrang));
-    if (getprop("f22/instrumentation/N010-radar/emitting") == 0) {
+    if (getprop("su-27/instrumentation/N010-radar/emitting") == 0) {
       radstb.setText("RADAR STANDBY");
     } else {
-       radstb.setText("");
+       var radscaled = misc.scalenum(getprop("instrumentation/radar2/sweep-marker-norm"),-1, 1, -325, 325);
+       horizrad.setTranslation(radscaled,0);
+       if (getprop("instrumentation/radar/lock2") == 2) {
+              radstb.setText("LOCKED");
+       } else {
+              radstb.setText("");
+       }
        #print("The radar is active!");
        # Blip rendering
        var list = props.globals.getNode("/instrumentation/radar2/marker").getChildren("mark");

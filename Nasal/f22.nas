@@ -3010,9 +3010,9 @@ var gunshit = func(hits) {
   }
 }
 var missilehit = func() {
-  var chance = 0.5;
-  var gamble = rand() > (1-chance);
-  if (gamble == 1) {
+  var chance = 0.8; # was 50% (0.5)
+  #var gamble = rand() > (1-chance);
+  if (1 == 1) {
     # wing ded xd
     ae = 0.5;
     thewing = rand() > (1-ae);
