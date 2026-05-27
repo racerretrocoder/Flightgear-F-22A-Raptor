@@ -40,8 +40,127 @@ var SMS = mfd.createGroup();
 var RWR = mfd.createGroup();
 RWR.setScale(0.9,(math.pi -2) / 0.9);
 RWR.setTranslation(37.5,160);
+var FLT = mfd.createGroup();
+var fcs = FLT.createChild("text", "fcs")
+       .setTranslation(315, 240)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,1)             
+       .setText("FCS: NAV");
+var aoa = FLT.createChild("text", "aoa")
+       .setTranslation(125, 240)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,1)             
+       .setText("AOA: -180");
+var gload = FLT.createChild("text", "aoa")
+       .setTranslation(125, 280)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,1)             
+       .setText("G: 9.27");
+  # ENG
+var ENG = mfd.createGroup();
+var fpv = ENG.createChild("group", "FPV");
+# (xRadius,yRadius,0,xEnd,yEnd)
+fpv.createChild("path") # RPM ENG1
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(275, 185)
+       .arcLargeCW(45, 60, 0,  -45, 60);
+fpv.createChild("path") # RPM ENG2
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(475, 185)
+       .arcLargeCW(45, 60, 0,  -45, 60);
 
+fpv.createChild("path") # EGT ENG1
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(275, 385)
+       .arcLargeCW(45, 60, 0,  -45, 60);
 
+fpv.createChild("path") # EGT ENG2
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(475, 385)
+       .arcLargeCW(45, 60, 0,  -45, 60);
+
+fpv.createChild("path") # OIL ENG1
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(275*2, 585*2)
+       .arcLargeCW(45, 60, 0,  -45, 60)
+       .setScale(0.5);
+
+fpv.createChild("path") # OIL ENG2
+       .setStrokeLineWidth(4)
+       .set("stroke", "rgba(0,255,0,1)")
+       .moveTo(475*2, 585*2)
+       .arcLargeCW(45, 60, 0,  -45, 60)
+       .setScale(0.5);
+# engine text 
+var eng1 = ENG.createChild("text", "engine")
+       .setTranslation(345, 240)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,1)             
+       .setText("RPM");
+var eng2 = ENG.createChild("text", "engine")
+       .setTranslation(345, 440)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,1)             
+       .setText("EGT F");
+var eng3 = ENG.createChild("text", "engine")
+       .setTranslation(345, 620)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,1)             
+       .setText("OIL PSI");
+# Pointer thingies
+#var rpm1 = ENG.createChild("path");
+#rpm1.moveTo(275, 185)
+#       .lineTo(275, 245) # right cursor barrier
+#       .set("stroke", "#00FF00") 
+#       .set("stroke-width", 3)
+#       .setCenter(275,245);
+# doesnt work. I need to reskew the entire screen
+var rpm1 = ENG.createChild("text", "engine")
+       .setTranslation(225, 205)#(275, 185)     
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(22, 1.2)        
+       .setColor(0,1,1)             
+       .setText("100.0");
+var rpm2 = ENG.createChild("text", "engine")
+       .setTranslation(425, 205)#(475, 185) 
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(22, 1.2)        
+       .setColor(0,1,1)             
+       .setText("100.0");
+var egt1 = ENG.createChild("text", "engine")
+       .setTranslation(225, 405)#((275, 385)) 
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(22, 1.2)        
+       .setColor(0,1,1)             
+       .setText("9999");
+var egt2 = ENG.createChild("text", "engine")
+       .setTranslation(425, 405)#(475, 385) 
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(22, 1.2)        
+       .setColor(0,1,1)             
+       .setText("9999");
+# SMS stuff
 var wepname = SMS.createChild("text", "wepname")
        .setTranslation(375, 675)    
        .setAlignment("left-center") 
@@ -474,8 +593,9 @@ var update = func() {
 
 
   if (getprop(mfdval) == 2) { # FCR Scripting
-    RWR.setVisible(0);
     SMS.setVisible(0);
+    RWR.setVisible(0);
+    ENG.setVisible(0);
     FCR.setVisible(1); # engage the fcr 
     adi.setCenter(375,585);
     
@@ -577,9 +697,11 @@ var update = func() {
     }
   } elsif (getprop(mfdval) == 0) {
        # main page
-       FCR.setVisible(0);
+       ENG.setVisible(0);
        RWR.setVisible(0);
+       FCR.setVisible(0);
        SMS.setVisible(0);
+       FLT.setVisible(0);
        r1.setText("DTC");
        r2.setText("FLT");
        r3.setText("WEP");
@@ -594,8 +716,10 @@ var update = func() {
   } elsif (getprop(mfdval) == 1) {
        # SMS
        FCR.setVisible(0);
+       ENG.setVisible(0);
        RWR.setVisible(0);
        SMS.setVisible(1);
+       FLT.setVisible(0);
        flare.setText("");
        chaff.setText("");
        prgm.setText("");
@@ -668,11 +792,14 @@ var update = func() {
        cs7.setText(getprop("controls/armament/multishot/callsign6"));
        cs8.setText(getprop("controls/armament/multishot/callsign8"));
        wepname.setText("");
+       
 
 
   } elsif (getprop(mfdval) == 5) { 
     FCR.setVisible(0);
     SMS.setVisible(0);
+    ENG.setVisible(0);
+    FLT.setVisible(0);
     RWR.setVisible(1);
     r1.setText("");
     r2.setText("");
@@ -683,7 +810,45 @@ var update = func() {
     l2.setText("");
     l3.setText("");
     l4.setText("");
+    l5.setText("");   
+  } elsif (getprop(mfdval) == 4) { 
+    FCR.setVisible(0);
+    SMS.setVisible(0);
+    ENG.setVisible(0);
+    FLT.setVisible(1);
+    RWR.setVisible(0);
+    r1.setText("");
+    r2.setText("");
+    r3.setText("");
+    r4.setText("");
+    r5.setText("");
+    l1.setText("");
+    l2.setText("");
+    l3.setText("");
+    l4.setText("");
     l5.setText("");
+    aoa.setText("AOA: " ~ sprintf("%d", getprop("/orientation/alpha-deg")) ~ "");
+    gload.setText("G: " ~ sprintf("%d", getprop("/accelerations/pilot-gdamped")) ~ "");
+  } elsif (getprop(mfdval) == 7) { # ENG 
+    FCR.setVisible(0);
+    SMS.setVisible(0);
+    RWR.setVisible(0);
+    FLT.setVisible(0);
+    ENG.setVisible(1);
+    r1.setText("");
+    r2.setText("");
+    r3.setText("");
+    r4.setText("");
+    r5.setText("");
+    l1.setText("");
+    l2.setText("");
+    l3.setText("");
+    l4.setText("");
+    l5.setText("");
+    rpm1.setText(sprintf("%d", getprop("/fdm/jsbsim/fcs/effected0n1")));
+    rpm2.setText(sprintf("%d", getprop("/fdm/jsbsim/fcs/effected1n1")));
+    egt1.setText(sprintf("%d", getprop("/engines/engine[0]/egt-degf")));
+    egt2.setText(sprintf("%d", getprop("/engines/engine[1]/egt-degf")));
   } else {
     #print("No FCR Screen");
     FCR.setVisible(0);

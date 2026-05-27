@@ -154,8 +154,6 @@ var apucheck2 = func {
          setprop("controls/electric/apustartpos", -1);
          click();
          f22.apushutoffmain();
-         screen.log.write("Autostart finished.");
-
          timer_apucheck2.stop();
       }
 }
