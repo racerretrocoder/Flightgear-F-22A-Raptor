@@ -631,17 +631,15 @@ if (me.Tgt != nil) {
 sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
     #Missile alert sender/missile smoke over damage MP
     if(getprop("payload/armament/msg") and getprop("payload/armament/inflight") == 1){
-
-
     if(me.free == 1) {
     if (debugsysmessages == 1) {
         print("Missile is currently free, sendinflight()"); 
         }
         # return;
     }
-        if (debugsysmessages == 1) {
-print("Unique ID: ");
- print(unique);
+    if (debugsysmessages == 1) {
+        print("Unique ID: ");
+        print(unique);
     }
     if(tid == 0) { # where not given a typeID
         typeID = me.getTypeID(me.NameOfMissile);
@@ -652,9 +650,9 @@ print("Unique ID: ");
         var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
         var altM = alt*FT2M;
         msg.Position.set_latlon(lat,lon,altM);
-        if (me.isradarmissile != 0){
+        if (me.isradarmissile != 0 and getprop("controls/jammer/status") == 0){
         if (me.pitbullrngm != 0) {
-                if (me.pitbull == 1){
+        if (me.pitbull == 1){
             if (me.messagesent == 0){
                 screen.log.write("" ~ me.NameOfMissile ~ ": Pitbull");
                 me.messagesent = 1;
