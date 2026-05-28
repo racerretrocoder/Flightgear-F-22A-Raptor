@@ -50,23 +50,22 @@ var spec = func() {
     var newlat = coord1.lat();
     var newlon = coord1.lon();
     var deleted = 0;
-    # the sender
-    var unique = -11;
-    var typeID = 52;
-    var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
-    var altm = alt1*FT2M;
-
-    msg.Position.set_latlon(newlon,newlat,altm);
-    msg.Flags = 1; #act rad msl
-    msg.Flags = bits.set(msg.Flags, 0); # (should show smoke? 1 yes 0 no) | will do no for now. since there is actually no missile
-    msg.IsDistinct = !deleted; # The missile is "Not" dead
-    msg.RemoteCallsign = ae;
-    msg.UniqueIndex = ""~typeID~unique; # tid and the current missile number
-    msg.Pitch = offset; # simple
-    msg.Heading = mslhdg; # simple
-    msg.u_fps = 500; # simple
-    #msg.isValid();
-    notifications.geoBridgedTransmitter.NotifyAll(msg); # send
+   # # the sender
+   # var unique = -11;
+   # var typeID = 52;
+   # var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
+   # var altm = alt1*FT2M;
+   # msg.Position.set_latlon(newlon,newlat,altm);
+   # msg.Flags = 1; #act rad msl
+   # msg.Flags = bits.set(msg.Flags, 0); # (should show smoke? 1 yes 0 no) | will do no for now. since there is actually no missile
+   # msg.IsDistinct = !deleted; # The missile is "Not" dead
+   # msg.RemoteCallsign = ae;
+   # msg.UniqueIndex = ""~typeID~unique; # tid and the current missile number
+   # msg.Pitch = offset; # simple
+   # msg.Heading = mslhdg; # simple
+   # msg.u_fps = 500; # simple
+   # #msg.isValid();
+   # notifications.geoBridgedTransmitter.NotifyAll(msg); # send
   }
 }
 
