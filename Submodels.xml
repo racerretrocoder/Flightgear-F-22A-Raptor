@@ -23,7 +23,7 @@
     <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
     <impact>true</impact>
     <impact-report>sim/ai/aircraft/impact/bullet</impact-report>
-    <submodel-path>Aircraft/F-22/Models/Effects/submodels.xml</submodel-path>
+    <submodel-path>Aircraft/F-22/Models/Effects/Submodels.xml</submodel-path>
    </submodel>
 
    <submodel>
