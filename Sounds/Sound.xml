@@ -2948,9 +2948,9 @@
 
         </locked>
 
-  <pullup>
-            <name>pullUp</name>
-            <path>Aircraft/F-22/Sounds/sys/Pullup.wav</path>
+  <PullUp>
+            <name>PullUp</name>
+            <path>Aircraft/F-22/Sounds/sys/PullUp.wav</path>
             <mode>looped</mode>
             <type>avionics</type>
             <condition>
@@ -2975,11 +2975,11 @@
                 <factor>1</factor>
             </volume>
 
-        </pullup>
+        </PullUp>
 
-          <pullup>
-            <name>pullUploud</name>
-            <path>Aircraft/F-22/Sounds/sys/Pullup.wav</path>
+          <PullUp>
+            <name>PullUploud</name>
+            <path>Aircraft/F-22/Sounds/sys/PullUp.wav</path>
             <mode>looped</mode>
             <type>avionics</type>
             <condition>
@@ -3004,7 +3004,7 @@
                 <factor>1</factor>
             </volume>
 
-        </pullup>
+        </PullUp>
 
 
 
