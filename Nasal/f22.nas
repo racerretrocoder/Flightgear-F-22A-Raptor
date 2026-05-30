@@ -2981,7 +2981,8 @@ var flight_debug = func(){
 setprop("f22/guncounter",0);
 # Wing Damage Deployment
 var gunshit = func(hits) {
-  setprop("f22/guncounter",getprop("f22/guncounter")+hits);
+  var newhit = getprop("f22/guncounter") + hits;
+  setprop("f22/guncounter",newhit);
   var counter = getprop("f22/guncounter");
   var chance = 0.0;
   if (counter > 30) {
@@ -2993,7 +2994,7 @@ var gunshit = func(hits) {
   if (counter > 50) {
     chance = 0.8;
   }
-  var gamble = rand() < (1-chance);
+  var gamble = rand() > (1-chance);
   if (gamble == 1) {
     # wing ded xd
     # reset the counter
