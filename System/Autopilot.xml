@@ -91,12 +91,12 @@
    <property>/autopilot/internal/target-pitch-deg-ae</property>
   </output>
    <config>
-     <Kp>0.255</Kp>        <!-- proportional gain -0.01 -->
+     <Kp>0.155</Kp>        <!-- proportional gain -0.01 -->
     <beta>1.0</beta>       <!-- input value weighing factor -->
     <alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
     <gamma>0.0</gamma>     <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
-    <Ti>0.7</Ti>          <!-- integrator time  10.0 -->
+    <Ti>1</Ti>          <!-- integrator time  10.0 -->
     <Td>0.0001</Td>       <!-- derivator time -->
     <u_min>-0.42</u_min>  <!-- minimum output clamp -->
     <u_max>0.42</u_max>   <!-- maximum output clamp -->
