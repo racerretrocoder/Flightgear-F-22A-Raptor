@@ -19,11 +19,8 @@
     <weight>0.231485</weight>
     <cd>0.295</cd>
     <eda>0.00136354</eda> 
-    <collision>true</collision>
-    <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
-    <impact>true</impact>
-    <impact-report>sim/ai/aircraft/impact/bullet</impact-report>
-    <submodel-path>Aircraft/F-22/Models/Effects/Submodels.xml</submodel-path>
+
+
    </submodel>
 
    <submodel>
@@ -43,6 +40,11 @@
     <weight>0.231485</weight>
     <cd>0.295</cd>
     <eda>0.00136354</eda> 
+    <collision>true</collision>
+        <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
+    <impact>true</impact>
+    <impact-report>sim/ai/aircraft/impact/bullet</impact-report>
+    <submodel-path>Aircraft/F-22/Models/Effects/Submodels.xml</submodel-path>
   </submodel>
  
 
