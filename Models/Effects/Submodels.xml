@@ -4,7 +4,7 @@
 
 	<submodel>
 		<name>impactsmoke</name>
-		<model>Aircraft/F-22/Models/Effects/Flack.xml</model>
+		<model>Aircraft/F-22/Models/Effects/flack.xml</model>
 		<speed>0</speed>
 		<repeat>true</repeat>
 		<delay>0.05</delay>
