@@ -304,13 +304,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <roll>  0.00 </roll>
       <yaw>   0.00 </yaw>
     </orient>-->
-    <feed>0</feed>
-    <feed>1</feed>
-    <feed>2</feed>
-    <feed>3</feed>
-    <feed>4</feed>
-    <feed>5</feed>
-    <feed>6</feed>
     <feed>7</feed>
     <feed>8</feed>
     <feed>9</feed>
@@ -343,13 +336,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <roll>  0.00 </roll>
       <yaw>   0.00 </yaw>
     </orient>--> 
-    <feed>0</feed>
-    <feed>1</feed>
-    <feed>2</feed>
-    <feed>3</feed>
-    <feed>4</feed>
-    <feed>5</feed>
-    <feed>6</feed>
     <feed>7</feed>
     <feed>8</feed>
     <feed>9</feed>
