@@ -2774,6 +2774,15 @@ var gwing = func() {
 
 var dpause = func() {
 	print("f22: dpause");
+	if (getprop("payload/armament/msg") == 1) {
+		screen.log.write("Damage is on! Please land your raptor and disable damage to pause in-flight",1,0,0);
+	} else {
+# from f16, simple pause
+		setprop("/sim/freeze/master", !getprop("/sim/freeze/master"));
+        setprop("/sim/freeze/clock", !getprop("/sim/freeze/clock"));
+		# Tooltip
+
+		}
 }
 
 
