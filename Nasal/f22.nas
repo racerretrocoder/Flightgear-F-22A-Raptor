@@ -1,4 +1,4 @@
-# f22.nas | Everything Raptor needs at the call of a function
+I'm# f22.nas | Everything Raptor needs at the call of a function
 # All code (except code that was labled under a different developer and/or aircraft) is authored by Phoenix
 # Copyright (c) 2026, Backdoor Interactive! (Phoenix, uapilot)
 # Now for a more 'formal' introduction
@@ -2785,7 +2785,7 @@ var dpause = func() { # damage pause
 		if (getprop("/sim/freeze/master")) {
             gui.popupTip("Simulation is paused.");
         } else {
-      		gui.popupTip("");
+      		gui.popupTip("Simulation Resumed");
         }
 	}
 }
