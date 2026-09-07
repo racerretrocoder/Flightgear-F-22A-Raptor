@@ -2772,17 +2772,22 @@ var gwing = func() {
   }
 }
 
-var dpause = func() {
+var dpause = func() { # damage pause
 	print("f22: dpause");
-	if (getprop("payload/armament/msg") == 1) {
+	var cwow = getprop("gear/gear[0]/wow"); # Nose gear wowzers!
+	if (getprop("payload/armament/msg") == 1 and cwow == 0) {
 		screen.log.write("Damage is on! Please land your raptor and disable damage to pause in-flight",1,0,0);
 	} else {
 # from f16, simple pause
 		setprop("/sim/freeze/master", !getprop("/sim/freeze/master"));
         setprop("/sim/freeze/clock", !getprop("/sim/freeze/clock"));
 		# Tooltip
-
-		}
+		if (getprop("/sim/freeze/master")) {
+            gui.popupTip("Simulation is paused.");
+        } else {
+      		gui.popupTip("");
+        }
+	}
 }
 
 
