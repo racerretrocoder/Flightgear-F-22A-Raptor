@@ -23,7 +23,7 @@
     
     <switch>
       <default value="0"/>
-      <test logic="AND" value="-5">
+      <test logic="AND" value="-15">
         /controls/electric/pump1 EQ 1
         propulsion/tank[5]/contents-lbs GE 0.5
         propulsion/tank[7]/contents-lbs LE 509
@@ -36,7 +36,7 @@
     
     <switch>
       <default value="0"/>
-      <test logic="AND" value="-5">
+      <test logic="AND" value="-15">
         /controls/electric/pump2 EQ 1
         propulsion/tank[6]/contents-lbs GE 0.5
         propulsion/tank[8]/contents-lbs LE 509
@@ -49,7 +49,7 @@
     
     <switch>
       <default value="0"/>
-      <test logic="AND" value="-5">
+      <test logic="AND" value="-15">
         /controls/electric/pump1 EQ 1
         propulsion/tank[3]/contents-lbs GE 0.5
         propulsion/tank[5]/contents-lbs LE 0.5
@@ -62,7 +62,7 @@
     
     <switch>
       <default value="0"/>
-      <test logic="AND" value="-5">
+      <test logic="AND" value="-15">
         /controls/electric/pump2 EQ 1
         propulsion/tank[4]/contents-lbs GE 0.5
         propulsion/tank[6]/contents-lbs LE 0.5
@@ -74,7 +74,7 @@
 <!-- F2 to F1B HIGH PRESSURE PUMP -->
         <switch>
       <default value="0"/>
-      <test logic="AND" value="-10">
+      <test logic="AND" value="-30">
         /controls/electric/pump3 EQ 1
         propulsion/tank[2]/contents-lbs GE 0.5
         propulsion/tank[1]/contents-lbs LE 2136
@@ -86,7 +86,7 @@
     <!-- F1A to F1B pump HIGH PRESSURE PUMP -->
     <switch>
       <default value="0"/>
-      <test logic="AND" value="-10">
+      <test logic="AND" value="-30">
         /controls/electric/pump3 EQ 1
         propulsion/tank[0]/contents-lbs GE 0.5
         propulsion/tank[2]/contents-lbs LE 0.49
@@ -124,7 +124,7 @@
   <!--f1b-->
     <switch>
       <default value="0"/>
-      <test logic="AND" value="-5">
+      <test logic="AND" value="-15">
         /controls/electric/pump3 EQ 1
         propulsion/tank[1]/contents-lbs GE 0.5
         propulsion/tank[7]/contents-lbs LE 509
@@ -134,7 +134,7 @@
 
     <switch>
       <default value="0"/>
-      <test logic="AND" value="-5">
+      <test logic="AND" value="-15">
         /controls/electric/pump3 EQ 1
         propulsion/tank[1]/contents-lbs GE 0.5
         propulsion/tank[8]/contents-lbs LE 509
