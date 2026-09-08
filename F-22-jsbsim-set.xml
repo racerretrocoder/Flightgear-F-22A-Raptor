@@ -2475,6 +2475,19 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 
 	<input>
 		 <keyboard>
+			 
+		 <key n="112">
+          <name>p</name>
+          <desc>dpause</desc>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+           <command>nasal</command>
+           <script>
+            f22.dpause();
+           </script>
+          </binding>
+         </key>
+			 
 		 <key n="262">
           <name>F6</name>
           <desc>eject</desc>
@@ -2486,6 +2499,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
            </script>
           </binding>
          </key>
+			 
 	      <key n="356">
             <name>Left</name>
             <repeatable type="bool">false</repeatable>
