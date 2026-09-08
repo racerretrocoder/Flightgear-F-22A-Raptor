@@ -13,7 +13,7 @@
    <property value="0">propulsion/pumps/f2</property>
    <property value="0">propulsion/pumps/f1br</property>
    <property value="0">propulsion/pumps/f1bl</property>
-   <property value="0">propulsion/pumps/</property>
+   <property value="0">propulsion/pumps/f1b</property>
    <property value="0">propulsion/pumps/f1b-OUT</property>
    <property value="0">propulsion/pumps/f1b-IN</property>
   <channel name="Fuel pumping">    
