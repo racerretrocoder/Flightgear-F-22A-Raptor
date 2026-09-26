@@ -661,8 +661,8 @@ var update = func() {
     } else {
        var radscaled = misc.scalenum(getprop("instrumentation/radar2/sweep-marker-norm"),-1, 1, -325, 325);
        horizrad.setTranslation(radscaled,0);
-       if (getprop("instrumentation/radar/lock2") == 2) {
-              radstb.setText("LOCKED");
+       if (getprop("instrumentation/radar/lock2") != 0) {
+              radstb.setText("RADAR LOCKED");
        } else {
               radstb.setText("");
        }

@@ -44,7 +44,7 @@
                     </greater-than>
                     <less-than>
                         <property>sim/model/radar/time-until-impact</property>
-                        <value>8</value>
+                        <value>3</value>
                     </less-than>
                 </and>
                 
