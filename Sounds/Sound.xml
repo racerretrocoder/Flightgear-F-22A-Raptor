@@ -2965,7 +2965,7 @@
                     </greater-than>
                     <less-than>
                         <property>sim/model/radar/time-until-impact</property>
-                        <value>8</value>
+                        <value>2</value>
                     </less-than>
                 </and>
                 
@@ -2994,7 +2994,7 @@
                     </greater-than>
                     <less-than>
                         <property>sim/model/radar/time-until-impact</property>
-                        <value>8</value>
+                        <value>2</value>
                     </less-than>
                 </and>
                 

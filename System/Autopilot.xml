@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
+
+<!--Autopilot system-->
 <PropertyList>
 
    <predict-simple>
@@ -86,13 +88,13 @@
    <property>/autopilot/internal/target-pitch-deg-ae</property>
   </output>
    <config>
-     <Kp>0.005</Kp>        <!-- proportional gain -0.01 -->
+     <Kp>0.015</Kp>        <!-- proportional gain -0.01 -->
     <beta>1.0</beta>       <!-- input value weighing factor -->
     <alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
     <gamma>0.0</gamma>     <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
-    <Ti>0.8</Ti>          <!-- integrator time  10.0 -->
-    <Td>0.0001</Td>       <!-- derivator time -->
+    <Ti>0.4</Ti>          <!-- integrator time  10.0 -->
+    <Td>0.00001</Td>       <!-- derivator time -->
     <u_min>-0.42</u_min>  <!-- minimum output clamp -->
     <u_max>0.42</u_max>   <!-- maximum output clamp -->
    </config>
@@ -347,15 +349,15 @@
       <prop>/controls/flight/elevator</prop>
     </output>
     <config>
-      <Kp>-0.0025</Kp>      <!-- proportional gain -->
+      <Kp>-0.0020</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>       <!-- integrator time -->
+      <Ti>20.0</Ti>       <!-- integrator time -->
       <Td>0.00001</Td>    <!-- derivator time -->
-      <u_min>-1.0</u_min> <!-- minimum output clamp -->
-      <u_max>1.0</u_max>  <!-- maximum output clamp -->
+      <u_min>-0.3</u_min> <!-- minimum output clamp -->
+      <u_max>0.3</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
 

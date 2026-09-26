@@ -46,8 +46,15 @@ var fcs = FLT.createChild("text", "fcs")
        .setAlignment("left-center") 
        .setFont("B612/B612-Bold.ttf") 
        .setFontSize(28, 1.2)        
-       .setColor(0,1,1)             
+       .setColor(0,1,0)             
        .setText("FCS: NAV");
+var flp = FLT.createChild("text", "flp")
+       .setTranslation(505, 240)    
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,1)             
+       .setText("FLAPS: 0");
 var aoa = FLT.createChild("text", "aoa")
        .setTranslation(125, 240)    
        .setAlignment("left-center") 
@@ -838,6 +845,8 @@ var update = func() {
     l5.setText("");
     aoa.setText("AOA: " ~ sprintf("%d", getprop("/orientation/alpha-deg")) ~ "");
     gload.setText("G: " ~ sprintf("%d", getprop("/accelerations/pilot-gdamped")) ~ "");
+    fcs.setText("FCS: " ~ sprintf("%s", getprop("f22/fcs/mode")) ~ "");
+    flp.setText("FLAPS: " ~ sprintf("%d",getprop("fdm/jsbsim/fcs/flap-pos-deg")) ~ "");
   } elsif (getprop(mfdval) == 7) { # ENG 
     FCR.setVisible(0);
     SMS.setVisible(0);

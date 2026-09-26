@@ -603,7 +603,6 @@ var updatehead = func { # Head movement thingy
 var autoflares = func{
   setprop("/ai/submodels/submodel/flare-release",1);
   f22.flares();
-  damage.flare_released();
   settimer(func{setprop("/ai/submodels/submodel/flare-release",0);},0.1)
 }
 
@@ -821,12 +820,13 @@ var fcsloop = func() {
     setprop("f22/fcs/controls/aileron",0);
     setprop("f22/fcs/controls/rudder",0);
     setprop("/autopilot/locks/fcs","");
+    setprop("/f22/fcsmode",2);
   }
   if (fcsmode == 2) {
     setprop("f22/fcs/glimit",8.0);
     setprop("f22/fcs/aoalimit",30);
     setprop("f22/fcs/mode","AUTO G"); # the text
-    # 1g mode
+    # AF1g mode
     # do control check
     if (elevator > controlThresh or aileron > controlThresh) {
       disable = 1;
@@ -837,17 +837,21 @@ var fcsloop = func() {
       }
     }
     # final checks
-    if (getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0 or getprop("autopilot/locks/altitude") != "" or getprop("orientation/pitch-deg") < -70 or getprop("orientation/pitch-deg") > 70 or getprop("controls/gear/gear-down") == 1 or getprop("velocities/airspeed-kt") < 50 or getprop("velocities/airspeed-kt") > 900) {
+    if (getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0 or getprop("autopilot/locks/altitude") != "" or getprop("orientation/pitch-deg") < -70 or getprop("orientation/pitch-deg") > 70 or getprop("velocities/airspeed-kt") < 50) {
       disable = 1;
     }
 
     if (disable == 0){
       # not moving controls, criteria met and fcs enabled
       setprop("/autopilot/locks/fcs","1g");
+      if (getprop("f22/fcs/controls/pitch") == 0) {
+         setprop("f22/fcs/controls/pitch",getprop("orientation/pitch-deg")); # Set holding point
+      }
     } else {
       setprop("f22/fcs/controls/elevator",0);
       setprop("f22/fcs/controls/aileron",0);
       setprop("f22/fcs/controls/rudder",0);
+      setprop("f22/fcs/controls/pitch",0);
       setprop("/autopilot/locks/fcs","");
     }
   } 
@@ -872,7 +876,6 @@ var fcsloop = func() {
 var navblink = func() {
   var nav = getprop("controls/lighting/nav-lights");
   setprop("controls/lighting/nav-lights",!nav);
-  print("*blink*");
 }
  
 
@@ -1074,7 +1077,7 @@ setprop("controls/apu/startinprogress",0);
 
 var engloop = func{
 var messycodeplacement = 1;
-setprop("sim/multiplay/visibility-range-nm",2000); # Going to put this here because smh the -set dosent set it to be 1000
+setprop("sim/multiplay/visibility-range-nm",320); # Going to put this here because smh the -set dosent set it to be 1000
 var jfsr = getprop("controls/electric/engine/start-r");
 var jfsl = getprop("controls/electric/engine/start-l");
 var bat = getprop("controls/electric/battswitch");
@@ -1337,6 +1340,7 @@ var cockpit_state = func {
 myRadar = radar.Radar.new();
 myRadar.init();
 
+# Speed control
 
 
 var missile_sfx = func {

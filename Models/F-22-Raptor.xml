@@ -721,7 +721,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 		<object-name>lwheelwheel2</object-name>
 		<condition>
 			<equals>
-				<property>sim/multiplay/generic/float[3]</property>
+				<property>sim/multiplay/generic/float[4]</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -2941,7 +2941,7 @@ FR
 		<object-name>nwheel2</object-name>
 		<condition>
 			<equals>
-				<property>sim/multiplay/generic/float[2]</property>
+				<property>sim/multiplay/generic/float[4]</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -2953,12 +2953,12 @@ FR
 		<condition>
 		<and>
 			<greater-than>
-				<property>sim/multiplay/generic/float[2]</property>
+				<property>sim/multiplay/generic/float[4]</property>
 				<value>0</value>
 			</greater-than>
 			<not>
 			<equals>
-				<property>sim/multiplay/generic/float[2]</property>
+				<property>sim/multiplay/generic/float[4]</property>
 				<value>1</value>
 			</equals>
 			</not>
@@ -2970,7 +2970,7 @@ FR
 		<type>rotate</type>
 		<object-name>nwheel</object-name>
 		<object-name>nwheel1</object-name>
-		<property>sim/multiplay/generic/float[2]</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.25</ind>
@@ -3005,7 +3005,7 @@ FR
 		<type>translate</type>
 		<object-name>nwheel</object-name>
 		<object-name>nwheel1</object-name>
-		<property>sim/multiplay/generic/float[2]</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.25</ind>
@@ -3026,7 +3026,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>gear-door2</object-name>
-		<property>sim/multiplay/generic/float[2]</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -3050,7 +3050,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>gear-door1</object-name>
-		<property>sim/multiplay/generic/float[2]</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.0</ind>
@@ -3080,7 +3080,7 @@ FR
 
 			<condition>
 			<greater-than>
-				<property>sim/multiplay/generic/float[3]</property>
+				<property>sim/multiplay/generic/float[4]</property>
 				<value>0.999999999999</value>
 			</greater-than>
 		</condition>
@@ -3105,12 +3105,12 @@ FR
 		<condition>
 		<and>
 			<greater-than>
-				<property>sim/multiplay/generic/float[3]</property>
+				<property>sim/multiplay/generic/float[4]</property>
 				<value>0.25</value>
 			</greater-than>
 			<not>
 			<equals>
-				<property>sim/multiplay/generic/float[3]</property>
+				<property>sim/multiplay/generic/float[4]</property>
 				<value>1</value>
 			</equals>
 			</not>
@@ -3142,7 +3142,7 @@ FR
 		<object-name>lwheel</object-name>
 		<condition>
 			<greater-than>
-				<property>sim/multiplay/generic/float[3]</property>
+				<property>sim/multiplay/generic/float[4]</property>
 				<value>0.25</value>
 			</greater-than>
 		</condition>
@@ -3164,7 +3164,7 @@ FR
 		<type>rotate</type>
 		<object-name>lwheel</object-name>
 		<object-name>lwheelwheel</object-name>
-		<property>sim/multiplay/generic/float[3]</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.75</ind>
@@ -3191,7 +3191,7 @@ FR
 		<type>translate</type>
 		<object-name>lwheel</object-name>
 		<object-name>lwheelwheel</object-name>
-		<property>sim/multiplay/generic/float[3]</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.75</ind>
@@ -3285,7 +3285,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>lgear-door1</object-name>
-		<property>sim/multiplay/generic/float[3]</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.5</ind>
@@ -3333,7 +3333,7 @@ FR
 	<animation>
 		<type>rotate</type>
 		<object-name>lgear-door2</object-name>
-		<property>sim/multiplay/generic/float[3]</property>
+		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
 			<entry>
 				<ind>0.5</ind>
@@ -3960,7 +3960,7 @@ ae
  <overlay>
   <params>
    <name>RedLight2</name>
-   <power-source>sim/multiplay/generic/float[1]</power-source>
+   <power-source>sim/multiplay/generic/int[1]</power-source>
    <direction>
     <x>0</x>
     <y>1</y>
@@ -4012,7 +4012,7 @@ ae
             <a>0</a>
         </specular>
         <dim-factor>
-            <property>sim/multiplay/generic/float[1]</property>
+            <property>sim/multiplay/generic/int[1]</property>
         </dim-factor>
         <attenuation>
     <c>0.375</c>
@@ -4057,7 +4057,7 @@ ae
             <a>0</a>
         </specular>
         <dim-factor>
-            <property>sim/multiplay/generic/float[1]</property>
+            <property>sim/multiplay/generic/int[1]</property>
         </dim-factor>
         <attenuation>
     <c>0.375</c>
@@ -4092,7 +4092,7 @@ ae
  <overlay>
   <params>
    <name>RedLight2</name>
-   <power-source>sim/multiplay/generic/float[1]</power-source>
+   <power-source>sim/multiplay/generic/int[1]</power-source>
    <direction>
     <x>0</x>
     <y>1</y>
@@ -4126,7 +4126,7 @@ ae
  <overlay>
   <params>
    <name>GreenLight2</name>
-   <power-source>sim/multiplay/generic/float[1]</power-source>
+   <power-source>sim/multiplay/generic/int[1]</power-source>
    <direction>
     <x>0</x>
     <y>-1</y>
@@ -4157,7 +4157,7 @@ ae
  <overlay>
   <params>
    <name>GreenLight</name>
-   <power-source>sim/multiplay/generic/float[1]</power-source>
+   <power-source>sim/multiplay/generic/int[1]</power-source>
    <direction>
     <x>0</x>
     <y>-1</y>
@@ -4388,7 +4388,7 @@ ae
             <a>0</a>
         </specular>
         <dim-factor>
-            <property>sim/multiplay/generic/float[20]</property>
+            <property>sim/multiplay/generic/int[0]</property>
         </dim-factor>
         <attenuation>
             <c>1.0</c>
