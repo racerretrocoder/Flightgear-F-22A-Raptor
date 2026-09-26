@@ -199,7 +199,7 @@ var radaractiveloop = func {
     setprop("controls/radar/cursormode",0);
   }
 }
-mainradloop = maketimer(1,radaractiveloop);
+mainradloop = maketimer(0.8,radaractiveloop);
 mainradloop.start();
 
 #
@@ -2050,7 +2050,7 @@ var tgtlock = func{
     {
         # ACM
         setprop("instrumentation/radar/az-field", 60);
-        setprop("instrumentation/radar2/sweep-display-width", 0.0446);        
+        setprop("instrumentation/radar2/sweep-display-width", 0.1046);        
         setprop("instrumentation/radar2/sweep-speed", 2);   
     }
   }
