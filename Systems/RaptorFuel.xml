@@ -1,0 +1,212 @@
+<?xml version="1.0"?>  
+
+<system name="Fuel">
+<!--A3R and A3L feed the engines tank 7 and 8.      &&&  A2R A2L 5 and 6 main priority.   all fuel jp-8-->
+  <property value="1">/controls/electric/pump1</property>
+  <property value="1">/controls/electric/pump2</property>
+  <property value="0">/controls/electric/pump3</property>
+  <property value="0">propulsion/pumps/a1r</property>
+ <property value="0">propulsion/pumps/a1l</property>
+   <property value="0">propulsion/pumps/a2r</property>
+   <property value="0">propulsion/pumps/a2l</property>
+   <property value="0">propulsion/pumps/f1a</property>
+   <property value="0">propulsion/pumps/f2</property>
+   <property value="0">propulsion/pumps/f1br</property>
+   <property value="0">propulsion/pumps/f1bl</property>
+   <property value="0">propulsion/pumps/f1b</property>
+   <property value="0">propulsion/pumps/f1b-OUT</property>
+   <property value="0">propulsion/pumps/f1b-IN</property>
+  <channel name="Fuel pumping">    
+  <!--
+    right wing pump
+    A2R t5-->
+    
+    <switch>
+      <default value="0"/>
+      <test logic="AND" value="-15">
+        /controls/electric/pump1 EQ 1
+        propulsion/tank[5]/contents-lbs GE 0.5
+        propulsion/tank[7]/contents-lbs LE 509
+      </test>
+      <output>propulsion/pumps/a2r</output>
+    </switch>
+<!--
+    left wing pump
+    t6-->
+    
+    <switch>
+      <default value="0"/>
+      <test logic="AND" value="-15">
+        /controls/electric/pump2 EQ 1
+        propulsion/tank[6]/contents-lbs GE 0.5
+        propulsion/tank[8]/contents-lbs LE 509
+      </test>
+      <output>propulsion/pumps/a2l</output>
+    </switch>
+
+    
+  <!--  A1R t3 activates when A2R out-->
+    
+    <switch>
+      <default value="0"/>
+      <test logic="AND" value="-15">
+        /controls/electric/pump1 EQ 1
+        propulsion/tank[3]/contents-lbs GE 0.5
+        propulsion/tank[5]/contents-lbs LE 0.5
+        propulsion/tank[7]/contents-lbs LE 509
+      </test>
+      <output>propulsion/pumps/a1r</output>
+    </switch>
+
+  <!--  a1l acts when A2L out t4 -->
+    
+    <switch>
+      <default value="0"/>
+      <test logic="AND" value="-15">
+        /controls/electric/pump2 EQ 1
+        propulsion/tank[4]/contents-lbs GE 0.5
+        propulsion/tank[6]/contents-lbs LE 0.5
+        propulsion/tank[8]/contents-lbs LE 509
+      </test>
+      <output>propulsion/pumps/a1l</output>
+    </switch>
+
+<!-- F2 to F1B HIGH PRESSURE PUMP -->
+        <switch>
+      <default value="0"/>
+      <test logic="AND" value="-30">
+        /controls/electric/pump3 EQ 1
+        propulsion/tank[2]/contents-lbs GE 0.5
+        propulsion/tank[1]/contents-lbs LE 2136
+      </test>
+      <output>propulsion/pumps/f2</output>
+    </switch>
+
+    
+    <!-- F1A to F1B pump HIGH PRESSURE PUMP -->
+    <switch>
+      <default value="0"/>
+      <test logic="AND" value="-30">
+        /controls/electric/pump3 EQ 1
+        propulsion/tank[0]/contents-lbs GE 0.5
+        propulsion/tank[2]/contents-lbs LE 0.49
+        propulsion/tank[1]/contents-lbs LE 2136
+      </test>
+      <output>propulsion/pumps/f1a</output>
+    </switch>
+
+    <!-- per tank pumps -->
+
+    <summer>
+    <!-- a1r -->
+      <input>propulsion/pumps/a1r</input>
+      <output>propulsion/tank[3]/external-flow-rate-pps</output>
+    </summer>
+
+    <summer>
+    <!-- a1l -->
+      <input>propulsion/pumps/a1l</input>
+      <output>propulsion/tank[4]/external-flow-rate-pps</output>
+    </summer>
+    
+    <summer>
+    <!-- a2r -->
+      <input>propulsion/pumps/a2r</input>
+      <output>propulsion/tank[5]/external-flow-rate-pps</output>
+    </summer>
+    
+    <summer>
+    <!-- a2l -->
+      <input>propulsion/pumps/a2l</input>
+      <output>propulsion/tank[6]/external-flow-rate-pps</output>
+    </summer>
+
+  <!--f1b-->
+    <switch>
+      <default value="0"/>
+      <test logic="AND" value="-15">
+        /controls/electric/pump3 EQ 1
+        propulsion/tank[1]/contents-lbs GE 0.5
+        propulsion/tank[7]/contents-lbs LE 509
+      </test>
+      <output>propulsion/pumps/f1br</output>
+    </switch>
+
+    <switch>
+      <default value="0"/>
+      <test logic="AND" value="-15">
+        /controls/electric/pump3 EQ 1
+        propulsion/tank[1]/contents-lbs GE 0.5
+        propulsion/tank[8]/contents-lbs LE 509
+      </test>
+      <output>propulsion/pumps/f1bl</output>
+    </switch
+      >
+
+
+    
+   <!-- Pump 1 - R. -->
+
+    <summer>
+    <!-- Pump 1 to A3R -->
+      <input>-propulsion/pumps/a2r</input>
+      <input>-propulsion/pumps/a1r</input>
+      <input>-propulsion/pumps/f1br</input>
+      <output>propulsion/tank[7]/external-flow-rate-pps</output>
+    </summer>
+
+<!--    Pump 2 - L.   -->
+
+    <summer>
+    <!-- Pump 2 to A3L -->
+      <input>-propulsion/pumps/a2l</input>
+      <input>-propulsion/pumps/a1l</input>
+      <input>-propulsion/pumps/f1bl</input>
+      <output>propulsion/tank[8]/external-flow-rate-pps</output>
+    </summer>
+
+    
+<!--    Pump 3 high pressure -->
+    
+    <summer>
+    <!-- F1A -->
+      <input>propulsion/pumps/f1a</input>
+      <output>propulsion/tank[0]/external-flow-rate-pps</output>
+    </summer>
+    
+    <summer>
+    <!-- F2 -->
+      <input>propulsion/pumps/f2</input>
+      <output>propulsion/tank[2]/external-flow-rate-pps</output>
+    </summer>
+    
+    <summer>
+    <!-- F1A and F2 to F1B - only 10 pps max -->
+      <input>-propulsion/pumps/f1a</input>
+      <input>-propulsion/pumps/f2</input>
+      <output>propulsion/pumps/f1b-IN</output>
+    </summer>
+
+    
+<!-- Pump 3 to Pumps 1 and 2
+
+    2 split hoses, half pump 3 pps -->
+
+    <summer>
+    <!-- F1B Pump 3 to Pumps 1 and 2 - only 10 pps max -->
+      <input>propulsion/pumps/f1br</input>
+      <input>propulsion/pumps/f1bl</input>
+      <output>propulsion/pumps/f1b-OUT</output>
+    </summer>
+
+
+    <summer>
+    <!-- F1B Pump 3 PPS -->
+      <input>propulsion/pumps/f1b-IN</input>
+      <input>propulsion/pumps/f1b-OUT</input>
+      <output>propulsion/tank[1]/external-flow-rate-pps</output>
+    </summer>
+
+  </channel>      
+
+</system>

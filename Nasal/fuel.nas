@@ -1,3 +1,14 @@
+var FCP = func() {
+	if (getprop("consumables/fuel/tank[3]/level-gal_us") < 0.8) {
+		setprop("controls/electric/pump3",1);
+	} else {
+		setprop("controls/electric/pump3",0);
+	}
+}
+
+ae = maketimer(1,FCP);
+ae.start();
+
 
 
 # simple fuelsystem
