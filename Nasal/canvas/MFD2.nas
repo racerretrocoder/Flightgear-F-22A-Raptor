@@ -661,6 +661,11 @@ var update = func() {
        radstb.setText("");
        #print("The radar is active!");
        # Blip rendering
+       if (getprop("instrumentation/radar/lock2") != 0) {
+              radstb.setText("RADAR LOCKED");
+       } else {
+              radstb.setText("");
+       }
        var list = props.globals.getNode("/instrumentation/radar2/marker").getChildren("mark");
        var total = size(list);
        var mpid = 0;

@@ -12,10 +12,10 @@
 # TODO stop forgetting semi colons lmao
 
 
-var mutexLock = thread.newlock();
+# var mutexLock = thread.newlock();
 
 var clearSingleLock = func () {
-	thread.lock(mutexLock);
+#	thread.lock(mutexLock);
 	if (getprop("instrumentation/radar/lock2") == 0) {
 		setprop("sim/multiplay/generic/string[6]", "");
 		datalink.clear_data();
@@ -23,7 +23,7 @@ var clearSingleLock = func () {
 		setprop("sim/multiplay/generic/string[6]", left(md5(radar.tgts_list[radar.Target_Index].Callsign.getValue()), 4));
 		datalink.send_data({"contacts":[{"callsign":radar.tgts_list[radar.Target_Index].Callsign.getValue(),"iff":0}]});
 	}
-	thread.unlock(mutexLock);
+#	thread.unlock(mutexLock);
 }
 var checklock = func(){ # The radars database for displaying stuff on a screen.
 var mp0 = getprop("/instrumentation/radar2/targets/multiplayer[0]/display");
@@ -185,20 +185,17 @@ else {
  # #print("Radar is running, no threats.");
    setprop("/instrumentation/radar/threat-spotted", 0); # Change our status so that nothing is on the screen
    setprop("/instrumentation/radar/lock", 0); # Important. Loose the lock by setting this property to zero.
-       setprop("/instrumentation/radar/lock2", 0);                                          #Lock is set to one when you change targets and radar sees someone
+   setprop("/instrumentation/radar/lock2", 0);                                          #Lock is set to one when you change targets and radar sees someone
 
 
-		thread.lock(mutexLock);
-        		setprop("sim/multiplay/generic/string[6]", "");
+		#thread.lock(mutexLock);
+      setprop("sim/multiplay/generic/string[6]", "");
 		datalink.clear_data();
 		#semi_active_track = nil;
-		thread.unlock(mutexLock);
+		#thread.unlock(mutexLock);
    }
 }
 
 # Lets make a loop
-
-
-     finder = maketimer(0.5, func checklock() );
-     finder.start();
-
+finder = maketimer(0.5, func checklock() );
+finder.start();
