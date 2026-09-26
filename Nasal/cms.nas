@@ -30,7 +30,7 @@ var resetchaff = func() {
 
 var resetflare = func() {
     setprop("rotors/main/blade[3]/flap-deg",0);  
-  setprop("/ai/submodels/submodel/flare-release",0);
+    setprop("/ai/submodels/submodel/flare-release",0);
     flarereset.stop();
 }
 

@@ -507,7 +507,7 @@ me.pipperRadius = 10;
       me.bingoind.setVisible(0);
     }
 
-    if (getprop("sim/model/radar/time-until-impact") < 8 and getprop("sim/model/radar/time-until-impact") != -1){
+    if (getprop("sim/model/radar/time-until-impact") < 3 and getprop("sim/model/radar/time-until-impact") != -1){
       me.pullup.setVisible(getprop("f22/blink"));
     } else {
       me.pullup.setVisible(0);

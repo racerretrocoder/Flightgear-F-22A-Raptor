@@ -10,7 +10,7 @@
    <ladder>
         <name>Pitch Ladder</name>
         <type>pitch</type>
-        <x>-32</x>
+        <x>-32</x> <!-- -32 starting pos -->
         <y>-20</y>
         <width>60</width>
         <height>0</height>
