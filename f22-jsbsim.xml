@@ -1779,6 +1779,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <summer name="Roll Trim Sum">
       <input>fcs/aileron-cmd-norm-limit-sm</input>
       <input>fcs/roll-trim-cmd-norm</input>
+      <input>/f22/fcs/controls/aileron</input>
       <clipto>
         <min> -1 </min>
         <max>  1 </max>
