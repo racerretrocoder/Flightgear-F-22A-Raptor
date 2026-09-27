@@ -792,7 +792,9 @@ setprop("autopilot/locks/altitude","");
 #setprop("/f22/fcs/aoalimit",90);
 #setprop("/f22/fcs/glimit",0);
 #setprop("/f22/fcsmode",0);
-
+setprop("/f22/fcs/rollrate",20);
+setprop("/autopilot/locks/fcs","");
+setprop("/autopilot/locks/fcsaileron","");
 var fcsloop = func() {
   # Loop it slowly
   var controlThresh = 0.01;
@@ -803,7 +805,8 @@ var fcsloop = func() {
   var elevator = getprop("/controls/flight/elevator");
   var aileron = getprop("/controls/flight/aileron");
   var rudder = getprop("/controls/flight/rudder");
-  var disable = 0;
+  var disableelev = 0;
+  var disableaile = 2;
 
   if (fcsmode == 0) { # Navigation
     setprop("f22/fcs/mode","NAV"); # the text
@@ -815,7 +818,7 @@ var fcsloop = func() {
     setprop("/autopilot/locks/fcs","");
   }
   if (fcsmode == 1) { # disab
-    setprop("f22/fcs/mode","OFF"); # the text
+    #setprop("f22/fcs/mode","OFF"); # the text
     setprop("f22/fcs/controls/elevator",0);
     setprop("f22/fcs/controls/aileron",0);
     setprop("f22/fcs/controls/rudder",0);
@@ -828,20 +831,44 @@ var fcsloop = func() {
     setprop("f22/fcs/mode","AUTO G"); # the text
     # AF1g mode
     # do control check
-    if (elevator > controlThresh or aileron > controlThresh) {
-      disable = 1;
+    if (elevator > controlThresh) {
+      disableelev = 1;
+      disableaile = 1; # Disable Roll control aswell when flying
     }
-    if (elevator < 0 or aileron < 0) {
-      if (elevator < negcontrolThresh or aileron < negcontrolThresh){
-        disable = 1;
+
+    if (elevator < 0) {
+      if (elevator < negcontrolThresh){
+        disableelev = 1;
+        disableaile = 1; # Disable Roll control aswell when flying
+      }
+    }
+    if (aileron > controlThresh) {
+      disableaile = 1;
+    }
+
+    if (aileron < 0) {
+      if (aileron < negcontrolThresh){
+        disableaile = 1;
+      }
+    }
+    var rollrate = getprop("/f22/fcs/rollrate");
+    var negrollrate = rollrate * -1;
+    if (getprop("/orientation/roll-rate-degps") < rollrate and getprop("/orientation/roll-rate-degps") > negrollrate) {
+      if (disableaile != 1) {
+        disableaile = 0;
       }
     }
     # final checks
-    if (getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0 or getprop("autopilot/locks/altitude") != "" or getprop("orientation/pitch-deg") < -70 or getprop("orientation/pitch-deg") > 70 or getprop("velocities/airspeed-kt") < 50) {
-      disable = 1;
+    # Note: if getprop("fdm/jsbsim/fcs/engine-gen-spin-output") is nil. then the == 0 is auto ignored
+    if (getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0 or getprop("autopilot/locks/altitude") != "" or getprop("orientation/pitch-deg") < -70 or getprop("orientation/pitch-deg") > 70 or getprop("velocities/airspeed-kt") < 10) {
+      disableelev = 1;
+      disableaile = 1;
     }
-
-    if (disable == 0){
+    if (getprop("orientation/roll-deg") < -90 or getprop("orientation/roll-deg") > 90) {
+      disableelev = 1;
+    }
+    # Elevator
+    if (disableelev == 0){
       # not moving controls, criteria met and fcs enabled
       setprop("/autopilot/locks/fcs","1g");
       if (getprop("f22/fcs/controls/pitch") == 0) {
@@ -849,10 +876,22 @@ var fcsloop = func() {
       }
     } else {
       setprop("f22/fcs/controls/elevator",0);
-      setprop("f22/fcs/controls/aileron",0);
       setprop("f22/fcs/controls/rudder",0);
       setprop("f22/fcs/controls/pitch",0);
       setprop("/autopilot/locks/fcs","");
+    }
+
+    # Aileron
+    if (disableaile == 0){
+      # not moving controls, criteria met and fcs enabled
+      setprop("/autopilot/locks/fcsaileron","1g");
+      if (getprop("f22/fcs/controls/roll") == 0) {
+         setprop("f22/fcs/controls/roll",getprop("orientation/roll-deg")); # Set holding point
+      }
+    } else {
+      setprop("f22/fcs/controls/aileron",0);
+      setprop("f22/fcs/controls/roll",0);
+      setprop("/autopilot/locks/fcsaileron","");
     }
   } 
   if (fcsmode == 3) { # max

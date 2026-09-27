@@ -296,7 +296,7 @@
    <u_max>0.35</u_max>
   </config>
  </pid-controller>
- 
+ <!--FCS-->
   <pid-controller>
   <name>FCS System Command: Pitch</name>
   <debug>false</debug>
@@ -326,6 +326,38 @@
    <Td>0.00001</Td>    <!-- derivator time -->
    <u_min>-0.1</u_min> <!-- minimum output clamp -->
    <u_max>0.1</u_max>
+  </config>
+ </pid-controller>
+
+  <pid-controller>
+  <name>FCS System Command: Roll</name>
+  <debug>false</debug>
+  <enable>
+   <condition>
+    <not-equals>
+	<property>/autopilot/locks/fcsaileron</property>
+	<value />
+	</not-equals>
+   </condition>
+  </enable>
+  <input>
+   <property>/orientation/roll-deg</property>
+  </input>
+  <reference>
+   <property>/f22/fcs/controls/roll</property>
+  </reference>
+  <output>
+   <property>/f22/fcs/controls/aileron</property>
+  </output>
+  <config>
+   <Kp>0.05</Kp>      
+   <beta>1.0</beta>    <!-- input value weighing factor -->
+   <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+   <gamma>0.0</gamma>  <!-- input value weighing factor for -->
+   <Ti>10.0</Ti>       <!-- integrator time  10.0 -->
+   <Td>0.00001</Td>    <!-- derivator time -->
+   <u_min>-0.05</u_min> <!-- minimum output clamp -->
+   <u_max>0.05</u_max>
   </config>
  </pid-controller>
 
