@@ -816,12 +816,11 @@ broddamage: func (cs,dist,msl) {
             {
                 f_lbs = me.force_lbs * 0.3;
             }
-        }
-         else{
+        } else{ # No rail
             if (debugmessages == 1) {
                 print("Missile ejected from a hardpoint!");
             }
-            var Dapath = me.missile_NoSmoke; # Engine delay start
+            var Dapath = me.missile_model; # Engine delay start
             if(me.model.getNode("path", 1).getValue() != Dapath)
             {
             #print(Dapath);
@@ -838,10 +837,10 @@ broddamage: func (cs,dist,msl) {
                     print("Ignititon delay over. Starting engine...");
                 }
                 f_lbs = me.force_lbs * 0.3;
-                var Dapath = me.missile_model;
-                if(me.model.getNode("path", 1).getValue() != Dapath) {
-                    me.reload_model(Dapath);
-                }
+                #var Dapath = me.missile_model;
+                #if(me.model.getNode("path", 1).getValue() != Dapath) {
+                #    me.reload_model(Dapath);
+                #}
             }
         }
         if(me.life_time > me.thrust_duration)

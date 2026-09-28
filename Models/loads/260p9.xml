@@ -19,7 +19,7 @@
 <value>Aim-260</value>
 </equals>
 <equals>
-<property>sim/weight[8]/selected</property>
+<property>controls/armament/station[8]/release</property>
 <value>false</value>
 </equals>
 </and>
