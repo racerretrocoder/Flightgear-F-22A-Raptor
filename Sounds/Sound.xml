@@ -3129,7 +3129,7 @@ need a better idea for this-->
 <chaffflare>
   <name>cha-flare</name>
   <mode>once</mode>
-  <path>Aircraft/F-22/Sounds/sys/chaflare.wav</path>
+  <path>Aircraft/F-22/Sounds/sys/Chaflare.wav</path>
   <condition>
   <property>/sim/current-view/internal</property>
 
@@ -3145,7 +3145,7 @@ need a better idea for this-->
 <chaffflare>
   <name>cha-flare1</name>
   <mode>once</mode>
-  <path>Aircraft/F-22/Sounds/sys/chaflare.wav</path>
+  <path>Aircraft/F-22/Sounds/sys/Chaflare.wav</path>
   <condition>
   <property>/sim/current-view/internal</property>
 

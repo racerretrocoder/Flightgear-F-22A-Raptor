@@ -2,11 +2,11 @@
 
 <PropertyList>
 
- <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex.ac</path>
+ <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex.ac</path>
  <nopreview/>
 
  <effect>
-  <inherits-from>Aircraft/F-22/Models/Effects/vapour/strake-vortex</inherits-from>
+  <inherits-from>Aircraft/F-22/Models/Effects/Vapour/strake-vortex</inherits-from>
   <object-name>Bounding_box2</object-name>
  </effect>
 <!--
