@@ -4,8 +4,8 @@
 	
 <!--	aerobatic smokes Pylon7 -->
 <model><!--	Blue aerobatic smoke Pylon7 -->
-  <name>P7_aerobatic_smoke_blue</name> 
-  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeB.xml</path>
+  <name>smokeB</name> 
+  <path>Aircraft/F-22/Models/Effects/Smoke/aerobatic-smoke/smokeB.xml</path>
   <offsets>
 <x-m> 1.05  </x-m>
 <y-m> 2.43 </y-m>
@@ -14,8 +14,8 @@
 </model>
 
 <model><!--	Yellow aerobatic smoke Pylon7 -->
-  <name>P7_aerobatic_smoke_yellow</name> 
-  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeY.xml</path>
+  <name>smokeY</name> 
+  <path>Aircraft/F-22/Models/Effects/Smoke/aerobatic-smoke/smokeY.xml</path>
   <offsets>
 <x-m> 1.05  </x-m>
 <y-m> 2.43 </y-m>
@@ -24,8 +24,8 @@
 </model>
 
 <model><!--	Red aerobatic smoke Pylon7 -->
-  <name>P7_aerobatic_smoke_red</name> 
-  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeR.xml</path>
+  <name>smokeR</name> 
+  <path>Aircraft/F-22/Models/Effects/Smoke/aerobatic-smoke/smokeR.xml</path>
   <offsets>
 <x-m> 1.05  </x-m>
 <y-m> 2.43 </y-m>
@@ -36,7 +36,7 @@
 
 <animation> <!--	select animation for Blue aerobatic smoke Pylon7 -->
 	<type>select</type>
-	<object-name>P7_aerobatic_smoke_blue</object-name>
+	<object-name>smokeB</object-name>
 	<condition>
 		<and>
 			
@@ -54,7 +54,7 @@
 
 <animation> <!--	select animation for Yellow aerobatic smoke Pylon7 -->
 	<type>select</type>
-	<object-name>P7_aerobatic_smoke_yellow</object-name>
+	<object-name>smokeY</object-name>
 	<condition>
 		<and>
 			
@@ -72,7 +72,7 @@
 
 <animation> <!--	select animation for Red aerobatic smoke Pylon7 -->
 	<type>select</type>
-	<object-name>P7_aerobatic_smoke_red</object-name>
+	<object-name>smokeR</object-name>
 	<condition>
 		<and>
 			
@@ -91,8 +91,8 @@
 <!--	aerobatic smokes Pylon8 -->
 
 <model><!--	Blue aerobatic smoke Pylon8 -->
-  <name>P8_aerobatic_smoke_blue</name> 
-  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeB.xml</path>
+  <name>smokeB</name> 
+  <path>Aircraft/F-22/Models/Effects/Smoke/aerobatic-smoke/smokeB.xml</path>
   <offsets>
 <x-m> 1.05  </x-m>
 <y-m> -2.43 </y-m>
@@ -101,8 +101,8 @@
 </model>
 
 <model><!--	Yellow aerobatic smoke Pylon8 -->
-  <name>P8_aerobatic_smoke_yellow</name>
-  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeY.xml</path>
+  <name>smokeY</name>
+  <path>Aircraft/F-22/Models/Effects/Smoke/aerobatic-smoke/smokeY.xml</path>
   <offsets>
 <x-m> 1.05  </x-m>
 <y-m> -2.43 </y-m>
@@ -111,8 +111,8 @@
 </model>
 
 <model><!--	Red aerobatic smoke Pylon8 -->
-  <name>P8_aerobatic_smoke_red</name> 
-  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke/smokeR.xml</path>
+  <name>smokeR</name> 
+  <path>Aircraft/F-22/Models/Effects/Smoke/aerobatic-smoke/smokeR.xml</path>
   <offsets>
 <x-m> 1.05  </x-m>
 <y-m> -2.43 </y-m>
@@ -122,7 +122,7 @@
 
 <animation> <!--	select animation for Blue aerobatic smoke Pylon8 -->
 	<type>select</type>
-	<object-name>P8_aerobatic_smoke_blue</object-name>
+	<object-name>smokeB</object-name>
 	<condition>
 		<and>
 			
@@ -140,7 +140,7 @@
 
 <animation> <!--	select animation for Yellow aerobatic smoke Pylon8 -->
 	<type>select</type>
-	<object-name>P8_aerobatic_smoke_yellow</object-name>
+	<object-name>smokeY</object-name>
 	<condition>
 		<and>
 			
@@ -158,7 +158,7 @@
 
 <animation> <!--	select animation for Red aerobatic smoke Pylon8 -->
 	<type>select</type>
-	<object-name>P8_aerobatic_smoke_red</object-name>
+	<object-name>smokeR</object-name>
 	<condition>
 		<and>
 			

@@ -327,7 +327,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
 <model>
   <name>aerobatic_smoke</name>
-  <path>Aircraft/F-22/Models/Effects/smoke/aerobatic-smoke.xml</path>
+  <path>Aircraft/F-22/Models/Effects/Smoke/aerobatic-smoke.xml</path>
   <offsets>
    <x-m> 0.0</x-m>
    <y-m> 0.0</y-m>
@@ -875,7 +875,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
 <model>
   <name>machCone</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/mach-cone.xml</path>
+  <path>Aircraft/F-22/Models/Effects/Vapour/mach-cone.xml</path>
  </model>
 
  <animation>
@@ -903,7 +903,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 <!--
  <model>
   <name>left-strake-vortex</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex-mini.xml</path>
+  <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex-mini.xml</path>
   <offsets>
    <x-m>0.4</x-m>
    <y-m>-1.53</y-m>
@@ -915,7 +915,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
  <model>
   <name>right-strake-vortex</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex-mini.xml</path>
+  <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex-mini.xml</path>
   <offsets>
    <x-m>0.4</x-m>
    <y-m>1.53</y-m>
@@ -926,7 +926,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
  <model>
   <name>left-strake-vortex2</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex-mini.xml</path>
+  <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex-mini.xml</path>
   <offsets>
    <x-m>1.4</x-m>
    <y-m>-2.9</y-m>
@@ -938,7 +938,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
  <model>
   <name>right-strake-vortex2</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/strake-vortex-mini.xml</path>
+  <path>Aircraft/F-22/Models/Effects/Vapour/strake-vortex-mini.xml</path>
   <offsets>
    <x-m>1.4</x-m>
    <y-m>2.9</y-m>
@@ -1059,7 +1059,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 <!--
  <model>
   <name>g-vortexR1</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
+  <path>Aircraft/F-22/Models/Effects/Vapour/g-vortex.xml</path>
   <offsets>
    <x-m>1.2</x-m>
    <y-m>1.4</y-m>
@@ -1071,7 +1071,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 
  <model>
   <name>g-vortexL1</name>
-  <path>Aircraft/F-22/Models/Effects/vapour/g-vortex.xml</path>
+  <path>Aircraft/F-22/Models/Effects/Vapour/g-vortex.xml</path>
   <offsets>
    <x-m>1.2</x-m>
    <y-m>-1.4</y-m>
