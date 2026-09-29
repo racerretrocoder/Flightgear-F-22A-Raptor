@@ -682,8 +682,26 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
     </axis>
 	</animation>
 
-
-
+<!-- Nose gear turning, must be defined ABOVE the gear spinning -->
+<animation>
+        <type>rotate</type>
+	<object-name>nwheel</object-name>
+	<object-name>nwheel1</object-name>
+	<object-name>nwheel2</object-name>
+        <property>controls/flight/rudder</property>
+        <offset-deg>0</offset-deg>
+        <factor>-60</factor>
+        <axis>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>1.0</z>
+        </axis>
+        <center>
+            <x-m>-3.66829</x-m>
+            <y-m> 0</y-m>
+            <z-m>-2.3568</z-m>
+        </center>
+    </animation>
 
 	<animation>
 		<type>spin</type>
@@ -2935,6 +2953,7 @@ FR
         </axis>
     </animation>
 
+
 <!-- Nose gear animations-->
 	<animation>
 		<type>select</type>
@@ -3000,7 +3019,7 @@ FR
 			<z>0.0</z>
 		</axis>
 	</animation>
-	
+
 	<animation>
 		<type>translate</type>
 		<object-name>nwheel</object-name>
@@ -4731,26 +4750,6 @@ ae
 
 
 
-<!-- Nose gear turning -->
-<animation>
-        <type>rotate</type>
-
-
-	<object-name>nwheel</object-name>
-        <property>controls/flight/rudder</property>
-        <offset-deg>0</offset-deg>
-        <factor>-60</factor>
-        <axis>
-            <x>0.0</x>
-            <y>0.0</y>
-            <z>1.0</z>
-        </axis>
-        <center>
-            <x-m>-3.66829</x-m>
-            <y-m> 0</y-m>
-            <z-m>0.00083</z-m>
-        </center>
-    </animation>
 
 
 <!--Pretty much all of this is damage effects-->
