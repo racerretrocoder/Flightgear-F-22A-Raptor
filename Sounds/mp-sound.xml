@@ -6,7 +6,6 @@
      <engine>
         <name>left afterburner</name>
         <path>/Aircraft/F-22/Sounds/AB.wav</path>
-        <mode>looped</mode>
         <condition>
              <not>
           <property>/sim/current-view/internal</property>
@@ -29,6 +28,7 @@
     <value>-30</value>
 </greater-than>
         </condition>
+        <mode>looped</mode>
         <volume>
             <property>sim/multiplay/generic/float[31]</property>
             <offset>1</offset>

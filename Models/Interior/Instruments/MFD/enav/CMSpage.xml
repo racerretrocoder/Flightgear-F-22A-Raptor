@@ -288,7 +288,8 @@
     <blue>0.0</blue>
   </emission> 
  </animation>
- 	 <animation>
+<!-- WHY IS THIS HERE LOL -->
+  <!-- <animation>
   <type>material</type>
   <object-name>bingo</object-name>
 
@@ -307,7 +308,7 @@
     <green>0.0</green>
     <blue>0.0</blue>
   </emission> 
- </animation>
+ </animation> -->
 
 
 
