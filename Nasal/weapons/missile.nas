@@ -25,6 +25,27 @@ var inflight = func() {
 inflighttimer = maketimer(0.3,inflight);
 inflighttimer.start();
 
+var oppfunc = func(heading) {
+  if (heading != nil) {
+    var opposite = 0;
+    if (heading == 0) {
+      opposite == 180;
+    } elsif (heading > 0) {
+      opposite = heading - 180;
+    } else {
+      opposite = heading + 180
+    }
+    if (opposite < 0) {
+      opposite = opposite + 360;
+    }
+    #print("oppfunc: ",opposite);
+    return opposite;
+  } else {
+    #print("oppfunc(heading) - heading cant be nil!");
+    return 0;
+  }
+}
+
 
 # How to install Missiles onto your plane!
 # First and for most your going to need damage installed on it
@@ -526,7 +547,7 @@ if (me.Tgt != nil) {
         var isinfront = 0;
         var mslheading = me.hdg;
         var targetheading = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/orientation/true-heading-deg");
-        var oppmissile = f22.oppfunc(mslheading);
+        var oppmissile = oppfunc(mslheading);
         var headingvariation = me.cmsvariation;
         var hdgplus = oppmissile + headingvariation;
         var hdgmins = oppmissile - headingvariation;
