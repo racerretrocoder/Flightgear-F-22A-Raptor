@@ -76,20 +76,20 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <wingarea  unit="FT2">  840.00 </wingarea>
    <wingspan  unit="FT" >   44.60 </wingspan>
    <wing_incidence>          2.00 </wing_incidence>
-   <chord     unit="FT" >   18.83 </chord>
-   <htailarea unit="FT2">  168.00 </htailarea>
-   <htailarm  unit="FT" >   24.80 </htailarm>
-   <vtailarea unit="FT2">  151.20 </vtailarea>
+   <chord     unit="FT" >   22.06 </chord>
+   <htailarea unit="FT2">  136.00 </htailarea>
+   <htailarm  unit="FT" >   18.7 </htailarm>
+   <vtailarea unit="FT2">  178.20 </vtailarea>
    <vtailarm  unit="FT" >   24.80 </vtailarm>
    <location name="AERORP" unit="IN">
-     <x> 4.52 </x>
+     <x>50.720866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
    </location>
    <location name="EYEPOINT" unit="IN">
-     <x> 45.80 </x>
+     <x> -186.394094488188976</x>
      <y>   0.00 </y>
-     <z>  38.00 </z>
+     <z>  14.178228346456693</z>
    </location>
    <location name="VRP" unit="IN">
      <x>0</x>
@@ -99,13 +99,13 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  </metrics>
 
   <mass_balance>
-   <ixx unit="SLUG*FT2">     25762 </ixx>
-   <iyy unit="SLUG*FT2">     91916 </iyy>
-   <izz unit="SLUG*FT2">     85344 </izz>
+  <ixx unit="SLUG*FT2">     46000 </ixx>
+   <iyy unit="SLUG*FT2">     243500 </iyy>
+   <izz unit="SLUG*FT2">     277000 </izz>
    <emptywt unit="LBS" >     34000 </emptywt>
    <location name="CG" unit="IN">
 
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
    </location>
@@ -160,7 +160,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <location unit="IN">
      <x>  -144.38 </x>
      <y>   0.00 </y>
-     <z> -119.32 </z>
+     <z> -109.32 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -336,7 +336,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <!--6.603 lb / us gallon-->
    <tank type="FUEL" number="0"> <!-- F1A -->
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -347,7 +347,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <tank type="FUEL" number="1"> <!-- F1B -->
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -358,7 +358,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <tank type="FUEL" number="2"> <!-- F2 -->
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -370,7 +370,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <tank type="FUEL" number="3"> <!-- A1R -->
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -381,7 +381,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <tank type="FUEL" number="4"> <!-- A1L -->
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -395,7 +395,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <!--wings-->
   <tank type="FUEL" number="5"> <!-- A2R -->
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -406,7 +406,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <tank type="FUEL" number="6"> <!-- A2L -->
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -420,7 +420,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <tank type="FUEL" number="7"> <!-- A3R -->
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -431,7 +431,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <tank type="FUEL" number="8"> <!-- A3L -->
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -447,7 +447,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <tank type="FUEL" number="9">
  
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -458,7 +458,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <tank type="FUEL" number="10">
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -469,7 +469,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
   <tank type="FUEL" number="11">
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -480,7 +480,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 <tank type="FUEL" number="12">
      <location unit="IN">
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
      </location>
@@ -498,6 +498,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
  <system file="Systems/RaptorFuel.xml"/>
  <system file="Systems/holdback.xml"/>
  <flight_control name="FCS: F-22">
+ <!--Definiations-->
 <property>/f22/fcsmode</property>
 <property>/f22/fcs/controls/pitch</property>
 <property>/f22/gen1</property>
@@ -513,7 +514,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <property>/engines/engine[1]/n1</property>
 <property>/engines/engine[0]/n2</property>
 <property>/engines/engine[1]/n2</property>
-
+<property>/orientation/pitch-rate-degps</property>
+<property>/orientation/yaw-rate-degps</property>
    <function name="fcs/ghold">  
 <sum>
 <property>/f22/fcs/controls/pitch</property>
@@ -797,8 +799,48 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           </table>
 </function>
 
+<!--FBW Pitch Rate-->
+<function name="fcs/fbw-ptch-calib">  
+      <product>
+        <property>/orientation/pitch-rate-degps</property>
+          <table>
+            <independentVar lookup="row">/orientation/roll-deg</independentVar>
+            <tableData>
+              -180    -1  <!-- Upside Down-->
+               -90    0
+                 0    1   <!--Flying Up-right-->
+                90    0
+               180    -1  <!-- Upside Down-->
+            </tableData>
+          </table>
+      </product>
+   </function>
+<function name="fcs/fbw-yaw-calib">  
+      <product>
+        <property>/orientation/yaw-rate-degps</property>
+        <table>
+            <independentVar lookup="row">/orientation/roll-deg</independentVar>
+            <tableData>
+              -180    0
+               -90    -1    <!--Turning Left-->
+                 0    0
+                90    1     <!--Turning Right-->
+               180    0
+            </tableData>
+          </table>
+      </product>
+   </function>
+  <!--Turn rate-->
+  <!--If this function is close to zero. The plane is stable! (ae)-->
+<function name="fcs/fbw-pitch-rate-combo">  
+      <sum>
+        <property>fcs/fbw-yaw-calib</property>
+        <property>fcs/fbw-ptch-calib</property>
+      </sum>
+</function>
 
-<function name="fcs/aoa-pre">  
+
+<function name="fcs/aoa-pre-a">  
 <product>
 <property>fcs/fbw-override</property>
         <table>
@@ -825,10 +867,26 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </product>
    </function>
 
+<function name="fcs/aoa-pre">  
+<product>
+        <table>
+            <independentVar lookup="row">fcs/aoa-pre-a</independentVar>
+            <independentVar lookup="column">fcs/pitch-trim-sum</independentVar>
+            <tableData>
+                       -1  0   1 
+                   0   0   0   1
+                0.5    0.5 0.5 1
+                   1   1   1   1
+            </tableData> 
+          </table>
+        <property>fcs/engine-gen-spin-output</property>
+        </product>
+</function>
 
-<function name="fcs/elevator-g-limit-pre">  
+
+<function name="fcs/elevator-g-limit-pre-a">  
     <table>
-            <independentVar lookup="row">/accelerations/pilot-gdamped</independentVar>
+            <independentVar lookup="row">/accelerations/pilot-gdamped</independentVar> <!--todo: make a better g-dmped-->
             <independentVar lookup="column">/f22/fcs/glimit</independentVar>
             <tableData>   
                     0     1     2     3     4     5     6     7     8     9     10     11     12
@@ -849,6 +907,22 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             </tableData>
           </table>
    </function>
+
+<function name="fcs/elevator-g-limit-pre">  
+<product>
+        <table>
+            <independentVar lookup="row">fcs/elevator-g-limit-pre-a</independentVar>
+            <independentVar lookup="column">fcs/pitch-trim-sum</independentVar>
+            <tableData>
+                       -1  0   1 
+                   0   0   0   1
+                0.5    0.5 0.5 1
+                   1   1   1   1
+            </tableData> 
+          </table>
+        <property>fcs/engine-gen-spin-output</property>
+        </product>
+</function>
 
 
 <function name="fcs/elevator-pos-norm-limit">  
@@ -1436,9 +1510,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <!--Stable pitch trims-->
             <tableData>
                100    0    
-               150    -0.165
-               200    -0.076
-               250    -0.058
+               150    0.064<!---0.165-->
+               200    0.067
+               250    0.042
                300    -0.039
                350    -0.022  
                400    -0.010
@@ -1526,27 +1600,41 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <!--aoa elevator motion-->
 <function name="fcs/aoa-elev-pre">  
 <product>
+<!--
+  5kts
 
+ 0  
+ 0.5
+ 0.5
+ 0.5
+ 0.5
+-0.5
+ 0  
+ 0  
+ 0.3
+ 0.3
+ -->
         <table>
             <independentVar lookup="row">aero/alpha-deg</independentVar>
             <independentVar lookup="column">/velocities/groundspeed-kt</independentVar>
             <tableData>
                        0   5    50  100   200   300   400 
-                -100   0   0    0  -0.4   -0.3   -0.2   -0.25    
-                -90    0   0.5  0  -0.4   -0.3   -0.2   -0.25    
-                -30    0   0.5  0  -0.4   -0.3   -0.2   -0.25    
-                -10    0   0.5  0  -0.4   -0.3   -0.2   -0.25      
-                -0.5   0   0.5  0   0     0     0     0
-                0      0  -0.5  0   0     0     0     0
-                0.5    0   0    0   0     0     0     0
-                0.6    0   0    0   0     0     0     0
-                15     0   0.3  0   0.4   0.3   0.2   0.25     
-                30     0   0.3  0   0.4   0.3   0.2   0.25     
+                -100   0   0     0  -0.4  -0.3  -0.2  -0.25    
+                -90    0   0.5   0  -0.4  -0.3  -0.2  -0.25    
+                -30    0   0.5   0  -0.4  -0.3  -0.2  -0.25    
+                -10    0   0.5   0  -0.4  -0.3  -0.2  -0.25      
+                -0.5   0   0.5   0   0     0     0     0
+                0      0  -0.5   0   0     0     0     0
+                0.5    0   0     0   0     0     0     0
+                0.6    0   0     0   0     0     0     0
+                15     0   0.3   0   0.4   0.3   0.2   0.25     
+                30     0   0.3   0   0.4   0.3   0.2   0.25     
             </tableData> 
           </table>
         <property>fcs/engine-gen-spin-output</property>
         </product>
 </function>
+
 
 
 
@@ -1613,7 +1701,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <input>/f22/fcs/controls/elevator</input>
       <clipto>
         <min> -1 </min>
-        <max>  0.6 </max>
+        <max>  1 </max>
       </clipto>
    </summer>
 
@@ -3466,7 +3554,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
            <property>metrics/Sw-sqft</property>
            <property>metrics/cbarw-ft</property>
            <property>aero/alpha-rad</property>
-           <value>-0.3</value>
+           <value>0</value> <!-- -0.3 -->
        </product>
     </function>
 
@@ -3483,7 +3571,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <tableData>
               0.0     -1.000
               1.0     -0.700
-              2.0     -0.300
+              2.0     -0.400
             </tableData>
           </table>
        </product>
@@ -3570,7 +3658,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <force name="pushback" frame="BODY">
   <location unit="IN">
 
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
   </location>
@@ -3583,7 +3671,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
          <force name="hook" frame="BODY">
             <location unit="IN">
 
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
             </location>
@@ -3612,14 +3700,14 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <location unit="IN">
 
 
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
    </location>
    <direction>
 
 
-     <x> 4.52 </x>
+     <x>78.800866141732283</x>
      <y>   0.00 </y>
      <z> -41.04 </z>
    </direction>
