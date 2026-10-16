@@ -799,6 +799,7 @@ setprop("/autopilot/locks/fcs","");
 setprop("/autopilot/locks/fcsaileron","");
 var fcsloop = func() {
   # Loop it slowly
+  setprop("/f22/fcsmode",2);
   var controlThresh = 0.01;
   var negcontrolThresh = -1 * controlThresh;
   var fcsmode = getprop("/f22/fcsmode");#mode
@@ -829,7 +830,7 @@ var fcsloop = func() {
   }
   if (fcsmode == 2) {
     setprop("f22/fcs/glimit",9.0);
-    setprop("f22/fcs/aoalimit",50);
+    setprop("f22/fcs/aoalimit",70);
     setprop("f22/fcs/mode","AUTO G"); # the text
     # AF1g mode
     # do control check
@@ -2927,7 +2928,7 @@ tuttimer = maketimer(5,tutmessage);
 dmgtimer = maketimer(0.3,checkdmg);
 geardelay = maketimer(10,geardelaymain);
 
-fcscontrol = maketimer(0.3,fcsloop);
+fcscontrol = maketimer(0.1,fcsloop);
 setlistener("sim/signals/fdm-initialized", func {
 setprop("f22/water",0);
 # Spawned in/went to location
