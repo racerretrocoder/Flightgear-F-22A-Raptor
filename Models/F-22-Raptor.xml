@@ -591,7 +591,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
     <object-name>nwheel2</object-name>
     <object-name>Nose_Gear_Holder02</object-name>
     <property>gear/gear[0]/compression-m</property>
-	<offset-m>-0.37</offset-m>
+	<offset-m>-0.137</offset-m>
     <axis>
       <x1-m>  0.0 </x1-m>
       <y1-m>  0.0 </y1-m>
@@ -606,7 +606,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 	  <animation>
     <type>translate</type>
     <object-name>Nose_Gear_Holder01</object-name>
-	<offset-m>-0.325</offset-m>
+	<offset-m>-0.105</offset-m>
     <axis>
       <x>  0.0 </x>
       <y>  0.0 </y>
@@ -619,7 +619,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
     <object-name>Nose_Gear_Holder01</object-name>
 	<property>gear/gear[0]/compression-m</property>
 	<factor>-0.45224</factor>
-	<offset-m>0.01</offset-m>
+	<offset-m>-0.037</offset-m>
     <axis>
       <x>  1.0 </x>
       <y>  0.0 </y>
@@ -635,7 +635,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 		<object-name>Nose_Gear_Holder01</object-name>
 		<property>gear/gear[0]/compression-norm</property>
 					<factor>-40</factor>
-<offset-m>0.13</offset-m>
+<offset-m>-1.13</offset-m>
 		<axis>   
 		<object-name>Nose_Gear_Holder01-axis</object-name>
 		</axis>
@@ -713,7 +713,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 			</greater-than>
 		</condition>
 		<property>gear/gear/rollspeed-ms</property>
-  <factor>5</factor>
+  <factor>15</factor>
 
     <center>
 <object-name>fwheel-axis</object-name>

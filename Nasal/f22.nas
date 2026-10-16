@@ -793,6 +793,8 @@ setprop("autopilot/locks/altitude","");
 #setprop("/f22/fcs/glimit",0);
 #setprop("/f22/fcsmode",0);
 setprop("/f22/fcs/rollrate",20);
+setprop("/f22/fcs/ptchrate",20);
+setprop("/f22/fcs/zero",0);
 setprop("/autopilot/locks/fcs","");
 setprop("/autopilot/locks/fcsaileron","");
 var fcsloop = func() {
@@ -805,7 +807,7 @@ var fcsloop = func() {
   var elevator = getprop("/controls/flight/elevator");
   var aileron = getprop("/controls/flight/aileron");
   var rudder = getprop("/controls/flight/rudder");
-  var disableelev = 0;
+  var disableelev = 2;
   var disableaile = 2;
 
   if (fcsmode == 0) { # Navigation
@@ -826,8 +828,8 @@ var fcsloop = func() {
     setprop("/f22/fcsmode",2);
   }
   if (fcsmode == 2) {
-    setprop("f22/fcs/glimit",8.0);
-    setprop("f22/fcs/aoalimit",30);
+    setprop("f22/fcs/glimit",9.0);
+    setprop("f22/fcs/aoalimit",50);
     setprop("f22/fcs/mode","AUTO G"); # the text
     # AF1g mode
     # do control check
@@ -852,26 +854,36 @@ var fcsloop = func() {
       }
     }
     var rollrate = getprop("/f22/fcs/rollrate");
+    var ptchrate = getprop("/f22/fcs/ptchrate");
     var negrollrate = rollrate * -1;
+    var negptchrate = ptchrate * -1;
     if (getprop("/orientation/roll-rate-degps") < rollrate and getprop("/orientation/roll-rate-degps") > negrollrate) {
       if (disableaile != 1) {
         disableaile = 0;
       }
     }
+    if (getprop("/orientation/pitch-rate-degps") < ptchrate and getprop("/orientation/pitch-rate-degps") > negptchrate) {
+      if (getprop("f22/fcs/controls/pitch") == 0 or getprop("f22/fcs/controls/pitch") == -90 or getprop("f22/fcs/controls/pitch") == 90) {
+          setprop("f22/fcs/controls/pitch",getprop("orientation/pitch-deg")); # Set holding point
+      }
+      if (disableelev != 1) {
+        disableelev = 0;
+      }
+    }
     # final checks
     # Note: if getprop("fdm/jsbsim/fcs/engine-gen-spin-output") is nil. then the == 0 is auto ignored
-    if (getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0 or getprop("autopilot/locks/altitude") != "" or getprop("orientation/pitch-deg") < -70 or getprop("orientation/pitch-deg") > 70 or getprop("velocities/airspeed-kt") < 10) {
+    if (getprop("fdm/jsbsim/fcs/engine-gen-spin-output") == 0 or getprop("autopilot/locks/altitude") != "" or getprop("velocities/airspeed-kt") < 10) { # or getprop("orientation/pitch-deg") < -70 or getprop("orientation/pitch-deg") > 70 
       disableelev = 1;
       disableaile = 1;
     }
-    if (getprop("orientation/roll-deg") < -90 or getprop("orientation/roll-deg") > 90) {
-      disableelev = 1;
-    }
+    #if (getprop("orientation/roll-deg") < -90 or getprop("orientation/roll-deg") > 90) {
+    #  disableelev = 1;
+    #}
     # Elevator
     if (disableelev == 0){
       # not moving controls, criteria met and fcs enabled
       setprop("/autopilot/locks/fcs","1g");
-      if (getprop("f22/fcs/controls/pitch") == 0) {
+      if (getprop("f22/fcs/controls/pitch") == 0 or getprop("f22/fcs/controls/pitch") == -90 or getprop("f22/fcs/controls/pitch") == 90 and getprop("/orientation/pitch-rate-degps") < ptchrate and getprop("/orientation/pitch-rate-degps") > negptchrate) {
          setprop("f22/fcs/controls/pitch",getprop("orientation/pitch-deg")); # Set holding point
       }
     } else {
@@ -897,12 +909,13 @@ var fcsloop = func() {
   if (fcsmode == 3) { # max
     if (getprop("f22/dogfightmode") == 1) {
     setprop("f22/fcs/mode","DFM"); # the text
-    setprop("f22/fcs/glimit",9.0);
+    setprop("f22/fcs/glimit",10.5);
     setprop("f22/fcs/aoalimit",90);
     setprop("f22/fcs/controls/elevator",0);
     setprop("f22/fcs/controls/aileron",0);
     setprop("f22/fcs/controls/rudder",0);
     setprop("/autopilot/locks/fcs","");
+    setprop("/autopilot/locks/fcsaileron","");
     } else {
       setprop("f22/fcsmode",0); # set back to nav
     }
@@ -2799,7 +2812,7 @@ var wingloop = func() {
 var gwing = func() {
   var g = getprop("/accelerations/pilot-gdamped");
   var speed = getprop("/velocities/airspeed-kt");
-  if (g > 14.8 and speed > 300) {
+  if (g > 94.8 and speed > 300) {
     # SNAP!
     ae = 0.5;
     thewing = rand() < (1-ae);

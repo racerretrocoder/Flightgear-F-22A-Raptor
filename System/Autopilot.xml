@@ -66,7 +66,7 @@
   <u_max>70.0</u_max>
  </filter>
 
-
+<!--
  <pid-controller>
  <name>1G Hold Computer</name>
  <debug>false</debug>
@@ -88,17 +88,17 @@
    <property>/autopilot/internal/target-pitch-deg-ae</property>
   </output>
    <config>
-     <Kp>0.015</Kp>        <!-- proportional gain -0.01 -->
-    <beta>1.0</beta>       <!-- input value weighing factor -->
-    <alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
-    <gamma>0.0</gamma>     <!-- input value weighing factor for -->
-                           <!-- unfiltered derivative error -->
-    <Ti>0.4</Ti>          <!-- integrator time  10.0 -->
-    <Td>0.00001</Td>       <!-- derivator time -->
-    <u_min>-0.42</u_min>  <!-- minimum output clamp -->
-    <u_max>0.42</u_max>   <!-- maximum output clamp -->
+     <Kp>0.015</Kp>    
+    <beta>1.0</beta>   
+    <alpha>0.5</alpha> 
+    <gamma>0.0</gamma> 
+                    
+    <Ti>1</Ti>         
+    <Td>0.0001</Td>    
+    <u_min>-1</u_min>  
+    <u_max>1</u_max>   
    </config>
-  </pid-controller>
+  </pid-controller>-->
 
 
  
@@ -296,7 +296,7 @@
    <u_max>0.35</u_max>
   </config>
  </pid-controller>
- <!--FCS-->
+ <!--FCS
   <pid-controller>
   <name>FCS System Command: Pitch</name>
   <debug>false</debug>
@@ -318,16 +318,52 @@
    <property>/f22/fcs/controls/elevator</property>
   </output>
   <config>
+   <Kp>-0.08</Kp>      
+   <beta>1.0</beta>    
+   <alpha>0.1</alpha>  
+   <gamma>0.0</gamma>  
+   <Ti>80.0</Ti>       
+   <Td>0.00001</Td>    
+   <u_min>-1</u_min> 
+   <u_max>1</u_max>
+  </config>
+ </pid-controller>-->
+
+
+ <!--FCS (using Turn rate)-->
+
+  <pid-controller>
+  <name>FCS System Command: Pitch</name>
+  <debug>false</debug>
+  <enable>
+   <condition>
+    <not-equals>
+	<property>/autopilot/locks/fcs</property>
+	<value />
+	</not-equals>
+   </condition>
+  </enable>
+  <input>
+   <property>/fdm/jsbsim/fcs/fbw-pitch-rate-combo</property>
+  </input>
+  <reference>
+   <property>/f22/fcs/zero</property>
+  </reference>
+  <output>
+   <property>/f22/fcs/controls/elevator</property>
+  </output>
+  <config>
    <Kp>-0.05</Kp>      
-   <beta>1.0</beta>    <!-- input value weighing factor -->
-   <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-   <gamma>0.0</gamma>  <!-- input value weighing factor for -->
-   <Ti>1.0</Ti>       <!-- integrator time  10.0 -->
-   <Td>0.00001</Td>    <!-- derivator time -->
-   <u_min>-0.1</u_min> <!-- minimum output clamp -->
-   <u_max>0.1</u_max>
+   <beta>1.0</beta>    
+   <alpha>0.1</alpha>  
+   <gamma>0.0</gamma>  
+   <Ti>1.0</Ti>       
+   <Td>0.00001</Td>    
+   <u_min>-1</u_min> 
+   <u_max>1</u_max>
   </config>
  </pid-controller>
+
 
   <pid-controller>
   <name>FCS System Command: Roll</name>
