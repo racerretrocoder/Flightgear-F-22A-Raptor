@@ -2593,7 +2593,7 @@ FR
 			<object-name>right-elevator</object-name>
 				<!-- <property>fdm/jsbsim/fcs/right-stabilator-pos-deg2</property> -->
 	<property>sim/multiplay/generic/float[21]</property>
-					<factor>45</factor>
+					<factor>35</factor>
 						<center>
 							<x-m>7.12347</x-m>
 								<y-m>1.9012</y-m>
@@ -2629,7 +2629,7 @@ FR
 			<object-name>left-elevator</object-name>
 
 	<property>sim/multiplay/generic/float[21]</property>
-						<factor>45</factor>
+						<factor>35</factor>
 							<center>
 								<x-m>7.12347</x-m>
 								<y-m>-1.9012</y-m>
