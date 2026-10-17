@@ -2813,17 +2813,17 @@ var wingloop = func() {
 var gwing = func() {
   var g = getprop("/accelerations/pilot-gdamped");
   var speed = getprop("/velocities/airspeed-kt");
-  if (g > 94.8 and speed > 300) {
+  if (g > 14.8 and speed > 300) {
     # SNAP!
     ae = 0.5;
     thewing = rand() < (1-ae);
     if (thewing == 1) {
       # its the lef- uhh RIGHT WING!!!
-      screen.log.write("Right wing damaged due to G-Forces",1,0,0);
+      screen.log.write("Right wing damaged due to G-Forces!",1,0,0);
       setprop("f22/damage/rwing",1);
     } else {
       # the the other wing
-      screen.log.write("Left wing damaged due to G-Forces",1,0,0);
+      screen.log.write("Left wing damaged due to G-Forces!",1,0,0);
       setprop("f22/damage/lwing",1);
     }
   }
