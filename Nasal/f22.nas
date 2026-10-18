@@ -793,13 +793,12 @@ setprop("autopilot/locks/altitude","");
 #setprop("/f22/fcs/glimit",0);
 #setprop("/f22/fcsmode",0);
 setprop("/f22/fcs/rollrate",20);
-setprop("/f22/fcs/ptchrate",20);
+setprop("/f22/fcs/ptchrate",200000000000);
 setprop("/f22/fcs/zero",0);
 setprop("/autopilot/locks/fcs","");
 setprop("/autopilot/locks/fcsaileron","");
 var fcsloop = func() {
   # Loop it slowly
-  setprop("/f22/fcsmode",2);
   var controlThresh = 0.01;
   var negcontrolThresh = -1 * controlThresh;
   var fcsmode = getprop("/f22/fcsmode");#mode
@@ -813,38 +812,35 @@ var fcsloop = func() {
 
   if (fcsmode == 0) { # Navigation
     setprop("f22/fcs/mode","NAV"); # the text
-    setprop("f22/fcs/glimit",9.0);
+    setprop("f22/fcs/glimit",9.2);
     setprop("f22/fcs/aoalimit",70);
-    setprop("f22/fcs/controls/elevator",0);
-    setprop("f22/fcs/controls/aileron",0);
-    setprop("f22/fcs/controls/rudder",0);
-    setprop("/autopilot/locks/fcs","");
   }
   if (fcsmode == 1) { # disab
-    #setprop("f22/fcs/mode","OFF"); # the text
-    setprop("f22/fcs/controls/elevator",0);
-    setprop("f22/fcs/controls/aileron",0);
-    setprop("f22/fcs/controls/rudder",0);
-    setprop("/autopilot/locks/fcs","");
+    setprop("f22/fcs/mode","OFF"); # the text
     setprop("/f22/fcsmode",2);
   }
   if (fcsmode == 2) {
-    setprop("f22/fcs/glimit",9.0);
-    setprop("f22/fcs/aoalimit",70);
+    setprop("f22/fcs/glimit",9.2);
+    setprop("f22/fcs/aoalimit",30);
     setprop("f22/fcs/mode","AUTO G"); # the text
+  }
+
+  if (1 == 1) {
+    # Fly by wire loop
     # AF1g mode
     # do control check
-    if (elevator > controlThresh) {
-      disableelev = 1;
-      disableaile = 1; # Disable Roll control aswell when flying
-    }
+    
+    #if (elevator > controlThresh) {
+    #  disableelev = 1;
+    #  disableaile = 1; # Disable Roll control aswell when flying
+    #}
 
-    if (elevator < 0) {
-      if (elevator < negcontrolThresh){
-        disableelev = 1;
-        disableaile = 1; # Disable Roll control aswell when flying
-      }
-    }
+    #if (elevator < 0) {
+    #  if (elevator < negcontrolThresh){
+    #    disableelev = 1;
+    #    disableaile = 1; # Disable Roll control aswell when flying
+    #  }
+    #}
     if (aileron > controlThresh) {
       disableaile = 1;
     }
@@ -910,19 +906,21 @@ var fcsloop = func() {
   if (fcsmode == 3) { # max
     if (getprop("f22/dogfightmode") == 1) {
     setprop("f22/fcs/mode","DFM"); # the text
-    setprop("f22/fcs/glimit",10.5);
-    setprop("f22/fcs/aoalimit",90);
-    setprop("f22/fcs/controls/elevator",0);
-    setprop("f22/fcs/controls/aileron",0);
-    setprop("f22/fcs/controls/rudder",0);
-    setprop("/autopilot/locks/fcs","");
-    setprop("/autopilot/locks/fcsaileron","");
+    setprop("f22/fcs/glimit",9.2);
+    setprop("f22/fcs/aoalimit",170);
     } else {
       setprop("f22/fcsmode",0); # set back to nav
     }
   }
 }
-
+setprop("f22/fcs/gaccel",0);
+setprop("f22/tv",1); # Thrust vector
+var gloop = func() {
+  # super cool g rate sim
+  var accel = getprop("/accelerations/pilot-g");
+  var diff = getprop("f22/fcs/gaccel") - accel;
+  setprop("f22/fcs/gaccel",math.abs(diff)); # ABS me!
+}
 
 # External and Internal Lighting
 
@@ -2928,7 +2926,9 @@ tuttimer = maketimer(5,tutmessage);
 dmgtimer = maketimer(0.3,checkdmg);
 geardelay = maketimer(10,geardelaymain);
 
-fcscontrol = maketimer(0.1,fcsloop);
+fcscontrol = maketimer(0,fcsloop);
+#fbwloop2 = maketimer(0,gloop);
+
 setlistener("sim/signals/fdm-initialized", func {
 setprop("f22/water",0);
 # Spawned in/went to location
@@ -2970,6 +2970,7 @@ bingotimer.start();
 consoletimer.start();
 setprop("f22/grind",0);
 fcscontrol.start();
+fbwloop2.start();
 });
 
 
