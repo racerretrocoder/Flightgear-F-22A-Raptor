@@ -4,8 +4,11 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
+
+
+
  <fileheader>
-  <author> Aeromatic v 0.96 </author>
+  <author> Aeromatic v 0.96, Phoenix, Clash (KJ7NLL)</author>
   <filecreationdate>2024-05-30</filecreationdate>
   <version>$Revision: 1.20 $</version>
   <description> Models a F-22. </description>
@@ -516,12 +519,15 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <property>/engines/engine[1]/n2</property>
 <property>/orientation/pitch-rate-degps</property>
 <property>/orientation/yaw-rate-degps</property>
-   <function name="fcs/ghold">  
-<sum>
-<property>/f22/fcs/controls/pitch</property>
-<property>/autopilot/internal/target-pitch-deg-ae</property>
-</sum>
-   </function>
+<property>/f22/fcs/gaccel</property>
+
+
+<function name="fcs/ghold">  
+  <sum>
+    <property>/f22/fcs/controls/pitch</property>
+    <property>/autopilot/internal/target-pitch-deg-ae</property>
+  </sum>
+</function>
 
 
 
@@ -690,7 +696,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <function name="fcs/elevator-cmd-norm-power">  
 <product>
 <property>fcs/AAR</property>
-<property>fcs/elevator-authority-speed</property> <!-- Fly by wire -->
         <table>
             <independentVar lookup="column">fcs/engine-gen-spin-output</independentVar>
             <independentVar lookup="row">fcs/elevator-cmd-norm</independentVar>
@@ -800,41 +805,25 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           </table>
 </function>
 
-<!--FBW Elevator authority due to speed-->
-<function name="fcs/elevator-authority-speed">  
-<product>
-<property>fcs/fbw-override</property>
-        <table>
-            <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
-            <tableData>
-            0     1
-            100   1
-            150   1
-            200   1
-            250   1
-            300   1
-            350   0.5
-            400   0.4
-            450   0.4
-            500   0.15
-            550   0.2
-            600   0.2
-            650   0.05
-            700   0.05
-            750   0.05
-            800   0.1
-            850   0.1
-            900   0.1
-            950   0.1
-           1000   0.1
-           1050   0.1
-           1100   0.1
-           1150   0.1
-           1200   0.1                                                                                                                                      
-            </tableData>
-          </table>
-      </product>
-   </function>
+<!-- 0.5  
+ 0.4  
+ 0.4  
+ 0.15 
+ 0.2  
+ 0.2  
+ 0.05 
+ 0.05 
+ 0.05 
+ 0.1  
+ 0.1  
+ 0.1  
+ 0.1  
+ 0.1  
+ 0.1  
+ 0.1  
+ 0.1  
+ 0.1  -->
+
 
 <!--FBW Pitch Rate-->
 <function name="fcs/fbw-ptch-calib">  
@@ -859,20 +848,22 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <independentVar lookup="row">/orientation/roll-deg</independentVar>
             <tableData>
               -180    0
-               -90    -1    <!--Turning Left-->
+               -90   -1    <!--Turning Left-->
                  0    0
-                90    1     <!--Turning Right-->
+                90    1    <!--Turning Right-->
                180    0
             </tableData>
           </table>
       </product>
    </function>
+
+
   <!--Turn rate-->
   <!--If this function is close to zero. The plane is stable! (ae)-->
-<function name="fcs/fbw-pitch-rate-combo">  
+<function name="fcs/fbw-pitch-rate-combo">
       <sum>
         <property>fcs/fbw-yaw-calib</property>
-        <property>fcs/fbw-ptch-calib</property>
+        <property>fcs/fbw-ptch-calib</property> <!--Turn rate (no negitive)-->
       </sum>
 </function>
 
@@ -920,35 +911,32 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         </product>
 </function>
 
+<property>fcs/Gaccel</property>
+<!--G Rate-->
+<function name="fcs/Gaccel">  
+  <abs>
+    <difference>
+        <property>accelerations/Nz</property>
+        <property>/accelerations/pilot-gdamped</property> <!-- Glast - This is the same thing but with a slight delay-->
+    </difference>
+  </abs>
+</function>
+
+
+<!--aeaeaeuaeufuyasfusaef-->
 
 <function name="fcs/elevator-g-limit-pre-a">  
-    <table>
-            <independentVar lookup="row">/accelerations/pilot-gdamped</independentVar> <!--todo: make a better g-dmped-->
-            <independentVar lookup="column">/f22/fcs/glimit</independentVar>
-            <tableData>   
-                    0     1     2     3     4     5     6       7     8     9     10     11     12
-              1     1     0.5   0.7   0.8   0.9   1     1       1     1     1     1      1      1
-              2     1     0.1   0.5   0.7   0.8   0.9   1       1     1     1     1      1      1
-              3     1     0     0.1   0.5   0.7   0.8   0.9     1     1     1     1      1      1
-              4     1     0     0     0.1   0.5   0.7   0.8     0.9   1     1     1      1      1
-              5     1     0     0     0     0.1   0.5   0.7     0.8   0.9   1     1      1      1
-              6     1     0     0     0     0     0.1    0.5    0.7   0.8   0.9   1      1      1
-              7     1     0     0     0     0     0      0.1    0.5   0.7   0.8   0.9    1      1
-              8     1     0     0     0     0     0      0      0.1   0.5   0.7   0.8    0.9    1
-              9     1     0     0     0     0     0      0      -1    0.1   0.5   0.7    0.8    0.9
-             10     1     0     0     0     0     0      0      -1     -1   0.1   0.5    0.7    0.8
-             11     1     0     0     0     0     0      0      -1     -1   -1    0.1    0.5    0.7
-             12     1     0     0     0     0     0      0      -1     -1   -1    -1      0.1    0.5
-             13     1     0     0     0     0     0      0      -1     -1   -1    -1      -1     0.1
-             14     1     0     0     0     0     0      0      -1     -1   -1    -1      -1     -1
-            </tableData>
-          </table>
-   </function>
-
-<function name="fcs/elevator-g-limit-pre">  
+  <!--New modern g limit -  (Limit-gValue)*gRate?-->
+      <property>/f22/fcs/controls/glimcoeff</property>
+</function>
+<function name="fcs/elevator-g-limit-pre-b">  
+  <!--New modern g limit -  (Limit-gValue)*gRate?-->
+      <property>/f22/fcs/controls/glimcoeffvector</property>
+</function>
+<function name="fcs/elevator-g-limit-ae">  
 <product>
         <table>
-            <independentVar lookup="row">fcs/elevator-g-limit-pre-a</independentVar>
+            <independentVar lookup="row">fcs/elevator-g-limit-ae-ae</independentVar>
             <independentVar lookup="column">fcs/pitch-trim-sum</independentVar>
             <tableData>
                        -1  0   1 
@@ -958,6 +946,110 @@ The Force that pushes the aircraft for increased manuverability should be lowere
                    1   1   1   1
             </tableData> 
           </table>
+        <property>fcs/engine-gen-spin-output</property>
+        </product>
+</function>
+<function name="fcs/elevator-g-limit-ae-vector">  
+<product>
+        <table>
+            <independentVar lookup="row">fcs/elevator-g-limit-ae-ae-vector</independentVar>
+            <independentVar lookup="column">fcs/pitch-trim-sum</independentVar>
+            <tableData>
+                       -1  0   1 
+                  -1  -1  -1   1
+                   0   0   0   1
+                0.5    0.5 0.5 1
+                   1   1   1   1
+            </tableData> 
+          </table>
+        <property>fcs/engine-gen-spin-output</property>
+        </product>
+</function>
+
+<!--Percent rule == 1-->
+<function name="fcs/engine-percent-rule-A">  
+<table>
+    <independentVar lookup="row">fcs/throttle-cmd-norm[0]</independentVar>
+    <tableData>
+          0     0
+          0.60  0
+          0.78  1
+    </tableData> 
+</table>
+</function>
+<!--Percent rule == 0-->
+<function name="fcs/engine-percent-rule-B">  
+<table>
+    <independentVar lookup="row">fcs/throttle-cmd-norm[0]</independentVar>
+    <tableData>
+          0     1
+          0.60  1
+          0.78  0
+    </tableData> 
+</table>
+</function>
+
+<function name="fcs/elevator-g-limit-ae-clip-A">  
+<product>
+        <table>
+            <independentVar lookup="row">fcs/elevator-g-limit-ae-ae</independentVar>
+            <independentVar lookup="column">fcs/pitch-trim-sum</independentVar>
+            <tableData>
+                       -1  0   1 
+                  -1  -1  -1   1
+                   0   0   0   1
+                0.5    0.5 0.5 1
+                   1   1   1   1
+            </tableData> 
+          </table>
+        <property>fcs/engine-gen-spin-output</property>
+        <property>fcs/engine-percent-rule-B</property>
+        </product>
+</function>
+
+<function name="fcs/elevator-g-limit-ae-clip-B">  
+<product>
+        <table>
+            <independentVar lookup="row">fcs/elevator-g-limit-clipped</independentVar>
+            <independentVar lookup="column">fcs/pitch-trim-sum</independentVar>
+            <tableData>
+                        <!--80% Rule-->
+                      -1  -0.90 -0.80 0   1 
+                  -1   0   -1    -1  -1   1
+                   0   0    0     0   0   1
+                   1   1    1     1   1   1
+            </tableData> 
+          </table>
+        <property>fcs/engine-gen-spin-output</property>
+        <property>fcs/engine-percent-rule-A</property>
+        </product>
+</function>
+
+<!--combine them-->
+<function name="fcs/elevator-g-limit-ae-clip">
+  <sum>
+    <property>fcs/elevator-g-limit-ae-clip-A</property>
+    <property>fcs/elevator-g-limit-ae-clip-B</property>
+  </sum>
+</function>
+
+
+<!--Vectors and 80% Rule-->
+<function name="fcs/elevator-g-limit-vector">  
+<product>
+        <table>
+            <independentVar lookup="row">fcs/elevator-g-limit-ae-ae-vector</independentVar>
+            <independentVar lookup="column">fcs/pitch-trim-sum</independentVar>
+            <tableData>
+                  <!--80% Rule-->
+                      -1 -0.8  0     1 
+                  -1   1  -1  -1     1
+                   0   1   0   0     1  <!--Pull down Trigger-->
+                   0.5 1   1   1     1
+                   1   1   1   1     1
+            </tableData> 
+          </table>
+        <property>fcs/elevator-g-limit-ae-vector</property>  
         <property>fcs/engine-gen-spin-output</property>
         </product>
 </function>
@@ -1041,18 +1133,15 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 </product>
    </function>
 
-   <function name="fcs/Elev-pos-norm-limit-sum-main-ani-ae">  <!--Main Elevator POS with Limit-->
-<product>
-      <property>fcs/Elev-pos-norm-limit-sum-main</property>
-      <property>fcs/aoa-pre</property>
-      <property>fcs/elevator-g-limit-ae</property>
-</product>
-   </function>
    <function name="fcs/Elev-pos-norm-limit-sum-main-ani">  <!--Main Elevator POS with Limit-->
-<sum>
-      <property>fcs/Elev-pos-norm-limit-sum-main-ani-ae</property>
-      <property>fcs/aoa-elev-main</property>
-</sum>
+<product>
+      <sum>
+        <property>fcs/Elev-pos-norm-limit-sum-main</property>
+        <property>fcs/aoa-elev-main</property>
+      </sum>
+      <property>fcs/aoa-pre</property>
+      <property>fcs/elevator-g-limit-ae-clip</property>
+</product>
    </function>
 
 
@@ -1068,14 +1157,17 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   </sum>
    </function>
 
+<!--Limitation application-->
 
-      <function name="fcs/Elev-pos-norm-limit-sum-g">  <!--BOTH Limiters-->
+
+      <function name="fcs/Elev-pos-norm-limit-sum-g">  <!--Elev limits-->
 <product>
       <property>fcs/aoa-pre</property>
-      <property>fcs/elevator-g-limit-ae</property>
+      <property>fcs/elevator-g-limit-ae-clip</property>
       <property>fcs/Elev-pos-norm-limit-sum</property>
 </product>
    </function>
+
    <function name="fcs/Elev-pos-norm-limit-sum-main-flt">  <!--Main Elevator POS with Limit-->
 <sum>
       <property>fcs/Elev-pos-norm-limit-sum-g</property>
@@ -1083,7 +1175,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 </sum>
    </function>
 
-   <function name="fcs/Elev-pos-norm-g-limit-ae">  <!--For thrust vectoring-->
+   <function name="fcs/Elev-pos-norm-g-limit-ae">  <!--Vector limits-->
 <product>
       <property>fcs/aoa-pre</property>
       <property>fcs/elevator-g-limit-ae</property>
@@ -1092,10 +1184,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    </function>
 
    <function name="fcs/Elev-pos-norm-g-limit">  <!--For thrust vectoring-->
-<sum>
       <property>fcs/Elev-pos-norm-g-limit-ae</property>
-      <property>/f22/fcs/controls/elevator</property>
-</sum>
    </function>
 
   <function name="fcs/ail-pos-norm-limit-sum-main">  <!--Main Elevator POS with Limit-->
@@ -1168,9 +1257,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             <independentVar lookup="column">/controls/gear/gear-down</independentVar>
             <tableData>
                      0    1 <!--0 is gearup 1 is gear down-->  
-              0      0    0.7
-              100    0    0.7
-              200    0    0.7
+              0      0    0.5
+              100    0    0.5
+              200    0    0.5
               300    0    0 
               400    0    0 
               500    0    0 
@@ -1691,9 +1780,32 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         <property>fcs/engine-gen-spin-output</property>
         </product>
 </function>
+  <function name="fcs/elevator-fbw-limit">
+  
+  <product>
+  <property>/f22/fcs/controls/elevator</property>
+  <property>fcs/elevator-g-limit-ae-clip</property>
+  </product>
+
+  </function>
 
 
 
+  <function name="fcs/elevator-cmd-norm-delay-sm">  
+  <table>
+    <independentVar lookup="row">fcs/elevator-cmd-norm-delay-sm-a</independentVar>
+    <independentVar lookup="column">fcs/elevator-fbw-limit</independentVar>
+    <tableData>
+    <!-- FBW ELEVATOR -->
+          -1  0  1
+    <!--Actual elevator-->     
+       -1 -1 -1 -1
+        0 -1  0  1
+        1  1  1  1
+    <!--Interpretation between them -1 pulling up, 1 pulling down - Our control has full authority-->
+    </tableData> 
+  </table>
+  </function>
 
 
   <channel name="Pitch">
@@ -1714,8 +1826,11 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <time>0.22</time>
         </setting>
        </traverse>
-      <output>fcs/elevator-cmd-norm-delay-sm</output> <!--main-->
+      <output>fcs/elevator-cmd-norm-delay-sm-a</output> <!--main-->
    </kinematic>
+
+
+
 
     <kinematic name="aoa elev">
       <input>fcs/aoa-elev-pre</input>
@@ -1755,7 +1870,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
    <summer name="Pitch Trim Sum">
       <input>fcs/elevator-cmd-norm-delay-sm</input> <!--RAW ELEVATOR CONTROL INPUT!! | Note the g limiter all that stuff is applied directly into <axis>-->
       <input>fcs/pitch-trim-main</input>
-      <input>/f22/fcs/controls/elevator</input>
+      <!--<input>fcs/fcs-elevator</input>-->
       <clipto>
         <min> -1 </min>
         <max>  1 </max>
@@ -1790,7 +1905,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
      </traverse>
      <output>fcs/elevator-pos-rad-anim</output>
    </kinematic>
-
+<!--
  <kinematic name="elevator g lim">
      <input>fcs/elevator-g-limit-pre</input>
      <traverse>
@@ -1809,7 +1924,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
      </traverse>
      <output>fcs/elevator-g-limit-ae</output>
    </kinematic>
-
+-->
 
 
    <aerosurface_scale name="elevator normalization">
@@ -2290,29 +2405,14 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
    </function>
 
-<function name="fcs/vector-main-control">  <!-- this is here for refernece later :) Oh and the vector limiter!-->
-<quotient>
-
-       <!--Add g limit here too -->
-
-    <product>
-      <property>fcs/Elev-pos-norm-g-limit</property>
-      <property>fcs/tv-coefficient</property>
-     </product>
-
-        <table>
-            <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
-            <tableData>
-              0.0    1
-              380    1
-              400    1.5
-              450    2
-              500    2.5
-              750    5.5
-            </tableData>
-          </table>
-       </quotient>
-   </function>
+<function name="fcs/vector-main-control">
+    <product> 
+      <property>fcs/aoa-pre</property> <!--AOA limit coeff-->
+      <property>fcs/elevator-g-limit-vector</property> <!--G limit coeff-->
+      <property>fcs/elevator-cmd-norm-delay-sm</property> <!--Elevator control (Final)-->
+      <property>fcs/tv-coefficient</property> <!--Vector enable-->
+    </product>
+</function>
 
 
 <function name="fcs/vector-top">
@@ -2335,7 +2435,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 <function name="fcs/vector-lower">
             <product>
                   <property>fcs/engine-gen-spin-output</property>
-        <table>
+            <table>
 
 
     <independentVar lookup="row">fcs/Elev-pos-norm-g-limit</independentVar>
@@ -2351,8 +2451,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 </function>
 
           <property>/f22/damage/spincoeff</property>
+          <property>/f22/tv</property>
    <function name="fcs/tv-coefficient">
-     <property>fcs/fbw-override</property>
+     <property>/f22/tv</property>
    </function>
 
 
@@ -2821,6 +2922,27 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <clipto>
         <min> -1 </min>
         <max>  1 </max>
+      </clipto>
+   </summer>
+   <summer name="elevator g limit ae ae">
+      <input>fcs/elevator-g-limit-pre-a</input>
+      <clipto>
+        <min> -1 </min>
+        <max> 1 </max>
+      </clipto>
+   </summer>
+   <summer name="elevator g limit clipped">
+      <input>fcs/elevator-g-limit-pre-a</input>
+      <clipto>
+        <min> 0 </min>
+        <max> 1 </max>
+      </clipto>
+   </summer>
+   <summer name="elevator g limit ae ae vector">
+      <input>fcs/elevator-g-limit-pre-b</input>
+      <clipto>
+        <min> -1 </min>
+        <max> 1 </max>
       </clipto>
    </summer>
 
@@ -3353,9 +3475,10 @@ The Force that pushes the aircraft for increased manuverability should be lowere
              -1.57    2.500
              -0.46    0.230
               0.00    0.024
-              0.70    0.257
-              1.22    0.5
-              1.77    1.470
+              0.35    0.144
+              0.70    0.4
+              1.22    0.8
+              1.77    1.25
             </tableData>
           </table>
        </product>
@@ -3606,14 +3729,12 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 </product>
     </function>-->
 
-
     <function name="aero/moment/Pitch_alpha">
        <description>Pitch moment due to alpha</description>
        <product>
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
            <property>metrics/cbarw-ft</property>
-           <property>aero/alpha-rad</property>
            <table>
             <independentVar lookup="row">aero/alpha-deg</independentVar>
             <tableData>
@@ -3626,18 +3747,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
               -80       0.1
               -70       0.05
               -60       0.0
-              -50       -0.05
-              -40       -0.10
-              -30       -0.12
-              -20       -0.08
-              -10       -0.03
-              0         0.0
-              10        0.03
-              20        0.06
-              30        0.05
-              40        0.04
-              50        0.03
-              60        0.02
+              60        0.0
               70        -0.01
               80        -0.06
               90        -0.14

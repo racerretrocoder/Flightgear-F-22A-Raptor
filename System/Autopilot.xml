@@ -333,7 +333,7 @@
  <!--FCS (using Turn rate)-->
 
   <pid-controller>
-  <name>FCS System Command: Pitch</name>
+  <name>FBW Pitch</name>
   <debug>false</debug>
   <enable>
    <condition>
@@ -357,7 +357,7 @@
    <beta>1.0</beta>    
    <alpha>0.1</alpha>  
    <gamma>0.0</gamma>  
-   <Ti>1.0</Ti>       
+   <Ti>0.1</Ti>       
    <Td>0.00001</Td>    
    <u_min>-1</u_min> 
    <u_max>1</u_max>
@@ -584,5 +584,62 @@
     </config>
   </pid-controller>
 
+
+<!--G Limiter! - elevator-->
+ <pid-controller>
+    <name>FBW G Limit</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/fcs</prop>
+      <value>1g</value>
+    </enable>
+    <input>
+      <prop>/accelerations/pilot-g</prop>
+    </input>
+    <reference>
+      <prop>/f22/fcs/glimit</prop>
+    </reference>
+    <output>
+      <prop>/f22/fcs/controls/glimcoeff</prop>
+    </output>
+    <config>
+      <Kp>0.11</Kp>        <!-- proportional gain -->
+   <beta>1.0</beta>    
+   <alpha>0.1</alpha>  
+   <gamma>0.0</gamma>  
+   <Ti>5.0</Ti>       
+   <Td>0.00001</Td>    
+   <u_min>-2</u_min> 
+   <u_max>1</u_max>
+    </config>
+  </pid-controller>
+
+ <pid-controller>
+    <name>FBW G Limit Vectors</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/fcs</prop>
+      <value>1g</value>
+    </enable>
+    <input>
+      <prop>/accelerations/pilot-g</prop>
+    </input>
+    <reference>
+      <prop>/f22/fcs/glimit</prop>
+    </reference>
+    <output>
+      <prop>/f22/fcs/controls/glimcoeffvector</prop>
+    </output>
+    <config>
+      <Kp>0.11</Kp>        <!-- proportional gain -->
+   <beta>1.0</beta>    
+   <alpha>0.1</alpha>  
+   <gamma>0.0</gamma>  
+   <Ti>1.0</Ti>       
+   <Td>0.00001</Td>    
+   <u_min>0</u_min> 
+   <u_max>1</u_max>
+    </config>
+  </pid-controller>
 
 </PropertyList>
