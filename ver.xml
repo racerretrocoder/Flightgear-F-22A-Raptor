@@ -2,7 +2,7 @@
 <PropertyList>
 <!--This file helps keep raptor up to date!-->
 <version>
-<version type="string">newishversion2</version>
-<detail type="string">Update Raptor to fix the MP Model and spec up Weapons</detail> <!--message to be displayed on screen-->
+<version type="string">newishversion222</version>
+<detail type="string">Hello! Phoenix here. I just got down with the G Limit at 1AM! Update your F-22 From github and try it out!</detail> <!--message to be displayed on screen-->
 </version>
 </PropertyList>
