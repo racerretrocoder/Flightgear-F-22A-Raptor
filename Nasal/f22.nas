@@ -795,11 +795,12 @@ setprop("autopilot/locks/altitude","");
 setprop("/f22/fcs/rollrate",20);
 setprop("/f22/fcs/ptchrate",200000000000);
 setprop("/f22/fcs/zero",0);
-setprop("/autopilot/locks/fcs","");
+setprop("/autopilot/locks/fcsds","");
+setprop("/autopilot/locks/fcs","1g");
 setprop("/autopilot/locks/fcsaileron","");
 var fcsloop = func() {
   # Loop it slowly
-  var controlThresh = 0.01;
+  var controlThresh = 0.09;
   var negcontrolThresh = -1 * controlThresh;
   var fcsmode = getprop("/f22/fcsmode");#mode
   var glimit = getprop("/f22/fcs/glimit");#g
@@ -812,7 +813,7 @@ var fcsloop = func() {
 
   if (fcsmode == 0) { # Navigation
     setprop("f22/fcs/mode","NAV"); # the text
-    setprop("f22/fcs/glimit",9.2);
+    setprop("f22/fcs/glimit",9.0);
     setprop("f22/fcs/aoalimit",70);
   }
   if (fcsmode == 1) { # disab
@@ -820,7 +821,7 @@ var fcsloop = func() {
     setprop("/f22/fcsmode",2);
   }
   if (fcsmode == 2) {
-    setprop("f22/fcs/glimit",9.2);
+    setprop("f22/fcs/glimit",8.0);
     setprop("f22/fcs/aoalimit",30);
     setprop("f22/fcs/mode","AUTO G"); # the text
   }
@@ -830,17 +831,17 @@ var fcsloop = func() {
     # AF1g mode
     # do control check
     
-    #if (elevator > controlThresh) {
-    #  disableelev = 1;
-    #  disableaile = 1; # Disable Roll control aswell when flying
-    #}
+    if (elevator > controlThresh) {
+      disableelev = 1;
+      disableaile = 1; # Disable Roll control aswell when flying
+    }
 
-    #if (elevator < 0) {
-    #  if (elevator < negcontrolThresh){
-    #    disableelev = 1;
-    #    disableaile = 1; # Disable Roll control aswell when flying
-    #  }
-    #}
+    if (elevator < 0) {
+      if (elevator < negcontrolThresh){
+        disableelev = 1;
+        disableaile = 1; # Disable Roll control aswell when flying
+      }
+    }
     if (aileron > controlThresh) {
       disableaile = 1;
     }
@@ -879,7 +880,7 @@ var fcsloop = func() {
     # Elevator
     if (disableelev == 0){
       # not moving controls, criteria met and fcs enabled
-      setprop("/autopilot/locks/fcs","1g");
+      setprop("/autopilot/locks/fcsds","1g");
       if (getprop("f22/fcs/controls/pitch") == 0 or getprop("f22/fcs/controls/pitch") == -90 or getprop("f22/fcs/controls/pitch") == 90 and getprop("/orientation/pitch-rate-degps") < ptchrate and getprop("/orientation/pitch-rate-degps") > negptchrate) {
          setprop("f22/fcs/controls/pitch",getprop("orientation/pitch-deg")); # Set holding point
       }
@@ -887,7 +888,7 @@ var fcsloop = func() {
       setprop("f22/fcs/controls/elevator",0);
       setprop("f22/fcs/controls/rudder",0);
       setprop("f22/fcs/controls/pitch",0);
-      setprop("/autopilot/locks/fcs","");
+      setprop("/autopilot/locks/fcsds","");
     }
 
     # Aileron
@@ -906,7 +907,7 @@ var fcsloop = func() {
   if (fcsmode == 3) { # max
     if (getprop("f22/dogfightmode") == 1) {
     setprop("f22/fcs/mode","DFM"); # the text
-    setprop("f22/fcs/glimit",9.2);
+    setprop("f22/fcs/glimit",9.0);
     setprop("f22/fcs/aoalimit",170);
     } else {
       setprop("f22/fcsmode",0); # set back to nav
@@ -2811,7 +2812,7 @@ var wingloop = func() {
 var gwing = func() {
   var g = getprop("/accelerations/pilot-gdamped");
   var speed = getprop("/velocities/airspeed-kt");
-  if (g > 14.8 and speed > 300) {
+  if (g > 140.8 and speed > 300) {
     # SNAP!
     ae = 0.5;
     thewing = rand() < (1-ae);
@@ -3046,7 +3047,7 @@ var tutorialinit = func(type) {
 }
 
 var flight_debug = func(){
-  screen.property_display.add("/controls/flight/elevator");
+  screen.property_display.add("/fdm/jsbsim/fcs/G-control");
   screen.property_display.add("/controls/flight/aileron");
   screen.property_display.add("/controls/flight/rudder");
   screen.property_display.add("/controls/engines/engine/throttle");
