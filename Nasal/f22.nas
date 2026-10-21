@@ -2971,7 +2971,7 @@ bingotimer.start();
 consoletimer.start();
 setprop("f22/grind",0);
 fcscontrol.start();
-fbwloop2.start();
+#fbwloop2.start();
 });
 
 
