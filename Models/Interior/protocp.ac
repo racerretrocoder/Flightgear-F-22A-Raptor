@@ -42,7 +42,21 @@ MATERIAL "ac3dmat14" rgb 0.8 0.8 0.8  amb 0.489474 0.489474 0.489474  emis 0 0 0
 MATERIAL "DefaultWhite.009" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
 MATERIAL "Knobs8" rgb 0.827 0.827 0.827  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 50  trans 0
 OBJECT world
-kids 330
+kids 331
+OBJECT poly
+name "bitcvr-axis"
+loc -5.25174 -0.217011 0.311097
+crease 45.000000
+numvert 2
+-0.000154018 0.00118697 0.00442719
+0.000154972 -0.001187 -0.00442696
+numsurf 1
+SURF 0x32
+mat 0
+refs 2
+1 0 1
+0 0 0
+kids 0
 OBJECT group
 name "externallightknob"
 loc -5.60371 -0.238463 0.419634
@@ -213307,7 +213321,7 @@ refs 2
 0 1 1
 kids 0
 OBJECT poly
-name "ARCCVR"
+name "bitcvr"
 loc -4.93449 -0.211816 0.379924
 data 21
 drag-chute-cover.mesh
@@ -216339,6 +216353,7 @@ name "rect"
 loc -5.26155 -0.227207 0.289479
 texture "console/flcs.png"
 crease 45.000000
+hidden
 numvert 20
 -0.0323277 -0.0105867 -0.0316108
 0.0376925 -0.00247651 -0.0320264
@@ -228694,6 +228709,7 @@ name "rect2"
 loc 0 0 -2.98023e-008
 texture "grey-blue-flood.png"
 crease 45.000000
+hidden
 numvert 4
 -5.56824 -0.246747 0.388139
 -4.87478 -0.142795 0.409936
@@ -648596,6 +648612,7 @@ OBJECT poly
 name "wavefront obj"
 texture "grey-blue-flood.png"
 crease 45.000000
+hidden
 numvert 420
 -6.58015 0.007667 0.076175
 -6.59043 0.005795 0.056677

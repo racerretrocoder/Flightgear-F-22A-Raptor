@@ -3750,6 +3750,126 @@ New: Refuel in air switch.
 
 
 
+<!--FLCS BIT-->
+<animation>
+        <type>knob</type>
+    <object-name>bit</object-name>
+        <value>0.0</value> 
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/flight/bit</property> 
+                <value>0</value>
+                <value>1</value>             
+                <value>2</value>             
+                <wrap>false</wrap>
+            </binding>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/flight/bitcvr</property> 
+                <value>0</value>
+                <value>0.01</value>             
+                <value>3</value>             
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>bit</tooltip-id>
+                <label>FLCS BIT</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+</animation>
+
+
+<!--FLCS Alt Flap-->
+<animation>
+        <type>knob</type>
+    <object-name>flcsaltflap</object-name>
+        <value>0.0</value> 
+        <axis>
+   <object-name>apustart-axis</object-name>
+        </axis>
+        <action>
+            <binding>
+                <command>property-cycle</command>
+                <property>/controls/flight/altflap</property> 
+                <value>0</value>
+                <value>1</value>                       
+                <wrap>false</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>flcsaltflap</tooltip-id>
+                <label>FLCS Alternative flap configuration</label>
+            </binding>
+        </hovered>
+  <increase>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </increase>
+        <decrease>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/clicksmall</property>
+      </binding>
+        </decrease> 
+</animation>
+
+
+<animation>
+        <type>rotate</type>
+        <object-name>flcsaltflap</object-name>
+        <property>/controls/flight/altflap</property>
+        <offset-deg>0</offset-deg>
+        <factor>30</factor>
+        <axis>
+        <object-name>flcsaltflap-axis</object-name>
+        </axis>
+</animation>
+
+
+<animation>
+        <type>rotate</type>
+        <object-name>bit</object-name>
+        <property>/controls/flight/bit</property>
+        <offset-deg>0</offset-deg>
+        <factor>30</factor>
+        <axis>
+        <object-name>bit-axis</object-name>
+        </axis>
+</animation>
+
+<animation>
+        <type>rotate</type>
+        <object-name>bitcvr</object-name>
+        <property>/controls/flight/bitcvr</property>
+        <offset-deg>0</offset-deg>
+        <factor>30</factor>
+        <axis>
+        <object-name>bitcvr-axis</object-name>
+        </axis>
+</animation>
 
 
 
@@ -3780,13 +3900,13 @@ New: Refuel in air switch.
   <increase>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/click</property>
+        <property>sim/model/clicksmall</property>
       </binding>
         </increase>
         <decrease>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/click</property>
+        <property>sim/model/clicksmall</property>
       </binding>
         </decrease> 
     </animation>
@@ -3829,13 +3949,13 @@ New: Refuel in air switch.
   <increase>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/click</property>
+        <property>sim/model/clicksmall</property>
       </binding>
         </increase>
         <decrease>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/click</property>
+        <property>sim/model/clicksmall</property>
       </binding>
         </decrease> 
     </animation>
@@ -3870,19 +3990,19 @@ New: Refuel in air switch.
             <binding>
                 <command>set-tooltip</command>
                 <tooltip-id>ABITSYNC</tooltip-id>
-                <label>Aim-120 / Aim-260 BIT Sync Lock / Normal</label>
+                <label>Aim-120 / Aim-260 BIT</label>
             </binding>
         </hovered>
   <increase>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/click</property>
+        <property>sim/model/clicksmall</property>
       </binding>
         </increase>
         <decrease>
       <binding>
         <command>property-toggle</command>
-        <property>sim/model/click</property>
+        <property>sim/model/clicksmall</property>
       </binding>
         </decrease> 
 </animation>

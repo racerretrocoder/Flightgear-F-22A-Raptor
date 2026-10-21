@@ -3027,7 +3027,7 @@ need a better idea for this-->
 		</equals>
    <greater-than>
 <property>/accelerations/pilot-g</property>
-    <value>8</value>
+    <value>9.5</value>
    </greater-than>   
    </and> 
   </condition>
@@ -3049,7 +3049,7 @@ need a better idea for this-->
 		</equals>
    <greater-than>
 <property>/accelerations/pilot-g</property>
-    <value>8</value>
+    <value>9.5</value>
    </greater-than>   
    </and> 
   </condition>
