@@ -225,7 +225,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 		<condition>
 			<less-than>
 				<property>sim/multiplay/generic/float[14]</property>
-				<value>0.1</value>
+				<value>0.50</value>
 			</less-than>
 		</condition>
 	</animation>
@@ -235,7 +235,7 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 		<condition>
 			<less-than>
 				<property>sim/multiplay/generic/float[14]</property>
-				<value>0.1</value>
+				<value>0.50</value>
 			</less-than>
 		</condition>
 	</animation>
@@ -1805,6 +1805,9 @@ Old
 		</condition>
 	
 	</animation>	
+
+<!--Aim-9 rails-->
+
 <animation>
 		<type>select</type>
 
@@ -1815,12 +1818,56 @@ Old
 		<condition>
 			<less-than>
 				<property>sim/multiplay/generic/float[14]</property>
-				<value>0.99</value>
+				<value>0.50</value>
 			</less-than>
 		</condition>
 	
 	</animation>	
 
+
+<animation>
+    <type>translate</type>
+	<object-name>AIM-9-R-RAIL</object-name>
+	<object-name>AIM-9-L-RAIL</object-name>
+		<object-name>AIM-9R</object-name>
+		<object-name>AIM-9L</object-name>
+    <property>sim/multiplay/generic/float[14]</property>
+    <factor>2</factor>
+	<offset-m>-0.5</offset-m>
+    <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+    </axis>
+</animation>
+
+<animation>
+    <type>translate</type>
+	<object-name>AIM-9-R-RAIL</object-name>
+		<object-name>AIM-9L</object-name>
+    <property>sim/multiplay/generic/float[14]</property>
+    <factor>1</factor>
+	<offset-m>-0.2</offset-m>
+    <axis>
+        <x>0</x>
+        <y>0.6</y>
+        <z>0.4</z>
+    </axis>
+</animation>
+
+<animation>
+    <type>translate</type>
+	<object-name>AIM-9-L-RAIL</object-name>
+		<object-name>AIM-9R</object-name>
+    <property>sim/multiplay/generic/float[14]</property>
+    <factor>-1</factor>
+	<offset-m>0.2</offset-m>
+    <axis>
+        <x>0</x>
+        <y>0.6</y>
+        <z>-0.4</z>
+    </axis>
+</animation>
 
 <!--APU Flaps-->
 
