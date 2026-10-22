@@ -1665,7 +1665,7 @@ var eject = func{
 
 var eject2 = func{
   setprop("f22/ejected",2);
-  setprop("/controls/flight/speedbrake",1);
+  #setprop("/controls/flight/speedbrake",1);
   setprop("/sim/messages/atc", "Ejecting!");
   if (getprop("sim/current-view/view-number-raw") == 0) {
     view.setViewByIndex(105); # Go to Ejection view when only in cockpit
