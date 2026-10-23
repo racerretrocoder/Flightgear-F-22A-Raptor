@@ -31,6 +31,32 @@ var showmfd = func(screen='mfd') {
     }
 }
 mfd.setColorBackground(0.00784, 0.00784, 0.0823);
+var MAIN = mfd.createGroup();
+MAIN.setScale(0.9,(math.pi -2) / 0.9);
+MAIN.setTranslation(0,260);
+var WEAPONS = mfd.createGroup();
+WEAPONS.setScale(0.9,(math.pi -2) / 0.9);
+WEAPONS.setTranslation(0,260);
+WEAPONS.setVisible(0);
+
+var pathae = "Aircraft/F-22/Models/Interior/Instruments/MFD/enav/system.png";
+var logo = MAIN.createChild("image")
+       .setFile(pathae)
+       .setTranslation(0,0)
+       .setSize(900,450);
+
+
+var path = "Aircraft/F-22/Models/Interior/Instruments/MFD/enav/wepoutlines/aim-9x_outline.png";
+var aim9x = WEAPONS.createChild("image")
+       .setFile(path)
+       .setTranslation(0,0)
+       .setSize(900,450);
+var path = "Aircraft/F-22/Models/Interior/Instruments/MFD/wepoutlines/aim-120_outline.png";
+var aim120 = WEAPONS.createChild("image")
+       .setFile(path)
+       .setTranslation(0,0)
+       .setSize(900,450);
+
 var lables = mfd.createGroup();
   # FCR
 var FCR = mfd.createGroup();
@@ -41,6 +67,14 @@ var RWR = mfd.createGroup();
 RWR.setScale(0.9,(math.pi -2) / 0.9);
 RWR.setTranslation(37.5,160);
 var FLT = mfd.createGroup();
+var FUEL = mfd.createGroup();
+FUEL.setScale(1,(math.pi -2.0) / 0.6);
+FUEL.setTranslation(-75,120);
+var path = "Aircraft/F-22/Models/Interior/Instruments/MFD/Fuel_page.png";
+var logo = FUEL.createChild("image")
+       .setFile(path)
+       .setTranslation(0,0)
+       .setSize(900,450);
 var flp = FLT.createChild("text", "flp")
        .setTranslation(505, 240)    
        .setAlignment("left-center") 
@@ -273,7 +307,27 @@ var FCRCursor = mfd.createGroup();
 var pathA = FCR.createChild("path");
 var adi = FCR.createChild("path");
 var cursor = FCR.createChild("path");
-
+var radarcallsign = FCR.createChild("text", "rad")
+       .setTranslation(545, 805)
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");    
+var lockedrange = FCR.createChild("text", "radae")
+       .setTranslation(545, 835) 
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("");    
+var lockedplane = FCR.createChild("text", "radaeae")
+       .setTranslation(545, 865) 
+       .setAlignment("left-center") 
+       .setFont("B612/B612-Bold.ttf") 
+       .setFontSize(28, 1.2)        
+       .setColor(0,1,0)             
+       .setText("APG-77 v342");    
 
 # b l i p ssssss
 var blip1 = FCR.createChild("path");
@@ -597,8 +651,46 @@ var update = func() {
        cradz = 0;
   }
   cursor.setTranslation(cradx,cradz); 
-
-
+  if ((getprop(mfdval)) != 0) {
+       MAIN.setVisible(0);
+  }
+  if ((getprop(mfdval)) == 0) {
+       MAIN.setVisible(1);
+  }
+if ((getprop(mfdval)) == 6) { # FUEL
+       FCR.setVisible(0);
+       ENG.setVisible(0);
+       RWR.setVisible(0);
+       SMS.setVisible(0);
+       FUEL.setVisible(1);
+       FLT.setVisible(0);
+       flare.setText("");
+       chaff.setText("");
+       prgm.setText("");
+       prgmname.setText("");
+       cs1.setText("");
+       cs2.setText("");
+       cs3.setText("");
+       cs4.setText("");
+       cs5.setText("");
+       cs6.setText("");
+       cs7.setText("");
+       cs8.setText("");
+       wepname.setText("");
+       r1.setText("");
+       r2.setText("");
+       r3.setText("");
+       r4.setText("");
+       r5.setText("");
+       l1.setText("");
+       l2.setText("");
+       l3.setText("");
+       l4.setText("");
+       l5.setText("");
+       rng.setText("");
+  } else {
+       FUEL.setVisible(0);
+  }
   if (getprop(mfdval) == 2) { # FCR Scripting
     SMS.setVisible(0);
     RWR.setVisible(0);
@@ -660,9 +752,27 @@ var update = func() {
        #print("The radar is active!");
        # Blip rendering
        if (getprop("instrumentation/radar/lock2") != 0) {
+              var ae1 = getprop("controls/radar/lockedcallsign");
+              var ae2 = getprop("controls/radar/lockedrange");
+              var ae3 = customrcs.getaircraftname(ae1);
+              if (ae1 == nil) {
+                     ae1 = "None";
+              }
+              if (ae2 == nil) {
+                     ae2 = "0";
+              }
+              if (ae3 == nil) {
+                     ae2 = "Unknown";
+              }
               radstb.setText("RADAR LOCKED");
+              radarcallsign.setText(ae1);
+              lockedrange.setText("RNG: " ~ ae2 ~ "nm");
+              lockedplane.setText(ae3);
        } else {
               radstb.setText("");
+              radarcallsign.setText("");
+              lockedrange.setText("");
+              lockedplane.setText("");
        }
        var list = props.globals.getNode("/instrumentation/radar2/marker").getChildren("mark");
        var total = size(list);

@@ -32,6 +32,35 @@ var searchdb = func(cs=nil) {
 
 
 
+var getaircraftname = func(testing) {
+    # Parameter is an object, Given from the radar
+    var callsign = testing; # Get the callsign of the radar contact
+    # Now ill use misc.nas get the mpid
+    var mpid = misc.smallsearch(callsign);
+    var modelprop = nil;
+    if (mpid != nil) {
+        var modelprop = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/sim/model/path"); # Get the model
+    }
+    
+    # this is the full path of the model. have to modify the string
+    # placed a nil detection 
+    if (modelprop == nil) {
+        #print("modelprop is nil!");
+        modelprop = nil;
+        return "";
+    } else {
+        # model property is not nothing. turn the full path into a single string. turns "Aircraft/f16/models/F-16.xml" into just "F-16" (hopefully)
+        var thestring = io.basename(modelprop);
+        thestring = string.truncateAt(thestring, ".xml");
+        thestring = misc.finddel(thestring,"-model");
+        thestring = misc.finddel(thestring,"-anim");
+        #print(thestring);
+        # Now that thestring is the raw aircraft model of the plane. run it in the RCS database, compute range, and maybe angle
+        return thestring
+    }
+    return "";
+}
+
 var getrcs = func(testing) {
     # Parameter is an object, Given from the radar
     var callsign = testing.get_Callsign(); # Get the callsign of the radar contact

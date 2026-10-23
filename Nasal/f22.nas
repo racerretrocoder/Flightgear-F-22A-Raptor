@@ -85,6 +85,7 @@ setprop("/f22/auxcomm/on",0);
 setprop("/f22/grind",0);
 setprop("/f22/runwaysplash",0); # pushed water from jets
 setprop("/f22/fcs/mode","NAV");
+setprop("/controls/flight/aflaps",0);
 
 #
 # Temp init 
@@ -425,6 +426,14 @@ lsmoke = maketimer(0.5,lsmoketimer);
 rsmoke = maketimer(0.5,rsmoketimer);
 # Landing gear controller, Phoenix
 var gearloop = func() {
+
+  # Autoflaps controls
+  if (getprop("controls/flight/gear-down") == 1 or getprop("controls/flight/altflap") == 0) {
+    setprop("controls/flight/aflaps",1);
+  } else {
+    setprop("controls/flight/aflaps",0);
+  }
+
   # smoke and stuff
   var cwow = getprop("gear/gear[0]/wow");
   var lwow = getprop("gear/gear[1]/wow");
@@ -2459,6 +2468,7 @@ if (getprop("/instrumentation/radar/lock2") != 0){
   var mpid = misc.smallsearch(callsign);
   var lockedalt = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/position/altitude-ft");
   var lockedrng = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm");
+  var lockedplane = getprop("/ai/models/multiplayer[" ~ mpid ~ "]/radar/range-nm");
   setprop("controls/radar/lockedalt",lockedalt);
   setprop("controls/radar/lockedrange",lockedrng);
   setprop("controls/radar/lockedcallsign", radar.tgts_list[radar.Target_Index].Callsign.getValue());
@@ -2466,13 +2476,21 @@ if (getprop("/instrumentation/radar/lock2") != 0){
   # Not locked on
   #print("aw not locked");
   setprop("controls/radar/lockedcallsign", "None");
+  setprop("controls/radar/lockedalt","");
+  setprop("controls/radar/lockedrange","");
+  setprop("controls/radar/lockedcallsign","");
+  setprop("controls/radar/plane","");
+
   }
 }
 
 
   setprop("controls/radar/lockedcallsign", "None");
 
-
+  setprop("controls/radar/lockedalt","");
+  setprop("controls/radar/lockedrange","");
+  setprop("controls/radar/lockedcallsign","");
+  setprop("controls/radar/plane","");
 
 
 
