@@ -2578,7 +2578,7 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 			<!-- Properties that get saved to persist locally between FG sessions -->
 			<path>messages/enabled</path>
 		</aircraft-data>
-		<checklists include="c172-checklists.xml"/>
+		<checklists include="Help/checklists.xml"/>
 		<tutorials>
 			<tutorial include="Help/startup.xml"/>
 			<!-- <tutorial include="Help/shutdown.xml"/>
