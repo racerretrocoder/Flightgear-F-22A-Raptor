@@ -1228,7 +1228,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
         <table>
           <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
-          <independentVar lookup="column">/controls/gear/gear-down</independentVar>
+          <independentVar lookup="column">/controls/flight/aflaps</independentVar>
           <tableData>
                      0    1                         <!--0 is gearup 1 is gear down-->  
               0      0    0.7

@@ -76,6 +76,14 @@
 
 <type>exterior</type>
                 <splash type="bool">true</splash>
+                <path>gui/splashes/reallycool.png</path>
+            </preview>
+
+
+                        <preview>             
+
+<type>exterior</type>
+                <splash type="bool">true</splash>
                 <path>gui/splashes/splash.png</path>
             </preview>
 
@@ -3441,5 +3449,9 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
 	<vercheck>
 		<file>Aircraft/F-22/Nasal/vercheck.nas</file> <!--This script checks out the github repository if there are any new commits-->
 	</vercheck>
+
+	<bits>
+		<file>Aircraft/F-22/Nasal/bits.nas</file> <!--this script is a bit bitty...-->
+	</bits>
 	</nasal>
 </PropertyList>
