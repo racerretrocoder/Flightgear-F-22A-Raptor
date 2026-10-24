@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+    <group>
+        <name>Startup Procedures</name>
+        <checklist>
+            <title>APGS Startup</title>
+            <item>
+                <name>Battery</name>
+                <value>ON</value>
+                <condition>
+                    <greater-than>
+                        <property>controls/electric/battswitch</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
+            </item>
+            <item>
+                <name>APU Switch</name>
+                <value>START</value>
+                <condition>
+                    <equals>
+                        <property>/controls/electric/apustart</property>
+                        <value>1</value>
+                    </equals>
+                </condition>
+            </item>
+        </checklist>
+
+        <checklist>
+            <title>AGPS shutdown</title>
+            <item>
+                <name>AGPS</name>
+                <value>Verify RUNNING</value>
+                <!-- <condition>
+
+                </condition> -->
+            </item>
+            <item>
+                <name>APU Switch</name>
+                <value>Verify ARM</value>
+                <condition>
+                    <equals>
+                        <property>/controls/electric/apustart</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+            </item>
+            <item>
+                <name>APU Switch</name>
+                <value>OFF</value>
+                <condition>
+                    <equals>
+                        <property>/controls/electric/apustart</property>
+                        <value>-1</value>
+                    </equals>
+                </condition>
+            </item>
+        </checklist>
+        <checklist>
+            <title>Cold and Dark Startup</title>
+            <item>
+                <name>PMAC covers</name>
+                <value>REMOVED</value>
+                <condition>
+                    <equals>
+                        <property>/f22/ground/apu-cover</property>
+                        <value>0</value>
+                    </equals>
+                    <equals>
+                        <property>/f22/ground/intake-l</property>
+                        <value>0</value>
+                    </equals>
+                    <equals>
+                        <property>/f22/ground/intake-r</property>
+                        <value>0</value>
+                    </equals>
+                    <equals>
+                        <property>/f22/ground/slr-cover</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+            </item>
+            <item>
+                <name>Ground Equipment</name>
+                <value>REMOVED</value>
+                <condition>
+                    <equals>
+                        <property>/f22/ground/chocks</property>
+                        <value>0</value>
+                    </equals>
+                    <equals>
+                        <property>/f22/ground/cones</property>
+                        <value>0</value>
+                    </equals>
+                    <equals>
+                        <property>/f22/ground/small-ladder</property>
+                        <value>0</value>
+                    </equals>
+                    <equals>
+                        <property>/f22/ground/large-ladder</property>
+                        <value>false</value>
+                    </equals>
+                </condition>
+            </item>
+            <item>
+                <name>External stores/weapons</name>
+                <value>As required</value>
+            </item>
+            <item>
+                <name>Fuel</name>
+                <value>Checked</value>
+                <condition>
+                    <greater-than>
+                        <property>/consumables/fuel/total-fuel-lbs</property>
+                        <property>/f22/bingo</property>
+                    </greater-than>
+                </condition>
+            </item>
+            <item>
+                <name>Startup Clearance</name>
+                <value>Obtained</value>
+            </item>
+            <item>
+                <name>Battery</name>
+                <value>ON</value>
+                <condition>
+                    <greater-than>
+                        <property>/controls/electric/battswitch</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
+            </item>
+            <item>
+                <name>Air source</name>
+                <value>AUTO</value>
+                <condition>
+                    <equals>
+                        <property>/controls/switches/airsource</property>
+                        <value>3</value>
+                    </equals>
+                </condition>
+            </item>
+            <item>
+                <name>OBOGS</name>
+                <value>ON</value>
+                <condition>
+                    <property>/f22/obogs/main</property>
+                    <value>1</value>
+                </condition>
+            </item>
+            <item>
+                <name>APU Switch</name>
+                <value>START</value>
+                <condition>
+                    <equals>
+                        <property>/controls/electric/apustart</property>
+                        <value>1</value>
+                    </equals>
+                </condition>
+            </item>
+            <item>
+                <name>DTQ</name>
+                <value>IDLE WHEN APGS RUNNING</value>
+                <condition>
+                    <equals>
+                        <property>/f22/throttlel</property>
+                        <value>0</value>
+                    </equals>
+                    <equals>
+                        <property>/f22/throttler</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+            </item>
+            <item>
+                <name>HUD BRT</name>
+                <value>As required</value>
+                <condition>
+                    <greater-than>
+                        <property>/f22/brightness</property>
+                        <value>0</value>
+                    </greater-than>
+                </condition>
+            </item>
+            <item>
+                <name>EXT Lights</name>
+                <value>As required</value>
+            </item>
+            <item>
+                <name>MFD BRT</name>
+                <value>As required</value>
+            </item>
+            <item>
+                <name>INST PNL BRT</name>
+                <value>As required</value>
+            </item>
+            <item>
+                <name>Console/Flood Lights</name>
+                <value>As required</value>
+            </item>
+            <item>
+                <name>N2</name>
+                <value>&gt;= 60</value>
+                <condition>
+                    <greater-than-equals>
+                        <property>/engines/engine/n2</property>
+                        <value>60</value>
+                    </greater-than-equals>
+                    <greater-than-equals>
+                        <property>/engines/engine[1]/n2</property>
+                        <value>60</value>
+                    </greater-than-equals>
+                </condition>
+            </item>
+            <item>
+                <name>EGT</name>
+                <value>Green arc</value>
+            </item>
+            <item>
+                <name>OIL Temp</name>
+                <value>Green arc</value>
+            </item>
+            <item>
+                <name>AD</name>
+                <value>Clear of messages</value>
+            </item>
+        </checklist>
+    </group>
+
+    <group>
+        <name>Flight Operations</name>
+        <checklist>
+            <title>Before Taxi</title>
+            <item>
+                <name>Flight Controls</name>
+                <value>Free and Correct</value>
+            </item>
+            <item>
+                <name>FLCS BIT</name>
+                <value>START</value>
+            </item>
+            <item>
+                <name>Taxi Lights</name>
+                <value>ON</value>
+                <condition>
+                    <equals>
+                        <property>controls/lighting/taxi-light</property>
+                        <value>1</value>
+                    </equals>
+                </condition>
+            </item>
+            <item>
+                <name>Taxi Clearance</name>
+                <value>Obtained</value>
+            </item>
+            <item>
+                <name>DTQ</name>
+                <value>Third Detent, then IDLE</value>
+                <condition>
+                    <equals>
+                        <property>controls/gear/brake-parking</property>
+                        <value>0</value>
+                    </equals>
+                </condition>
+            </item>
+        </checklist>
+
+        <checklist>
+            <title>Before Takeoff</title>
+            <item>
+                <name>FBW Override</name>
+                <value>OFF</value>
+                <condition>
+                    <equals>
+                        <property>fdm/jsbsim/fcs/fbw-override</property>
+                        <value>1</value>
+                    </equals>
+                </condition>
+            </item>
+            <item>
+                <name>Flaps</name>
+                <value>NORM</value>
+            </item>
+            <item>
+                <name>EXT Lights</name>
+                <value>POS/ANTICOL</value>
+                <condition>
+                    <equals>
+                        <property>/controls/lighting/extlight</property>
+                        <value>2</value>
+                    </equals>
+                </condition>
+            </item>
+            <item>
+                <name>Bay Door Ground Override</name>
+                <value>AUTO</value>
+                <condition>
+                    <equals>
+                        <property>/controls/bdl</property>
+                        <value>1</value>
+                    </equals>
+                    <equals>
+                        <property>/controls/bdr</property>
+                        <value>1</value>
+                    </equals>
+                </condition>
+            </item>
+        </checklist>
+
+        <checklist>
+            <title>Normal Takeoff</title>
+            <item>
+                <name>Takeoff Clearance</name>
+                <value>Obtained</value>
+            </item>
+            <item>
+                <name>DTQ</name>
+                <value>MAX POWER</value>
+                <condition>
+                    <equals>
+                        <property>/engines/engine/n1</property>
+                        <value>100</value>
+                    </equals>
+                    <equals>
+                        <property>/engines/engine[1]/n1</property>
+                        <value>100</value>
+                    </equals>
+                </condition>
+            </item>
+            <item>
+                <name>AD</name>
+                <value>Clear of warnings</value>
+            </item>
+            <item>
+                <name>Rotate</name>
+                <value>190kts</value>
+            </item>
+            <item>
+                <name>Landing Gear</name>
+                <value>Retract at positive rate</value>
+                <condition>
+                    <equals>
+                        <property>/controls/gear/gear-down</property>
+                        <value>false</value>
+                    </equals>
+                </condition>
+            </item>
+        </checklist>
+    </group>
+</PropertyList>
