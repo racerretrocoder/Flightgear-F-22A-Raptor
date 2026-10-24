@@ -143,7 +143,9 @@ var MISSILE = {
         m.flareres          = getprop("controls/armament/missile/flareres");
         m.isbomb            = getprop("controls/armament/missile/isbomb");
         m.eject             = getprop("controls/armament/missile/chute");
-        m.ignitedelay             = getprop("controls/armament/missile/ignitedelay");
+        m.ignitedelay       = getprop("controls/armament/missile/ignitedelay");
+        m.notch             = 1; # getprop("controls/armament/missile/notch"); # defaults to one
+        m.notchthresh       = 1; # getprop("controls/armament/missile/notchthresh"); # defaults to one
         m.messagesent = 0;
         m.drop_time             = 0;    
         m.deploy_time           = 0;  
@@ -157,7 +159,7 @@ var MISSILE = {
         m.cmsalt            = 0;
         m.cmslat            = 0;
         m.cmslon            = 0;
-        m.cmsvariation      = 45; # The azimuth (full size will be multiplayed by 2) in which the missile thinks he target is heading toward it
+        m.cmsvariation      = 45; # The azimuth (full size will be multiplayed by 2) in which the missile thinks the target is heading toward it
         m.cmsfool           = 0;
         m.gpslat            = 0;
         m.gpslon            = 0;
@@ -166,6 +168,7 @@ var MISSILE = {
         m.armsd             = 0;
         m.altcontrol        = 0;
         m.missed            = 0;
+        
        # m.ccip_altC = 0;
        # m.ccip_dens = 0;
        # m.ccip
@@ -510,7 +513,7 @@ if (me.Tgt != nil) {
     var bandit = me.Tgt.get_Callsign();
     # There is a target
     # Lets search for him
-    misc.search(bandit); # TODO - deprecate this
+    #misc.search(bandit); # TODO - deprecate this
     var targetmpid = misc.smallsearch(bandit); # replace with this
     var tgtflare = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/rotors/main/blade[3]/flap-deg");
     var tgtchaff = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/rotors/main/blade[3]/position-deg");
@@ -519,17 +522,55 @@ if (me.Tgt != nil) {
     var tgtlon = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/posititon/longitude-deg");
     var tgtlat = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/position/latitude-deg");
     var isfox2 = 0;
+    if (me.fox == "Fox 3" and me.pitbull == 1) {
+        # Check notch
+        var targetheading = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/orientation/true-heading-deg");
+        var notched = math.abs(radar.filtercheck(me.hdg, targetheading));
+        screen.log.write("NOTCH CHECK!");
+        if (notched < 0.2) {
+            # bandit trying to notch us
+            screen.log.write("BANDIT TRYNA NOTCH MEH!!");
+            notchcoeff = 0.9994;
+            num3 = rand();
+            if (num3 > notchcoeff) {
+                screen.log.write("Missile notched!");
+                me.cmslat = tgtlat;
+                me.cmslon = tgtlon;
+                me.cmsalt = tgtalt;
+                me.reset_steering();
+                me.free = 1;
+                me.cmsfool = 1;
+                var phrase = me.NameOfMissile ~ " Report : Fooled by enemy's manuvers and missed.";
+                if (getprop("payload/armament/oldmsg") == 1) {
+                    setprop("sim/multiplay/chat", phrase);
+                }
+                if(MPMessaging.getValue() == 1) {
+                    damage.damageLog.push(phrase);
+                    if (getprop("f22/debug")) {
+                        setprop("/sim/messages/atc", "Missile missed due to enemies notch");
+                    }
+                    setprop("/sim/messages/atc", "Missile missed due to enemies notch");
+                    me.missed = 1;
+                }
+                else {
+                    setprop("/sim/messages/atc", phrase);
+                }
+            }
+
+        }
+    }
     if (tgtflare != me.old_flare or tgtchaff != me.old_chaff) { # Flares are being realeased and / or have changed!
         # What kind of missile are we? i forgot
+        # sort it based on proper counter messares
         if (me.fox == "Fox 2") {
-            if (me.direct_dist_m < 6000) { # Missile will only be able to be fooled at 3 miles distance
+            if (me.direct_dist_m < 18520) { # Missile will only be able to be fooled at 5 miles distance
                 if (tgtflare != me.old_flare) {
                     enabled = 1;
                     var isfox2 = 1;
                 }
             }
         } elsif (me.fox == "Fox 3") {
-            if (me.direct_dist_m < 18520) { # 10 miles
+            if (me.direct_dist_m < 18520 or me.pitbull == 1) { # 10 miles
                 if (tgtchaff != me.old_chaff) {
                     enabled = 1;
                 }
@@ -561,28 +602,33 @@ if (me.Tgt != nil) {
             print("checkflares(): oppmissile: ",oppmissile);
         }
         # simple infront logic
-        if (targetheading > hdgmins and targetheading < hdgplus) {
+        if (targetheading > hdgmins and targetheading < hdgplus and isfox2 == 0) {
             if (debugsysmessages == 1) {
                 print("--- Missile detected to be in front of target! ---");
             }
             if (flaremsg == 1) {
             screen.log.write("DEBUG: MISSILE IN FRONT OF TARGET! INCREASE HIT CHANCE");
             }
-            var isinfront = isinfront + 0.5; # decrease flare fool chance
+            var isinfront = isinfront + 0.4; # decrease flare fool chance
         }
         if (isfox2 == 1) {
             # check engine
             if (tgtn2 > 99) {
-                # decrease flare fool chance!
+                # decrease flare fool chance because the engines are hot!
                 var isinfont = isinfront + 0.4;
                 if (flaremsg == 1) {
                     screen.log.write("DEBUG: TARGETS ENGINE IS VERY HIGH AND HOT!!");
                 }
             }
-        }
+        } 
 
         # determine if missile intercept on 6 or 12 of target
-        var newnumber = me.flareres + isinfront;
+        # var newnumber = me.flareres + isinfront + notched;
+        if (isfox2 == 1) {
+            var newnumber = me.flareres;
+        } else {
+            var newnumber = me.flareres + isinfront;
+        }
         var num2 = rand() < (1-newnumber);
 
         if (debugsysmessages == 1) {
@@ -594,7 +640,7 @@ if (me.Tgt != nil) {
         }
         if (enabled == 1) { # the correct counter messure was deployed
             if (flaremsg == 1) {
-                screen.log.write("DEBUG: missile in range of counter messures");
+                screen.log.write("DEBUG: missile can now detect counter messures");
             }
             # Where in range. see whats up
             if (num2 == 1) {
@@ -620,6 +666,7 @@ if (me.Tgt != nil) {
                     if (getprop("f22/debug")) {
                         setprop("/sim/messages/atc", "Missile missed due to chaff and flares");
                     }
+                    setprop("/sim/messages/atc", "Missile missed due to chaff and flares");
                     me.missed = 1;
                 }
                 else {
@@ -636,7 +683,6 @@ if (me.Tgt != nil) {
         }
     } else {
         if (debugsysmessages == 1) {
-
             print("Flare detect: There are no deployed flares");
         }
     }
@@ -650,27 +696,45 @@ if (me.Tgt != nil) {
 
 
 sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
-    #Missile alert sender/missile smoke over damage MP
-    if(getprop("payload/armament/msg") and getprop("payload/armament/inflight") == 1){
-    if(me.free == 1) {
-    if (debugsysmessages == 1) {
-        print("Missile is currently free, sendinflight()"); 
+    # Missile alert sender/missile smoke over damage MP
+    # call: Integer if target is being tracked
+    # lat: Missile actual lat location
+    # lon: Missile actual lon location
+    # alt: Missile actual altitude (alt-ft)
+    # hdg: Missile actual bearing (bearing-true)
+    # ptch: Missile actual pitch (deg)
+    # speed: Missile actual speed (MACH)
+    # unique: Missile Magic number
+    # deleted: Is this missile deleted?
+    # tid: Missile damage.nas TypeID
+    if(getprop("payload/armament/msg") and getprop("payload/armament/inflight") == 1) {
+        if(me.free == 1) {
+            if (debugsysmessages == 1) {
+                print("Missile is currently free, sendinflight()"); 
+            }
+            # return;
         }
-        # return;
-    }
-    if (debugsysmessages == 1) {
-        print("Unique ID: ");
-        print(unique);
-    }
-    if(tid == 0) { # where not given a typeID
-        typeID = me.getTypeID(me.NameOfMissile);
-        me.isradarmissile = me.getMslRadType(me.NameOfMissile);
-    }  else {
-        typeID = tid;
-    }
+        if (debugsysmessages == 1) {
+            print("Unique ID: ");
+            print(unique);
+        }
+        if(tid == 0) { # where not given a typeID
+            typeID = me.getTypeID(me.NameOfMissile);
+            me.isradarmissile = me.getMslRadType(me.NameOfMissile);
+        } else {
+            typeID = tid;
+        }
         var msg = notifications.ArmamentInFlightNotification.new("mfly", unique, deleted?damage.DESTROY:damage.MOVE, damage.DamageRecipient.typeID2emesaryID(typeID));
         var altM = alt*FT2M;
         msg.Position.set_latlon(lat,lon,altM);
+        #if (me.isradarmissile != 0 and me.free == 0) {
+        #    # notch code
+        #    # radar.notchdelock = func(threshold=1, chance=0.75, heading, contactheading)
+        #    if (call == 1) {
+        #        var callsign = me.targetcallsign;
+#           MOVED TO CHAFF AND FLARE CHECK   
+        #    }
+        #}
         if (me.isradarmissile != 0 and getprop("controls/jammer/status") == 0){
         if (me.pitbullrngm != 0) {
         if (me.pitbull == 1){
@@ -679,10 +743,9 @@ sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
                 me.messagesent = 1;
             }
             msg.Flags = 1;#ready
-
-                } else {
+        } else {
             msg.Flags = 0;#not ready         
-                }
+        }
         } else {
             msg.Flags = 1;#bit # Radar is there
         }
@@ -690,16 +753,17 @@ sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
         } else {
             msg.Flags = 0;#bit # Radar isnt' there
         }
-        msg.Flags = bits.set(msg.Flags, 1); # engine is running
+
+        msg.Flags = bits.set(msg.Flags, 1); # engine is running. Show the missile smoke even after engine ran out of fuel for now
+        
         # Add this to the line if its semi active (todo) msg.Flags = bits.set(msg.Flags, 2);
-        msg.IsDistinct = !deleted; # The missile is "Not" dead
-                if (call == 1) {
-                    #print(me.Tgt.get_Callsign());
+        msg.IsDistinct = !deleted; # The missile is "Not" to be deleted
+        if (call == 1) {
+            #print(me.Tgt.get_Callsign());
             var callsign = me.targetcallsign;
-        }
-      else {
+        } else {
             var callsign = ""; 
-           }
+        }
         msg.RemoteCallsign = callsign; # send missile alert warning to whom
         msg.UniqueIndex = ""~typeID~unique; # tid and the current missile number
         msg.Pitch = ptch; # simple
@@ -711,6 +775,8 @@ sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
             print("Missile alert sent successfully");
         }
         setprop("payload/armament/inflight",0); # This is to prevent from overloading the multiplayer
+        # Note chaff and flares are NOT computed here
+        #sendinflight
     }
 },
 
@@ -745,7 +811,7 @@ broddamage: func (cs,dist,msl) {
 	sendCrater: func (lat,lon,alt,sizeae,hdg,static,typeID,except="") {
 		var uni = int(rand()*15000000);
 		var msg = notifications.StaticNotification.new("stat", uni, 1, sizeae);
-        var altM = me.ac.alt();
+        var altM = alt * FT2M;
         msg.Position.set_latlon(lat,lon,altM); # TODO: Check altM units and make sure they are correct.
         var info = geodinfo(lat,lon);
         if (info == nil) {
@@ -760,10 +826,10 @@ broddamage: func (cs,dist,msl) {
 		}
         msg.IsDistinct = 0;
         msg.Heading = hdg;
-		damage.statics["obj_"~uni] = [static,lat,lon,alt,hdg,sizeae];
+		damage.statics["obj_"~uni] = [static,lat,lon,altM,hdg,sizeae];
         if (info != nil) {
             if (info[1] == nil) {
-                damage.statics["obj_"~uni] = [static2,lat,lon,alt,hdg,sizeae];
+                damage.statics["obj_"~uni] = [static2,lat,lon,altM,hdg,sizeae];
             }
         }
         notifications.hitBridgedTransmitter.NotifyAll(msg);
@@ -771,6 +837,8 @@ broddamage: func (cs,dist,msl) {
         #
         # Damage all players around location (Set a limit of 5 miles)
         #
+
+        # This code needs fixing and a new location
 
         var list = props.globals.getNode("/ai/models").getChildren("multiplayer");
         var total = size(list);
@@ -793,12 +861,12 @@ broddamage: func (cs,dist,msl) {
                     msg.Distance = distm;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
                     msg.RemoteCallsign = callsign;
                     notifications.hitBridgedTransmitter.NotifyAll(msg);
-                    print("That bombs explosion effected other targets!");
+                    print("That bombs explosion effected other targets:");
+                    print(callsign);
                     damage.damageLog.push(sprintf("Explosion of the previous weapon hit "~callsign~" at %.1f meters", distm));
                     
                 }
             }
-
         }
 	},
 
@@ -890,17 +958,16 @@ broddamage: func (cs,dist,msl) {
             if (debugflight == 1) {
             print("Engine thrust:", f_lbs);
             }
-                # Anti-Rad | Broken
-                    if(me.fox == "Magnum") {
-                        print("Anti-Rad: Checking");
-                        if ( getprop("payload/armament/spike") == 0 ) {
-                            print("Anti-Rad Missile Lost track because the target stopped locking on us!");
-                    #me.animate_explosion();
-                            me.reset_steering();
-                            me.free = 1;
-
-                        }
-                    }
+            # Anti-Rad | Broken
+            if(me.fox == "Magnum") {
+                print("Anti-Rad: Checking");
+                if ( getprop("payload/armament/spike") == 0 ) {
+                    print("Anti-Rad Missile Lost track because the target stopped locking on us!");
+            #me.animate_explosion();
+                    me.reset_steering();
+                    me.free = 1;
+                }
+            }
 
 
         if(me.life_time > me.Life) # life cap
@@ -1096,11 +1163,15 @@ broddamage: func (cs,dist,msl) {
         }
 
         me.hdgN.setDoubleValue(hdg_deg);
-
-        setprop("controls/armament/pos/lat",me.coord.lat());
-        setprop("controls/armament/pos/lon",me.coord.lon());
-        setprop("controls/armament/pos/alt",alt_ft);
-        setprop("controls/armament/pos/hdg",hdg_deg);
+        # for missile view camera
+        # missile cam
+        # msl cam
+        # camera
+        # view
+        #setprop("controls/armament/pos/lat",me.coord.lat());
+        #setprop("controls/armament/pos/lon",me.coord.lon());
+        #setprop("controls/armament/pos/alt",alt_ft);
+        #setprop("controls/armament/pos/hdg",hdg_deg);
         if (me.eject == 1 or getprop("f22/mslv") == 1) {
             # ejection!!
             setprop("f22/ejection/lat",me.coord.lat());
@@ -1196,8 +1267,8 @@ broddamage: func (cs,dist,msl) {
                         var static = "ae";
                         if (info == nil) {
 		                	print("Nil, Regular ground");
-                            #var static = geo.put_model(getprop("payload/armament/models") ~ "crater_big.xml", me.coord.lat(), me.coord.lon());
-                        } elsif (info[1] == nil) {
+                                var static = geo.put_model(getprop("payload/armament/models") ~ "crater_big.xml", me.coord.lat(), me.coord.lon());
+                                #me.sendCrater(me.coord.lat(), me.coord.lon(), me.coord.alt(), 1, 0, static, me.getTypeID(me.NameOfMissile)); # Hit everything INCLUDING our target that we missed (if not far away)  } elsif (info[1] == nil) {
 		                	print("Building go bye bye!!");
                             var static = geo.put_model(getprop("payload/armament/models") ~ "crater_big.xml", me.coord.lat(), me.coord.lon());
 		                } elsif (!info[1].solid) {
@@ -1317,14 +1388,14 @@ broddamage: func (cs,dist,msl) {
         }
     }
     print(gndelev);
-            var t_alt =  gndelev;
-            } else {
-                                            if (me.Tgt == nil) {
-                                me.free = 1;
-                                return;
-                            }
-            var t_alt =  me.Tgt.get_altitude();
-            }
+    var t_alt =  gndelev;
+    } else {
+        if (me.Tgt == nil) {
+            me.free = 1;
+            return;
+        }
+    var t_alt =  me.Tgt.get_altitude();
+    }
 
             
             # problem here : We have to calculate de alt difference before
@@ -1346,7 +1417,7 @@ broddamage: func (cs,dist,msl) {
             # aircraft, 0.2 is the "time"of the precision, in second. This need
             # to be not arbitrary
             
-                    if (me.gpstarget == 1) {
+    if (me.gpstarget == 1) {
    #var lat = getprop("controls/radar/gpslock/lat");
    #var lon = getprop("controls/radar/gpslock/lon");
    #var alt = getprop("controls/radar/gpslock/alt");
@@ -1380,14 +1451,14 @@ broddamage: func (cs,dist,msl) {
                 print("target set to gps");
             } else {
             var nextGeo = nextGeoloc(me.Tgt.get_Latitude(),
-                me.Tgt.get_Longitude(),
-                me.Tgt.get_heading(),
-                me.Tgt.get_Speed() * 0.5144,
-                0.1);
-            
+            me.Tgt.get_Longitude(),
+            me.Tgt.get_heading(),
+            me.Tgt.get_Speed() * 0.5144,
+            0.1);
             t_alt = next_alt;
             }
-print("target ran");
+            # Done with targeting
+            #print("target ran");
 
 
             me.t_coord.set_latlon(nextGeo.lat(), nextGeo.lon(), t_alt);
@@ -1483,12 +1554,11 @@ print("target ran");
             if((math.abs(me.curr_tgt_e) > me.missile_fov)
                 or (math.abs(modulo180) > me.missile_fov))
             {
-                        if (debugflight == 1) {
+            if (debugflight == 1) {
                 print("me.missile_fov:", me.missile_fov, "me.curr_tgt_e:", me.curr_tgt_e, "degree h me.curr_tgt_h:", me.curr_tgt_h, "t_course:", t_course, "me.hdg:", me.hdg, "modulo180:", modulo180);
-    }
-
+            }
                 me.free = 1;
-                    setprop("payload/armament/flares", 0);
+                setprop("payload/armament/flares", 0);
             }
             #print("Target Elevation(ft): ", t_alt, " Missile Elevation(ft):", me.alt, " Delta(meters):", t_alt_delta_m);
             # The t_course is false. Prevision is false
@@ -1518,15 +1588,11 @@ print("target ran");
             me.init_tgt_e = 0; #last_tgt_e;
             me.init_tgt_h = 0; #last_tgt_h;
             #}
-                       if (me.pitbullrngm != 0) {
+            if (me.pitbullrngm != 0) {
 
                 print("can pitbull");
                 # can pitbull
                 if (1 == 1) {
-
-                    
-
-
                     if (t_dist_m > me.pitbullrngm + 30000) { # 16nm
 
                         # Cruise
@@ -1608,6 +1674,7 @@ print("target ran");
         }
         
         # compute HUD reticle position.
+        
         if(me.status == 1)
         {
             var h_rad = (90 - me.curr_tgt_h) * D2R;
@@ -1656,25 +1723,12 @@ print("target ran");
                    print("poximity_detection(): There is no target! Not going to hit anyone");
                 }
                 return(1); # Missile searching
-          
-          }
-       
-
-
-       }
-
-
-
-
-
-
-
-                  if ( me.fox != "Fox 4" or me.fox != "ejecting" and me.eject != 1) { # ejecting only Fox 4 dosent exist
+            }
+        }
+        if ( me.fox != "Fox 4" or me.fox != "ejecting" and me.eject != 1) { # ejecting only Fox 4 dosent exist
         if (debugsysmessages == 1) {
--                    print("poximity_detection(): Fox isnt 1 so Tgt exists: Checking if we hit");    
-    }
-
-
+            print("poximity_detection(): Fox isnt 1 so Tgt exists: Checking if we hit");    
+        }
         me.t_coord.set_latlon(me.Tgt.get_Latitude(), me.Tgt.get_Longitude(), me.Tgt.get_altitude());
         var cur_dir_dist_m = me.coord.direct_distance_to(me.t_coord);
         var BC = cur_dir_dist_m;

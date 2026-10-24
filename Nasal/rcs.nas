@@ -32,7 +32,6 @@ var rcs_database = {
     "FA-18C_Hornet":            3.5,    #later Blocks have 1
     "FA-18D_Hornet":            3.5,
     "FA-18":                    3.5,
-    "FA-18D":                   300.7,
     "FA-18E_CVW5":              1.0,
     "F-5E-TigerII":             4,      #close to actual
     "F-5ENinja":                4,      #close to actual
@@ -63,14 +62,15 @@ var rcs_database = {
     "Su-15":                    6.5,   #guess
     "Su-25":                    7,     #guess
     "Su-34":                    8,     #should be less
-    "SU-37":                    6,     #wild guess
+    "SU-37":                    7,     #wild guess 7
     "J-11A":                    15,    #same as Su-27
     "tu95":                     20,    #average
     "Tu-95MR":                  20,    #average
     "Tu-160-Blackjack":         15,
-    "G91-R1B":                  6,     #guess
+    "G91-R1B":                  4,     #average
     "mb339":                    4,     #guess
     "mb339pan":                 4,     #guess
+    "M-346":                    4.5,   #average
     "alphajet":                 4.5,   #average
     "E-2C-Hawkeye":             22,    #average
     "c-2a":                     20,    #average
@@ -86,6 +86,11 @@ var rcs_database = {
     "Tornado-IDS":              9,
     "Tornado-F3":               9,
     "Tornado-ADV":              9,
+    "AvroVulcanB2":             16,
+    "vulcanb2":                 16,
+    "B-52F":                    20,
+    "P-8A":                     18,
+    "E-7A":                     16,
     # Helis:
     "uh60_Blackhawk":           4,      #average
     "AH-1W":                    4,      #average
@@ -102,16 +107,14 @@ var rcs_database = {
     #Stealth
     "b2-spirit":                0.0001,  #actual: 0.0001
     "B-2A":                     0.0001,  #actual: 0.0001
-    "F-22A Raptor":				0.0001,	 #actual: 0.0001
     "F-22-Raptor":				0.0001,	 #actual: 0.0001
     "F-35A":					0.0015,
-    "F-35B":					3,
+    "F-35B":					0.0015,
     "F-35C":                    0.0015,
     "daVinci_F-35A":            0.0015,
     "daVinci_F-35B":            0.0015,
     "F-117":                    0.003,
     "T-50":                     0.5,    #low end of sources
-    "X-02":                     0.5,   # low vis. but curvy structure
     "u-2s":                     0.01,
     "U-2S-model":               0.01,
     #Carriers

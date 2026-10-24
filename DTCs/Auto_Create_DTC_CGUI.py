@@ -1,4 +1,5 @@
 # Create_DTC.py
+# todo: enhanceme
 import os,time
 os.system("cls")
 print("============================================================")
@@ -13,7 +14,7 @@ if dlans == "y":
     try:
         link16code = int(input("Please enter the datalink code: "))
     except:
-        print("The datalink code bust be an integar!")
+        print("The datalink code must be an integar!")
 else:
     print("Ok no datalink code will be applied") 
 bingo = int(input("What should bingo fuel be? (number, integer) "))
