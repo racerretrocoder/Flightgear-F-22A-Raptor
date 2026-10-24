@@ -530,7 +530,7 @@ if (me.Tgt != nil) {
         if (notched < 0.2) {
             # bandit trying to notch us
             screen.log.write("BANDIT TRYNA NOTCH MEH!!");
-            notchcoeff = 0.9994;
+            notchcoeff = 0.9991;
             num3 = rand();
             if (num3 > notchcoeff) {
                 screen.log.write("Missile notched!");
@@ -1103,7 +1103,12 @@ broddamage: func (cs,dist,msl) {
                         pitch_deg = getprop("orientation/pitch-deg") - 3.5;
                     } elsif (me.ignitedelay != 0) {
                         # drop missile
-                        pitch_deg = getprop("orientation/pitch-deg") - 2.8;
+                        if (me.rail != 0) {
+                            pitch_deg = getprop("orientation/pitch-deg") - 2.8;
+                        } else {
+                            pitch_deg = getprop("orientation/pitch-deg");
+                        }
+                        
                     } else {
                         # railed
                         pitch_deg = getprop("orientation/pitch-deg");
@@ -1843,6 +1848,7 @@ broddamage: func (cs,dist,msl) {
                        
                         } else {
                             screen.log.write("Missile exploded on flare",1,0,0);
+                            settimer(func(){ me.del(); }, 1);
                         }
                          var missilename = "invalid weapon";
                         if (getprop("payload/armament/oldmsg") == 1){
