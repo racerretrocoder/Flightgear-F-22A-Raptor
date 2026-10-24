@@ -353,7 +353,7 @@
       <property>/f22/fcs/controls/elevator</property>
     </output>
     <config>
-      <Kp>-0.05</Kp>
+      <Kp>-0.03</Kp>
       <beta>1.0</beta>
       <alpha>0.1</alpha>
       <gamma>0.0</gamma>

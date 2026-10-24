@@ -1008,6 +1008,7 @@
 				<offset>1.2</offset>
 			</pitch>
 		</squeal>
+    <!--
 		<flap>
 			<name>flaps</name>
 			<mode>in-transit</mode>
@@ -1057,7 +1058,7 @@
 
 
 
-		</flap>
+		</flap>-->
 
 
 

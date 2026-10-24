@@ -428,7 +428,7 @@ rsmoke = maketimer(0.5,rsmoketimer);
 var gearloop = func() {
 
   # Autoflaps controls
-  if (getprop("controls/flight/gear-down") == 1 or getprop("controls/flight/altflap") == 0) {
+  if (getprop("controls/gear/gear-down") == 1 or getprop("controls/flight/altflap") == 0) {
     setprop("controls/flight/aflaps",1);
   } else {
     setprop("controls/flight/aflaps",0);

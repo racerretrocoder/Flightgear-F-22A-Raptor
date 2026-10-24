@@ -9,7 +9,7 @@
 # Fabien BARBIER (5H1N0B1) September 2015
 # fitted to the Su-27SK by Yanes Bechir 2016
 # inspired by Alexis Bory (xiii)
-
+setprop("/instrumentation/radar2/hasrcs",0);
 var UPDATE_PERIOD = 0.1; # update interval for engine init() functions
 
 var ElapsedSec        = props.globals.getNode("sim/time/elapsed-sec");
@@ -86,6 +86,79 @@ var u_ecm_type_num    = 0;
 var rangeTab = [];
 var rangeIndex = 0;
 
+var filtercheck = func(heading, contactheading) {
+    # For Doppler radars (Has no affect for APG-77V2 AESA)
+    if (heading == nil or contactheading == nil) {
+        print("radar: filtercheck(): 1 or more arguments are nil");
+        return 0;
+    }
+    return (math.abs((heading - contactheading)/90) - 1); # -1-0-1 float - 0 being absolute 90 / -90 - 1 being head on / off
+}
+# old:
+# var notchdelock = func(threshold=1, chance=0.75, heading, contactheading) {
+#     # chance is 0 to 1: 0 being always, 1 being never
+#     # thresh is +- 1 degree
+#     # works when 89 and 91 degree away from missile
+#     screen.log.write(heading); # for testing
+#     screen.log.write(contactheading);
+#     var thenotch = filtercheck(heading, contactheading);
+#     if (thenotch < threshold and thenotch > -1 * threshold) {
+#         screen.log.write("Notch is capable!");
+#         # take our chances
+#         ae = rand();
+#         if (ae > chance) {
+#             # Delocked
+#             screen.log.write("The radar has been notched!");
+#             screen.log.write("Delocked");
+#             return 1;
+#         }
+#         return 0;
+#     } else {
+#         return -1;
+#     }
+# }
+
+# !!!NOTE NOTE NOTE NOTE!!!
+# !!!NOTE NOTE NOTE NOTE!!!
+# !!!NOTE NOTE NOTE NOTE!!!
+# !!!NOTE NOTE NOTE NOTE!!!
+
+# RCS code is from OPRF. More specifically, Pinto's RCS Nasal code & Nasal Database.
+# maintain similarity equality with OPRF Planes.
+# Keeping systems similar has a positive affect in a diverse airspace
+
+# The RCS code in this file is slightly modified from the origianl to accompany implementation into this radar system
+
+# Radar strengths 
+# Guess: Value of 3.2: Raptor can be detected at 5 miles.
+# Guess: Value of 14: Raptor can be detected at 21 miles. 
+# Which ever strength gets raptor detectable at 40km works best
+# Ill have to test this.
+
+# OPRF From: rcs.nas: isInRadarRange() Function
+var rcscheck = func (contact, myRadarStrength_rcs=19) {
+    print("Rcs check");
+    if (contact != nil and contact.get_Coord() != nil) {
+        myRadarDistance_nm = 320;
+        # get contact model
+        var callsign = contact.get_Callsign();
+        var model = customrcs.getaircraftname(callsign);
+        var value = 1;
+        call(func {value = rcs.targetRCSSignal(contact.get_Coord(), model, contact.get_heading(), contact.get_Pitch(), contact.get_Roll(), geo.aircraft_position(), myRadarDistance_nm*NM2M, myRadarStrength_rcs)},nil, var err = []);
+        if (size(err)) {
+            print("error");
+            foreach(line;err) {
+                print(line);
+            }
+            # open radar for one will make this happen.
+            return value;
+        }
+        #print("RCS Value: "~value);
+        return value;
+    }
+    #print("Contact nil");
+    return 0;
+};
 # radar class
 var Radar = {
     new: func(){
@@ -110,7 +183,7 @@ var Radar = {
         m.ourDownSpeed  = props.globals.getNode("velocities/speed-down-fps");
         
         m.HaveDoppler       = 1;
-        m.DopplerSpeedLimit = 5000; # in Knot
+        m.DopplerSpeedLimit = 30; # in Knot
         m.MyTimeLimit       = 2; # in seconds
         
         m.Check_List  = [];
@@ -447,7 +520,7 @@ var Radar = {
         # Test to check if the target can hide bellow us
         # Or Hide using anti doppler movements
         
-        var InDoppler = 0;
+        var InDoppler = 1;
         var groundNotbehind = me.isGroundNotBehind(SelectedObject);
         if(groundNotbehind)
         {
@@ -661,6 +734,7 @@ var Radar = {
         #if heat  : check : InRange, inAzimuth, inElevation, NotBeyondHorizon, heat_sensor, isNotBehindTerrain
         #if laser : check : InRange, inAzimuth, inElevation, NotBeyondHorizon, isNotBehindTerrain
         #if cam  : check : InRange, inAzimuth, inElevation, NotBeyondHorizon, isNotBehindTerrain
+        #if rcs  : check : InRange
         # Need to add the fonction flare_sensivity : is there flare near aircraft and should we get fooled by it
     
         append(me.Check_List, me.InRange(SelectedObject));
@@ -679,7 +753,7 @@ var Radar = {
             return;
         }
         # A/G
-        print(me.notGroundTarget(SelectedObject));
+        #print(me.notGroundTarget(SelectedObject));
         append(me.Check_List, me.notGroundTarget(SelectedObject));
         if(me.Check_List[3] == 0)
         {
@@ -688,9 +762,10 @@ var Radar = {
 
         # RCS Stuff
         if (getprop("/instrumentation/radar2/hasrcs") != nil) {
-            if (getprop("/instrumentation/radar2/hasrcs") == 1) {
+            if (getprop("/instrumentation/radar2/hasrcs") == 0) {
                 # Small debug
-                append(me.Check_List, customrcs.getrcs(SelectedObject));
+                print("Testing rcs");
+                append(me.Check_List, rcscheck(SelectedObject));
                 if(me.Check_List[4] == 0)
                 {
                     return;
@@ -704,14 +779,15 @@ var Radar = {
         #{
         #    return;
         #}
-  #      #me.heat_sensor(SelectedObject);
-  #      append(me.Check_List, me.doppler(SelectedObject));
-  #      if(me.Check_List[4] == 0)
-  #      {
-  #          return;
-  #      }
-  #      
-        # Has to be last coz it will call the get_checked function
+        #me.heat_sensor(SelectedObject);
+
+        #append(me.Check_List, me.doppler(SelectedObject));
+        #if(me.Check_List[4] == 0)
+        #{
+        #    return;
+        #}
+
+        # This has to be last coz it will call the get_checked function
         append(me.Check_List, me.isNotBehindTerrain(SelectedObject));
     },
 
@@ -788,12 +864,14 @@ var Radar = {
 var Target = {
     new: func(c){
         var obj             = { parents : [Target]};
+        # Target properties in multiplayer[x]
         obj.RdrProp         = c.getNode("radar");
         obj.Heading         = c.getNode("orientation/true-heading-deg");
         obj.Alt             = c.getNode("position/altitude-ft");
         obj.lat             = c.getNode("position/latitude-deg");
         obj.lon             = c.getNode("position/longitude-deg");
         obj.pitch           = c.getNode("orientation/pitch-deg");
+        obj.roll            = c.getNode("orientation/roll-deg");
         obj.Speed           = c.getNode("velocities/true-airspeed-kt");
         obj.VSpeed          = c.getNode("velocities/vertical-speed-fps");
         obj.Callsign        = c.getNode("callsign");
@@ -819,9 +897,9 @@ var Target = {
         obj.Elevation       = obj.RdrProp.getNode("elevation-deg");
         obj.HOffset					= -9999.0;
         obj.VOffset					= -9999.0;
-				obj.XShift					= -9999.0;
-				obj.YShift					= -9999.0;
-				obj.Rotation				= -9999.0;
+		obj.XShift					= -9999.0;
+		obj.YShift					= -9999.0;
+		obj.Rotation				= -9999.0;
         
         obj.MyCallsign      = 0;
         obj.BBearing        = 0; #obj.TgtsFiles.getNode("bearing-deg", 1);
@@ -873,9 +951,9 @@ var Target = {
         
         me.Hoffset				= me.TgtsFiles.getNode("h-offset", 1);
         me.Voffset				= me.TgtsFiles.getNode("v-offset", 1);
-	      me.Xshift					= me.TgtsFiles.getNode("x-shift", 1);
-	      me.Yshift					= me.TgtsFiles.getNode("y-shift", 1);
-	      me.rotation				= me.TgtsFiles.getNode("rotation", 1);
+	    me.Xshift			    = me.TgtsFiles.getNode("x-shift", 1);
+	    me.Yshift			    = me.TgtsFiles.getNode("y-shift", 1);
+	    me.rotation				= me.TgtsFiles.getNode("rotation", 1);
         
         #if(getprop(me.InstrString ~ "/" ~ me.shortstring ~ "/closure-last-time") == nil)
         #{
@@ -1003,6 +1081,13 @@ var Target = {
 
     get_Pitch: func(){
         var n = me.pitch.getValue();
+        return n;
+    },
+
+    get_Roll: func(){
+        #print("get_Roll");
+        var n = me.roll.getValue();
+        #print(n);
         return n;
     },
 

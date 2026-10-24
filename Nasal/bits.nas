@@ -1,7 +1,8 @@
 # Phoenix
 # Built in tests for the F-22A
 # bits.nas
-# namespace bits
+# namespace builtinselftest
+# namespace should not be "bits" or it will interfere with the missile system. as bits are used for the damage system
 
 setprop("controls/flight/bit",1); # Switch
 setprop("controls/radar/bit",0);
