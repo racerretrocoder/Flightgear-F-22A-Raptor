@@ -85,7 +85,7 @@ setprop("/f22/auxcomm/on",0);
 setprop("/f22/grind",0);
 setprop("/f22/runwaysplash",0); # pushed water from jets
 setprop("/f22/fcs/mode","NAV");
-setprop("/controls/flight/aflaps",0);
+setprop("/controls/flight/aflaps",1);
 
 #
 # Temp init 
@@ -841,13 +841,13 @@ var fcsloop = func() {
     # do control check
     
     if (elevator > controlThresh) {
-      disableelev = 1;
+      #disableelev = 1;
       disableaile = 1; # Disable Roll control aswell when flying
     }
 
     if (elevator < 0) {
       if (elevator < negcontrolThresh){
-        disableelev = 1;
+        #disableelev = 1;
         disableaile = 1; # Disable Roll control aswell when flying
       }
     }

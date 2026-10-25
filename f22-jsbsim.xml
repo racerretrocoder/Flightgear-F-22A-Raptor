@@ -510,11 +510,9 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <property>/orientation/pitch-rate-degps</property>
     <property>/orientation/yaw-rate-degps</property>
 
-    <function name="fcs/G-request-elevator">
-
+    <function name="fcs/G-request-elevator"> <!--for the g limit-->
       <table>
-
-        <independentVar lookup="row">fcs/elevator-cmd-norm</independentVar>
+        <independentVar lookup="row">fcs/elevator-cmd-combo</independentVar>
         <independentVar lookup="column">/f22/fcs/glimit</independentVar>
         <tableData>   
          1    10
@@ -527,6 +525,49 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </table>
     </function>
 
+    <function name="fcs/G-request-pre"> <!--Raw G Command, goes above set above 9g's to clip at 1.0 when full pitch back-->
+      <table>
+        <independentVar lookup="row">fcs/elevator-cmd-norm</independentVar>
+        <independentVar lookup="column">/f22/fcs/glimit</independentVar>
+        <tableData> 
+         1    10
+  -1     1    12
+  -0.001 1    1                     <!--microscopic deadzone-->
+   0     1    1
+   0.001 1    1
+   1    -1   -6
+        </tableData>
+      </table>
+
+    </function>
+
+    <function name="fcs/G-request"> <!--AAR Setback/limiter-->
+      <table>
+        <independentVar lookup="row">fcs/G-request-pre</independentVar>
+        <independentVar lookup="column">/controls/refuel/Switch</independentVar>
+        <tableData> 
+         0    1
+ -6     -6    -0.3
+  1      1    1     
+  9      9    3 
+        </tableData>
+      </table>
+      
+    </function>
+
+
+    <function name="fcs/G-request-active"> <!--Enables disables Elevator tune to G-->
+      <table>
+        <independentVar lookup="row">fcs/elevator-cmd-norm</independentVar>
+        <tableData> 
+  -0.002  1
+  -0.001  0                     <!--microscopic deadzone-->
+   0      0
+   0.001  0
+   0.002  1
+        </tableData>
+      </table>
+    </function>
 
     <function name="fcs/ghold">
       <sum>
@@ -731,14 +772,26 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </product>
     </function>
 
+    <function name="fcs/elevator-cmd-combo">
+      <table>
+        <independentVar lookup="column">/f22/fcs/controls/elevator</independentVar>
+        <independentVar lookup="row">/f22/fcs/controls/gflight</independentVar> <!-- Raw elevator flight control input (Or computerized G Hold)-->
+        <tableData>   
+               -1    0    1  
+          -1   -1   -1   -1
+           0   -1    0    1
+           1    1    1    1
+        </tableData>
+      </table>
+    </function>
+
     <function name="fcs/elevator-cmd-norm-power">
       <product>
-        <property>fcs/AAR</property>
         <property>fcs/engine-gen-spin-output</property>
-        <property>fcs/elevator-cmd-norm</property>
+        <property>fcs/elevator-cmd-combo</property>
         <ifthen>
           <ge>
-            <property>fcs/G-request-elevator</property>
+            <property>fcs/G-request-elevator</property> 
             <value>1</value>
           </ge>
 
@@ -930,13 +983,31 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         </table>
       </product>
     </function>
+
+    <function name="fcs/fbw-coeff">
+      <table>
+        <independentVar lookup="row">fcs/elevator-cmd-norm</independentVar>
+        <tableData>
+         -1   0
+        -0.1  0
+          0   1
+         0.1  0
+          1   0
+        </tableData>
+      </table>
+    </function>
+
+
     <!--Turn rate-->
     <!--If this function is close to zero. The plane is stable! (ae)-->
     <function name="fcs/fbw-pitch-rate-combo">
+    <product>
       <sum>
         <property>fcs/fbw-yaw-calib</property>
         <property>fcs/fbw-ptch-calib</property>
       </sum>
+      <property>fcs/fbw-coeff</property>
+    </product>
     </function>
 
 
@@ -1155,10 +1226,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     </function>
 
     <function name="fcs/Elev-pos-norm-g-limit">      <!--For thrust vectoring-->
-      <sum>
         <property>fcs/Elev-pos-norm-g-limit-ae</property>
-        <property>/f22/fcs/controls/elevator</property>
-      </sum>
     </function>
 
     <function name="fcs/ail-pos-norm-limit-sum-main">      <!--Main Elevator POS with Limit-->
@@ -1818,7 +1886,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <summer name="Pitch Trim Sum">
         <input>fcs/elevator-cmd-norm-delay-sm</input>        <!--RAW ELEVATOR CONTROL INPUT!! | Note the g limiter all that stuff is applied directly into <axis>-->
         <input>fcs/pitch-trim-main</input>
-        <input>/f22/fcs/controls/elevator</input>
+        <!--<input>/f22/fcs/controls/elevator</input>-->
         <clipto>
           <min> -1 </min>
           <max>  1 </max>

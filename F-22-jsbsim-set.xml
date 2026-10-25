@@ -1850,6 +1850,28 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
           <default-field-of-view-deg>95</default-field-of-view-deg>
         </config>
         </view>
+
+			    <view n="107">
+            <!-- Custom Made Missile View -->
+            <name>Missile View</name>
+            <type>lookat</type>
+            <enabled>true</enabled>
+           <!-- <heading-offset-deg>180</heading-offset-deg>
+            <pitch-offset-deg>10</pitch-offset-deg>-->
+		<config>
+        	<target-lon-deg-path type="string">controls/armament/pos/lon</target-lon-deg-path>
+        	<target-lat-deg-path type="string">controls/armament/pos/lat</target-lat-deg-path>
+          	<target-alt-ft-path type="string">controls/armament/pos/alt</target-alt-ft-path>
+					 <from-model type="bool">false</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+          <x-offset-m archive="y">0.00</x-offset-m>
+          <y-offset-m archive="y">0.35</y-offset-m>
+          <z-offset-m archive="y">-5.5</z-offset-m>
+          <pitch-offset-deg>0</pitch-offset-deg>
+		  <heading-offset-deg>180</heading-offset-deg>
+          <default-field-of-view-deg>95</default-field-of-view-deg>
+        </config>
+        </view>
 		<view n="1">
 			<config>
 				<target-z-offset-m archive="y" type="double">0</target-z-offset-m>

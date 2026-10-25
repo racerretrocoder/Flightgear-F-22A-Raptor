@@ -144,11 +144,13 @@ var MISSILE = {
         m.isbomb            = getprop("controls/armament/missile/isbomb");
         m.eject             = getprop("controls/armament/missile/chute");
         m.ignitedelay       = getprop("controls/armament/missile/ignitedelay");
+        m.vector_thrust     = getprop("controls/armament/missile/thrustvectoring");
+        m.haswings          = 0; # getprop("controls/armament/missile/thrustvectoring");
         m.notch             = 1; # getprop("controls/armament/missile/notch"); # defaults to one
         m.notchthresh       = 1; # getprop("controls/armament/missile/notchthresh"); # defaults to one
-        m.messagesent = 0;
-        m.drop_time             = 0;    
-        m.deploy_time           = 0;  
+        m.messagesent       = 0;
+        m.drop_time         = 0;    
+        m.deploy_time       = 0;  
         m.last_coord        = nil;
         m.unique_id         = -100;  # For missile alert to give each missile a number
         m.targetcallsign    = "nothingatall"; # nothing
@@ -163,11 +165,21 @@ var MISSILE = {
         m.cmsfool           = 0;
         m.gpslat            = 0;
         m.gpslon            = 0;
-        m.gpslat            = 0;
+        m.gpsalt            = 0;
         m.gpstarget         = 0;
         m.armsd             = 0;
         m.altcontrol        = 0;
         m.missed            = 0;
+        m.lastlat           = 0;
+        m.lastlon           = 0;
+        m.lastalt           = 0;
+        m.notched           = 1;
+        m.losttrack         = 0;
+        m.GLOAD             = 1;
+        m.density_alt_diff  = 0;
+        m.energyBleedKt     = 0;
+        m.f_lbs             = 0;
+        
         
        # m.ccip_altC = 0;
        # m.ccip_dens = 0;
@@ -232,6 +244,7 @@ var MISSILE = {
         m.pitch   = 0;
         m.hdg     = nil;
         m.speed_mach = 0; # Global variable for sendinflight
+        m.last_dt = 0;
         #SwSoundOnOff.setValue(1);
         #settimer(func(){ SwSoundVol.setValue(vol_search); m.search() }, 1);
         return MISSILE.active[m.ID] = m;
@@ -363,8 +376,8 @@ var MISSILE = {
     # this function is to convert for the missile from aircraft coordinate to absolute coordinate
     release: func(){
 
-        # gps targeting check (This must run only once)
 
+        # gps targeting check (This must run only once)
         if (getprop("controls/radar/weaponcoords") == 1 and me.isbomb == 1) {
             me.gpstarget = 1;
             me.gpslat = getprop("controls/radar/gpslock/lat");
@@ -380,7 +393,12 @@ var MISSILE = {
         var ac_roll  = getprop("orientation/roll-deg");
         var ac_pitch = getprop("orientation/pitch-deg");
         var ac_hdg   = getprop("orientation/heading-deg");
-        
+        # From missile-code
+		if (getprop("sim/flight-model") == "jsb") {
+			# currently not supported in Yasim
+			me.density_alt_diff = getprop("fdm/jsbsim/atmosphere/density-altitude") - me.ac.alt()*M2FT;
+		}
+
         # Compute missile initial position relative to A/C center,
         # following Vivian's code in AIModel/submodel.cxx .
         var in = [0, 0, 0];
@@ -514,51 +532,20 @@ if (me.Tgt != nil) {
     # There is a target
     # Lets search for him
     #misc.search(bandit); # TODO - deprecate this
-    var targetmpid = misc.smallsearch(bandit); # replace with this
+    
+        var bandit = me.Tgt.get_Callsign();
+        var targetmpid = misc.smallsearch(bandit); # replace with this
     var tgtflare = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/rotors/main/blade[3]/flap-deg");
     var tgtchaff = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/rotors/main/blade[3]/position-deg");
 
     var tgtalt = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/position/altitude-ft");
-    var tgtlon = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/posititon/longitude-deg");
+    var tgtlon = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/position/longitude-deg");
     var tgtlat = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/position/latitude-deg");
+    me.lastlat = tgtlat;
+    me.lastlon = tgtlon;
+    me.lastalt = tgtalt;
     var isfox2 = 0;
-    if (me.fox == "Fox 3" and me.pitbull == 1) {
-        # Check notch
-        var targetheading = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/orientation/true-heading-deg");
-        var notched = math.abs(radar.filtercheck(me.hdg, targetheading));
-        screen.log.write("NOTCH CHECK!");
-        if (notched < 0.2) {
-            # bandit trying to notch us
-            screen.log.write("BANDIT TRYNA NOTCH MEH!!");
-            notchcoeff = 0.9991;
-            num3 = rand();
-            if (num3 > notchcoeff) {
-                screen.log.write("Missile notched!");
-                me.cmslat = tgtlat;
-                me.cmslon = tgtlon;
-                me.cmsalt = tgtalt;
-                me.reset_steering();
-                me.free = 1;
-                me.cmsfool = 1;
-                var phrase = me.NameOfMissile ~ " Report : Fooled by enemy's manuvers and missed.";
-                if (getprop("payload/armament/oldmsg") == 1) {
-                    setprop("sim/multiplay/chat", phrase);
-                }
-                if(MPMessaging.getValue() == 1) {
-                    damage.damageLog.push(phrase);
-                    if (getprop("f22/debug")) {
-                        setprop("/sim/messages/atc", "Missile missed due to enemies notch");
-                    }
-                    setprop("/sim/messages/atc", "Missile missed due to enemies notch");
-                    me.missed = 1;
-                }
-                else {
-                    setprop("/sim/messages/atc", phrase);
-                }
-            }
 
-        }
-    }
     if (tgtflare != me.old_flare or tgtchaff != me.old_chaff) { # Flares are being realeased and / or have changed!
         # What kind of missile are we? i forgot
         # sort it based on proper counter messares
@@ -870,6 +857,59 @@ broddamage: func (cs,dist,msl) {
         }
 	},
 
+    # OPRF missile-code.nas EnergyBleed
+    energyBleed: func (gForce, altitude) {
+        if (me.haswings == 1) gForce = 0;
+        # Bleed of energy from pulling Gs.
+        # This is very inaccurate, but better than nothing.
+        #
+        # First we get the speedloss due to normal drag:
+        me.b300 = me.bleed32800at0g();
+        me.b000 = me.bleed0at0g();
+        #
+        # We then subtract the normal drag from the loss due to G and normal drag.
+        me.b325 = me.bleed32800at25g()-me.b300;
+        me.b025 = me.bleed0at25g()-me.b000;
+        me.b300 = 0;
+        me.b000 = 0;
+        #
+        # We now find what the speedloss will be at sealevel and 32800 ft.
+        me.speedLoss32800 = me.b300 + ((gForce-0)/(25-0))*(me.b325 - me.b300);
+        me.speedLoss0 = me.b000 + ((gForce-0)/(25-0))*(me.b025 - me.b000);
+        #
+        # We then inter/extra-polate that to the currect density-altitude.
+        me.speedLoss = me.speedLoss0 + ((altitude-0)/(32800-0))*(me.speedLoss32800-me.speedLoss0);
+        #
+        # For good measure the result is clamped to below zero.
+        me.speedLoss = math.min(me.speedLoss, 0);
+        me.energyBleedKt += me.speedLoss * FPS2KT;
+        me.speedLoss = me.speedLoss*(me.f_lbs>0 and me.vector_thrust?0.333:1);# vector thrust will only bleed 1/3 of the calculated loss.
+        #me.steer_for_free = 0;
+        print("SPEEDLOSS: ",me.speedLoss);
+        print("SPEEDLOKT: ",me.energyBleedKt);
+        return me.speedLoss;
+    },
+
+    bleed32800at0g: func () {
+        me.loss_mps = 0 + ((me.last_dt - 0)/(15 - 0))*(-330 - 0);
+        return me.loss_mps*M2FT;
+    },
+
+    bleed32800at25g: func () {
+        me.loss_mps = 0 + ((me.last_dt - 0)/(3.5 - 0))*(-240 - 0);
+        return me.loss_mps*M2FT;
+    },
+
+    bleed0at0g: func () {
+        me.loss_mps = 0 + ((me.last_dt - 0)/(22 - 0))*(-950 - 0);
+        return me.loss_mps*M2FT;
+    },
+
+    bleed0at25g: func () {
+        me.loss_mps = 0 + ((me.last_dt - 0)/(7 - 0))*(-750 - 0);
+        return me.loss_mps*M2FT;
+    },
+
     update: func(){
         # calculate life time of the missile
         var dt = getprop("sim/time/delta-sec");
@@ -942,12 +982,12 @@ broddamage: func (cs,dist,msl) {
         # Rocket stage 2
         if (me.life_time > me.thrust_duration_stage2)
         {
-            var Dapath = me.missile_NoSmoke;
-            if(me.model.getNode("path", 1).getValue() != Dapath)
-            {
-                #print(Dapath);
-                me.reload_model(Dapath);
-            }
+            #var Dapath = me.missile_NoSmoke;
+            #if(me.model.getNode("path", 1).getValue() != Dapath)
+            #{
+            #    #print(Dapath);
+            #    me.reload_model(Dapath);
+            #}
             #print( me.model.getNode("path", 1).getValue());
             f_lbs = 0;
             if (debugsysmessages == 1) {
@@ -955,6 +995,7 @@ broddamage: func (cs,dist,msl) {
             }
             #me.smoke_prop.setBoolValue(0);
         }
+        me.f_lbs = f_lbs;
             if (debugflight == 1) {
             print("Engine thrust:", f_lbs);
             }
@@ -1013,7 +1054,7 @@ broddamage: func (cs,dist,msl) {
             cdm = 0.2965 * math.pow(speed_m, -1.1506) + me.cd;
         }
 
-# Self distruction
+        # Self distruction
         if (me.armsd == 0) {
             if (speed_m > me.SDspeed) {
                 # arm sd
@@ -1043,18 +1084,25 @@ broddamage: func (cs,dist,msl) {
         var mass = me.weight_launch_lbs / slugs_to_lbs;
         var old_speed_fps = total_s_ft / dt;
         var acc = f_lbs / mass;
+        # add energy bleed here
         var drag_acc = (cdm * 0.5 * rho * old_speed_fps * old_speed_fps * me.eda / mass);
-        
+        var gspeedfps = me.energyBleed(me.GLOAD, me.altN.getValue() + me.density_alt_diff); # This is a negitive number
+        #screen.log.write("GLOAD");
+        #screen.log.write(me.GLOAD);
         # here is a limit for not "Go over" the theoric max speed of the missile
         if(speed_m > me.maxSpeed)
         {
-            var speed_fps = old_speed_fps - drag_acc;
+            var speed_fps = old_speed_fps - drag_acc + gspeedfps;
         }
         else
-        {
-            var speed_fps = old_speed_fps - drag_acc + acc;
+        {   
+            if (gspeedfps < -10) {
+                var speed_fps = old_speed_fps - drag_acc + gspeedfps + acc;
+            } else {
+                var speed_fps = old_speed_fps - drag_acc + gspeedfps + acc;
+            }
         }
-        #print("acc: ", acc, " _drag_acc: ", drag_acc);
+        print("acc: ", acc, " _drag_acc: ", drag_acc, " energybleedfps: ", gspeedfps);
         
         # break down total speed to North, East and Down components.
         var speed_down_fps = math.sin(pitch_deg * D2R) * speed_fps;
@@ -1130,6 +1178,7 @@ broddamage: func (cs,dist,msl) {
                     me.track_signal_h = me.track_signal_h * MyCoef;
                     myG = steering_speed_G(me.track_signal_e, me.track_signal_h, (total_s_ft / dt), mass, dt);
                 }
+                me.GLOAD = myG;
                 pitch_deg += me.track_signal_e;
                 hdg_deg += me.track_signal_h;
 
@@ -1173,10 +1222,10 @@ broddamage: func (cs,dist,msl) {
         # msl cam
         # camera
         # view
-        #setprop("controls/armament/pos/lat",me.coord.lat());
-        #setprop("controls/armament/pos/lon",me.coord.lon());
-        #setprop("controls/armament/pos/alt",alt_ft);
-        #setprop("controls/armament/pos/hdg",hdg_deg);
+        setprop("controls/armament/pos/lat",me.coord.lat());
+        setprop("controls/armament/pos/lon",me.coord.lon());
+        setprop("controls/armament/pos/alt",alt_ft);
+        setprop("controls/armament/pos/hdg",hdg_deg);
         if (me.eject == 1 or getprop("f22/mslv") == 1) {
             # ejection!!
             setprop("f22/ejection/lat",me.coord.lat());
@@ -1314,22 +1363,57 @@ broddamage: func (cs,dist,msl) {
         {
             settimer(func(){ me.update()}, 0);
         }
+        me.last_dt = dt;
     },
 
 
     update_track: func()
     {
-        if(me.Tgt == nil)
-        {
-            me.fox = "Fox 1";
-                            
-                                setprop("payload/armament/flares", 0);
-            print("tgt nil");
-        if (me.gpstarget == 0) {
-            me.free = 1;
-                    return(1);
-        }
+    if (me.fox == "Fox 3" and me.pitbull == 1 and me.Tgt != nil) {
+        # Check notch
+        var bandit = me.Tgt.get_Callsign();
+        var targetmpid = misc.smallsearch(bandit); # replace with this
+        var targetheading = getprop("ai/models/multiplayer[" ~ targetmpid ~ "]/orientation/true-heading-deg");
+        var notched = math.abs(radar.filtercheck(me.hdg, targetheading));
+        me.notched = notched;
+    }
 
+        # Notching
+        if (me.notched < 0.2 and me.gpstarget == 0 and me.fox == "Fox 3" and me.losttrack == 0) {
+            # bandit trying to notch us
+            #screen.log.write("The missile was delocked with a notch");
+            me.losttrack = 1;
+        }
+        if (me.losttrack == 1 and me.notched > 0.2) {
+            #screen.log.write("searching to relock on the target");
+            var enemy = geo.Coord.new();
+            enemy.set_latlon(me.Tgt.get_Latitude(),me.Tgt.get_Longitude(),me.Tgt.get_altitude());
+            var mslfov = me.missile_fov;
+            var thebearing = me.coord.course_to(enemy);
+            # FOV Check!
+            print("");
+            print("Searching...");
+            print("me.hdg");
+            print(me.hdg);
+            print("thebearing");
+            print(thebearing);
+            print("");
+            if (me.hdg + mslfov > thebearing and me.hdg - mslfov < thebearing) {
+                # Opps! looks like this buddy made a silly mistake xd
+                me.losttrack = 0;
+               #screen.log.write("Missile locked back on!");
+               #screen.log.write("Missile locked back on!");
+               #screen.log.write("Missile locked back on!");
+            }
+        }
+        if(me.Tgt == nil) {
+            me.fox = "Fox 1";                
+            setprop("payload/armament/flares", 0);
+            print("tgt nil");
+            if (me.gpstarget == 0) {
+                me.free = 1;
+                return(1);
+            }
         }
         if(me.status == 0)
         {
@@ -1373,15 +1457,14 @@ broddamage: func (cs,dist,msl) {
         {
             # status = launched : compute target position relative to seeker head.
             # Get target position.
-            if (me.gpstarget == 1){
+    if (me.gpstarget == 1){
     var lat = me.gpslat;
     var lon = me.gpslon;
     var alt = me.gpsalt;
+    print(lat);
+    print(lon);
     var coord = geo.Coord.new();
     var gndelev = alt*FT2M;
-    print("coord: lat:" ~ lat);
-    print("coord: lon:" ~ lon);
-    print("coord: alt:" ~ alt);
     if (gndelev <= 0) {
         gndelev = geo.elevation(lat, lon);
        if (gndelev != nil){
@@ -1409,7 +1492,7 @@ broddamage: func (cs,dist,msl) {
             # Prevision of the next altitude depend on the target appproch on the next second. dt = 0.1
             #me.vApproch;
                         if (me.gpstarget == 1){
-                    var next_alt = t_alt;
+                        var next_alt = t_alt;
                         } else {
                             if (me.Tgt == nil) {
                                 return;
@@ -1432,9 +1515,6 @@ broddamage: func (cs,dist,msl) {
 
     var coord = geo.Coord.new();
     var gndelev = alt*FT2M;
-    print("coord: lat:" ~ lat);
-    print("coord: lon:" ~ lon);
-    print("coord: alt:" ~ alt);
     if (gndelev <= 0) {
         gndelev = geo.elevation(lat, lon);
        if (gndelev != nil){
@@ -1606,16 +1686,16 @@ broddamage: func (cs,dist,msl) {
                         } else {
                             e_gain = 0.001;
                         }
-                        e_gain = 0.001;
-                        h_gain = 0.001;
+                        e_gain = 0.01;
+                        h_gain = 0.01;
                     } elsif (t_dist_m > me.pitbullrngm + 20000) { # 10nm
                                 # Cruise
                             if (me.coord.alt() > me.cruisealt - 1000 and me.coord.alt() < me.cruisealt + 1000) {
                                 e_gain = 1;
                             } else {
-                                e_gain = 0.01;
+                                e_gain = 0.05;
                             }
-                            h_gain = 0.1;
+                            h_gain = 0.05;
                         }  elsif (t_dist_m > me.pitbullrngm + 10000) { # 10nm
                         if (me.coord.alt() > me.cruisealt - 1000 and me.coord.alt() < me.cruisealt + 1000) {
                             e_gain = 1;
@@ -1629,9 +1709,9 @@ broddamage: func (cs,dist,msl) {
                         if (me.coord.alt() > me.cruisealt - 3000 and me.coord.alt() < me.cruisealt + 3000) {
                             e_gain = 1;
                         } else {
-                            e_gain = 0.3;
+                            e_gain = 0.2;
                         }
-                            h_gain = 0.3;
+                            h_gain = 0.2;
                             #missilealert();
                         }  elsif (t_dist_m > me.pitbullrngm) { # 10nm
                             e_gain = (me.update_track_time-me.StartTime - 1) / 4;
@@ -1642,8 +1722,16 @@ broddamage: func (cs,dist,msl) {
 
 
                         if (me.pitbull == 1) {
+                            #screen.log.write("PB");
+                        if (me.losttrack != 1) {
                             e_gain = 1;
                             h_gain = 1;
+                        } else {
+                            #screen.log.write("Gains lowered");
+                            e_gain = 0.01;
+                            h_gain = 0.01;
+                        }
+
                         }
 
                     }
@@ -2060,109 +2148,6 @@ broddamage: func (cs,dist,msl) {
         }
         return nil;
 	},
-
-#missile.MISSILE.getCCIPdv(20,0.2);
-getCCIPdv: func (maxFallTime_sec, timeStep) {
-		# for non flat areas. Lower falltime or higher timestep means using less CPU time.
-		# returns nil for higher than maxFallTime_sec. Else a vector with [Coord, hasTimeToArm].
-        me.ccip_altC = getprop("position/altitude-ft")*FT2M;
-        me.ccip_dens = getprop("fdm/jsbsim/atmosphere/density-altitude");
-        me.ccip_speed_down_fps = getprop("velocities/speed-down-fps");
-        me.ccip_speed_east_fps = getprop("velocities/speed-east-fps");
-        me.ccip_speed_north_fps = getprop("velocities/speed-north-fps");
-
-		#   if (me.eject_speed != 0 and !me.rail) {
-		#   	# add ejector speed down from belly:
-		#   	me.aircraft_vec = [me.ccip_speed_north_fps,-me.ccip_speed_east_fps,-me.ccip_speed_down_fps];
-		#   	me.eject_vec    = me.myMath.normalize(me.myMath.eulerToCartesian3Z(-OurHdg.getValue(),OurPitch.getValue(),OurRoll.getValue()));
-		#   	me.eject_vec    = me.myMath.product(-me.eject_speed, me.eject_vec);
-		#   	me.init_rel_vec = me.myMath.plus(me.aircraft_vec, me.eject_vec);
-		#   	me.ccip_speed_down_fps = -me.init_rel_vec[2];
-		#   	me.ccip_speed_east_fps = -me.init_rel_vec[1];
-		#   	me.ccip_speed_north_fps = me.init_rel_vec[0];
-		#   }
-
-        me.ccip_t = 0.0;
-        me.ccip_dt = timeStep;
-        me.ccip_fps_z = -me.ccip_speed_down_fps;
-        me.ccip_fps_x = math.sqrt(me.ccip_speed_east_fps*me.ccip_speed_east_fps+me.ccip_speed_north_fps*me.ccip_speed_north_fps);
-        me.ccip_bomb = me;
-
-        me.ccip_rs = me.ccip_bomb.rho_sndspeed(getprop("sim/flight-model") == "jsb"?me.ccip_dens:me.ccip_altC*M2FT);
-        me.ccip_rho = me.ccip_rs[0];
-        me.weight_launch_lbs = getprop("controls/armament/missile/weight-launch-lbs");
-        me.ccip_mass = me.weight_launch_lbs * slugs_to_lbs;
-
-        me.ccipPos = geo.Coord.new(geo.aircraft_position());
-
-        # we calc heading from composite speeds, due to alpha and beta might influence direction bombs will fall:
-        if(me.ccip_fps_x == 0) return nil;
-        me.ccip_heading = geo.normdeg(math.atan2(me.ccip_speed_east_fps,me.ccip_speed_north_fps)*R2D);
-        #print();
-       # printf("CCIP     %.1f", me.ccip_heading);
-		me.ccip_pitch = math.atan2(me.ccip_fps_z, me.ccip_fps_x);
-        while (me.ccip_t <= maxFallTime_sec) {
-			me.ccip_t += me.ccip_dt;
-			#me.ccip_bomb.deploy = me.clamp(me.extrapolate(me.ccip_t, me.drop_time, me.drop_time+me.deploy_time,0,1),0,1);
-            me.ccip_bomb.deploy = me.clamp(me.extrapolate(me.ccip_t, 0, 0+0,0,1),0,1);
-			# Apply drag
-			me.ccip_fps = math.sqrt(me.ccip_fps_x*me.ccip_fps_x+me.ccip_fps_z*me.ccip_fps_z);
-			if (me.ccip_fps==0) return nil;
-			me.ccip_q = 0.5 * me.ccip_rho * me.ccip_fps * me.ccip_fps;
-			me.ccip_mach = me.ccip_fps / me.ccip_rs[1];
-            var cdm2 = 0;
-                    me.cd = getprop("controls/armament/missile/drag-coeff");
-                   # print(me.cd);
-            if(me.ccip_mach < 0.7)
-            {
-                cdm2 = 0.0125 * me.ccip_mach  + me.cd;
-            }
-            elsif(me.ccip_mach < 1.2)
-            {
-                cdm2 = 0.3742 * math.pow(me.ccip_mach, 2) - 0.252 * me.ccip_mach + 0.0021 + me.cd;
-            }
-            else
-            {
-                cdm2 = 0.2965 * math.pow(me.ccip_mach, -1.1506) + me.cd;
-            }
-			me.ccip_Cd = cdm2;
-            me.eda = getprop("controls/armament/missile/drag-area");
-			me.ccip_deacc = (me.ccip_Cd * me.ccip_q * me.eda) / me.ccip_mass;
-			me.ccip_fps -= me.ccip_deacc*me.ccip_dt;
-
-			# new components and pitch
-			me.ccip_fps_z = me.ccip_fps*math.sin(me.ccip_pitch);
-			me.ccip_fps_x = me.ccip_fps*math.cos(me.ccip_pitch);
-			me.ccip_fps_z -= g_fps * me.ccip_dt;
-			me.ccip_pitch = math.atan2(me.ccip_fps_z, me.ccip_fps_x);
-
-			# new position
-			me.ccip_altC = me.ccip_altC + me.ccip_fps_z*me.ccip_dt*FT2M;
-			me.ccip_dist = me.ccip_fps_x*me.ccip_dt*FT2M;
-			me.ccip_oldPos = geo.Coord.new(me.ccipPos);
-			me.ccipPos.apply_course_distance(me.ccip_heading, me.ccip_dist);
-			me.ccipPos.set_alt(me.ccip_altC);
-
-			# test terrain
-			me.ccip_grnd = geo.elevation(me.ccipPos.lat(),me.ccipPos.lon());
-			if (me.ccip_grnd != nil) {
-				if (me.ccip_grnd > me.ccip_altC) {
-					#return [me.ccipPos,me.arming_time<me.ccip_t];
-					me.result = me.getTerrain(me.ccip_oldPos, me.ccipPos);
-                            me.arming_time = 1;
-					if (me.result != nil) {
-						return [me.result, me.arming_time<me.ccip_t, me.ccip_t];
-					}
-					return [me.ccipPos,me.arming_time<me.ccip_t, me.ccip_t];
-					#var inter = me.extrapolate(me.ccip_grnd,me.ccip_altC,me.ccip_oldPos.alt(),0,1);
-					#return [me.interpolate(me.ccipPos,me.ccip_oldPos,inter),me.arming_time<me.ccip_t];
-				}
-			} else {
-				return nil;
-			}
-        }
-        return nil;
-},
 
     
 # TODO To be corrected...

@@ -47,33 +47,34 @@ var Loading_missile = func(name)
     var pbrange           = 0; # in meters
     var multishot = 0;
     var ignitedelay = 0; # If the weapon is NOT dropped from a rail, Delay starting the engine by however many seconds (Default 0.5)
+    var thrustvectoring = 0;
 
 
 
     
     if(name == "Aim-120")
     {
-        # AIM-120D :AMRAAM,      
+        # AIM-120D :AMRAAM, 80 miles max range     
 	    typeid = 52;
         address = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120-smoke.xml";
         NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/AIM-120/AIM120.xml";
         Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosion.xml";
-        flareres = 0.99; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
+        flareres = 0.998; # Flare and chaff resistance. from 0 to 1 (decimals included) The closer to 1. the harder it is for the missile to fall for enemy chaff and flares. Because flares are checked every 0.1 seconds a high number is needed because this variable is sensitve
         maxdetectionrngnm = 86;                    #  
-        fovdeg = 360;                                #
-        detectionfovdeg = 360;                       # TODO implent data link system so we can control these variables while missile is in flight
+        fovdeg = 270;                                #
+        detectionfovdeg = 270;                       # TODO implent data link system so we can control these variables while missile is in flight
         trackmaxdeg = 360;                           # 
-        maxg = 40;                                   # wikipedia
+        maxg = 30;                                   # wikipedia
         thrustlbs = 2700;                             # 1,500 to 2,500 pounds of thrust maybe
-        thrustlbsstage2 = 380;
-        thrustdurationsec = 12;
+        thrustlbsstage2 = 500;
+        thrustdurationsec = 10;
         thrustdurationsecstage2 = 18;                      # 
         weightlaunchlbs = 421; # weightlaunch + fuel
         weightwarheadlbs = 44;
-        dragcoeff = 0.05;                              # really slow lowerd it a bit
-        dragarea = 0.0236;                            # sq ft
-        maxExplosionRange = 200;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
-        maxspeed = 4.8;                              # In mach ( source is a guess )
+        dragcoeff = 0.015;                              # Trying to get 80 miles off a shot
+        dragarea = 0.0036;                            # sq ft
+        maxExplosionRange = 35;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
+        maxspeed = 4.9;                              # In mach ( source is a guess )
         life = 260; # 
         sdspeed = 0.32;                         # Test Self Destruct Speed. in mach
         fox = "Fox 3";
@@ -81,9 +82,10 @@ var Loading_missile = func(name)
         cruisealt = 0;
         chute = 0;
         isbomb = 0;
-        pbrange = 10000; # added on 
+        pbrange = 20000; # added on 
         multishot = 6; # Up to 6 Aim-120s can be shot at once
         ignitedelay = 0.5;
+        thrustvectoring = 0;
     }
 
     elsif(name == "Aim-260")
@@ -102,11 +104,11 @@ var Loading_missile = func(name)
         maxg = 60;                                   
         thrustlbs = 1900;                            
         thrustlbsstage2 = 580;
-        thrustdurationsec = 15;
+        thrustdurationsec = 25;
         thrustdurationsecstage2 = 10;                      # 
         weightlaunchlbs = 421; # weightlaunch + fuel
         weightwarheadlbs = 88;
-        dragcoeff = 0.05;                              # really slow lowerd it a bit
+        dragcoeff = 0.01;                              # really slow lowerd it a bit
         dragarea = 0.0236;                            # sq ft
         maxExplosionRange = 200;                      # in meter ! Due to the code, more the speed is important, more we need to have this figure high
         maxspeed = 7;                              # In mach ( source is a guess )
@@ -120,6 +122,7 @@ var Loading_missile = func(name)
         pbrange = 0;
         multishot = 6;
         ignitedelay = 0; 
+        thrustvectoring = 0;
     }
 
     elsif(name == "Aim-9x")
@@ -154,6 +157,7 @@ var Loading_missile = func(name)
         isbomb = 0;
         multishot = 0;
         ignitedelay = 0;
+        thrustvectoring = 1;
     }
     elsif(name == "Aim-9m")
     {
@@ -224,6 +228,7 @@ var Loading_missile = func(name)
         isbomb = 1;  
         multishot = 8; # up to 8 SDB's can be deployed at once
         ignitedelay = 1;
+        thrustvectoring = 0;
     }
  elsif(name == "JDAM")
  {
@@ -257,6 +262,7 @@ var Loading_missile = func(name)
      isbomb = 1;
      multishot = 6;
      ignitedelay = 1;
+     thrustvectoring = 0;
  }
 
 

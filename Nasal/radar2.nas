@@ -137,7 +137,7 @@ var filtercheck = func(heading, contactheading) {
 
 # OPRF From: rcs.nas: isInRadarRange() Function
 var rcscheck = func (contact, myRadarStrength_rcs=19) {
-    print("Rcs check");
+    #print("Rcs check");
     if (contact != nil and contact.get_Coord() != nil) {
         myRadarDistance_nm = 320;
         # get contact model
@@ -764,7 +764,7 @@ var Radar = {
         if (getprop("/instrumentation/radar2/hasrcs") != nil) {
             if (getprop("/instrumentation/radar2/hasrcs") == 0) {
                 # Small debug
-                print("Testing rcs");
+                #print("Testing rcs");
                 append(me.Check_List, rcscheck(SelectedObject));
                 if(me.Check_List[4] == 0)
                 {

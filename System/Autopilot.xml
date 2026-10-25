@@ -341,6 +341,7 @@
           <property>/autopilot/locks/fcsds</property>
           <value />
         </not-equals>
+
       </condition>
     </enable>
     <input>
@@ -703,6 +704,91 @@
       <Td>0.00001</Td>
       <u_min>-1</u_min>
       <u_max>1</u_max>
+    </config>
+  </pid-controller>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--GFlight - Actual flight input-->
+ <pid-controller>
+    <name>FBW G Flight</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/fdm/jsbsim/fcs/G-request-active</prop>
+      <value>1</value>
+    </enable>
+    <input>
+      <prop>/accelerations/pilot-g</prop>
+    </input>
+    <reference>
+      <prop>/fdm/jsbsim/fcs/G-request</prop>
+    </reference>
+    <output>
+      <prop>/f22/fcs/controls/gflight</prop>
+    </output>
+    <config>
+<Kp>-0.06</Kp>
+<beta>1.0</beta>
+<alpha>0.1</alpha>
+<gamma>0.0</gamma>
+<Ti>0.4</Ti>
+<Td>0.0001</Td>
+<u_min>-1</u_min>
+<u_max>1</u_max>
+    </config>
+  </pid-controller>
+
+
+  <!--GFlight - Disables G Flight-->
+ <pid-controller>
+    <name>FBW G Flight</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/fdm/jsbsim/fcs/G-request-active</prop>
+      <value>0</value>
+    </enable>
+    <input>
+      <prop>/accelerations/pilot-g</prop>
+    </input>
+    <reference>
+      <prop>/fdm/jsbsim/fcs/G-request</prop>
+    </reference>
+    <output>
+      <prop>/f22/fcs/controls/gflight</prop>
+    </output>
+    <config>
+<Kp>-0.03</Kp>
+<beta>1.0</beta>
+<alpha>0.1</alpha>
+<gamma>0.0</gamma>
+<Ti>0.1</Ti>
+<Td>0.00001</Td>
+<u_min>0</u_min>
+<u_max>0</u_max>
     </config>
   </pid-controller>
 
