@@ -745,17 +745,17 @@
       <prop>/accelerations/pilot-g</prop>
     </input>
     <reference>
-      <prop>/fdm/jsbsim/fcs/G-request</prop>
+      <prop>/fdm/jsbsim/fcs/G-request-pre</prop>
     </reference>
     <output>
       <prop>/f22/fcs/controls/gflight</prop>
     </output>
     <config>
-<Kp>-0.06</Kp>
+<Kp>-0.03</Kp>
 <beta>1.0</beta>
 <alpha>0.1</alpha>
 <gamma>0.0</gamma>
-<Ti>0.4</Ti>
+<Ti>0.2</Ti>
 <Td>0.0001</Td>
 <u_min>-1</u_min>
 <u_max>1</u_max>

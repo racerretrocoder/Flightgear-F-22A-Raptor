@@ -729,7 +729,12 @@ sendinflight: func(call,lat,lon,alt,hdg,ptch,speed,unique,deleted,tid){
                 screen.log.write("" ~ me.NameOfMissile ~ ": Pitbull");
                 me.messagesent = 1;
             }
-            msg.Flags = 1;#ready
+            if (me.losttrack == 0) {
+                msg.Flags = 1;#ready
+            } else {
+                msg.Flags = 0; # notched, missile lost track, dont send a pitbull
+            }
+            
         } else {
             msg.Flags = 0;#not ready         
         }
