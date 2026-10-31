@@ -509,6 +509,26 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <property>/engines/engine[1]/n2</property>
     <property>/orientation/pitch-rate-degps</property>
     <property>/orientation/yaw-rate-degps</property>
+    
+    
+    <function name="fcs/FCS-speed-aoa"> <!--simple fcs speed coeff-->
+      <table>
+        <independentVar lookup="row">/velocities/airspeed-kt</independentVar> <!--TODO: change all /velocities and /position properties to there jsbsim native counterpart-->
+        <independentVar lookup="column">/f22/fcs/aoalimit</independentVar>
+        <tableData>        <!--Dogfight Mode cap-->
+              0   40   70   170  180
+         75   0   15   15   170  180
+        100   0   20   20   170  180
+        125   0   20   20   170  180
+        150   0   25   25   170  180
+        175   0   25   25   170  180
+        200   0   30   30   170  180
+        300   0   40   70   170  180
+        </tableData>
+      </table>
+    </function>
+
+
 
     <function name="fcs/G-request-elevator"> <!--for the g limit-->
       <table>
@@ -774,7 +794,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
     <function name="fcs/elevator-cmd-combo">
       <table>
-        <independentVar lookup="column">/f22/fcs/controls/elevator</independentVar>
+        <independentVar lookup="column">/f22/fcs/zero</independentVar>
         <independentVar lookup="row">/f22/fcs/controls/gflight</independentVar> <!-- Raw elevator flight control input (Or computerized G Hold)-->
         <tableData>   
                -1    0    1  
@@ -1016,7 +1036,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         <property>fcs/fbw-override</property>
         <table>
           <independentVar lookup="row">aero/alpha-deg</independentVar>
-          <independentVar lookup="column">/f22/fcs/aoalimit</independentVar>
+          <independentVar lookup="column">fcs/FCS-speed-aoa</independentVar>
           <tableData> 
                     10    20    30    40    50    60    70    80    90    100   110   120   130   140   150   160   170   179
               -20   1     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1         
@@ -1183,10 +1203,14 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </product>
     </function>
     <function name="fcs/Elev-pos-norm-limit-sum-main-ani">      <!--Main Elevator POS with Limit-->
+      <difference>
       <sum>
         <property>fcs/Elev-pos-norm-limit-sum-main-ani-ae</property>
         <property>fcs/aoa-elev-main</property>
+        <property>/f22/fcs/controls/elevator-animation</property>
       </sum>
+      <property>/f22/fcs/controls/elevator</property>
+      </difference>
     </function>
 
 
@@ -1886,7 +1910,15 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <summer name="Pitch Trim Sum">
         <input>fcs/elevator-cmd-norm-delay-sm</input>        <!--RAW ELEVATOR CONTROL INPUT!! | Note the g limiter all that stuff is applied directly into <axis>-->
         <input>fcs/pitch-trim-main</input>
-        <!--<input>/f22/fcs/controls/elevator</input>-->
+        <input>/f22/fcs/controls/elevator</input>
+        <clipto>
+          <min> -1 </min>
+          <max>  1 </max>
+        </clipto>
+      </summer>
+      <summer name="Pitch Trim Sum Ani">
+        <input>fcs/elevator-cmd-norm-delay-sm</input>        <!--RAW ELEVATOR CONTROL INPUT!! | Note the g limiter all that stuff is applied directly into <axis>-->
+        <input>fcs/pitch-trim-main</input>
         <clipto>
           <min> -1 </min>
           <max>  1 </max>
@@ -1901,6 +1933,17 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         </range>
         <output>fcs/elevator-pos-rad</output>
       </aerosurface_scale>
+
+      <aerosurface_scale name="Elevator Control FCS">
+        <input>fcs/pitch-trim-sum-ani</input>
+        <range>
+          <min> -0.35 </min>
+          <max>  0.35 </max>
+        </range>
+        <output>fcs/elevator-pos-rad-no-fcs</output>
+      </aerosurface_scale>
+
+<!--fcs animation-->
 
       <kinematic name="elevator anim">
         <input>fcs/elevator-pos-rad</input>
@@ -3818,7 +3861,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <property>fcs/flap-pos-deg</property>
           <property>fcs/flapcoeff</property>
           <property>fcs/wing-coeff</property>
-          <value> -0.0867 </value>
+          <value> -0.0567 </value>
         </product>
       </function>
 

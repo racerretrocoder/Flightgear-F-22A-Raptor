@@ -233,7 +233,7 @@ var Loading_missile = func(name)
  elsif(name == "JDAM")
  {
      flareres = 1;
-	 typeid = 18;
+	 typeid = 19;
      address = "Aircraft/F-22/Models/Stores/Missiles/JDAM/JDAM.xml"; 
      NoSmoke = "Aircraft/F-22/Models/Stores/Missiles/JDAM/JDAM.xml"; # for now
      Explosion = "Aircraft/F-22/Models/Effects/MissileExplosion/explosionGBU.xml";

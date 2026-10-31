@@ -329,6 +329,41 @@
   </config>
  </pid-controller>-->
 
+  <pid-controller>
+    <name>FBW Pitch Animation DO NOT EDIT THIS</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <not-equals>
+          <property>/autopilot/locks/fcsds</property>
+          <value />
+        </not-equals>
+
+      </condition>
+    </enable>
+    <input>
+      <property>/fdm/jsbsim/fcs/fbw-pitch-rate-combo</property>
+    </input>
+    <reference>
+      <property>/f22/fcs/zero</property>
+    </reference>
+    <output>
+      <property>/f22/fcs/controls/elevator-animation</property>
+    </output>
+    <config>
+      <Kp>-0.01</Kp>
+      <beta>1.0</beta>
+      <alpha>0.1</alpha>
+      <gamma>0.0</gamma>
+      <Ti>0.1</Ti>
+      <Td>0.00001</Td>
+      <u_min>-0.01</u_min>
+      <u_max>0.01</u_max>
+    </config>
+  </pid-controller>
+
+
+
 
   <!--FCS (using Turn rate)-->
 
@@ -354,7 +389,7 @@
       <property>/f22/fcs/controls/elevator</property>
     </output>
     <config>
-      <Kp>-0.03</Kp>
+      <Kp>-0.05</Kp>
       <beta>1.0</beta>
       <alpha>0.1</alpha>
       <gamma>0.0</gamma>
