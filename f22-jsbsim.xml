@@ -545,34 +545,36 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </table>
     </function>
 
-    <function name="fcs/G-request-pre"> <!--Raw G Command, goes above set above 9g's to clip at 1.0 when full pitch back-->
+
+    <function name="fcs/Turn-request-pre"> <!--Raw G Command, goes above set above 9g's to clip at 1.0 when full pitch back-->
       <table>
         <independentVar lookup="row">fcs/elevator-cmd-norm</independentVar>
-        <independentVar lookup="column">/f22/fcs/glimit</independentVar>
+        <independentVar lookup="column">velocities/vc-kts</independentVar>
         <tableData> 
-         1    10
-  -1     1    12
-  -0.001 1    1                     <!--microscopic deadzone-->
-   0     1    1
-   0.001 1    1
-   1    -1   -6
+                 0      50      100       200       300      400      500    600   
+        -1       34     34      34        40        50       40       35     25
+        -0.01    0      0       0         0         0        0        0      0
+        0        0      0       0         0         0        0        0      0
+        0.01     0      0       0         0         0        0        0      0
+        1       -20    -20     -20       -20       -15      -15      -10    -10
         </tableData>
       </table>
 
     </function>
 
-    <function name="fcs/G-request"> <!--AAR Setback/limiter-->
-      <table>
-        <independentVar lookup="row">fcs/G-request-pre</independentVar>
-        <independentVar lookup="column">/controls/refuel/Switch</independentVar>
+
+    <!--Raw pitch rate input-->
+    <function name="fcs/Turn-request"> <!--AAR Setback/limiter-->
+      <product>
+        <property>fcs/Turn-request-pre</property>
+            <table>
+        <independentVar lookup="row">/controls/refuel/Switch</independentVar>
         <tableData> 
-         0    1
- -6     -6    -0.3
-  1      1    1     
-  9      9    3 
+          0     1
+          1     0.3
         </tableData>
       </table>
-      
+      </product>
     </function>
 
 
@@ -1019,7 +1021,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
     <!--Turn rate-->
-    <!--If this function is close to zero. The plane is stable! (ae)-->
+    <!--If this function is close to zero. The plane is stable! (ae)
     <function name="fcs/fbw-pitch-rate-combo">
     <product>
       <sum>
@@ -1027,6 +1029,26 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         <property>fcs/fbw-ptch-calib</property>
       </sum>
       <property>fcs/fbw-coeff</property>
+    </product>
+    </function>-->
+    <function name="fcs/fbw-pitch-rate-combo">
+    <product>
+      <property>velocities/q-aero-rad_sec</property>
+      <quotient>
+        <value>180</value>
+        <value>3.14159</value>
+      </quotient>
+      <property>fcs/fbw-coeff</property>
+    </product>
+    </function>
+
+    <function name="fcs/fbw-pitch-rate">
+    <product>
+      <property>velocities/q-aero-rad_sec</property>
+      <quotient>
+        <value>180</value>
+        <value>3.14159</value>
+      </quotient>
     </product>
     </function>
 
@@ -1203,14 +1225,10 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </product>
     </function>
     <function name="fcs/Elev-pos-norm-limit-sum-main-ani">      <!--Main Elevator POS with Limit-->
-      <difference>
       <sum>
         <property>fcs/Elev-pos-norm-limit-sum-main-ani-ae</property>
         <property>fcs/aoa-elev-main</property>
-        <property>/f22/fcs/controls/elevator-animation</property>
       </sum>
-      <property>/f22/fcs/controls/elevator</property>
-      </difference>
     </function>
 
 
@@ -2470,10 +2488,13 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         <!--Add g limit here too -->
 
         <product>
+          <sum>
           <property>fcs/Elev-pos-norm-g-limit</property>
+          <property>/f22/fcs/controls/elevator</property>
+          </sum>
           <property>fcs/tv-coefficient</property>
         </product>
-
+        
         <table>
           <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
           <tableData>

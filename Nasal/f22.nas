@@ -35,10 +35,10 @@ setlistener("/sim/current-view/view-number", func(n) { setprop("/sim/hud/visibil
 setprop("/f22/debug",0); # Debug screenlog.write()'s
 setprop("/f22/damage/rwing",0); 
 setprop("/f22/damage/lwing",0);
-setprop("f22/damage/spincoeff",0);
-setprop("f22/damage/trunk",0);
-setprop("f22/show-tint",1);
-
+setprop("/f22/damage/spincoeff",0);
+setprop("/f22/damage/trunk",0);
+setprop("/f22/show-tint",1);
+setprop("/f22/fcs/controls/gflightdisab","nae");
 setprop("/f22/cancheckupdates",1); # TODO: make this into an option + configuration window
 setprop("/f22/dogfightmode",0);
 setprop("/f22/fcs/extra",0);
@@ -904,6 +904,7 @@ var fcsloop = func() {
     if (disableaile == 0){
       # not moving controls, criteria met and fcs enabled
       setprop("/autopilot/locks/fcsaileron","1g");
+      setprop("f22/fcs/controls/gflightdisab","yae");
       if (getprop("f22/fcs/controls/roll") == 0) {
          setprop("f22/fcs/controls/roll",getprop("orientation/roll-deg")); # Set holding point
       }
@@ -911,6 +912,7 @@ var fcsloop = func() {
       setprop("f22/fcs/controls/aileron",0);
       setprop("f22/fcs/controls/roll",0);
       setprop("/autopilot/locks/fcsaileron","");
+      setprop("f22/fcs/controls/gflightdisab","nae");
     }
   } 
   if (fcsmode == 3) { # max

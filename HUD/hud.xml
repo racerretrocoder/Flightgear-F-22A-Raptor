@@ -177,7 +177,20 @@
         <pointer-type>fixed</pointer-type>
     </tape>
 
-
+<label>
+        <name>KIAS</name>
+        <x>-86</x>
+        <y>-27</y>
+        <width>25</width>
+        <height>10</height>
+        <input>
+            <property>/velocities/airspeed-kt</property>
+        </input>
+        <format>%4.0f</format>
+        <halign>left</halign>
+        <box>true</box>
+        <option>right</option>
+    </label>
 
 <label>
 	 <name>Mode</name>
