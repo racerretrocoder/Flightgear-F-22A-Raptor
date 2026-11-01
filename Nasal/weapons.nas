@@ -412,7 +412,9 @@ var hitmessage = func(typeOrd,callsign,hits) {
         msg.Bearing = 0;
         msg.Distance = hits;
         msg.RemoteCallsign = callsign;
-        notifications.hitBridgedTransmitter.NotifyAll(msg);
+        # notifications.hitBridgedTransmitter.NotifyAll(msg);
+        # Use missile system hitqueue instead!
+        missile.hitqueue.append(msg);
         damage.damageLog.push("You hit "~callsign~" with "~"M61A1 shells"~", "~hits~" times.");
     } else {
         setprop("/sim/messages/atc", phrase);

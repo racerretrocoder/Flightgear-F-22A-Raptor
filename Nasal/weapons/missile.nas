@@ -18,6 +18,7 @@ var debugsysmessages = 0;
 var flaremsg = 0;
 var extradebug = 0;
 
+var hitqueue = std.Vector.new(["hits"]);
 
 var inflight = func() {
     setprop("payload/armament/inflight",1);
@@ -794,8 +795,8 @@ broddamage: func (cs,dist,msl) {
     msg.Bearing = 90;
     msg.Distance = dist;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
     msg.RemoteCallsign = cs;
-    notifications.hitBridgedTransmitter.NotifyAll(msg);
-    damage.damageLog.push(sprintf("You hit "~cs~" with "~msl~" at %.1f meters", dist));
+    #notifications.hitBridgedTransmitter.NotifyAll(msg); instead append the msg to a vector and execute it one by one
+    hitqueue.append(msg);
 },
 
 
@@ -824,7 +825,9 @@ broddamage: func (cs,dist,msl) {
                 damage.statics["obj_"~uni] = [static2,lat,lon,altM,hdg,sizeae];
             }
         }
-        notifications.hitBridgedTransmitter.NotifyAll(msg);
+        # make this a hit send too
+        #notifications.hitBridgedTransmitter.NotifyAll(msg);
+        hitqueue.append(msg);
 
         #
         # Damage all players around location (Set a limit of 5 miles)
@@ -846,17 +849,18 @@ broddamage: func (cs,dist,msl) {
                 mpcoord.set_latlon(mplat,mplon,0);
                 var distm = bombcoord.direct_distance_to(mpcoord);
                 var distnm = distm * M2NM;
-                if (distm < 100) {
+                if (distm < 300) {
                     var msg = notifications.ArmamentNotification.new("mhit", 4, damage.DamageRecipient.typeID2emesaryID(typeID));
                     msg.RelativeAltitude = alt;
                     msg.Bearing = 90;
                     msg.Distance = distm;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
                     msg.RemoteCallsign = callsign;
-                    notifications.hitBridgedTransmitter.NotifyAll(msg);
+                    #notifications.hitBridgedTransmitter.NotifyAll(msg);
+                    hitqueue.append(msg);
+                    # TODO: add callsign detection, done
                     print("That bombs explosion effected other targets:");
                     print(callsign);
                     damage.damageLog.push(sprintf("Explosion of the previous weapon hit "~callsign~" at %.1f meters", distm));
-                    
                 }
             }
         }
@@ -1291,7 +1295,7 @@ broddamage: func (cs,dist,msl) {
 		       	        var static = geo.put_model(getprop("payload/armament/models") ~ "crater_big.xml", me.coord.lat(), me.coord.lon());
 		       	        if(getprop("payload/armament/msg")) {
                             #sendCrater: func (lat,lon,alt,size,hdg,static) 
-                            me.sendCrater(me.coord.lat(), me.coord.lon(), me.coord.alt(), 1, 0, static, typeID); # Hit everything EXCEPT the target we just hit dead on
+                            me.sendCrater(me.coord.lat(), me.coord.lon(), me.coord.alt(), 1, 0, static, typeID, me.Tgt.get_Callsign()); # Hit everything EXCEPT the target we just hit dead on
                             if (getprop("f22/debug")) {
                                 screen.log.write("Bomb exploded!",0,1,0);
                             }
@@ -2313,5 +2317,24 @@ var MPReport = func(){
     setprop("/sim/messages/atc", phrase);
 }
 
+var hitloop = func() {
+    foreach (var item; hitqueue.vector) {
+        var ammount = hitqueue.size();
+        if (ammount > 1) {
+            screen.log.write("Hitqueue: " ~ ammount ~ " hits left to brodcast");
+            if (item != nil and item != "hits") {
+                print("This is a damage msg!");
+                var msg = item;
+                # NOTE: Crater hits dont have RemoteCallsign
+                #("Sending hit to: " ~ msg.RemoteCallsign ~ "");
+                notifications.hitBridgedTransmitter.NotifyAll(msg);
+                print("Hit sent!");
+                hitqueue.pop(1); # Pop the first msg
+                break;
+            }
+        }
+    }
+}
 
-
+hittimer = maketimer(1,hitloop);
+hittimer.start();
