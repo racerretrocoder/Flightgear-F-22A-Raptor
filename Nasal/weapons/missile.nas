@@ -795,6 +795,7 @@ broddamage: func (cs,dist,msl) {
     msg.Bearing = 90;
     msg.Distance = dist;  # this has been buging alot. so if it hits itll hit good. if not then no hit good
     msg.RemoteCallsign = cs;
+    damage.damageLog.push(sprintf("You hit "~cs~" with "~msl~" at %.1f meters", dist));
     #notifications.hitBridgedTransmitter.NotifyAll(msg); instead append the msg to a vector and execute it one by one
     hitqueue.append(msg);
 },
