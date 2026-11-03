@@ -86,6 +86,8 @@ setprop("/f22/grind",0);
 setprop("/f22/runwaysplash",0); # pushed water from jets
 setprop("/f22/fcs/mode","NAV");
 setprop("/controls/flight/aflaps",1);
+setprop("/f22/hydra-a",0);
+setprop("/f22/hydra-b",0);
 
 #
 # Temp init 

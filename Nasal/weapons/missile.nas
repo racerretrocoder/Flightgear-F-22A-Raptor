@@ -1667,22 +1667,24 @@ broddamage: func (cs,dist,msl) {
             # 2 seconds.
             var e_gain = 1;
             var h_gain = 1;
-            #if(me.rail == "true" or me.life_time > 2)
-            #{
-            #    if(me.life_time < 3)
-            #    {
-            #        if(me.curr_tgt_e > 3 or me.curr_tgt_e < -3)
-            #        {
-            #            e_gain = 1 + (0.1 * dt);
-            #        }
-            #    }
-            #    if(me.curr_tgt_h > 3 or me.curr_tgt_h < -3)
-            #    {
-            #        h_gain = 1 + (0.1 * dt);
-            #    }
+            if(me.rail == "true" or me.life_time > 2)
+            {
+                if(me.life_time < 3)
+                {
+                    if(me.curr_tgt_e > 3 or me.curr_tgt_e < -3)
+                    {
+                        e_gain = 1 + (0.1 * dt);
+                    }
+                }
+                if(me.curr_tgt_h > 3 or me.curr_tgt_h < -3)
+                {
+                    h_gain = 1 + (0.1 * dt);
+                }
+
+
+            }
             me.init_tgt_e = 0; #last_tgt_e;
             me.init_tgt_h = 0; #last_tgt_h;
-            #}
             if (me.pitbullrngm != 0) {
 
                 print("can pitbull");
@@ -2322,7 +2324,7 @@ var hitloop = func() {
     foreach (var item; hitqueue.vector) {
         var ammount = hitqueue.size();
         if (ammount > 1) {
-            screen.log.write("Hitqueue: " ~ ammount ~ " hits left to brodcast");
+            print("Hitqueue: " ~ ammount ~ " hits left to brodcast");
             if (item != nil and item != "hits") {
                 print("This is a damage msg!");
                 var msg = item;

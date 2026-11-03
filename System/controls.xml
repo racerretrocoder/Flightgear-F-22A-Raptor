@@ -57,12 +57,12 @@
 		<apustart type="int">-1</apustart> <!--0 OFF 1 Backup 2 Main Power-->
 		<battswitch type="int">0</battswitch> <!--0 OFF 1 Backup 2 Main Power-->
     <EPUswitch type="int">0</EPUswitch> <!--0 OFF 1 Active-->
-    <controls type="int">1</controls> 
-     <MFD type="int">1</MFD>
-<computer type="int">1</computer>
-     <SMS type="int">1</SMS> 
-     <CMS type="int">1</CMS> 
-    <AESA type="int">1</AESA>  
+<controls type="int">1</controls>  <!--add switches for these-->
+     <MFD type="int">1</MFD> <!--add switches for these-->
+<computer type="int">1</computer> <!--add switches for these-->
+     <SMS type="int">1</SMS>  <!--add switches for these-->
+     <CMS type="int">1</CMS>  <!--add switches for these-->
+    <AESA type="int">1</AESA>   <!--add switches for these-->
 
 <engine>
     <start-r type="int">0</start-r>  
