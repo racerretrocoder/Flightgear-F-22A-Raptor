@@ -4041,8 +4041,19 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/bw-ft</property>
-          <property>/f22/damage/spincoeff</property>
-          <value>0.07</value>
+          <sum>
+            <product>
+              <property>/f22/damage/spincoeff</property>
+              <value>0.14</value>
+            </product>
+            <product>
+              <abs>
+                <property>/f22/damage/spincoeff</property>
+              </abs>
+              <property>aero/pb2V</property>
+              <value>-3.0</value>
+            </product>
+          </sum>
         </product>
       </function>
 
