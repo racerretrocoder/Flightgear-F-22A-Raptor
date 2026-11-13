@@ -42,7 +42,7 @@
   
   <counter>
    <particles-per-sec>
-    <value>20</value>
+    <value>100</value>
     <spread>5</spread>
    </particles-per-sec>
   </counter>
@@ -56,10 +56,10 @@
       <value>1</value>
      </red>
      <green>
-      <value>0.7</value>
+      <value>1</value>
      </green>
      <blue>
-      <value>0.5</value>
+      <value>1</value>
      </blue>
      <alpha>
       <value>1</value>
@@ -75,10 +75,10 @@
       <value>1</value>
      </red>
      <green>
-      <value>0.7</value>
+      <value>1</value>
      </green>
      <blue>
-      <value>0.5</value>
+      <value>1</value>
      </blue>
      <alpha>
       <value>0.1</value>

@@ -336,11 +336,11 @@
   <!--FCS (using Turn rate)-->
 
   <pid-controller>
-    <name>FBW Pitch</name>
+    <name>FBW Pitch (Actual)</name>
     <debug>false</debug>
     <enable>
-<prop>f22/fcs/controls/gflightdisab</prop>
-     <value>yae</value>
+<prop>/autopilot/locks/fcsds</prop>
+     <value>1g</value>
     </enable>
     <input>
       <property>/fdm/jsbsim/fcs/fbw-pitch-rate-combo</property>
@@ -352,16 +352,50 @@
       <property>/f22/fcs/controls/elevator</property>
     </output>
     <config>
-      <Kp>-0.05</Kp>
+      <Kp>-0.01</Kp>
       <beta>1.0</beta>
       <alpha>0.1</alpha>
       <gamma>0.0</gamma>
-      <Ti>0.1</Ti>
+      <Ti>0.08</Ti>
       <Td>0.00001</Td>
       <u_min>-1</u_min>
       <u_max>1</u_max>
     </config>
   </pid-controller>
+
+
+  <pid-controller>
+    <name>FBW Rudder</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <not-equals>
+          <property>/autopilot/locks/fcs</property>
+          <value />
+        </not-equals>
+      </condition>
+    </enable>
+    <input>
+      <property>/fdm/jsbsim/velocities/r-aero-rad_sec</property> <!--maybe get instruementation beta? rad or deg. up for debate-->
+    </input>
+    <reference>
+      <property>/f22/fcs/zero</property>
+    </reference>
+    <output>
+      <property>/f22/fcs/controls/rudder</property>
+    </output>
+    <config>
+      <Kp>-1.1</Kp>
+      <beta>1.0</beta>
+      <alpha>0.1</alpha>
+      <gamma>0.0</gamma>
+      <Ti>1.1</Ti>
+      <Td>0.01</Td>
+      <u_min>-1</u_min>
+      <u_max>1</u_max>
+    </config>
+  </pid-controller>
+
 
 <!--disable fcs stability-->
   <pid-controller>
@@ -381,7 +415,7 @@
       <property>/f22/fcs/controls/elevator</property>
     </output>
     <config>
-      <Kp>-0.05</Kp>
+      <Kp>-0.09</Kp>
       <beta>1.0</beta>
       <alpha>0.1</alpha>
       <gamma>0.0</gamma>
@@ -394,36 +428,37 @@
 
 
 
-
   <pid-controller>
-    <name>FCS System Command: Roll</name>
+    <name>AileronFlight</name>
     <debug>false</debug>
     <enable>
-      <condition>
-        <not-equals>
-          <property>/autopilot/locks/fcsaileron</property>
-          <value />
-        </not-equals>
-      </condition>
+      <prop>/autopilot/locks/fcs</prop>
+      <value>1g</value>
     </enable>
     <input>
-      <property>/orientation/roll-deg</property>
+      <property>/fdm/jsbsim/velocities/p-aero-rad_sec</property> <!--maybe get instruementation beta? rad or deg. up for debate-->
     </input>
     <reference>
-      <property>/f22/fcs/controls/roll</property>
+      <property>/fdm/jsbsim/fcs/aileron-roll-rate-cmd</property>
     </reference>
     <output>
-      <property>/f22/fcs/controls/aileron</property>
+      <property>/f22/fcs/controls/aileronae</property>
     </output>
     <config>
-      <Kp>0.05</Kp>
-      <beta>1.0</beta>      <!-- input value weighing factor -->
-      <alpha>0.1</alpha>      <!-- low pass filter weighing factor -->
-      <gamma>0.0</gamma>      <!-- input value weighing factor for -->
-      <Ti>10.0</Ti>      <!-- integrator time  10.0 -->
-      <Td>0.00001</Td>      <!-- derivator time -->
-      <u_min>-0.05</u_min>      <!-- minimum output clamp -->
-      <u_max>0.05</u_max>
+      <Kp>
+        <property>/fdm/jsbsim/fcs/inverse-qbar-aileroncontrol</property>
+        <scale>0.002</scale>
+      </Kp>
+      <beta>1.0</beta>
+      <alpha>0.1</alpha>
+      <gamma>0.0</gamma>
+      <Ti>
+        <property>/fdm/jsbsim/fcs/inverse-qbar-aileroncontrol</property>
+        <scale>0.001</scale>
+      </Ti>
+      <Td><property>/fdm/jsbsim/fcs/inverse-qbar-aileroncontrol</property><scale>0.18</scale></Td>
+      <u_min>-1</u_min>
+      <u_max>1</u_max>
     </config>
   </pid-controller>
 
@@ -614,9 +649,13 @@
     </config>
   </pid-controller>
 
+
+
+
+
   <!--G Flight - elevator - lowspeed-->
   <pid-controller>
-    <name>FBW G Flight</name>
+    <name>CLASH G LIMITER</name>
     <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/fcsaileron</prop>
@@ -679,7 +718,7 @@
   </pid-controller>
 
 
-  <!--G Limiter! - elevator-->
+  <!--G Limiter! - elevator
   <pid-controller>
     <name>FBW G Limit</name>
     <debug>false</debug>
@@ -697,7 +736,7 @@
       <prop>/f22/fcs/controls/glimcoeff</prop>
     </output>
     <config>
-      <Kp>0.1</Kp>      <!-- proportional gain -->
+      <Kp>0.1</Kp>     
       <beta>1.0</beta>
       <alpha>0.1</alpha>
       <gamma>0.0</gamma>
@@ -725,7 +764,7 @@
       <prop>/f22/fcs/controls/glimcoeffvector</prop>
     </output>
     <config>
-      <Kp>0.12</Kp>      <!-- proportional gain -->
+      <Kp>0.12</Kp>      
       <beta>1.0</beta>
       <alpha>0.1</alpha>
       <gamma>0.0</gamma>
@@ -735,7 +774,7 @@
       <u_max>1</u_max>
     </config>
   </pid-controller>
-
+-->
 
 
 
@@ -781,7 +820,7 @@
       <prop>/f22/fcs/controls/gflight</prop>
     </output>
     <config>
-<Kp>-0.03</Kp>
+<Kp>-0.02</Kp>
 <beta>1.0</beta>
 <alpha>0.1</alpha>
 <gamma>0.0</gamma>
@@ -791,6 +830,36 @@
 <u_max>1</u_max>
     </config>
   </pid-controller>
+
+  <!--RollFlight - Actual flight input
+  <pid-controller>
+    <name>RollFlight</name>
+    <debug>false</debug>
+    <enable>
+<prop>f22/fcs/controls/gflightdisab</prop>
+     <value>nae</value>
+    </enable>
+    <input>
+      <property>/fdm/jsbsim/velocities/p-aero-rad_sec</property>
+    </input>
+    <reference>
+      <property>/f22/fcs/zero</property>
+    </reference>
+    <output>
+      <property>/f22/fcs/controls/rollfcs</property>
+    </output>
+    <config>
+      <Kp>-1.1</Kp>
+      <beta>1.0</beta>
+      <alpha>0.1</alpha>
+      <gamma>0.0</gamma>
+      <Ti>1.1</Ti>
+      <Td>0.01</Td>
+      <u_min>-1</u_min>
+      <u_max>1</u_max>
+    </config>
+  </pid-controller>
+-->
 
 
   <!--GFlight - Disables G Flight Min 0 max 0-->

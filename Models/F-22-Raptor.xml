@@ -185,6 +185,31 @@ Make sure all objects are TEXTURED. to avoid flightgear crashing
 		<object-name>Right_Rocket_Bay_D1</object-name>
     </effect>
 
+<animation>
+<type>select</type>
+<object-name>phat</object-name>      
+<condition>
+<equals>
+<property>/f22/phat</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+<animation>
+  <type>pick</type>
+
+		<object-name>phat</object-name>
+  		<action>
+  		  <button>0</button>
+  		  <repeatable>false</repeatable>
+  		  <interval-sec>0.2</interval-sec>
+  		 <binding>
+  		<command>nasal</command>
+  		<script>setprop("f22/phat",0);</script>
+</binding>
+</action>
+ </animation>
 
 <animation>
 <type>select</type>
@@ -2090,7 +2115,9 @@ Old
 	<animation>
 		<type>select</type>
 		<object-name>bleedr</object-name>
-		
+    <object-name>rbleed1</object-name>
+  <object-name>rbleed2</object-name>
+    <object-name>rbleed3</object-name>
 		<condition>
 			<greater-than>
 		<property>sim/multiplay/generic/float[7]</property>
@@ -2104,7 +2131,9 @@ Old
 	<animation>
 		<type>select</type>
 		<object-name>bleedl</object-name>
-		
+    <object-name>lbleed1</object-name>
+  <object-name>lbleed2</object-name>
+    <object-name>lbleed3</object-name>
 		<condition>
 			<greater-than>
 		<property>sim/multiplay/generic/float[7]</property>

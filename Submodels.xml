@@ -221,7 +221,7 @@
     <name>flares</name>
     <model>Aircraft/F-22/Models/Stores/Countermeasures/flare.xml</model>
     <trigger>ai/submodels/submodel/flare-release</trigger>
-    <speed>10</speed>
+    <speed>20</speed>
     <repeat>false</repeat>
     <delay>0</delay>
     <count>-1</count>
@@ -229,8 +229,8 @@
     <y-offset>3.8</y-offset>
     <z-offset>-5</z-offset>
     <yaw-offset>45</yaw-offset>
-	<pitch-offset>-10</pitch-offset> 
-    <life>10</life> <!--This is just a dummy model. CMS.nas takes care of the ammo/deployment-->
+	<pitch-offset>-30</pitch-offset> 
+    <life>20</life> <!--This is just a dummy model. CMS.nas takes care of the ammo/deployment-->
     <buoyancy>8</buoyancy>
     <eda>0.000001</eda>
   </submodel>
@@ -239,7 +239,7 @@
     <name>flares</name>
     <model>Aircraft/F-22/Models/Stores/Countermeasures/flare.xml</model>
     <trigger>ai/submodels/submodel/flare-release</trigger>
-    <speed>10</speed>
+    <speed>20</speed>
     <repeat>false</repeat>
     <delay>0.0</delay>
     <count>-1</count> <!--This is just a dummy model. CMS.nas takes care of the ammo/deployment-->
@@ -247,8 +247,8 @@
     <y-offset>-3.8</y-offset>
     <z-offset>-5</z-offset>
     <yaw-offset>-45</yaw-offset>
-	<pitch-offset>-10</pitch-offset> 
-    <life>5</life>
+	<pitch-offset>-30</pitch-offset> 
+    <life>20</life>
     <buoyancy>8</buoyancy>
     <eda>0.000001</eda>
   </submodel>

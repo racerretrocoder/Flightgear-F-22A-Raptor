@@ -73,7 +73,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <vtailarea unit="FT2">  178.20 </vtailarea>
     <vtailarm unit="FT">   24.80 </vtailarm>
     <location name="AERORP" unit="IN">
-      <x>50.720866141732283</x>
+      <x>78.800866141732283</x>
       <y>   0.00 </y>
       <z> -41.04 </z>
     </location>
@@ -154,11 +154,11 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         <y>   0.00 </y>
         <z> -109.32 </z>
       </location>
-      <static_friction>  0.80 </static_friction>
-      <dynamic_friction> 0.50 </dynamic_friction>
-      <rolling_friction> 0.02 </rolling_friction>
-      <spring_coeff unit="LBS/FT">      50000.80 </spring_coeff>
-      <damping_coeff unit="LBS/FT/SEC"> 30000.90 </damping_coeff>
+   <static_friction> 0.6 </static_friction>
+   <dynamic_friction> 0.375 </dynamic_friction>
+   <rolling_friction> 0.02 </rolling_friction>
+      <spring_coeff unit="LBS/FT"> 17250 </spring_coeff>      <!--F-16 values seem best here-->
+      <damping_coeff unit="LBS/FT/SEC"> 8250 </damping_coeff>     <!--F-16 values seem best here-->
       <max_steer unit="DEG"> 45.00 </max_steer>
       <brake_group>NONE</brake_group>
       <retractable>1</retractable>
@@ -173,8 +173,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <static_friction>  0.80 </static_friction>
       <dynamic_friction> 0.50 </dynamic_friction>
       <rolling_friction> 0.02 </rolling_friction>
-      <spring_coeff unit="LBS/FT">      60000.00 </spring_coeff>
-      <damping_coeff unit="LBS/FT/SEC"> 30000.00 </damping_coeff>
+      <spring_coeff unit="LBS/FT">      38000.00 </spring_coeff>
+      <damping_coeff unit="LBS/FT/SEC"> 7800.00 </damping_coeff>
       <max_steer unit="DEG">0</max_steer>
       <brake_group>LEFT</brake_group>
       <retractable>1</retractable>
@@ -189,8 +189,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <static_friction>  0.80 </static_friction>
       <dynamic_friction> 0.50 </dynamic_friction>
       <rolling_friction> 0.02 </rolling_friction>
-      <spring_coeff unit="LBS/FT">      60000.00 </spring_coeff>
-      <damping_coeff unit="LBS/FT/SEC"> 30000.00 </damping_coeff>
+      <spring_coeff unit="LBS/FT">      38000.00 </spring_coeff>
+      <damping_coeff unit="LBS/FT/SEC"> 7800.00 </damping_coeff>
       <max_steer unit="DEG">0</max_steer>
       <brake_group>RIGHT</brake_group>
       <retractable>1</retractable>
@@ -494,6 +494,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <!--Definiations-->
     <property>/f22/fcsmode</property>
     <property>/f22/fcs/controls/pitch</property>
+    <property>/f22/fcs/controls/rudder</property>
     <property>/f22/gen1</property>
     <property>/f22/gen2</property>
     <property>/sim/failure-manager/engines/engine[0]/serviceable</property>
@@ -572,6 +573,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         <independentVar lookup="column">velocities/vc-kts</independentVar>
         <tableData> 
                  0      50      100       200       300      400      500    600   
+       <!-- -1       34     34      34        40        50       40       35     -->
         -1       34     34      34        40        50       40       35     25
         -0.01    0      0       0         0         0        0        0      0
         0        0      0       0         0         0        0        0      0
@@ -768,7 +770,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </table>
     </function>
 
-
     <function name="fcs/AAR">
       <table>
         <independentVar lookup="row">/controls/refuel/Switch</independentVar>
@@ -777,8 +778,18 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           1     0.1
         </tableData>
       </table>
-
     </function>
+
+    <function name="fcs/inverse-qbar-aileroncontrol">
+        <quotient>
+          <value>1082.39</value>
+          <max>
+            <property>aero/qbar-psf</property>
+            <value>1</value>
+          </max>
+        </quotient>
+    </function>
+
 
     <function name="fcs/inverse-qbar-gcontrol">
         <quotient>
@@ -888,13 +899,14 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </product>
     </function>
 
+    <!--Raw Elevator input with hydraulic function-->
     <function name="fcs/aileron-cmd-norm-power">
 
       <product>
         <property>fcs/AAR</property>
         <table>
           <independentVar lookup="column">fcs/hydra-a</independentVar>
-          <independentVar lookup="row">fcs/aileron-cmd-norm</independentVar>
+          <independentVar lookup="row">/f22/fcs/controls/aileronae</independentVar>
           <tableData>   
                   0    1  
             -1    0   -1  
@@ -922,15 +934,13 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     </function>
 
 
-
+    <!--Limit rudder authority at high speed-->
     <function name="fcs/rudder-cmd-limmiter">
       <product>
         <property>fcs/fbw-override</property>
         <property>fcs/rudder-cmd-norm-delay</property>
         <table>
-
           <independentVar lookup="row">/velocities/mach</independentVar>
-
           <tableData> 
                0      1   
                0.5    1   
@@ -1007,7 +1017,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
             250   1
             300   1
             350   0.5
-            400   0.4
+            400   0.45
             450   0.4
             500   0.15
             550   0.2
@@ -1032,7 +1042,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <!--FBW Pitch Rate-->
     <function name="fcs/fbw-ptch-calib">
       <product>
-        <property>/orientation/pitch-rate-degps</property>
+        <property>/orientation/yaw-rate-degps</property>
         <table>
           <independentVar lookup="row">/orientation/roll-deg</independentVar>
           <tableData>
@@ -1047,7 +1057,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     </function>
     <function name="fcs/fbw-yaw-calib">
       <product>
-        <property>/orientation/yaw-rate-degps</property>
+        <property>/orientation/pitch-rate-degps</property>
         <table>
           <independentVar lookup="row">/orientation/roll-deg</independentVar>
           <tableData>
@@ -1077,7 +1087,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
     <!--Turn rate-->
     <!--If this function is close to zero. The plane is stable! (ae)
-    <function name="fcs/fbw-pitch-rate-combo">
+    <function name="fcs/fbw-yaw-rate-combo">
     <product>
       <sum>
         <property>fcs/fbw-yaw-calib</property>
@@ -1086,6 +1096,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <property>fcs/fbw-coeff</property>
     </product>
     </function>-->
+
+
     <function name="fcs/fbw-pitch-rate-combo">
     <product>
       <property>velocities/q-aero-rad_sec</property>
@@ -1107,7 +1119,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     </product>
     </function>
 
-
+    <!--Main AOA Limit table-->
     <function name="fcs/aoa-pre-a">
       <product>
         <property>fcs/fbw-override</property>
@@ -1157,7 +1169,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
     <function name="fcs/elevator-g-limit-pre-ab">
-      <!--Backup G Limit-->
+      <!--Backup G Limit - OLD depprecated, but kept just in case-->
       <product>
         <table>
           <independentVar lookup="row">/accelerations/pilot-gdamped</independentVar>        <!--todo: make a better g-dmped-->
@@ -1213,7 +1225,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </sum>
     </function>
 
-
+    <!--Old elevator authority limiter-->
     <function name="fcs/elevator-pos-norm-limit">
       <product>
         <property>fcs/fbw-override</property>        <!--if its Zero. Itll Cancel out the glimit, Making this function output 0-->
@@ -1232,6 +1244,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </product>
     </function>
 
+    <!--Aileron Authority Limiter (faster you fly, the less they move)-->
     <function name="fcs/aileron-pos-norm-limit">
       <product>
         <property>fcs/fbw-override</property>        <!--if its Zero. Itll Cancel out the glimit, Making this function output 0-->
@@ -1239,13 +1252,30 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
           <tableData>
               380    1   
-                        <!--6.2-->    400    1   
-                        <!--8.6-->    450    0.9 
-                        <!--6.2-->    500    0.8 
-                        <!--6.2-->    550    0.7 
-                        <!--6.2-->    600    0.5 
-                        <!--6.2-->    700    0.47
-                        <!--6.2-->    800    0.47
+              400    1   
+              450    0.9 
+              500    0.8 
+              550    0.7 
+              600    0.5 
+              700    0.47
+              800    0.47
+          </tableData>
+        </table>
+      </product>
+    </function>
+    <!--Aileron roll rate command, -1 left 1 right-->
+<function name="fcs/aileron-roll-rate-cmd">
+      <product>
+        <property>fcs/fbw-override</property>        <!--if its Zero. Itll Cancel out the glimit, Making this function output 0-->
+        <table>
+          <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
+          <independentVar lookup="column">fcs/aileron-cmd-norm</independentVar>
+          <tableData>
+                        <!--Aileron 0.02 slot deadzone-->
+                      -1    -0.35   -0.01  0   0.01   0.35   1
+                0   -6.6    -0.5     0    0    0      0.5    6.6
+              400   -6.6    -0.5     0    0    0      0.5    6.6
+              800   -2.6    -0.1     0    0    0      0.1    2.6
           </tableData>
         </table>
       </product>
@@ -1309,7 +1339,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
 
 
-    <function name="fcs/aileron-cmd-norm-limit">      <!--Main Elevator POS with Limit-->
+    <function name="fcs/aileron-cmd-norm-limit">      <!--Main Aileron POS with Limit-->
       <sum>
         <product>
           <property>fcs/aileron-cmd-norm-power</property>
@@ -2177,7 +2207,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <summer name="Roll Trim Sum">
         <input>fcs/aileron-cmd-norm-limit-sm</input>
         <input>fcs/roll-trim-cmd-norm</input>
-        <input>/f22/fcs/controls/aileron</input>
+        <!--<input>/f22/fcs/controls/aileronae</input> Now implemented in aileron-cmd-norm-power-->
         <clipto>
           <min> -1 </min>
           <max>  1 </max>
@@ -2233,20 +2263,30 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <channel name="Yaw">
 
 
-      <kinematic name="rudder Delay">
+
+      <summer name="rudder cmd norm power fcs">
         <input>fcs/rudder-cmd-norm-power</input>
+        <input>/f22/fcs/controls/rudder</input>
+        <clipto>
+          <min> -1 </min>
+          <max>  1 </max>
+        </clipto>
+      </summer>
+
+      <kinematic name="rudder Delay">
+        <input>fcs/rudder-cmd-norm-power-fcs</input>
         <traverse>
           <setting>
             <position>-1</position>
-            <time>1</time>
+            <time>0.2</time>
           </setting>
           <setting>
             <position>0</position>
-            <time>1</time>
+            <time>0.2</time>
           </setting>
           <setting>
             <position>1</position>
-            <time>1</time>
+            <time>0.2</time>
           </setting>
         </traverse>
         <output>fcs/rudder-cmd-norm-delay</output>
@@ -3422,11 +3462,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </table>
     </function>
 
-
-
-
-
-
     <function name="fcs/abani1">
       <description>engine0ab</description>
       <table>
@@ -3562,6 +3597,59 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   </flight_control>
 
   <aerodynamics>
+  
+    <function name="aero/qb2V">
+      <product>
+        <property>velocities/q-aero-rad_sec</property>
+        <property>aero/ci2vel</property>
+      </product>
+    </function>
+
+    <function name="aero/pb2V">
+      <product>
+        <property>velocities/p-aero-rad_sec</property>
+        <property>aero/bi2vel</property>
+      </product>
+    </function>
+
+    <function name="aero/rb2V">
+      <product>
+        <property>velocities/r-aero-rad_sec</property>
+        <property>aero/bi2vel</property>
+      </product>
+    </function>
+
+    <function name="aero/omegab2V">
+      <description>Wind rotation rate</description>
+      <product>
+        <quotient>
+          <sum>
+            <product>
+              <property>velocities/p-aero-rad_sec</property>
+              <property>velocities/u-aero-fps</property>
+            </product>
+            <product>
+              <property>velocities/q-aero-rad_sec</property>
+              <property>velocities/v-aero-fps</property>
+            </product>
+            <product>
+              <property>velocities/r-aero-rad_sec</property>
+              <property>velocities/w-aero-fps</property>
+            </product>
+          </sum>
+          <ifthen>
+            <eq>
+             <property>velocities/vtrue-fps</property>
+             <value>0</value>
+            </eq>
+            <value>0.0000001</value>
+            <property>velocities/vtrue-fps</property>
+          </ifthen>
+        </quotient>
+        <property>aero/bi2vel</property>
+      </product>
+    </function>
+
     <aero_ref_pt_shift_x>
       <function name="aero/metrics/aerorp_shift_mach">
         <description>mach tuck</description>
@@ -3608,6 +3696,31 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         </product>
       </function>
 
+      <function name="aero/force/Lift_normal">
+        <description>CN due to pitch rate NASA</description>
+        <product>
+          <property>aero/qbar-psf</property>
+          <property>metrics/Sw-sqft</property>
+          <table>
+            <independentVar lookup="row">aero/qb2V</independentVar>
+            <independentVar lookup="column">aero/alpha-deg</independentVar>
+            <tableData>
+                          0           20
+              -0.03       0.15        0.05
+              -0.02       0.1         0.025
+              -0.01       0.05        0.0125
+               0          0           0
+               0.01      -0.05       -0.0125
+               0.02      -0.1        -0.025
+               0.03      -0.15       -0.05
+            </tableData>
+          </table>
+          <cos>
+            <property>aero/alpha-rad</property>
+          </cos>
+        </product>
+      </function>
+
       <function name="aero/force/Lift_flap">
         <description>Delta Lift due to flaps</description>
         <product>
@@ -3619,6 +3732,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <value> 0.01167 </value>
         </product>
       </function>
+
       <function name="aero/force/Lift_flap_edge">
         <description>Delta Lift due to leading edge flaps</description>
         <product>
@@ -3674,33 +3788,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           </table>
         </product>
       </function>
-      <!--
-       <function name="aero/force/Drag_force">
-       <description>Drag due to high g loads</description>
-       <product>
-          <property>aero/qbar-psf</property>
-          <property>metrics/Sw-sqft</property>
-          <property>/velocities/mach</property>
-          <table>
-            <independentVar lookup="row">/accelerations/pilot-gdamped</independentVar>
-            <tableData>
-              0       0
-              1       0
-              2       0.001
-              3       0.003
-              4       0.005
-              5       0.027
-              6       0.031
-              7       0.043
-              8       0.045
-              9       0.046
-              10      0.044
-              11      0.064
-            </tableData>
-          </table>
-       </product>
-    </function> 
--->
 
       <function name="aero/force/Drag_induced">
         <description>Induced drag</description>
@@ -3727,6 +3814,31 @@ The Force that pushes the aircraft for increased manuverability should be lowere
                 2.60      0.035
             </tableData>            <!--Top speed mach 2.73 @ 46k-->
           </table>
+        </product>
+      </function>
+
+      <function name="aero/force/Drag_normal">
+        <description>CN due to pitch rate NASA</description>
+        <product>
+          <property>aero/qbar-psf</property>
+          <property>metrics/Sw-sqft</property>
+          <table>
+            <independentVar lookup="row">aero/qb2V</independentVar>
+            <independentVar lookup="column">aero/alpha-deg</independentVar>
+            <tableData>
+                          0           20
+              -0.03       0.15        0.05
+              -0.02       0.1         0.025
+              -0.01       0.05        0.0125
+               0          0           0
+               0.01      -0.05       -0.0125
+               0.02      -0.1        -0.025
+               0.03      -0.15       -0.05
+            </tableData>
+          </table>
+          <sin>
+            <property>aero/alpha-rad</property>
+          </sin>
         </product>
       </function>
 
@@ -3808,6 +3920,46 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
     <axis name="ROLL">
 
+      <function name="aero/moment/Roll_alpha">
+        <description>Rolling moment due to AOA (Cl) NASA</description>
+        <product>
+          <property>aero/qbar-psf</property>
+          <property>metrics/Sw-sqft</property>
+          <property>metrics/bw-ft</property>
+          <table>
+            <independentVar lookup="row">aero/alpha-deg</independentVar>
+            <independentVar lookup="column">aero/omegab2V</independentVar>
+            <tableData>
+              <!-- Negative columns are the opposite sign of the positive columns -->
+                      -0.200     -0.050      0.050      0.200
+              -20     -0.000     -0.000      0.000      0.000
+              -15      0.020      0.002     -0.002     -0.020
+              -10      0.035      0.005     -0.005     -0.035
+               -5      0.042      0.008     -0.008     -0.042
+                0      0.047      0.010     -0.010     -0.047 <!--Data start-->
+                5      0.048      0.012     -0.012     -0.048
+               10      0.046      0.011     -0.011     -0.046
+               15      0.042      0.010     -0.010     -0.042
+               20      0.032      0.008     -0.008     -0.032
+               25      0.020      0.005     -0.005     -0.020
+               30     -0.002     -0.005      0.005      0.002
+               35     -0.016     -0.002      0.002      0.016
+               40     -0.005     -0.000      0.000      0.005
+               45      0.003     -0.001      0.001     -0.003
+               50      0.012      0.001     -0.001     -0.012
+               55      0.010      0.005     -0.005     -0.010
+               60      0.010      0.004     -0.004     -0.010
+               65      0.010      0.003     -0.003     -0.010
+               70      0.007      0.002     -0.002     -0.007
+               75      0.003     -0.000      0.000     -0.003
+               80     -0.002     -0.001      0.001      0.002
+               85     -0.006     -0.004      0.004      0.006
+               90     -0.007     -0.003      0.003      0.007 <!--Data end-->
+            </tableData>
+          </table>
+        </product>
+      </function>
+
       <function name="aero/moment/Roll_beta">
         <description>Roll moment due to beta</description>
         <product>
@@ -3820,32 +3972,56 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       </function>
 
       <function name="aero/moment/Roll_damp">
-        <description>Roll moment due to roll rate</description>
+        <description>Roll moment due to roll rate (Cll Due To Roll Rate) NASA.</description>
         <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/bw-ft</property>
-          <property>aero/bi2vel</property>
-          <property>velocities/p-aero-rad_sec</property>
-          <value>-0.4</value>
+          <table>
+            <independentVar lookup="row">aero/pb2V</independentVar>
+            <independentVar lookup="column">aero/alpha-deg</independentVar>
+            <tableData>
+                        0.0000      20.0000
+              -0.08     0.0184      0.00266667
+              -0.06     0.0138      0.002
+              -0.04     0.0092      0.00133333
+              -0.02     0.0046      0.00066667
+               0.00     0.0000      0.0
+               0.02    -0.0046     -0.00066667
+               0.04    -0.0092     -0.00133333
+               0.06    -0.0138     -0.002
+               0.08    -0.0184     -0.00266667
+            </tableData>
+          </table>
         </product>
       </function>
-      <function name="aero/moment/rolltest">
-        <description>EXT FDM TEST</description>
-        <product>
-          <property>/controls/flight/EXTFDM</property>          <!--For the External FDM Debugger-->
-          <value>100000000</value>
-        </product>
-      </function>
+
       <function name="aero/moment/Roll_yaw">
-        <description>Roll moment due to yaw rate</description>
+        <description>Roll moment due to yaw rate (Cll Due To Yaw Rate) NASA</description>
         <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/bw-ft</property>
-          <property>aero/bi2vel</property>
-          <property>velocities/r-aero-rad_sec</property>
-          <value>0.01</value>
+          <table>
+            <independentVar lookup="row">aero/rb2V</independentVar>
+            <independentVar lookup="column">aero/alpha-deg</independentVar>
+            <tableData>
+                        0.0000      20.000
+             -0.06     -0.0010     -0.0290
+             -0.05     -0.0008     -0.0240
+             -0.04     -0.0004     -0.0190
+             -0.03     -0.0004     -0.0145
+             -0.02     -0.0002     -0.0100
+             -0.01     -0.0001     -0.0050
+              0.00      0.0000      0.0000
+              0.01      0.0000      0.0050
+              0.02      0.0002      0.0100
+              0.03      0.0004      0.0147
+              0.04      0.0006      0.0195
+              0.05      0.0009      0.0243
+              0.06      0.0010      0.0290
+            </tableData>
+          </table>
         </product>
       </function>
 
@@ -3869,6 +4045,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <value>0.07</value>
         </product>
       </function>
+
       <function name="aero/moment/Roll_rudder">
         <description>Roll moment due to rudder</description>
         <product>
@@ -3884,88 +4061,91 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
     <axis name="PITCH">
 
-      <!--
-<function name="aero/moment/PITCHTVCLIMIT">
-       <description>jets heavy so vectors cant push it hard</description>
-       <table>
-            <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
-            <tableData>
-              0.0    -100
-              380    -300
-              400    -500
-              450    -1000
-              500    -5000
-              550    -15000
-              600    -20000
-              650    -25000
-            </tableData>
-          </table>
-    </function> -->
-
-      <!--
- <function name="aero/moment/Pitch_TVC">
-       <description>Pitch moment due to thrust vector</description>
-       <product>
-<product> 
-<property>fcs/tv-coefficient</property>
-<property>fcs/vector-limiter-main-sum</property>
-          <sum>
-          
-           <property>propulsion/engine[0]/thrust-lbs</property>
-           <property>propulsion/engine[1]/thrust-lbs</property>
-          </sum>
-          <sin>
-           <property>fcs/tv-animation</property>
-          </sin>
-          <value>-19</value>
-       </product>
-</product>
-    </function>-->
-
-
       <function name="aero/moment/Pitch_alpha">
-        <description>Pitch moment due to alpha</description>
+        <description>Pitch moment Coeff VS Angle-of-Attack NASA</description>
         <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/cbarw-ft</property>
-          <property>aero/alpha-rad</property>
           <table>
             <independentVar lookup="row">aero/alpha-deg</independentVar>
-            <!--<independentVar lookup="column">/position/altitude-ft</independentVar>-->
+            <independentVar lookup="column">aero/omegab2V</independentVar>
             <tableData>
-              -180      0.0
-              -170      0.1
-              -150      0.20
-              -130      0.35
-              -110      0.4
-              -90       0.25
-              -80       0.1
-              -70       0.05
-              -60       0.0
-              -50       -0.05
-              -40       -0.10
-              -30       -0.12
-              -20       -0.08
-              -10       -0.03
-              0         0.0
-              10        0.03
-              20        0.02
-              30        0.02
-              40        0.04
-              50        0.03
-              60        0.02
-              70        -0.01
-              80        -0.06
-              90        -0.14
-              119.46    -0.35
-              136.07    -0.30
-              147.69    -0.25
-              156.63    -0.20
-              163.91    -0.15
-              170.04    -0.10
-              175.34    -0.05
-              180.00    0.0
+                     0.050      0.200
+           -180      1.238      1.911
+           -175      1.165      1.776
+           -170      1.094      1.647
+           -165      1.025      1.522
+           -160      0.958      1.403
+           -155      0.893      1.289
+           -150      0.831      1.181
+           -145      0.770      1.077
+           -140      0.712      0.979
+           -135      0.656      0.887
+           -130      0.602      0.799
+           -125      0.550      0.717
+           -120      0.500      0.640
+           -115      0.453      0.569
+           -110      0.407      0.503
+           -105      0.364      0.442
+           -100      0.323      0.386
+            -95      0.284      0.336
+            -90      0.247      0.297
+            -85      0.212      0.235
+            -80      0.182      0.224
+            -75      0.147      0.192
+            -70      0.122      0.159
+            -65      0.032      0.059
+            -60     -0.018      0.017
+            -55     -0.038     -0.004
+            -50     -0.073     -0.003
+            -45     -0.081     -0.068
+            -40     -0.093     -0.078
+            -35     -0.098     -0.088
+            -30     -0.103     -0.103
+            -25     -0.093     -0.093
+            -20     -0.078     -0.078
+            -15     -0.068     -0.068
+            -10     -0.053     -0.050
+             -5     -0.038     -0.038
+              <!--Figure 5, Page 6. Negative values are flipped from positive-->
+              0     -0.014     -0.014
+              5      0.010      0.010
+             10      0.025      0.022
+             15      0.040      0.040
+             20      0.050      0.050
+             25      0.065      0.065
+             30      0.075      0.075
+             35      0.070      0.060
+             40      0.065      0.050
+             45      0.053      0.040
+             50      0.045     -0.025
+             55      0.010     -0.024
+             60     -0.010     -0.045
+             65     -0.060     -0.087
+             70     -0.150     -0.187
+             75     -0.175     -0.220
+             80     -0.210     -0.252
+             85     -0.240     -0.263
+             90     -0.275     -0.325
+             95     -0.312     -0.364     <!--Extrapolated on quadratic curve-->
+            100     -0.351     -0.414
+            105     -0.392     -0.470
+            110     -0.435     -0.531
+            115     -0.481     -0.597
+            120     -0.528     -0.668
+            125     -0.578     -0.745
+            130     -0.630     -0.827
+            135     -0.684     -0.915
+            140     -0.740     -1.007
+            145     -0.798     -1.105
+            150     -0.859     -1.209
+            155     -0.921     -1.317
+            160     -0.986     -1.431
+            165     -1.053     -1.550
+            170     -1.122     -1.675
+            175     -1.193     -1.804
+            180     -1.266     -1.939
             </tableData>
           </table>
         </product>
@@ -3983,7 +4163,6 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         </product>
       </function>
 
-
       <function name="aero/moment/Pitch_elevator">
         <description>Pitch moment due to elevator</description>
         <product>
@@ -3992,19 +4171,42 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <property>metrics/cbarw-ft</property>
           <property>fcs/Elev-pos-norm-limit-sum-main-flt</property>          <!--Fly by wire-->
           <property>fcs/elevator-pos-rad-anim</property>
-          <value>-0.427</value>
+          <value>-0.527</value>
         </product>
       </function>
 
       <function name="aero/moment/Pitch_damp">
-        <description>Pitch moment due to pitch rate</description>
+        <description>Cm Due To Pitch Rate NASA</description>
         <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/cbarw-ft</property>
-          <property>aero/ci2vel</property>
-          <property>velocities/q-aero-rad_sec</property>
-          <value>-18</value>
+          <table>
+            <independentVar lookup="row">aero/qb2V</independentVar>
+            <tableData>
+             -0.10      0.20      
+             -0.09      0.18
+             -0.08      0.16
+             -0.07      0.14
+             -0.06      0.12
+             -0.05      0.10
+             -0.04      0.08
+             -0.03      0.06      <!-- Data Endpoint -->
+             -0.02      0.04
+             -0.01      0.02
+              0         0
+              0.01     -0.02
+              0.02     -0.04
+              0.03     -0.06      <!-- Data Endpoint -->
+              0.04     -0.08
+              0.05     -0.10
+              0.06     -0.12
+              0.07     -0.14
+              0.08     -0.16
+              0.09     -0.18
+              0.10     -0.20
+            </tableData>
+          </table>
         </product>
       </function>
 
@@ -4016,13 +4218,49 @@ The Force that pushes the aircraft for increased manuverability should be lowere
           <property>metrics/cbarw-ft</property>
           <property>aero/ci2vel</property>
           <property>aero/alphadot-rad_sec</property>
-          <value>-9</value>
+          <value>-9</value> <!-- -9 -->
         </product>
       </function>
 
     </axis>
 
     <axis name="YAW">
+
+      <function name="aero/moment/Yaw_alpha">
+        <description>Yaw moment due to alpha (Cn) NASA</description>
+        <product>
+          <property>aero/qbar-psf</property>
+          <property>metrics/Sw-sqft</property>
+          <property>metrics/bw-ft</property>
+          <table>
+            <independentVar lookup="row">aero/alpha-deg</independentVar>
+            <independentVar lookup="column">aero/omegab2V</independentVar>
+            <tableData>
+              <!-- Negative columns are the opposite sign of the positive columns -->
+                     -0.200     -0.050      0.050      0.200
+              0       0.005      0.002     -0.002     -0.005
+              5       0.010      0.003     -0.003     -0.010
+              10      0.015      0.004     -0.004     -0.015
+              15      0.020      0.005     -0.005     -0.020
+              20      0.020      0.006     -0.006     -0.020
+              25      0.012      0.003     -0.003     -0.012
+              30      0.005     -0.000      0.000     -0.005
+              35      0.015      0.003     -0.003     -0.015
+              40      0.026      0.007     -0.007     -0.026
+              45      0.023      0.001     -0.001     -0.023
+              50      0.020      0.008     -0.008     -0.020
+              55      0.030      0.009     -0.009     -0.030
+              60      0.037      0.010     -0.010     -0.037
+              65      0.033      0.006     -0.006     -0.033
+              70      0.023      0.006     -0.006     -0.023
+              75      0.021      0.003     -0.003     -0.021
+              80      0.019     -0.000      0.000     -0.019
+              85      0.017     -0.000      0.000     -0.017
+              90      0.017     -0.000      0.000     -0.017
+            </tableData>
+          </table>
+        </product>
+      </function>
 
       <function name="aero/moment/Yaw_beta">
         <description>Yaw moment due to beta</description>
@@ -4035,15 +4273,51 @@ The Force that pushes the aircraft for increased manuverability should be lowere
         </product>
       </function>
 
-      <function name="aero/moment/Yaw_damp">
-        <description>Yaw moment due to yaw rate</description>
+      <function name="aero/moment/Yaw_roll">
+        <description>Yaw moment due to Roll Rate (Cln Due To Roll Rate) NASA</description> <!--There are significant differences between AFRL and NASA data for the 20 AOA column-->
         <product>
           <property>aero/qbar-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/bw-ft</property>
-          <property>aero/bi2vel</property>
-          <property>velocities/r-aero-rad_sec</property>
-          <value>-1</value>
+          <table>
+            <independentVar lookup="row">aero/pb2V</independentVar>
+            <independentVar lookup="column">aero/alpha-deg</independentVar>
+            <tableData>
+                        0.0000          20.000
+             -0.08      0.00266667      -0.002
+             -0.06      0.002           -0.0015
+             -0.04      0.00133333      -0.001
+             -0.02      0.00066667      -0.0005
+              0.00      0.0              0.0
+              0.02     -0.00066667       0.0005
+              0.04     -0.00133333       0.001
+              0.06     -0.002            0.0015
+              0.08     -0.00266667       0.002
+            </tableData>
+          </table>
+        </product>
+      </function>
+
+      <function name="aero/moment/Yaw_damp">
+        <description>Yaw moment due to yaw rate (Cln Due To Yaw Rate) NASA</description>
+        <product>
+          <property>aero/qbar-psf</property>
+          <property>metrics/Sw-sqft</property>
+          <property>metrics/bw-ft</property>
+          <table>
+            <independentVar lookup="row">aero/rb2V</independentVar>
+            <independentVar lookup="column">aero/alpha-deg</independentVar>
+            <tableData>
+                        0.000    20.000
+             -0.06      0.009     0.010
+             -0.04      0.006     0.006
+             -0.02      0.003     0.002
+              0.00      0.000     0.000
+              0.02     -0.002    -0.004
+              0.04     -0.005    -0.006
+              0.06     -0.008    -0.010
+            </tableData>
+          </table>
         </product>
       </function>
 

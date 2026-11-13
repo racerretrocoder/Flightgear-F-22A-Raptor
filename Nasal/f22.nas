@@ -25,7 +25,9 @@
 #                                                                 \|_________|                                                                             \|_________|                                                                   
 #       - uapilot, Thank you for this
 #
-
+setprop("f22/phat",1);
+screen.log.write("Celebrating 3 years of FlightGears F-22A Raptor. heres a party hat for your plane :D",0,1,0);
+screen.log.write("To hide it: click it");
 # Some terminology
 # "thingy" refers to an object that sticks out from the reset in a unique way.
 # Thought you guys might want to know... like cmon, its used in FG wiki too...
@@ -849,7 +851,7 @@ var fcsloop = func() {
 
     if (elevator < 0) {
       if (elevator < negcontrolThresh){
-        #disableelev = 1;
+        disableelev = 1;
         disableaile = 1; # Disable Roll control aswell when flying
       }
     }
@@ -2834,7 +2836,7 @@ var wingloop = func() {
 var gwing = func() {
   var g = getprop("/accelerations/pilot-gdamped");
   var speed = getprop("/velocities/airspeed-kt");
-  if (g > 14.8 and speed > 300) {
+  if (g > 14.8 and speed > 50) {
     # SNAP!
     ae = 0.5;
     thewing = rand() < (1-ae);

@@ -9,31 +9,69 @@
   <spherical>true</spherical>
  </animation>
 
-  <effect>
-    <inherits-from>Aircraft/F-22/Models/Stores/Countermeasures/flare</inherits-from>
-    <object-name>flare</object-name>
-  </effect>
 
- <animation>
-  <type>dist-scale</type>
-  <object-name>flare</object-name>
-  <interpolation>
-   <entry><ind>0</ind><dep>0.5</dep></entry>
-   <entry><ind>500</ind><dep>2.0</dep></entry>
-  </interpolation>
- </animation>
+	<model>
+ <name>light</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>-2</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>light</name>
+   <power-source>f22/mslbright</power-source>
+   <direction>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>0.7</g>
+    <b>0</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>0.5</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
 
- <animation>
-  <type>material</type>
-  <object-name>flare</object-name>
-  <emission>
-   <factor-prop>sim/time/elapsed-sec</factor-prop>
-   <offset>1.0</offset>
-   <red>-0.2</red>
-   <green>-0.2</green>
-   <blue>-0.2</blue>
-  </emission>
- </animation>
+	<model>
+ <name>light2</name>
+ <path>Aircraft/Generic/spotlight.xml</path>
+ <offsets>
+			<x-m>-2</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+ </offsets>
+ <overlay>
+  <params>
+   <name>RedLightae</name>
+   <power-source>f22/mslbright</power-source>
+   <direction>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+   </direction>
+   <ambient>
+    <r>1</r>
+    <g>0.7</g>
+    <b>0</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>0.5</b>
+   </specular>
+  </params>
+ </overlay>
+</model>
+
 
  <model>
   <name>flare_trail</name>
@@ -44,7 +82,7 @@
    <z-m>0.0</z-m>
   </offsets>
  </model>
-
+<!--
  <model>
   <name>flare_smoke</name>
   <path>flare-smoke.xml</path>
@@ -53,6 +91,11 @@
    <y-m>0.0</y-m>
    <z-m>0.0</z-m>
   </offsets>
- </model>
+ </model>-->
+
+
+
+
+
 
 </PropertyList>

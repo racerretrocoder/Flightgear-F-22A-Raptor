@@ -24,7 +24,7 @@
         <display-span>25.0</display-span>
         <divisions>5.0</divisions>
         <screen-hole>15</screen-hole>
-        <zero-bar-overlength>2</zero-bar-overlength>
+        <zero-bar-overlength>5</zero-bar-overlength>
         <enable-dive-bar-angle>true</enable-dive-bar-angle>
         <enable-dynamic-origin>false</enable-dynamic-origin>
         <enable-fuselage-ref-line>false</enable-fuselage-ref-line>

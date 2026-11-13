@@ -3,7 +3,7 @@
 
 <particlesystem>
   <name>flare-smoke</name>
-  <texture>flare.png</texture>
+  <texture>puff.png</texture>
   <emissive>true</emissive>
   <lighting>false</lighting>
   
@@ -42,7 +42,7 @@
   
   <counter>
    <particles-per-sec>
-    <value>30</value>
+    <value>100</value>
    </particles-per-sec>
   </counter>
   
@@ -52,43 +52,43 @@
    <start>
     <color>
      <red>
-      <value>1</value>
+      <value>0.5</value>
      </red>
      <green>
-      <value>1</value>
+      <value>0.4</value>
      </green>
      <blue>
-      <value>0.5</value>
+      <value>0.2</value>
      </blue>
      <alpha>
-      <value>0.5</value>
+      <value>1</value>
      </alpha>
     </color>
     <size>
-     <value>0.25</value>
+     <value>0.5</value>
     </size>
    </start>
    <end>
     <color>
      <red>
-      <value>1</value>
+      <value>0.2</value>
      </red>
      <green>
-      <value>0.5</value>
+      <value>0.2</value>
      </green>
      <blue>
-      <value>0.5</value>
+      <value>0.2</value>
      </blue>
      <alpha>
       <value>0.1</value>
      </alpha>
     </color>
     <size>
-     <value>0.1</value>
+     <value>0.25</value>
     </size>
    </end>
    <life-sec>
-    <value>6</value>
+    <value>12</value>
    </life-sec>
    <mass-kg>0.00001</mass-kg>
    <radius-m>0.015</radius-m>
