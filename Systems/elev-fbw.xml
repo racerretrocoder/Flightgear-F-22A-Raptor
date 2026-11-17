@@ -1,0 +1,371 @@
+<?xml version="1.0"?>
+<system name="Elevator FCS">
+  <property value="0">systems/fbw/elev-ready</property>
+  <!--Max elevator deflection radians: 0.436 (+-25 deg)-->
+  <!--Elevator mapping Diagram
+          
+
+        Phoenix & KJ7NLL (11/13/2026) Hey! 3 years of F-22A!!
+                              INPUTS:
+            Joystick, Pitch trim, (Autopilot), (PRE FCS)
+                |          |           |          |
+                |          |           |          |
+                 - - - - - - - - | - - - - - - - - 
+                                 |
+                                 |
+                      (fcs/elevator-pos-norm) - - - - - - - - - Emer Bypass (If FCS is damaged)
+                                 |                                |
+                                 |                                |
+                      - - - - - - - - - - - -                     |
+                      |                     |                     |
+                      |    Fly by wire      |                     |
+                      |     FCS Code        |                     |
+                      - - - - - - - - - - - -                     |
+                                 |                                |
+                                 |                                |
+                                 |                                |
+                    (fcs/elevator-output-norm)  - - - - - - - - -
+                                 |
+                                 |
+            - Add Hydrolics delay (0.22 seconds kinematic) -
+                                 |
+                                 |
+                -  (fcs/elevator-output-final) -    <== Final elevator output (norm)
+                                 |
+                                 |
+                        - conver to radians - - - - - - - - - - - - conver to degreese (fcs/elevator-pos-deg) For animations
+                                 |
+                                 |
+                      (fcs/elevator-pos-rad)
+                                 |
+                                 |
+                                 |
+                        Final Elevator Output
+  -->
+  
+
+  <channel name="Elevator">
+    <!--note: we cant use regular functions in channels, they have to be fcs_functions-->
+    <summer name="Pitch command inputs">
+        <!--this little summer combines all the raw elevator commands from the joystick, pitch trim, and fcs (not implemented yet)-->
+        <input>fcs/elevator-cmd-norm</input> <!-- Raw inputs -->
+        <input>fcs/pitch-trim-cmd-norm</input>
+        <clipto>
+          <min> -1 </min>
+          <max>  1 </max>
+        </clipto>
+      <output>fcs/elevator-pos-norm</output>
+    </summer>
+
+    <fcs_function name="fcs/inverse-qbar-gflight">
+      <function>
+        <quotient>
+          <value>400</value> <!-- The tuned qbar value for the pid controller -->
+          <property>aero/qbar-psf</property>
+        </quotient>
+      </function>
+      <clipto>
+        <min>0.001</min>
+        <max>1.5</max>
+      </clipto>
+    </fcs_function>
+
+    <!-- - - - - - Begin FCS - - - - - -->
+
+
+
+
+
+
+
+
+    <!--Gflight-->
+    <fcs_function name="Turn request for GFlight">
+      <function>
+        <product>
+          <table>
+            <independentVar lookup="row">fcs/elevator-pos-norm</independentVar>
+            <independentVar lookup="column">velocities/vc-kts</independentVar>
+            <tableData> 
+                       0     50     100       200       300      400      500    600   
+             -1       34     34      34        40        50       40       35     25
+             -0.01     0      0       0         0         0        0        0      0
+              0        0      0       0         0         0        0        0      0
+              0.01     0      0       0         0         0        0        0      0
+              1      -20    -20     -20       -20       -15      -15      -10    -10
+            </tableData>
+          </table>
+          <table>
+            <independentVar lookup="row">/controls/refuel/Switch</independentVar>
+            <tableData> 
+              0     1
+              1     0.3
+            </tableData>
+          </table>
+        </product>
+      </function>
+      <output>fcs/turn-request</output>
+    </fcs_function>
+
+    <fcs_function name="fcs/turn-request-rad">
+      <function>
+        <toradians>
+          <property>fcs/turn-request</property>
+        </toradians>
+      </function>
+    </fcs_function>
+    
+    <!-- Apply limiters. G limit, then aoa -->
+    <!-- glimit -->
+    <fcs_function name="fcs/glimit-norm-exceed">
+      <function>
+        <difference>
+          <property>accelerations/Nz</property>
+          <property>/f22/fcs/glimit</property>
+        </difference>
+      </function>
+      <clipto>
+        <min>-5</min>
+        <max>5</max>
+      </clipto>
+    </fcs_function>
+    
+    <fcs_function name="fcs/pitch-rate-glimit">
+      <function>
+        <quotient>
+          <product>
+            <property>accelerations/gravity-ft_sec2</property>
+            <difference>
+              <property>/f22/fcs/glimit</property>
+              <property>fcs/g-reduce</property>
+              <product>
+                <cos>
+                  <property>attitude/theta-rad</property>
+                </cos>
+                <cos>
+                  <property>attitude/phi-rad</property>
+                </cos>
+              </product>
+            </difference>
+          </product>
+          <max>
+            <property>velocities/vt-fps</property>
+            <value>0.0001</value>
+          </max>
+        </quotient>
+      </function>
+      <clipto>
+        <min>0</min>
+        <max>2</max>
+      </clipto>
+    </fcs_function>
+    
+    <!-- AOA limit -->
+    <fcs_function name="fcs/aoalimit-norm-exceed">
+      <function>
+        <product>
+          <value>0.15</value>
+          <difference>
+            <property>aero/alpha-deg</property>
+            <property>/f22/fcs/aoalimit</property>
+          </difference>
+        </product>
+      </function>
+      <clipto>
+        <min>-5</min>
+        <max>5</max>
+      </clipto>
+    </fcs_function>
+
+    <fcs_function name="fcs/pitch-rate-aoalimit">
+      <function>
+        <quotient>
+          <product>
+            <property>accelerations/gravity-ft_sec2</property>
+            <difference>
+              <product>
+                <property>/f22/fcs/aoalimit</property>
+                <value>0.15</value>
+              </product>
+              <property>fcs/g-reduce</property>
+              <product>
+                <cos>
+                  <property>attitude/theta-rad</property>
+                </cos>
+                <cos>
+                  <property>attitude/phi-rad</property>
+                </cos>
+              </product>
+            </difference>
+          </product>
+          <max>
+            <property>velocities/vt-fps</property>
+            <value>0.0001</value>
+          </max>
+        </quotient>
+      </function>
+      <clipto>
+        <min>0</min>
+        <max>2</max>
+      </clipto>
+    </fcs_function>
+
+    <!-- Combine limits -->
+    <fcs_function name="fcs/turn-limit">
+      <function>
+        <max>
+          <property>fcs/glimit-norm-exceed</property>
+          <property>fcs/aoalimit-norm-exceed</property>
+        </max>
+      </function>
+    </fcs_function>
+    
+    <switch name="limit-windup-trigger">
+      <test logic="AND" value="1">
+        fcs/g-reduce eq 0
+      </test>
+    </switch>
+
+    <pid name="fcs/g-reduce">
+      <input>fcs/turn-limit</input>
+      <kp>0.3</kp> <!--1.5-->
+      <ki>0.5</ki> <!--3.0-->
+      <kd>0.005</kd> <!--0.0-->
+      <trigger>fcs/limit-windup-trigger</trigger>
+      <clipto>
+        <min>0</min>
+        <max>1</max>
+      </clipto>
+      <output>fcs/g-reduce</output>
+    </pid>
+    
+    <!--Maps the pitch command inputs into a pid based Fly-By-Pitchrate(tm) xd system-->
+    <fcs_function name="Turn rate target error for pid">
+      <function>
+        <difference>
+          <min>
+            <property>fcs/turn-request-rad</property>
+            <property>fcs/pitch-rate-glimit</property>
+            <property>fcs/pitch-rate-aoalimit</property>
+          </min>
+          <property>fcs/fbw-pitch-rate</property>
+        </difference>
+      </function>
+      <output>fcs/turn-error-rad</output>
+    </fcs_function>
+
+    <switch name="fcs/gflight-windup-trigger">
+      <default value="0"/>
+      <test logic="AND" value="-1">
+        gear/unit/WOW eq 1
+      </test>
+      <test logic="AND" value="1">
+        fcs/fcs-elevator-gflight le -0.99
+        fcs/turn-error-rad gt 0
+      </test>
+      <test logic="AND" value="1">
+        fcs/fcs-elevator-gflight ge 0.99
+        fcs/turn-error-rad lt 0
+      </test>
+    </switch>
+
+    <fcs_function name="fcs/gflight-kp">
+      <function>
+        <product>
+          <value>8.0</value> <!-- The value of Kp, tuned for the specific qbar pressure -->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="fcs/gflight-ki">
+      <function>
+        <product>
+          <value>1.56</value> <!-- The value of Ki, tuned for the specific qbar pressure 1.56 -->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="fcs/gflight-kd">
+      <function>
+        <product>
+          <value>0.001</value> <!-- The value of Kd, tuned for the specific qbar pressure 0.001-->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <pid name="fcs/gflight">
+      <input>-fcs/turn-error-rad</input>
+      <kp>fcs/gflight-kp</kp>
+      <ki>fcs/gflight-ki</ki>
+      <kd>fcs/gflight-kd</kd>
+      <trigger>fcs/gflight-windup-trigger</trigger>
+      <clipto>
+        <min>-1</min>
+        <max>1</max>
+      </clipto>
+      <output>fcs/fcs-elevator-gflight</output>
+    </pid>
+
+    <!-- Check for bypass -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Total elevator output-->
+    <fcs_function name="Total Output">
+      <function>
+        <property>fcs/fcs-elevator-gflight</property>
+      </function>
+      <output>fcs/fcs-elev-output</output>
+    </fcs_function>
+
+    
+      <kinematic name="elevator delay">
+        <input>fcs/fcs-elev-output</input>
+        <traverse>
+          <setting>
+            <position>  -1 </position>
+            <time>      0.22</time>
+          </setting>
+          <setting>
+            <position>  0 </position>
+            <time>      0.22</time>
+          </setting>
+          <setting>
+            <position>  1 </position>
+            <time>      0.22</time>
+          </setting>
+        </traverse>
+        <output>fcs/fcs-elev-output-main</output>
+      </kinematic>
+
+
+
+    <!-- Normalized elevator output in radians -->
+    <fcs_function name="Normalized elevator output radians">
+      <function>
+        <toradians>
+          <product>
+            <property>fcs/fcs-elev-output-main</property>
+            <value>30</value> <!-- Max deflection 30 degrees -->
+          </product>
+        </toradians>
+      </function>
+      <output>fcs/elevator-pos-rad</output>
+    </fcs_function>
+
+  </channel>
+
+</system>

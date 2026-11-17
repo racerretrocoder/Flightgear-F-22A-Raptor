@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<system name="THRUST VECTORING!">
+    <channel name="Vectors">
+      <aerosurface_scale name="vectorrad">
+        <input>fcs/fcs-elev-output-main</input> <!--Map 1:1 to Elevators-->
+        <domain>
+          <min> -1 </min>
+          <max>  1 </max>
+        </domain>
+        <range>
+          <min> -0.35 </min>
+          <max>  0.35 </max>
+        </range>
+        <output>fcs/vector-rad</output>
+      </aerosurface_scale>
+
+    <!--VECTOR MAPPINGS, Actual Vectoring output-->
+
+      <aerosurface_scale name="Vector Radian Engine1">
+        <input>fcs/vector-rad</input>
+        <range>
+          <min> -1.0 </min>
+          <max>  1.0 </max>
+        </range>
+        <output>propulsion/engine/pitch-angle-rad</output>
+      </aerosurface_scale>
+      <aerosurface_scale name="Vector Radian Engine2">
+        <input>fcs/vector-rad</input>
+        <range>
+          <min> -1.0 </min>
+          <max>  1.0 </max>
+        </range>
+        <output>propulsion/engine[1]/pitch-angle-rad</output>
+      </aerosurface_scale>
+
+
+
+    <!-- ALL FUNCTIONS BELOW FOR ANIMATIONS!!! -->
+      <aerosurface_scale name="Thrust Vector Control">
+        <input>fcs/fcs-elev-output-main</input>
+        <range>
+          <min> -1.0 </min>
+          <max>  1.0 </max>
+        </range>
+        <output>fcs/tvlscaled</output>
+      </aerosurface_scale>
+
+
+      <kinematic name="Animation and Movement in FDM">        <!-- Must be same as down below! tv-ani-->
+        <input>fcs/fcs-elev-output-main</input>
+        <traverse>
+          <setting>
+            <position>-1</position>
+            <time>0.5</time>
+          </setting>
+          <setting>
+            <position>1</position>
+            <time>0.5</time>
+          </setting>
+        </traverse>
+        <output>fcs/tv-animation</output>
+      </kinematic>
+
+
+      <summer name="ani top vector">
+        <!--<input>fcs/vector-top</input> not ready yet-->
+        <input>fcs/tv-animation</input>
+        <clipto>
+          <min> -1 </min>
+          <max>  1 </max>
+        </clipto>
+      </summer>
+      <summer name="ani lower vector">
+        <!--<input>fcs/vector-lower</input> not ready yet-->
+        <input>fcs/tv-animation</input>
+        <clipto>
+          <min> -1 </min>
+          <max>  1 </max>
+        </clipto>
+      </summer>
+
+      <!--top vectors-->
+
+
+      <kinematic name="Animation and Movement in FDM">
+        <input>fcs/ani-top-vector</input>
+        <traverse>
+          <setting>
+            <position>-1</position>
+            <time>0.5</time>
+          </setting>
+          <setting>
+            <position>1</position>
+            <time>0.5</time>
+          </setting>
+        </traverse>
+        <output>fcs/tv-animation-top</output>
+      </kinematic>
+
+      <!--lower vectors-->
+
+
+      <kinematic name="Animation and Movement in FDM">
+        <input>fcs/ani-lower-vector</input>
+        <traverse>
+          <setting>
+            <position>-1</position>
+            <time>0.5</time>
+          </setting>
+          <setting>
+            <position>1</position>
+            <time>0.5</time>
+          </setting>
+        </traverse>
+        <output>fcs/tv-animation-lower</output>
+      </kinematic>
+
+
+
+  </channel>
+
+</system>

@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<system name="Rudder FCS">
+  <property value="0">systems/fbw/aile-ready</property>
+  <!--Max rudder deflection radians: 0.35-->
+  <!--Rudder mapping Diagram
+          
+
+        Phoenix & KJ7NLL (11/13/2026) Hey! 3 years of F-22A!!
+                              INPUTS:
+            Joystick, Ruddertrim, (Autopilot), (PRE FCS)
+                |          |           |          |
+                |          |           |          |
+                 - - - - - - - - | - - - - - - - - 
+                                 |
+                                 |
+                      (fcs/Rudder-pos-norm) - - - - - - - - - Emer Bypass (If FCS is damaged)
+                                 |                                |
+                                 |                                |
+                      - - - - - - - - - - - -                     |
+                      |                     |                     |
+                      |    Fly by wire      |                     |
+                      |     FCS Code        |                     |
+                      - - - - - - - - - - - -                     |
+                                 |                                |
+                                 |                                |
+                                 |                                |
+                    (fcs/rudder-output-norm)  - - - - - - - - -
+                                 |
+                                 |
+            - Add Hydrolics delay (0.22 seconds kinematic) -
+                                 |
+                                 |
+                -  (fcs/rudder-output-final) -    <== Final Rudder output (norm)
+                                 |
+                                 |
+                        - conver to radians - - - - - - - - - - - - conver to degreese (fcs/rudder-pos-deg) For animations
+                                 |
+                                 |
+                      (fcs/rudder-pos-rad) - left rudder -1 yaw left, 1 yaw right
+                                 |
+                                 |
+                                 |
+                        Final Rudder Output
+  -->
+  
+
+  <channel name="Rudder">
+    <!--note: we cant use regular functions in channels, they have to be fcs_functions-->
+    <summer name="yaw command inputs">
+        <!--this little summer combines all the raw rudder commands from the joystick, pitch trim, and fcs (not implemented yet)-->
+        <input>fcs/rudder-cmd-norm</input> <!-- Raw inputs -->
+        <!--<input>fcs/rudder-trim-cmd-norm</input> whats the trim prop -->
+        <clipto>
+          <min> -1 </min>
+          <max>  1 </max>
+        </clipto>
+      <output>fcs/rudder-pos-norm</output>
+    </summer>
+
+    <!-- - - - - - Begin FCS - - - - - -->
+    
+
+
+
+
+    <!--rudderflight-->
+    <fcs_function name="Beta request for yawFlight">
+      <function>
+        <product>
+          <table>
+            <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
+            <independentVar lookup="column">fcs/rudder-cmd-norm</independentVar>
+            <tableData>
+                          <!--Rudder 0.02 slot deadzone-->
+                        -1   -0.01  0     0.01   1
+                  0     -1    0     0     0      1
+                400     -1    0     0     0      1
+                800     -1    0     0     0      1
+            </tableData>
+          </table>
+          <table>
+            <independentVar lookup="row">/controls/refuel/Switch</independentVar>
+            <tableData> 
+              0     1
+              1     0.3
+            </tableData>
+          </table>
+        </product>
+      </function>
+      <output>fcs/rudder-beta-request</output>
+    </fcs_function>
+
+    <fcs_function name="Yaw rate request for yawFlight">
+      <function>
+        <product>
+          <table>
+            <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
+            <independentVar lookup="column">fcs/rudder-cmd-norm</independentVar>
+            <tableData>
+                          <!--Rudder 0.02 slot deadzone-->
+                        -0.5   -0.01  0     0.01   0.5
+                  0     -0.5    0     0     0      0.5
+                400     -0.5    0     0     0      0.5
+                800     -0.5    0     0     0      0.5
+            </tableData>
+          </table>
+          <table>
+            <independentVar lookup="row">/controls/refuel/Switch</independentVar>
+            <tableData> 
+              0     1
+              1     0.3
+            </tableData>
+          </table>
+        </product>
+      </function>
+      <output>fcs/rudder-yaw-rate-request</output>
+    </fcs_function>
+
+    <!--Maps the pitch command inputs into a pid based Fly-By-Yaw(tm) xd system-->
+    <!-- Yawflight for beta -->
+    <fcs_function name="Turn rate target error for pid beta">
+      <function>
+          <difference>
+            <property>fcs/rudder-beta-request</property>
+            <property>fcs/fbw-beta</property>
+          </difference>
+      </function>
+      <output>fcs/yaw-error-beta-rad</output>
+    </fcs_function>
+
+    <fcs_function name="fcs/yawflight-beta-kp">
+      <function>
+        <product>
+          <value>2.0</value> <!-- The value of Kp, tuned for the specific qbar pressure -->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="fcs/yawflight-beta-ki">
+      <function>
+        <product>
+          <value>0.0</value> <!-- The value of Ki, tuned for the specific qbar pressure -->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="fcs/yawflight-beta-kd">
+      <function>
+        <product>
+          <value>5</value> <!-- The value of Kd, tuned for the specific qbar pressure -->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <pid name="fcs/rudder-yawflight-beta">
+      <input>fcs/yaw-error-beta-rad</input>
+      <kp>fcs/yawflight-beta-kp</kp>
+      <ki>fcs/yawflight-beta-ki</ki>
+      <kd>fcs/yawflight-beta-kd</kd>
+      <clipto>
+        <min>-1</min>
+        <max>1</max>
+      </clipto>
+      <output>fcs/fcs-rudder-yawflight-beta</output>
+    </pid>
+
+    <!-- Yawflight for yaw rate -->
+    <fcs_function name="Turn rate target error for pid rate">
+      <function>
+          <difference>
+            <property>-fcs/rudder-yaw-rate-request</property>
+            <property>fcs/fbw-yaw-rate</property>
+          </difference>
+      </function>
+      <output>fcs/yaw-error-rate-rad_sec</output>
+    </fcs_function>
+
+    <fcs_function name="fcs/yawflight-rate-kp">
+      <function>
+        <product>
+          <value>2.0</value> <!-- The value of Kp, tuned for the specific qbar pressure -->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="fcs/yawflight-rate-ki">
+      <function>
+        <product>
+          <value>0.0</value> <!-- The value of Ki, tuned for the specific qbar pressure -->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="fcs/yawflight-rate-kd">
+      <function>
+        <product>
+          <value>5</value> <!-- The value of Kd, tuned for the specific qbar pressure -->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <pid name="fcs/rudder-yawflight-rate">
+      <input>-fcs/yaw-error-rate-rad_sec</input>
+      <kp>fcs/yawflight-rate-kp</kp>
+      <ki>fcs/yawflight-rate-ki</ki>
+      <kd>fcs/yawflight-rate-kd</kd>
+      <clipto>
+        <min>-1</min>
+        <max>1</max>
+      </clipto>
+      <output>fcs/fcs-rudder-yawflight-rate</output>
+    </pid>
+
+    <!-- Nose wheel steering for on the ground -->
+    <fcs_function name="fcs/nws">
+        <function>
+            <product>
+                <table>
+                    <independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
+                    <tableData>
+                        <!-- Quadratic curve -->
+                        0   1
+                        5   0.9375
+                       10   0.75
+                       15   0.4375
+                       30   0.21875
+                    </tableData>
+                </table>
+                <property>-fcs/rudder-pos-norm</property> <!-- Needs to be negative -->
+            </product>
+        </function>
+        <output>fcs/steer-cmd-norm-output</output>
+    </fcs_function>
+
+    <!-- Only enable if in the air with sufficient control -->
+    
+    <switch name="fcs/yaw-on-off">
+        <default value="fcs/fcs-rudder-yawflight-beta"/>
+        <test logic="AND" value="fcs/rudder-pos-norm">
+            gear/unit/WOW eq 1
+        </test>
+        <test logic="OR" value="fcs/fcs-rudder-yawflight-rate">
+            aero/alpha-deg ge 40
+            velocities/vt-fps lt 250
+        </test>
+    </switch>
+
+    <!--Total rudder output-->
+    <fcs_function name="Total Output">
+      <function>
+        <property>fcs/yaw-on-off</property>
+      </function>
+      <output>fcs/fcs-rud-output</output>
+    </fcs_function>
+
+    <!-- Rudder -->
+    <kinematic name="rudder delay">
+      <input>fcs/fcs-rud-output</input>
+      <traverse>
+        <setting>
+          <position>  -1 </position>
+          <time>      0.22</time>
+        </setting>
+        <setting>
+          <position>  0 </position>
+          <time>      0.22</time>
+        </setting>
+        <setting>
+          <position>  1 </position>
+          <time>      0.22</time>
+        </setting>
+      </traverse>
+      <output>fcs/fcs-rud-output-main</output>
+    </kinematic>
+    
+    <aerosurface_scale name="z rudder radian">
+        <input>fcs/fcs-rud-output-main</input>
+        <domain>
+            <min> -1 </min>
+            <max>  1 </max>
+        </domain>
+        <range>
+            <min> -0.35 </min>
+            <max>  0.35 </max>
+        </range>
+        <output>fcs/rudder-pos-rad</output>
+    </aerosurface_scale>
+
+    <!-- NWS -->
+    <kinematic name="nws delay">
+      <input>fcs/steer-cmd-norm-output</input>
+      <traverse>
+        <setting>
+          <position>  -1 </position>
+          <time>      0.25</time>
+        </setting>
+        <setting>
+          <position>  0 </position>
+          <time>      0.25</time>
+        </setting>
+        <setting>
+          <position>  1 </position>
+          <time>      0.25</time>
+        </setting>
+      </traverse>
+      <output>fcs/steer-cmd-norm-main</output>
+    </kinematic>
+
+    <aerosurface_scale name="NWS pos norm">
+      <input>fcs/steer-cmd-norm-main</input>
+      <domain>
+        <min> -1 </min>
+        <max>  1 </max>
+      </domain>
+      <range>
+        <min> -1 </min>
+        <max>  1 </max>
+      </range>
+      <output>fcs/steer-cmd-norm</output>
+    </aerosurface_scale>
+
+  </channel>
+
+</system>

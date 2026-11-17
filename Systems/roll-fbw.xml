@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<system name="Aileron FCS">
+  <property value="0">systems/fbw/aile-ready</property>
+  <!--Max aileron deflection radians: 0.35-->
+  <!--Aileron mapping Diagram
+          
+
+        Phoenix & KJ7NLL (11/13/2026) Hey! 3 years of F-22A!!
+                              INPUTS:
+            Joystick, Ailerontrim, (Autopilot), (PRE FCS)
+                |          |           |          |
+                |          |           |          |
+                 - - - - - - - - | - - - - - - - - 
+                                 |
+                                 |
+                      (fcs/Aileron-pos-norm) - - - - - - - - - Emer Bypass (If FCS is damaged)
+                                 |                                |
+                                 |                                |
+                      - - - - - - - - - - - -                     |
+                      |                     |                     |
+                      |    Fly by wire      |                     |
+                      |     FCS Code        |                     |
+                      - - - - - - - - - - - -                     |
+                                 |                                |
+                                 |                                |
+                                 |                                |
+                    (fcs/aileron-output-norm)  - - - - - - - - -
+                                 |
+                                 |
+            - Add Hydrolics delay (0.22 seconds kinematic) -
+                                 |
+                                 |
+                -  (fcs/aileron-output-final) -    <== Final Aileron output (norm)
+                                 |
+                                 |
+                        - conver to radians - - - - - - - - - - - - conver to degreese (fcs/aileron-pos-deg) For animations
+                                 |
+                                 |
+                      (fcs/aileron-pos-rad) - left aileron -1 roll left, 1 roll right
+                                 |
+                                 |
+                                 |
+                        Final Aileron Output
+  -->
+  
+
+  <channel name="Aileron">
+    <!--note: we cant use regular functions in channels, they have to be fcs_functions-->
+    <summer name="Roll command inputs">
+        <!--this little summer combines all the raw aileron commands from the joystick, pitch trim, and fcs (not implemented yet)-->
+        <input>fcs/aileron-cmd-norm</input> <!-- Raw inputs -->
+        <!--<input>fcs/aileron-trim-cmd-norm</input> whats the trim prop -->
+        <clipto>
+          <min> -1 </min>
+          <max>  1 </max>
+        </clipto>
+      <output>fcs/aileron-pos-norm</output>
+    </summer>
+
+    <!-- - - - - - Begin FCS - - - - - -->
+    
+
+
+
+
+    <!--Rollflight-->
+    <fcs_function name="Turn request for RollFlight">
+      <function>
+        <product>
+          <table>
+            <independentVar lookup="row">/velocities/airspeed-kt</independentVar>
+            <independentVar lookup="column">fcs/aileron-cmd-norm</independentVar>
+            <tableData>
+                          <!--Aileron 0.02 slot deadzone-->
+                        -1    -0.35   -0.01  0   0.01   0.35   1
+                  0   -6.6    -0.5     0    0    0      0.5    6.6
+                400   -6.6    -0.5     0    0    0      0.5    6.6
+                800   -2.6    -0.1     0    0    0      0.1    2.6
+            </tableData>
+          </table>
+          <table>
+            <independentVar lookup="row">/controls/refuel/Switch</independentVar>
+            <tableData> 
+              0     1
+              1     0.3
+            </tableData>
+          </table>
+        </product>
+      </function>
+      <output>fcs/aileron-roll-request</output>
+    </fcs_function>
+
+    <!--Maps the pitch command inputs into a pid based Fly-By-Rollrate(tm) xd system-->
+    <fcs_function name="Turn rate target error for pid yaw">
+      <function>
+          <difference>
+            <property>fcs/aileron-roll-request</property>
+            <property>fcs/fbw-roll-rate</property>
+          </difference>
+      </function>
+      <output>fcs/roll-error-rad</output>
+    </fcs_function>
+
+    <fcs_function name="fcs/rollflight-kp">
+      <function>
+        <product>
+          <value>1.5</value> <!-- The value of Kp, tuned for the specific qbar pressure 0.3-->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="fcs/rollflight-ki">
+      <function>
+        <product>
+          <value>0.0</value> <!-- The value of Ki, tuned for the specific qbar pressure 0.0-->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="fcs/rollflight-kd">
+      <function>
+        <product>
+          <value>0.04</value> <!-- The value of Kd, tuned for the specific qbar pressure 0.001-->
+          <property>fcs/inverse-qbar-gflight</property>
+        </product>
+      </function>
+    </fcs_function>
+
+    <pid name="fcs/aileron-rollflight">
+      <input>fcs/roll-error-rad</input>
+      <kp>fcs/rollflight-kp</kp>
+      <ki>fcs/rollflight-ki</ki>
+      <kd>fcs/rollflight-kd</kd>
+      <clipto>
+        <min>-1</min>
+        <max>1</max>
+      </clipto>
+      <output>fcs/fcs-aileron-rollflight</output>
+    </pid>
+
+    <!--Total Aileron output-->
+    <fcs_function name="Total Output">
+      <function>
+          <property>fcs/fcs-aileron-rollflight</property>
+      </function>
+      <output>fcs/fcs-aile-output</output>
+    </fcs_function>
+
+    <kinematic name="aileron delay">
+      <input>fcs/fcs-aile-output</input>
+      <traverse>
+        <setting>
+          <position>  -1 </position>
+          <time>      0.22</time>
+        </setting>
+        <setting>
+          <position>  0 </position>
+          <time>      0.22</time>
+        </setting>
+        <setting>
+          <position>  1 </position>
+          <time>      0.22</time>
+        </setting>
+      </traverse>
+      <output>fcs/fcs-aile-output-main</output>
+    </kinematic>
+
+    <aerosurface_scale name="z aileron radian">
+      <input>fcs/fcs-aile-output-main</input>
+      <domain>
+        <min> -1 </min>
+        <max>  1 </max>
+      </domain>
+      <range>
+        <min> -0.35 </min>
+        <max>  0.35 </max>
+      </range>
+      <output>fcs/aileron-pos-rad</output>
+    </aerosurface_scale>
+
+  </channel>
+
+</system>
