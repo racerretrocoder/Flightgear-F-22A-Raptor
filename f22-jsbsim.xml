@@ -1890,7 +1890,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <function name="aero/force/Lift_alpha">
         <description>Lift due to alpha</description>
         <product>
-          <property>aero/qbar-psf</property>
+          <property>aero/qbarUW-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>fcs/wing-coeff</property>
           <table>
@@ -2287,7 +2287,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <function name="aero/moment/Pitch_alpha">
         <description>Pitch moment Coeff VS Angle-of-Attack NASA</description>
         <product>
-          <property>aero/qbar-psf</property>
+          <property>aero/qbarUW-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/cbarw-ft</property>
           <table>
@@ -2401,7 +2401,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <function name="aero/moment/Pitch_damp">
         <description>Cm Due To Pitch Rate NASA</description>
         <product>
-          <property>aero/qbar-psf</property>
+          <property>aero/qbarUW-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/cbarw-ft</property>
           <table>
@@ -2436,7 +2436,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
       <function name="aero/moment/Pitch_alphadot">
         <description>Pitch moment due to alpha rate</description>
         <product>
-          <property>aero/qbar-psf</property>
+          <property>aero/qbarUW-psf</property>
           <property>metrics/Sw-sqft</property>
           <property>metrics/cbarw-ft</property>
           <property>aero/ci2vel</property>
