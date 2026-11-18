@@ -119,10 +119,14 @@
     <!-- glimit -->
     <fcs_function name="fcs/glimit-norm-exceed">
       <function>
-        <difference>
-          <property>accelerations/Nz</property>
+        <quotient>
+          <difference>
+            <property>accelerations/Nz</property>
+            <property>/f22/fcs/glimit</property>
+          </difference>
+          <!-- Normalize -->
           <property>/f22/fcs/glimit</property>
-        </difference>
+        </quotient>
       </function>
       <clipto>
         <min>-5</min>
@@ -161,15 +165,30 @@
     </fcs_function>
     
     <!-- AOA limit -->
+    <!-- Find the g force required to reach the aoa limit -->
+    <fcs_function name="fcs/aoalimit-rad">
+      <function>
+        <toradians>
+          <property>/f22/fcs/aoalimit</property>
+        </toradians>
+      </function>
+    </fcs_function>
+
+    <summer name="fcs/aoalimit-reduced">
+      <input>fcs/aoalimit-rad</input>
+      <input>-fcs/aoa-reduce</input>
+    </summer>
+
     <fcs_function name="fcs/aoalimit-norm-exceed">
       <function>
-        <product>
-          <value>0.15</value>
+        <quotient>
           <difference>
-            <property>aero/alpha-deg</property>
-            <property>/f22/fcs/aoalimit</property>
+            <property>aero/alpha-rad</property>
+            <property>fcs/aoalimit-rad</property>
           </difference>
-        </product>
+          <!-- Normalize -->
+          <property>fcs/aoalimit-rad</property>
+        </quotient>
       </function>
       <clipto>
         <min>-5</min>
@@ -179,30 +198,55 @@
 
     <fcs_function name="fcs/pitch-rate-aoalimit">
       <function>
-        <quotient>
-          <product>
-            <property>accelerations/gravity-ft_sec2</property>
-            <difference>
-              <product>
-                <property>/f22/fcs/aoalimit</property>
-                <value>0.15</value>
-              </product>
-              <property>fcs/g-reduce</property>
-              <product>
-                <cos>
-                  <property>attitude/theta-rad</property>
-                </cos>
-                <cos>
-                  <property>attitude/phi-rad</property>
-                </cos>
-              </product>
-            </difference>
-          </product>
+        <sum>
+          <difference>
+            <property>fcs/aoalimit-reduced</property>
+            <property>aero/alpha-rad</property>
+          </difference>
           <max>
-            <property>velocities/vt-fps</property>
-            <value>0.0001</value>
+            <value>0</value>
+            <quotient>
+              <product>
+                <property>accelerations/gravity-ft_sec2</property>
+                <difference>
+                  <quotient>
+                    <product>
+                      <property>aero/qbar-psf</property>
+                      <property>metrics/Sw-sqft</property>
+                      <table>
+                        <independentVar lookup="row">fcs/aoalimit-reduced</independentVar>
+                        <tableData>
+                          -0.20 -0.640
+                          0.00  0.080
+                          0.30  1.060
+                          0.60  1.700
+                          0.85  2.000
+                          1.22  0.800
+                          1.57  0.000
+                        </tableData>
+                      </table>
+                      <!-- <property>/f22/fcs/aoalimit-rad</property>
+                      <property>fcs/aoalimit-reduced</property> -->
+                    </product>
+                    <property>inertia/weight-lbs</property>
+                  </quotient>
+                  <product>
+                    <cos>
+                      <property>attitude/theta-rad</property>
+                    </cos>
+                    <cos>
+                      <property>attitude/phi-rad</property>
+                    </cos>
+                  </product>
+                </difference>
+              </product>
+              <max>
+                <property>velocities/vt-fps</property>
+                <value>0.0001</value>
+              </max>
+            </quotient>
           </max>
-        </quotient>
+        </sum>
       </function>
       <clipto>
         <min>0</min>
@@ -213,30 +257,57 @@
     <!-- Combine limits -->
     <fcs_function name="fcs/turn-limit">
       <function>
-        <max>
+        <!-- No aoa limit on the ground -->
+        <ifthen>
+          <eq>
+            <property>gear/unit/WOW</property>
+            <value>1</value>
+          </eq>
           <property>fcs/glimit-norm-exceed</property>
-          <property>fcs/aoalimit-norm-exceed</property>
-        </max>
+          <max>
+            <property>fcs/glimit-norm-exceed</property>
+            <property>fcs/aoalimit-norm-exceed</property>
+          </max>
+        </ifthen>
       </function>
     </fcs_function>
     
-    <switch name="limit-windup-trigger">
+    <switch name="limit-windup-trigger-glim">
       <test logic="AND" value="1">
         fcs/g-reduce eq 0
       </test>
     </switch>
 
+    <switch name="limit-windup-trigger-aoalim">
+      <test logic="AND" value="1">
+        fcs/aoa-reduce eq 0
+      </test>
+    </switch>
+
     <pid name="fcs/g-reduce">
       <input>fcs/turn-limit</input>
-      <kp>0.3</kp> <!--1.5-->
-      <ki>0.5</ki> <!--3.0-->
-      <kd>0.005</kd> <!--0.0-->
-      <trigger>fcs/limit-windup-trigger</trigger>
+      <kp>1.5</kp> <!--0.3-->
+      <ki>3.0</ki> <!--0.5-->
+      <kd>0.005</kd> <!--0.005-->
+      <trigger>fcs/limit-windup-trigger-glim</trigger>
       <clipto>
         <min>0</min>
         <max>1</max>
       </clipto>
       <output>fcs/g-reduce</output>
+    </pid>
+
+    <pid name="fcs/aoa-reduce">
+      <input>fcs/turn-limit</input>
+      <kp>0.3</kp> <!--1.5-->
+      <ki>0.5</ki> <!--3.0-->
+      <kd>0.005</kd> <!--0.0-->
+      <trigger>fcs/limit-windup-trigger-aoalim</trigger>
+      <clipto>
+        <min>0</min>
+        <max>1</max>
+      </clipto>
+      <output>fcs/aoa-reduce</output>
     </pid>
     
     <!--Maps the pitch command inputs into a pid based Fly-By-Pitchrate(tm) xd system-->
@@ -246,7 +317,15 @@
           <min>
             <property>fcs/turn-request-rad</property>
             <property>fcs/pitch-rate-glimit</property>
-            <property>fcs/pitch-rate-aoalimit</property>
+            <!-- No aoa limit on the ground -->
+            <ifthen>
+              <eq>
+                <property>gear/unit/WOW</property>
+                <value>1</value>
+              </eq>
+              <value>3</value>
+              <property>fcs/pitch-rate-aoalimit</property>
+            </ifthen>
           </min>
           <property>fcs/fbw-pitch-rate</property>
         </difference>
