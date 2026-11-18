@@ -2273,6 +2273,210 @@ max. radar range target seize(RCS)m2, 4th root of radar RCS -->
           <tutorial include="/Missions/oilrig-landing.xml"/>-->
       </tutorials>
 
+      <!-- Replay -->
+      <flight-recorder>
+        <replay-config type="int">0</replay-config>
+        <config n="0" include="/Aircraft/Generic/flightrecorder/generic-jet.xml">
+          <name type="string">My Aircraft's Flight Recorder</name>
+          <signals include="/Aircraft/Generic/flightrecorder/components/engine-jet.xml"/>
+          <!-- Custom properties -->
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[4]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[5]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[6]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[7]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[8]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[9]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[10]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[11]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[12]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[13]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[14]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[15]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[16]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[17]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[18]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[19]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[20]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[21]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[22]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[23]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[24]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[25]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[26]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[27]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[28]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[29]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[30]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[31]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[32]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[33]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[34]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[35]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[36]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[37]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[38]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[39]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+            <type>float</type>
+            <property type="string">/sim/multiplay/generic/float[39]</property>
+            <interpolation>linear</interpolation>
+          </signal>
+          <signal>
+              <type>float</type>
+              <property type="string">/fdm/jsbsim/fcs/gear-control</property>
+          </signal>
+          <signal>
+              <type>float</type>
+              <property type="string">/fdm/jsbsim/fcs/steer-cmd-norm</property>
+          </signal>
+        </config>
+      </flight-recorder>
+
+
 		</sim>
 
 <messages>
