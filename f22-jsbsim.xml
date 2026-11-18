@@ -1800,6 +1800,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   </flight_control>
 
   <!-- FLY BY WIRE (Phoenix & KJ7NLL)-->
+  <system file="Systems/hydrolics.xml"/>
   <system file="Systems/elev-fbw.xml"/>
   <system file="Systems/roll-fbw.xml"/>
   <system file="Systems/yaw-fbw.xml"/>

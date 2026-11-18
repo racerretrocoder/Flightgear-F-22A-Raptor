@@ -225,8 +225,6 @@
                           1.57  0.000
                         </tableData>
                       </table>
-                      <!-- <property>/f22/fcs/aoalimit-rad</property>
-                      <property>fcs/aoalimit-reduced</property> -->
                     </product>
                     <property>inertia/weight-lbs</property>
                   </quotient>
@@ -335,7 +333,7 @@
 
     <switch name="fcs/gflight-windup-trigger">
       <default value="0"/>
-      <test logic="AND" value="-1">
+      <test logic="AND" value="1">
         gear/unit/WOW eq 1
       </test>
       <test logic="AND" value="1">
@@ -351,7 +349,7 @@
     <fcs_function name="fcs/gflight-kp">
       <function>
         <product>
-          <value>8.0</value> <!-- The value of Kp, tuned for the specific qbar pressure -->
+          <value>2.0</value> <!-- The value of Kp, tuned for the specific qbar pressure -->
           <property>fcs/inverse-qbar-gflight</property>
         </product>
       </function>
@@ -410,27 +408,12 @@
       <output>fcs/fcs-elev-output</output>
     </fcs_function>
 
-    
-      <kinematic name="elevator delay">
-        <input>fcs/fcs-elev-output</input>
-        <traverse>
-          <setting>
-            <position>  -1 </position>
-            <time>      0.22</time>
-          </setting>
-          <setting>
-            <position>  0 </position>
-            <time>      0.22</time>
-          </setting>
-          <setting>
-            <position>  1 </position>
-            <time>      0.22</time>
-          </setting>
-        </traverse>
-        <output>fcs/fcs-elev-output-main</output>
-      </kinematic>
-
-
+    <actuator name="elevator delay">
+      <input>fcs/fcs-elev-output</input>
+      <lag>60</lag>
+      <rate_limit>hyd/hydrolic-slow</rate_limit>
+      <output>fcs/fcs-elev-output-main</output>
+    </actuator>
 
     <!-- Normalized elevator output in radians -->
     <fcs_function name="Normalized elevator output radians">

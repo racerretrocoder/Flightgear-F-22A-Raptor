@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+
+<!-- Simply hydrolic system by Clash -->
+
+<system name="Hydrolic system">
+  <!-- Definitions -->
+  <property value="0.44">hyd/normal-delay-sec</property>
+  <property value="4000">hyd/max-press-psi</property>
+  <property value="1">hyd/eng1-pump1-fail</property> <!-- 1 means not failed, 0 means failed -->
+  <property value="1">hyd/eng1-pump2-fail</property> <!-- 1 means not failed, 0 means failed -->
+  <property value="1">hyd/eng2-pump1-fail</property> <!-- 1 means not failed, 0 means failed -->
+  <property value="1">hyd/eng2-pump2-fail</property> <!-- 1 means not failed, 0 means failed -->
+
+  <!-- System stuf -->
+  <channel name="Hydrolics">
+
+    <!-- Pressure is always going down, unless something is bringing it up -->
+    <fcs_function name="hyd/press-decay-rate">
+      <function>
+        <product>
+          <difference>
+            <value>0</value>
+            <property>hyd/press-psi</property>
+          </difference>
+          <value>0.05</value> <!-- idk, this just feels right tbh -->
+        </product>
+      </function>
+    </fcs_function>
+
+    <!-- PUMPS -->
+    <!-- 2000psi/s per pump -->
+    <fcs_function name="hyd/eng1-pump1">
+      <function>
+        <product>
+          <max>
+            <value>0</value>
+            <quotient>
+                <difference>
+                  <property>propulsion/engine[0]/n2</property>
+                  <value>5</value> <!-- Cutoff for effective pump power generation at 5% n2 -->
+                </difference>
+                <value>60</value> <!-- Idle n2 -->
+            </quotient>
+          </max>
+          <value>2000</value> <!-- Nominal 2000psi/s at idle -->
+          <property>hyd/eng1-pump1-fail</property> <!-- If 1, not failed, if 0, failed -->
+        </product>
+      </function>
+      <clipto>
+        <min>0</min>
+        <max>2000</max>
+      </clipto>
+    </fcs_function>
+
+    <fcs_function name="hyd/eng1-pump2">
+      <function>
+        <product>
+          <max>
+            <value>0</value>
+            <quotient>
+                <difference>
+                  <property>propulsion/engine[0]/n2</property>
+                  <value>5</value> <!-- Cutoff for effective pump power generation at 5% n2 -->
+                </difference>
+                <value>60</value> <!-- Idle n2 -->
+            </quotient>
+          </max>
+          <value>2000</value> <!-- Nominal 2000psi/s at idle -->
+          <property>hyd/eng1-pump2-fail</property> <!-- If 1, not failed, if 0, failed -->
+        </product>
+      </function>
+      <clipto>
+        <min>0</min>
+        <max>2000</max>
+      </clipto>
+    </fcs_function>
+
+    <fcs_function name="hyd/eng2-pump1">
+      <function>
+        <product>
+          <max>
+            <value>0</value>
+            <quotient>
+                <difference>
+                  <property>propulsion/engine[1]/n2</property>
+                  <value>5</value> <!-- Cutoff for effective pump power generation at 5% n2 -->
+                </difference>
+                <value>60</value> <!-- Idle n2 -->
+            </quotient>
+          </max>
+          <value>2000</value> <!-- Nominal 2000psi/s at idle -->
+          <property>hyd/eng2-pump1-fail</property> <!-- If 1, not failed, if 0, failed -->
+        </product>
+      </function>
+      <clipto>
+        <min>0</min>
+        <max>2000</max>
+      </clipto>
+    </fcs_function>
+
+    <fcs_function name="hyd/eng2-pump2">
+      <function>
+        <product>
+          <max>
+            <value>0</value>
+            <quotient>
+                <difference>
+                  <property>propulsion/engine[1]/n2</property>
+                  <value>5</value> <!-- Cutoff for effective pump power generation at 5% n2 -->
+                </difference>
+                <value>60</value> <!-- Idle n2 -->
+            </quotient>
+          </max>
+          <value>2000</value> <!-- Nominal 2000psi/s at idle -->
+          <property>hyd/eng2-pump2-fail</property> <!-- If 1, not failed, if 0, failed -->
+        </product>
+      </function>
+      <clipto>
+        <min>0</min>
+        <max>2000</max>
+      </clipto>
+    </fcs_function>
+
+    <!-- APU is smaller, so less pump rate -->
+    <fcs_function name="hyd/apu-pump">
+      <function>
+        <ifthen>
+          <property>/controls/apu/run</property>
+          <value>800</value>
+          <value>0</value>
+        </ifthen>
+      </function>
+      <clipto>
+        <min>0</min>
+        <max>1000</max>
+      </clipto>
+    </fcs_function>
+
+    <!-- Find the rate of movement of control surfaces -->
+    <pid name="fcs/fcs-elev-output-main-rate">
+      <input>fcs/fcs-elev-output-main</input>
+      <kp>0</kp>
+      <ki>0</ki>
+      <kd>1</kd>
+    </pid>
+
+    <pid name="fcs/fcs-aile-output-main-rate">
+      <input>fcs/fcs-aile-output-main</input>
+      <kp>0</kp>
+      <ki>0</ki>
+      <kd>1</kd>
+    </pid>
+
+    <pid name="fcs/fcs-rud-output-main-rate">
+      <input>fcs/fcs-rud-output-main</input>
+      <kp>0</kp>
+      <ki>0</ki>
+      <kd>1</kd>
+    </pid>
+
+    <pid name="fcs/steer-cmd-norm-rate">
+      <input>fcs/steer-cmd-norm</input>
+      <kp>0</kp>
+      <ki>0</ki>
+      <kd>1</kd>
+    </pid>
+
+    <!-- Decay due to control surfaces moving -->
+    <fcs_function name="hyd/elev-decay">
+      <function>
+        <product>
+          <abs>
+            <property>fcs/fcs-elev-output-main-rate</property>
+          </abs>
+          <value>-600</value> <!-- My guess as to how much PSI it takes to move the ctrl surface for full extension -->
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="hyd/aile-decay">
+      <function>
+        <product>
+          <abs>
+            <property>fcs/fcs-aile-output-main-rate</property>
+          </abs>
+          <value>-600</value> <!-- My guess as to how much PSI it takes to move the ctrl surface for full extension -->
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="hyd/rud-decay">
+      <function>
+        <product>
+          <abs>
+            <property>fcs/fcs-rud-output-main-rate</property>
+          </abs>
+          <value>-200</value> <!-- My guess as to how much PSI it takes to move the ctrl surface for full extension -->
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="hyd/nws-decay">
+      <function>
+        <product>
+          <abs>
+            <property>fcs/steer-cmd-norm-rate</property>
+          </abs>
+          <value>-100</value> <!-- My guess as to how much PSI it takes to move the nose wheel for full turn -->
+        </product>
+      </function>
+    </fcs_function>
+
+    <!-- Regulate the pressure -->
+    <fcs_function name="hyd/regulator">
+      <function>
+        <!-- Starts tapering off at 3744 PSI -->
+        <product>
+          <sqrt>
+            <max>
+              <difference>
+                <property>hyd/max-press-psi</property>
+                <property>hyd/press-psi</property>
+              </difference>
+              <value>0</value>
+            </max>
+          </sqrt>
+          <value>0.0625</value>
+        </product>
+      </function>
+      <clipto>
+        <min>0</min>
+        <max>1</max>
+      </clipto>
+    </fcs_function>
+
+    <fcs_function name="hyd/total-pump-regulated">
+      <function>
+        <product>
+          <sum>
+            <property>hyd/eng1-pump1</property>       <!--Pump-->
+            <property>hyd/eng1-pump2</property>       <!--Pump-->
+            <property>hyd/eng2-pump1</property>       <!--Pump-->
+            <property>hyd/eng2-pump2</property>       <!--Pump-->
+            <property>hyd/apu-pump</property>         <!--Pump-->
+          </sum>
+          <property>hyd/regulator</property>          <!--Regulator-->
+        </product>
+      </function>
+    </fcs_function>
+
+    <!-- Sum it all up -->
+    <summer name="hyd/total-psi_sec">
+      <input>hyd/total-pump-regulated</input> <!--Pump-->
+      <input>hyd/press-decay-rate</input>     <!--Decay-->
+      <input>hyd/elev-decay</input>           <!--Decay-->
+      <input>hyd/aile-decay</input>           <!--Decay-->
+      <input>hyd/rud-decay</input>            <!--Decay-->
+      <input>hyd/nws-decay</input>            <!--Decay-->
+    </summer>
+
+    <!-- Now to calculate the hyd pressure -->
+    <integrator name="hyd/press-psi">
+      <input>hyd/total-psi_sec</input>
+      <c1>1</c1>
+      <clipto>
+        <min>0</min>
+        <max>4000</max>
+      </clipto>
+    </integrator>
+
+    <!-- Slow down actuator speeds based on hydrolic pressure -->
+    <fcs_function name="hyd/hydrolic-slow">
+      <function>
+        <quotient>
+          <value>2</value> <!-- Normalize the value so that JSBsim actuators work -->
+          <product>
+            <quotient>
+              <property>hyd/max-press-psi</property>
+              <max>
+                <property>hyd/press-psi</property>
+                <value>0.0000000001</value> <!--Prevent div/0, and basically no hyd movement-->
+              </max>
+            </quotient>
+            <property>hyd/normal-delay-sec</property>
+          </product>
+        </quotient>
+      </function>
+    </fcs_function>
+
+  </channel>
+
+</system>

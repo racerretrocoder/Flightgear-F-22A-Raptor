@@ -148,24 +148,12 @@
       <output>fcs/fcs-aile-output</output>
     </fcs_function>
 
-    <kinematic name="aileron delay">
+    <actuator name="aileron delay">
       <input>fcs/fcs-aile-output</input>
-      <traverse>
-        <setting>
-          <position>  -1 </position>
-          <time>      0.22</time>
-        </setting>
-        <setting>
-          <position>  0 </position>
-          <time>      0.22</time>
-        </setting>
-        <setting>
-          <position>  1 </position>
-          <time>      0.22</time>
-        </setting>
-      </traverse>
+      <lag>60</lag>
+      <rate_limit>hyd/hydrolic-slow</rate_limit>
       <output>fcs/fcs-aile-output-main</output>
-    </kinematic>
+    </actuator>
 
     <aerosurface_scale name="z aileron radian">
       <input>fcs/fcs-aile-output-main</input>
