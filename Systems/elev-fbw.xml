@@ -102,7 +102,7 @@
               1     0.3
             </tableData>
           </table>
-          <property>fcs/elevator-pos-norm</property>
+          <property>-fcs/elevator-pos-norm</property>
         </product>
       </function>
       <output>fcs/turn-request</output>
