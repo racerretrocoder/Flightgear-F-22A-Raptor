@@ -90,7 +90,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <ixx unit="SLUG*FT2">     46000 </ixx>
     <iyy unit="SLUG*FT2">     243500 </iyy>
     <izz unit="SLUG*FT2">     277000 </izz>
-    <emptywt unit="LBS">     34000 </emptywt>
+    <emptywt unit="LBS">     43000 </emptywt>
     <location name="CG" unit="IN">
 
       <x>78.800866141732283</x>

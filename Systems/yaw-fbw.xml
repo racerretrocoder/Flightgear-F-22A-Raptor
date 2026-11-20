@@ -240,7 +240,7 @@
 
     <!-- Only enable if in the air with sufficient control -->
     
-    <switch name="fcs/yaw-on-off">
+    <switch name="fcs/yaw-mode">
         <default value="fcs/fcs-rudder-yawflight-beta"/>
         <test logic="AND" value="fcs/rudder-pos-norm">
             gear/unit/WOW eq 1
@@ -251,17 +251,27 @@
         </test>
     </switch>
 
-    <!--Total rudder output-->
-    <fcs_function name="Total Output">
-      <function>
-        <property>fcs/yaw-on-off</property>
-      </function>
-      <output>fcs/fcs-rud-output</output>
-    </fcs_function>
+    <!-- Check for bypass -->
+    <switch name="fcs/fcs-rud-output">
+      <test logic="AND" value="fcs/yaw-mode">
+        /controls/FBW/Switch eq 0
+      </test>
+      <test logic="AND" value="fcs/rudder-pos-norm">
+        /controls/FBW/Switch eq 1
+      </test>
+    </switch>
 
-    <!-- Rudder -->
-    
 
+
+
+
+
+
+
+
+
+
+    <!-- Push to the rudder output -->
     <actuator name="rudder delay">
       <input>fcs/fcs-rud-output</input>
       <lag>60</lag>

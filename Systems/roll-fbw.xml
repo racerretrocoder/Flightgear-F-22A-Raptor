@@ -140,14 +140,27 @@
       <output>fcs/fcs-aileron-rollflight</output>
     </pid>
 
-    <!--Total Aileron output-->
-    <fcs_function name="Total Output">
-      <function>
-          <property>fcs/fcs-aileron-rollflight</property>
-      </function>
-      <output>fcs/fcs-aile-output</output>
-    </fcs_function>
+    <!-- Check for bypass -->
+    <switch name="fcs/fcs-aile-output">
+      <test logic="AND" value="fcs/fcs-aileron-rollflight">
+        /controls/FBW/Switch eq 0
+      </test>
+      <test logic="AND" value="fcs/aileron-pos-norm">
+        /controls/FBW/Switch eq 1
+      </test>
+    </switch>
 
+
+
+
+
+
+
+
+
+
+
+    <!-- Push to the aileron output -->
     <actuator name="aileron delay">
       <input>fcs/fcs-aile-output</input>
       <lag>60</lag>

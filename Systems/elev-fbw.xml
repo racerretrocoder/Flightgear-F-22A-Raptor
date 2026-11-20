@@ -445,6 +445,14 @@
     </pid>
 
     <!-- Check for bypass -->
+    <switch name="fcs/fcs-elev-output">
+      <test logic="AND" value="fcs/fcs-elevator-gflight">
+        /controls/FBW/Switch eq 0
+      </test>
+      <test logic="AND" value="fcs/elevator-pos-norm">
+        /controls/FBW/Switch eq 1
+      </test>
+    </switch>
 
 
 
@@ -456,16 +464,7 @@
 
 
 
-
-
-    <!--Total elevator output-->
-    <fcs_function name="Total Output">
-      <function>
-        <property>fcs/fcs-elevator-gflight</property>
-      </function>
-      <output>fcs/fcs-elev-output</output>
-    </fcs_function>
-
+    <!-- Push to the aileron output -->
     <actuator name="elevator delay">
       <input>fcs/fcs-elev-output</input>
       <lag>60</lag>
