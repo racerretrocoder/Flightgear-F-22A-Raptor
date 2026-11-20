@@ -132,30 +132,110 @@
         <max>5</max>
       </clipto>
     </fcs_function>
+
+    <fcs_function name="fcs/math-safe-vt-fps">
+      <function>
+        <max>
+          <property>velocities/vt-fps</property>
+          <value>0.0000001</value>
+        </max>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="fcs/vtdot-ft_sec2">
+      <function>
+        <quotient>
+          <sum>
+            <product>
+              <property>velocities/u-aero-fps</property>
+              <property>accelerations/udot-ft_sec2</property>
+            </product>
+            <product>
+              <property>velocities/w-aero-fps</property>
+              <property>accelerations/wdot-ft_sec2</property>
+            </product>
+          </sum>
+          <property>fcs/math-safe-vt-fps</property>
+        </quotient>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="fcs/alphadot-vtdot-rad_sec">
+      <function>
+        <product>
+          <value>-1</value>
+          <quotient>
+            <product>
+              <value>2</value>
+              <property>fcs/vtdot-ft_sec2</property>
+            </product>
+            <property>fcs/math-safe-vt-fps</property>
+          </quotient>
+          <quotient>
+            <table>
+              <independentVar lookup="row">aero/alpha-rad</independentVar>
+              <tableData>
+                -0.20 -0.640
+                0.00  0.080
+                0.30  1.060
+                0.60  1.700
+                0.85  2.000
+                1.22  0.800
+                1.57  0.000
+              </tableData>
+            </table>
+            <max>
+              <table>
+                <independentVar lookup="row">aero/alpha-rad</independentVar>
+                <tableData>
+                  -0.100  3.60
+                  0.150  3.27
+                  0.450  2.13
+                  0.725  1.20
+                  1.035 -3.24
+                  1.395 -2.29
+                </tableData>
+              </table>
+              <value>0.5</value>
+            </max>
+          </quotient>
+        </product>
+      </function>
+    </fcs_function>
     
     <fcs_function name="fcs/pitch-rate-glimit">
       <function>
-        <quotient>
+        <sum>
           <product>
-            <property>accelerations/gravity-ft_sec2</property>
-            <difference>
-              <property>/f22/fcs/glimit</property>
-              <property>fcs/g-reduce</property>
+            <quotient>
+              <property>accelerations/gravity-ft_sec2</property>
+              <property>fcs/math-safe-vt-fps</property>
+            </quotient>
+            <sum>
               <product>
-                <cos>
-                  <property>attitude/theta-rad</property>
-                </cos>
-                <cos>
-                  <property>attitude/phi-rad</property>
-                </cos>
+                <difference>
+                  <difference>
+                    <property>/f22/fcs/glimit</property>
+                    <property>fcs/g-reduce</property>
+                  </difference>
+                  <product>
+                    <cos><property>attitude/theta-rad</property></cos>
+                    <cos><property>attitude/phi-rad</property></cos>
+                  </product>
+                </difference>
+                <cos><property>aero/alpha-rad</property></cos>
               </product>
-            </difference>
+              <product>
+                <difference>
+                  <property>accelerations/Nx</property>
+                  <sin><property>attitude/theta-rad</property></sin>
+                </difference>
+                <sin><property>aero/alpha-rad</property></sin>
+              </product>
+            </sum>
           </product>
-          <max>
-            <property>velocities/vt-fps</property>
-            <value>0.0001</value>
-          </max>
-        </quotient>
+          <property>fcs/alphadot-vtdot-rad_sec</property>
+        </sum>
       </function>
       <clipto>
         <min>0</min>
@@ -202,47 +282,55 @@
             <property>fcs/aoalimit-reduced</property>
             <property>aero/alpha-rad</property>
           </difference>
-          <max>
-            <value>0</value>
+          <product>
             <quotient>
-              <product>
-                <property>accelerations/gravity-ft_sec2</property>
-                <difference>
-                  <quotient>
-                    <product>
-                      <property>aero/qbar-psf</property>
-                      <property>metrics/Sw-sqft</property>
-                      <table>
-                        <independentVar lookup="row">fcs/aoalimit-reduced</independentVar>
-                        <tableData>
-                          -0.20 -0.640
-                          0.00  0.080
-                          0.30  1.060
-                          0.60  1.700
-                          0.85  2.000
-                          1.22  0.800
-                          1.57  0.000
-                        </tableData>
-                      </table>
-                    </product>
-                    <property>inertia/weight-lbs</property>
-                  </quotient>
-                  <product>
-                    <cos>
-                      <property>attitude/theta-rad</property>
-                    </cos>
-                    <cos>
-                      <property>attitude/phi-rad</property>
-                    </cos>
-                  </product>
-                </difference>
-              </product>
-              <max>
-                <property>velocities/vt-fps</property>
-                <value>0.0001</value>
-              </max>
+              <property>accelerations/gravity-ft_sec2</property>
+              <property>fcs/math-safe-vt-fps</property>
             </quotient>
-          </max>
+            <difference>
+              <quotient>
+                <sum>
+                  <product>
+                    <property>aero/qbarUW-psf</property>
+                    <property>metrics/Sw-sqft</property>
+                    <table>
+                      <independentVar lookup="row">fcs/aoalimit-reduced</independentVar>
+                      <tableData>
+                        -0.20 -0.640
+                        0.00  0.080
+                        0.30  1.060
+                        0.60  1.700
+                        0.85  2.000
+                        1.22  0.800
+                        1.57  0.000
+                      </tableData>
+                    </table>
+                  </product>
+                  <product>
+                    <property>forces/fbx-prop-lbs</property>
+                    <sin><property>fcs/aoalimit-reduced</property></sin>
+                  </product>
+                  <product>
+                    <value>-1</value>
+                    <property>forces/fbz-prop-lbs</property>
+                    <cos><property>fcs/aoalimit-reduced</property></cos>
+                  </product>
+                </sum>
+                <property>inertia/weight-lbs</property>
+              </quotient>
+              <sum>
+                <product>
+                  <cos><property>attitude/theta-rad</property></cos>
+                  <cos><property>attitude/phi-rad</property></cos>
+                  <cos><property>aero/alpha-rad</property></cos>
+                </product>
+                <product>
+                  <sin><property>attitude/theta-rad</property></sin>
+                  <sin><property>aero/alpha-rad</property></sin>
+                </product>
+              </sum>
+            </difference>
+          </product>
         </sum>
       </function>
       <clipto>
@@ -251,24 +339,7 @@
       </clipto>
     </fcs_function>
 
-    <!-- Combine limits -->
-    <fcs_function name="fcs/turn-limit">
-      <function>
-        <!-- No aoa limit on the ground -->
-        <ifthen>
-          <eq>
-            <property>gear/unit/WOW</property>
-            <value>1</value>
-          </eq>
-          <property>fcs/glimit-norm-exceed</property>
-          <max>
-            <property>fcs/glimit-norm-exceed</property>
-            <property>fcs/aoalimit-norm-exceed</property>
-          </max>
-        </ifthen>
-      </function>
-    </fcs_function>
-    
+    <!-- Limit pids -->   
     <switch name="limit-windup-trigger-glim">
       <test logic="AND" value="1">
         fcs/g-reduce eq 0
@@ -282,7 +353,7 @@
     </switch>
 
     <pid name="fcs/g-reduce">
-      <input>fcs/turn-limit</input>
+      <input>fcs/glimit-norm-exceed</input>
       <kp>1.5</kp> <!--0.3-->
       <ki>3.0</ki> <!--0.5-->
       <kd>0.005</kd> <!--0.005-->
@@ -295,7 +366,7 @@
     </pid>
 
     <pid name="fcs/aoa-reduce">
-      <input>fcs/turn-limit</input>
+      <input>fcs/aoalimit-norm-exceed</input>
       <kp>0.3</kp> <!--1.5-->
       <ki>0.5</ki> <!--3.0-->
       <kd>0.005</kd> <!--0.0-->
@@ -311,19 +382,7 @@
     <fcs_function name="Turn rate target error for pid">
       <function>
         <difference>
-          <min>
-            <property>fcs/turn-request-rad</property>
-            <property>fcs/pitch-rate-glimit</property>
-            <!-- No aoa limit on the ground -->
-            <ifthen>
-              <eq>
-                <property>gear/unit/WOW</property>
-                <value>1</value>
-              </eq>
-              <value>3</value>
-              <property>fcs/pitch-rate-aoalimit</property>
-            </ifthen>
-          </min>
+          <property>fcs/turn-request-rad</property>
           <property>fcs/fbw-pitch-rate</property>
         </difference>
       </function>
@@ -348,7 +407,7 @@
     <fcs_function name="fcs/gflight-kp">
       <function>
         <product>
-          <value>2.0</value> <!-- The value of Kp, tuned for the specific qbar pressure -->
+          <value>3.7</value> <!-- The value of Kp, tuned for the specific qbar pressure 3.7 -->
           <property>fcs/inverse-qbar-gflight</property>
         </product>
       </function>
@@ -357,7 +416,7 @@
     <fcs_function name="fcs/gflight-ki">
       <function>
         <product>
-          <value>1.56</value> <!-- The value of Ki, tuned for the specific qbar pressure 1.56 -->
+          <value>1.8</value> <!-- The value of Ki, tuned for the specific qbar pressure 1.56 -->
           <property>fcs/inverse-qbar-gflight</property>
         </product>
       </function>
@@ -366,7 +425,7 @@
     <fcs_function name="fcs/gflight-kd">
       <function>
         <product>
-          <value>0.001</value> <!-- The value of Kd, tuned for the specific qbar pressure 0.001-->
+          <value>0.003</value> <!-- The value of Kd, tuned for the specific qbar pressure 0.003-->
           <property>fcs/inverse-qbar-gflight</property>
         </product>
       </function>
