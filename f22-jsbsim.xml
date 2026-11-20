@@ -90,7 +90,7 @@ The Force that pushes the aircraft for increased manuverability should be lowere
     <ixx unit="SLUG*FT2">     46000 </ixx>
     <iyy unit="SLUG*FT2">     243500 </iyy>
     <izz unit="SLUG*FT2">     277000 </izz>
-    <emptywt unit="LBS">     43000 </emptywt>
+    <emptywt unit="LBS">     43340 </emptywt>
     <location name="CG" unit="IN">
 
       <x>78.800866141732283</x>
@@ -2615,25 +2615,21 @@ The Force that pushes the aircraft for increased manuverability should be lowere
 
     <force name="catapult" frame="BODY">
       <location unit="IN">
-
-
-        <x>78.800866141732283</x>
+        <x>  -144.38 </x>
         <y>   0.00 </y>
         <z> -41.04 </z>
       </location>
       <direction>
-
-
-        <x>78.800866141732283</x>
-        <y>   0.00 </y>
-        <z> -41.04 </z>
+        <x> 1 </x>
+        <y> 0 </y>
+        <z> 0 </z>
       </direction>
     </force>
     <force name="holdback" frame="BODY">
       <location unit="IN">
-        <x> 0 </x>
+        <x> 144.38 </x>
         <y> 0 </y>
-        <z> 0 </z>
+        <z> -70.04 </z>
       </location>
       <direction>
         <x> -1 </x>
