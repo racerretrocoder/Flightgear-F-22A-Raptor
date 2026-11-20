@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<!-- Combines animations for each control surface -->
+<system name="Animations">
+  
+  <channel name="Flaperons">
+
+    <fcs_function name="fcs/left-flaperon-pos-norm">
+      <function>
+        <sum>
+          <property>fcs/flap-pos-norm</property>
+          <property>fcs/fcs-aile-output-main</property>
+        </sum>
+      </function>
+      <clipto>
+        <min>-1</min>
+        <max>1</max>
+      </clipto>
+    </fcs_function>
+
+    <fcs_function name="fcs/right-flaperon-pos-norm">
+      <function>
+        <sum>
+          <property>-fcs/flap-pos-norm</property>
+          <property>fcs/fcs-aile-output-main</property>
+        </sum>
+      </function>
+      <clipto>
+        <min>-1</min>
+        <max>1</max>
+      </clipto>
+    </fcs_function>
+
+    <fcs_function name="fcs/ail-left-deg-limit">
+      <function>
+        <todegrees>
+          <property>fcs/aileron-pos-rad</property>
+        </todegrees>
+      </function>
+      <clipto>
+        <min>-25</min>
+        <max>25</max>
+      </clipto>
+    </fcs_function>
+
+  </channel>
+  
+</system>

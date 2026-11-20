@@ -165,6 +165,13 @@
       <kd>1</kd>
     </pid>
 
+    <pid name="fcs/fcs-flap-output-main-rate">
+      <input>fcs/flap-pos-norm</input>
+      <kp>0</kp>
+      <ki>0</ki>
+      <kd>1</kd>
+    </pid>
+
     <!-- Decay due to control surfaces moving -->
     <fcs_function name="hyd/elev-decay">
       <function>
@@ -206,6 +213,17 @@
             <property>fcs/steer-cmd-norm-rate</property>
           </abs>
           <value>-100</value> <!-- My guess as to how much PSI it takes to move the nose wheel for full turn -->
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="hyd/flap-decay">
+      <function>
+        <product>
+          <abs>
+            <property>fcs/fcs-flap-output-main-rate</property>
+          </abs>
+          <value>-600</value> <!-- My guess as to how much PSI it takes to move the nose wheel for full turn -->
         </product>
       </function>
     </fcs_function>

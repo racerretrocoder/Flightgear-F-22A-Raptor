@@ -473,6 +473,8 @@ The Force that pushes the aircraft for increased manuverability should be lowere
   <system file="Systems/hook.xml"/>
   <system file="Systems/RaptorFuel.xml"/>
   <system file="Systems/holdback.xml"/>
+  <system file="Systems/flaps-fbw.xml"/>
+  <system file="Systems/anims.xml"/>
 
   <!--NOTE: System files for FLT CONTROLS are loaded after flight control definitons-->
 
